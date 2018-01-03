@@ -1,0 +1,29 @@
+{
+  "name": "latex-documentation-build",
+  "version": "1.0.0",
+  "description": "A latex skeleton and build, for seamlessly building out documentation time and time again. ",
+  "main": "index.js",
+  "scripts": {
+    "initial": "pdftex main.tex",
+    "start": "node watcher.js & open -a Skim main.pdf",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-pdf": "wr -h"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharlieGreenman/latex-documentation.git"
+  },
+  "keywords": [
+    "latex"
+  ],
+  "author": "Charlie Greenman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CharlieGreenman/latex-documentation/issues"
+  },
+  "homepage": "https://github.com/CharlieGreenman/latex-documentation#readme",
+  "devDependencies": {
+    "chokidar": "^2.0.0",
+    "shelljs": "^0.7.8"
+  }
+}
