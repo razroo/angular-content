@@ -25,5 +25,43 @@ Next, inside the directory that you would like to genrate your application, run:
 \begin{verbatim}
   ng new pixelIllustrator
 \end{verbatim}
-This will create a pixelIllustrator folder, with all of our new angular code
-inside of it.
+This will create a pixelIllustrator folder \footnote{Angular CLI version as of
+this writing is: 1.6.1}, with all of our new angular code
+inside of it. The directory structure looks as follows:
+
+\begin{forest}
+  for tree={
+    font=\ttfamily,
+    grow'=0,
+    child anchor=west,
+    parent anchor=south,
+    anchor=west,
+    calign=first,
+    inner xsep=7pt,
+    edge path={
+      \noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) +(7.5pt,0) |- (.child anchor) pic {folder} \forestoption{edge label};
+    },
+    before typesetting nodes={
+      if n=1
+        {insert before={[,phantom]}}
+        {}
+    },
+    fit=band,
+    before computing xy={l=15pt},
+  }
+[system
+  [config
+  ]
+  [lib
+    [Access
+    ]
+    [Plugin
+    ]
+  ]
+  [templates
+  ]
+  [tests
+  ]
+]
+\end{forest}
