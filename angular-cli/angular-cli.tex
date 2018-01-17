@@ -2,8 +2,11 @@
 \maketitle{}
 \section{ Angular CLI }
 
-The purpose of the Angular CLI(Command Line Interface) is:
+\textit{None of the code being generated in this part of the chapter will be
+used in the actual app we are using. Hold off on coding along(if you are, until
+the next chapter. This will be the first and last time this will happen)}
 
+The purpose of the Angular CLI(Command Line Interface) is:
 "The CLI is responsible for automating away many of the challenges and headaches
 that come with being a developer in 2017. By starting with a configuration that
 works out of the box, baking in best practices that have been discovered by the
@@ -26,8 +29,9 @@ CLI:
   \item Lint application
 \end{enumerate}
 
-As of now, we will be needing to create a new application. So, let's install
-angular cli:
+Just to get an idea for yourself, of what the Angular CLI can do, and how to
+generate files, let's run through the CLI high level . Let's install Angular
+CLI:
 \begin{verbatim}
   npm install -g @angular/cli
 \end{verbatim}
@@ -98,10 +102,23 @@ pushing to prod is made, it will transfer over the assets folder to the prod
 folder. This will make it so that filepaths, as long as relative, will still
 work as expected.
 
-\subsection{What we will be adding}
+\subsection{Hold on - It's not going to be that easy}
 
 The Angular CLI is fantastic, and has removed a tremendous amount of effort from
-getting our project started.
+getting our project started. However, the idea as mentioned in the Angular CLI,
+is that the Angular CLI is meant to expose the most powerful parts of Angular,
+but it isn't the full package. This issue arises twofold. It doesn't impart to
+us how to use some of the more complicated parts of the created application, in
+particular Typescript, Observables, routing, and styling. In addition,
+there are things which we will want to add to our application, which the Angular
+CLI has not provided:
+\begin{enumerate}
+  \item State Management
+  \item Sass(The CLI will give us the option to do so)
+  \item Workspace(Creating a mono repo using Nrwl Nx)
+  \item Library(Also going to be created using Nrwl Nx)
+\end{enumerate}
 
-
-% Folder has been created for using integration tests.
+That being said, let's come back to the Angular CLI shortly when we are ready
+to be build our application. First, however, let's take one step back. Let's
+talk about Nrwl Nx and turn our app into a workspace. 
