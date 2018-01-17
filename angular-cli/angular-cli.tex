@@ -2,8 +2,17 @@
 \maketitle{}
 \section{ Angular CLI }
 
-In any Angular setting the Angular CLI(Command Line Interface) is going to be
-a good friend. The following are things which you are able to do, in the Angular
+The purpose of the Angular CLI(Command Line Interface) is:
+
+"The CLI is responsible for automating away many of the challenges and headaches
+that come with being a developer in 2017. By starting with a configuration that
+works out of the box, baking in best practices that have been discovered by the
+community over time, and by helping you build more maintainable code, the CLI
+exposes some of the most powerful capabilities of Angular in a way that is
+easier to get started, and easier to get moving quickly when compared to rolling
+everything together yourself." \footnote{https://blog.angular.io/the-past-present-and-future-of-the-angular-cli-13cf55e455f8}
+
+The following are a couple of things which you are able to do with the Angular
 CLI:
 
 \begin{enumerate}
@@ -70,23 +79,29 @@ inside of it. The directory structure looks as follows:
 
 \paragraph{End to End Integration}
 
-Created for us an e2e folder. We will be using this for integration tests.
+Created for us is an e2e folder. We will be using this for integration tests.
 
-\paragraph{ Linting }
+\paragraph{Linting}
 
-A tslint.json has been created.
+A tslint.json has been created. We can add linting rules that we so choose here,
+and run linting using ng lint \footnote{Add note with regards to having a watcher
+set up}.
 
-\paragraph{ App folder }
+\paragraph{App folder}
 
 Inside of the src folder, a folder has been created for styling, components,
 modules, and unit testing. We will add onto this file directory, moving forward.
 
-\paragraph{ Assets Folder}
+\paragraph{Assets Folder}
 Any images, fonts, or otherwise go in this folder. When the angular cli command for
 pushing to prod is made, it will transfer over the assets folder to the prod
 folder. This will make it so that filepaths, as long as relative, will still
 work as expected.
 
+\subsection{What we will be adding}
+
+The Angular CLI is fantastic, and has removed a tremendous amount of effort from
+getting our project started.
 
 
 % Folder has been created for using integration tests.
