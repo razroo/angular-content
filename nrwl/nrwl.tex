@@ -84,4 +84,17 @@ Being that in a workspace environment, things can become unwieldy by using the
 tree directory, there is more of an emphasis on keeping all of the code,
 specific to that feature, service, or component, in the aforementioned folder.
 It makes it so everything is in the same place, and that is a perfect place to
-move on the to the next point. 
+move on the to the next point.
+
+\subsection{Let's Begin to Build Our Application}
+
+First we are going to want and make sure that we install both the Nrwl Schematics
+and the Angular/Cli. The Nrwl Schematics are an extension to the Angular CLI.
+There are soem differences in the code structure between what Angular CLI expects
+and what the workspace creates. The schematics work to patch those differences
+so we can still use the Angular CLI, without noticing a difference.
+
+\begin{verbatim}
+npm install -g @nrwl/schematics
+npm install -g @angular/cli
+\end{verbatim}
