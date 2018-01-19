@@ -99,9 +99,43 @@ npm install -g @nrwl/schematics
 npm install -g @angular/cli
 \end{verbatim}
 
-The nrwl/schematics package comes with a
-\newcommand{\code}[1]{\texttt{hello}}
+The nrwl/schematics package comes with a binary for creating a workspace. In the
+directory of your choice \footnote{Personally, I have a directory called
+GithubProjects.}. Create a directory called 'angularPixelIllustrator', which will
+be the directory for our app.
+(What you should have done)
+\begin{verbatim}
+  mkdir angularPixelIllustrator;
+  cd angularPixelIllustrator;
+\end{verbatim}
+
+Now inside of your angularPixelIllustrator, run the following command:
 \begin{verbatim}
   create-nx-workspace
 \end{verbatim}
-binary.
+
+The following files/folders will not be created in our angularPixelIllustrator
+app:
+\begin{verbatim}
+apps/
+libs/
+.angular-cli.json
+tslint.json
+test.js
+tsconfig.json
+tsconfig.spec.json
+\end{verbatim}
+
+\subsection{Nrwl nx notable mentions}
+
+\subsubsection{apps folder}
+All application that we will be creating will go into the apps folder.
+
+\subsubsection{libs folder}
+All code intended to be shared by any one of our apps, will be created in the
+libs folder. It is a secret weapon.
+
+\subsubsection{tsconfig, test, and linting}
+Universal configuratiomns for Typescript, unit testing, and linting. It will
+be used across all applications apps folder, as well as all libraries in the lib
+folder.
