@@ -101,21 +101,13 @@ npm install -g @angular/cli
 
 The nrwl/schematics package comes with a binary for creating a workspace. In the
 directory of your choice \footnote{Personally, I have a directory called
-GithubProjects.}. Create a directory called 'angularPixelIllustrator', which will
-be the directory for our app.
-(What you should have done)
+GithubProjects.}. Run the following command:
 \begin{verbatim}
-  mkdir angularPixelIllustrator;
-  cd angularPixelIllustrator;
+  create-nx-workspace angularPixelIllustrator
 \end{verbatim}
 
-Now inside of your angularPixelIllustrator, run the following command:
-\begin{verbatim}
-  create-nx-workspace
-\end{verbatim}
-
-The following files/folders will not be created in our angularPixelIllustrator
-app:
+This will create a folder called angularPixelIllustrator which will contain the
+following files/folders:
 \begin{verbatim}
 apps/
 libs/
