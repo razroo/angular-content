@@ -55,8 +55,30 @@ we will discuss moving forward.
 
 \subsection {Phew, sidebar over, moving on}
 
-In order to create our component we run the following angular cli command:
+The above being said, whenever we create a component, we are going to want to
+encapsulate it, into a local module. That way we can add state, pipes, services,
+you name it, and it will all be encapsulated in that component folder.
+
+In order to create our module we run the following angular cli command:
 
 \begin{verbatim}
-  ng g component chooseSize
+  ng g module choose-size
+\end{verbatim} \footnote{Once again we have the liberty with not having to
+specify the app name}
+
+Then, in order to create our component:
+\begin{verbatim}
+  ng g component choose-size
 \end{verbatim}
+The following five files have been created (using git diff --cached)
+\begin{lstlisting}[breaklines]
+new file:   apps/angular-pixel-illustrator/src/app/choose-size/choose-size.component.css
+new file:   apps/angular-pixel-illustrator/src/app/choose-size/choose-size.component.html
+new file:   apps/angular-pixel-illustrator/src/app/choose-size/choose-size.component.spec.ts
+new file:   apps/angular-pixel-illustrator/src/app/choose-size/choose-size.component.ts
+new file:   apps/angular-pixel-illustrator/src/app/choose-size/choose-size.module.ts
+\end{lstlisting}
+
+The dynamics of our app, is that there will only be two parent pages. One will
+be the choose-size page. The other will be the draw page. When a user go to the
+page for the first time, they will see the choose-size page. So let's add a choose-size page
