@@ -1,8 +1,29 @@
 \maketitle{}
-\section{ Adding Containers and Routing }
+\section{ Containers, Routing + Ngrx/router }
 
 We now have a choose-size component, as well as a choose-size module.
 The dynamics of our app, is that there will only be two parent pages. One will
 be the choose-size page. The other will be the draw page. When a user goes to
-the page for the first time, they will see the choose-size page. So let's add a
-two routes in our app.
+the page for the first time, they will see the choose-size page. Therefore we
+are going to add two routes in our app.
+
+In our app.module.ts, we will use the existing RouterModule that has been
+created by Nx, and include it in our RouterModule:
+
+\begin{verbatim}
+  // Inside imports add
+   RouterModule.forRoot([
+    {
+      path: '',
+      redirectTo: 'choose-size',
+      pathMatch: 'full'
+    },
+    {
+      path: 'choose-size',
+      component: ChooseSizeComponent
+    }
+\end{verbatim}
+
+\marginpar{git commit -m 'Add a routing module to the angularPixelIllustrator app'}
+
+Let's navigate to
