@@ -29,4 +29,24 @@ created by Nx, and include it in our RouterModule:
 Now that we have redirected the default homepage to re-direct to the
 choose-size page, let's try it out. Open up http://localhost:4200, and your page
 should navigate to the choose-size page, with the text, "Choose Size Works",
-towards the bottom of the page. 
+towards the bottom of the page.
+
+\includegraphics[width=13cm, height=9cm]{containers-and-routing/choose-size-screenshot}
+
+\subsection{ Adding ngrx/router-store }
+
+Before we move any further with regards to angular routes, let's discuss
+ngrx/router. In short, ngrx/router exists so that the route can be in the store
+as well. By default ngrx/router will dispatch a ROUTER\_NAVIGATION action
+\footnote{We'll discuss this a bit more when we get to the chapter on ngrx/store},
+when a navigation route get's called. This will enable time traveling with
+regards to routes.
+
+\subsection{ Why use ngrx/router-store }
+
+Ngrx/router-store can be advantageous in two regards. One, it adheres to the
+principle of there being a single state of truth \footnote{https://redux.js.org/docs/introduction/ThreePrinciples.html\#single-source-of-truth}.
+Two, it helps applications with regards to breadcrumbs, and adding filters to the
+url. If one wanted to follow an architecture, where the route contains the current
+state of the application(filters, inputs etc.) router-store definitely make's it
+very easy to do so.
