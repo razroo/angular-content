@@ -33,7 +33,7 @@ towards the bottom of the page.
 
 \includegraphics[width=13cm, height=9cm]{containers-and-routing/choose-size-screenshot}
 
-\subsection{ Adding ngrx/router-store }
+\subsection{ ngrx/router-store }
 
 Before we move any further with regards to angular routes, let's discuss
 ngrx/router. In short, ngrx/router exists so that the route can be in the store
@@ -50,3 +50,16 @@ Two, it helps applications with regards to breadcrumbs, and adding filters to th
 url. If one wanted to follow an architecture, where the route contains the current
 state of the application(filters, inputs etc.) router-store definitely make's it
 very easy to do so.
+
+\subsection{ Adding ngrx/router-store to our app }
+
+In order to add ngrx/router-store to our app, run:
+\begin{verbatim}
+  npm install @ngrx/router-store --save
+\end{verbatim}
+
+In addition, we will be adding the route to our store for the first time, so we 
+will be needing ngrx/store. Please run:
+\begin{verbatim}
+  npm install @ngrx/store --save
+\end{verbatim}
