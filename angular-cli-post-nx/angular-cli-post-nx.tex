@@ -68,8 +68,9 @@ specify the app name}
 
 Then, in order to create our component:
 \begin{verbatim}
-  ng g component choose-size
+  ng g component choose-size --exports
 \end{verbatim}
+\footnote{exports allows us to use the <choose-size> component by default}
 The following five files have been created (using git diff --cached)
 \begin{lstlisting}[breaklines]
 new file:   apps/angular-pixel-illustrator/src/app/choose-size/choose-size.component.css

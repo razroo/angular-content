@@ -22,7 +22,23 @@ with a module. For other reasons as well, it is smart idea. We will get into
 those later \footnote{If you can't wait, and want the full list now, go here to
 find it}.
 
+We have already created a component as needed for our router, but for redundancy
+sake here are the steps again.
+
+Also, because we will be using sass, let's make sure that our cli is using sass.
+Open up the .angular-cli.json file, and change two areas. One:
+\begin{verbatim}
+  ng set defaults.styleExt scss
+\end{verbatim}
+This will make it, so that whenever we set up our components using the cli,
+again it will be in sass. Second, change your existing styles.css file to
+styles.scss.
+
 Let's use the cli to create our first module called choose size.
 \begin{verbatim}
-
+  ng g module choose-size
+  ng g component choose-size --exports
 \end{verbatim}
+
+(The file at this time is included in our app as a route. Let's remove the
+default nrwl text from app, so that all we have is choose-size works.)
