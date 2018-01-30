@@ -80,3 +80,15 @@ In our app.module.ts we will be adding the following:
   +    maxAge: 5
   + }),
 \end{verbatim}
+
+\subsubsection{ Side note when using devtools with ngrx/router-store }
+
+One final note when using ngrx/store router-store with devtools. The
+RouteStateSnapshot is a very large object, containing large amounts of data. I've
+run across performance issues, it is therefore reccomend setting up a
+custom router state serializer
+\footnote{https://github.com/ngrx/platform/blob/master/docs/router-store/api.md\#custom-router-state-serializer}.
+The idea is that the user provides the specific items one wants from the route.
+This allows for maybe 3 key/values to appear, instead of a 1000+. For the sake of
+brevity, we will not include the technical steps here. However, the code for doing
+so can be found in the github branch equivalent.
