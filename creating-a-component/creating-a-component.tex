@@ -45,20 +45,24 @@ default nrwl text from app, so that all we have is choose-size works.)
 
 \subsection{Architecture time}
 
-Creating containers, and a ui-lib. Before we haphazardly created a component in
-order to introduce routers. Now that we are going to work on our actual component,
-let's set aside to specific items with regards to architecture.
+Before, we haphazardly created a component in order to introduce routers. Now
+that we are going to work on our actual component, let's set aside to specific
+items with regards to architecture.
 
-Whenever we want to create a page, that will be used as a route, it is a container.
-Something which is simply there to hold all of our components. In the root of
-our app directory we are going to create a container folder. \footnote{We are
-once again borrowing from the example-app project in ngrx/store}
+Whenever we want create a page for our application, that will be used as a
+route, it is a container. Something which is simply there to "contain" all of
+our components. In the root of our app directory we are going to create a
+container folder. \footnote{We are once again borrowing from the example-app
+project in ngrx/store}
+
 \begin{verbatim}
   mkdir containers
 \end{verbatim}
 
-cd into your containers folder, and run the following:
+cd into your containers folder, and create a choose-size-page module/component:
 \begin{verbatim}
-  ng g module choose-size
-  ng g component choose-size
+  ng g module choose-size-page
+  ng g component choose-size-page
 \end{verbatim}
+
+In this choose-size-page component, we will be adding our choose-size component.
