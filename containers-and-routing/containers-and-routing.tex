@@ -65,7 +65,7 @@ will be needing ngrx/store. Please run \footnote{This will also install ngrx/sto
 \end{verbatim}
 
 In our app.module.ts we will be adding the following:
-\begin{verbatim}
+\begin{lstlisting}[caption=My Javascript Example]
   + import { StoreModule } from '@ngrx/store';
   + import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
   + import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -79,7 +79,7 @@ In our app.module.ts we will be adding the following:
   + StoreDevtoolsModule.instrument({
   +    maxAge: 5
   + }),
-\end{verbatim}
+\end{lstlisting}
 
 \subsubsection{ Side note when using devtools with ngrx/router-store }
 
