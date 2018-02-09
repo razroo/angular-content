@@ -49,7 +49,7 @@ Before, we haphazardly created a component in order to introduce routers. Now
 that we are going to work on our actual component, let's set aside to specific
 items with regards to architecture.
 
-Whenever we want create a page for our application, that will be used as a
+Whenever we want to create a page for our application that will be used as a
 route, it is a container. Something which is simply there to "contain" all of
 our components. In the root of our app directory we are going to create a
 container folder. \footnote{We are once again borrowing from the example-app
@@ -57,7 +57,8 @@ project in ngrx/store}
 
 \begin{verbatim}
   mkdir containers
-\end{verbatim}
+\end{verbatim} \marginpar{We will also be needing to mention, that we will be
+moving our choose-size directory to a newly created components folder.}
 
 cd into your containers folder, and create a choose-size-page module/component:
 \begin{verbatim}
@@ -66,3 +67,7 @@ cd into your containers folder, and create a choose-size-page module/component:
 \end{verbatim}
 
 In this choose-size-page component, we will be adding our choose-size component.
+
+In order to do so, we will need to import the choose-size component in our Angular
+app, and add it to our choose-size container. Our choose-size container, is now
+going to be used as our route.
