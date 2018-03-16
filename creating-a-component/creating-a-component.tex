@@ -69,5 +69,35 @@ cd into your containers folder, and create a choose-size-page module/component:
 In this choose-size-page component, we will be adding our choose-size component.
 
 In order to do so, we will need to import the choose-size component in our Angular
-app, and add it to our choose-size container. Our choose-size container, is now
-going to be used as our route.
+app, and add it to our choose-size-page module like so:
+
+\begin{lstlisting}[caption=Importing the choose-size module]
+import { ChooseSizeModule } from  '../../components/choose-size/choose-size.module';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    ChooseSizeModule
+  ],
+  declarations: [ChooseSizePageComponent]
+})
+\end{lstlisting}
+
+In addition, we are going to want to make sure to add an exports key/value to
+our choose-size module, so that by importing it, we have the respective
+component available as well.
+
+\begin{lstlisting}[caption=Adding choose-size component as export]
+  @NgModule({
+   imports: [CommonModule],
+   declarations: [ChooseSizeComponent],
+   exports: [ChooseSizeComponent]
+  })
+\end{lstlisting}
+
+With the component module properly imported, we can now use the component in our
+choose-size-page html file:
+\begin{verbatim}
+// choose-size-page.component.html
+<app-choose-size></app-choose-size>
+\end{verbatim}
