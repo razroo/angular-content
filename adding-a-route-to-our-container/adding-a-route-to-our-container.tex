@@ -46,4 +46,25 @@ import { AppRoutingModule } from './app.routing.module';
     //..
 \end{lstlisting}
 
-The next step, is to 
+We are also going to delete the competing:
+\begin{lstlisting}[caption=app.module.ts file]
+    RouterModule.forRoot(
+      [
+        {
+          path: '',
+          redirectTo: 'choose-size',
+          pathMatch: 'full'
+        },
+        {
+          path: 'choose-size',
+          component: ChooseSizeComponent
+        }
+      ],
+      { initialNavigation: 'enabled' }
+    ),
+\end{lstlisting}
+
+That we had in our app.module.ts, to tidy up that app a bit.
+
+Terrific, we now have our app by default re-routing to the choose-size url path
+and loading the choose-size component. Let's move onto styling real quick next.
