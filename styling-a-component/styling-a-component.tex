@@ -35,7 +35,12 @@ First install Angular Material components and Angular Animations to our app.
   npm install --save @angular/animations
 \end{verbatim}
 
-In addition, we will need to add default styling to our app.
+In addition, we will need to add default styling to our app, in order for
+styling to be applied to our Angular Material component. Inside of our
+styles.scss file, import the following.
+\begin{verbatim}
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+\end{verbatim}
 
 \subsection{ Our first component }
 In our app, we are going to create our first component. It is essentially a form
