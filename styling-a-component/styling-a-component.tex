@@ -18,18 +18,20 @@ architect, there are 5 things that you will have to keep in mind:
 
 \subsection{ Responsive Design }
 With regards to responsive design, there are a number of frameworks, one can
-choose with regards to creating a web app.
+choose with regards to creating a web app. The following are quite popular:
 \begin{enumerate}
   \item Foundation
   \item Bootstrap
   \item Semantic UI
 \end{enumerate}
 
-However, the above for a grid system tend to overdue it. Specifically, the
-direction many UI web app tend to head, is that it will only be used on Desktop.
-For mobile and tablet, there will be a separate Android and IOS app created.
-In addition, due to the nature of angulars component architecture, the use of
-ready made components, containers for apps, are the only thing which will
-actually have specific media queries.
+However, the above for a grid system tend to be overkill in my opinion.
+Specifically, the direction many UI web app tend to head, is that it will only
+be used on Desktop. For mobile and tablet, there will be a separate Android and
+IOS app created. In addition, due to the nature of angulars component
+architecture, the use of ready made components, containers for apps, are the
+only thing which will actually have specific media queries.
 
-It is strongly suggested that your own super lightweight grid is created. 
+It is strongly suggested that your own super lightweight grid is created. In this
+day of age, with the use of flex, and css-columns, it is easier than ever. For
+our app, we are in fact going to do that.
