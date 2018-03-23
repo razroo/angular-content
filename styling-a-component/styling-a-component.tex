@@ -23,7 +23,20 @@ discussion of why that is}
 
 \subsection{ Naming Convention }
 For our naming convention, we will go with BEM. It is an extremely easy way
-of setting a part a specific component from an html and css side of things.
+of setting a part a specific component from an html and css side of things. A
+quick primer on BEM.
+Block is a component. We will be using pascal casing for ours \footnote{Link to
+airbnb style guide}
+Element is a child of block. It uses an underscore. For instance:
+\begin{verbatim}
+<div class = 'ChooseSize__input'></div>
+\end{verbatim}
+M stands for modifier. A modifier is an element, which modifies an already
+existing element.
+\begin{verbatim}
+  
+\end{verbatim}
+
 
 \subsection{ Design System }
 In an Angular setting, the component library which seems to make most sense is
