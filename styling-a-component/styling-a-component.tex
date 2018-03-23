@@ -4,17 +4,30 @@
 Styling a component, of course, is a very complex topic. With styling, as an
 architect, there are 5 things that you will have to keep in mind:
 \begin{enumerate}
-  \item Responsive design(even if you have a mobile/tablet app)
   \item Design system
-  \item Pre-processor of choice(Scss, Less, PostCss, etc.)
-  \item Naming convention of CSS classes
     \begin{enumerate}
       \item Material Design(Google)
       \item Fluent Design(Microsoft)
       \item Flat Design(Apple)
     \end{enumerate}
+  \item Responsive design(even if you have a mobile/tablet app)
+  \item Pre-processor of choice(Scss, Less, PostCss, etc.)
+  \item Naming convention of CSS classes
   \item Dynamic Classes
 \end{enumerate}
+
+\subsection{ Design System }
+In an Angular setting, the component library which seems to make most sense is
+Material Components
+\footnote{https://material.angular.io/components/categories}. For starters, it
+is a complete design system. All component's design will be synonymous with
+each other. In addition, it is in the process of creating a cdk, which makes
+all of these components customizable. In addition, it is a really nice design,
+and feels native to the way Angular works. I have used it versus other libraries
+and I can really say the documentation is just fantastic. I have used it in more
+complex settings(e.g. the data-table), and adding on new functionality has been
+just a joy.
+
 
 \subsection{ Responsive Design }
 With regards to responsive design, there are a number of frameworks, one can
@@ -36,4 +49,4 @@ It is strongly suggested that your own super lightweight grid is created, or
 used. I think it is important to keep in mind that most grid systems can be
 limited to 500 lines of code, or less. I personally prefer to use Skeleton
 \footnote{http://getskeleton.com/\#grid}. However, I am in the process of
-creating my own grid system using css-grid.
+creating my own grid system using css-grid. (need to get back to this one).
