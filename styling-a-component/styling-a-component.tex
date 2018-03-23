@@ -52,8 +52,35 @@ with three fields:
 \end{itemize}
 
 In addition, there will be a button which will say, 'Create Grid'. We are also
-going to wrap our component, with the <mat-card> component, add a max-width of
-300, and center.
+going to wrap our component, with the <mat-card> component, add a width of
+300, margin-top and center.
+
+\subsubsection{ Notable Mention - @HostBinding }
+In an angular app, many times, we will want to add a specific class to our
+parent container. In our situation, we will be using BEM, and creating a
+ChooseSize class. It will implement flex, and use justify content, in order to
+center the <mat-card> component.
+
+\begin{lstlisting}[caption=My Javascript Example]
+import { Component, HostBinding, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-choose-size',
+  templateUrl: './choose-size.component.html',
+  styleUrls: ['./choose-size.component.scss']
+})
+export class ChooseSizeComponent implements OnInit {
+  @HostBinding('class') class = 'ChooseSize';
+  constructor() {}
+
+  ngOnInit() {}
+}
+\end{lstlisting}
+
+By putting @HostBinding as a decorator \footnote{If not familiar with decorator
+, it is a function that is run when particular class is called} within our app,
+it causes the host class to have the ChooseSize class. We are then able to
+target our host element our scss:
 
 
 \subsection{ Responsive Design }
