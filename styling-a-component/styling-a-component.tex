@@ -5,9 +5,9 @@ Styling a component, of course, is a very complex topic. With styling, as an
 architect, there are 5 things that you will have to keep in mind:
 \begin{enumerate}
   \item Responsive design(even if you have a mobile/tablet app)
+  \item Design system
   \item Pre-processor of choice(Scss, Less, PostCss, etc.)
   \item Naming convention of CSS classes
-  \item Design system
     \begin{enumerate}
       \item Material Design(Google)
       \item Fluent Design(Microsoft)
@@ -15,3 +15,21 @@ architect, there are 5 things that you will have to keep in mind:
     \end{enumerate}
   \item Dynamic Classes
 \end{enumerate}
+
+\subsection{ Responsive Design }
+With regards to responsive design, there are a number of frameworks, one can
+choose with regards to creating a web app.
+\begin{enumerate}
+  \item Foundation
+  \item Bootstrap
+  \item Semantic UI
+\end{enumerate}
+
+However, the above for a grid system tend to overdue it. Specifically, the
+direction many UI web app tend to head, is that it will only be used on Desktop.
+For mobile and tablet, there will be a separate Android and IOS app created.
+In addition, due to the nature of angulars component architecture, the use of
+ready made components, containers for apps, are the only thing which will
+actually have specific media queries.
+
+It is strongly suggested that your own super lightweight grid is created. 
