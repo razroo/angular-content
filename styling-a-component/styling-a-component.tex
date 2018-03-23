@@ -81,7 +81,12 @@ By putting @HostBinding as a decorator \footnote{If not familiar with decorator
 , it is a function that is run when particular class is called} within our app,
 it causes the host class to have the ChooseSize class. We are then able to
 target our host element our scss:
-
+\begin{verbatim}
+  :host.ChooseSize {
+    display: flex;
+    justify-content: center;
+  }
+\end{verbatim}
 
 \subsection{ Responsive Design }
 With regards to responsive design, there are a number of frameworks, one can
