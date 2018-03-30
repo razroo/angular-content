@@ -2,7 +2,8 @@
 \section{ Styling a Component }
 
 Styling a component, of course, is a very complex topic. With styling, as an
-architect, there are 5 things that you will have to keep in mind:
+architect in an Angular setting, there are 4 things that you will have to keep
+in mind:
 \begin{enumerate}
   \item Pre-processor of choice(Scss, Less, PostCss, etc.)
   \subsection{ Pre-processor of choice }
@@ -14,7 +15,6 @@ architect, there are 5 things that you will have to keep in mind:
     \end{enumerate}
   \item Responsive design(even if you have a mobile/tablet app)
   \item Naming convention of CSS classes
-  \item Dynamic Classes
 \end{enumerate}
 
 \subsection{ Pre-processor of choice }
@@ -34,7 +34,7 @@ Element is a child of block. It uses an underscore. For instance:
 M stands for modifier. A modifier is an element, which modifies an already
 existing element.
 \begin{verbatim}
-  
+
 \end{verbatim}
 
 
@@ -131,3 +131,33 @@ used. I think it is important to keep in mind that most grid systems can be
 limited to 500 lines of code, or less. I personally prefer to use Skeleton
 \footnote{http://getskeleton.com/\#grid}. However, I am in the process of
 creating my own grid system using css-grid. (need to get back to this one).
+
+Alternatively, creating our own grid system is also advantageous. That is the
+direction that will make sense in any enterprise app. Generally, in any business
+setting, from the business side they will decide on having a unique look and
+feel. Setting up something for the app that works.
+
+\subsection{ CSS Naming Convention }
+In your modern day front end framework, such as Angular, generally, we do not
+have to worry about clashing namespaces. \footnote{Historal footnote, the
+turning point for me was with this article here:
+https://glenmaddern.com/articles/css-modules}. Many other issues with css at
+scale, have been solved as well, have been solved by the general ecosystem, scss
+included.
+
+However, reccomended architecture is that one still use something like BEM. I
+would like to argue for using BEM in an Angular setting:
+\begin{enumerate}
+  \item It allows for easy grep in code base, when inspecting element first
+  within chrome.
+  \item It documents the type of element that it is.
+  \item It will give structure to html, without need of using pug, or some other
+  html pre-processor.
+  \item Ease's creation of classes for integration testing\footnote{Use a modifer
+  for BEM}
+\end{enumerate}
+
+It should be noted, that within our app, the form has been made a particular
+width, which will work on all screen sizes, without the need of adjusting width.
+As we move along in our app, we will have the option to look into sitations
+wherein we can use actual media queries.
