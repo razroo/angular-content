@@ -12,6 +12,8 @@ will be dedicated to TDD/BDD in order to specify this point specifically.}
 
 \subsection{ Using nx ngrx to Generate State }
 
+\subsubsection{ Create root state using nx ngrx }
+
 First we are going to generate an empty root, for our StoreModule, as well as
 our EffectsModule. Our StoreModule is responsible as a singular store object,
 which will be holding all of store data. Our EffectsModule is a singular effects
@@ -21,3 +23,9 @@ effects in more detail later}
 \begin{lstlisting}[language=Bash]
 ng generate ngrx app --module=apps/angular-pixel-illustrator/src/app/app.module.ts --onlyEmptyRoot
 \end{lstlisting}
+
+\subsubsection{ Create component state using nx ngrx }
+
+Next, we are going to create state for our choose-size component. This is done
+with ease using nx ngrx \footnote{Trust me, I've been in situations where I
+was not using a CLI. It is not good news}
