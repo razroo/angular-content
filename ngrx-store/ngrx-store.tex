@@ -66,3 +66,16 @@ Unit testing an action, would simply say, when an action is dispatched, expect
 it to be of a certain type. However, enums, as well as type checking, fulfills
 that obligation. Therefore, if one is using Typescript along with enums, there
 should be no reason for writing unit tests.
+
+\subsubsection{ Installing Redux Dev Tools }
+A state environment is incomplete without proper devtools. In particular, being
+able to see an action fired, as well as the complete state of any given time,
+is invaluable.
+
+Google, "redux Devtools"\footnote{In a book format, in my humble opinion, more
+valuable than a link}. It is offered by remotedev.io.
+
+With the chooseSize ngrx nx command, we just made, you should see something like
+this:
+
+\includegraphics[width=13cm, height=9cm]{ngrx-store/redux-store}
