@@ -58,7 +58,11 @@ do? It will generate three files:
 \end{enumerate}
 
 In addition, nx will add Typescript enums for the action types. It will also
-add a respective spec file(unit testing) for the action + reducer file, for the
-reducer file and effect file.
+add a respective spec file(unit testing) for the action + reducer file.
 
-This is pretty standard for any redux variation. One thing that
+\colorbox{darkgray}{\color{white}{Unit testing Actions?}}
+
+Unit testing an action, would simply say, when an action is dispatched, expect
+it to be of a certain type. However, enums, as well as type checking, fulfills
+that obligation. Therefore, if one is using Typescript along with enums, there
+should be no reason for writing unit tests.
