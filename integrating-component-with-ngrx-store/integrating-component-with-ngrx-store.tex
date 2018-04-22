@@ -19,11 +19,12 @@ with any given component, that are handled by the nx ngrx cli:
   \item Effects
 \end{enumerate}
 
-All that is left, is for us to now to do two things component side:
+All that is left, is for us to now to do three things component side:
 
 \begin{enumerate}
   \item Set ups actions in view layer (i.e. HTML)
-  \item Set up subscribe in component(to transfer model to controller)
+  \item Select store, so that it can be used in component
+  \item Set up subscribe in component(to transfer model to controller) \footnote{A subscriber is rarely setup in the smae component setting up the store to begin with}
 \end{enumerate}
 
 This is pretty standard, and this will be done in every standard application.
