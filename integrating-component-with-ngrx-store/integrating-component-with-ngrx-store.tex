@@ -1,5 +1,5 @@
 \maketitle{}
-\section{ Integrating component with @ngrx/store }
+\section{ Integrating a Component with @ngrx/store }
 
 Another chapter has been dedicated solely to integrating a component
 with @ngrx/store. This is because it is a cookie cutter process. Observables
@@ -7,3 +7,16 @@ are notoriously known, for abstracting events, and therefore allowing the same
 code to be repeated time, and time again. The following is what can be expected
 to be repeated time and time again in your application, after initially
 generating files.
+
+Just for redundancy sake, there are six steps, that go into setting up state
+with any given component, that are handled by the nx ngrx cli:
+\begin{enumerate}
+  \item Store
+  \item Action
+  \item Store
+  \item Reducer
+  \item Initial State/Enums\footnote{In some other framework it might be constants}
+  \item Effects
+\end{enumerate}
+
+All that is left, is for us to now to do things
