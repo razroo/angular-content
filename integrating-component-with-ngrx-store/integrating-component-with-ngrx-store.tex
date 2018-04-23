@@ -51,4 +51,13 @@ To re-iterate, what is a subject? It is both an observable and an observer?
   to him.
 \end{enumerate}
 
-Therefore, in an Angular setting using @ngrx/store, subjects are our friends. 
+Therefore, in an Angular setting, using @ngrx/store, subjects are our friends. It
+allows us to have a singular event handler, to be used by all html event handlers
+within component. In addition, it gives us a subscribe. The general pattern in
+an Angular app will be as follows:
+\begin{enumerate}
+  \item Create subject in component
+  \item Set up different namespace for unique actions in components
+  \item merge subjects into singular subscribe
+  \item which then emits payload per action
+\end{enumerate}
