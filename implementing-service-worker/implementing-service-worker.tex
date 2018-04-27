@@ -62,3 +62,8 @@ Workers, on the \href{https://angular.io/guide/service-worker-getting-started}{A
 I agree, reading their documentation can be a bit bland at times, but it is
 really thorough and more than get's the job done. Good job Angular documentation
 person, or persons!
+
+\subsection{ Some other architectural decisions }
+There is an SwUpdate service available within app, after importing the
+ServiceWorkerModule. It can be used to notify users, for instance, to update
+their page(s), when the code they are running is out of date:
