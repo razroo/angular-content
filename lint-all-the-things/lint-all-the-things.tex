@@ -35,4 +35,18 @@ a gist which you can copy for your convenience, put here.
 Ideally, we would like to create a linter that is agnostic to IDE, so that we
 can allow the team to use whatever it is available.
 
+That being said, the Angular CLI only offers a linter outside of the box for
+Typescript. However, it should, in my humble opinion it should also offer a
+linter for HTML and SASS. We will therefore take the default linting task, and
+add three npm scripts on top of it:
+
+\begin{verbatim}
+  "lint-html": "htmlhint --rulesdir './rules/' '{apps,libs}/**/*.html'",
+  "lint-scss": "sass-lint -c sass-lint.yml -v -q",
+  "lint-ts": "ng lint --format=stylish",
+\end{verbatim}
+
+We will get to the specifics of the above three scripts right now.
+
 \subsection{ Linting Typescript }
+\
