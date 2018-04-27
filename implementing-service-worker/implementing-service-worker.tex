@@ -9,6 +9,8 @@ network request. In short, having a servie worker, can increase dependency on a
 network, and will greatly increase the user experience.
 
 \section{ The Angular Service Worker }
+
+\subsection{ Design Goals }
 \begin{enumerate}
   \item Caching an application is like installing a native application.
   The application is cached as one unit, and all files update together.
@@ -22,4 +24,25 @@ network, and will greatly increase the user experience.
   is installed and ready.
   \item The service worker conserves bandwidth when possible. Resources are only
   downloaded if they've changed.
+\end{enumerate}
+
+\subsection{ Manifest File }
+To support the above design goals, Angular loads a manifest file. The manifest
+describes the resources to cache and includes hashes of every file's contents
+\footnote{taken from https://angular.io/guide/service-worker-intro}.
+
+In the chapter where we used ng new for the first time, we set it up with a flag
+for service workers. [For practical purposes, if you did not use the flag for
+creating service workers, use the link \href{https://angular.io/guide/service-worker-getting-started}{here}]
+and follow through on the steps in the link. I believe in you! You can do this!
+
+For academic purposes, here is what the service worker flag does:
+\begin{enumerate}
+  \item Adds the @angular/service-worker package
+  \item Sets the Angular Cli serviceWorker option to true, so that it generates
+  a manifest for every build
+  \item Imports the ServiceWorkerModule, and registers the ngsw-worker.js file,
+  which is the name of pre-build service worker script
+  \item Creates a ngsw-config.json file, which configures defaults for service
+  worker
 \end{enumerate}
