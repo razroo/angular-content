@@ -64,6 +64,30 @@ really thorough and more than get's the job done. Good job Angular documentation
 person, or persons!
 
 \subsection{ Some other architectural decisions }
+
+\subsection{ Available and Activated Updates }
 There is an SwUpdate service available within app, after importing the
 ServiceWorkerModule. It can be used to notify users, for instance, to update
 their page(s), when the code they are running is out of date:
+
+\begin{lstlisting}[caption=app.routing.module.ts file]
+    updates.activated.subscribe(event => {
+      console.log('old version was', event.previous);
+      console.log('new version is', event.current);
+    });
+\end{lstlisting}
+
+\subsection{ Checking for Updates }
+Within the same SwUpdate service, we can also check for updates, and set up a
+subscriber of sorts, for instance:
+\begin{lstlisting}[caption=app.routing.module.ts file]
+  import { interval } from 'rxjs/observable/interval';
+
+  @Injectable()
+  export class CheckForUpdateService {
+
+    constructor(updates: SwUpdate) {
+      interval(6 * 60 * 60).subscribe(() => updates.checkForUpdate());
+    }
+  }
+\end{lstlisting}
