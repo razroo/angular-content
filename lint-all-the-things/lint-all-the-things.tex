@@ -42,7 +42,7 @@ add three npm scripts on top of it:
 
 \begin{verbatim}
   "lint-html": "htmlhint --rulesdir './rules/' '{apps,libs}/**/*.html'",
-  "lint-scss": "sass-lint -c sass-lint.yml -v -q",
+  "lint-scss": "sass-lint -v -q",
   "lint-ts": "ng lint --format=stylish",
 \end{verbatim}
 
@@ -55,4 +55,18 @@ for linting for html and scss. In addition, the tslint.json should be updated
 accordingly to work with prettier.
 
 \subsection{ Linting Sass }
-For linting SASS, we are going to be using the sass-lint package. 
+For linting SASS, we are going to be using the sass-lint package.
+\begin{lstlisting}
+npm install sass-lint --save-dev
+\end{lstlisting}
+
+We are also going to want to create a .sass-lint.yml file. Make sure to put the
+dot before the .sass-lint.yml file, so that the sass-lint linter will pick up
+on the file by default.
+
+In addition, there is now prettier that it now available for sass. We will have
+to follow the same formula that we did for Typescript. Worst comes to worst, we
+will have to modify the yml according to what the linter tells us we can, and
+cannot do.
+
+Note: Put a link to the appropriate gist here.
