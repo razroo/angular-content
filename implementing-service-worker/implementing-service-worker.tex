@@ -1,5 +1,5 @@
 \maketitle{}
-\section{ Implementing service workers in our App }
+\section{ The Angular Service Worker - Implenting in App }
 
 For those of you unaware, a service worker is a a script that runs in the web
 browser that manages caching for an application. So let's say you are offline
@@ -7,8 +7,6 @@ and you are making a query in your app that you have already made before, then
 the service workers will make it so that request can go through even without a
 network request. In short, having a servie worker, can increase dependency on a
 network, and will greatly increase the user experience.
-
-\section{ The Angular Service Worker }
 
 \subsection{ Design Goals }
 \begin{enumerate}
@@ -31,6 +29,7 @@ To support the above design goals, Angular loads a manifest file. The manifest
 describes the resources to cache and includes hashes of every file's contents
 \footnote{taken from https://angular.io/guide/service-worker-intro}.
 
+\subsection{ Using Angular CLI to Enable Service Workers }
 In the chapter where we used ng new for the first time, we set it up with a flag
 for service workers. [For practical purposes, if you did not use the flag for
 creating service workers, use the link \href{https://angular.io/guide/service-worker-getting-started}{here}]
@@ -46,3 +45,20 @@ For academic purposes, here is what the service worker flag does:
   \item Creates a ngsw-config.json file, which configures defaults for service
   worker
 \end{enumerate}
+
+\subsection{ Simulating a Network Issue }
+\begin{enumerate}
+  \item Go to Chrome dev tools \footnote{write something here if person does not know how
+  to do so}
+  \item Go to the Network tab
+  \item Check the Offline box
+\end{enumerate}
+
+If you service worker is properly being used, then the page will load normally,
+as opposed to the page displaying, "There is no internet connection".
+
+For further reading, by all means read through the documentation on Service
+Workers, on the \href{https://angular.io/guide/service-worker-getting-started}{Angular.io}.
+I agree, reading their documentation can be a bit bland at times, but it is
+really thorough and more than get's the job done. Good job Angular documentation
+person, or persons!
