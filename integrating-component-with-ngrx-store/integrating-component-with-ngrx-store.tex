@@ -22,9 +22,10 @@ with any given component, that are handled by the nx ngrx cli:
 All that is left, is for us to now to do three things component side:
 
 \begin{enumerate}
-  \item Set ups actions in view layer (i.e. HTML)
-  \item Select store, so that it can be used in component
-  \item Setup subject in component, so that it can be used with actions in view layer
+  \item Set ups actions in view layer (i.e. HTML).
+  \item Select store, so that it can be used in component.
+  \item Setup subject in component, so that it can be used with actions in view layer.
+  \item Setup reducer in component, so that it can be used with
   \item Set up subscribe in component(to transfer model to controller) \footnote{A subscriber is rarely setup in the smae component setting up the store to begin with}
 \end{enumerate}
 
@@ -59,7 +60,7 @@ an Angular app will be as follows:
   \item Create subject in component
   \item Setup ElementRefs in Component HTML
   \item Merge subjects into singular subscribe
-  \item Which then emits payload per action
+  \item Setup Reducer for action
 \end{enumerate}
 
 \subsection{ Creating a Subject - Code Dive }
@@ -94,3 +95,5 @@ merge(
       store.dispatch(action);
   });
 \end{lstlisting}
+
+\subsubsection{ Merge Subjects into Singular Subscribe }
