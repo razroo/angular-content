@@ -57,7 +57,7 @@ within component. In addition, it gives us a subscribe. The general pattern in
 an Angular app will be as follows:
 \begin{enumerate}
   \item Create subject in component
-  \item Set up different namespace for unique actions in components
+  \item Setup ElementRefs in Component HTML
   \item Merge subjects into singular subscribe
   \item Which then emits payload per action
 \end{enumerate}
@@ -70,3 +70,15 @@ an Angular app will be as follows:
 
   updateSize$ = new Subject();
 \end{lstlisting}
+
+\subsubsection{ Setup ElementRefs in Component HTML }
+\begin{verbatim}
+  <input matInput placeholder="Columns" #columns>
+  <input matInput placeholder="Rows" #rows>
+  <input matInput placeholder="Pixel Size" #pixelSize>
+  <button (click)="updateSize$.next({columns: columns.value, rows: rows.value,
+    pixelSize: pixelSize.value})"
+\end{verbatim}
+
+We are now going to feed our updateSize subject into an rxjs merge, and map,
+to make it future proof.
