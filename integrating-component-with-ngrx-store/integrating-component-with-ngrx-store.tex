@@ -82,3 +82,15 @@ an Angular app will be as follows:
 
 We are now going to feed our updateSize subject into an rxjs merge, and map,
 to make it future proof.
+
+\subsubsection{ Merge Subjects into Singular Subscribe }
+
+\begin{lstlisting}
+merge(
+  this.updateSize$.pipe(
+    map((value: any) => new ChooseSizeUpdated(value))
+       )
+    ).subscribe(action => {
+      store.dispatch(action);
+  });
+\end{lstlisting}
