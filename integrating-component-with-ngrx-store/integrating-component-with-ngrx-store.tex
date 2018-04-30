@@ -33,7 +33,7 @@ It is this simple, and will follow this formula, and yes, you should be in shock
 in how seamless integrating state management technology is at this point,
 because I am.
 
-\subsubsection{ Re-iterating purpose of book }
+\subsection{ Re-iterating purpose of book }
 
 I would just like to re-iterate, that the point of this book, is to go through
 the architecture of the entire angular ecosystem. So that someone can read this
@@ -42,7 +42,7 @@ way, and that they do not have to look elsewhere. That being said, I will not be
 going into the whole code base of what is happening. However, I would like to show
 an example of along the lines of what will end up happening.
 
-\subsubsection{ Creating a subject }
+\subsection{ Creating a subject }
 
 To re-iterate, what is a subject? It is both an observable and an observer?
 \begin{enumerate}
@@ -62,4 +62,11 @@ an Angular app will be as follows:
   \item Which then emits payload per action
 \end{enumerate}
 
-\subsubsection{ Creating a Subject - Code Dive }
+\subsection{ Creating a Subject - Code Dive }
+
+\subsubsection{ Creating Subject - In Component }
+\begin{lstlisting}
+  import { Subject } from 'rxjs/Subject';
+
+  updateSize$ = new Subject();
+\end{lstlisting}
