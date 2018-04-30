@@ -119,4 +119,9 @@ merge(
   });
 \end{lstlisting}
 
-\subsubsection{ Merge Subjects into Singular Subscribe }
+\subsection{ Setting up a Reducer for our App }
+\begin{lstlisting}
+  case ChooseSizeActionTypes.ChooseSizeUpdated: {
+    return { ...state, ...action.payload };
+  }
+\end{lstlisting}
