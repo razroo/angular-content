@@ -13,7 +13,6 @@ with any given component, that are handled by the nx ngrx cli:
 \begin{enumerate}
   \item Store
   \item Action
-  \item Store
   \item Reducer
   \item Initial State/Enums\footnote{In some other framework it might be constants}
   \item Effects
@@ -44,11 +43,27 @@ going into the whole code base of what is happening. However, I would like to sh
 an example of along the lines of what will end up happening.
 
 \subsection{ Set up action }
+For our action, we are going to create an action type, and simple action, that
+is taking in a payload. Your action should not be doing anything fancy, and if
+it does, then you are not doing it right.
+
 \begin{lstlisting}
+ChooseSizeUpdated = '[ChooseSize] Data Updated'
+
 export class ChooseSizeUpdated implements Action {
   readonly type = ChooseSizeActionTypes.ChooseSizeUpdated;
   constructor(public payload: any) {}
 }
+\end{lstlisting}
+
+\subsection{ Set up store }
+In any given component, we must setup a select for our store, in order to tell
+@ngrx/store, how we plan on interacting with it. The following is cookie cutter
+code, like the rest of this chapter, that will be repeated throughout any
+@ngrx/store process.
+
+\begin{lstlisting}
+this.chooseSize = store.select('chooseSize');
 \end{lstlisting}
 
 \subsection{ Creating a subject }
