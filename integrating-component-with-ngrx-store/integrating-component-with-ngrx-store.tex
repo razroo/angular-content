@@ -22,7 +22,7 @@ with any given component, that are handled by the nx ngrx cli:
 All that is left, is for us to now to do three things component side:
 
 \begin{enumerate}
-  \item Set ups actions in view layer (i.e. HTML).
+  \item Set ups actions in view layer (i.e. HTML) + action type.
   \item Select store, so that it can be used in component.
   \item Setup subject in component, so that it can be used with actions in view layer.
   \item Setup reducer in component, so that it can be used with
@@ -42,6 +42,14 @@ book and have the confidence that they are building their Angular app the proper
 way, and that they do not have to look elsewhere. That being said, I will not be
 going into the whole code base of what is happening. However, I would like to show
 an example of along the lines of what will end up happening.
+
+\subsection{ Set up action }
+\begin{lstlisting}
+export class ChooseSizeUpdated implements Action {
+  readonly type = ChooseSizeActionTypes.ChooseSizeUpdated;
+  constructor(public payload: any) {}
+}
+\end{lstlisting}
 
 \subsection{ Creating a subject }
 
