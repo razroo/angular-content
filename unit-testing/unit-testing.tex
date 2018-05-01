@@ -19,4 +19,22 @@ Bring the above point up to them, and hopefully you can have unit testing as a
 part of your application.
 
 At this point in our application, the only thing that we have created that
-deserves to be unit tested, are the reducers. Let's go ahead and unit test those.
+deserves to be unit tested, are the reducers. Let's go ahead and unit test those:
+
+\begin{lstlisting}
+describe('Functionality for the ChooseSizeUpdated reducer', () => {
+  const chooseSizeData = {
+    columns: 20,
+    rows: 20,
+    pixelSize: 20
+  }
+  it('should update the chooseSize store as is approprate', () => {
+    const action: ChooseSizeUpdated = new ChooseSizeUpdated(chooseSizeData);
+    const actual = chooseSizeReducer(initialState, action);
+    expect(actual).toEqual(chooseSizeData);
+  });
+});
+\end{lstlisting}
+
+The above is an example of what a sample unit test for a reducer would look like
+in the chooseSizeUpdated reducer.
