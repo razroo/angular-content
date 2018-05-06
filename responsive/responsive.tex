@@ -78,5 +78,15 @@ hold all all of our app's .scss files. In addition, we will be creating an
 creating the following in our app:
 
 \begin{verbatim}
-  // Testing
+  @function ill-breakpoint($breakpoint) {
+  $breakpoints: ('small': 400, 'medium': 720, 'large': 1024,
+  'extra-large': 1424);
+
+  @if(index($breakpoints, $breakpoint)) {
+    @return #{map-get($breakpoints, breakpoint)}px;
+  }
+  @else {
+    @error "Must contain one of the following strings: #{$breakpoints}.";
+  }
+}
 \end{verbatim}
