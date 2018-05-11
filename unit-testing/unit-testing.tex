@@ -40,3 +40,18 @@ The above is an example of what a sample unit test for a reducer would look like
 in the chooseSizeUpdated reducer.
 
 Note: Add in section going over best conventions with regards to unit testing.
+
+\maketitle{}
+\section{ Unit Testing as a Discipline }
+
+Unit testing is difficult, because it is a different discipline. In particular,
+the above unit testing that we made, is a great example of poor unit testing.
+We simply tested to make sure that all fields properly made their way over.
+
+However, there are a number of considerations to keep in mind:
+\begin{enumerate}
+  \item What happens if we insert a string, instead of a number?
+  \item Is there any limit on the number of rows, or columns?
+  \item Should there be a limit on pixel size?
+  \item Should there be a 1:1 ratio between rows and columns, or vice versa?
+\end{enumerate}
