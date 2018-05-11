@@ -64,3 +64,38 @@ extends to other parts of the app, however, we are currently focusing on
 unit testing]. Therefore, try to take ownership as an engineer. There are
 different levels of intelligence, but amongst many other things, software
 engineers are a truly analytical bunch.
+
+\subsection{ First Principles Thinking }
+
+In Physics, there is a concept called, first principles thinking. This means
+boiling down a priciple to it's essnetial truth and then building up from there.
+With regards to Unit Testing, and specifically test driven development, this
+principle will help to create fantastic unit tests.
+
+In addition, as a software enginer
+
+Let's bring this principle over. In this interactive question answer session.
+
+\begin{verbatim}
+  Q: What would we like to get out of the choose size form?
+  A: We would like to specify number of rows, number of columns, and pixel size.
+
+  Q: Being that these are numbers, do we have any way of preventing
+  the user from entering in any value other than an number?
+  A: The input will only allow numbers.
+  Q: Ok, do you see any value in setting up logic, so that if it is not a
+  number, then it will throw an error?
+  A: No, because there will never be a situation wherein they can not put in a
+  number.
+  Q: In that case, should we take a snapshot and make sure input fields are
+  indeed of the type number. If not then it should error.
+
+  Q: Now that we have established that these are always numbers, is there any 
+  limit on the size of this grid.
+  A: Not really, I can see it as just being
+\end{verbatim}
+
+
+Now that we have identified, that our unit test in this fashion really isn't a
+good unit test, what would be a good way of approaching these in a scientific
+fashion?
