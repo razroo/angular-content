@@ -17,8 +17,8 @@ it is used in
 // Gutter variables, for padding + margin
 // function to take in multiplier(8), which must emit of one of values within mc-space-amounts
 @function mc-space-multiplier($n) {
-  $mc-space-amounts: (0, 4, 8, 16, 24, 32, 40, 48, 56, 64);
-  $mc-space-multiplier: 8;
+  $ill-space-amounts: (0, 4, 8, 16, 24, 32, 40, 48, 56, 64);
+  $ill-space-multiplier: 8;
 
   @if(index($mc-space-amounts, ($n * $mc-space-multiplier))) {
     @return #{$n * $mc-space-multiplier}px;
@@ -31,4 +31,6 @@ it is used in
 
 In this particular situation this helps, so that if the input passed to the
 multiplier is not a number, it will complain. In addition, if the result is not
-one of the multipliers, it will complain as well.
+one of the multipliers, it will complain as well. So for instance, if the number
+passed in, is 1.5, it will cause the function to error out, being that there is
+no number 12, that is one of the ill space amounts.
