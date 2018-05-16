@@ -4,7 +4,32 @@
 One of the tricky things with regards to E2E tests, is how it fits into a
 TDD/BDD environment. Writing unit tests before we can see anything in our UI
 already takes quite a bit of discipline. Adding in an E2E test to the workflow
-seems like a bit much?
+seems like a bit much? Ok, so let's get into the thick of it. I think we'll all
+have a good time!
+
+\subsection{ What is TDD? }
+
+\begin{enumerate}
+  \item Start by writing a test
+  \item Run the test and any other tests. At this point, your newly added test
+   should fail. If it doesn’t fail here, it might not be testing the right
+   thing and thus has a bug in it.
+  \item Write the minimum amount of code required to make the test pass
+  \item Run the tests to check the new test passes
+  \item Optionally refactor your code
+  \item Repeat from 1
+\end{enumerate}
+
+\subsection{ The Benefits of TDD? }
+\begin{enumerate}
+  \item Higher test coverage. \footnote{Emphasis is put on testing}
+  \item Focus
+    \begin{enumerate}
+      \item Focus one part of issue one of a time.
+      \item Allows one to realize when to stop coding.
+    \end{enumerate}
+\end{enumerate}
+
 
 First things, first. Which comes first, unit test, or E2E tests? E2E tests will
 end up going first, however, we will end up satisfying the unit tests first.
