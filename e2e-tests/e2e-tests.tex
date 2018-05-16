@@ -87,10 +87,29 @@ If at a later time the counter(as seen above), for instance, has to change
 based on requirements(starting at 5, instead of 1), it will not affect the unit
 test. That's it plain and simple, almost too simple, hmm... suspicious.
 
-\subsection{ Convincing the Skeptic }
+\subsection{ Convincing the Skeptic on TDD/BDD }
 One of the equally most difficult things with unit testing, especially in a web
 setting is coming across the various use cases, that will slow you down. Trying
 to convince management, or whoever is in charge, that the amount of time that
 you are spending on your unit tests, is going to validate the time taken towards
 writing them. The following are some items that can be used towards convincing
 the skeptic.
+\begin{enumerate}
+  \item Too simple to fail
+    \begin{enumerate}
+      \item If this is used regularly in our application, doesn't it then make
+      sense to spend 5 minutes testing it?
+    \end{enumerate}
+  \item Too difficult to unit test
+    \begin{enumerate}
+      \item Good indication that it needs to be re-factored, proving point of
+      benefit of unit testing.
+    \end{enumerate}
+  \item Too time consuming
+    \begin{enumerate}
+      \item App will produce more bugs.
+      \item Lower quality code in regular app.
+      \item Lack of confidence, perhaps bugs will be created under the radar.
+      \item Lower design of system as a whole.
+    \end{enumerate}
+\end{enumerate}
