@@ -52,7 +52,32 @@ have a good time!
 Typically when testing a particular function at a later date, that function can
 change it's implementation. For instance, the counter can start at 5, instead of
 zero, breaking the expect statement of 1, when it is now 6. In BDD we focus on
-the intended behavior, which is adding 1 to a particular value. 
+the intended behavior, which is adding 1 to a particular value.
 
 First things, first. Which comes first, unit test, or E2E tests? E2E tests will
 end up going first, however, we will end up satisfying the unit tests first.
+
+\begin{lstlisting}
+// Non BDD
+describe('Counter', () => {
+  it('tick increases count to 1', () => {
+    var counter = new Counter();
+
+    counter.tick();
+
+    expect(counter.count).toEqual(1);
+  });
+});
+
+// BDD
+describe('Counter', () => {
+  it('should increase count by 1 after calling tick', () => {
+    var counter = new Counter();
+    var expectedCount = counter.count + 1;
+
+    counter.tick();
+
+    expect(counter.count).toEqual(expectedCount);
+  });
+});
+\end{lstlisting}
