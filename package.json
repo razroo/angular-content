@@ -24,7 +24,10 @@
   "homepage": "https://github.com/CharlieGreenman/latex-documentation#readme",
   "devDependencies": {
     "chokidar": "^2.0.0",
+    "glob": "^7.1.2",
+    "jest": "^22.4.3",
     "node-sass": "^4.9.0",
+    "sass-true": "^4.0.0",
     "shelljs": "^0.7.8"
   }
 }
