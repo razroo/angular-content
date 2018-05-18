@@ -6,7 +6,7 @@ definitely are using Typescript \footnote{I look forward to working with
 Reason sometime soon for typechecking, but I digress.}. Care must be taken to
 look into all the nuances that Typescript can offer.
 
-\section{ In a non Typescript Setting }
+\subsection{ In a non Typescript Setting }
 
 In order to define a constant in a non-Typescript setting, we use the const
 declaration to define variables:
@@ -19,7 +19,7 @@ declaration to define variables:
 \end{lstlisting}
 
 \subsection{ Enums an Introduction }
-Very simply, Enums allow us to define a set of named constants
+Simply put, Enums allow us to define a set of named constants
 \footnote{https://www.typescriptlang.org/docs/handbook/enums.html}.
 
 \begin{lstlisting}
@@ -40,7 +40,7 @@ String Enums, as opposed to number Enums, have to be constant initialized
 with a string literal. To clarify, you might want expect the following to work:
 
 \begin{lstlisting}
-  cont prefix = '[Button]'
+  const prefix = '[Button]'
   enum Direction {
       Up = `${prefix} UP`,
       Down = `${prefix} DOWN`,
@@ -49,7 +49,7 @@ with a string literal. To clarify, you might want expect the following to work:
   }
 \end{lstlisting}
 
-However, it does not work , because this is not a string literal, i.e. string
+However, this does not work , because this is not a string literal, i.e. string
 only.
 
 \subsection{ Convention as a Result of Quirk }
@@ -60,3 +60,22 @@ perspective, or console perspective, it will be beneficial to have the string
 literal, be explicit on it's own. [Screenshot of a redux devtool would great].
 Please reference above subsection, "Enums as an Introduction", for how this
 translates to code in principle.
+
+\subsection{ Side Note - Why not All Caps in Enums }
+A const in javascript can actually be re-assigned to something else. For
+instance:
+\begin{lstlisting}
+const PLANE = 'blackbird';
+PLANE = 'thunderbird';
+// barf
+\end{lstlisting}
+It is therefore a good convention when using a const, to put it in all caps,
+when the value is not attend to be re-assigned such as:
+\begin{lstlisting}
+const PLANE = 'blackbird';
+// woh, I was about to re-assign plane to thunderbird for some weird reason, but
+// then I saw PLANE in all caps, so I didn't do it
+\end{lstlisting}
+
+However, this is not the convention with Enums, of course, because all enums
+are never re-assigned. It is therefore not neccesary to to write in all caps.
