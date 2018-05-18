@@ -25,5 +25,25 @@ created, when one, or more of the following is true:
   \item When strategy architecture is involved. For instance, we need to create
   a strategy for routing, or how we will end up pulling in data. Sometimes, it
   is something which will be an unknown, and saying this is what I am trying to
-  figure out, and it is a unknown is more than perfect. 
+  figure out, and it is a unknown is more than perfect.
+\end{enumerate}
+
+\subsection{ What Goes into Technical Design Notes }
+It should mention at a very high level, what should go into the component. For
+instance, if I am building a filter, it should mention:
+\begin{enumerate}
+  \item That I plan on using ngrx/store in order to store filters.
+    \begin{enumerate}
+      \item Specifically as strings
+    \end{enumerate}
+  \item Will be using <md-input> material design component for filters.
+  \item Will be writing integration test for filters individually, and how they
+  will interact with each other.
+  \item Will be creating filters for the following test scenarios.
+    \begin{enumerate}
+      \item Camel case
+      \item Space in filter
+      \item Pure text
+      \item Dates
+    \end{enumerate}
 \end{enumerate}
