@@ -8,7 +8,7 @@ look into all the nuances that Typescript can offer.
 
 \section{ In a non Typescript Setting }
 
-In order to define a constant in a non-Typescript setting, we use the const 
+In order to define a constant in a non-Typescript setting, we use the const
 declaration to define variables:
 
 \begin{lstlisting}
@@ -21,6 +21,23 @@ declaration to define variables:
 \subsection{ Enums an Introduction }
 Very simply, Enums allow us to define a set of named constants
 \footnote{https://www.typescriptlang.org/docs/handbook/enums.html}.
+
+\begin{lstlisting}
+  enum Direction {
+      Up = "UP",
+      Down = "DOWN",
+      Left = "LEFT",
+      Right = "RIGHT",
+  }
+\end{lstlisting}
+
+\subsection{ Benefit of Enums over Constants }
+Enums allow us to organize a collection of related values. Think of them as
+a class for values, wherein the value can only be a string , or number.
+
+\subsection{ Current quirk of String Enums }
+String Enums, as opposed to number Enums, have to be constant initialized
+with a string literal. To clarify, you might want expect the following to work:
 
 \begin{lstlisting}
   enum Direction {
