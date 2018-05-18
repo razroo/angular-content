@@ -13,3 +13,38 @@ thing as the actual value?
 const LAST_UPDATED = "LAST_UPDATED";
 new updateValue(payload, LAST_UPDATED);
 \end{lstlisting}
+
+\subsection{ Benefits of a Constant }
+
+\subsubsection { Creates a Table of Contents }
+When one creates a series of constants in particular file for a certain
+component, one can peruse through the constant file, being able to see all
+actionable items in one. For instance, the following:
+\begin{lstlisting}[caption=Example of a Constant]
+// imagine these constants, are in a folder called ValueActionTypes
+const UPDATE_VALUE = "UPDATE_VALUE";
+const ADD_VALUE = "ADD_VALUE";
+const DELETE_VALUE = "DELETE_VALUE";
+
+//imagine the following code is in a new folder called valueActions
+import * as types from "../ValueActionTypes";
+import {BuyerValue} from './buyer-filter.interfaces';
+
+export class UpdateValue implements Action {
+  readonly type = UPDATE_VALUE;
+
+  constructor(public payload?: BuyerValue, public keyName?) {};
+}
+
+export class AddValue implements Action {
+  readonly type = ADD_VALUE;
+
+  constructor(public payload?: BuyerValue, public keyName?) {};
+}
+
+export class DeleteValue implements Action {
+  readonly type = DELETE_VALUE;
+
+  constructor(public payload?: BuyerValue, public keyName?) {};
+}
+\end{lstlisting}
