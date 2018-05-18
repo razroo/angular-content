@@ -23,11 +23,11 @@ Very simply, Enums allow us to define a set of named constants
 \footnote{https://www.typescriptlang.org/docs/handbook/enums.html}.
 
 \begin{lstlisting}
-  enum Direction {
-      Up = "UP",
-      Down = "DOWN",
-      Left = "LEFT",
-      Right = "RIGHT",
+  enum PlaneActionTypes {
+      Up = "[Plane] Up",
+      Down = "[Plane] DOWN",
+      Left = "[Plane] LEFT",
+      Right = "[Plane] RIGHT",
   }
 \end{lstlisting}
 
@@ -49,4 +49,14 @@ with a string literal. To clarify, you might want expect the following to work:
   }
 \end{lstlisting}
 
-However, it does not, because this is not a string literal, i.e. string only.
+However, it does not work , because this is not a string literal, i.e. string
+only.
+
+\subsection{ Convention as a Result of Quirk }
+As a result of quirk, we need a way of specifying that this action is happening
+in relation to a specific object. Even though we do have a set using enums,
+when identifying the string on it's own, from a state management (dev tool)
+perspective, or console perspective, it will be beneficial to have the string
+literal, be explicit on it's own. [Screenshot of a redux devtool would great].
+Please reference above subsection, "Enums as an Introduction", for how this
+translates to code in principle.
