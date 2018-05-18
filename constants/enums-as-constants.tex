@@ -40,10 +40,13 @@ String Enums, as opposed to number Enums, have to be constant initialized
 with a string literal. To clarify, you might want expect the following to work:
 
 \begin{lstlisting}
+  cont prefix = '[Button]'
   enum Direction {
-      Up = "UP",
-      Down = "DOWN",
-      Left = "LEFT",
-      Right = "RIGHT",
+      Up = `${prefix} UP`,
+      Down = `${prefix} DOWN`,
+      Left = `${prefix} LEFT`,
+      Right = `${prefix} RIGHT`,
   }
 \end{lstlisting}
+
+However, it does not, because this is not a string literal, i.e. string only.
