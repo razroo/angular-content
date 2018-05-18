@@ -1,2 +1,32 @@
 \maketitle{}
 \section{ Enums as Constants }
+
+When working with Typescript, which if you are using Angular, then you most
+definitely are using Typescript \footnote{I look forward to working with
+Reason sometime soon for typechecking, but I digress.}. Care must be taken to
+look into all the nuances that Typescript can offer.
+
+\section{ In a non Typescript Setting }
+
+In order to define a constant in a non-Typescript setting, we use the const 
+declaration to define variables:
+
+\begin{lstlisting}
+  const UP = "UP";
+  const DOWN = "DOWN";
+  const LEFT = "LEFT";
+  const RIGHT = "RIGHT";
+\end{lstlisting}
+
+\subsection{ Enums an Introduction }
+Very simply, Enums allow us to define a set of named constants
+\footnote{https://www.typescriptlang.org/docs/handbook/enums.html}.
+
+\begin{lstlisting}
+  enum Direction {
+      Up = "UP",
+      Down = "DOWN",
+      Left = "LEFT",
+      Right = "RIGHT",
+  }
+\end{lstlisting}
