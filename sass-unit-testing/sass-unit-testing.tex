@@ -4,7 +4,22 @@
 \subsection{ When Does Sass Unit Testing Make Sense? }
 One of the concerns with any architecture, is over engineering. With regards to
 unit testing Sass, to what extent should one unit test? Should it be for every
-class, for every function, any core class used within a framework.
+class, for every function, any core class used within a framework?
+
+After much back and forth the answer should be, a core class, which is used
+across the app. However, the actual class that is re-used should not be unit
+testing, because it can be re-used in the wrong context. In addition, the
+concept of combining two classes is closer to OOP than it is to functional
+programming.
+
+The ideal approach would be to unit test functional scss that is used as a
+core style. The convention should be that when using a core style, such as
+padding, or a breakpoint.
+
+\subsection{ The Benefits of using Functional Sass as a Convention }
+What would be the benefit of using Functional Sass as a convention? For starters
+within an app, skimming through css, it all looks the same. Even within our
+architecture using BEM, it can be hard to determine the difference between a
 
 Being that we are going to be creating sass functions for our core theming, it
 would make sense to unit test them as well. If they are going to be use in 10,
