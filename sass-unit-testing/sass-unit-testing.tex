@@ -53,3 +53,34 @@ Being that we are going to be creating sass functions for our core theming, it
 would make sense to unit test them as well. If they are going to be use in 10,
 or more places per each app, then we would like to make sure, that they are
 indeed working in the fashion that they should be.
+
+\subsection{ Using Sass True }
+Sass True, is a set of Sass unit tests, written in Sass, so that they can mimic
+the usual describe, it, assert, and expects, one can expect from a usual
+unit test. The following is an example of a unit test one might make for a
+typical mixin.
+
+\begin{lstlisting}
+// Test CSS output from mixins
+@include it('Outputs a font size and line height based on keyword') {
+  @include assert {
+    @include output {
+      @include font-size('large');
+    }
+
+    @include expect {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+  }
+}
+\end{lstlisting}
+
+It should all be very familiar with your classic Mocha test.
+
+\subsection{ Installing Sass True }
+\begin{verbatim}
+npm install sass-true --save-dev
+\end{verbatim}
+
+\subsection{ Setup Specific File for Spec }
