@@ -12,6 +12,7 @@ regards to a Mono Repo, in an enterprise Angular setting:
   \item Routing Considerations
   \item Service Considerations
   \item Pipe Considerations
+  \item Responsive Considerations
 \end{enumerate}
 
 \section{ Angular Pixel Illustrator - Example Use Case }
@@ -21,4 +22,7 @@ background color picker, and a pixel color picker, re-used by a singular
 component.
 
 It will most definitely be going to into the lib folder. We will be using the
-angular cli. We will be creating state, called 
+angular cli. We will be creating state, called color. With regards to a route,
+we do want to create a generic route, that will switch out from the pixel grid
+chooser, over to a a color picker view. We are also going to want a
+consideration for mobile as this is a PWA.
