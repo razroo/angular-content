@@ -25,4 +25,28 @@ It will most definitely be going to into the lib folder. We will be using the
 angular cli. We will be creating state, called color. With regards to a route,
 we do want to create a generic route, that will switch out from the pixel grid
 chooser, over to a a color picker view. We are also going to want a
-consideration for mobile as this is a PWA.
+consideration for mobile as this is a PWA. There aren't any pipes we will be
+using.
+
+\section{ Dissecting Business Requirements for Color Picker }
+With regards to the color picker. There are three unique aspects of the business
+logic:
+\begin{enumerate}
+  \item Color picker
+    \begin{enumerate}
+      \item RGB
+      \item HEX
+      \item Convert RGB to HEX and vice versa
+      \item Change pixel color, based on color picker value
+        \begin{enumerate}
+          \item Have color bar below pixel picker
+        \end{enumerate}
+    \end{enumerate}
+  \item Background Color picker
+    \begin{enumerate}
+      \item RGB
+      \item HEX
+      \item Convert RGB to HEX and vice versa.
+      \item Change grid background, based on background color.
+    \end{enumerate}
+\end{enumerate}
