@@ -33,3 +33,17 @@ using Gherkin as well, unless you knew that one already. In which case it is
 not a suprise.}. It is also in my experience, the only way to convince product
 to write acceptance criteria that actually stays the same from ticket from
 ticket, but don't tell them I said that!
+
+\subsection{ Sample Ticket Creation for Choose Size Form. }
+\begin{verbatim}
+Scenario: When Using the Choose Size picker
+  Given I enter pixel size
+  Given I enter column size
+  Given I enter row size
+  When I  click on the Create Pixel Grid button
+  Then I should see grid created
+\end{verbatim}
+
+Note that this is the ticket for creating a component for the choose size picker.
+However, we still do now know what the design will look. This we leave for the
+next chapter.
