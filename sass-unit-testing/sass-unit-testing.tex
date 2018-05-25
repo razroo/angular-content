@@ -31,7 +31,7 @@ Similr to when we use sass error reporting. If a pr goes out, and it is not
 function used for styling, then comment is made that, "Per convention, this is
 a core style, and should be using the appropriate function".
 
-\subsection{ Within a Language Design Language, Choosing Core Functions }
+\subsection{ Within a Design Language System, Choosing Core Functions }
 With a core framework, specifically built on top of a design language system,
 the following is what a functional DLS core framework would look like:
 \begin{enumerate}
@@ -83,4 +83,72 @@ It should all be very familiar with your classic Mocha test.
 npm install sass-true --save-dev
 \end{verbatim}
 
-\subsection{ Setup Specific File for Spec }
+\subsection{ Setting up a scss.spec.ts }
+We are going to set up our own jasmine sass-test runner, that will pick up on
+all sass unit tests within directory. It will look like the following:
+\begin{lstlisting}
+const path = require('path')
+const sassTrue = require('sass-true')
+const glob = require('glob')
+
+describe('Sass', () => {
+  // Find all of the Sass files that end in `*.spec.scss` in any directory in this project.
+  // I use path.resolve because True requires absolute paths to compile test files.
+  const sassTestFiles = glob.sync(path.resolve(__dirname, '**/*.spec.scss'))
+
+  // Run True on every file found with the describe and it methods provided
+  sassTestFiles.forEach(file =>
+    sassTrue.runSass({ file }, describe, it)
+  )
+})
+\end{lstlisting}
+
+\subsection{ Run Sass True Directly, without using CLI }
+As of this time Sass True uses node-sass, which does not play well with the CLI.
+Therefore, we will need to run the sass spec runner directly. As a result,
+let's set up a specific npm script for running sass-true.
+\begin{verbatim}
+"sass-test": "jasmine libs/scss.spec.ts",
+\end{verbatim}
+
+\subsection{ Wrapping it up - Reccomended Folder Structure }
+
+\begin{forest}
+  for tree={
+    font=\ttfamily,
+    grow'=0,
+    child anchor=west,
+    parent anchor=south,
+    anchor=west,
+    calign=first,
+    inner xsep=7pt,
+    edge path={
+      \noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) +(7.5pt,0) |- (.child anchor) pic {folder} \forestoption{edge label};
+    },
+    % style for your file node
+    file/.style={edge path={\noexpand\path [draw, \forestoption{edge}]
+      (!u.south west) +(7.5pt,0) |- (.child anchor) \forestoption{edge label};},
+      inner xsep=2pt,font=\small\ttfamily
+                 },
+    before typesetting nodes={
+      if n=1
+        {insert before={[,phantom]}}
+        {}
+    },
+    fit=band,
+    before computing xy={l=15pt},
+  }
+[system
+  [lib
+    [ill-ui
+      [functions
+        [\_functions.scss,file]
+        [\_ill-breakpoints.scss,file]
+        [\_ill-breakpoints.spec.scss,file]
+      ]
+    ]
+  ]
+  [scss.spec.ts,file]
+]
+\end{forest}
