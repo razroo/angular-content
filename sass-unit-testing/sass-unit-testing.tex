@@ -102,3 +102,13 @@ describe('Sass', () => {
   )
 })
 \end{lstlisting}
+
+\subsection{ Run Sass True Directly, without using CLI }
+As of this time Sass True uses node-sass, which does not play well with the CLI.
+Therefore, we will need to run the sass spec runner directly. As a result,
+let's set up a specific npm script for running sass-true.
+\begin{verbatim}
+"sass-test": "jasmine libs/scss.spec.ts",
+\end{verbatim}
+
+\subsection{ Wrapping it up - Reccomended Folder Structure }
