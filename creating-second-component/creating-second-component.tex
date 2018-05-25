@@ -66,4 +66,16 @@ for redundancy sake, we will go back to this checklist, and repeat the process.\
  Responsive  & \checkmark &            \\
 \end{tabular}
 \\*\\*
-Regarding Business requirements, let's get back to this one.
+Regarding Business requirements:
+\begin{verbatim}
+  Scenario: When Using the Color Picker
+    Given I enter Hex
+    Given I enter RGB
+    Then I should see state affected appropriately.
+\end{verbatim}
+
+You will notice for this particular component, the Then of our Aceptance
+criteria, is oddly focusing on State. This is because due to the dynamics of our
+system, this is what we are trying to focus on. However, if a product person
+were to create it, one can expect it to be more hollistic, and to focus on
+updating the grid as appropriate instead.
