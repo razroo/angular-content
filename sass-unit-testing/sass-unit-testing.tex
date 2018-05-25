@@ -31,7 +31,7 @@ Similr to when we use sass error reporting. If a pr goes out, and it is not
 function used for styling, then comment is made that, "Per convention, this is
 a core style, and should be using the appropriate function".
 
-\subsection{ Within a Language Design Language, Choosing Core Functions }
+\subsection{ Within a Design Language System, Choosing Core Functions }
 With a core framework, specifically built on top of a design language system,
 the following is what a functional DLS core framework would look like:
 \begin{enumerate}
@@ -83,4 +83,22 @@ It should all be very familiar with your classic Mocha test.
 npm install sass-true --save-dev
 \end{verbatim}
 
-\subsection{ Setup Specific File for Spec }
+\subsection{ Setting up a scss.spec.ts }
+We are going to set up our own jasmine sass-test runner, that will pick up on
+all sass unit tests within directory. It will look like the following:
+\begin{lstlisting}
+const path = require('path')
+const sassTrue = require('sass-true')
+const glob = require('glob')
+
+describe('Sass', () => {
+  // Find all of the Sass files that end in `*.spec.scss` in any directory in this project.
+  // I use path.resolve because True requires absolute paths to compile test files.
+  const sassTestFiles = glob.sync(path.resolve(__dirname, '**/*.spec.scss'))
+
+  // Run True on every file found with the describe and it methods provided
+  sassTestFiles.forEach(file =>
+    sassTrue.runSass({ file }, describe, it)
+  )
+})
+\end{lstlisting}
