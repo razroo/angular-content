@@ -1,0 +1,24 @@
+\maketitle{}
+\section{ Creating a Second Component }
+Creating a second component within your app is a monumentous occasion. It lays
+down the groundwork for how you are going to integrate numerous components
+together within your app. Let's lay down at a high level what this means with
+regards to a Mono Repo, in an enterprise Angular setting:
+
+\begin{enumerate}
+  \item Lib Folder
+  \item Angular CLI Command
+  \item Ngrx/nx ngrx considerations
+  \item Routing Considerations
+  \item Service Considerations
+  \item Pipe Considerations
+\end{enumerate}
+
+\section{ Angular Pixel Illustrator - Example Use Case }
+Let's take the above considerations into our app. The next component we are
+going to create is a color picker. It will contain two sub components, a
+background color picker, and a pixel color picker, re-used by a singular
+component.
+
+It will most definitely be going to into the lib folder. We will be using the
+angular cli. We will be creating state, called 
