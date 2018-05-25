@@ -32,21 +32,19 @@ using.
 With regards to the color picker. There are three unique aspects of the business
 logic:
 \begin{enumerate}
-  \item Color picker
+  \item Color picker + Background Color Picker - Shared Logic
     \begin{enumerate}
       \item RGB
       \item HEX
       \item Convert RGB to HEX and vice versa
-      \item Change pixel color, based on color picker value
-        \begin{enumerate}
-          \item Have color bar below pixel picker
-        \end{enumerate}
+      \item Have color bar below pixel picker, change based on color value.
     \end{enumerate}
   \item Background Color picker
     \begin{enumerate}
-      \item RGB
-      \item HEX
-      \item Convert RGB to HEX and vice versa.
-      \item Change grid background, based on background color.
+      \item Change grid background, based on background color picker.
+    \end{enumerate}
+  \item Color picker
+    \begin{enumerate}
+      \item Change pixel color, based on pixel color picker.
     \end{enumerate}
 \end{enumerate}
