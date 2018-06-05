@@ -141,3 +141,7 @@ const operation = buildOperationForLink(query, {});
 
 + execute(link, operation as any).subscribe(result => (response = result));
 \end{lstlisting}
+
+The execute function will take link which is a mock link, as well as use our
+operation(i.e. GraphQL query) and return an observable that we can now use to
+get back our result.
