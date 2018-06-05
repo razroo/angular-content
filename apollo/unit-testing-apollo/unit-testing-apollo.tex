@@ -132,7 +132,19 @@ In particular for the execute function.
 
 \subsubsection { Initializing the Operation }
 \begin{lstlisting}
-const operation = buildOperationForLink(query, {});
++ const buildOperationForLink = (
++    document: DocumentNode,
++    variables: any,
++  ) => {
++    return {
++      query: document,
++      variables,
++      operationName: getOperationName(document) || undefined,
++      context: {},
++    };
++  };
+
++ const operation = buildOperationForLink(query, {});
 \end{lstlisting}
 
 \subsubsection { Running the Execute Function }
