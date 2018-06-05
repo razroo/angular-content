@@ -119,3 +119,9 @@ that no unexpected operations were made.
 \footnote{This particular description can be found in: https://github.com/apollographql/apollo-angular/blob/master/packages/apollo-angular/testing/src/backend.ts}
 
 \subsubsection { Initializing the ApolloLink }
+
+\begin{lstlisting}
++ import {ApolloLink} from 'apollo-link';
+
++ const link = new ApolloLink(op => mock.handle(op));
+\end{lstlisting}
