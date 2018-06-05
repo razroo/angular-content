@@ -125,3 +125,14 @@ that no unexpected operations were made.
 
 + const link = new ApolloLink(op => mock.handle(op));
 \end{lstlisting}
+
+An Apollo Link as the documentation mentions, is a function that takes an
+operation and returns an observable. We are simply trying to repeat the process.
+In particular for the execute function.
+
+\subsubsection { Running the Execute Function }
+\begin{lstlisting}
++ import {ApolloLink, execute} from 'apollo-link';
+
++ execute(link, operation as any).subscribe(result => (response = result));
+\end{lstlisting}
