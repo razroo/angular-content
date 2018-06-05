@@ -118,7 +118,7 @@ operations were made and then flush them. In the end, a verify() method asserts
 that no unexpected operations were made.
 \footnote{This particular description can be found in: https://github.com/apollographql/apollo-angular/blob/master/packages/apollo-angular/testing/src/backend.ts}
 
-\subsubsection { Initializing the ApolloLink }
+\subsubsection { Initializing the Apollo Link }
 
 \begin{lstlisting}
 + import {ApolloLink} from 'apollo-link';
@@ -129,6 +129,11 @@ that no unexpected operations were made.
 An Apollo Link as the documentation mentions, is a function that takes an
 operation and returns an observable. We are simply trying to repeat the process.
 In particular for the execute function.
+
+\subsubsection { Initializing the Operation }
+\begin{lstlisting}
+const operation = buildOperationForLink(query, {});
+\end{lstlisting}
 
 \subsubsection { Running the Execute Function }
 \begin{lstlisting}
