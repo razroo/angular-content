@@ -95,3 +95,18 @@ import {ApolloTestingModule} from 'apollo-angular/testing';
 + ApolloTestingModule,
 //..
 \end{lstlisting}
+
+The Apollo Testing Module will hijack the actual Apollo Module, and make it so
+that there is no error in particular with regards to creating an apollo client.
+
+\subsection { Hijacking the Component's GraphQL Request }
+After we have imported our ApolloTestingModule within the app, we now need to
+make it so that our GraphQL requests go straight to our fake backend request.
+If we do not, of course, the colors GraphQL request will attempt to go the
+default apollo link, making unit testing dependent on our GraphQL server.
+
+\begin{lstlisting}
++ import {ApolloTestingBackend} from 'apollo-angular/testing/backend';
+
++ const mock = new ApolloTestingBackend();
+\end{lstlisting}
