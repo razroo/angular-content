@@ -105,7 +105,7 @@ make it so that our GraphQL requests go straight to our fake backend request.
 If we do not, of course, the colors GraphQL request will attempt to go the
 default apollo link, making unit testing dependent on our GraphQL server.
 
-\subsection { Initializing the ApolloTestingBackend }
+\subsubsection { Initializing the ApolloTestingBackend }
 \begin{lstlisting}
 + import {ApolloTestingBackend} from 'apollo-angular/testing/backend';
 
@@ -117,3 +117,5 @@ As operations come in, they're added to the list. Users can assert that specific
 operations were made and then flush them. In the end, a verify() method asserts
 that no unexpected operations were made.
 \footnote{This particular description can be found in: https://github.com/apollographql/apollo-angular/blob/master/packages/apollo-angular/testing/src/backend.ts}
+
+\subsubsection { Initializing the ApolloLink }
