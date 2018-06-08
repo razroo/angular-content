@@ -1,0 +1,26 @@
+\maketitle{}
+\section{ Pixel Grid Container }
+
+\marginpar{Maintaining}
+Now that we have created our Choose Size Form, let's go ahead and create our own
+route for our presentation container.
+
+\subsection{ Create Pixel Grid Container Component }
+\begin{lstlisting}
+cd containers
+ng g module pixel-grid-page
+ng g component pixel-grid-page --export
+\end{lstlisting}
+
+\subsection{ Import Pixel Grid Container Component }
+In your app module, import the pixel-grid-page module. In the app routing
+module, create a route for the pixel-grid-page.
+
+\begin{lstlisting}
+//app.module.ts
++ import { PixelGridPageModule } from './containers/pixel-grid-page/pixel-grid-page.module';
+
+  ChooseSizePageModule,
++ PixelGridPageModule,
+  NxModule.forRoot(),
+\end{lstlisting}
