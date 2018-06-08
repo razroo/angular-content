@@ -4,6 +4,10 @@
 \marginpar{As we have just created the pixel-grid-page, now would be a great
 time to implement Flex Layout}
 
+\subsection{ What is Flex Layout }
+Flex layout provies an HTML UI layout for Angular applications; using Flexbox
+and a Responsive API.
+
 \subsection{ Understanding the Issue With CSS Based Flexbox }
 \begin{itemize}
   \item CSS specifity \footnote{CSS speicifity, is the means by which browsers
@@ -15,7 +19,18 @@ time to implement Flex Layout}
   \item Changes in layout direction required changes to child flexbox stylings
   \item No built in support for customized media query breakpoints \marginpar{
   need to look into further about what this means}
-
 \end{itemize}
 
 \subsection{ Why Use Flex Layout? }
+\begin{itemize}
+  \item Flex Laout is indexpendent of Angular material
+  \item No external Css requirements
+  \item Support for Handeset/Tablet and Orientation breakpoints
+  \item Support for any layour injector value
+  \item Support for raw values, or interpolated values
+  \item Support for raw, percentage, or px-suffix values. Change detection
+  for Layout injector values.
+  \item Use provider to supply custom breakpoints
+  \item Notifications for breakpoints changes
+  \item MediaQuery Activation detection
+\end{itemize}
