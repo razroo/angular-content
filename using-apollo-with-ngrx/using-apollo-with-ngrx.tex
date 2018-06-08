@@ -1,0 +1,100 @@
+\maketitle{}
+\section{ Integrating ngrx/store with Apollo Client }
+In many architectures, it is most likely going to make sense that it is
+microservice based. That is, your data will be served over a slew of different
+apis. In which case the intent is that in a regular application, you will be
+using GraphQL. It is reccomended that you use Apollo Client as well. We will
+cover real quick, how to integrate GraphQL with Apollo Client.
+
+\subsubsection{ What is GraphQL }
+GraphQL is a backend data query language. It will allow you to use a query to
+make a request, as opposed to having to supply, url, endpoint, and type of
+request.
+
+\subsubsection{ The Benefit of Apollo }
+Apollo is a GraphQL client, used to help ease use of GraphQL http requests
+within app. In particular:
+\begin{enumerate}
+  \item Allows the application developer to easily execute GraphQL queries, and
+  configure transport-specific features like headers.
+  \item Ensure that all GraphQL results currently being displayed in an app, are
+   consistent with one another.
+  \item Provide flexible ways to update the cache with results from the server
+  when using mutations, pagination, subscriptions, and more.
+\end{enumerate}
+
+\subsubsection{ Dilemma When Using Apollo Client with @ngrx/store }
+Apollo will create it’s own inMemoryCache, without dependency on Redux. However,
+this creates two separate stores within the app when using @ngrx/store.
+One for ngrx/store, and another for the Apollo client. It would be much easier,
+obviously, if we had a singular cache/store, for the app.
+
+\subsubsection{ Enter apollo-angular-cache-ngrx }
+apollo-angular is a series of packages for the integration of the Apollo client
+with Angular. apollo-angular-cache-ngrx is a package officially a part of one of
+the apollo-angular packages. It solves this exact problem, and allows one to use
+@ngrx/store as one’s Apollo Cache. (The following can be seen in the github
+README.md for the apollo-angular-cache-ngrx repo, but going to put here for
+convenience reasons).
+
+\subsubsection{ Installation }
+We will be wanting to install the entire apollo suite at this time.
+\begin{lstlisting}
+npm install apollo-angular apollo-angular-link-http apollo-link apollo-client graphql-tag graphql --save
+\end{lstlisting}
+As well as apollo-angular-cache-ngrx
+\begin{lstlisting}
+npm install apollo-angular-cache-ngrx —-save
+\end{lstlisting}
+
+\subsubsection{ Usage }
+\begin{lstlisting}
+import {StoreModule} from '@ngrx/store';
+import {
+  NgrxCacheModule,
+  NgrxCache,
+  apolloReducer,
+} from 'apollo-angular-cache-ngrx';
+
+@NgModule({
+  imports: [
+    StoreModule.forRoot({
+      apollo: apolloReducer,
+    }),
+    NgrxCacheModule,
+  ],
+})
+class AppModule {
+  constructor(ngrxCache: NgrxCache) {
+    const cache = ngrxCache.create({});
+  }
+}
+\end{lstlisting}
+
+If one were to now make an Apollo GraphQL query in your Typescript component,
+your current ngrx/store will be populated with the appropriate Apollo data.
+You will be able to subscribe to it as usual. For instance:
+\begin{lstlisting}
+  constructor(store: Store<any>, private apollo: Apollo) {
+    this.store = store;
+      apollo
+        .query({
+          query: gql`
+            {
+              users {
+                status
+                id
+                name
+              }
+            }
+          `
+        })
+        .subscribe((initialData: any) => {
+          console.log(this.initialData);
+        });
+  }
+\end{lstlisting}
+
+At this time however, we are not using GraphQL within the above fashion.
+Nonetheless, your average app, will be using this sort of architecture, and it
+is very good to be aware of it, as well as how to use it.
