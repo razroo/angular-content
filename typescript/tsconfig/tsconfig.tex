@@ -1,2 +1,51 @@
 \maketitle{}
 \section{ Tsconfig }
+
+\subsection{ What is the Tsconfig? }
+The tsconfig file corresponds to the configuration of the Typescript compiler.
+
+\subsection{ What the Default Tsconfig Looks Like. }
+Angular CLI will generate a tsconfig out the box:
+\begin{lstlisting}
+  {
+    "compileOnSave": false,
+    "compilerOptions": {
+      "sourceMap": true,
+      "declaration": false,
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "target": "es5",
+      "typeRoots": [
+        "node_modules/@types"
+      ],
+      "lib": [
+        "es2017",
+        "esnext.asynciterable",
+        "dom"
+      ],
+      "baseUrl": ".",
+      "paths": {
+        "@angularPixelIllustrator/*": [
+          "libs/*"
+        ]
+      }
+    },
+    "exclude": [
+      "node_modules",
+      "tmp"
+    ]
+  }
+\end{lstlisting}
+
+
+\subsection{ Some Notable Mentions }
+
+\subsubsection{ sourceMap }
+Source map true, will help debugging while using the console in the browser.
+However, when debugging unit tests, it will cause somewhat of an issue.
+Switching this to false at times can be helpful. Alternatively, one can hijack
+the npm script for npm run test using. 
+\begin{verbatim}
+  --source-maps=false
+\end{verbatim}
