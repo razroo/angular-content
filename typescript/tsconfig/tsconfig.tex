@@ -39,13 +39,35 @@ Angular CLI will generate a tsconfig out the box:
 \end{lstlisting}
 
 
-\subsection{ Some Notable Mentions }
+\subsection{ Notable Mention }
 
 \subsubsection{ sourceMap }
 Source map true, will help debugging while using the console in the browser.
 However, when debugging unit tests, it will cause somewhat of an issue.
 Switching this to false at times can be helpful. Alternatively, one can hijack
-the npm script for npm run test using. 
+the npm script for npm run test using.
 \begin{verbatim}
   --source-maps=false
 \end{verbatim}
+
+\subsection{ Using paths }
+Being that we are using a mono repo, if we were to pull components from within
+the lib folder, we would have to use a very long relative path. However,
+tsconfig has an option to specify a specific path. If you look above, in the
+tsconfig, you will notice that there is a defauly path for libs, called the
+angularPixelIllustrator.
+
+In most cases the default name will suffice. However, in our scenario, let's
+shorten the lib path to just ill.
+
+\begin{lstlisting}
++      "@ill/*": [
+-      "@angularPixelIllustrator/*": [
+\end{lstlisting}
+
+Now, whenever we would like to import a module/component from the lib folder
+from within our app all we have to do is the following\marginpar{We are using
+a barrel file, will get to that in a bit}:
+\begin{lstlisting}
+import {module} from '@ill/color-picker';
+\end{lstlisting}
