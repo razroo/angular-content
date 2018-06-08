@@ -1,0 +1,21 @@
+\maketitle{}
+\section{ Flex Layout }
+
+\marginpar{As we have just created the pixel-grid-page, now would be a great
+time to implement Flex Layout}
+
+\subsection{ Understanding the Issue With CSS Based Flexbox }
+\begin{itemize}
+  \item CSS specifity \footnote{CSS speicifity, is the means by which browsers
+  decide which CSS property values are the most relevant to an element and,
+  therefore, will be applied} issues rapidly become problemtic, and continue
+  to be so.
+  \item CSS footprint size becomes excessively large(>250k for flexbox CSS)
+  whereas with JS, the module is loaded within every specific module
+  \item Changes in layout direction required changes to child flexbox stylings
+  \item No built in support for customized media query breakpoints \marginpar{
+  need to look into further about what this means}
+
+\end{itemize}
+
+\subsection{ Why Use Flex Layout? }
