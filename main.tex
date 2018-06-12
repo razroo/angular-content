@@ -11,6 +11,8 @@
 \usepackage{amssymb}
 % Used for creating gray color background boxes
 \usepackage[breakable, theorems, skins]{tcolorbox}
+% dirtytalk is used for quotation marks using /say{}
+\usepackage{dirtytalk}
 \DeclareRobustCommand{\mybox}[2][gray!20]{%
 \begin{tcolorbox}[   %% Adjust the following parameters at will.
         breakable,
@@ -78,6 +80,7 @@
 \include{./adding-a-route-to-our-container/adding-a-route-to-our-container}
 \include{./styling-a-component/styling-a-component}
 \include{./ngrx-store/ngrx-store}
+\include{./state/facade-pattern/facade-pattern}
 \include{./constants/constants}
 \include{./constants/enums-as-constants}
 \include{./apollo/using-apollo-with-ngrx/using-apollo-with-ngrx}
