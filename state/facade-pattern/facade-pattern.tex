@@ -1,6 +1,7 @@
 \maketitle{}
 \section{ Facade Pattern }
 
+\subsection{ What is the Facade Pattern? }
 The facade pattern is a classic. Anyone who has read the GoF book \footnote{
 which if you haven't you should probably take a look.} knows that it is a
 mainstay of computer science. Quoting from the GoF book:
@@ -8,5 +9,19 @@ mainstay of computer science. Quoting from the GoF book:
 \say{A facade is an object that provides a simplified interface to a larger body
  of code, such as a class library.}
 
+\subsection{ Facade Pattern an Example }
 This pattern is particularly advantageous when it comes to ngrx actions. If I
 may, let's imagine we have the following action:
+
+\begin{lstlisting}
+export class LoadChooseSize implements Action {
+  readonly type = ChooseSizeActionTypes.LoadChooseSize;
+  constructor(public payload: any) {}
+}
+\end{lstlisting}
+
+Now any time that we have to call an action we have to do two things:
+\begin{enumerate}
+  \item Have a store select within the component.
+  \item Call a dispatch.
+\end{enumerate}
