@@ -46,7 +46,7 @@ Now any time that we have to call an action we have to do two things:
 Obviously, this is quite a bit of overhead. Using the facade pattern let's see
 if we can simplify this process
 
-\subsection{ Deep Dive into the Facade State Pattern  }
+\subsection{ Create the Facade Service  }
 
 With a facade pattern, we have the ability to take the following two items:
 \begin{enumerate}
@@ -73,3 +73,15 @@ export class ChooseSizeFacade {
  }
 }
 \end{lstlisting}
+
+\subsection{ Hooking Facade Into Component }
+Now if we would like to hook our facade into our action, all we have to do is
+call the class ChooseSizeFacade service, and appropriate action.
+
+\mybox{
+\subsection{ Why Even Bother Creating a Facade? }
+It might seem like a bit of overhead working towards creating an additional
+file as a facade for our actions. However, it keeps our component clean, and
+removes the need of keeping overhead of the different stores that our component
+is using.
+}
