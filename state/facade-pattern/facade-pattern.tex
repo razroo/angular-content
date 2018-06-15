@@ -9,11 +9,12 @@ mainstay of computer science. Quoting from the GoF book:
 \say{A facade is an object that provides a simplified interface to a larger body
  of code, such as a class library.}
 
-\subsection{ Facade Pattern an Example }
+\subsection{ A Look at your Typical Non Facade State Pattern  }
 This pattern is particularly advantageous when it comes to ngrx actions. If I
 may, let's imagine we have the following action:
 
 \begin{lstlisting}
+  // choose-size.actions.ts
 export class LoadChooseSize implements Action {
   readonly type = ChooseSizeActionTypes.LoadChooseSize;
   constructor(public payload: any) {}
@@ -25,3 +26,22 @@ Now any time that we have to call an action we have to do two things:
   \item Have a store select within the component.
   \item Call a dispatch.
 \end{enumerate}
+
+\begin{lstlisting}
+  chooseSize: Observable<any>;
+  // choose-size.component.ts
+  import { Store } from '@ngrx/store';
+  constructor(private store: Store<any>) {
+      this.chooseSize = store.select('chooseSize');
+  //..
+  merge(
+    this.updateSize$.pipe(
+      map((value: any) => new ChooseSizeUpdated(value))
+    )
+  ).subscribe(action => {
+    store.dispatch(action);
+  });
+\end{lstlisting}
+
+Obviously, this is quite a bit of overhead. Using the facade pattern let's see
+if we can simplify this process.
