@@ -6,6 +6,18 @@ component. Part of learning is not only discovery, but maintenance. As discussed
 in the preface, whenever we have the chance to repeat steps we have discussed
 once before, we will re-iterate them on a high level for memory sake.
 
+\subsection{ Outline of what needs to be done }
+\begin{enumerate}
+  \item Create a UI dumb component for color picker in Lib folder
+    \begin{enumerate}
+      \item Use ClI to generate module
+      \item Use ClI to generate component
+    \end{enumerate}
+  \item Import module into pixel-grid page
+  \item Add component to pixel-grid page html
+  \item Add proper styling to the illColorPicker
+\end{enumerate}
+
 \subsection{ CLI - Creation of Module and Component with Routing }
 First, let's create our component in the lib folder of our app.
 
@@ -13,8 +25,6 @@ First, let's create our component in the lib folder of our app.
 ng g lib color-picker --routing
 ng g component color-picker -a=color-picker --export
 \end{lstlisting}
-
-Our color-picker is now created.
 
 \subsection{ Add Color Picker to Pixel Grid Page Component }
 Let's import our ill color picker into our Pixel Grid page.
@@ -35,6 +45,8 @@ In addition, let's add the ill-color-picker component to our html.
 Let's add a basic width and height for out element.
 \begin{lstlisting}
 .IllColorPicker {
+  display: flex;
+  flex-direction: column;
   width: 200px;
   height: 100%;
 }
