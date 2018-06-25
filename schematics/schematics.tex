@@ -22,7 +22,7 @@ spent on project for current developers.
   schematics blank --name=my-component
 \end{lstlisting}
 
-\subsection{ Understanding Rules, Trees, and Files }
+\subsection{ Understanding Rules and Trees }
 A Tree is a data structure that contains a base \footnote{A set of files that already exists}
 and a staging area \footnote{A list of changes to be applied to the base}.
 
@@ -41,5 +41,11 @@ export function nwrlDirectory(options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
     return tree;
   };
-}  
+}
 \end{lstlisting}
+
+\mybox{
+The options argument is an object that can be seen as the input of the factory.
+From the CLI, it is the command line arguments the user passed. From another
+schematic, it’s the options that were passed in by that schematic.
+}
