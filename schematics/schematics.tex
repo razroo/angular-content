@@ -12,7 +12,34 @@ Schematics can be used to easily introduce and enforce project wide conventions.
 This will easily ramp up time for new developers, as well as diminish time
 spent on project for current developers.
 
-\subsection{ Add Schematics to App }
+\subsection{ Download Schematics Globally }
 \begin{lstlisting}
-npm install -g @angular-devkit/schematics-cli
+  npm install -g @angular-devkit/schematics-cli
+\end{lstlisting}
+
+\subsection{ Create a file-directory Schematics }
+\begin{lstlisting}
+  schematics blank --name=my-component
+\end{lstlisting}
+
+\subsection{ Understanding Rules, Trees, and Files }
+A Tree is a data structure that contains a base \footnote{A set of files that already exists}
+and a staging area \footnote{A list of changes to be applied to the base}.
+
+A Rule is a function that takes a Tree and returns another Tree. A RuleFactory
+are functions that create a Rule.
+
+The blank RuleFactory that we have so far:
+
+\begin{lstlisting}
+import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+
+
+// You don't have to export the function as default. You can also have more than one rule factory
+// per file.
+export function nwrlDirectory(options: any): Rule {
+  return (tree: Tree, _context: SchematicContext) => {
+    return tree;
+  };
+}  
 \end{lstlisting}
