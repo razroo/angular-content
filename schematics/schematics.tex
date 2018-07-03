@@ -6,8 +6,6 @@ be extremely beneficial for one to create their own schematics. Primarily so,
 that with a singular command line input, one would be able to generate all of
 the files they need.
 
-\subsection{ Setting up Schematic }
-
 Schematics can be used to easily introduce and enforce project wide conventions.
 This will easily ramp up time for new developers, as well as diminish time
 spent on project for current developers.
@@ -18,8 +16,48 @@ spent on project for current developers.
 \end{lstlisting}
 
 \subsection{ Create a file-directory Schematics }
+While the application we are building specifically for this book is a pixel
+illustrator, in practice the conventions we set up for this app, will be used
+across the app. In a previous chapter we mentioned we mentioned the following
+folder/file structure:
+\\
+\\
+\begin{forest}
+  [libs
+    [common
+      [animations
+      ]
+      [assets
+      ]
+      [core
+       [auth]
+       [guards]
+       [pipes]
+       [validators]
+      ]
+      [models
+      ]
+      [testing
+      ]
+      [ui
+      ]
+      [utils
+      ]
+      [styles
+      ]
+      [vendor
+      ]
+    ]
+  ]
+\end{forest}
+
+If we do not enforce this using schematics, it can very difficult for other
+teams to follow this folder structure. In addition, it will take quite a bit of
+time to solve at high level.
+
+
 \begin{lstlisting}
-  schematics blank --name=my-component
+  schematics blank --name=px-schematics
 \end{lstlisting}
 
 \subsection{ Understanding Rules and Trees }
@@ -32,16 +70,18 @@ are functions that create a Rule.
 The blank RuleFactory that we have so far:
 
 \begin{lstlisting}
-import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
+  import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 
+  // You don't have to export the function as default. You can also have more
+  // than one rule factory per file.
 
-// You don't have to export the function as default. You can also have more than one rule factory
-// per file.
-export function nwrlDirectory(options: any): Rule {
-  return (tree: Tree, _context: SchematicContext) => {
-    return tree;
-  };
-}
+  export function pxSchematics(options: any): Rule {
+    return (tree: Tree, _context: SchematicContext) => {
+      tree.create(options.name || 'hello', 'world');
+      return tree;
+    };
+  }
+
 \end{lstlisting}
 
 \mybox{
@@ -58,3 +98,8 @@ There are four methods that directly create a change in a Tree:
   \item rename
   \item overwrite
 \end{enumerate}
+
+Similar to how we used create as an example above, to create a file, we also
+have the option to use the schematic to delete, rename, or overwrite a file.
+
+\subsubsection{ Generating a Folder using Schematics }
