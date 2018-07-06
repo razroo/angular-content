@@ -78,4 +78,18 @@ mdkir collections; mv px-schematics collections
 
 We are also going to modify our collections.json config to let schematics know
 that we have our own schematics file. Our collections.json for px-schematics
-should look like the following.
+should look like the following:
+
+\begin{lstlisting}
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "px-schematics": {
+      "description": "Schematic for generating app folder structure",
+      "aliases": ["px"],
+      "schema": "./collections/px-schematics/schema.json",
+      "factory": "./collections/px-schematics"
+    }
+  }
+}
+\end{lstlisting}
