@@ -72,6 +72,10 @@ then it will execute it by default.
 \subsection{ Change Folder Architecture }
 We are going to want to brace for future collections. So let's create a
 collections folder to put our schematics into.
-\begin{verabtim}
-
+\begin{verbatim}
+mdkir collections; mv px-schematics collections
 \end{verbatim}
+
+We are also going to modify our collections.json config to let schematics know
+that we have our own schematics file. Our collections.json for px-schematics
+should look like the following.
