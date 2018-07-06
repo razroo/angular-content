@@ -35,3 +35,43 @@ folder, and
   /Users/charlie/.npm-global/lib/node_modules/px-schematics ->
   /Users/charlie/angularpixelillustrator/libs/px-schematics
 \end{lstlisting}
+
+\subsection{ Creating a schema.json for px-schematics }
+The schema.json works like a regular schema, telling the CLI(command line
+interface) what options can be used. In order to add a schema that is specific
+for a collection create a schema.json file in you collection root. E.g.:
+\begin{verbatim}
+cd libs/px-schematics/src/px-schematics; touch schema.json;
+\end{verbatim}
+
+\begin{lstlisting}
+  {
+    "$schema": "http://json-schema.org/schema",
+    "id": "px-schematics",
+    "title": "Add px-schematics support to a app directory",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Name of the folder to contain files",
+        "$default": {
+          "$source": "argv",
+          "index": 0
+        }
+      }
+    }
+  }
+\end{lstlisting}
+If we look at our schema.json file, we will notice, that it contains a couple
+of important points. One is that a type field, string in our instance. Second,
+that it has the familiar description key/value. In addition, we have created
+name as a default. Therefore if we were to pass our schema an option, without
+giving it a flag \footnote{For instance: \mybox{px angularPixelillustrator}}
+then it will execute it by default.
+
+\subsection{ Change Folder Architecture }
+We are going to want to brace for future collections. So let's create a
+collections folder to put our schematics into.
+\begin{verabtim}
+
+\end{verbatim}
