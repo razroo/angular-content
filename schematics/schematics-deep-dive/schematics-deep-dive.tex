@@ -17,14 +17,16 @@ px-schematics. Let's add an alias for 'px', as well as create a description.
 \subsection{ Using NPM Link for development }
 Being that we do not have an npm module yet, there is a super easy way to hook
 up our custom schematic, to the actual Angular Schematics. Go into the root
-of your project. For instance, for me that would be:
+of your px-schematics project. For instance, for me that would be:
 \begin{verbatim}
-/Users/charlie/angularPixelillustrator
+cd /Users/charlie/angularPixelillustrator/libs/px-schematics
+npm link;
 \end{verbatim}
 
-Ok, so let's run:
+Now go back into your app root
 \begin{verbatim}
-npm link px-schematics
+cd /Users/charlie/angularPixelillustrator/libs/px-schematics;
+npm link px-schematics;
 \end{verbatim}
 
 \subsubsection{ What NPM Link Actually Does? }
@@ -96,7 +98,7 @@ should look like the following:
 
 If we were to run
 \begin{verbatim}
-ng g px-schematics:px-schematics
+ng g px-schematics:px world
 \end{verbatim}
 
-It will output test as is approriate.
+It will output test as is appropriate.
