@@ -13,7 +13,38 @@ expected.
 }
 
 \subsection{Create a Files Directory}
-Within our px-schematics, let's create a files directory. Due to Angular
-Schematics, we can go ahead and create a folder directory as is, and supplant
-it within our app. We are going to create the following folder directory with
-placeholder files for our app.
+Within our px-schematics, let's create a files directory:
+\\
+\\
+\begin{forest}
+  [libs
+    [common
+      [animations
+      ]
+      [assets
+      ]
+      [core
+       [auth]
+       [guards]
+       [pipes]
+       [validators]
+      ]
+      [models
+      ]
+      [testing
+      ]
+      [ui
+      ]
+      [utils
+      ]
+      [styles
+      ]
+      [vendor
+      ]
+    ]
+  ]
+\end{forest}
+
+Due to how Angular Schematics works, we can go ahead and create a folder
+directory as is, and supplant it within our app. We are going to create the
+following folder directory with placeholder files for our app.
