@@ -12,7 +12,7 @@ that you go ahead and create a schematic. Otherwise, it will not work as
 expected.
 }
 
-\subsection{Create a Files Directory}
+\subsection{Analyzing a File Directory}
 Within our px-schematics, let's create a files directory:
 \\
 \\
@@ -48,3 +48,46 @@ Within our px-schematics, let's create a files directory:
 Due to how Angular Schematics works, we can go ahead and create a folder
 directory as is, and supplant it within our app. We are going to create the
 following folder directory with placeholder files for our app.
+
+\subsection{Creating a Files Directory}
+We are going to follow a really simply approach when it comes to creating our
+files directory and follow a functional approach. We are going to create a
+.gitkeep file for each of our directories so that they can be committed to the
+app and kept there. It looks something like this:
+
+\begin{lstlisting}
+import {
+Rule,
+SchematicContext,
+Tree,
+} from '@angular-devkit/schematics';
+import {normalize} from "@angular-devkit/core";
+
+// You don't have to export the function as default. You can also have more than one rule factory
+// per file.
+export function pxSchematics(): Rule {
+return (tree: Tree, _context: SchematicContext) => {
+  generateAppFolders(tree);
+  return tree;
+};
+}
+
+function generateAppFolders(tree: Tree) {
+tree.create(normalize('common/animations/.gitkeep'), '');
+tree.create(normalize('common/assets/.gitkeep'), '');
+
+tree.create(normalize('common/core/.gitkeep'), '');
+tree.create(normalize('common/core/auth/.gitkeep'), '');
+tree.create(normalize('common/core/guards/.gitkeep'), '');
+tree.create(normalize('common/core/pipes/.gitkeep'), '');
+tree.create(normalize('common/core/validators/.gitkeep'), '');
+
+tree.create(normalize('common/data-access/.gitkeep'), '');
+tree.create(normalize('common/data-models/.gitkeep'), '');
+tree.create(normalize('common/testing/.gitkeep'), '');
+tree.create(normalize('common/ui/.gitkeep'), '');
+tree.create(normalize('common/utils/.gitkeep'), '');
+tree.create(normalize('common/styles/.gitkeep'), '');
+tree.create(normalize('common/vendor/.gitkeep'), '');
+}
+\end{lstlisting}
