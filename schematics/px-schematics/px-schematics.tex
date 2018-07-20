@@ -57,40 +57,55 @@ app and kept there. It looks something like this:
 
 \begin{lstlisting}
 import {
-Rule,
-SchematicContext,
-Tree,
+  apply, branchAndMerge, chain, mergeWith,
+  Rule,
+  SchematicContext, template,
+  Tree, url,
 } from '@angular-devkit/schematics';
-import {normalize} from "@angular-devkit/core";
+import { strings } from '@angular-devkit/core';
+import { libVersions } from "@nrwl/schematics/src/lib-versions";
+import { DEFAULT_NRWL_PRETTIER_CONFIG } from "@nrwl/schematics/src/utils/common";
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function pxSchematics(): Rule {
-return (tree: Tree, _context: SchematicContext) => {
-  generateAppFolders(tree);
-  return tree;
+export function pxSchematics(options: any): Rule {
+  return (host: Tree, context: SchematicContext) => {
+    const templateSource = applyTemplateSource(options);
+    return chain([branchAndMerge(chain([mergeWith(templateSource)]))])(
+      host,
+      context
+    );
+  };
+}
+
+let applyTemplateSource = (options: any) => {
+  const npmScope = options.npmScope ? options.npmScope : options.name;
+
+  return apply(url('./files'), [
+    template({
+      utils: strings,
+      dot: '.',
+      tmpl: '',
+      ...libVersions,
+      ...(options as object),
+      npmScope,
+      defaultNrwlPrettierConfig: JSON.stringify(
+        DEFAULT_NRWL_PRETTIER_CONFIG,
+        null,
+        2
+      )
+    })
+  ]);
 };
-}
-
-function generateAppFolders(tree: Tree) {
-tree.create(normalize('common/animations/.gitkeep'), '');
-tree.create(normalize('common/assets/.gitkeep'), '');
-
-tree.create(normalize('common/core/.gitkeep'), '');
-tree.create(normalize('common/core/auth/.gitkeep'), '');
-tree.create(normalize('common/core/guards/.gitkeep'), '');
-tree.create(normalize('common/core/pipes/.gitkeep'), '');
-tree.create(normalize('common/core/validators/.gitkeep'), '');
-
-tree.create(normalize('common/data-access/.gitkeep'), '');
-tree.create(normalize('common/data-models/.gitkeep'), '');
-tree.create(normalize('common/testing/.gitkeep'), '');
-tree.create(normalize('common/ui/.gitkeep'), '');
-tree.create(normalize('common/utils/.gitkeep'), '');
-tree.create(normalize('common/styles/.gitkeep'), '');
-tree.create(normalize('common/vendor/.gitkeep'), '');
-}
 \end{lstlisting}
 
-Just one quick note, is that the normalize function is the only way of turning
-a string into an actual path.
+\subsection{ Briefly Discussing Code Base}
+What we have done in our code, is that we have created a virtual file system,
+which has been read from our ./files directory. It is then combined with our
+actual file system. This function is called branchAndMerge. This is a really
+simple rinse and repeat for generating files within your app.
+
+The documenation for schematics is ever evolving. The project might be
+specifically under the angular-cli. However, there is no reason as to why this
+should be limited to one framework in particular. I highly reccomend using it
+for other frameworks as well.
