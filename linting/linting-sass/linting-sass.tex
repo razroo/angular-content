@@ -58,3 +58,16 @@ has made the code review process much easier. When this linting process is
 combined with the functional sass paradigms we will mention, it becomes
 self managing architecture for styling. Let me say that again, SELF MANAGING. I
 thought that might be worth repeating.
+
+\subsection{Adding an NPM Script in your package.json}
+\begin{verbatim}
+  "lint-scss": "sass-lint -v -q",
+\end{verbatim}
+
+\subsection{The Final Touch}
+
+Adding the sass-lint npm script as part of your CI/CD architecture is what
+really brings it all together. This is twofold of course. One so that when you
+make a pr for your Github repo, it will check to make sure there are no Sass
+linting errors. In addition, when pr is actually merged, pipeline runs as well,
+to make sure there are no errors.
