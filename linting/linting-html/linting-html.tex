@@ -31,3 +31,20 @@ over the past couple of years.
 \begin{verbatim}
   npm install htmlhint --save-dev
 \end{verbatim}
+
+\subsection{Create an .htmlhintrc config file}
+In the root of your app, create an .htmlhintrc file. The .htmlhintrc is set up
+to be the default config name for html hint. A sample config for html hint will
+just be a simple JSON object containing key values. For instance:
+\begin{lstlisting}
+{
+  "attr-value-double-quotes": true,
+  "src-not-empty": true,
+  "alt-require": true,
+}
+\end{lstlisting}
+
+\subsection{Adding an NPM Script in your package.json}
+\begin{verbatim}
+  "lint-html": "htmlhint --rulesdir './rules/' '{apps,libs}/**/*.html'",
+\end{verbatim}
