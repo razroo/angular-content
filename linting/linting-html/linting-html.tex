@@ -53,3 +53,44 @@ just be a simple JSON object containing key values. For instance:
 You will notice that inside of our html hint command, we have created a rules
 directory. We are doing this so that we can potentially create our own sample
 html hint rule.
+
+\subsection{What a Sample Rule Looks Like}
+In the root of your directory, create a rules directory. Inside of that
+directory, let's create some sample logic:
+\begin{lstlisting}
+module.exports = function(HTMLHint) {
+  HTMLHint.addRule({
+    id: 'attr-space',
+    description: 'Attributes cannot have useless whitespace between "=" and attribute name or attribute value.',
+    init: function(parser, reporter) {
+      var self = this;
+
+      function handleTagStart(event) {
+        var col = event.col + event.tagName.length + 1;
+
+        event.attrs
+          .filter(function(attr) {
+            return attr.value;
+          })
+          .forEach(function(attr) {
+            var rawAttr = attr.raw;
+            var indexOfEqualSign = rawAttr.indexOf('=');
+
+            if (rawAttr.charAt(indexOfEqualSign - 1) === ' ') {
+              reporter.warn('Space between attribute name and "="', event.line, col + attr.index + indexOfEqualSign - 1, self, attr.raw);
+            }
+
+            if (rawAttr.charAt(indexOfEqualSign + 1) === ' ') {
+              reporter.warn('Space between "=" and attribute value', event.line, col + attr.index + indexOfEqualSign + 1, self, attr.raw);
+            }
+          });
+      }
+
+      parser.addListener('tagstart', handleTagStart);
+    }
+  });
+};
+\end{lstlisting}
+
+The above allows for a robust html lint archticture, with the ability to add
+more rules if need be.
