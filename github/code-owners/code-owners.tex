@@ -14,3 +14,14 @@ dynamic codebase. Part of the team develops in Python, and part of the team
 develops in Javascript. You would be able to set \codeowners{} specifically for
 javascript, so that if only js files have been affected, only these specific
 \codeowners{} should be brought up.
+
+\section{ How to create a \codeowners{} file? }
+There are two places wherein you can create a \codeowners{} file. One would be
+in the root of your app. The other would be in a .github folder in the root of
+your repo. We recommend the .github folder, as we will also be creating webhooks
+within our repo. So:
+\begin{verbatim}
+  mkdir .github; cd .github; touch \codeowners{}
+\end{verbatim}
+When you make a pull request within your github app, github will automatically
+pick up on this file.
