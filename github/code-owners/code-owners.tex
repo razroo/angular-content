@@ -5,7 +5,12 @@ As we have discussed previously, Github is our preferred client for pull
 requests. As the team grows larger it becomes imperative, that default code
 reviewers are setup. Creating a \codeowners{} file is the easiest way to do this.
 
-\section{ What is a CODEOWNERS file? }
+\section{ What is a \codeowners{} file? }
 A \codeowners{} file is a config file, used with Github, that will allow you to
 specify which github users are considered as \codeowners{} for a specific project.
-Hello
+In addition, it will allow you to target \codeowners{} for a specific file type.
+So just to go a bit more in detail, let's say you have a dynamic team, and a
+dynamic codebase. Part of the team develops in Python, and part of the team
+develops in Javascript. You would be able to set \codeowners{} specifically for
+javascript, so that if only js files have been affected, only these specific
+\codeowners{} should be brought up.
