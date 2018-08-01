@@ -5,7 +5,7 @@ As we have discussed previously, Github is our preferred client for pull
 requests. As the team grows larger it becomes imperative, that default code
 reviewers are setup. Creating a \codeowners{} file is the easiest way to do this.
 
-\section{ What is a \codeowners{} file? }
+\subsection{ What is a \codeowners{} file? }
 A \codeowners{} file is a config file, used with Github, that will allow you to
 specify which github users are considered as \codeowners{} for a specific project.
 In addition, it will allow you to target \codeowners{} for a specific file type.
@@ -15,7 +15,7 @@ develops in Javascript. You would be able to set \codeowners{} specifically for
 javascript, so that if only js files have been affected, only these specific
 \codeowners{} should be brought up.
 
-\section{ How to create a \codeowners{} file? }
+\subsection{ How to create a \codeowners{} file? }
 There are two places wherein you can create a \codeowners{} file. One would be
 in the root of your app. The other would be in a .github folder in the root of
 your repo. We recommend the .github folder, as we will also be creating webhooks
@@ -26,7 +26,7 @@ within our repo. So:
 When you make a pull request within your github app, github will automatically
 pick up on this file.
 
-\section{ Creating \codeowners{} in a \codeowners{} config }
+\subsection{ Creating \codeowners{} in a \codeowners{} config }
 As we mentioned before, there are two parts to a \codeowners{} repo. One would
 be specifying specific github users who would be considered as \codeowners{}.
 The other would be, if the app is more complex, who is considered as
