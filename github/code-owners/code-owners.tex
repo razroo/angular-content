@@ -25,3 +25,18 @@ within our repo. So:
 \end{verbatim}
 When you make a pull request within your github app, github will automatically
 pick up on this file.
+
+\section{ Creating \codeowners{} in a \codeowners{} config }
+As we mentioned before, there are two parts to a \codeowners{} repo. One would
+be specifying specific github users who would be considered as \codeowners{}.
+The other would be, if the app is more complex, who is considered as
+\codeowners{} if a certain file is edited.
+
+\begin{lstlisting}
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for everything in the repo.
+*        @CharlieGreenman
+
+\end{lstlisting}
