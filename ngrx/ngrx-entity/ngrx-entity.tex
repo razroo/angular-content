@@ -1,0 +1,17 @@
+\maketitle{}
+\section{ Ngrx Entity }
+
+The Ngrx repo until recently had many similar functionalities to your regular
+redux app. It included actions, reducers, selectors. However, there has been
+efforts to go ahead and create libraries for aspects of ngrx that can perhaps
+be re-usable. One of these is ngrx entities.
+
+\section{ Ngrx Entity at a High Level }
+At it's core, ngrx entity is an API for manipulating and querying entity
+collections. In particular:
+\begin{enumerate}
+  \item Reduce boilerplate for creating reducers that manage a collection of
+  models.
+  \item Providing performant CRUD operations for managing entity collections.
+  \items Extensible type-safe adapters for selecting entity information.
+\end{enumerate}

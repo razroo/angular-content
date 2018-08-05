@@ -1,0 +1,58 @@
+\maketitle{}
+\section{ Creating Code Owners }
+
+As we have discussed previously, Github is our preferred client for pull
+requests. As the team grows larger it becomes imperative, that default code
+reviewers are setup. Creating a \codeowners{} file is the easiest way to do this.
+
+\subsection{ What is a \codeowners{} file? }
+A \codeowners{} file is a config file, used with Github, that will allow you to
+specify which github users are considered as \codeowners{} for a specific project.
+In addition, it will allow you to target \codeowners{} for a specific file type.
+So just to go a bit more in detail, let's say you have a dynamic team, and a
+dynamic codebase. Part of the team develops in Python, and part of the team
+develops in Javascript. You would be able to set \codeowners{} specifically for
+javascript, so that if only js files have been affected, only these specific
+\codeowners{} should be brought up.
+
+\subsection{ How to create a \codeowners{} file? }
+There are two places wherein you can create a \codeowners{} file. One would be
+in the root of your app. The other would be in a .github folder in the root of
+your repo. We recommend the .github folder, as we will also be creating webhooks
+within our repo. So:
+\begin{verbatim}
+  mkdir .github; cd .github; touch \codeowners{}
+\end{verbatim}
+When you make a pull request within your github app, github will automatically
+pick up on this file.
+
+\subsection{ Creating \codeowners{} }
+As we mentioned before, there are two parts to a \codeowners{} repo. One would
+be specifying specific github users who would be considered as \codeowners{}.
+The other would be, if the app is more complex, who is considered as
+\codeowners{} if a certain file is edited.
+
+\begin{lstlisting}
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for everything in the repo.
+*        @CharlieGreenman
+
+\end{lstlisting}
+
+\subsection{ Creating \codeowners{} Based on File Type }
+\begin{lstlisting}
+.js @CharlieGreenman
+\end{lstlisting}
+
+Now Charlie Greenman will be a code owner whenever a js file is a part of a
+pull request.
+
+\mybox{
+\subsection{ Final Note }
+When using a \codeowners{} file for the first time, it can be a bit confusing.
+The \codeowners{} will only be created once an actual pr is made. However,
+during the pr process, the \codeowners{} will not be made. There is no fix to
+this to the best of my knowledge.
+}
