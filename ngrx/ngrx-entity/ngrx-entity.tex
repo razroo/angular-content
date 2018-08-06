@@ -20,4 +20,13 @@ This architecture works really well when creating data as a single source of
 truth. For instance, let's say in your application, you have a data table on
 every page that pulls in data. Throughout every page, you have a way of
 manipulating this data. Using ngrx/entity will allow for this architecture to
-be fluid.
+be fluid, and have all manipulation of data be within a singular area.
+
+\subsection{ Example of Ngrx Entity }
+Within our app we the ability to illustrate a pixelated charachter using pixels.
+Every time that a pixel within the grid is selected, we are going to add it to
+our store. This store is going to be used to display the code version of the
+app. In addition, we are going to have to remove the pixel when clicked on
+within our store. In addition, if we have selected a new color, and we select a
+new pixel with that color, that pixel should be updated with the proper color.
+What we have just described is a perfect CRUD app.
