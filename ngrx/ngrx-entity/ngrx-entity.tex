@@ -128,9 +128,19 @@ going into them in detail, here they are:
   \item upsertMany: Add or Update multiple entities in the collection
 \end{itemize}
 
-\subsection{ addMany example }
+\subsection{ addOne example }
 In our app we will be using a series of different ngrx/entity methods. However,
 we will be using addMany as for the most part many of the methods are very
 similar.
 
-Let's say we have a reducer within our app.
+Let's focus on a specific reducer section within our app.
+\begin{verbatim}
+  case gridTypes.added {
+    return {
+      adapter.addOne(action.payload, state)
+    }
+  }
+\end{verbatim}
+
+That would really be it \^. It will insert a unique id for that specific pixel.
+In addition, it will go ahead and new entity within the entities object. 
