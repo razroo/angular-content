@@ -109,3 +109,17 @@ Creating an example adapter, might look something like the following:
   sortComparer: false,
 });
 \end{verbatim}
+
+There will then be a series of adapter methods returned by ngrx/entity. Without
+going into them in detail, here they are:
+\begin{itemize}
+  \item addOne: Add one entity to the collection
+  \item addAll: Replace current collection with provided collection
+  \item removeOne: Remove one entity from the collection
+  \item removeMany: Remove multiple entities from the collection
+  \item removeAll: Clear entity collection
+  \item updateOne: Update one entity in the collection
+  \item updateMany: Update multiple entities in the collection
+  \item upsertOne: Add or Update one entity in the collection
+  \item upsertMany: Add or Update multiple entities in the collection
+\end{itemize}
