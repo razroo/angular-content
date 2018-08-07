@@ -36,7 +36,16 @@ What we have just described is a perfect CRUD app.
   npm install @ngrx/entity --save
 \end{verbatim}
 
-\subsection{ Creating an adapter }
+\subsection{ ngrx/entity - A Step Back }
+Let's step back for the time being and look into what ngrx/entity actually does.
+Ngrx/entity will create a list of ids and a dictionary of entities. Let's brush
+up on entity, list, and dictionary:
+\mybox{
+entity: In relation to a database , an entity is a single person, place, or
+thing about which data can be stored. \footnote{https://whatis.techtarget.com/definition/entity}
+}
+
+\subsection{ Adapter Pattern - A Primer  }
 Before we go ahead and discuss what an ngrx/entity adapter is, let's go through
 a quick primer on the adapter pattern in general. Per the GoF book
 \footnote{A.K.A. Design Patterns: Elements of Reusable Object-Oriented Software}
@@ -46,3 +55,5 @@ an adapter pattern:
 shared with the Decorator pattern) that allows the interface of an existing
 class to be used as another interface. It is often used to make existing
 classes work with others without modifying their source code.}
+
+\subsection{ Introducing Ngrx/entity adapter }
