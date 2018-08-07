@@ -143,4 +143,11 @@ Let's focus on a specific reducer section within our app.
 \end{verbatim}
 
 That would really be it \^. It will insert a unique id for that specific pixel.
-In addition, it will go ahead and new entity within the entities object. 
+In addition, it will go ahead and new entity within the entities object.
+
+\subsection{ Entity Selectors }
+So far ngrx/entity has given us an adapter, which allows us to choose the id
+we would like to use for our entity dictionary, as well as our id list. However,
+what if we wanted to retrieved all of our ids, or all of our entities? It can
+be a bit cumbersome. So thankfully enough, you saw it coming, ngrx/entity
+offers entity selectors out of the box: 
