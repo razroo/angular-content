@@ -102,3 +102,10 @@ then be able to use that id for all crud operations. In addition, most likely
 pass in that id for your Rest Service, or GraphQL query.
 
 \subsection{ Ngrx/entity Adapter Example }
+Creating an example adapter, might look something like the following:
+\begin{verbatim}
+  export const adapter: EntityAdapter<any> = createEntityAdapter<any>({
+  selectId: (emailStore: any) => emailStore.id,
+  sortComparer: false,
+});
+\end{verbatim}
