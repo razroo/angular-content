@@ -150,4 +150,21 @@ So far ngrx/entity has given us an adapter, which allows us to choose the id
 we would like to use for our entity dictionary, as well as our id list. However,
 what if we wanted to retrieved all of our ids, or all of our entities? It can
 be a bit cumbersome. So thankfully enough, you saw it coming, ngrx/entity
-offers entity selectors out of the box: 
+offers entity selectors out of the box.
+
+\begin{verbatim}
+// get the selectors
+const { selectIds, selectEntities, selectAll, selectTotal } = adapter.getSelectors();
+
+// select the array of user ids
+export const selectUserIds = selectIds;
+
+// select the dictionary of user entities
+export const selectUserEntities = selectEntities;
+
+// select the array of users
+export const selectAllUsers = selectAll;
+
+// select the total user count
+export const selectUserTotal = selectTotal;
+\end{verbatim}
