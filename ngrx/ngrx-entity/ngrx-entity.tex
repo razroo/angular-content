@@ -145,7 +145,7 @@ Let's focus on a specific reducer section within our app.
 That would really be it \^. It will insert a unique id for that specific pixel.
 In addition, it will go ahead and new entity within the entities object.
 
-\subsection{ Entity Selectors }
+\subsection{ Identifying Different Entity Selectors }
 So far ngrx/entity has given us an adapter, which allows us to choose the id
 we would like to use for our entity dictionary, as well as our id list. However,
 what if we wanted to retrieved all of our ids, or all of our entities? It can
@@ -168,3 +168,11 @@ export const selectAllUsers = selectAll;
 // select the total user count
 export const selectUserTotal = selectTotal;
 \end{verbatim}
+
+It is important to recognize that these selectors will not actually produce
+state on their own. What they do is return a function when used in
+conjuction with the createSelector function, will return the appropriate
+entity.
+
+\subsection{ How to use getS }
+These selectors are then meant to be used with the createFeatureSelector
