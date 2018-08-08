@@ -174,5 +174,14 @@ state on their own. What they do is return a function when used in
 conjuction with the createSelector function, will return the appropriate
 entity.
 
-\subsection{ How to use getS }
-These selectors are then meant to be used with the createFeatureSelector
+\subsection{ How to use getSelectors }
+These selectors are then meant to be used with the createSelector function.
+The following is an example:
+\begin{verbatim}
+export const selectUserIds = createSelector(
+  selectUserState,
+  fromUser.selectUserIds
+);
+\end{verbatim}
+
+ Now one will have a state that specifically returns ids for a specific list.
