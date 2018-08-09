@@ -187,4 +187,16 @@ export const selectUserIds = createSelector(
 Now one will have a state that specifically returns ids for a specific list.
 
 \subsection{ Uisng updateOne }
-Just to show how convenient ngrx/entity is. Let's say in your app 
+Just to show how convenient ngrx/entity is. Let's say in your app you wanted to
+update a specific field. For instance, in our app it is going to be the color
+for a specific pixel.] All you would need to do is the following:
+\begin{verbatim}
+  case gridTypes.updated {
+    return {
+      adapter.updateOne(action.payload.id, state)
+    }
+  }
+\end{verbatim}
+
+The only difference between the signature for addOne and updateOne, is that with
+updateOne, you are just supplying the id to be updated.
