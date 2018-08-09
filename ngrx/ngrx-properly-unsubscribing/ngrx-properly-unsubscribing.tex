@@ -11,6 +11,7 @@ from the observable pipe for you.
 
 \subsection{ What to do When Async Pipe is Not an Option }
 There are times When the process of subscribing and unsubscribing must be
-managed manually. In this case the recommended approach is to create an
-observable that emits when the component is destroyed, and use the rxjs
-takeUntil operator to handle the act of unsubscribing for you.
+managed manually. In particular in situation where there is data manipilation
+that must happen within the component. In this case the recommended approach
+is to create an observable that emits when the component is destroyed, and use
+the rxjs takeUntil operator to handle the act of unsubscribing for you. 
