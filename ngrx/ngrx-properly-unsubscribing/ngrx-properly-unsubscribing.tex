@@ -14,4 +14,51 @@ There are times When the process of subscribing and unsubscribing must be
 managed manually. In particular in situation where there is data manipilation
 that must happen within the component. In this case the recommended approach
 is to create an observable that emits when the component is destroyed, and use
-the rxjs takeUntil operator to handle the act of unsubscribing for you. 
+the rxjs takeUntil operator to handle the act of unsubscribing for you.
+
+\subsection{Using takUntil Example}
+
+\begin{lstlisting}
+import { Subject, Observable, pipe } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+import { MyService } from './my-service';
+
+@Component({
+  selector: 'my-component',
+  template: `
+    <div>
+      Count: {{ count }}
+    </div>
+  `,
+})
+export class MyComponent {
+  private destroy$ = new Subject();
+  count: number;
+
+  constructor(private myService: MyService) { }
+
+  ngOnInit() {
+    this.myService.observableStream$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(count => this.count = count);
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+}
+\end{lstlisting}
+
+\subsection{takeUntil in Depth}
+
+If we were to go back to the above code snippet, in particular:
+\begin{verbatim}
+.pipe(takeUntil(this.destroy$))
+\end{verbatim}
+and
+\begin{verbatim}
+this.destroy$.next();
+this.destroy$.complete();
+\end{verbatim}
