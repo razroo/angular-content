@@ -53,12 +53,22 @@ export class MyComponent {
 
 \subsection{takeUntil in Depth}
 
-If we were to go back to the above code snippet, in particular:
+Let's go back in depth to takeUntil to see what we are doing:
+\begin{verbatim}
+private destroy$ = new Subject();
+\end{verbatim}
+We are create a subject which, of course, acts as both an observer and an
+observable. It allows us to call next and complete. We can then pass the value
+of true to next:
+
+\begin{verbatim}
+ngOnDestroy() {
+  this.destroy$.next(true);
+  this.destroy$.complete();
+}
+\end{verbatim}
+Which is called when the component is destroyed. We then run takeUntil, which
+will unsubscribe as soon as it is passed a true value.
 \begin{verbatim}
 .pipe(takeUntil(this.destroy$))
-\end{verbatim}
-and
-\begin{verbatim}
-this.destroy$.next();
-this.destroy$.complete();
 \end{verbatim}
