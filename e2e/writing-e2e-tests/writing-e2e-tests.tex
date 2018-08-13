@@ -66,3 +66,12 @@ once again, it is for budget reasons.
 Make sure to loop QA into any concerns with the app you have. For instance,
 things that you've noticed the current QA tests do not cover, that you have
 noticed is an actual issue.
+
+\subsubsection{Step \#3}
+Make sure to integrate automation tests within the CI/CD pipeline that you have.
+This means it will not fail when any of the E2E tests fail.
+
+Regarding this last step, it is important that you optimize your tests so
+that they run in parallel. In addition, it will have to be a watered down
+version of integration tests. For instance, using Sauce Labs, for screenshots,
+as well as putting on multiple devices might be a bit cumbersome.
