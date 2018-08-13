@@ -2,6 +2,22 @@
 \section{ Writing E2E Tests }
 
 In addition to our Unit Testing, another very important element of our app is
-End to End Testing. However, before we go ahead into the specifics of E2E
-testing, and discuss some of the finer details of a well architected protractor,
-environment, let's look into what constitutes a good QA environment.
+End to End Testing. We have discussed in the previous chapter how automation
+engineering is an integral part of this chapter. In addition, we discussed how
+when automation engineers are brought into the picture, it might be superfluous
+to have end to end testing. Nonetheless, I am a fan of having UI Engineers
+write their own E2E tests within the app.
+
+\section{ Angular CLI }
+The Angular CLI will create out of the box a e2e folder that can be used for
+creating e2e tests. It can be run by
+\begin{verbatim}
+  ng g e2e
+\end{verbatim}
+. If you have an npm script within your app, running
+\begin{verbatim}
+  npm run e2e
+\end{verbatim}
+will work as well. Follow the steps through. Usually, the only thing that will
+be needed from your end, is downloading the chrome-webdriver needed for running
+the e2e tests.
