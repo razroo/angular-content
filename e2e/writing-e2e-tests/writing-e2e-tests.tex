@@ -4,4 +4,22 @@
 In addition to our Unit Testing, another very important element of our app is
 End to End Testing. However, before we go ahead into the specifics of E2E
 testing, and discuss some of the finer details of a well architected protractor,
-let's look into what constitutes a good QA environment.
+environment, let's look into what constitutes a good QA environment.
+
+\subsection{ Automation Engineering }
+In an ideal QA environment, there will be a QA team layered on top of the
+Backend and Frontend Team. Their QA tests, however, will not be integrated into
+the environment of the aforementioned teams. Instead they will be in their own
+environment, and most likely running their tests in two environments: Dev, and
+productiong.
+
+In particular, they should follow something called smoke testing.
+
+\mybox{\subsubsection{Smoke Testing}
+Smoke Testing is preliminary testing to reveal simple failures severe enough to,
+for example, reject a prospective software release. Smoke tests are a subset of
+test cases that cover the most important functionality of a component or system,
+used to aid assessment if main functions of the software appear to work
+correctly. When used to determine if a computer program should be subjected to
+further, more fine-grained testing, a smoke test may be called an intake test
+}
