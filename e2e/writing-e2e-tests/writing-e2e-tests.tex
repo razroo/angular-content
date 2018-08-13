@@ -23,3 +23,25 @@ used to aid assessment if main functions of the software appear to work
 correctly. When used to determine if a computer program should be subjected to
 further, more fine-grained testing, a smoke test may be called an intake test
 }
+
+\subsection{ Automation Engineering - The Cross Over }
+Part of the question then becomes if automation engineering is creating their
+own integration tests for your app, it is essentially a bunch of E2E tests. So,
+why should UI go ahead and create their own tests, if QA is already creating
+them? Here are a couple of answers:
+\begin{enumerate}
+  \item The earliest point in the lifecycle that QA will be able to test is in
+  Dev. If UI Engineering does not create their own E2E tests, then failures in
+  Dev, will then be sent back to UI, severly halting the workflow.
+  \item Redundancy. There might be different parts of the app that engineering
+  is uniquely acute to testing. In addition, there might be other parts of the
+  app wherin QA might be uniquely equiped to test. A great real life example of
+  this is the following. We were integrating uploading files in the app for the
+  first time, as well as sending emails. Being the developer who worked with
+  both, I was acutely aware of odd file size of some of the documents being
+  uploaded 0. So I did some testing to make sure none of the files has a file
+  size of 0, and lo and behold, our app was riddled with them. That was
+  something that QA would have never really thought of doing, simply because I
+  had more access to the data.
+
+\end{enumerate}
