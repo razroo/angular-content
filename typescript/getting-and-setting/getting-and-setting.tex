@@ -40,4 +40,19 @@ values that you have will either be set through @Input's within Angular, or
 accessed through your @ngrx/store. There is one in particular very valuable
 reason. That would be if within your Typescript component you have deep nested
 data. Having a getter and setter within a component would be very useful. For
-istance:
+instance:
+\begin{lstlisting}
+get numberOfDocuments(): number {
+  try {
+    return this.userLog.user.documents.length;
+  } catch (e) {
+    return 0;
+  }
+}
+\end{lstlisting}
+Now we have a getter with logic, that says that if it doesn't exist, then it
+will return something 0. We can then do something like the following:
+\begin{verbatim}
+<span> Number of Documents: {{ numberOfDocuments }} </span>
+\end{verbatim}
+in your html.
