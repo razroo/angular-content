@@ -32,3 +32,10 @@ So yes, can you set and get, without using the internal setter and getter that
 Typescript has to offer like everything else, yes. However, the syntactic sugar
 will make it seem like you are natively setting and getting. In addition,
 putting emphasis on whenever an item is getted, or setted.
+
+\subsection{ Valuable getting and setting within an ngrx/store setting }
+So the question then becomes, if you are using ngrx/store within your app, for
+what reason would you hvae value for getting and setting. For the most part, the
+values that you have will either be set through @Input's within Angular, or
+accessed through your @ngrx/store. There is one in particular very valuable
+reason. That would be if within your Typescript component you have a deep nested 
