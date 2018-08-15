@@ -13,8 +13,14 @@ learn as well.
 \subsection{ What is a Dumb Component }
 A dumb component many times can be thought of as a child component. Think of it
 as this component is going to be re-used is many different places. How can we
-make it's logic as generic enough so that can happen? Generally that means the
-following:
+make it's logic as generic enough so that can happen? Simply put, the dumb
+component will receive it's data from it's parent component. Wherein the parent
+component will be responsible for retreiving the data. The question then becomes
+framework specific, how can we pass events up from the dumb component, to it's
+parent smart component. In addition, how can we pass down data from the parent
+component to the child component.
+So the only two concerns when creating a dumb component is:
 \begin{enumerate}
-  \item 
+  \item Event Binding
+  \item Propery Binding
 \end{enumerate}
