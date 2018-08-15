@@ -10,7 +10,7 @@ when you have chance to just read this chapter. If you are already familiar,
 feel free to keep reading, I worked hard to make sure there is something to
 learn as well.
 
-\subsection{ What is a Dumb Component }
+\subsection{ A Dumb Component - Defined }
 A dumb component many times can be thought of as a child component. Think of it
 as this component is going to be re-used is many different places. How can we
 make it's logic as generic enough so that can happen? Simply put, the dumb
@@ -25,8 +25,15 @@ So the only two concerns when creating a dumb component is:
   \item Propery Binding
 \end{enumerate}
 
-\subsection{ What is a Smart Component }
+\subsection{ A Smart Component - Defined }
 A smart component inversely, will be responsible for creating the data, to be
 passed down to the dumb component. In addition, it will hook into the events
 for the specific dumb component, and make sure to make data calls at that time
 as well.
+
+\subsection{ Where does State Come In? }
+One of the grayer areas when it comes to dumb vs. smart components, is state
+management. I personally have found putting a re-usable state in a dumb
+component to be extremely useful. State is to be made re-usable by keeping all
+unique sets of data nested one level deep. This is done by making the
+storeSelectName dynamic. We will discuss this in detail in another chapter.
