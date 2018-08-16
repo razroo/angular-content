@@ -60,7 +60,7 @@ export class DataTable {
 
 In our parent component's html, we would do something as the following:
 \begin{lstlisting}
-<data-table dataSource="UserData"></data-table>
+<data-table [dataSource]="UserData"></data-table>
 \end{lstlisting}
 
 \mybox{
@@ -73,4 +73,20 @@ specified in repo.
 
 \subsection{@Output in Detail}
 @Output is an observable property. It is usually always coupled with an
-event emitter.
+event emitter. It's intended use to pick up on an even that happens within a
+dumb component, and have actual logic happen within the smart, parent component.
+An example would be as follows:
+\begin{lstlisting}
+visible: boolean = true;
+@Output() open: EventEmitter<any> = new EventEmitter();
+@Output() close: EventEmitter<any> = new EventEmitter();
+
+toggle() {
+  this.visible = !this.visible;
+  if (this.visible) {
+    this.open.emit(null);
+  } else {
+    this.close.emit(null);
+  }
+}
+\end{lstlisting}
