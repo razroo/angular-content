@@ -46,4 +46,14 @@ offers out of the box that will help in this regard. They are @Input and
 \subsection{@Input in Detail}
 @Input if you are not already familiar, is Angular's way of passing down data
 from parent to child. So just a quick example of how data would be passed down
-from a smart component to a dumb component would be as follows: 
+from a smart component to a dumb component would be as follows:
+\begin{lstlisting}
+export class DataTable {
+  @Input() dataSource: DataTableData;
+}
+\end{lstlisting}
+\begin{verbatim}
+  <div *ngFor="data in DataCollection">
+    <div class="DataTable__row">{{data}}</div>
+  </div>
+\end{verbatim}
