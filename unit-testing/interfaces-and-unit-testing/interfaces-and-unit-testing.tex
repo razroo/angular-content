@@ -1,0 +1,9 @@
+\maketitle{}
+\section{ Interfaces and Unit Testing }
+In unit testing it can be very difficult to keep in sync the mocked data you
+are using, with actual data used within app's actual live UI. The easiest, and
+most efficient way of doing this is creating interfaces. The part where it
+becomes tricky, is that generally data is used in multiple places. For instance,
+we might have state that is contained in a separate component, wherein the data
+originates from. In addition, the data might also be used in some other component
+as well as service.
