@@ -7,3 +7,26 @@ becomes tricky, is that generally data is used in multiple places. For instance,
 we might have state that is contained in a separate component, wherein the data
 originates from. In addition, the data might also be used in some other component
 as well as service.
+
+\subsection{ In Sync Data - Interface Architecture }
+An interface at it's core is responsible for making sure that data follows a
+pre-described schema. The part, however, that is unintuitive in an Angular
+setting, is what happens when you have services, components, state, and spec
+files all vying for the same data.
+
+\subsubsection{  Interface Architecture - The Dillema }
+As we discussed in the previous paragraph, in an Angular application, there will
+be services, components, state and spec files vying for the same data. The
+dillema when it comes to interfaces, however, is that they need data in
+different ways. I would like to layout this data in detail.
+
+Let's imagine that we have a data-table that we need to specify data:
+\begin{itemize}
+  \item Service - Used to determine status of checkbox logic. It only needs to
+  know length of data, and actual data is irrelevant. Respective spec, only
+  needs to be aware of similar data.
+  \item Component - Needs to know actual data, so that it can pass along
+  observable stream component html. Respective spec needs to be aware of data.
+  \item State - Depnding on the reducer, or effect, it might need all of the
+  data, or none of it. Respective spec will need to familiar of similar data.
+\end{itemize}
