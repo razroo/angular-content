@@ -14,7 +14,7 @@ pre-described schema. The part, however, that is unintuitive in an Angular
 setting, is what happens when you have services, components, state, and spec
 files all vying for the same data.
 
-\subsubsection{  Interface Architecture - The Dillema }
+\subsubsection{ Interface Architecture - The Dillema }
 As we discussed in the previous paragraph, in an Angular application, there will
 be services, components, state and spec files vying for the same data. The
 dillema when it comes to interfaces, however, is that they need data in
@@ -30,3 +30,19 @@ Let's imagine that we have a data-table that we need to specify data:
   \item State - Depnding on the reducer, or effect, it might need all of the
   data, or none of it. Respective spec will need to familiar of similar data.
 \end{itemize}
+
+\subsection{ In Sync Data - The Solution }
+As one can see, it is actually counter-intuitive to create a singular interface
+for one's service, state, component(s), and their respective specs. However, if
+one does not use the same singular spec for all of them, one runs the risk of
+them getting out of sync with each other. The data inside of the object might
+make all the difference when it coems to caausing unit tests to fail.
+
+The solution is as follows. The state inside of component state is the most
+data intensive part of the applciation. The interface should ideally live inside
+of the state here. The only issue with this approach is that not all components
+require that there be state within an app. Therefore, if there is no state,
+the interface should live inside of the GraphQL(or if you are using a restSvc),
+your rest service folder. The reason why this folder is chosen over other
+folders, is because the interface will closely represent the fragment file for
+the graphQL request. 
