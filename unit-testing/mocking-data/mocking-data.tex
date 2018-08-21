@@ -48,12 +48,6 @@ the data being passed in might have the same signature time and time again.
 Enter the three constant rule:
 
 \begin{lstlisting}
-const genericMockUser: UserEntity = {
-  id: '123',
-  name: 'Mr. Nice',
-  location: New York
-}
-
 const genericMockUsers: Users = {
   generateMockUsersData(
     generateMockUserData({
@@ -75,4 +69,15 @@ const genericMockUsers: Users = {
     ),
   )
 }
+
+const genericMockUser: User = {
+  generateMockUserData({
+    id: '123',
+    name: 'Charles',
+    location: 'New York'
+  }),
+}
 \end{lstlisting}
+
+Moving forward, if any of this data has a unique signature, then you can use
+the above functions to make sure you have the correct data.
