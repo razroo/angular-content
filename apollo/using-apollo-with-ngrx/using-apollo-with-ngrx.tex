@@ -98,3 +98,17 @@ You will be able to subscribe to it as usual. For instance:
 At this time however, we are not using GraphQL within the above fashion.
 Nonetheless, your average app, will be using this sort of architecture, and it
 is very good to be aware of it, as well as how to use it.
+
+\subsubsection{ Bonus - Using Fetch Policy with Apollo }
+In apollo, there is the option to specify the fetch policy with regards to
+cache. For instance, in your
+
+\begin{lstlisting}
+  const fetchPolicy = 'network-only';
+  const userActivities$ = this.apollo
+    .query<any>({ query, variables, fetchPolicy })
+\end{lstlisting}
+
+Doing the above, will not cache your query. Therefore, if you have data, which
+will need to re-loaded once a request is made after initial load, using a
+fetchPolicy with network only, is the reccomended approach.
