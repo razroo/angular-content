@@ -17,13 +17,20 @@ specify parameters to be passed through.
 export interface User {
   id: string;
   name: string;
+  location: string;
 }
 // this interface is in our users.interface.ts file
 export interface Users {
-  users: User
+  users: User[]
 }
 
-let generateMockData: Users = (data: user) -> {
+let generateMockUserData: User = (data: user) -> {
+  user[id]: {
+    user
+  }
+}
+
+let generateMockUsersData: Users = (data: user | user[]) -> {
   users: {
     ...data
   }
@@ -39,3 +46,33 @@ In addition to having function composition tied to our interfaces, odds are that
 the data being passed in might have the same signature time and time again.
 
 Enter the three constant rule:
+
+\begin{lstlisting}
+const genericMockUser: UserEntity = {
+  id: '123',
+  name: 'Mr. Nice',
+  location: New York
+}
+
+const genericMockUsers: Users = {
+  generateMockUsersData(
+    generateMockUserData({
+      id: '123',
+      name: 'Charles',
+      location: 'New York'
+    }),
+    generateMockUserData({
+      id: '246',
+      name: 'Lisa',
+      location: 'London'
+    }),
+    generateMockUserData(
+      {
+        id: '468',
+        name: 'Yoda',
+        location: 'Canary Islands'
+      }
+    ),
+  )
+}
+\end{lstlisting}
