@@ -49,4 +49,9 @@ that will be used in conjuction with the facade for providing data, that can be
 used across the app is appropriate.
 
 This is a cookie cutter process with regards to loading data, that allows for
-repeating the process time and time across the app.
+repeating the process time and time across the app. In addition, it tightly
+couples the elements of your app together. For instance, it will use a singular
+interface across the app, which will then be able to be used in unit tests, and
+actual app alike. Therefore, one can continue mocking one's services, and by
+using interfaces make sure the data passed through across different parts of app
+is the same.
