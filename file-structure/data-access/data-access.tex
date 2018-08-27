@@ -1,8 +1,9 @@
 \maketitle{}
 \section{ Data Access }
 When working within a GraphQL app, having a manageable way of accessing data
-is important. We have the following folder/file structure for data-access to
-be ideal:
+is important.
+
+\subsection{ Data Access Folder/File Structure}
 \begin{verbatim}
 buyers
   state
@@ -15,7 +16,7 @@ buyers
           buyers.fragments.ts
           buyers.mutations.ts
           buyers.queries.ts
-        +stateo
+        +state
           buyers.actions.ts
           buyers.effects.spec.ts
           buyers.effects.ts
@@ -28,3 +29,5 @@ buyers
         buyers-state.module.ts
     index.ts
 \end{verbatim}
+\subsection{ Data Access Deep Dive}
+There are really four parts in one with regards to this folder/file structure. 
