@@ -1,0 +1,30 @@
+\maketitle{}
+\section{ Data Access }
+When working within a GraphQL app, having a manageable way of accessing data
+is important. We have the following folder/file structure for data-access to
+be ideal:
+\begin{verbatim}
+buyers
+  state
+    src
+      lib
+        data-access
+          buyer.interface.ts
+          buyers.service.spec.ts
+          buyers.service.ts
+          buyers.fragments.ts
+          buyers.mutations.ts
+          buyers.queries.ts
+        +stateo
+          buyers.actions.ts
+          buyers.effects.spec.ts
+          buyers.effects.ts
+          buyers.facade.spec.ts
+          buyers.facade.ts
+          buyers.reducer.spec.ts
+          buyers.reducer.ts
+          buyers.selectors.spec.ts
+          buyers.selectors.ts
+        buyers-state.module.ts
+    index.ts
+\end{verbatim}
