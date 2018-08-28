@@ -35,4 +35,14 @@ getAllUsers(sort: object): Observable<AllBuyers> {
 
     return combineLatest(allBuyers$, (allUsers: User[]) => allUsers);
   }
+
+//user.reducer.ts
+  case UserTypes.UserLoaded: {
+      const user = <User>action.payload;
+
+      return {
+        ...state,
+        user,
+      };
+    }
 \end{lstlisting}
