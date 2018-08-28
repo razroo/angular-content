@@ -20,4 +20,19 @@ export interface User {
   name: string;
   location: string;
 }
+
+//user.service.ts file
+getAllUsers(sort: object): Observable<AllBuyers> {
+    const query = AllUsersQuery;
+    const variables = {
+      projectId: this.projectFacade.projectId,
+      sort,
+    };
+
+    const allUserss$ = this.apollo
+      .query<any>({ query, variables })
+      .pipe(pluck('data'), pluck('allBuyers'));
+
+    return combineLatest(allBuyers$, (allUsers: User[]) => allUsers);
+  }
 \end{lstlisting}
