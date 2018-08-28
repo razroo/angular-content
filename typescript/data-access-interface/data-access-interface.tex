@@ -1,2 +1,23 @@
 \maketitle{}
 \section{ Data Access Interface }
+In the previous chapter we discussed having a data access folder to manage
+the various parts of our data. One of the primary benefits of such an
+architecture, is that it can be enforced that there is to be one interface. This
+interace can be used for service, component, state, and respective files.
+
+\subsection{ The Beauty of a Singular Data Access Interface }
+By having a singular data access interface, we can ensure that the data is
+being formatted in the same way across the service, component, and state. In
+addition, and perhaps more valuable, it allows us to mock all of specs. By
+having a singular interface used across the app, it forces the mocked
+functioanlity to be in sync with our specs.
+
+\subsection{ Singleton Interface - An Example }
+Just for clarity sake, let's run through singleton interface.
+\begin{lstlisting}
+export interface User {
+  id: string;
+  name: string;
+  location: string;
+}
+\end{lstlisting}
