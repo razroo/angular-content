@@ -79,3 +79,20 @@ mockUserService() {
   }
 }
 \end{lstlisting}
+
+We have gone through all the files which will touch data with type annotations
+in the data access folder, for clarity sake. As we can see, having the same
+interface for all of them will ensure we are using the same data. This is a no
+brainer as it is what interfaces are, and what they do. However, there are two
+things that we are doing that which isn't neccesarily considered as intuitive:
+\begin{enumerate}
+  \item We have one singular interface for the entire project
+  \item We are making sure that we use the same interface for our specs.
+\end{enumerate}
+
+\subsubsection(Why this Seems so Flawless)
+If you were to read the above you might think that this is something which is
+obvious. However, only by grouping together all of our data-access elements
+together in the same folder, and keeping with one interface is it obvious. In
+many other repos, they will put them all in different folers, and maintain
+different interfaces, causing the entire project to not be in sync. 
