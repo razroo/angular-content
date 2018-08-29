@@ -45,4 +45,19 @@ getAllUsers(sort: object): Observable<AllBuyers> {
         user,
       };
     }
+
+// user.effect.ts
+@Effect()
+loadUser$ = this.dataPersistence.fetch(UserTypes.LoadUser, {
+  run: (action: LoadUser, state: UserStateModelState) => {
+    const userId: string = action.payload;
+    return this.service
+      .getAllUsers(userId)
+      .pipe(map((users: User[]) => new UserLoaded(user)));
+  },
+
+  onError: (action: LoadUser, error) => {
+    console.error('Error', error);
+  },
+});
 \end{lstlisting}
