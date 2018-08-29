@@ -60,4 +60,9 @@ loadUser$ = this.dataPersistence.fetch(UserTypes.LoadUser, {
     console.error('Error', error);
   },
 });
+
+// user-page.component.ts
+loadUser() {
+  this.userSevice.allUsers();
+}
 \end{lstlisting}
