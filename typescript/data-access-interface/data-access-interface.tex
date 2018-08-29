@@ -65,4 +65,17 @@ loadUser$ = this.dataPersistence.fetch(UserTypes.LoadUser, {
 loadUser() {
   this.userSevice.allUsers();
 }
+
+// user-page.component.spec.ts
+generateMockUsers(data): User[] {
+  return {
+    ...data
+  }
+}
+
+mockUserService() {
+  allUsers() {
+    return users;
+  }
+}
 \end{lstlisting}
