@@ -3,5 +3,21 @@
 Having a documentation tool within your app is important. The following are
 items which a documentation tool can be of benefit for your app:
 \begin{enumerate}
-  \item 
+  \item Overview of app chart.
+  \item List of Modules, components, directives, classes, injectables, interfaces
+  and pipes.
+  \item Documentation Coverage
+  \item
 \end{enumerate}
+
+\subsection{ Install Compodoc }
+npm install -g @compodoc/compodoc
+
+\subsection{ Add to package.json in a Nrwl Workspace Setting }
+\begin{verbatim}
+  "compodoc": "compodoc -p tsconfig.json",
+  "compodoc-serve": "compodoc -s tsconfig.json",
+\end{verbatim}
+
+Using the above will include all components in a Nrwl workspace setting. You
+will end up getting something that looks like this. \marginpar{put image here}
