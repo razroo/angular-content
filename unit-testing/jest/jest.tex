@@ -29,3 +29,25 @@ This one in particular helps with regards to CI/CD. Not requiring a browser,
 does not require a browser to be built into the CI/CD. In addition, a large
 part of performance issues with regards to unit tests, is having to start the
 browser every time.
+
+\subsection{ Using Jest within an Nx Setting }
+\begin{verbatim}
+  ng generate jest
+\end{verbatim}
+
+\begin{verbatim}
+  ng generate jest
+\end{verbatim}
+
+After running the above generator, one can now run jest within your app. When
+generating a lib, one can now do:
+\begin{verbatim}
+  ng generate lib libname --unit-test-runner jest
+\end{verbatim}
+
+\footnote{If you are coming from an existing nrwl workspace, please use the
+following blog post to find out how to upgrade to Jest https://blog.nrwl.io/nrwl-nx-6-3-faster-testing-with-jest-20a8ddb5064}
+
+\subsection{ Primer on Jest Syntax }
+Real quick, I would like to go through a couple of things that Jest offers over
+Karma.
