@@ -40,6 +40,7 @@ Backup[ ]of[ ]*.numbers/
 
 # Mac finder files and hidden folders
 .DS_Stores
+.DS_Store
 .idea/
 
 node_modules
