@@ -19,3 +19,16 @@ let user: User = {
 person.firstName = 'Pam';
 
 \end{lstlisting}
+
+Instead this promotes using immutability. So if someone would like to turn this
+data into something else, they would do something like the following:
+
+\begin{lstlisting}
+export interface NewUser extends User {
+  location: string;
+}
+let newUser: NewUser = {
+  ...user,
+  location: 'New York'
+};
+\end{lstlisting}
