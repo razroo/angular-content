@@ -1,0 +1,21 @@
+\maketitle{}
+\section{ Typescript - Immutability }
+Immutability is one of the core concepts when it comes to data. I first learnt
+about it when I was introduced to Redux. However, as time progressed it was
+something that I learn to integreate with all of my projects. With regards to
+Typescript, it allows type annotations in the way of Immutability:
+\begin{lstlisting}
+export interface User {
+  readonly firstName: string;
+  readonly lastName: string;
+}
+
+let user: User = {
+  firstName: 'Larry',
+  lastName: 'Snow'
+};
+
+// This will result in a compile time error
+person.firstName = 'Pam';
+
+\end{lstlisting}
