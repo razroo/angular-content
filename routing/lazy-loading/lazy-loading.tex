@@ -5,10 +5,16 @@ is lazy loading. That would simply mean that a module is only loaded once
 the page goes to a specific route. This will cause large initial loading times
 if all of the pages are initially bundled into the root app.
 
-An example of a Lazy Route is as follows
+An example of a lazy route is as follows:
 \begin{lstlisting}
 {
   path: 'customers',
   loadChildren: 'lib/users/users.module#UsersModule'
 }
 \end{lstlisting}
+
+As mentioned in the actual docs:
+\mybox{ The router will use registered NgModuleFactoryLoader to fetch an
+NgModule associated with 'team'. Then it will extract the set of routes defined
+in that NgModule, and will transparently add those routes to the main
+configuration.}
