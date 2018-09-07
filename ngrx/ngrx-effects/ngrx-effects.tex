@@ -10,11 +10,40 @@ as well as publish(return) to the action stream.
 
 The line, however, can be blurred, however, as to what the difference is between
 an ngrx/effect and a ngrx/store. It is therefore important to distinguish for
-architectural reasons.
+architectural reasons. In addition, it can be difficult to determine the
+different use cases wherein someone would use an effect. It can indeed be a
+slippery slope wherein when to use an effect.
 
-\subsection{Differece between @ngrx/store and @ngrx/effect}
+\subsubsection{ Code Example }
+\begin{lstlisting}
+@Effect({ dispatch: false })
+ userDeleted$ = this.dataPersistence.fetch(
+   UserActivitiesTypes.UserDeleted,
+   {
+     run: (action: UserDeleted, state: UserStateModelState) => {
+       this.snackBar.open('User Deleted', 'Ok', {
+         duration: 2000,
+         verticalPosition: 'top',
+       });
+
+       return null;
+     },
+
+     onError: (action: ActivityDeleted, error) => {
+       console.error('Error', error);
+     },
+   }
+ );
+\end{lstlisting}
+
+This code example, is a great example as to when someone might use an effect.
+\subsection{Difference between @ngrx/store and @ngrx/effect}
 I rarely quote articles within this book, but there is one article by a one
 Tanya Gray entitled, "Understanding NgRx Effects and the Action Stream". It is
 perhaps my number one article of all times, for it's ability to take an
 otherwise very complicated subject, and making it very easy for anyone to
-digest.
+digest. I will be using her manner of describing effects in this chapter, and
+credit is owed where due.
+
+The article is very useful in determining the different use cases for creating
+an effect. How why to use an effect is something which is not nex
