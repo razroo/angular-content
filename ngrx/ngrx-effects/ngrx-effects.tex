@@ -1,0 +1,20 @@
+\maketitle{}
+\section{ Ngrx Effects }
+
+\subsection{Ngrx Effects - A Primer}
+Ngrx effects can be one of the more ambigious parts of the ngrx stack. They are
+by definitition something that is supposed to happen when something else has
+happened. It will listen for a particular action, and true to Ngrx, return an
+observable. In this observable one will have the option to do whatever they want
+as well as publish(return) to the action stream.
+
+The line, however, can be blurred, however, as to what the difference is between
+an ngrx/effect and a ngrx/store. It is therefore important to distinguish for
+architectural reasons.
+
+\subsection{Differece between @ngrx/store and @ngrx/effect}
+I rarely quote articles within this book, but there is one article by a one
+Tanya Gray entitled, "Understanding NgRx Effects and the Action Stream". It is
+perhaps my number one article of all times, for it's ability to take an
+otherwise very complicated subject, and making it very easy for anyone to
+digest.
