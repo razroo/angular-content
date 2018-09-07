@@ -18,3 +18,25 @@ As mentioned in the actual docs:
 NgModule associated with 'team'. Then it will extract the set of routes defined
 in that NgModule, and will transparently add those routes to the main
 configuration.}
+
+\subsection{Adding a tsconfig.app.json config}
+Therefore, we need to set up a config inside the main tsconfig.app.json in the
+include imports:
+\begin{verbatim}
+  "include": [
+    "**/*.ts",
+    "../../../libs/users/users/index.ts"
+  ],
+\end{verbatim}
+
+\subsection{Adding forChild inside of Actual Route}
+\begin{lstlisting}
+RouterModule.forChild([
+  { path: '', component: UserComponent },
+]),
+\end{lstlisting}
+
+The above is the cookie cutter process involved with create a component with a
+lazy route. It is architecture that is worth implementing early on in the app.
+Especially being some future components such as side navigations and modals
+might be complicated.
