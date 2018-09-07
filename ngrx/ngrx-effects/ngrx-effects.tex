@@ -50,7 +50,13 @@ decipher. Think of it as having the ability to do the following:
   \item Publish an action back into the state management cycle.
 \end{enumerate}
 
-In our scenario, we also have an effect for deleting a user.
+In our scenario, for deleting a user we had two effects:
+
+We called a GraphQL service to delete a user. We then retrieve the result
+returned by the GraphQL service, and trigger another effect, which is our
+snackbar effect. Yes, this logic can potentially be handled by our view layer
+within our component. In addition, we can use the service directly. However,
+having all of this logic encapsulated in our effect makese everything very clean.
 
 \subsection{Difference between @ngrx/store and @ngrx/effect}
 I rarely quote articles within this book, but there is one article by a one
