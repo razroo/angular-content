@@ -18,3 +18,45 @@ token. The following are the find fundementals of Angular Route Guards:
 \end{enumerate}
 
 \subsubsection{ CanActivate }
+It is used to determine if a certain route can be activated. An example would
+be as follows:
+\begin{lstlisting}
+export class userGuard implements CanActivate {
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private userFacade: UserFacade,
+    private projectFacade: ProjectFacade
+  ) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> {
+    const userId = route.paramMap.get('userId');
+
+    return this.projectFacade.projectId$.pipe(
+      switchMap(projectId =>
+        this.userService.getuser(userId, projectId).pipe(
+          tap(user => {
+            if (user && user.id) {
+              this.userFacade.userLoaded(user);
+            }
+          }),
+          switchMap(user => {
+            return user && user.id
+              ? of(true)
+              : _throw('Unable to retrieve user');
+          }),
+          catchError(error => {
+            this.router.navigateByUrl(this.getPrimaryOutletUrl(state.url));
+            return of(false);
+          })
+        )
+      )
+    );
+  }
+
+}
+
+\end{lstlisting}
