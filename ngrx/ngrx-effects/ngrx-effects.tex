@@ -41,7 +41,7 @@ As we can see here, we have an action that is being triggered for when a user is
 deleted. We then have an effect who's sole purpose to have a snack bar open
 when action is called.
 
-\subsubsection{ When to Use an Effect }
+\subsubsection{ The Three Pillars of an Effect }
 As we discussed earlier, knowing when to use an effect can be a tricky thing to
 decipher. Think of it as having the ability to do the following:
 \begin{enumerate}
@@ -56,5 +56,20 @@ We called a GraphQL service to delete a user. We then retrieve the result
 returned by the GraphQL service, and trigger another effect, which is our
 snackbar effect. Yes, this logic can potentially be handled by our view layer
 within our component. In addition, we can use the service directly. However,
-having all of this logic encapsulated in our effect makese everything very
+having all of this logic encapsulated in our effect makes everything very
 clean.
+
+\subsubsection{ Further Reading }
+While this is out of the scope for this book, I would like to suggest further
+reading. Naturally, they would be articles that I would discuss on:
+\begin{itemize}
+  \item Use cases for using Effects.
+  \item Use cases for NOT using Effects.
+\end{itemize}
+
+The article for use cases with regards to using effects is \href{"Understanding NgRx
+Effects and the Action Stream"}{https://medium.com/@tanya/understanding-ngrx-effects-and-the-action-stream-1a74996a0c1c}.
+The articl with regards to use cases in which NOT to use effects is
+\href{Stop using ngrx/effects for that}{https://medium.com/@m3po22/stop-using-ngrx-effects-for-that-a6ccfe186399}
+These two articles along with the information from this chapter. You should be
+well along your way for architecting solid ngrx/effects.
