@@ -58,5 +58,9 @@ export class userGuard implements CanActivate {
   }
 
 }
-
 \end{lstlisting}
+Without going into detail the above snippet is a great example of how to tap
+into the power of canActivate. Here we have two things going on. One if the user
+actually has an id, and is actually a legitimate user, we will pass along the
+userFacade which will populate our store, thus populating the page with actual
+data. 
