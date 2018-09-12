@@ -1,0 +1,20 @@
+\maketitle{}
+\section{ Angular Router Guards }
+
+\subsection{ Router Guards - A Primer }
+A Router Guard is a simply a way to guard someone from going to a page if they
+aren't allowed to go there(Also known as authentication).
+
+Without going into detail, it is important to recognize that there is such a
+thing as Route Guards. Most likely, you will be using them within you app
+for authentication reasons. In particular, your back end will provide you a JWT
+token. The following are the find fundementals of Angular Route Guards:
+\begin{enumerate}
+  \item CanActivate
+  \item CanActivateChild
+  \item CanDeactivate
+  \item CanLoad
+  \item CanLoad
+\end{enumerate}
+
+\subsubsection{ CanActivate }
