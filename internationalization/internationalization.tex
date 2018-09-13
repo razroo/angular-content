@@ -4,5 +4,14 @@
 Internationalization is one of those things that is generally done farther down
 the life cycle of an app. "We would like a data table put on every page with
 specific data", she says. Only later on i nthe app will having it be
-translatable to Frecnh and Mandarin, something that we really want to integrate
+translatable to French and Mandarin, something that we really want to integrate
 within the app.
+
+\subsection{ Architecting Internationalization }
+The reason why architecting internationalization can be something that is
+something for us to keep in mind, is that it can have an affect on how we might
+view the architecture of our application. A data table, for instance, is a great
+example. We might want to propose a rigid re-usable data-table. However, once
+we introduce internationalization, having data tables that are unique per each
+language will be important. Having a re-usable data table that takes care of
+information through passing in props can be cumbsersome.
