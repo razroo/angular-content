@@ -14,7 +14,7 @@ token. The following are the find fundementals of Angular Route Guards:
   \item CanActivateChild
   \item CanDeactivate
   \item CanLoad
-  \item CanLoad
+  \item Resolve
 \end{enumerate}
 
 \subsubsection{ CanActivate }
@@ -63,4 +63,17 @@ Without going into detail the above snippet is a great example of how to tap
 into the power of canActivate. Here we have two things going on. One if the user
 actually has an id, and is actually a legitimate user, we will pass along the
 userFacade which will populate our store, thus populating the page with actual
-data. 
+data.
+
+\subsubsection{ CanActivateChild }
+CanActivateChild is very similar to canActivate only it is for the childRoute.
+Will not go into detail on this one, use documentation.
+
+\subsubsection{ CanDeactivate }
+TODO
+
+\subsubsection{ CanLoad }
+TODO
+
+\subsubsection{ Resolve }
+TODO
