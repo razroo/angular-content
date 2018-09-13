@@ -1,0 +1,17 @@
+\maketitle{}
+\section{ Charts }
+
+Having charts in one's application might not seem like an architectural
+decision. In particular, there is a very popular library library out there
+called d3. This might not be the right place to bring it up as it is Angular
+agnostic. However, data can be something that can be quite abstract. It might
+be tempting to tag it all into a singular service, and load it in the
+appropriate component. However, using the power on Angular, it would allow for
+the compartementalization of graphics, and makes Angular a very powerful tool
+for the job.
+
+\subsection{Install D3}
+\begin{verbatim}
+  npm install --save d3
+  npm install --save-dev @types/d3
+\end{verbatim}
