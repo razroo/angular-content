@@ -8,3 +8,18 @@ developer experienced, or otherwise, that it is something that should be payed
 attention to. However, the full scope(gamut if you will) might not be
 immediately inherit, wherein certain elements migth not be looked into
 appropriately.
+
+\section{ Environment Architecture - Deep Dive}
+The most popular use of a environment file is to set up a url for prod and qa.
+QA will most likely be used by dev as well. Therefore, you will have something
+like the following in your UI:
+\begin{lstlisting}
+export const environment = {
+  production: false,
+  envName: 'qa'
+};
+\end{lstlisting}
+
+Doing something as simple as the above, will tag on 'qa' to your url. Being that
+in the reccomended architecture we are using GraphQL, we will have just one
+place where we have to specify the url we are using. 
