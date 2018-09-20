@@ -27,7 +27,7 @@ export const GridFragment = `
 \subsection{ Using Fragment in Query }
 Now in our query, we have the ability to include our fragment.
 \begin{verbatim}
-export const BuyerQuery = gql`
+export const GridSizeQuery = gql`
   query gridSize($projectId: ID!, $id: ID!) {
     gridSize(projectId: $projectId, id: $id) {
       ...gridFields
@@ -37,13 +37,31 @@ export const BuyerQuery = gql`
 `;
 \end{verbatim}
 
-We can re-use this fragment elsewhere if we would like. It also helps when
-creating an interface. We have the ability to keep a one to one relationship
-between our fragments and interfaces as well. For instance:
+\subsubsection{ Using Fragment as interface }
+It also helps when creating an interface. We have the ability to keep a one to
+one relationship between our fragments and interfaces as well. If we want to
+make sure that our interfaces are up to date for a specific data type, we can
+just look at our fragments file, and make sure that they are both up to date
+with each other. For instance:
 \begin{lstlisting}
 export interface GridSize {
   rowSize: string;
   columnSize: string;
   pixelSize: string;
 }
+\end{lstlisting}
+
+\subsection{ Using Fragment in Mutation }
+We can now use the same fragment that we used for the GridSizeQuery, for the
+AddGridSizeMutation.
+
+\begin{lstlisting}
+export const AddGridSizeMutation = gql`
+  mutation addGridSize($projectId: ID!, $gridSize: GridSizeInput!) {
+    addGridSize(projectId: $projectId, gridSize: $gridSize) {
+      ...gridFields
+    }
+  }
+  ${GridFragment}
+`;
 \end{lstlisting}
