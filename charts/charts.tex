@@ -27,4 +27,14 @@ be discussed in this chapter, such as models, or visuals are native to Angular.
 However, being that we are bringing over something which is not in an Angular
 setting, I will be discussing everything, to remove any confusion.
 
-\subsection{ Interface on a High Level }
+\subsection{ Simplifying an Interface in the Context of Angular }
+We've discussed previously the concept of dumb and smart components. That is,
+having a component purely for visual purposes, and progating the need for
+retrieving data, and handling events to the smart component. This is a very
+similar phenomenon, with d3. Only the smart componet is going to be the
+donut-chart, and child compoents, will be arcs, and legends. The second
+cornerstone to understanding interfacing d3, is to create a service, that will
+handle any non-feature specific d3 logic. For instance, let's say we would like
+to click on an arc, or hover over, and have a specific function, we can turn
+that into a core service. Therefore, moving forward, we would be able to attach
+this logic over to another component if need be.
