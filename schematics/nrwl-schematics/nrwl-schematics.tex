@@ -16,3 +16,42 @@ for us, then it would definitely make sense to use the Workspace Specific
 Schematics.
 
 \subsection{ Workspace Specific Schematics }
+\subsubsection{Generate a workspace specific schematic}
+\begin{verbatim}
+ng g workspace-schematic data-access
+\end{verbatim}
+
+Go to /tools/schematics/data-access/index.ts, where we will add in our custom
+code.
+
+\subsubsection{ Adding in External Schematics}
+\begin{lstlisting}
+externalSchematic('@nrwl/schematics', 'lib', {
+  name: name,
+  directory: schema.directory,
+  tags: schema.directory ? `state, ${schema.directory}` : 'state, aero',
+}),
+externalSchematic('@nrwl/schematics', 'ngrx', {
+  name: name,
+  module,
+  directory: '+state',
+  facade: true,
+}),
+externalSchematic('@schematics/angular', 'service', {
+  name: name,
+  path: 'data-access',
+  sourceDir: normalize(sourceDir),
+  directory: schema.directory,
+  app: schema.name,
+}),
+externalSchematic('@schematics/angular', 'interface', {
+  name: name,
+  path: 'data-access',
+  sourceDir: normalize(sourceDir),
+  directory: schema.directory,
+  app: schema.name,
+}),
+\end{lstlisting}
+
+First we include lib, so that we can choose which directory our schematics
+should go in.
