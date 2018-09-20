@@ -11,3 +11,39 @@ in GraphQL, is functional composition.
 query = SELECT
 mutation = INSERT, UPDATE, DELETE
 }
+
+\maketitle{}
+\subsection{ Example Fragment }
+\begin{verbatim}
+export const GridFragment = `
+  fragment gridFields on GridSize {
+    rowSize
+    columnSize
+    pixelSize
+  }
+`;
+\end{verbatim}
+
+\subsection{ Using Fragment in Query }
+Now in our query, we have the ability to include our fragment.
+\begin{verbatim}
+export const BuyerQuery = gql`
+  query gridSize($projectId: ID!, $id: ID!) {
+    gridSize(projectId: $projectId, id: $id) {
+      ...gridFields
+    }
+  }
+  ${GridFragment}
+`;
+\end{verbatim}
+
+We can re-use this fragment elsewhere if we would like. It also helps when
+creating an interface. We have the ability to keep a one to one relationship
+between our fragments and interfaces as well. For instance:
+\begin{lstlisting}
+export interface GridSize {
+  rowSize: string;
+  columnSize: string;
+  pixelSize: string;
+}
+\end{lstlisting}
