@@ -3,4 +3,27 @@
 
 A dependency graph is a very simple way of seeing which components are
 dependent on which components. It goes hand in hand with a parent and child
-component architecture.
+component architecture. By looking a dependency graph, one can see that a
+singular component is reliant on another. The following are the benefits of
+using a dependency graph:
+\begin{enumerate}
+  \item Make sure app is following Parent/Child Component architecture.
+  \item Allows us to see what components are dependent on the one we are working
+  on, so that we may run linting, or unit testing only, based on these
+  components.
+  \item Visualize all components in use across app.
+\end{enumerate}
+
+\subsection{Create a Dependency Graph}
+My personal favorite when it comes to using a dependency graph is compodoc.
+However, when I am in development mode, and not demo mode, I will tend to use
+the dependcy graph provided by nrwl, granted you are using nx.
+\begin{verbatim}
+  npm run affected:dep-graph;
+  npm run dep-graph;
+\end{verbatim}
+
+This will show you something like:
+(Image of depedency graph goes here)
+
+\subsection{ Using Dependency Graph }
