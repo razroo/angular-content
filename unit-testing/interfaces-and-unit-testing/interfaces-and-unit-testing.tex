@@ -38,15 +38,38 @@ one does not use the same singular spec for all of them, one runs the risk of
 them getting out of sync with each other. The data inside of the object might
 make all the difference when it coems to causing unit tests to fail.
 
-The solution is as follows. The state inside of component state is the most
-data intensive part of the applciation. The interface should ideally live inside
-of the state here. The only issue with this approach is that not all components
-require that there be state within an app. Therefore, if there is no state,
-the interface should live inside of the GraphQL(or if you are using a restSvc,
-your rest service folder). The reason why this folder is chosen over other
-folders, is because the interface will closely represent the fragment file for
-the graphQL request. In  truth the resemblance behind a graphQL fragment and
-Typescript interface are eerily familiar.
+The solution is as follows. There should be a singular interface that exists
+for the root of the following files:
+\begin{enumerate}
+  \item Services[Includes spec files]
+  \item Component[includes spec file]
+  \item State[includes spec files]
+  \item GraphQL(Interfaces not used, but influenced by, and therefore important
+  to be in the same directory)
+  \item Module(Interface not used for)
+\end{enumerate}
 
-Now that we have a singular location where all of our interface data is
-located, we can now go ahead use it across all of our components.
+This, however, requires that all the files be tightly coupled together. In order
+to do this, we must create a folder/file structure.
+
+\subsection{ Data Access - Folder Structure }
+Let's say we are creating an Overview page. The data structure will look as
+follows:
+\begin{forest}
+  [overview
+    [services
+    ]
+    [graphql
+    ]
+    [+state
+      [\_functions.scss,file]
+    ]
+    [utils
+    ]
+    [styles
+    ]
+    [vendor
+    ]
+    ]
+  ]
+\end{forest}
