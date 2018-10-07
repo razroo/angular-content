@@ -114,31 +114,6 @@ let's set up a specific npm script for running sass-true.
 \subsection{ Wrapping it up - Reccomended Folder Structure }
 
 \begin{forest}
-  for tree={
-    font=\ttfamily,
-    grow'=0,
-    child anchor=west,
-    parent anchor=south,
-    anchor=west,
-    calign=first,
-    inner xsep=7pt,
-    edge path={
-      \noexpand\path [draw, \forestoption{edge}]
-      (!u.south west) +(7.5pt,0) |- (.child anchor) pic {folder} \forestoption{edge label};
-    },
-    % style for your file node
-    file/.style={edge path={\noexpand\path [draw, \forestoption{edge}]
-      (!u.south west) +(7.5pt,0) |- (.child anchor) \forestoption{edge label};},
-      inner xsep=2pt,font=\small\ttfamily
-                 },
-    before typesetting nodes={
-      if n=1
-        {insert before={[,phantom]}}
-        {}
-    },
-    fit=band,
-    before computing xy={l=15pt},
-  }
 [system
   [lib
     [ill-ui

@@ -12,6 +12,11 @@
         \noexpand\path [draw, \forestoption{edge}]
         (!u.south west) +(7.5pt,0) |- (.child anchor) pic {folder} \forestoption{edge label};
       },
+      % style for your file node
+      file/.style={edge path={\noexpand\path [draw, \forestoption{edge}]
+        (!u.south west) +(7.5pt,0) |- (.child anchor) \forestoption{edge label};},
+        inner xsep=2pt,font=\small\ttfamily
+                   },
       before typesetting nodes={
         if n=1
           {insert before={[,phantom]}}
