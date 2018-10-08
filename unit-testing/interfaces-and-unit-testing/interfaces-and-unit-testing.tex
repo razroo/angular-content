@@ -42,7 +42,6 @@ The solution is as follows. There should be a singular interface that exists
 for the root of the following files:
 \begin{enumerate}
   \item Services[Includes spec files]
-  \item Component[includes spec file]
   \item State[includes spec files]
   \item GraphQL(Interfaces not used, but influenced by, and therefore important
   to be in the same directory)
@@ -57,18 +56,36 @@ Let's say we are creating an Overview page. The data structure will look as
 follows:
 \begin{forest}
   [overview
-    [services
+    [src
+      [lib
+        [services
+          [\/choose-size.service.ts,file]
+          [\/choose-size.service.spec.ts,file]
+        ]
+        [graphql
+          [\/choose-size.fragments.ts,file]
+          [\/choose-size.queries.spec.ts,file]
+          [\/choose-size.mutations.ts,file]
+        ]
+        [+state
+          [\/choose-size.actions.ts,file]
+          [\/choose-size.effects.spec.ts,file]
+          [\/choose-size.effects.ts,file]
+          [\/choose-size.facade.ts,file]
+          [\/choose-size.init.ts,file]
+          [\/choose-size.reducer.spec.ts,file]
+          [\/choose-size.reducer.ts,file]
+        ]
+        [\/choose-size.interfaces.ts,file]
+        [\/data-access-choose-size.module.spec.ts,file]
+        [\/data-access-choose-size.module.ts,file]
+      ]
+      [\/index.ts,file]
+      [\/test.ts,file]
     ]
-    [graphql
-    ]
-    [+state
-      [\_functions.scss,file]
-    ]
-    [utils
-    ]
-    [styles
-    ]
-    [vendor
-    ]
+    [\/karma.conf.js,file]
+    [\/tsconfig.lib.json,file]
+    [\/tsconfig.spec.json,file]
+    [\/tslint.json,file]
   ]
 \end{forest}
