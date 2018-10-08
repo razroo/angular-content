@@ -12,7 +12,9 @@ as well as service.
 An interface at it's core is responsible for making sure that data follows a
 pre-described schema. The part, however, that is unintuitive in an Angular
 setting, is what happens when you have services, components, state, and spec
-files all vying for the same data.
+files all vying for the same data. Do we use one interface for all of them,
+or different one's for each file group. If we do end up using on interface, one
+sort of data structure is it that we will use for all of these files
 
 \subsubsection{ Interface Architecture - The Dillema }
 As we discussed in the previous paragraph, in an Angular application, there will
@@ -91,4 +93,8 @@ follows:
 \end{forest}
 
 Using this folder/file structure, we can enforce there being a single interface
-used across all files within our app that are using data. 
+used across all files within our app that are using data. This will ensure that
+even though we mock all data within specs, as well as all services being used
+within our components.
+
+\subsection{ Example of How to Use Data Access }
