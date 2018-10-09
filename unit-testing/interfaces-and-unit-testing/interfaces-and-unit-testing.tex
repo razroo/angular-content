@@ -97,4 +97,16 @@ used across all files within our app that are using data. This will ensure that
 even though we mock all data within specs, as well as all services being used
 within our components.
 
-\subsection{ Example of How to Use Data Access }
+\subsection{ Example of How Interface Might Be Used in Real Time }
+Now that we have our folder/file structure in place, we can prove how having a
+singular interface can be used to make sure all of our files are in sync.
+
+\begin{lstlisting}
+export interface GridForm {
+  column: string;
+  row: string;
+  pixelSize: string;
+}
+\end{lstlisting}
+
+\subsubsection{ Service for Pulling in Pre-Populated Grid Form }
