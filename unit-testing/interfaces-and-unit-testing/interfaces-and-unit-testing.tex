@@ -146,7 +146,7 @@ data mocks are up to data as well.
 For simplicity sake within our app, we are going to take the data as is, and
 pass it directly into our store to be used within app:
 \begin{lstlisting}
-export function buyerReducer(
+export function gridFormReducer(
   state: GridForm,
   action: BuyerAction
 ): GridForm {
@@ -162,3 +162,26 @@ export function buyerReducer(
 
 Here we have the interface telling our app that all data within our reducer
 must consist of the three items we have specified in our GridForm interface.
+
+\subsubsection{ Reducer Spec for populating state with appropriate Grid }
+\begin{lstlisting}
+  const gridForm: GridForm = {
+    column: "20";
+    row: "20";
+    pixelSize: "20";
+  };
+
+  describe('gridFormLoaded action', () => {
+    it('should populate the buyer entities and ids', () => {
+      const action = new FormLoaded(gridForm);
+      const state = gridFormReducer(initialState, action);
+
+      expect(state).toEqual(gridForm);
+    });
+  });
+\end{lstlisting}
+
+Here we have a very simply unit test that once again has the same data that is
+used across the app. By having an interface and using it for the data within the
+interface we can make sure that the data for the reducer spec is up to date with
+actual app.
