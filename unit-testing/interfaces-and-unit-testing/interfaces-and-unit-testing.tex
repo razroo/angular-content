@@ -110,3 +110,34 @@ export interface GridForm {
 \end{lstlisting}
 
 \subsubsection{ Service for Pulling in Pre-Populated Grid Form }
+In our service, we will use the interface to determine what sort of data we
+expect to be pulled in.
+
+\begin{lstlisting}
+getGridForm(projectId: string): Observable<GridForm> {
+  const query = GridFormQuery;
+  const variables = {
+    projectId
+  };
+
+  const form$ = this.apollo.query<GridForm>({ query, variables });
+
+  return from(buyers$).pipe(pluck('data'));
+}
+\end{lstlisting}
+
+\subsubsection{ Service Spec for Pulling in Pre-Populated Grid Form }
+In the spec for our service, we will have one consistent piece of data that will
+be used throughout the service spec:
+\begin{lstlisting}
+const gridForm: GridForm = {
+  column: "20";
+  row: "20";
+  pixelSize: "20";
+};
+\end{lstlisting}
+
+Here we are using the interface to make sure that the mocked data used with the
+service stays true to the data that is expected to be returned. If the data
+ever changes in actual app, the interface will be there to make sure our specs
+data mocks are up to data as well. 
