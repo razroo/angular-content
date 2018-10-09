@@ -140,4 +140,25 @@ const gridForm: GridForm = {
 Here we are using the interface to make sure that the mocked data used with the
 service stays true to the data that is expected to be returned. If the data
 ever changes in actual app, the interface will be there to make sure our specs
-data mocks are up to data as well. 
+data mocks are up to data as well.
+
+\subsubsection{ Reducer for populating state with appropriate Grid }
+For simplicity sake within our app, we are going to take the data as is, and
+pass it directly into our store to be used within app:
+\begin{lstlisting}
+export function buyerReducer(
+  state: GridForm,
+  action: BuyerAction
+): GridForm {
+  switch (action.type) {
+    case BuyerTypes.FormLoaded: {
+      return {
+        ...state
+      };
+    }
+  }
+}
+\end{lstlisting}
+
+Here we have the interface telling our app that all data within our reducer
+must consist of the three items we have specified in our GridForm interface.
