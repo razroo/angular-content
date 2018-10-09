@@ -185,3 +185,26 @@ Here we have a very simply unit test that once again has the same data that is
 used across the app. By having an interface and using it for the data within the
 interface we can make sure that the data for the reducer spec is up to date with
 actual app.
+
+\subsubsection{ Effect for populating state with appropriate Grid }
+\begin{lstlisting}
+@Effect()
+loadGridForm$ = this.dataPersistence.fetch(BuyerTypes.LoadGridForm, {
+  run: (action: LoadGridForm, state: GridForm) => {
+    const projectId = this.projectFacade.getProjectIdFromState(state);
+
+    return this.service
+      .getGridForm(action.payload, projectId)
+      .pipe(map((gridForm: GridForm) => new GridFormLoaded(gridForm)));
+  },
+
+  onError: (action: LoadGridForm, error) => {
+    console.error('Error', error);
+  },
+});
+\end{lstlisting}
+
+In our effect, using the facade pattern \footnote{it is calling the effect,
+pulling in data, and then having the appropriate action fired off, for saying
+data is loaded}. In our param for state, the most data heavy part of our effect,
+we are once again using the same interface.
