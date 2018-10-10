@@ -208,3 +208,34 @@ In our effect, using the facade pattern \footnote{it is calling the effect,
 pulling in data, and then having the appropriate action fired off, for saying
 data is loaded}. In our param for state, the most data heavy part of our effect,
 we are once again using the same interface.
+
+\subsubsection{ Effect Spec for populating state with appropriate Grid }
+\begin{lstlisting}
+const gridForm: GridForm = {
+  column: "20";
+  row: "20";
+  pixelSize: "20";
+};
+
+const projectId = '123';
+
+describe('loadBuyers$', () => {
+  beforeEach(() => {
+    spyOn(service, 'getGridForm').and.returnValue(of(gridForm));
+  });
+
+  it('should work', () => {};
+    const action = new LoadBuyers();
+    const completion = new BuyersLoaded(gridForm);
+
+    actions$ = hot('-a', { a: action });
+    const expected$ = cold('-c', { c: completion });
+
+    expect(effects.loadGridForm$).toBeObservable(expected$);
+    expect(service.getGridForm).toHaveBeenCalledWith(projectId);
+  });
+});
+\end{lstlisting}
+
+Here we are once again attaching an interface for gridForm, our data, so that it
+is consistent across our application. 
