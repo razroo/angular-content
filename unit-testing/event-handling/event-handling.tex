@@ -36,3 +36,20 @@ in addition to code}
 
 We have now completely though the power of unit testing, determined whether, or
 not an element is going to show up.
+
+\subsection{ Unit Testing - Determining Text }
+With regards to text, let's say that we want to test the entire component at a
+specific time period, and want to make sure it contains three different words:
+\begin{lstlisting}
+it('should show buyer company names', () => {
+  expect(fixture.nativeElement.innerText).toContain('Apple');
+  expect(fixture.nativeElement.innerText).toContain('Microsoft');
+  expect(fixture.nativeElement.innerText).toContain('Google');
+});
+\end{lstlisting}
+
+Text might seem intuitive. However, there is the option to target text at
+different areas of time, and to make sure what one is looking is the correct
+format at a given time. Doing something like this takes experience to get it
+right. However, assuming you didn't know beforehand, you now know that you have
+the option to target text at a specific time.
