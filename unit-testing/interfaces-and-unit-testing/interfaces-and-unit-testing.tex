@@ -244,4 +244,9 @@ is consistent across our application.
 One might think, since we are using the same data across many parts of our
 application, that within our interface file, we should do two things. One create
 an interface as we are already doing. Second, geenerate mock data, so that we
-can re-use it across our application. 
+can re-use it across our application. My only concern with this approach, is
+that it has the potential to be unintuitive and unweildy. Unintuitive, becase
+why would someone using an Angular project for the first time expect mocked data
+to be in an interface file. Unweildy because what happens when a particular
+subset of data wasn't pulled from the interface file? It can cause data to be
+spattered all over the place.
