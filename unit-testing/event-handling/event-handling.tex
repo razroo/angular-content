@@ -8,3 +8,31 @@ on it. This is something which we can trigger from unit tests, without the need
 to have go through integration testing. In addition, certain areas of our app
 are very sensitive when it comes to text. Focusing on these two alone, allows
 our app's integrity to be head and shoulders above the rest.
+
+\subsection{ Angular's best Utility Testing Suite }
+
+TODO
+
+\subsection{ Unit Testing - Event Handling }
+Going back to our previous example of a filter toggle, let's jump right in and
+see what a filter toggle unit test might look like:
+
+\begin{lstlisting}
+const filterToggle = fixture.nativeElement.querySelector(
+  '.filter-toggle'
+);
+filterToggle.click();
+expect(component.showFilter).toBeTruthy();
+filterToggle.click();
+expect(component.showFilter).toBeFalsy();
+\end{lstlisting}
+
+We are using querySelector to target the first .filter-toggle html class
+(assuming there is only one on the page). Being that our default view is false,
+we are using the component.showFilter to make sure that value is truthy when
+clicked on. Moving on, when clicked on again, we want to make sure that element
+is hidden. \marginpar{consider revision of code, it should target actual element
+in addition to code}
+
+We have now completely though the power of unit testing, determined whether, or
+not an element is going to show up.
