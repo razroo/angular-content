@@ -26,6 +26,13 @@ be responsible for pulling data from our store, using the getGridForm selector
 already specified else where. If we were to pull in this facade as is, it would
 end up actually pulling data from the server while doing unit tests! That would
 be a cardinal sin.
+\begin{verbatim}
+<form>
+<div>{{ (gridForm | async).row }}</div>
+<div>{{ (gridForm | async).column }}</div>
+<div>{{ (gridForm | async).size }}</div>
+</form
+\end{verbatim}
 
 \subsection{ Mocking Providers Within Unit Test - A Primer }
 In out unit test in order to mock the above Observable gridForm\$ stream, we
@@ -49,4 +56,4 @@ providers: [
 ],
 \end{lstlisting}
 
-In this very simple scenario, we have just made it so
+In this very simple scenario, we have just made it so that the data retur
