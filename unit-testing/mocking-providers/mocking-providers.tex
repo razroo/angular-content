@@ -18,7 +18,7 @@ regards to mocking providers. In our Angular - The Full Gamut architecture, we
 have a facade which is always going to be responsible for bridging the data
 retrieved by our service, with our component:
 \begin{lstlisting}
-buyers$: Observable<GridForm[]> = this.store.pipe(select(getGridForm));
+gridForm$: Observable<GridForm[]> = this.store.pipe(select(getGridForm));
 \end{lstlisting}
 
 The above ^ is an example snippet of our getGridForm.facade.ts file, that will
@@ -27,4 +27,26 @@ already specified else where. If we were to pull in this facade as is, it would
 end up actually pulling data from the server while doing unit tests! That would
 be a cardinal sin.
 
-\subsubsection{ Mocking Providers Within Unit Test - A Primer }
+\subsection{ Mocking Providers Within Unit Test - A Primer }
+In out unit test in order to mock the above Observable gridForm\$ stream, we
+would do the following:
+\begin{lstlisting}
+generateMockGridForm(): GridForm {
+  return {
+    row: '20',
+    column: '20',
+    size: '20',
+  }
+}
+
+providers: [
+  {
+    provide: GridFormFacade,
+    useValue: {
+      gridForm$: of(generateMockGridForm()),
+    },
+  },
+],
+\end{lstlisting}
+
+In this very simple scenario, we have just made it so
