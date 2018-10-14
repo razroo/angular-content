@@ -5,16 +5,16 @@ are using, with actual data used within app's actual live UI. The easiest, and
 most efficient way of doing this is creating interfaces. The part where it
 becomes tricky, is that generally data is used in multiple places. For instance,
 we might have state that is contained in a separate component, wherein the data
-originates from. In addition, the data might also be used in some other component
-as well as service.
+originates from can be somewhere else. In addition, the data might also be used
+in some other component as well as in some other service.
 
 \subsection{ In Sync Data - Interface Architecture }
 An interface at it's core is responsible for making sure that data follows a
 pre-described schema. The part, however, that is unintuitive in an Angular
 setting, is what happens when you have services, components, state, and spec
 files all vying for the same data. Do we use one interface for all of them,
-or different one's for each file group. If we do end up using on interface, one
-sort of data structure is it that we will use for all of these files
+or different one's for each file group? If we do end up using one interface,
+what sort of data structure is it that we will use for all of these files.
 
 \subsubsection{ Interface Architecture - The Dillema }
 As we discussed in the previous paragraph, in an Angular application, there will
@@ -47,40 +47,43 @@ for the root of the following files:
   \item State[includes spec files]
   \item GraphQL(Interfaces not used, but influenced by, and therefore important
   to be in the same directory)
-  \item Module(Interface not used for)
+  \item Component(Not in same folder as above)
 \end{enumerate}
 
 This, however, requires that all the files be tightly coupled together. In order
-to do this, we must create a folder/file structure.
+to do this, we must create a well thought out folder/file structure. This is
+what we will be calling Data Access architecture.
 
 \subsection{ Data Access - Folder Structure }
-Let's say we are creating an Overview page. The data structure will look as
-follows:
+Let's say we are creating an grid-form component, that will make use of backend
+data. The data structure will look as follows:
+
 \begin{forest}
-  [overview
+  [grid-form
     [src
       [lib
         [services
-          [\/choose-size.service.ts,file]
-          [\/choose-size.service.spec.ts,file]
+          [\/grid-form.service.ts,file]
+          [\/grid-form.service.spec.ts,file]
         ]
         [graphql
-          [\/choose-size.fragments.ts,file]
-          [\/choose-size.queries.spec.ts,file]
-          [\/choose-size.mutations.ts,file]
+          [\/grid-form.fragments.ts,file]
+          [\/grid-form.queries.spec.ts,file]
+          [\/grid-form.mutations.ts,file]
         ]
         [+state
-          [\/choose-size.actions.ts,file]
-          [\/choose-size.effects.spec.ts,file]
-          [\/choose-size.effects.ts,file]
-          [\/choose-size.facade.ts,file]
-          [\/choose-size.init.ts,file]
-          [\/choose-size.reducer.spec.ts,file]
-          [\/choose-size.reducer.ts,file]
+          [\/grid-form.actions.ts,file]
+          [\/grid-form.effects.spec.ts,file]
+          [\/grid-form.effects.ts,file]
+          [\/grid-form.facade.ts,file]
+          [\/grid-form.init.ts,file]
+          [\/grid-form.reducer.spec.ts,file]
+          [\/grid-form.reducer.ts,file]
         ]
-        [\/choose-size.interfaces.ts,file]
-        [\/data-access-choose-size.module.spec.ts,file]
-        [\/data-access-choose-size.module.ts,file]
+        [\/grid-form.interfaces.ts,file]
+        [\/grid-form.mock.ts,file]
+        [\/data-access-grid-form.module.spec.ts,file]
+        [\/data-access-grid-form.module.ts,file]
       ]
       [\/index.ts,file]
       [\/test.ts,file]
@@ -93,9 +96,7 @@ follows:
 \end{forest}
 
 Using this folder/file structure, we can enforce there being a single interface
-used across all files within our app that are using data. This will ensure that
-even though we mock all data within specs, as well as all services being used
-within our components.
+used across all files within our app that are using data.
 
 \subsection{ Example of How Interface Might Be Used in Real Time }
 Now that we have our folder/file structure in place, we can prove how having a
@@ -106,6 +107,19 @@ export interface GridForm {
   column: string;
   row: string;
   pixelSize: string;
+}
+\end{lstlisting}
+
+\subsection{ Example of How Data Mock Will Look Like }
+In addition to our interface, we will have mocked data that will be used in a
+number of different instances. It makes sense to have data in a mock.ts file
+so that it can be re-used throughout app, without having to re-create.
+
+\begin{lstlisting}
+cost GridForm = {
+  column: '20';
+  row: '20';
+  pixelSize: '20';
 }
 \end{lstlisting}
 
@@ -165,12 +179,6 @@ must consist of the three items we have specified in our GridForm interface.
 
 \subsubsection{ Reducer Spec for populating state with appropriate Grid }
 \begin{lstlisting}
-  const gridForm: GridForm = {
-    column: "20";
-    row: "20";
-    pixelSize: "20";
-  };
-
   describe('gridFormLoaded action', () => {
     it('should populate the buyer entities and ids', () => {
       const action = new FormLoaded(gridForm);
@@ -211,12 +219,6 @@ we are once again using the same interface.
 
 \subsubsection{ Effect Spec for populating state with appropriate Grid }
 \begin{lstlisting}
-const gridForm: GridForm = {
-  column: "20";
-  row: "20";
-  pixelSize: "20";
-};
-
 const projectId = '123';
 
 describe('loadBuyers$', () => {
@@ -239,14 +241,3 @@ describe('loadBuyers$', () => {
 
 Here we are once again attaching an interface for gridForm, our data, so that it
 is consistent across our application.
-
-\subsubsection{Wrapping Up}
-One might think, since we are using the same data across many parts of our
-application, that within our interface file, we should do two things. One, create
-an interface as we are already doing. Second, generate mock data, so that we
-can re-use it across our application. My only concern with this approach, is
-that it has the potential to be unintuitive and unweildy. Unintuitive, because
-why would someone using an Angular project for the first time expect mocked data
-to be in an interface file. Unweildy, because what happens when a particular
-subset of data wasn't pulled from the interface file? It can cause data to be
-spattered all over the place.
