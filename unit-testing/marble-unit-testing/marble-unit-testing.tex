@@ -18,5 +18,49 @@ keeps in mind the following:
   after a specific set of time.
   \item An observable is always observing until actually complete
   \item It can emit a number of different things at the same time, or at
-  completely different times. 
+  completely different times.
 \end{enumerate}
+
+\subsection{ Great Example }
+Let's imagine that we get back a specific set of data as an observable. However,
+within that set of data, we only want ids. Backend is tied, and they do not have
+the capacity to give us a pre-poulated set of data for id. Our code will look
+something like this:
+\begin{lstlisting}
+buyerIds$: Observable<string[]> = this.users$.pipe(
+  map(users => {
+    return users
+      .map(user => {
+        return user.id;
+      })
+  })
+);
+\end{lstlisting}
+
+\subsubsection{Creating a unit test}
+In our unit test, we would like to make sure that when we pass a set of data,
+id's are indeed being extracted and returning a new array. We can do something
+as follows using marble tests:
+
+\begin{lstlisting
+const buyersMock: Buyer[] = [
+  {
+    id: '123',
+    name: 'Charlie',
+  },
+  {
+    id: '246',
+    name: 'Lisa',
+  },
+  {
+    id: '369',
+    name: 'Harley',
+  },
+];
+
+it('should return buyer data for tier', () => {
+  const expected$ = hot('(c|)', { c: ['123', '246', '369'] });
+
+  expect(component.buyerTiers$).toBeObservable(expected$);
+});
+\end{lstlisting}
