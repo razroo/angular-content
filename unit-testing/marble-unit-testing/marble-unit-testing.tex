@@ -11,3 +11,12 @@ Observable as a stream contains more than one snippet of data in it's entire
 lifecycle.
 
 \subsection{ Marble Unit Testing - A Primer }
+Marble unit testing is a very efficient way of unit testing observables. It
+keeps in mind the following:
+\begin{enumerate}
+  \item Recognizing that an observable stream can emit any number of values
+  after a specific set of time.
+  \item An observable is always observing until actually complete
+  \item It can emit a number of different things at the same time, or at
+  completely different times. 
+\end{enumerate}
