@@ -64,3 +64,14 @@ it('should return buyer data for tier', () => {
   expect(component.buyerTiers$).toBeObservable(expected$);
 });
 \end{lstlisting}
+
+In this unit test, we expect our function to return.
+\begin{verbatim}
+  ['123', '246', '369']
+\end{verbatim}
+
+As we are unit testing against an observable, we can potentially use subscribe,
+to emit the value of the component function we are testing. However, this can
+get a bit cumbersome, as it's a bit of code, and throwing subscribes into a unit
+test can go curious places. In our marble unit test, we can simply say that we
+have a hot observable that contains x amount of values.
