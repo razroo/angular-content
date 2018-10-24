@@ -1,4 +1,16 @@
 \maketitle{}
 \section{ Apollo Client Middleware }
 
-Middleware in general is a concept.
+Middleware in general is a concept in many different plugins. In general, it
+means a service layer one can put on top of application in question. In
+particular, for an Apollo application, it will allow us to intercept the
+current request, and put in whatever we want.
+
+\subsection{ Middleware as Architecture }
+Middleware can be considered architecture, because some plugins may not support
+middleware. In addition, even if they do support middleware, it might not be so
+apparent from documentation how one might go ahead and do so. So much so to the
+extent, that it will considerably slow down development, and a conversation will
+have to be had if research is worth it.
+
+\subsection{ Middleware in Apollo }
