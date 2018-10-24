@@ -14,3 +14,17 @@ extent, that it will considerably slow down development, and a conversation will
 have to be had if research is worth it.
 
 \subsection{ Middleware in Apollo }
+Apollo has a number of quirks with regards to it's middleware. For now, it adds
+typename to every query request. This can cause issues when it comes to unit
+testing. Let's create middleware to remove typename from the app:
+\begin{lstlisting}
+const stripTypenameMiddleware = new ApolloLink((operation, forward) => {
+  if (operation.variables) {
+    operation.variables = omitDeep(operation.variables, '__typename');
+  }
+
+  return forward(operation);
+});
+\end{lstlisting}
+
+Here we are stripping typename from the application. 
