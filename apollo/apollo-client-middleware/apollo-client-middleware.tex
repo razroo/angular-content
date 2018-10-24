@@ -27,4 +27,27 @@ const stripTypenameMiddleware = new ApolloLink((operation, forward) => {
 });
 \end{lstlisting}
 
-Here we are stripping typename from the application. 
+Here we are stripping typename from the application.
+
+\subsection{ Adding projectId to Requests }
+
+Using middleware, we have the option to add a projectId to our requests. Let's
+say that we need the data coming back to be specific to a certain project.
+Instead of having to inject that on a request per request basis, we would like
+to go ahead and have apollo inject projectId as one of the query requests.
+\begin{lstlisting}
+const attachProjectIdentifiers = new ApolloLink((operation, forward) => {
+  combineLatest(
+    this.projectFacade.projectId$
+  )
+    .pipe(first())
+    .subscribe(([projectId]) => {
+      operation.variables = {
+        ...operation.variables,
+        projectId: projectId,
+      };
+    });
+
+  return forward(operation);
+});
+\end{lstlisting}
