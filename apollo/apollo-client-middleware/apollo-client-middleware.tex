@@ -51,3 +51,6 @@ const attachProjectIdentifiers = new ApolloLink((operation, forward) => {
   return forward(operation);
 });
 \end{lstlisting}
+
+In this fashion, one can eliminate clutter from apollo requests. In addition,
+one can alter apollo to have specific items in the response if need be. 
