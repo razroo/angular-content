@@ -1,0 +1,30 @@
+\section{ Pipes }
+\maketitle{}
+
+Angular offers the ability to use Pipes out of the box. The idea behind a pipe
+is to get data, transform it, and show new transformed data to users. Pipes are
+something that I am going to assume the reader is already familiar with. Just as
+a primer, using the native angular date pipe, a pipe would do something such
+as the following:
+\begin{lstlisting}
+The chained hero's birthday is
+{{ birthday | date | uppercase}}
+\end{lstlisting}
+
+This would display
+\begin{verbatim}
+FRIDAY, APRIL 15, 1988
+\end{verbatim}
+
+The pipe here is taking in the timestamp of
+\begin{verbatim}
+  577065600
+\end{verbatim}
+and converting it to the proper date. Having such dates in one's application
+obviously makes it very easy to go ahead and transform data throughout one's
+app. Here we are also chaining pipes, so that the transformed data that comes
+back in addition to being transformed, is also capitalized.
+
+\section{ Performance Considerations }
+It is important off the cuff to be aware of some performance concerns when it
+comes to pipes.
