@@ -15,4 +15,19 @@ purposes:
 \end{enumerate}
 
 The above is the base role of a service. It is what is a result of the common
-sense principle of DRY. 
+sense principle of DRY.
+
+\subsection{ Where Services Get Complicated }
+At this point, services start to get complicated. The following is a great
+example. Let's say we have an overview page. Any logic on the overview page is
+going to be unique to the overview page, as it's logic is unique. So we create
+service that is unique for the overview page. Now that isn't neccesarily dry is
+it? I mean, the component could have very much so done what the service is doing.
+In addition, when it comes to unit testing, it probably would be easier to keep
+it all within the component.
+
+There are other dillemas, such as what happens when we are using a service to
+fetch data. What about a service that is used for graphics? What about a
+service that we use for handling errors? They end up becoming abstracted to the
+point, where it is very much so more beyond being DRY. It is pure logic, that
+is really independent of any component. It beckons a more proper definition.
