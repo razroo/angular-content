@@ -34,3 +34,25 @@ by one, the parts of the application that have similar architecture with regards
 to overrides.
 
 \subsubsection{ Colors }
+Material design has the ability to be overriden in a sass file. It is important
+to note, that the material theme allows for overrides using Sass Variables. So,
+one would do something like this:
+\begin{lstlisting}
+@import 'src/styles/themes/blue-orange';
+@import 'src/styles/material-overrides/material-overrides';
+\end{lstlisting}
+
+Doing something like the following:
+\begin{lstlisting}
+$gray-50: #fafafa;
+$gray-200: #dbe1ea;
+$gray-300: #e0e0e0;
+$gray-400: #cccccc;
+$gray-500: #bdbdbd;
+$gray-600: #9b9b9b;
+$gray-700: #757575;
+$gray-800: #444444;
+$gray-900: #212121;
+\end{lstlisting}
+
+Now the colors you have are specific to your app.
