@@ -4,5 +4,23 @@
 Change detection is one of the found principles behind Angular. It is a large
 part of what makes the frmaework what it is. Of course, understanding the
 minute details of Angular's change detection, can very such help us understand
-all other parts of the framework. In addition, help us increatse boosts when it
-comes to performance. 
+all other parts of the framework. In addition, help us increase boosts when it
+comes to performance.
+
+Without a frameowork in place, we would change a particular piece of text
+using Javascript. For instance, let's say we have a promise which returns data,
+with that new data, we would do something like the following:
+
+\begin{lstlisting}
+yellowBoxText = newData;
+\end{lstlisting}
+
+In a framework, doing something like this isn't neccesary and one has the option
+to go lean into the framework to this for you. As you are mostly likely a UI
+Engineer familiar with Angular, I won't bore you with the details. However, here
+is a quick primer:
+\begin{lstlisting}
+<!-- In our html file -->
+{{ newData.name}}
+// In our Typescript file 
+\end{lstlisting}
