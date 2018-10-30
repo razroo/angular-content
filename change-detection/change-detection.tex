@@ -41,4 +41,10 @@ change detection in Angular is top down. If a parent component is changed, then
 all child components will be re-rendered.
 
 In addition, in angular, there is the ability to emit data. Even if a component
-is a parent component, it will still accordingly be updated.
+is a parent component, it will still be updated accordingly.
+
+\subsubsection{ Sibling Components under Same Parent Component }
+Sibling components under the same parent component will not update unless they
+both feed from the same component. Keeping change detection at this level
+from an architectural perspective is really all you need. To be read up more
+on change detection, feel free to look here: [Todo].
