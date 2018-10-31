@@ -30,8 +30,10 @@ It is important off the cuff to be aware of some performance concerns when it
 comes to pipes.
 
 \subsubsection{ Understanding Angulars Change Detection }
-This is a good time to interject and get into the nitty gritty of angulars
+This is a good time to interject and get into the nitty gritty of angular's
 change detection. As we discussed in the earlier chapter on change-detection,
 change detection in Angular works from the top down. That is, if a specific set
 of data changes within a component, then the entire component will update as a
-result of new data.  
+result of new data. Angular pipes, however, change how that it is done, by
+changing content directly on the object, and only updating that one specific
+part. By using pipes, it allows one's component to be more performant. 
