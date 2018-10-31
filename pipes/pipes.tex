@@ -36,4 +36,16 @@ change detection in Angular works from the top down. That is, if a specific set
 of data changes within a component, then the entire component will update as a
 result of new data. Angular pipes, however, change how that it is done, by
 changing content directly on the object, and only updating that one specific
-part. By using pipes, it allows one's component to be more performant. 
+part. By using pipes, it allows one's component to be more performant.
+
+\subsection{ When to Use Pipes }
+Pipes cover alot of ground. Within our architecture, one of the pipes that will
+be used more so that others in the async pipe. However, now is not the place
+to put that here. What is important, is that pipes can be used transform data.
+Should they always be used whenever one is transforming data? Personally,
+I like to think of pipes as unique to html. They have a way of dealing of
+performance when working with html templates. However, within a component
+itself it is questionable. Here's a great example of what I mean:
+\begin{lstlisting}
+
+\end{lstlisting}
