@@ -45,7 +45,11 @@ to put that here. What is important, is that pipes can be used transform data.
 Should they always be used whenever one is transforming data? Personally,
 I like to think of pipes as unique to html. They have a way of dealing of
 performance when working with html templates. However, within a component
-itself it is questionable. Here's a great example of what I mean:
-\begin{lstlisting}
+itself it is questionable. To be honest this can go either way. However, from a
+maintainability perspective, whenever data is being transformed, it should be
+turned into a pipe, instead of a service. That would be the simple rule.
 
-\end{lstlisting}
+In addition, there are impure pipes that one can potentially do, which ususally
+has little to do with transforming data. Once again the async pipe is something
+that would register along these lines. However, I have not seen the need to
+create an impure pipe with the architecture given. 
