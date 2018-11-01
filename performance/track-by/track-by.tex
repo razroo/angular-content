@@ -11,16 +11,27 @@ course can lead to performance issues.
 \subsection{ Using Track By in Angular }
 Using *ngFors in Angular is actually quite common. I'm sure many of us listen
 to music. I cannot think of one application that doesn't use a data table of
-some sort when it comes to displaying the music you are listening to.
+some sort when it comes to displaying the music you are listening to. Suffice
+to say, an ngFor that parses through alot of data, as well as optimizing it for
+performance reasons, is very important.
 
-TrackBy is actually not about tracking changes to a particular element in a set.
+\subsubsection{ What Track By Actually Does }
+
 What trackBy does is check the set as a whole for order changes (sorting,
 insertion, deletion). When the order changes, instead of removing all elements
 from the DOM and creating new ones, the trackBy function is used to identify
 which elements do not need to be removed from the DOM. This reduces the number
 of DOM calls, and also reduces the number of angular digest cycles.
 
-By default, if a trackBy function is not given, Material Table will deeply
-compare the elements in the set. So a trackBy function is really used to reduce
-the amount of checks necessary to compare elements in a set. Instead of a deep
-copy, you can check for a single unique property.
+\mybox{
+It is important to distinguish and clarify, once again, TrackBy is not about
+tracking changes to a particular element in a set. It is about tracking an order
+change.
+}
+
+\subsubsection{ Track By Within Data Tables }
+Specifically, within our architecture, we call for using Material. By default,
+if a trackBy function is not given, Material Table will deeply compare the
+elements in the set. So a trackBy function is really used to reduce the amount
+of checks necessary to compare elements in a set. Instead of a deep copy, you
+can check for a single unique property.
