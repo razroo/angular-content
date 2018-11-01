@@ -39,4 +39,11 @@ Services fill any gaps left by any other part of any application. In a perfect
 world, services will solely interact with data, and should be doing so 80\% of
 the time. The other time, should relate to how the data comes back. The question
 then is, what about the other 20\% of the time. At this point, it's important
-to go through other areas of Angular. 
+to go through other areas of Angular.
+
+\subsubsection{ Transforming Data }
+If you ever decide to transform data, a pipe should be used and not a service.
+\subsubsection{ Interacting with View }
+Services are always going to be used to retrieve data for the app. However,
+if there is data that will be needed to be used within actual DOM, then a
+facade should be used for that.  
