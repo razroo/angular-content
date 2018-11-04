@@ -6,5 +6,24 @@ components and directives can seem a bit superfluous. They both seem to do the
 same thing. However, in summary, the following is a very clear cut definition
 between directives and components.
 \mybox{
- A @Component requires a DOM whereas a @Directive does not 
+ A @Component requires a DOM whereas a @Directive does not
+}
+
+\subsection{ What Definition Translates To }
+What this definition translates to is that if there is something that translates
+as a piece of functionality that you woul consider as an add-on, make that a
+directive. Something that would be considered as it's own self contained UI
+element, it should be considered as a component.
+
+\subsubsection{A Great Example}
+A great example of this, is adding drag and drop functionality to a component.
+That in it's self is not component worthy. However, adding a dropzone directive
+to the element, would make any potential component drag and droppable worthy.
+A great example of a component, would be a data table. A large part of it's
+functionality is strickly tied to actual UI element.
+
+\mybox{
+  A side note with regards to our architecture, directives will very be used. If
+  you find yourself writing, with what feels like too many components, don't
+  worry, it's too be expected.
 }
