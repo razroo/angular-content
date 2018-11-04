@@ -35,3 +35,14 @@ if a trackBy function is not given, Material Table will deeply compare the
 elements in the set. So, a trackBy function is really used to reduce the amount
 of checks necessary to compare elements in a set. Instead of a deep copy, you
 can check for a single unique property.
+
+\subsection{ Track By in Practice }
+\begin{lstlisting}
+  <mat-table
+  [trackBy]="trackByBuyerId">
+  <mat-table/>
+\end{lstlisting}
+
+By doing the above, track by will in a material setting will make sure that
+objects in the data table are not deeply compared, comparing objects directly to
+each other. 
