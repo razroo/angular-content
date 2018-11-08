@@ -7,4 +7,37 @@ data-access are using the same data schema. However, within the interface, we
 have the option to use either an optional, real value. The question is, do we
 want to turn the interface into a real representation of the data in the real
 world, or do we want to turn all parts of the data as neccesary? The value in
-having all parts of the interface as neccesary is that it will 
+having all parts of the interface as neccesary, is that it will force the mock
+to include all values. However, on the flip side, if we test all services within
+out graphql application, it will complain the fragments do not match. However,
+having the interfaces directly complain as a result of the data of the mock
+not matching is ideal.
+
+\subsection{Solution to the Above Dillema}
+In Typescript there is the option to use:
+\begin{verbatim}
+<Partial>
+\end{verbatim}
+Partial will treat an interface that will require every data type, as if
+all values are optional.
+
+\subsection{Where We Might Want a Partial}
+So that being said, within our data-access architecture we have:
+\begin{enumerate}
+  \item GraphQL
+  \item Models
+  \item Service/Facade
+  \item State
+\end{enumerate}
+
+Our actual services, facades, and state can take full interface without an
+issue. They are retrieving data from the back end. In addition, in our mocks.ts
+file, we want to include the interface fully, to make sure that all potential
+data is included in mock. The mock for the most part is going to be used across
+the spec for services and effects.
+
+\subsection{Word to the Wise}
+Ideally interfaces should be a direct one to one correlation between GraphQL
+queries within app. If any of these items are used, it should be updated, and
+appropriately updated in the interface. It makes considerable sense to create a
+tool around this.
