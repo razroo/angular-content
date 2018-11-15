@@ -97,6 +97,42 @@ data. The data structure will look as follows:
 ]
 \end{forest}
 
+The expectation is that there will also be a sister folder/file structure
+for these three in particular(data-graphql, data-models, data-services). In the
+appropriate feature, it will have a state feature, which will have the same
+name as the respective data-access architecture.
+
+\begin{forest}
+[user
+  [src
+    [lib
+      [user
+        [\/user.component.html,file]
+        [\/user.component.scss,file]
+        [\/user.component.spec.ts,file]
+        [\/user.component.ts,file]
+      ]
+      [+state
+        [\/user.action.ts,file]
+        [\/user.adapter.ts,file]
+        [\/user.effects.spec.ts,file]
+        [\/user.effects.ts,file]
+        [\/user.facade.spec.ts,file]
+        [\/user.facade.ts,file]
+        [\/user.reducer.ts,file]
+        [\/user.selectors.ts,file]
+      ]
+    ]
+    [\/karma.conf.js,file]
+    [\/tsconfig.lib.json,file]
+    [\/tsconfig.spec.json,file]
+    [\/tslint.json,file]
+  ]
+  [\/index.ts,file]
+  [\/test.ts,file]
+]
+\end{forest}
+
 Using this folder/file structure, we can enforce there being a single interface
 used across all files within our app that are using data.
 
