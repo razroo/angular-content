@@ -59,40 +59,42 @@ Let's say we are creating an grid-form component, that will make use of backend
 data. The data structure will look as follows:
 
 \begin{forest}
-  [grid-form
+[app-name-goes-here
+  [data-graphql
     [src
       [lib
-        [services
-          [\/grid-form.service.ts,file]
-          [\/grid-form.service.spec.ts,file]
+        [fragments
+          [\/*.fragments.ts,file]
         ]
-        [graphql
-          [\/grid-form.fragments.ts,file]
-          [\/grid-form.queries.spec.ts,file]
-          [\/grid-form.mutations.ts,file]
+        [queries
+          [\/*.queries.ts,file]
         ]
-        [+state
-          [\/grid-form.actions.ts,file]
-          [\/grid-form.effects.spec.ts,file]
-          [\/grid-form.effects.ts,file]
-          [\/grid-form.facade.ts,file]
-          [\/grid-form.init.ts,file]
-          [\/grid-form.reducer.spec.ts,file]
-          [\/grid-form.reducer.ts,file]
+        [mutations
+          [\/*.mutations.ts,file]
         ]
-        [\/grid-form.interfaces.ts,file]
-        [\/grid-form.mocks.ts,file]
-        [\/data-access-grid-form.module.spec.ts,file]
-        [\/data-access-grid-form.module.ts,file]
       ]
       [\/index.ts,file]
-      [\/test.ts,file]
     ]
-    [\/karma.conf.js,file]
-    [\/tsconfig.lib.json,file]
-    [\/tsconfig.spec.json,file]
-    [\/tslint.json,file]
   ]
+  [data-models
+    [src
+      [lib
+        [\/*.interfaces.ts,file]
+        [\/*.mocks.ts,file]
+      ]
+      [\/index.ts,file]
+    ]
+  ]
+  [data-services
+    [src
+      [lib
+        [\/*.service.ts,file]
+        [\/*.service.spec.ts,file]
+      ]
+      [\/index.ts,file]
+    ]
+  ]
+]
 \end{forest}
 
 Using this folder/file structure, we can enforce there being a single interface
