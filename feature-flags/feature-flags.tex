@@ -6,3 +6,13 @@ that a feature can be hidden, disabled, change code flow \footnote{Changing code
 or have routing being prevented from going to component.
 
 \subsection{ Why are Feature Flags Important? }
+Feature flags are important, because they can allow the UI Engineering team to
+work independently from the back end and Automation/QA engineering. Some sample
+situations to illustrate this point:
+
+\mybox{ Product asks for a new cc + bcc field to be added to the email client.
+We do not have the backend available yet, but would like to integrate it with the
+backend at a later date it is ready. Sure, we can put the UI on hold until back
+end is ready. However, what we can do, is test and hide ahead of time from the
+UI side of things. We can then hide the feature and integrate with backend
+when the time is right. }
