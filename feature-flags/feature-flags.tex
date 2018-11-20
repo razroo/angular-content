@@ -10,9 +10,27 @@ Feature flags are important, because they can allow the UI Engineering team to
 work independently from the back end and Automation/QA engineering. Some sample
 situations to illustrate this point:
 
-\mybox{ Product asks for a new cc + bcc field to be added to the email client.
+\mybox{Product asks for a new cc + bcc field to be added to the email client.
 We do not have the backend available yet, but would like to integrate it with the
 backend at a later date it is ready. Sure, we can put the UI on hold until back
 end is ready. However, what we can do, is test and hide ahead of time from the
 UI side of things. We can then hide the feature and integrate with backend
-when the time is right. }
+when the time is right.}
+
+\mybox{Another great example might be if this is a feature we only want to
+introduce to certain members. In addition, we might have admins within our app.
+These users when they log in, are given the option to go to the admin interface.
+Those who are not admins, are not allowed to see it. A feature flag might be
+something else that would be great.}
+
+\mybox{Another use case of when a feature flag might be useful is if we have a
+new feature that we only want to show to our closest clients and see what they
+think about it, and give them the chance to sample it first. A feature flag
+would something incredibly useful in this situation as well.}
+
+\mybox{Let's say there are features that haven't been QA'd yet, and they are
+holding back new features that are ready from making their way to stage. This
+feature can have a flag put on it, so that it only works for dev and not stage.
+That way, QA can test it, and when it is ready to go, we can go ahead and
+remove the feature flag. This would stop it from inhibiting stage from having
+the push being made. } 
