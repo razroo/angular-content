@@ -8,4 +8,13 @@ therefore deals with the importance of having configs available within app. In
 addition, the importance of having a config within app.}
 
 With the mono repo architecture we are using, let's assume that our code is
-going into the \appNameKebabCase{} folder.
+going into the \appNameKebabCase{} folder. It will be in the common folder,
+wherein there will be a configs folder. Something like this:
+
+\begin{forest}
+  [\appNameKebabCase{}
+    [common
+      [configs]
+    ]
+  ]
+\end{forest}
