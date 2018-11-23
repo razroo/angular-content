@@ -2,10 +2,12 @@
 \section{ Creating a Config }
 
 \textit{ Note: Creating your own config for the most part is not ideal. Ideally,
-configs should be altered in the backend and pulled in as an api. However, many
-apps will experience iteration, even in larger enterprises. This chapter
-therefore deals with the importance of having configs available within app. In
-addition, the importance of having a config within app.}
+configs should be altered in the backend and pulled in as an api. It should be
+noted, that any config has the potential of being exposed on the front end,
+therefore making front end config unsafe. However, many apps will experience
+iteration, even in larger enterprises. This chapter therefore deals with the
+importance of having configs available within app. In addition, the importance
+of having a config within app.}
 
 \subsection{ Use Case for Creating a Config }
 Just for clarity sake, I would like to present why one would want to create
@@ -16,8 +18,17 @@ example of a great config file, which allows us to determine which values to
 use on the front end, based on environment. Another couple of situations where
 a config file might make sense is:
 \begin{itemize}
-  \item 
+  \item Feature Flags
+  \item Api Server Rules
+  \item App Insights Key
+  \item OAuth
 \end{itemize}
+
+Technically, these can all be broken into a singular config. It would be a giant
+environment file. However, it would be cleaner to break these into smaller
+pieces, that give different values based on the central environment file.
+
+\subsection{ How to Setup a Config File for App. }
 
 With the mono repo architecture we are using, let's assume that our code is
 going into the \appNameKebabCase{} folder. It will be in the common folder,
