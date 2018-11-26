@@ -66,3 +66,11 @@ It is then important at this point to create a service, that will take it the
 appropriate config file, based on the appropriate envrionment.
 
 \lstinputlisting[language=JavaScript]{./configs/creating-a-config/app-config.service.ts}
+
+\subsubsection{ Load Files Prior to App Creation }
+Angular provides a token called APP\_INITIALIZER, which will allow for our
+application to execute once application is finished.
+
+\lstinputlisting[language=JavaScript]{./configs/creating-a-config/app.module.ts}
+
+We now have the option to use this config anywhere we want throughout the app. 
