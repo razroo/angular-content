@@ -43,4 +43,20 @@ wherein there will be a configs folder. Something like this:
 \end{forest}
 
 \subsubsection{ How to Setup a Config File for App. }
-We are going to want to create a interface for our config.
+As config files, are giant data globs, we are going to want to create an
+interface for them. The actual config files will go in our config file. So let's
+say we want to create a config specifically for OAuth, we would create a config
+folder called oauth-config, with the following files:
+\begin{forest}
+  [\appNameKebabCase{}
+    [common
+      [configs
+        [oauth-config
+          [\/oauth-config.deploy.json,file]
+          [\/oauth-config.dev.json,file]
+          [\/oauth-config.interface.ts,file]
+        ]
+      ]
+    ]
+  ]
+\end{forest}
