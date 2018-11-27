@@ -7,7 +7,11 @@ language. In short, it allowed for objects(containing whatever you can think of)
 , to be inherited by other prototypes. Thereby, allowing one to use classes in
 Javascript without explicitly using classes.
 
-[TODO discuss more about prototypes here]
+When it comes to inheritance, JavaScript only has one construct: objects.
+Each object has an internal link to another object called its prototype. That
+prototype object has a prototype of its own, and so on until an object is
+reached with null as its prototype. null, by definition, has no prototype, and
+acts as the final link in this prototype chain.
 
 \subsection{ Extending Classes }
 In Typescript land, we have the ability to use a class to extend a parent class.
@@ -18,3 +22,9 @@ A classic example of this is let's say we have the following parent component:
 If we were to try and inherit it, using the following child component:
 
 \lstinputlisting{./typescript/component-inheritance/child.component.ts}
+
+We would unfortunately have to pass all parent providers into the child
+component to extend it.
+
+\subsection{ Creating a Class to Store Injector }
+What we can do, is create a class to store our store injector. 
