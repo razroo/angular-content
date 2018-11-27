@@ -27,4 +27,8 @@ We would unfortunately have to pass all parent providers into the child
 component to extend it.
 
 \subsection{ Creating a Class to Store Injector }
-What we can do, is create a class to store our store injector. 
+What we can do, is create a class to store our store injector. For instance:
+\lstinputlisting{./typescript/component-inheritance/app-injector.service.ts}
+
+We are then able to inject this into the AppInjector:
+\lstinputlisting{./typescript/component-inheritance/main.ts}
