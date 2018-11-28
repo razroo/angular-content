@@ -5,4 +5,17 @@ Authorization is a corner stone of any project. Many Greenfield projects will
 not have the ability to implement authorization right away, as backend will not
 have the capacity to do so. However, one of the cool things about authorization
 is that one has the ability to set it up ahead of time. When data from the
-backend comes in, the authroization service and directives will be ready to do.
+backend comes in, the authorization service and directives will be ready to do.
+
+TODO section on creating a centralized service goes here.
+
+\subsection{Creating directives for our service}
+As an example, let's say that we have html that we want to disable, or hide. We
+can do the following:
+\lstinputlisting{./authorization/component.html}
+
+One is then going to want to create two different directives. One for disabling
+if unauthorized:
+\lstinputlisting{./authorization/disable-if-unauthorized.directive.ts}
+and another for hiding if unauthorized:
+\lstinputlisting{./authorization/hide-if-unauthorized.directive.ts}
