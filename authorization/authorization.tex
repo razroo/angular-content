@@ -26,3 +26,9 @@ guard. For reference on guards, please refer to the chapter on guards.
 
 TODO - Go more into depth on what this guard is doing.
 \lstinputlisting{./authorization/auth-guard.service.ts}
+
+\subsection{Service Can Be Called Anywhere}
+We have the option to call the auth service anywhere in the app that we want to,
+in addition to using directives and the guard. For instance:
+
+\lstinputlisting{./authorization/menu.service.ts}
