@@ -47,7 +47,7 @@ beforeEach(() => TestBed.configureTestingModule({
 \end{lstlisting}
 
 In fact, one can argue, that the fact that it will not error out in one's unit
-test, might make unit testing even more difficult. Nonetheless, performance is
+test, might make unit testing even more difficult. Nonethecreating-a-config.texless, performance is
 where providedIn: Root is very valuable.
 
 \subsubsection{ Increase Performance }
@@ -66,4 +66,12 @@ Any services that are going to be used within a library, should have
 providedIn: 'root' added to them. A service that is included in a module, for
 instance, might not neccesarily be sued within app.
 
-\mybox{Per our data access architecture}
+\subsection{ProvidedIn in our Data Access Architecture}
+In our data-access architecture, we have a number of services that are
+considered as common within our app. In particular, in two places:
+\begin{enumerate}
+  \item ui/common
+  \item data-services
+\end{enumerate}
+
+In these two places, providedIn should be used regardless. 
