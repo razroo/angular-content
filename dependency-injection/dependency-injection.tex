@@ -48,4 +48,22 @@ beforeEach(() => TestBed.configureTestingModule({
 
 In fact, one can argue, that the fact that it will not error out in one's unit
 test, might make unit testing even more difficult. Nonetheless, performance is
-where providedIn: Root is very valuable. 
+where providedIn: Root is very valuable.
+
+\subsubsection{ Increase Performance }
+Without using providedIn, and adding a service to the provider of a module, the
+service will be included in the final bundle size regardless of whether, or not
+it is used. However, when using providedIn: 'root', if the service is never
+used within the app, it is not included in the final bundle size.
+
+\subsubsection{When to use providedIn and When Not To}
+Using providedIn as a matter of architecture, I would reccomend the following:
+For any services within the actual application, do not use providedIn. These
+services are always going to be used, and if they are not going to be used,
+then the service should be considered as dead code and removed.
+
+Any services that are going to be used within a library, should have
+providedIn: 'root' added to them. A service that is included in a module, for
+instance, might not neccesarily be sued within app.
+
+\mybox{Per our data access architecture}
