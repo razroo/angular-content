@@ -1,0 +1,14 @@
+\maketitle{}
+\section{ Sockets }
+
+When using caching withing an angular application, the first and only dillema
+that will come to play is how update that cache. For most applications,
+especially the nature of Angular, is that it will the data will need to be
+updated frequently.
+
+\subsection{ Understanding Internals of Sockets }
+Sockets are that way of updating a cache. It sets up a hook
+to the server, so that whenever the server is ready to respond it does. You
+might be familiar with this, if you've had a network request that's taken a
+while to return it's request. Sockets are like that. When ever the cache has
+been updated, another socket goes out, to get it's data when needed.
