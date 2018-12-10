@@ -17,4 +17,15 @@ exactly where to send the data back, and it allows for a bi-directional flow
 between the server and client.
 
 \subsection{ Handshake Protocol }
-When creating a websocket request, in an apollo  
+When creating a websocket request,
+\begin{verbatim}
+GET ws://websocket.example.com/ HTTP/1.1
+Origin: http://example.com
+Connection: Upgrade
+Host: websocket.example.com
+Upgrade: websocket
+\end{verbatim}
+
+the http header \^ is simply given an upgrade HEADER request. That will then
+go to the server. If the server can accept the websocket request, the request
+will be made.
