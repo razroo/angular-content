@@ -11,3 +11,14 @@ the app. As a result, the development team might decide to throw away caching,
 so that data can be updated. I would like to say that it is very much possible.
 I would also like to lay out, what in a couple of paragraphs that best strategy
 to do so within Apollo.
+
+\subsection{ Apollo Caching with Sockets }
+\mybox{One side note, is that it will generally be a requirement that will
+come from front end first, that they will need to use something like sockets.
+However, backend will also need to setup websockets, in order to get everything
+to work as expected.}
+
+The package at this point which makes the most sense is
+\href{subscriptions-transport-ws}{https://github.com/apollographql/subscriptions-transport-ws}
+
+// TODO Add more content here
