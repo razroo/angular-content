@@ -18,6 +18,15 @@ come from front end first, that they will need to use something like sockets.
 However, backend will also need to setup websockets, in order to get everything
 to work as expected.}
 
+It should be noted that GraphQL offers three types of data queries:
+\begin{itemize}
+  \item Query
+  \item Mutation
+  \item Subscriptions
+\end{itemize}
+
+Subscriptions in particular is very similar to websockets. 
+
 The package at this point which makes the most sense is
 \href{subscriptions-transport-ws}{https://github.com/apollographql/subscriptions-transport-ws}
 
