@@ -37,6 +37,29 @@ and a Responsive API.
 
 \subsection{ A Great Example of Flex Layout }
 
+One of the greatest selling points with regards to flex layout, is that it makes
+responsive design very easy to do. This is something which is very true.
+However, I would like to show an example of the piece of code that sold me on
+flex layout. I was playing around with a feature called fxLayoutGap. It
+particular, it uses
+\begin{verbatim}
+margin-right used when the parent container flex-direction == "row"
+margin-bottom used when the parent container flex-direction == "column"
+\end{verbatim}
+
+So for instance, let's say we have a div will be using flex. We would like
+there to be two divs inside, with a margin-left of 16px. This is how we would
+do it if we weren't using fxLayoutGap.
+\begin{lstlisting}
+.icon-text {
+  margin-left: mc-space-multiplier(1);
+}
+.section {
+  margin-top: mc-space-multiplier(4);
+}
+\end{lstlisting}
+
+
 The following is a great example, of what can be done with flex-layout.
 \\
 \\
