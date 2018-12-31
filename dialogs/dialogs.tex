@@ -22,4 +22,21 @@ A couple of issues that dialogs have, is that they are:
   \item Dialogs may interupt NgRx Flows
 \end{enumerate}
 
-\section{ Centralizing Dialogs }
+\subsection{ Centralizing Dialogs + Best Practices}
+As with the rest of our architecture, we are trying to centralize the way we
+use our components. Therefore, the following are dialogs best practices:
+Section 1
+\begin{enumerate}
+  \item Use @angular/material Dialogs
+  \item Use Dialog Service to open and and manage custom dialog components
+  \item Use Dialog configurations to customize dialog instance
+\end{enumerate}
+\begin{enumerate}
+  \item Use Ngrx Effects to Manage Dialogs
+  \item Inject Store/Facade into Dialog Components
+\end{enumerate}
+
+\begin{enumerate}
+  \item Use Ngrx Dialog Effects
+  \item Disconnect Dialog from Feature Effects
+\end{enumerate}
