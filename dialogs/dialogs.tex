@@ -1,0 +1,25 @@
+\maketitle{}
+\section{ Dialogs }
+
+There are certain components that are expected in any architecture. Dialogs are
+one of those components. However, their architecture can be so complex, that it
+is very important to come up with a strategy that works with state management.
+This architecture was originally adopted from Thomas Burleson who I have a
+tremendous amount of respect for.
+
+A couple of issues that dialogs have, is that they are:
+\begin{enumerate}
+  \item Defined in Templates
+  \item Created at App Startup
+  \item Managed in UI Components
+  \item They complicate UI Components
+    \begin{enumerate}
+      \item Open, close, cancel
+      \item Services
+      \item Store Actions
+      \item Pending State
+    \end{enumerate}
+  \item Dialogs may interupt NgRx Flows
+\end{enumerate}
+
+\section{ Centralizing Dialogs }
