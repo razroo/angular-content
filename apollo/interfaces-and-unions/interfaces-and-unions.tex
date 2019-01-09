@@ -2,5 +2,29 @@
 \section{ Interfaces and Unions }
 
 In GraphQL, and more in particular, because we are working on things from the
-UI side of things, a Union type is a field that can return more than one object
-type. 
+UI side of things, a Union type gives us the ability for one field to contain
+more than one field. The best way to really think of it, is in terms of
+Typescript. A union type would be:
+\begin{lstlisting}
+  type Book {
+    title: String
+  }
+
+  type Author {
+    name: String
+  }
+
+  type Result = Book | Author;
+
+  type Query {
+    search: [Result]
+  }
+\end{lstlisting}
+
+As we can see, it is telling us that it can be one, of the other with regards
+to data type. So instead of returning irrelevant data, we only return the data
+we need. This is beneficial for a number of reasons.
+\begin{enumerate}
+  \item It lightens payloads
+  \item 
+\end{enumerate}
