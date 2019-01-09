@@ -61,5 +61,9 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
 });
 \end{lstlisting}
 
-It tells Apollo Client for Angular that it expect the above types in the
-interface for User.
+It tells Apollo Client for Angular that it expects the above types in the
+interface for User. Where it starts to get really interesting is that Apollo
+Client requires for IntrospectionFragmentMatcher to be used regardless. So, in
+their documentation they reccomend that a script be used at build time, that
+creates a JSON file. This JSON file should then be used in the
+IntrospectionFragmentMatcher. 
