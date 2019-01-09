@@ -31,4 +31,35 @@ we need. This is beneficial for a number of reasons.
 \end{enumerate}
 
 \subsection{ Using Unions with Apollo }
-This is where at this time, things start to get really interesting. 
+This is where at this time, things start to get really interesting. Using Apollo
+with unions/interfaces starts to become tricky. In particular, the client has
+no idea what is going on from the server side of things. Once we have different
+sorts of data for a singular query coming back based on the type of data
+avaialable, Apollo Client will just assume it is a certain type if it returns
+all data for a specific type.
+
+Apollo made the decision to use something called the
+IntrospectionFragmentMatcher. It will look something like this:
+\begin{lstlisting}
+const fragmentMatcher = new IntrospectionFragmentMatcher({
+  introspectionQueryResultData: {
+    __schema: {
+      types: [
+        {
+          kind: 'INTERFACE',
+          name: 'User',
+          possibleTypes: [
+            { name: 'User' },
+            { name: 'UserWithReason' },
+            { name: 'UserWithRound' },
+            { name: 'UserWithBid' },
+          ],
+        },
+      ],
+    },
+  },
+});
+\end{lstlisting}
+
+It tells Apollo Client for Angular that it expect the above types in the
+interface for User.
