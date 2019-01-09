@@ -30,7 +30,7 @@ we need. This is beneficial for a number of reasons.
   the backend.
 \end{enumerate}
 
-\subsection{ Using Unions with Apollo }
+\subsection{ Using Unions with Apollo Client }
 This is where at this time, things start to get really interesting. Using Apollo
 with unions/interfaces starts to become tricky. In particular, the client has
 no idea what is going on from the server side of things. Once we have different
@@ -66,4 +66,27 @@ interface for User. Where it starts to get really interesting is that Apollo
 Client requires for IntrospectionFragmentMatcher to be used regardless. So, in
 their documentation they reccomend that a script be used at build time, that
 creates a JSON file. This JSON file should then be used in the
-IntrospectionFragmentMatcher. 
+IntrospectionFragmentMatcher. This is very cumbersome, because if backend
+decides to throw something in for an already existing interface, it will cause
+the backend to break for that query.
+
+I would like to repeat this once again, if you do not have an
+IntrospectionFragmentMatcher set up in your app, and backend adds union, or
+interface types, it will cause that data to break, and it will return an empty
+object.
+
+\mybox{
+  It should be noted, that one might immediately think, why not go ahead and
+pull in the data for possibleTypes at runtime, and then use that for the
+IntrospectionFragmentMatcher? The difficult part about it, is that the way
+apollo works for the IntrospectionFragmentMatcher, is that it requires it to be
+passed into the cache. The cache is created on page load, and then having to
+update after cache is loaded, well you already missed the boat. So within the
+context of Apollo Client for Angular, the only way to load in possible types
+is to go along with the way documentation reccomends it.
+}
+
+\subsection{ What to Know Ahead of Time }
+What would be really helpful to know ahead of time, is that this is an issue
+that can only be solved by DevOps. It requires that back end and front end are
+built at the same time.
