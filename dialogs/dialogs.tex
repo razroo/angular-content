@@ -1,45 +1,7 @@
 \maketitle{}
 \section{ Dialogs }
 
-There are certain components that are expected in any architecture. Dialogs are
-one of those components. However, their architecture can be so complex, that it
-is very important to come up with a strategy that works with state management.
-This architecture was originally adopted from Thomas Burleson who I have a
-tremendous amount of respect for.
-
-A couple of issues that dialogs have, is that they are:
-\begin{enumerate}
-  \item Defined in Templates
-  \item Created at App Startup
-  \item Managed in UI Components
-  \item They complicate UI Components
-    \begin{enumerate}
-      \item Open, close, cancel
-      \item Services
-      \item Store Actions
-      \item Pending State
-    \end{enumerate}
-  \item Dialogs may interupt NgRx Flows
-\end{enumerate}
-
-\subsection{ Centralizing Dialogs + Best Practices}
-As with the rest of our architecture, we are trying to centralize the way we
-use our components. Therefore, the following are dialogs best practices:
-Section 1
-\begin{enumerate}
-  \item Use @angular/material Dialogs
-  \item Use Dialog Service to open and and manage custom dialog components
-  \item Use Dialog configurations to customize dialog instance
-\end{enumerate}
-\begin{enumerate}
-  \item Use Ngrx Effects to Manage Dialogs
-  \item Inject Store/Facade into Dialog Components
-\end{enumerate}
-
-\begin{enumerate}
-  \item Use Ngrx Dialog Effects
-  \item Disconnect Dialog from Feature Effects
-\end{enumerate}
-
-Hmm, I really feel that this point onwards in this part of the editor is really
-out of place with regards to what we are trying to achieve in this chapter. 
+Dialogs are an essential part of any app. For that reason, having a consistent
+architecture for dialog architecture will greatly increase maintainability of
+one's app. However, the technique that is used for dialogs, is something which
+can be used across many different components across one's app. 
