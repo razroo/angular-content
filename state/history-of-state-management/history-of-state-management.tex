@@ -10,7 +10,7 @@ Show, hide, remove, add, as well as element selectors, were already present in
 \href{http://api.jquery.com/category/version/1.0/}{V1}. Javascript had this capability
 as well if need be. However, no one really thought of it as state management.
 
-\subsection{State Management with Jquery}
+\subsection{ State Management with Jquery }
 A classic component, I remember that was always created with Jquery, would be
 photo sliders. In the more elequent apps, they would use singleton classes,
 perhaps \href{https://www.w3schools.com/js/js\_object\_prototypes.asp}{prototypes}
@@ -23,7 +23,7 @@ time, is that websites were more performant in many ways. Why? Because, we
 intentionally kept them small, in to do more.
 
 
-\subsection{State Management with Backbone}
+\subsection{ State Management with Backbone }
 Backbone applications to me were so funny, and still are. It literally looked
 like a well architected Jquery app. Routing was probably the nicest touch, that
 it offered something like that out of the box. Ultimately, there really was no
@@ -32,11 +32,24 @@ performant, and unmanageable in many cases due to the bad architecture. A step
 up, of course from badly engineered Jquery applications. So, no state management
 at this point yet, still!
 
-\subsection{State Management with AngularJS}
+\subsection{ State Management with AngularJS }
 AngularJS was fantastic because it offered two way binding out of the box. Alot
 of web applications did that. It also came hand in hand with Jasmine unit testing,
 and even handling. Completely irrelevant to state management. However, becuase
 it introduced services, it really was the first framework to start boxing
 applications into this is what front end architecture should look like. Services
 were used for applciation to interact with each other. State was sort of a thing
-from the perspective of services. 
+from the perspective of services. If you wanted different components to know
+about the data of service, you would have a setter and getter for that service.
+The issue with this approach, is that there would be 4, or 5 services that would
+interact with each other, and it would cause serious issues.
+
+\subsection{ State Management with React }
+React came around, and interested me atleast for two reasons. It offered
+flexibility, and was really fast. Flux came out, and was my first introduction
+to a state management system. Redux came out 6 months after Flux already, so
+admittedly, I only had a chance to work with Flux for a month, before we already
+started moving to Redux. Flux was a bit difficult, and during that month time,
+I remember my code reviews being rampant, with don't do this, do that etc. Redux
+came around, and for the first time it felt like a mature state management
+system came around. 
