@@ -5,15 +5,38 @@ I wanted to write this, because having a history of state management put's into
 perspective, the use of state management. In addition, as someone who might be
 considering being an architect of front end, it can be very advantageous to
 know the history to be aware of alternatives. First and foremost, Jquery was
-created a very long time ago, already back in \href{2006}{https://en.wikipedia.org/wiki/JQuery}.
+created a very long time ago, already back in \href{https://en.wikipedia.org/wiki/JQuery}{2006}.
 Show, hide, remove, add, as well as element selectors, were already present in
-V1 (http://api.jquery.com/category/version/1.0/). Javascript had this capability
+\href{http://api.jquery.com/category/version/1.0/}{V1}. Javascript had this capability
 as well if need be. However, no one really thought of it as state management.
 
+\subsection{State Management with Jquery}
 A classic component, I remember that was always created with Jquery, would be
 photo sliders. In the more elequent apps, they would use singleton classes,
-perhaps \href{prototypes}{https://www.w3schools.com/js/js\_object\_prototypes.asp}
+perhaps \href{https://www.w3schools.com/js/js\_object\_prototypes.asp}{prototypes}
 if they knew what they were really doing. Variables would be cached by
 initializing once. Functions would be kept small, and everything including css,
-would have very unique nomenclature(\href{BEMCSS}{http://getbem.com/introduction/}
-for instance).
+would have very unique nomenclature(\href{http://getbem.com/introduction/}{BEMCSS}
+for instance). Folder/file structure was important, but there wasn't really
+anything like state management. Ironically one thing I do remember about this
+time, is that websites were more performant in many ways. Why? Because, we
+intentionally kept them small, in to do more.
+
+
+\subsection{State Management with Backbone}
+Backbone applications to me were so funny, and still are. It literally looked
+like a well architected Jquery app. Routing was probably the nicest touch, that
+it offered something like that out of the box. Ultimately, there really was no
+concept of state management with backbone either. However, I remember apps being
+performant, and unmanageable in many cases due to the bad architecture. A step
+up, of course from badly engineered Jquery applications. So, no state management
+at this point yet, still!
+
+\subsection{State Management with AngularJS}
+AngularJS was fantastic because it offered two way binding out of the box. Alot
+of web applications did that. It also came hand in hand with Jasmine unit testing,
+and even handling. Completely irrelevant to state management. However, becuase
+it introduced services, it really was the first framework to start boxing
+applications into this is what front end architecture should look like. Services
+were used for applciation to interact with each other. State was sort of a thing
+from the perspective of services. 
