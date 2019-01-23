@@ -22,7 +22,29 @@ anything like state management. Ironically one thing I do remember about this
 time, is that websites were more performant in many ways. Why? Because, we
 intentionally kept them small, in to do more.
 
+The following is a great example of how Jquery and Javascript state management
+would work(updated to use es6):
 
+\begin{lstlisting}
+toggleView: (e) => {
+  let x = e.keyCode;
+  if(x === 71) {
+    if(c.classList.contains("allow-handle-click")) {
+      cntrlView.stopHandleClick();
+      cntrlView.removeTiles();
+      cntrlView.addBackTiles();
+    }
+    else {
+      cntrlView.allowHandleClick();
+      cntrlView.removeTiles();
+      grid.createGridIllustrator();
+      cntrlView.redoGrid();
+    }
+  }
+}
+};
+\end{lstlisting}
+\footnote{The above code is taken from the repo \href{https://github.com/CharlieGreenman/codeIllustrator/blob/master/app/js/\_control-view.js}{here}
 \subsection{ State Management with Backbone }
 Backbone applications to me were so funny, and still are. It literally looked
 like a well architected Jquery app. Routing was probably the nicest touch, that
