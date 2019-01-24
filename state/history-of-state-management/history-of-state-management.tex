@@ -52,7 +52,36 @@ it offered something like that out of the box. Ultimately, there really was no
 concept of state management with backbone either. However, I remember apps being
 performant, and unmanageable in many cases due to the bad architecture. A step
 up, of course from badly engineered Jquery applications. So, no state management
-at this point yet, still!
+at this point yet, still! However, using model, there was somewhat a way to do
+this, that was baked into best pracices:
+
+\begin{lstlisting}
+  // note_model.js
+"use strict";
+APP.NoteModel = Backbone.Model.extend({
+  // you can set any defaults you would like here
+  defaults: {
+    title: "",
+    description: "",
+    author: "",
+    // just setting random number for id would set as primary key from server
+    id: _.random(0, 10000)
+  },
+  //...
+  // note_edit.js
+  save: function (event) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      // update our model with values from the form
+      this.model.set({
+        title: this.$el.find('input[name=title]').val(),
+        author: this.$el.find('input[name=author]').val(),
+        description: this.$el.find('textarea[name=description]').val()
+      });
+  //...
+
+\end{lstlisting}
 
 \subsection{ State Management with AngularJS }
 AngularJS was fantastic because it offered two way binding out of the box. Alot
@@ -65,6 +94,8 @@ from the perspective of services. If you wanted different components to know
 about the data of service, you would have a setter and getter for that service.
 The issue with this approach, is that there would be 4, or 5 services that would
 interact with each other, and it would cause serious issues.
+
+
 
 \subsection{ State Management with React }
 React came around, and interested me atleast for two reasons. It offered
@@ -87,3 +118,7 @@ state management. State is being baked into frameworks in ways that make it
 more lightweight, and easier to deal with. Vue and React now have a feature
 called hooks, and context. It makes it so that using something such as redux
 with redux-observable isn't neccesarily so important.
+
+\subsection{ Final Words on State Management }
+One point I would like to end off on. I remember 5 years when all of the
+framworks were coming out, there was a developer who told me that
