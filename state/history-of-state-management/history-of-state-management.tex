@@ -143,6 +143,29 @@ I remember my code reviews being rampant, with don't do this, do that etc.
 Shortly after Flux, Redux came around, and for the first time it felt like a
 mature state management system came around.
 
+/begin{lstlisting}
+// pixel-color-picker.js component
+handlePixelColorChange(e){
+    const {dispatch} = this.props;
+    this.setState({pixelHex: e.target.value}, function(){
+        dispatch(PixelColor(this.state.pixelHex));
+        dispatch(PixelColorRGB(hexToRgb(this.state.pixelHex).r, hexToRgb(this.state.pixelHex).g, hexToRgb(this.state.pixelHex).b));
+    });
+// control-panel.js actions
+export function PixelColor(color){
+  return{
+    type: types.PIXEL\_COLOR,
+    pixelHex: color
+  }
+}
+
+// colorPicker.js reducer
+case types.PIXEL\_COLOR:
+  return Object.assign({}, state, {
+    pixelHex: action.pixelHex || state.pixelHex
+  });
+/end{lstlisting}
+
 \subsection{ Reactive State Management with React and Angular }
 Around this time @ngrx/store came out, reactive programming became more popular.
 Within the context of state, this meant redux-observable for React, and
