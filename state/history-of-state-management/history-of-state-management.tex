@@ -199,9 +199,53 @@ Observable.merge(
 Where we are at currently, is that new waves are being made with regards to
 state management. State is being baked into frameworks in ways that make it
 more lightweight, and easier to deal with. Vue and React now have a feature
-called hooks, and context. It makes it so that using something such as redux
-with redux-observable isn't neccesarily so important.
+called hooks, and context. These allow an app to have state out of the box.
+Redux + Redux Observable still have they're place. There are times where state
+is neccesary to allow components on different pages interact with each other.
+Other times, it can be a way of managing the data, to make sure the app is
+maintanable. If you see your app heading in the direction of the latter. Redux +
+Redux Observable is still reccomended.
+
+\begin{lstlisting}
+// theme-context.js
+
+// Make sure the shape of the default value passed to
+// createContext matches the shape that the consumers expect!
+export const ThemeContext = React.createContext({
+  theme: themes.dark,
+  toggleTheme: () => {},
+});
+
+// theme-toggler-button.js
+
+import {ThemeContext} from './theme-context';
+
+function ThemeTogglerButton() {
+  // The Theme Toggler Button receives not only the theme
+  // but also a toggleTheme function from the context
+  return (
+    <ThemeContext.Consumer>
+      {({theme, toggleTheme}) => (
+        <button
+          onClick={toggleTheme}
+          style={{backgroundColor: theme.background}}>
+          Toggle Theme
+        </button>
+      )}
+    </ThemeContext.Consumer>
+  );
+}
+
+export default ThemeTogglerButton;
+\end{lstlisting}
+\href{https://reactjs.org/docs/context.html}{here}
 
 \subsection{ Final Words on State Management }
 One point I would like to end off on. I remember 5 years when all of the
-framworks were coming out, there was a developer who told me that
+framworks were coming out, there was a developer who told me that if you know
+what you are doing, really none of the frameworks are neccesary. That being said,
+no one in their right mind, is going to create their own framework when they have
+it readily availalble. That is unless the company has the agenda to make one.
+However, what is important, is to understand the internals, so that you can
+that much more valuable when it comes to performance, and mainatanability of
+your project. I think that is obvious, but just wanted to bring it up.
