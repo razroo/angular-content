@@ -166,10 +166,34 @@ case types.PIXEL\_COLOR:
   });
 /end{lstlisting}
 
+// code take from \href{https://github.com/CharlieGreenman/pixelLight}{here}
+
 \subsection{ Reactive State Management with React and Angular }
 Around this time @ngrx/store came out, reactive programming became more popular.
 Within the context of state, this meant redux-observable for React, and
-@ngrx/store for Angular. It made state more cookie cutter, and allowed for
+@ngrx/store for Angular. For Angular, this meant that state is now cookie
+cutter. For React and Angular, it meant that users have the ability to tie state into the
+rest of their application.
+
+/begin{lstlisting}
+Observable.merge(
+  // Create observable map for  when background hex changes, and use that
+  // value to update store for backgroundColor
+  this.changePixelColor$.map((value: any) => (
+    PixelColor(value)
+  )),
+  this.changePixelColorRGB$.map((value: any) => (
+    PixelColorRGB(value.pixelRed, value.pixelGreen,
+      value.pixelBlue)
+  ))
+)
+.subscribe((action)=>{
+  store.dispatch(action)
+})
+}
+/end{lstlisting}
+
+// code take from \href{https://github.com/CharlieGreenman/angularPixel_illustrator}{here}
 
 \subsection{ Hooks and Context with React + Vue }
 Where we are at currently, is that new waves are being made with regards to
