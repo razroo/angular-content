@@ -2,28 +2,33 @@
 \section{ History of State Management }
 
 I wanted to write this, because having a history of state management put's into
-perspective, the use of state management. In addition, as someone who might be
-considering being an architect of front end, it can be very advantageous to
-know the history to be aware of alternatives. First and foremost, Jquery was
-created a very long time ago, already back in \href{https://en.wikipedia.org/wiki/JQuery}{2006}.
-Show, hide, remove, add, as well as element selectors, were already present in
-\href{http://api.jquery.com/category/version/1.0/}{V1}. Javascript had this capability
-as well if need be. However, no one really thought of it as state management.
+perspective why we need state management. It also put's into perspective how
+much so things change, and how important having a foundation in software is.
+In particular, to be aware of alternatives, and to help with learning new
+concepts. Jumping right in, Jquery was created a very long time ago, already
+back in \href{https://en.wikipedia.org/wiki/JQuery}{2006}. Show, hide, remove,
+add, as well as element selectors, were already present in
+\href{http://api.jquery.com/category/version/1.0/}{Version 1}. Javascript had
+this capability as well if need be. However, no one really thought of it as
+state management.
 
 \subsection{ State Management with Jquery }
 A classic component, I remember that was always created with Jquery, would be
-photo sliders. In the more elequent apps, they would use singleton classes,
+image sliders. In the more elequent apps, they would use singleton classes,
 perhaps \href{https://www.w3schools.com/js/js\_object\_prototypes.asp}{prototypes}
 if they knew what they were really doing. Variables would be cached by
 initializing once. Functions would be kept small, and everything including css,
 would have very unique nomenclature(\href{http://getbem.com/introduction/}{BEMCSS}
 for instance). Folder/file structure was important, but there wasn't really
-anything like state management. Ironically one thing I do remember about this
-time, is that websites were more performant in many ways. Why? Because, we
-intentionally kept them small, in to do more.
+anything like state management. Ironically, many smaller websites at this time
+were more performant in many ways. Why? Because, many intentionally kept them
+small, in order to do more. 2015-2016 was a great year of performance, due to a
+growth spurt in \href{browser capabilities}{https://chromereleases.googleblog.com/2015/03/stable-channel-update.html}.
+The change log for 2015, is the last time you will see google chrome mentioning
+performance in it's logs.
 
-The following is a great example of how Jquery and Javascript state management
-would work(updated to use es6):
+Just for clarity sake, the following is a great example of how Jquery and
+Javascript "state management" would work(updated to use es6):
 
 \begin{lstlisting}
 toggleView: (e) => {
@@ -47,13 +52,14 @@ toggleView: (e) => {
 \footnote{The above code is taken from the repo \href{https://github.com/CharlieGreenman/codeIllustrator/blob/master/app/js/\_control\-view.js}{here}}
 \subsection{ State Management with Backbone }
 Backbone applications to me were so funny, and still are. It literally looked
-like a well architected Jquery app. Routing was probably the nicest touch, that
-it offered something like that out of the box. Ultimately, there really was no
+like a well architected Jquery app minus routing. Which now that I think about
+it, isn't funny. Backbone was a big step up. Routing was a very nice touch that
+offered something like that out of the box. Ultimately, there really was no
 concept of state management with backbone either. However, I remember apps being
 performant, and unmanageable in many cases due to the bad architecture. A step
 up, of course from badly engineered Jquery applications. So, no state management
 at this point yet, still! However, using model, there was somewhat a way to do
-this, that was baked into best pracices:
+this, that was baked into best practices:
 
 \begin{lstlisting}
   // note_model.js
@@ -83,19 +89,28 @@ APP.NoteModel = Backbone.Model.extend({
 
 \end{lstlisting}
 
+This model would global, or per each component, and could be updated using the
+above syntax.
+
 \subsection{ State Management with AngularJS }
 AngularJS was fantastic because it offered two way binding out of the box. Alot
-of web applications did that. It also came hand in hand with Jasmine unit testing,
-and event handling. Completely irrelevant to state management. However, becuase
-it introduced services, it really was the first framework to start boxing
-applications into, "this is what front end architecture should look like".
-Services were used for applciation to interact with each other. State was sort
-of a thing from the perspective of services. If you wanted different components
-to know about the data of service, you would have a setter and getter for that
-service. The issue with this approach, is that there would be 4, or 5 services
-that would interact with each other, and it would cause serious issues. In
-addition, in many applications, old code that used \$scope would be in the code
-base, causing some serious perfomance issues.
+of web applications need that. It also came hand in hand with Jasmine unit
+testing, and event handling. Completely irrelevant to state management. However,
+because it introduced services, it really was the first framework to start boxing
+applications into, "this is what front end architecture should look like",
+paving the way for state management.
+
+Services, while mainly used for data, we are also used different parts of the
+applciation to interact with each other. Being that Angular applications were
+Single Page Applications by default, this worked. State was synonymous with
+services. If you wanted different components to know about the data of service,
+you would have a setter and getter for that service. The issue with this
+approach, is that there would be 4, or 5 services that would interact with each
+other, and it would cause serious issues. In addition, in many applications, old
+code/bad practices would use \$scope in the code base, causing some serious
+perfomance issues. The following is what a sample servic using a factory would
+look like:
+
 \begin{lstlisting}
   var myApp = angular.module('myApp',[]);
   myApp.factory('myService', function() {
