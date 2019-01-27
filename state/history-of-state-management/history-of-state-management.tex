@@ -12,7 +12,7 @@ add, as well as element selectors, were already present in
 this capability as well if need be. However, no one really thought of it as
 state management.
 
-\subsection{ State Management with Jquery }
+\subsection{ State Management with jQuery }
 A classic component, I remember that was always created with Jquery, would be
 image sliders. In the more elequent apps, they would use singleton classes,
 perhaps \href{https://www.w3schools.com/js/js\_object\_prototypes.asp}{prototypes}
@@ -28,28 +28,36 @@ The change log for 2015, is the last time you will see google chrome mentioning
 performance in it's logs.
 
 Just for clarity sake, the following is a great example of how Jquery and
-Javascript "state management" would work(updated to use es6):
+Javascript "state management" would work(updated to use es6). A file which would
+contain values, would be used to create/add/delete/update across the app:
 
 \begin{lstlisting}
-toggleView: (e) => {
-  let x = e.keyCode;
-  if(x === 71) {
-    if(c.classList.contains("allow-handle-click")) {
-      cntrlView.stopHandleClick();
-      cntrlView.removeTiles();
-      cntrlView.addBackTiles();
-    }
-    else {
-      cntrlView.allowHandleClick();
-      cntrlView.removeTiles();
-      grid.createGridIllustrator();
-      cntrlView.redoGrid();
+// _elem.js file
+storeValues: [],
+storeColors: [],
+sassColorVariables: [],
+lessColorVariables: []
+
+// _grid.js file
+updateGridColor: () => {
+  for(let x = 0; x < elem.s.columnCount; x++) {
+    for(let y = 0; y < elem.s.rowCount; y++) {
+      ctx.strokeStyle = `${elem.el.backgroundRed.value + 44}. ${elem.el.backgroundGreen.value + 44}. ${elem.el.backgroundBlue.value + 44}`;
+      ctx.strokeRect(x * elem.s.pixSize, y * elem.s.pixSize, elem.s.pixSize, elem.s.pixSize);
+      ctx.fillStyle = elem.el.backgroundHexColor.value;
+      ctx.fillRect(x * elem.s.pixSize + 1, y * elem.s.pixSize + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);
     }
   }
+
+  for(let x = 0; x < elem.s.storeValues.length; x++){
+    ctx.fillStyle = elem.s.storeValues[x][2];
+    ctx.fillRect(parseFloat(elem.s.storeValues[x][0]) + 1, parseFloat(elem.s.storeValues[x][1]) + 1, elem.s.pixSize - 2, elem.s.pixSize - 2);
+  }
 }
-};
+
 \end{lstlisting}
-\footnote{The above code is taken from the repo \href{https://github.com/CharlieGreenman/codeIllustrator/blob/master/app/js/\_control\-view.js}{here}}
+Above code taken from the \href{codeIllustrator}{https://github.com/CharlieGreenman/codeIllustrator} repo.
+
 \subsection{ State Management with Backbone }
 Backbone applications to me were so funny, and still are. It literally looked
 like a well architected Jquery app minus routing. Which now that I think about
@@ -100,7 +108,7 @@ because it introduced services, it really was the first framework to start boxin
 applications into, "this is what front end architecture should look like",
 paving the way for state management.
 
-Services, while mainly used for data, we are also used different parts of the
+Services, while mainly used for data, were also used different parts of the
 applciation to interact with each other. Being that Angular applications were
 Single Page Applications by default, this worked. State was synonymous with
 services. If you wanted different components to know about the data of service,
@@ -253,7 +261,7 @@ function ThemeTogglerButton() {
 
 export default ThemeTogglerButton;
 \end{lstlisting}
-\href{https://reactjs.org/docs/context.html}{here}
+code take from \href{https://reactjs.org/docs/context.html}{here}
 
 \subsection{ Final Words on State Management }
 One point I would like to end off on. I remember 5 years when all of the
