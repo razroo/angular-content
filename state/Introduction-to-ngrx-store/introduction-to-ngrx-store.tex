@@ -8,3 +8,17 @@ application store. \footnote{This is a footnote for more information on state ma
 Angular's @ngrx/store, which is not front and center, is where redux meets Rxjs.
 Rxjs is the Javascript library for using observables
 \footnote{More on Observables can be read here}.
+
+\subsection{What Makes @ngrx/store Different than Redux?}
+When considering this question, it is more important to consider what is
+reactive programming. Reactive programming in particular introduces two concepts
+\footnote{http://www-sop.inria.fr/members/Gerard.Berry/Papers/Berry-IFIP-89.pdf}:
+
+\begin{enumerate}
+  \item Asynchronous \footnote{Meaning one event fires after the previous one is
+  complete, unlike synchronous which means they all fire at the same time, and
+  might complete out of order.}
+  \item Deterministic \footnote{Always produces the same results. As a side
+  effect of this, code becomes very much so cookie cutter, which is great in
+  an enterprise setting, as it allows for greater re-use.}
+\end{enumerate}
