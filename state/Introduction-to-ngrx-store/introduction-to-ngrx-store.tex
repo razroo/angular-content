@@ -36,10 +36,15 @@ promises. However, @ngrx/store does tie it nicely into the store as a whole,
 allowing client state management, without going into detail.
 
 \subsubsection{Deterministic}
-With regards to determinstic, this is
-In addition, with proper UI component architecture, many components have
-smart and dumb components, which
+With regards to determinstic, this generally means in computer science, that
+with one particular input, you will alwyas have the same output. However, when
+the term is used loosely, it generally means that the code is cookie cutter.
+That is, that it can be re-used time and time again.
 
-This is really the beauty of @ngrx/store, is that it offers a end to end
-solution to for state management. In particular, in the form of effects, and
-observables.
+\subsection{Wrapping Up}
+This is really what @ngrx/store tries to produce over other frameworks. It
+offers the ability to re-use patterns time and time again. In addition, by
+hooking it into the Rxjs lifecycle by using observables it allows patterns and
+for code to be cookie cutter. This is really the beauty of @ngrx/store, is that
+it offers a end to end solution to for state management. In particular, in the
+form of effects, and observables.
