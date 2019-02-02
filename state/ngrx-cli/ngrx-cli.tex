@@ -1,0 +1,26 @@
+\maketitle{}
+\section{ Ngrx CLI }
+
+Of one of the better reccomendations I can give with regards to using Angular
+within you app, is using the Nrwl Nx cli. If you are using Nrwl Nx already,
+which you should, and have a mono repo setup within your organization, then
+it should be readily available. If you haven't already, please refer to the
+chapter on Nrwl Nx setting it up.
+
+\subsection{ Why use a CLI for ngrx }
+Without a doubt the most fustrating thing about Angular before the CLI came
+around, is the amount of boilerplate that would be required in order to work
+with Angular. The Nrwl Nx for the most part solves this. In addition, there is
+much more than can be done on top of this in the future. In our pixel app, in
+particular, when generating state for the pixel-form, it will generate the
+following files:
+\begin{enumerate}
+  \item libs/<libname>/src/+state/products.actions.ts
+  \item libs/<libname>/src/+state/products.effects.ts
+  \item libs/<libname>/src/+state/products.effects.spec.ts
+  \item libs/<libname>/src/+state/products.reducer.ts
+  \item libs/<libname>/src/+state/products.reducer.spec.ts
+\end{enumerate}
+
+There is also the option to add a facade, which is highly reccomended. In
+addition, creating a seperate selector file is extremely valuable.  
