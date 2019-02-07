@@ -51,6 +51,10 @@ In order to create a root reducer:
   ng generate ngrx app --module=apps/<app-name>/src/app/app.module.ts --onlyEmptyRoot
 \end{lstlisting}
 
+Note, we have passed in the flag for onlyEmptyRoot, so that none of the files
+for actions, reducers, and effects are created. We simply want a module
+generated that we can use to import other modules for state.
+
 This will produce the following files /marginpar{Re-visit when we get back to
 the app}
 
