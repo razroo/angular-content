@@ -86,15 +86,15 @@ action allows for a load action and a load success action for a Song data type.
 application, right now.)
 
 \begin{lstlisting}
-export const LOAD_ALL = '[Song] Load All';
-export const LOAD_ALL_SUCCESS = '[Song] Load All Success';
+export const LOAD_ALL_SONGS = '[Song] Load All Songs';
+export const ALL_SONGS_LOADED = '[Song] All Songs Loaded';
 
-export class LoadAllAction implements Action {
-  readonly type = LOAD_ALL;
+export class LoadAllSongs implements Action {
+  readonly type = LOAD_ALL_SONGS;
   constructor(public payload?: any) { }
 }
-export class LoadAllSuccessAction implements Action {
-  readonly type = LOAD_ALL_SUCCESS;
+export class AllSongsLoaded implements Action {
+  readonly type = ALL_SONGS_LOADED;
   constructor(public payload: string[]) { }
 }
 \end{lstlisting}
@@ -141,3 +141,44 @@ loadAll$: Observable = this.actions$
   .catch(() => of(new song.LoadAllFailAction()));
 });
 \end{lstlisting}
+
+This is a simple effect that relies on a service (that has been injected) to
+retrieve the set of songs, or invoke the LoadAllFailAction action if an error
+is thrown.
+
+Our store is in place. We can now focus on our new updated route guard.
+
+\subsection{ Modified CanActivate }
+\begin{lstlisting}
+canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  const loadedSongs = this.store.select(fromRoot.getSongs)
+    .map(songs => songs.length > 0);
+
+  loadedSongs
+    .take(1)
+    .filter(loaded => !loaded)
+    .map(() => new song.LoadAllAction())
+    .subscribe(this.store);
+
+  return loadedSongs
+    .take(1);
+}
+\end{lstlisting}
+
+This determines if the desired data is already present in the store. If it's
+not, it loads that data, and then allows the route to proceed where the view
+will have access to the data loaded into the central state.
+
+\subsection{ Unpacking }
+To begin, we use a store selector to pull the songs that are already present in
+this.store.select(fromRoot.getSongs) and of non-zero length. This we save in the
+loadedSongs const.
+
+Next, we use take(1) to grab the first item in the dataset, and then check if
+it's falsey with filter(loaded => !loaded) - the net result being to run the
+.map() call on an empty dataset if the source contains nothing. The net result
+is to skip loading the data in the next call if there is already data present.
+
+If the dataset is empty, then we map a call to the song loading service, and
+subscribe the store to it's result, thereby loading the data into the store.
+Finally, we do a take(1) to unsubscribe from the source.
