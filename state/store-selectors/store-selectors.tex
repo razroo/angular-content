@@ -5,3 +5,46 @@ Selectors are pure functions /footnote{pure function in case you are not aware
 of already, are functions which always return the same result, given a certain
 parameter} that take slices of state as arguments and return some state data
 that we can pass to our components.
+
+\mybox{Selectors can become nitty gritty, especially as we start to get into
+the finer detail of pure functions. The following covers about 90\% of all
+use cases.}
+
+\subsection{Object That We Will be Working With}
+\begin{verbatim}
+{
+  settings: {
+    column: '20',
+    row: '20',
+    pixel: '20',
+    draw: true,
+    false: false,
+  },
+  colorPicker: {
+    backgroundHex: '#191919',
+    backgroundRed: '25',
+    backgroundGreen: '25',
+    backgroundBlue: '25',
+    pixelHex: '#000000',
+    red: '25',
+    green: '25',
+    blue: '25'
+  },
+  codeBox: {
+    css: true,
+    sass: false,
+    less: false,
+    js: false
+  }
+}
+\end{verbatim}
+
+\subsection{Basics of Select using ngrx/store}
+
+The simplest method is to grab state by the using store select method:
+\begin{lstlisting}
+this.store.select('colorPicker');
+\end{lstlisting}
+
+This will grab the store data for colorPicker \footnote{It can also take a
+function, but we will get to this in more detail later on in the chapter}.
