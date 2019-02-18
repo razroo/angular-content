@@ -43,8 +43,23 @@ use cases.}
 
 The simplest method is to grab state by the using store select method:
 \begin{lstlisting}
-this.store.select('colorPicker');
+export const settings$ = this.store.select('settings');
 \end{lstlisting}
 
-This will grab the store data for colorPicker \footnote{It can also take a
-function, but we will get to this in more detail later on in the chapter}.
+This will grab the store data for settings and return an observable. So for
+instance, let's say inside of our component, doing:
+\begin{lstlisting}
+  this.gridFacade.settings$.subscribe((data) => {
+   console.log(data)
+  });
+\end{lstlisting}
+ will produce JSON for:
+\begin{verbatim}
+  {
+    column: '20',
+    row: '20',
+    pixel: '20',
+    draw: true,
+    false: false,
+  }
+\end{verbatim}
