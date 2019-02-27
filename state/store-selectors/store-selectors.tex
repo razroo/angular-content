@@ -65,6 +65,29 @@ instance, let's say inside of our component, doing:
 \end{verbatim}
 
 \subsection{ Feature State in NGRX }
+Previously we discussed being able to select a certain slice of state being
+able to use store.select. However, there are many scenarios wherein it is not
+as simple as selecting the featureState and passing it to the component. For
+instance:
+\begin{enumerate}
+  \item When using ngrx/entity, creating a dictionary of values, and an array
+  of ids. In order to grab ids, entities, ids and entities, a specific entity,
+  it's important to be able to have the a base feature selector to work off of.
+  \item When having numerous nested data, and we want be able to build off of
+  nested data on a number of levels.
+\end{enumerate}
+
+\mybox{It's important to note, that in any enterprise setting, where the data
+in the store is being populated using backend(GraphQL preferabbly), we strongly
+recommend the use of ngrx/entity. It will simplify any given situation if you
+do anything beyond pulling in data as is. Therefore the following
+createFeatureSelector will always be used, and in the enterprise applications
+that I work on, they are consistenly used for every data-access feature I
+create.} 
+
+let's say  we wanted to select a specific
+feature state and build off of that.
+
 There will be at times nested data. For instance, in the nested data object
 that we are working with,
 
@@ -73,3 +96,9 @@ We need to update the data object so that it has nested data etc.
 Discuss issue wherein why have something like feature state. Why not just have
 nested state. Well the idea is that there is going to be a series of nested
 data for one singular data object.
+
+\begin{lstlisting}
+  const getDraftEmailState = createFeatureSelector<DraftEmailState>(
+    'draftEmailStateModel'
+  );
+\end{lstlisting}
