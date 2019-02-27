@@ -31,7 +31,11 @@ use cases.}
     blue: '25'
   },
   codeBox: {
-    css: [{id: '123', color: blue, x: 20, y: 17, id: }],
+    css: [
+    {'123': {color: blue, x: 20, y: 17}},
+    {'246': {color: orange, x: 20, y: 18}},
+    {'246': {color: orange, x: 20, y: 19}},
+    ],
     sass: false,
     less: false,
     js: false
@@ -66,36 +70,33 @@ instance, let's say inside of our component, doing:
 
 \subsection{ Feature State in NGRX }
 Previously we discussed being able to select a certain slice of state being
-able to use store.select. However, there are many scenarios wherein it is not
+using store.select. However, there are many scenarios wherein it is not
 as simple as selecting the featureState and passing it to the component. For
 instance:
 \begin{enumerate}
   \item When using ngrx/entity, creating a dictionary of values, and an array
   of ids. In order to grab ids, entities, ids and entities, a specific entity,
   it's important to be able to have the a base feature selector to work off of.
-  \item When having numerous nested data, and we want be able to build off of
-  nested data on a number of levels.
+  \item When having numerous nested peices of data, under one specific feature
+  state slice. We can keep our code DRY \footnote{Don't Repeat Yourself}, by
+  want be able to build off of nested data on a number of levels.
 \end{enumerate}
 
 \mybox{It's important to note, that in any enterprise setting, where the data
-in the store is being populated using backend(GraphQL preferabbly), we strongly
+in the store is being populated using backend(GraphQL preferably), we strongly
 recommend the use of ngrx/entity. It will simplify any given situation if you
 do anything beyond pulling in data as is. Therefore the following
 createFeatureSelector will always be used, and in the enterprise applications
-that I work on, they are consistenly used for every data-access feature I
-create.} 
+that I work on, they are consistently used for every data-access feature I
+create.}
 
-let's say  we wanted to select a specific
-feature state and build off of that.
+\subsection{ Feature State in NGRX - An Example using Ngrx/entity}
 
-There will be at times nested data. For instance, in the nested data object
-that we are working with,
-
-We need to update the data object so that it has nested data etc.
-
-Discuss issue wherein why have something like feature state. Why not just have
-nested state. Well the idea is that there is going to be a series of nested
-data for one singular data object.
+Ngrx/entity if not familiar already, will use what is called a normalized
+database. It is a way of having the way of accessing something independent of
+the actual data. Therefore, it easily allows for item to be created, removed,
+updated, or deleted. Ngrx/entity is ngrx/store's solution to creating a
+noramlized database. 
 
 \begin{lstlisting}
   const getDraftEmailState = createFeatureSelector<DraftEmailState>(
