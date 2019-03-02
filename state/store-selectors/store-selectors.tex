@@ -159,3 +159,31 @@ those entities, by using the getSelectCodeboxId selector. In this fashion we
 are able to streamline the process of getting the data we need, pass it to our
 facade. Pass it to the component.ts file we are using, and then use it directly
 within the component.html.
+
+\subsection{Final Notes}
+There is more to be discussed on this topic, however, this covers about 80\% of
+situations wherein selectors are used. By following this formula it allows for
+selecting data to be cookie cutter. It is highly recoemmended that ngrx/entity
+be used in addition, to make this cookie cutter process easier.
+
+\subsubsection{UI Architecture Notes}
+With regards to making data re-usable. As an app get's larger, the same sort
+of data formulation repeats it's self. Using our architecture, it is
+reccomended to keep a utility library within your data-access folder. The utils
+folder within your data-access folder would contain re-usable logic for
+accessing data within your state. One would then be allowed to re-use these
+utils across the app.
+
+A great example of this would be, assuming that we have an app which has
+attachments being returned from the app. In most real world applications, a file
+will be uploaded, which will then return a fileMetadata id, which can then be
+used as an attachment. Alternatively, the api for the application will be robust
+enough, wherein data for the file will be attached directly application.
+However, this means that throughout the application, we will have re-use the
+data-structure as various apps will have to use the same data again.
+
+\mybox{
+  \subsubsection{Code Example of a data-access util}
+
+  
+}
