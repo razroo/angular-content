@@ -148,3 +148,14 @@ This code would then be brought over to the component in the following fashion:
 
 this.codeBoxData = this.codeBoxFacade.codeBoxEntities\$
 }
+
+\subsection{Introducing createSelector}
+You will have noticed that in the above code we have also introduced the idea
+of a createSelector. What a createSelector does, is take the value from a
+createFeatureSelector base, and build on it. What we have done in our app, for
+instance, is create a createFeatureSelector for codeBox, a createSelector for
+codeBoxEntities, and then proceeded to pull from the data nested data within
+those entities, by using the getSelectCodeboxId selector. In this fashion we
+are able to streamline the process of getting the data we need, pass it to our
+facade. Pass it to the component.ts file we are using, and then use it directly
+within the component.html.
