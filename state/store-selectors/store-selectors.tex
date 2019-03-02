@@ -109,8 +109,13 @@ number of ways:
 
 In order to streamline this process, we would do the following:
 \begin{lstlisting}
-  const getDraftEmailState = createFeatureSelector<CodeBoxState>(
+  const { selectAll, selectEntities } = codeBoxAdapter.getSelectors();
+  const getCodeBoxState = createFeatureSelector<CodeBoxState>(
     'codeBoxStateModel'
   );
-  
+
+const getCodeBoxEntities = createSelector(
+  getCodeBoxState,
+  selectEntities
+)
 \end{lstlisting}
