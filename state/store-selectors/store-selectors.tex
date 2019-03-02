@@ -135,3 +135,13 @@ const getSelectCodeboxId = createSelector(
   (codeBoxEntities, id) => codeBoxEntities[selectedBuyerId]
 );
 \end{lstlisting}
+
+\mybox{
+\subsection{How this would look like in a real world application}
+Just to douse curiousity of someone who might be wondering how this would work
+in the real world. Normally one would wire this into a facade file. The facade
+line of code would look something like the following:
+
+codeBoxEntities = this.store.select(getCodeBoxEntities);
+
+}
