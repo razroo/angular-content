@@ -94,12 +94,23 @@ create.}
 
 Ngrx/entity if not familiar already, will use what is called a normalized
 database. It is a way of having the way of accessing something independent of
-the actual data. Therefore, it easily allows for item to be created, removed,
+the actual data. Therefore, it easily allows for an item to be created, removed,
 updated, or deleted. Ngrx/entity is ngrx/store's solution to creating a
-noramlized database. 
+noramlized database. Using feature state with ngrx/entity is imperative in order
+to streamline all the various ways of selecting ngrx/entity data. For instance,
+let's say we had entities for our codebox, and we wanted to select data in a
+number of ways:
 
+\begin{enumerate}
+  \item Select all entities
+  \item Select all ids
+  \item Select the current selectedId by using an Entity
+\end{enumerate}
+
+In order to streamline this process, we would do the following:
 \begin{lstlisting}
-  const getDraftEmailState = createFeatureSelector<DraftEmailState>(
-    'draftEmailStateModel'
+  const getDraftEmailState = createFeatureSelector<CodeBoxState>(
+    'codeBoxStateModel'
   );
+  
 \end{lstlisting}
