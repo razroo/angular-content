@@ -109,13 +109,29 @@ number of ways:
 
 In order to streamline this process, we would do the following:
 \begin{lstlisting}
-  const { selectAll, selectEntities } = codeBoxAdapter.getSelectors();
-  const getCodeBoxState = createFeatureSelector<CodeBoxState>(
-    'codeBoxStateModel'
-  );
+const { selectAll, selectEntities, selectIds } = codeBoxAdapter.getSelectors();
+const getCodeBoxState = createFeatureSelector<CodeBoxState>(
+  'codeBoxStateModel'
+);
 
 const getCodeBoxEntities = createSelector(
   getCodeBoxState,
   selectEntities
-)
+);
+
+const getCodeBoxIds = createSelector(
+  getCodeBoxState,
+  selectIds
+);
+
+const selectedBuyerId = createSelector(
+  getCodeBoxState,
+  state => state.selectedBuyerId
+);
+
+const getSelectCodeboxId = createSelector(
+  getCodeBoxEntities,
+  selectedBuyerId,
+  (codeBoxEntities, id) => codeBoxEntities[selectedBuyerId]
+);
 \end{lstlisting}
