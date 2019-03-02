@@ -142,6 +142,9 @@ Just to douse curiousity of someone who might be wondering how this would work
 in the real world. Normally one would wire this into a facade file. The facade
 line of code would look something like the following:
 
-codeBoxEntities = this.store.select(getCodeBoxEntities);
+codeBoxEntities\$ = this.store.select(getCodeBoxEntities);
 
+This code would then be brought over to the component in the following fashion:
+
+this.codeBoxData = this.codeBoxFacade.codeBoxEntities\$
 }
