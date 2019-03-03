@@ -31,3 +31,19 @@ Instead, what would make out data table more efficient, is if we have a table
 of ids that corresponds directly to our table of data. This way, we can simply
 say the data that we would like in our database, and correlate that directly to
 the data that we are working on.
+
+\subsection{ngrx/entity follows this pattern}
+Ngrx/entity is a library which follows this pattern, so that data used within
+ngrx/store is normalized. This means, within the context of using JSON data,
+that we have a dictionary, combined with an array of ids. The index of the ids
+directly correlates with the key/value in the dictionary. This is very powerful,
+and I will prove it by bringing up a couple of situations.
+
+\subsubsection{The Power of Ngrx/Entity Deep Dive}
+Scenario One:
+Updating one dictionary data set. Let's imagine that we were to load for our
+pixel illustrator a set of coordinates to populate the pixe illustrator. However,
+let's say we wanted to update one particular piece of that data set, by only
+a smaller portion of data, when loading entire data set, and then a larger portion
+when expanding details for particular data set. Ngrx/entity allows us to maintain
+the same store, but simply update the once piece of data in the dictionary.
