@@ -61,3 +61,17 @@ Let's say we have a data table, and we would like to know which set's of data
 we have selected. We have the ability to pass in id, into another section of
 data store, called selectedIds, and then have the freedom to choose any other
 data set within those subsets.
+
+Scenario Four:
+Let's say we want to delete, update, or upsert a certain subset of data. Being
+able to pass in the id only, makes this process infinitely easier, and more
+efficient.
+
+These are just four real worlds scenarios.
+
+\subsection{Choosing Ngrx/entity as the Default}
+This leads to the point this chapter is trying to make. In any situation with
+data, odds are that you are going to update, delete, upsert, or pull in more
+data for a specific subset of data. This means, that anytime that you are going
+to use more data, using ngrx/entity as the default makes sense. The Nrwl cli
+for ngrx/store follows this pattern, and it is highlt reccomended.
