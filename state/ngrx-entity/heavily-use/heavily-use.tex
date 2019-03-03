@@ -47,3 +47,11 @@ let's say we wanted to update one particular piece of that data set, by only
 a smaller portion of data, when loading entire data set, and then a larger portion
 when expanding details for particular data set. Ngrx/entity allows us to maintain
 the same store, but simply update the once piece of data in the dictionary.
+
+Scenario Two:
+Let's say we have two indepedent components pulling data from the same store,
+but we do not want them to interact with each other. For instance, let's say they
+both accept attachments for a user. We would need to create a unique id for both
+that would allow us to follow this pattern. ngrx/entity naturally would allow us
+to do that in addition, to feeding the data back into the backend. This is such a
+powerful pattern.
