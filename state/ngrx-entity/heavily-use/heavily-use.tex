@@ -1,2 +1,31 @@
 \maketitle{}
 \section{ The Case for Heavily Using Ngrx/entity }
+Ngrx/entity for me personally, is the most exciting part of ngrx/entity. Simply
+because it is a library based on comp sci fundementals of building an ngrx/store
+database. In SQL databases, there is a concept of database normalization. For
+instance, let's imagine we have a set of data. In our table, and we would like
+to retrieve data from it. The data in JSON formate can look something like this:
+\begin{lstlisting}
+  interface codeBox {
+    id: string;
+    color: string;
+    xPosition: number;
+    yPosition: number;
+  }
+\end{lstlisting}
+
+Now, let's imagine we have a an array of these codeBox types that we would like
+use, that look something like this:
+\begin{lstlisting}
+  interface codeBoxCollection {
+    codebox: codeBox[]
+  }
+\end{lstlisting}
+
+Now this means, that if we want to select a certain piece of data within our
+database table, things can be a little bit tricky. In order to access, for
+instance, a certain section of our table, we would need to loop through all of
+the data, and then find the appropriate set of data with id that we want.
+
+Instead, what would make out data table more efficient, is if we have a table
+of ids that corresponds directly to our table of data. 
