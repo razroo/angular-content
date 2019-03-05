@@ -4,11 +4,11 @@
 \subsection{ A Brief History of Normalization}
 In the concept of normalization was first introduced by Edgar F. Codd in 1970
 in a paper he called: "A Relational Model of Data for Large Shared Data Banks".
-
-\footnote{
-A relational model of data for large shared data banks https://dl.acm.org/citation.cfm?id=362685}
-is a pretty well known concept. It first
-appeared in the 1980 version of
+He introduces the concept of relational databases, and what he calls ``"Normal
+Form"''. The idea behind a normal form, is to remove redundancies. Alot of
+research has been done since then on normalization. To be honest, there is quite
+a bit on this topic, and following normalization across all papers discussed on
+this topic \footnote{https://database.guide/what-is-normalization/}.
 
 \subsection{Using Ngrx/entity}
 Ngrx/entity for me personally, is the most exciting part of ngrx/entity. Simply
@@ -85,4 +85,4 @@ This leads to the point this chapter is trying to make. In any situation with
 data, odds are that you are going to update, delete, upsert, or pull in more
 data for a specific subset of data. This means, that anytime that you are going
 to use more data, using ngrx/entity as the default makes sense. The Nrwl cli
-for ngrx/store follows this pattern, and it is highlt reccomended.
+for ngrx/store follows this pattern, and it is highly reccomended.
