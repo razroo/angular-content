@@ -1,4 +1,18 @@
 \maketitle{}
 \section{ Re-using Reducer Logic }
 
-In an Angular setting, when using side effects heavily for one's app, 
+In an Angular setting, when using side effects heavily for one's app, the action
+name becomes heavily tied to the way an application is intended to be used. For
+instance, let's say that we hava fileUpload service that is going to be used in
+our app, in an number of settings. What the file upload allows does, is allow
+for file to be uploaded and then retreive the metadata for the file that has
+been uploaded. However, we might use this file upload service to upload the
+file to different places. However, the logic for all of them is the same. When
+file is uploaded, ids are returned to be used as attachments.
+
+However, the logic is the same for both for the actions, facade, reducer, and
+effects. Is there a way that we can re-use logic within our app?
+
+In order to re-use logic, we can do the following.
+
+\subsection{Creating a re-usable Facade and Action}
