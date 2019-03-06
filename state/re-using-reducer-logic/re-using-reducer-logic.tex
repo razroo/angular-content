@@ -37,7 +37,13 @@ uploadAttachment(actionType: string, file: File, id: string = 'GENERIC'): void {
 We create an action and facade that allows us to pass in an
 actionNameIdentifier.
 
-\subsection{Re-Using Reducer}
+\subsection{Higher Order Reducers}
+
+It is important to note that higher order functions are:
+\mybox{
+Functions that operate on other functions, either by taking them as arguments or
+by returning them, are called higher-order functions.
+}
 We can now go to our reducer, and re-use this logic. Let's
 go ahead and create a reducer for uploading attachments:
 
@@ -68,6 +74,26 @@ actionTypeName in our reducer. In our action, we are passing what we are calling
 actionNameIdentifier. We then are able to re-use this action, and reducer in any
 given situation.
 
+\subsection{Combining Higher Order Reducer with Feature State Reducer }
+
+Higher order reducers are fantastic. However, many times, the higher order
+reducer only solves one specific problem of state with regards to a particular
+component. So, without us being able to combine multiple higher order reducers
+within the app, a higher order reducer would be worthless. That being said, we
+would be able combine reducers by doing the following:
+
+\begin{lstlisting}
+import { reducers } from './reducers';
+@NgModule({
+  imports: [
+    ...
+    StoreModule.forFeature('userModule', reducers)
+  ],
+  ...
+})
+export default class UserModule { }
+\end{lstlisting}
+
 \subsection{Re-Using Effects}
 \begin{lstlisting}
 @Effect()
@@ -93,3 +119,9 @@ given situation.
     }
   );
 \end{lstlisting}
+
+\mybox{
+Would it be possible to just use ngrx/entity for the above? In other words, we
+might be able to pass in a unique set of data to a particular id, and then call
+data using that pattern.
+}
