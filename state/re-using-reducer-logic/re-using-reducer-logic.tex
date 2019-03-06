@@ -87,12 +87,19 @@ import { reducers } from './reducers';
 @NgModule({
   imports: [
     ...
-    StoreModule.forFeature('userModule', reducers)
+    StoreModule.forFeature('userModule', {
+      userReducer,
+      attachments: attachmentReducer,
+
+    })
   ],
   ...
 })
 export default class UserModule { }
 \end{lstlisting}
+
+Now, any action that is made that matches the name for feature state we are
+working on, will update the state for the respective reducer.
 
 \subsection{Re-Using Effects}
 \begin{lstlisting}
