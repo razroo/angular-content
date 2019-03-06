@@ -16,3 +16,80 @@ effects. Is there a way that we can re-use logic within our app?
 In order to re-use logic, we can do the following.
 
 \subsection{Creating a re-usable Facade and Action}
+For our uploadFile action, we can have the following:
+\begin{lstlisting}
+export class UploadAttachment implements Action {
+  readonly type = UploadActionTypes.UploadAttachment;
+  constructor(public payload: { id: string; file: File; name: string, actionType }) {}
+}
+\end{lstlisting}
+
+In our Facade we would have the following:
+
+\begin{lstlisting}
+uploadAttachment(actionType: string, file: File, id: string = 'GENERIC'): void {
+    this.store.dispatch(
+      new UploadAttachment({ id, file, name: file.name, actionNameIdentifier })
+    );
+  }
+\end{lstlisting}
+
+We create an action and facade that allows us to pass in an
+actionNameIdentifier.
+
+\subsection{Re-Using Reducer}
+We can now go to our reducer, and re-use this logic. Let's
+go ahead and create a reducer for uploading attachments:
+
+\begin{lstlisting}
+export function attachmentReducer(
+  state: UploadState = initialState,
+  action: UploadAction,
+  actionTypeName: string,
+): UploadState {
+  const { actionNameIdentifier } = action
+  if (actionNameIdentifier !== actionTypeName) return state
+
+  switch (action.type) {
+    case DraftActionTypes.UploadAttachments: {
+      return attachmentsAdapter.addAll(action.payload, {
+        ...state,
+        loaded: true,
+      });
+    }
+  }
+
+  return state;
+}
+\end{lstlisting}
+
+You will notice that in the above code, we have created a param for
+actionTypeName in our reducer. In our action, we are passing what we are calling
+actionNameIdentifier. We then are able to re-use this action, and reducer in any
+given situation.
+
+\subsection{Re-Using Effects}
+\begin{lstlisting}
+@Effect()
+  uploadAttachment$ = this.dataPersistence.fetch(
+    DraftActionTypes.UploadAttachment,
+    {
+      run: (action: UploadAttachment, state: UploadState) => {
+        return this.filesService
+          .uploadFile(action.payload, FileLocation.ATTACHMENTS)
+          .pipe(
+            map((file: FileMetadata) => {
+              return new AttachmentUploaded({
+                id: action.payload.id,
+                file,
+              });
+            })
+          );
+      },
+
+      onError: (action: UploadDraftAttachment, error) => {
+        console.error('Error', error);
+      },
+    }
+  );
+\end{lstlisting}
