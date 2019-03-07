@@ -53,7 +53,7 @@ export function attachmentReducer(
   action: UploadAction,
   actionTypeName: string,
 ): UploadState {
-  const { actionNameIdentifier } = action
+  const { actionNameIdentifier } = action;
   if (actionNameIdentifier !== actionTypeName) return state
 
   switch (action.type) {
@@ -108,6 +108,7 @@ working on, will update the state for the respective reducer.
     DraftActionTypes.UploadAttachment,
     {
       run: (action: UploadAttachment, state: UploadState) => {
+        const { actionNameIdentifier } = action;
         return this.filesService
           .uploadFile(action.payload, FileLocation.ATTACHMENTS)
           .pipe(
@@ -115,6 +116,7 @@ working on, will update the state for the respective reducer.
               return new AttachmentUploaded({
                 id: action.payload.id,
                 file,
+                actionNameIdentifier,
               });
             })
           );
