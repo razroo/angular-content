@@ -1,35 +1,45 @@
 \maketitle{}
 \section{ Re-using Reducer Logic }
 
-In an Angular setting, when using side effects heavily for one's app, the action
-name becomes heavily tied to the way an application is intended to be used. For
+In any state management setting, many times an individual will come across
+business logic that is repeated many times throughout one's feature state. For
 instance, let's say that we hava fileUpload service that is going to be used in
-our app, in an number of settings. What the file upload allows does, is allow
-for file to be uploaded and then retreive the metadata for the file that has
-been uploaded. However, we might use this file upload service to upload the
-file to different places. However, the logic for all of them is the same. When
-file is uploaded, ids are returned to be used as attachments.
+our app. The purpose of this service, is to upload a file, and return a
+FileMetadataId to be used in another api.
 
-However, the logic is the same for both for the actions, facade, reducer, and
-effects. Is there a way that we can re-use logic within our app?
-
-In order to re-use logic, we can do the following.
+The logic for this state manangement workflow will be the same for actions,
+facade, reducer, and effects. The question is how can we make our state
+re-usable so that it we can use it in multiple reducers without having to
+re-write logic?
 
 \subsection{Creating a re-usable Facade and Action}
+Our UploadFile action will pass the following:
+\begin{itemize}
+  \item actionNameIdentifier - For allowing us to re-use reducer
+  \footnote{Will Discuss this in more detail}
+  \item entityId - Primarily for allowing us to use the ngrx/entity api
+  \footnote{Will discuss this in more detail}
+  \item file - Using the name html input api, File is what will be passed in
+  through from the input.
+\end{itemize}
 For our uploadFile action, we can have the following:
 \begin{lstlisting}
-export class UploadAttachment implements Action {
+export class UploadFile implements Action {
   readonly type = UploadActionTypes.UploadAttachment;
-  constructor(public payload: { id: string; file: File; name: string, actionType }) {}
+  constructor(public payload: { actionNameIdentifier: string, entityId: string;
+     file: File; name: string}) {}
 }
 \end{lstlisting}
+\foonote{In a real world application, normally I would include a param for name
+of the file. However, for the simplicity of this chapter, I decided to leave
+it out.}
 
 In our Facade we would have the following:
 
 \begin{lstlisting}
-uploadAttachment(actionType: string, file: File, id: string = 'GENERIC'): void {
+uploadFile(actionType: string, file: File, entityId: string): void {
     this.store.dispatch(
-      new UploadAttachment({ id, file, name: file.name, actionNameIdentifier })
+      new UploadFile({ actionNameIdentifier, entityId, file })
     );
   }
 \end{lstlisting}
@@ -132,4 +142,4 @@ working on, will update the state for the respective reducer.
 In the above effect, we are passing in the actionNameIdentifier, that is being
 passed in from actionNameIdentifier. Using this pattern, we are able to create a
 re-usable action, facade, reducer, and effect for uploading file, and making
-sure that it is properly called based on feature state it is being used for. 
+sure that it is properly called based on feature state it is being used for.
