@@ -129,8 +129,7 @@ working on, will update the state for the respective reducer.
   );
 \end{lstlisting}
 
-\mybox{
-Would it be possible to just use ngrx/entity for the above? In other words, we
-might be able to pass in a unique set of data to a particular id, and then call
-data using that pattern.
-}
+In the above effect, we are passing in the actionNameIdentifier, that is being
+passed in from actionNameIdentifier. Using this pattern, we are able to create a
+re-usable action, facade, reducer, and effect for uploading file, and making
+sure that it is properly called based on feature state it is being used for. 
