@@ -23,7 +23,7 @@ into the reducer. However, to make sure that reducer logic can be re-used, we
 pass a special param for the reducer function called actionTypeName. We then
 compare the actionNameIdentifier passed in from the action.paylod to the
 actionTypeName passed in from the reducer. If they are equal to each other, then
-we allow for the reducer logic to happen. Let's deepdive on this approach.
+we allow for the reducer logic to happen. Let's deep dive on this approach.
 
 \subsection{Creating a re-usable Facade and Action}
 Our UploadFile action will pass the following:
@@ -35,7 +35,6 @@ Our UploadFile action will pass the following:
   \item file - Using the name html input api, File is what will be passed in
   through from the input.
 \end{itemize}
-For our uploadFile action, we can have the following:
 \begin{lstlisting}
 export class UploadFile implements Action {
   readonly type = UploadActionTypes.UploadAttachment;
@@ -47,7 +46,7 @@ export class UploadFile implements Action {
 of the file. However, for the simplicity of this chapter, I decided to leave
 it out.}
 
-In our Facade, we would have the following:
+In our Facade, would have the following:
 
 \begin{lstlisting}
 uploadFile(actionType: string, file: File, entityId: string): void {
@@ -57,8 +56,9 @@ uploadFile(actionType: string, file: File, entityId: string): void {
   }
 \end{lstlisting}
 
-We create an action and facade that allows us to pass in an
-actionNameIdentifier.
+Most notable, we pass in a parameter called actionNameIdentifier. This will be
+compared against created by the reducer to make sure we are targeting the
+featureState that we would like to work with.
 
 \subsection{Higher Order Reducers}
 
