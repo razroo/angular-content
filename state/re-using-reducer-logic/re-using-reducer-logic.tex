@@ -62,13 +62,16 @@ featureState that we would like to work with.
 
 \subsection{Higher Order Reducers}
 
-It is important to note that higher order functions are:
+A higher order reducer borrows it's name from a higher order function.
+
 \mybox{
+A higher order function is:
 Functions that operate on other functions, either by taking them as arguments or
 by returning them, are called higher-order functions.
 }
-We can now go to our reducer, and re-use this logic. Let's
-go ahead and create a reducer for uploading attachments:
+
+A higher order reducer is very similar. It allows us to create a reducer, that
+can be passed into another reducer, to create single combined reducer.
 
 \begin{lstlisting}
 export function attachmentReducer(
@@ -93,9 +96,10 @@ export function attachmentReducer(
 \end{lstlisting}
 
 You will notice that in the above code, we have created a param for
-actionTypeName in our reducer. In our action, we are passing what we are calling
-actionNameIdentifier. We then are able to re-use this action, and reducer in any
-given situation.
+actionTypeName in our reducer. In our action, we are passing in a similar unique
+identifier called actionNameIdentifier. In our reducer we compare the
+actionTypeName created in the reducer, against the actionTypeName in the action,
+in order to re-use reducer logic, for any feature state we would like to use it.
 
 \subsection{Combining Higher Order Reducer with Feature State Reducer }
 
@@ -112,7 +116,7 @@ import { reducers } from './reducers';
     ...
     StoreModule.forFeature('userModule', {
       userReducer,
-      attachments: attachmentReducer,
+      attachments: attachmentReducer('userReducer'),
 
     })
   ],
