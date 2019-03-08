@@ -129,6 +129,10 @@ Now, any action that is made that matches the name for feature state we are
 working on, will update the state for the respective reducer.
 
 \subsection{Re-Using Effects}
+Effects are really a bridge from an action, to service, back to an action again.
+We are therefore able to re-use effect by simply passing in the
+actionNameIdentifier and making sure that it makes it's way back to reducer
+once again.
 \begin{lstlisting}
 @Effect()
   uploadAttachment$ = this.dataPersistence.fetch(
@@ -156,7 +160,9 @@ working on, will update the state for the respective reducer.
   );
 \end{lstlisting}
 
-In the above effect, we are passing in the actionNameIdentifier, that is being
-passed in from actionNameIdentifier. Using this pattern, we are able to create a
-re-usable action, facade, reducer, and effect for uploading file, and making
-sure that it is properly called based on feature state it is being used for.
+\subsection{ Ending Notes }
+There is some discussion along the lines of whether, or not this pattern makes
+sense. Arguably some scenarios where one might be tempted to use a pattern like
+this, might not be ideal. Therefore, it is worth noting to re-assess the reason
+for which you would like to re-use state. Perfectly valid reasons for which to
+use a re-usable reducer includes pagination, sorting, and potentially filtering. 
