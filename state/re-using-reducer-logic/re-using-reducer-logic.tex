@@ -12,6 +12,19 @@ facade, reducer, and effects. The question is how can we make our state
 re-usable so that it we can use it in multiple reducers without having to
 re-write logic?
 
+\subsection{ Strategy }
+
+The strategy for how we would create a re-usable state is as follows. We would
+have a facade/action that would pass in an actionTypeName along with the
+regular payload. The effect would be passed this unique actionTypeNamem which
+would then call the appropriate facade/action for when data is uploaded, using
+re-usable service. We would then pass in uploaded data from the action.payload
+into the reducer. However, to make sure that reducer logic can be re-used, we
+pass a special param for the reducer function called actionTypeName. We then
+compare the actionNameIdentifier passed in from the action.paylod to the
+actionTypeName passed in from the reducer. If they are equal to each other, then
+we allow for the reducer logic to happen. Let's deepdive on this approach.
+
 \subsection{Creating a re-usable Facade and Action}
 Our UploadFile action will pass the following:
 \begin{itemize}
@@ -30,11 +43,11 @@ export class UploadFile implements Action {
      file: File; name: string}) {}
 }
 \end{lstlisting}
-\foonote{In a real world application, normally I would include a param for name
+\footnote{In a real world application, normally I would include a param for name
 of the file. However, for the simplicity of this chapter, I decided to leave
 it out.}
 
-In our Facade we would have the following:
+In our Facade, we would have the following:
 
 \begin{lstlisting}
 uploadFile(actionType: string, file: File, entityId: string): void {
