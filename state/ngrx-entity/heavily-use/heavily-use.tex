@@ -1,23 +1,34 @@
 \maketitle{}
-\section{ The Case for Heavily Using Ngrx/entity }
+\section{ The Case for Using Ngrx/Entity by Default}
 
-\subsection{ A Brief History of Normalization}
-In the concept of normalization was first introduced by Edgar F. Codd in 1970
-in a paper he called: "A Relational Model of Data for Large Shared Data Banks".
-He introduces the concept of relational databases, and what he calls ``"Normal
-Form"''. The idea behind a normal form, is to remove redundancies. Alot of
-research has been done since then on normalization. To be honest, there is quite
-a bit on this topic, and following normalization across all papers discussed on
-this topic \footnote{https://database.guide/what-is-normalization/}.
+\subsection{ A Synopsis of Normalization}
+The idea of normalization with regards to relational databases(a database
+structured to recognize relations among stored items of information) is to
+eliminate data redundancy, and anomolies with regards to Insertion, Delete, and
+updating. Within a front end setting, it is mostly the backend that deals with
+a large portion of eliminating data redudancy, and CRUD anomolies. However,
+there are many use cases still with regards to Insertion, Delete, and Updating
+anomolies, that can be solved by using normalization within ngrx/platform.
 
-\subsection{Using Ngrx/entity}
-Ngrx/entity for me personally, is the most exciting part of ngrx/entity. Simply
-because it is a library based on comp sci fundementals of building an ngrx/store
-database. In SQL databases, there is a concept of database normalization. For
-instance, let's imagine we have a set of data. In our table, and we would like
-to retrieve data from it. The data in JSON formate can look something like this:
+\subsection{Why Ngrx/entity is Exciting!}
+Ngrx/entity for me personally, is the most exciting part of ngrx/platform for
+two reasons.
+\begin{enumerate}
+  \item It is a library based on comp sci fundementals of building a relational
+  databases.
+  \item It actually introduces something novel to the Redux ecosystem (something
+  I found that the Context and Hooks API didn't even solve)
+\end{enumerate}
+
+\subsection{Dis-secting a Real World Example of ngrx/entity}
+
+\subsubsection{CodeBox Interface}
+Let's imagine that we are building a Pixel Illustrator application. Something
+similar to the \href{http://charliegreenman.github.io/codeILL/}{following}. One
+of our interfaces for the state contained within the codeBox, would look
+something like this:
 \begin{lstlisting}
-  interface codeBox {
+  interface CodeBox {
     id: string;
     color: string;
     xPosition: number;
@@ -25,23 +36,18 @@ to retrieve data from it. The data in JSON formate can look something like this:
   }
 \end{lstlisting}
 
-Now, let's imagine we have a an array of these codeBox types that we would like
-use, that look something like this:
-\begin{lstlisting}
-  interface codeBoxCollection {
-    codebox: codeBox[]
-  }
-\end{lstlisting}
+Let's imagine we have an array of CodeBox interface(AKA CodeBox[]) that we would
+like to use. If we want to select a specific slice of data within our database
+table, things can be a little bit tricky. We would need to loop through all of
+the data, and then find the appropriate set of data with the id/value that we
+want.
 
-Now this means, that if we want to select a certain piece of data within our
-database table, things can be a little bit tricky. In order to access, for
-instance, a certain section of our table, we would need to loop through all of
-the data, and then find the appropriate set of data with id that we want.
-
-Instead, what would make out data table more efficient, is if we have a table
-of ids that corresponds directly to our table of data. This way, we can simply
-say the data that we would like in our database, and correlate that directly to
-the data that we are working on.
+Instead, what would make our data table more efficient, is if we have an array
+of ids that corresponds directly to our dictionary of data. In our store we can
+add some extra key values such as selectedId. This way, we can simply say the
+data that we would like is based on one, or two parameters passed to a function.
+This can be re-used in other stores, as data is structured the same way, and
+selected in the same fashion.
 
 \subsection{ngrx/entity follows this pattern}
 Ngrx/entity is a library which follows this pattern, so that data used within
@@ -52,8 +58,8 @@ and I will prove it by bringing up a couple of situations.
 
 \subsubsection{The Power of Ngrx/Entity Deep Dive}
 Scenario One:
-Updating one dictionary data set. Let's imagine that we were to load for our
-pixel illustrator a set of coordinates to populate the pixe illustrator. However,
+Updating one dictionary data set. Let's imagine that we were to load our
+Pixel Illustrator a set of coordinates to populate the pixel illustrator. However,
 let's say we wanted to update one particular piece of that data set, by only
 a smaller portion of data, when loading entire data set, and then a larger portion
 when expanding details for particular data set. Ngrx/entity allows us to maintain
@@ -61,28 +67,27 @@ the same store, but simply update the once piece of data in the dictionary.
 
 Scenario Two:
 Let's say we have two indepedent components pulling data from the same store,
-but we do not want them to interact with each other. For instance, let's say they
-both accept attachments for a user. We would need to create a unique id for both
-that would allow us to follow this pattern. ngrx/entity naturally would allow us
-to do that in addition, to feeding the data back into the backend. This is such a
-powerful pattern.
+but we do not want them to interact with each other. We would need to create a
+unique id for both that would allow us to follow this pattern. ngrx/entity
+naturally allows us to pass in a unique id, that allows us to accomplish this
+correlation id pattern. This is such a powerful pattern.
 
 Scenario Three:
 Let's say we have a data table, and we would like to know which set's of data
 we have selected. We have the ability to pass in id, into another section of
-data store, called selectedIds, and then have the freedom to choose any other
-data set within those subsets.
+data store, called selectedIds. So we can have a checkbox, select multiple
+checkboxes, and know which data sets have been selected.
 
 Scenario Four:
 Let's say we want to delete, update, or upsert a certain subset of data. Being
-able to pass in the id only, makes this process infinitely easier, and more
-efficient.
+able to pass in the id only, makes this process infinitely easier, and the api
+more manipilating data, more re-usable.
 
-These are just four real worlds scenarios.
+These are just four real worlds scenarios, and the list goes on.
 
 \subsection{Choosing Ngrx/entity as the Default}
 This leads to the point this chapter is trying to make. In any situation with
 data, odds are that you are going to update, delete, upsert, or pull in more
 data for a specific subset of data. This means, that anytime that you are going
-to use more data, using ngrx/entity as the default makes sense. The Nrwl cli
+to use more data, using ngrx/entity as the default makes sense. The Nrwl CLI
 for ngrx/store follows this pattern, and it is highly reccomended.
