@@ -50,7 +50,7 @@ Dictionary: Collection which is unordered, changeable and indexed.
 }
 
 That being said, a sample ngrx/entity data structure will look like this:
-\begin{verbatim}
+\begin{lstlisting}
   ids: [
     '3QOZBAAAQBAJ',
     'y4nmOe0-WD0C',
@@ -71,8 +71,7 @@ That being said, a sample ngrx/entity data structure will look like this:
     }
   }
 
-
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{ Adapter Pattern - A Primer  }
 Before we go ahead and discuss what an ngrx/entity adapter is, let's go through
@@ -86,7 +85,7 @@ class to be used as another interface. It is often used to make existing
 classes work with others without modifying their source code.}
 
 \subsection{ Introducing Ngrx/entity adapter }
-The ngrx/entity adapter similarly will take in data, and wrap it inside of ids
+The ngrx/entity adapter, similarly, will take in data, and wrap it inside of ids
 and entities. So the adapter can be considered as something that will modify
 the data. The default adapter that comes with ngrx/entity, takes two default
 values:
@@ -98,11 +97,11 @@ values:
   performant during CRUD operations.
 \end{itemize}
 
-The selectId is arguably the more important default value. This will be the
-default hash that will be used within the app. The general idea is that some
-sort of id will be returned by the database for that particular item. One will
-then be able to use that id for all crud operations. In addition, most likely
-pass in that id for your Rest Service, or GraphQL query.
+The selectId is the more important default value. This will be the default UUID
+that will be used within the app. The general idea is that some sort of id will
+be returned by the database for that particular item. One will then be able to
+use that id for all crud operations. In addition, most likely pass in that id
+for your Rest Service, or GraphQL query.
 
 \subsection{ Ngrx/entity Adapter Example }
 Creating an example adapter, might look something like the following:
