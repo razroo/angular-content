@@ -1,2 +1,37 @@
 \maketitle{}
 \section{ Aggregation Pattern }
+
+Many times within any web setting, numerous apis will be feeding into a singular
+request. An example would be in an e-commerce setting wherein data for a
+particular item, might come from numerous locations. The data for the pants
+might come from one api, the analytics api might update, and then a third api
+along the lines of data persistence will be called at that time as well.
+
+In a backend setting, usually we try and keep a singular api request for the
+business logic of a particular use case. However, there are many times wherein
+this will be beyond the power of the developer. In can be in antiquated apis,
+or in unique use cases.
+
+\subsection{ The Unique Challenge with Ngrx/effects}
+In an ngrx/effects use case, when a user is hitting a single service, and
+returning a single action, it is relatively straight forward. This will look
+something like the following:
+\begin{lstlisting}
+@Effect()
+getProductInformation$ = this.dataPersistence.fetch(
+  ProductTypes.getProductInformation, {
+  run: (action: GetProductInformation, state: ProductModelState) => {
+    const { userId, productId } = action.payload;
+
+    return this.service
+      .getProductInformation(userId, productId)
+      .pipe(
+        map((product: Product) => new ProductLoaded(product))
+      );
+  },
+
+  onError: (action: GetProductInformation, error) => {
+    console.error('Error', error);
+  },
+});
+\end{lstlisting}
