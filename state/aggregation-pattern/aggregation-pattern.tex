@@ -35,3 +35,9 @@ getProductInformation$ = this.dataPersistence.fetch(
   },
 });
 \end{lstlisting}
+
+In this example we fire off a service, and return the data from that one
+service. We might even have the option to turn the map into a switchMap, that
+can be used for numerous actions, originating from a singular service. However,
+it immediatly becomes a problem once we start to have a singular effect call
+numerous services, wherein one action is expected to have all of it's data. 
