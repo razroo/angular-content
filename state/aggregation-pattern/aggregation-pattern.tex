@@ -40,4 +40,10 @@ In this example we fire off a service, and return the data from that one
 service. We might even have the option to turn the map into a switchMap, that
 can be used for numerous actions, originating from a singular service. However,
 it immediatly becomes a problem once we start to have a singular effect call
-numerous services, wherein one action is expected to have all of it's data. 
+numerous services, wherein one action is expected to have all of it's data.
+
+\subsection{Using the Aggregator Pattern}
+
+\mybox{Before we introduce the aggregator pattern, it is important to note that
+in any situation wherein we have numerous actions potentially being dispatched
+we are going to want to include a correlation id within our app.}
