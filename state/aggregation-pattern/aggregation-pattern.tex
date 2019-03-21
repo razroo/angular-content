@@ -44,6 +44,69 @@ numerous services, wherein one action is expected to have all of it's data.
 
 \subsection{Using the Aggregator Pattern}
 
-\mybox{Before we introduce the aggregator pattern, it is important to note that
-in any situation wherein we have numerous actions potentially being dispatched
-we are going to want to include a correlation id within our app.}
+\mybox{Before we introduce the aggregator pattern, it is important to make one
+note. In any situation with numerous actions, we are going to want to include a
+correlation id within our app. It is important to do this, so that as we have
+numerous actions coming in at a time, the request is being done for the proper
+item at that time.}
+
+\subsubsection{Defining Types for Actions}
+\begin{lstlisting}
+export type AggregatableAction = Action & { correlationParams?: CorrelationParams };
+
+export type FailActionForAggregation = Action & { error?: Error, correlationParams?: CorrelationParams };
+\end{lstlisting}
+
+First we define the types for our different actions. Both will be a standard
+action with the addition of correlationParams, which we will use to make sure
+that we are indded calling the correct action.
+
+export function aggregate<T extends AggregatableAction,
+    TAction1 extends AggregatableAction,
+    TAction2 extends AggregatableAction,
+    TFailAction extends FailActionForAggregation>
+(
+    action1$: Observable<TAction1>,
+    action2$: Observable<TAction2>,
+    failAction$: Observable<TFailAction>
+): OperatorFunction<T, [TAction1, TAction2]> {
+
+    const filterAction = (sourceAction: AggregatableAction, t: AggregatableAction) =>
+        t.correlationParams && sourceAction.correlationParams &&
+        t.correlationParams.correlationId === sourceAction.correlationParams.correlationId &&
+        t.correlationParams.parentActionType === sourceAction.type;
+
+    const getAggregatedActions = (sourceAction: AggregatableAction): Observable<[TAction1, TAction2]> => {
+        let a1$ = action1$
+            .pipe(
+                filter(a => {
+                    return filterAction(sourceAction, a);
+                }),
+                first()
+            );
+        let a2$ = action2$
+            .pipe(
+                filter(a => {
+                    return filterAction(sourceAction, a);
+                }),
+                first()
+            );
+
+        let f$ = failAction$
+            .pipe(
+                filter(a => {
+                    return filterAction(sourceAction, a);
+                }),
+                first(),
+                switchMap(b => {
+                    return Observable.throw(b.error);
+                })
+            );
+
+        return race(forkJoin([a1$, a2$]), f$);
+    };
+
+    return (source: Observable<AggregatableAction>) => source.pipe(
+        switchMap(sourceAction => getAggregatedActions(sourceAction))
+    );
+}
