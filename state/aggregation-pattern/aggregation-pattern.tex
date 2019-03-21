@@ -61,6 +61,8 @@ First we define the types for our different actions. Both will be a standard
 action with the addition of correlationParams, which we will use to make sure
 that we are indded calling the correct action.
 
+\subsubsection{Passing in Params for Functions}
+\begin{lstlisting}
 export function aggregate<T extends AggregatableAction,
     TAction1 extends AggregatableAction,
     TAction2 extends AggregatableAction,
@@ -70,11 +72,29 @@ export function aggregate<T extends AggregatableAction,
     action2$: Observable<TAction2>,
     failAction$: Observable<TFailAction>
 ): OperatorFunction<T, [TAction1, TAction2]> {
+\end{lstlisting}
+Now we go ahead and specify the params that we need to use for the aggregator
+pattern. We are going to assume that there will never be a situation wherein
+we will ever use more than two actions.
 
+\subsubsection{Creating a Filter Action}
+\begin{lstlisting}
     const filterAction = (sourceAction: AggregatableAction, t: AggregatableAction) =>
         t.correlationParams && sourceAction.correlationParams &&
         t.correlationParams.correlationId === sourceAction.correlationParams.correlationId &&
         t.correlationParams.parentActionType === sourceAction.type;
+\end{lstlisting}
+
+First:
+\begin{enumerate}
+  \item We confirm that the function passed in correlation params, and that our
+source action has correlation params.
+  \item We check to make sure that the correlationId of the correlation params
+  matches that of the correlationId of the correlationParams of the soruceAction
+  \item
+\end{enumerate}
+
+\begin{lstlisting}
 
     const getAggregatedActions = (sourceAction: AggregatableAction): Observable<[TAction1, TAction2]> => {
         let a1$ = action1$
@@ -110,3 +130,4 @@ export function aggregate<T extends AggregatableAction,
         switchMap(sourceAction => getAggregatedActions(sourceAction))
     );
 }
+\end{lstlisting}
