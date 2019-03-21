@@ -77,7 +77,7 @@ Now we go ahead and specify the params that we need to use for the aggregator
 pattern. We are going to assume that there will never be a situation wherein
 we will ever use more than two actions.
 
-\subsubsection{Creating a Filter Action}
+\subsubsection{ Creating a Filter Action }
 \begin{lstlisting}
     const filterAction = (sourceAction: AggregatableAction, t: AggregatableAction) =>
         t.correlationParams && sourceAction.correlationParams &&
@@ -91,9 +91,11 @@ First:
 source action has correlation params.
   \item We check to make sure that the correlationId of the correlation params
   matches that of the correlationId of the correlationParams of the soruceAction
-  \item
+  \item The correlationParams action type, is equal to that of the
+  sourceAction's type.
 \end{enumerate}
 
+\subsubsection{ Creating Aggregated Actions }
 \begin{lstlisting}
 
     const getAggregatedActions = (sourceAction: AggregatableAction): Observable<[TAction1, TAction2]> => {
@@ -125,7 +127,11 @@ source action has correlation params.
 
         return race(forkJoin([a1$, a2$]), f$);
     };
+\end{lstlisting}
 
+We hvae to re-visit this and see if there is a use case to where we would
+actually use an aggregator pattern.
+\begin{lstlisting}
     return (source: Observable<AggregatableAction>) => source.pipe(
         switchMap(sourceAction => getAggregatedActions(sourceAction))
     );
