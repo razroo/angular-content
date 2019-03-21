@@ -129,8 +129,9 @@ source action has correlation params.
     };
 \end{lstlisting}
 
-We hvae to re-visit this and see if there is a use case to where we would
-actually use an aggregator pattern.
+Here we use a forkJoin, to make sure we have the latest from all values. In
+addition, we create a race condition, so that if the error emits, it will
+return the error instead. 
 \begin{lstlisting}
     return (source: Observable<AggregatableAction>) => source.pipe(
         switchMap(sourceAction => getAggregatedActions(sourceAction))
