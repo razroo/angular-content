@@ -17,7 +17,8 @@ two reasons.
   \item It is a library based on comp sci fundamentals of building a relational
   databases.
   \item It actually introduces something novel to the Redux ecosystem (something
-  I found that the Context and Hooks API didn't even solve)
+  I found that the Context and Hooks API didn't even give that sort of
+  freshness).
 \end{enumerate}
 
 \subsection{Dis-secting a Real World Example of ngrx/entity}
@@ -65,8 +66,8 @@ a smaller portion of data, when loading entire data set, and then a larger porti
 when expanding details for particular data set. Ngrx/entity allows us to maintain
 the same store, but simply update the once piece of data in the dictionary.
 
-Scenario Two:
-Let's say we have two indepedent components pulling data from the same store,
+Scenario Two: 
+Let's say we have two independent components pulling data from the same store,
 but we do not want them to interact with each other. We would need to create a
 unique id for both that would allow us to follow this pattern. ngrx/entity
 naturally allows us to pass in a unique id, that allows us to accomplish this
