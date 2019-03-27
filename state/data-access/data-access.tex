@@ -15,15 +15,25 @@ it's all module for bundling, and testing purposes.
 State being a way of accessing data, an appropriate name for the folder/file
 tree for state makes sense to be called data-access. It will look something
 like the following:
-
+sass-unit-testing.tex
 \begin{forest}
   [libs
     [px-illustrator
       [data-access
-        [src
-          [
-            lib
+        [code-box
+          [src
+            [lib
+              [\_+state
+                [\_code-box.actions.ts,file]      
+              ]
+            ]
           ]
+          [\_karma.conf,file]
+          [\_README.md,file]
+          [\_tsconfig.lib,file]
+          [\_tsconfig.lib.json,file]
+          [\_tsconfig.spec.json,file]
+          [\_tslint.json,file]
         ]
       ]
     ]
