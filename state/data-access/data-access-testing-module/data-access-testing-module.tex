@@ -37,7 +37,7 @@ export class CodeBoxFacade {
 Here we have a stream named codeBox\$, which takes in an observable of
 getCodeBox. We also have a method called loadCodeBox. If we ever want to use
 these methods in an actual component, our unit tests will fail. We might use
-this in numerous scenarios. It would be easy if we could do two things:
+this in numerous scenarios. It would be easy if we could solve two issues:
 \begin{enumerate}
   \item Create a Mock for our facade file
   \item Create a testing module that we can simply include for our unit tests
@@ -45,7 +45,7 @@ this in numerous scenarios. It would be easy if we could do two things:
 
 \subsubsection{ What our Facade Mock File Looks Like }
 \begin{lstlisting}
-\\code-box.facade.mock.ts
+// code-box.facade.mock.ts
 
 export class MockCodeBoxFacade {
   codeBox$: Observable<CodeBox[]> = of([{ ...codeBoxMock }]);
@@ -55,4 +55,9 @@ export class MockCodeBoxFacade {
 \end{lstlisting}
 
 Notice that here in the mock, as mocks should be, we create the simplest
-functional version of our facade file. 
+functional version of our facade file. This solves issue #1, of creating a mock
+for our facade file.
+
+\subsubsection{ Creating a Testing Module for Re-Use }
+Now that we have our facade mock file, let's include it into a module, so that
+we can re-use it across our angular application. 
