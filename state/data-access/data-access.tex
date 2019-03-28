@@ -1,15 +1,15 @@
 \maketitle{}
 \section{ Data Access }
 
-Without going into the problems that data-access architecture is trying to solve
-instead, I would like to present one simple argument. State, while it should
-ideally be tied to a feature, as the app moves on, might not neccesarily be
-tied to a specific feature, or page. In addition, +state by nature, as a single
-giant object, is global by nature. Also, it takes up a large portion of any app.
-It definitely makes sense to put all state in a single repository, so that state
-within the app can be transparent(go into this a bit more). Finally, for testing
-purposes, state is a very large chunk of business logic for app, and deserves
-it's all module for bundling, and testing purposes.
+When one begins an Angular project for the first time, it can be increasingly
+difficult to manage ngrx/store. State, while it should ideally be tied to a
+feature, as the app moves on, might not neccesarily be tied to a specific
+feature, or page. In addition, +state by nature, as a single giant object,
+is global by nature. Also, it takes up a large portion of any app. It definitely
+makes sense to put all state in a single repository, so that state within the
+app can be transparent(go into this a bit more). Finally, for testing purposes,
+state is a very large chunk of business logic for app, and deserves it's all
+module for bundling, and testing purposes.
 
 \subsection{Data Access Folder/File Structure }
 State being a way of accessing data, an appropriate name for the folder/file
@@ -17,3 +17,15 @@ tree for state makes sense to be called data-access. It will look something
 like the following:
 
 \input{./state/data-access/data-access-tree-structure}
+
+Most notably, all of the state related code is contained within a single
+folder. By doing so, it solves all of the above three issues:
+\begin{enumerate}
+  \item State is global, and therefore can now be used by multiple features
+  \item We have the ability to run
+  ng test --project=px-illustrator-data-access-code-box and it will run code
+  specifically for this data-access feature state
+  \item By globalizing naming convention, we can streamline naming convention
+  of all global files intended towards working towards the same purpose. Namely,
+  our data-services, and features. 
+\end{enumerate}
