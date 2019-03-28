@@ -47,5 +47,12 @@ this in numerous scenarios. It would be easy if we could do two things:
 \begin{lstlisting}
 \\code-box.facade.mock.ts
 
+export class MockCodeBoxFacade {
+  codeBox$: Observable<CodeBox[]> = of([{ ...codeBoxMock }]);
 
+  loadCodeBox(id) {}
+}
 \end{lstlisting}
+
+Notice that here in the mock, as mocks should be, we create the simplest
+functional version of our facade file. 
