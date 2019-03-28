@@ -60,4 +60,30 @@ for our facade file.
 
 \subsubsection{ Creating a Testing Module for Re-Use }
 Now that we have our facade mock file, let's include it into a module, so that
-we can re-use it across our angular application. 
+we can re-use it across our angular application.
+
+\begin{lstlisting}
+import { NgModule } from '@angular/core';
+import { CodeBoxFacade } from './+state/code-box.facade';
+import { MockCodeBoxFacade } from './+state/code-box.facade.mock';
+
+@NgModule({
+  providers: [
+    {
+      provide: CodeBoxFacade,
+      useClass: MockCodeBoxFacade,
+    },
+  ],
+})
+export class PxIllustratorDataAccessCodeBoxTestingModule {}
+\end{lstlisting}
+
+Here, we have a very simple testing module, that only creates a provider for our
+CodeBoxFacade, so that it uses the MockCodeBoxFacade.
+
+\mybox{It is once again tempting to be in shock, that we have a very simple
+module, but it is important to keep in mind, that due to our architecture, our
+state is intentially feeding into a singular file. If anything, this module
+is once again showing off how simple our architecture is.}
+
+\subsubsection{ Using our Testing Module in a Component Spec }
