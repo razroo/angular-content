@@ -1,2 +1,51 @@
 \maketitle{}
 \section{ Data Access Testing Module }
+
+In the data-access chapter we discussed the value of coupling all of our files
+in the same folder. One of the main values we discussed is that it allows us
+to uniquely test our state withing a specific folder. This chapter goes deeper
+into how we can further capitalize on having a testing module.
+
+\subsection{ Creating a Facade Mock File }
+Within our archticture, we haviliy suggest using the facade pattern within
+our data-access archticture. It allows us to have all elements of our state feed
+into a single file. In is particular useful when it comes to mocking, as it
+means that for all of our state, we only need to create a single file.
+
+\subsubsection{ A Quick Example of our Facade File }
+Let's say we had a really simple facade file:
+\begin{lstlisting}
+// code-box.facade.mock.ts
+
+import { getCodeBox } from 'code-box.selectors';
+import { CodeBoxModelState } from 'reducer';
+
+@Injectable()
+export class CodeBoxFacade {
+  codeBox$ = Observable<CodeBox> = this.store.pipe(select(getCodeBox));
+
+  constructor(
+    private store: Store<CodeBoxModelState>,
+  ) {}
+
+  loadCodeBox(id) {
+    this.store.dispatch(new LoadCodeBox() {id});
+  }
+}
+\end{lstlisting}
+
+Here we have a stream named codeBox\$, which takes in an observable of
+getCodeBox. We also have a method called loadCodeBox. If we ever want to use
+these methods in an actual component, our unit tests will fail. We might use
+this in numerous scenarios. It would be easy if we could do two things:
+\begin{enumerate}
+  \item Create a Mock for our facade file
+  \item Create a testing module that we can simply include for our unit tests
+\end{enumerate}
+
+\subsubsection{ What our Facade Mock File Looks Like }
+\begin{lstlisting}
+\\code-box.facade.mock.ts
+
+
+\end{lstlisting}
