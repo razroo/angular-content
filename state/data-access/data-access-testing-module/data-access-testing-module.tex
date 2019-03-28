@@ -87,3 +87,49 @@ state is intentially feeding into a singular file. If anything, this module
 is once again showing off how simple our architecture is.}
 
 \subsubsection{ Using our Testing Module in a Component Spec }
+
+\begin{lstlisting}
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Observable, of } from 'rxjs';
+import {
+  CodeBoxFacade,
+  PxIllustratorDataAccessCodeBoxTestingModule
+} from '@px/data-access/code-box';
+import { CodeBoxComponent } from './code-box.component';
+
+describe('BuyerBidDetailsComponent', () => {
+  let component: CodeBoxComponent;
+  let fixture: ComponentFixture<CodeBoxComponent>;
+  let codeBoxFacade: CodeBoxFacade;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        PxIllustratorDataAccessCodeBoxTestingModule,
+      ],
+      declarations: [CodeBoxComponent],
+    }).compileComponents();
+
+    codeBoxFacade = TestBed.get(CodeBoxFacade);
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CodeBoxComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+});
+
+\end{lstlisting}
+
+Here we have created a bare minimum example, of how our CodeBoxComponent would
+look like, if we decided to include the CodeBoxFacade. It would error out in
+our unit tests, and we would be able to include our testing module, it order to
+solve all errors.
+
+\subsection{ When Not to Use a Testing Module }
