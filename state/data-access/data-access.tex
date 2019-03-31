@@ -1,5 +1,5 @@
 \maketitle{}
-\section{ Data Access }
+\section{ Data Access Architecture - State Directory Structure }
 
 When one begins an Angular project for the first time, it can be increasingly
 difficult to manage ngrx/store. State, while it should ideally be tied to a
@@ -31,5 +31,5 @@ folder. By doing so, it solves all of the above three issues:
   \item In addition, it alleviates the potential issue of circular dependencies.
   If, for instance, we have feature folder A, and feature folder B. B might need
   state from A, and A might need feature state from B. By keeping all of our
-  state global, it would help us circumvent this circular dependency problem.
+  state global, it helps us circumvent this circular dependency problem.
 \end{enumerate}
