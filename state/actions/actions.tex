@@ -6,8 +6,8 @@ mentioning it here.
 
 An action is a function with contains two very important pieces of information:
 \begin{enumerate}
-  \item What the name of the action is. \footnote{Why this is important we will
-  get to soon}
+  \item What the name(type) of the action is. \footnote{Why this is important we
+  will get to soon}
   \item The payload of the action. Which is a single object, containing all the
   data passed into the store.
 \end{enumerate}
@@ -16,4 +16,32 @@ An action is a function with contains two very important pieces of information:
 An Action is pretty generic across different frameworks. \footnote{For certain
 frameworks, this is less relevant, such as React + Vue.}. However, within an
 Angular setting, it means that we are using @ngrx/store for controlling state
-across our app.
+across our app and Typescript. Within an Angular setting, an action will look
+like the following:
+\begin{lstlisting}
+export class LoadCodeBox extends Action {
+  readonly type = CodeBoxTypes.LoadCode;
+
+  constructor(public payload: CodeBox) { }
+}
+\end{lstlisting}
+
+In the above code, is a perfect representation of your classic action. It
+contains the type of action. So that in you reducer, or effect(which we will
+go into momentarily if not familiar), we can trigger reduce(combine) data passed
+in, with data already present.
+
+\mybox{In an Angular/Typescript setting, you will commonly find a general export
+type, for the entire app:
+  export type Actions = LoadCodeBox | CodeBoxLoaded;
+
+This is usually used within the reducer, and is called a union interface type.
+It allows us to combine the type for numerous actions within a single type. We
+can then pass this as a type to a reducer, and make sure that we do not
+introduce any action beyond that for the particular feature state. It's a great
+way to make the develop think twice, if they introduce an action outside of the
+feature state into the app.
+}
+
+\subsection{An example of using an Action in an Angular setting}
+Now that we
