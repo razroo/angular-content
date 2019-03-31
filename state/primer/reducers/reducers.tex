@@ -10,7 +10,7 @@ universal across all frameworks, and usually consist of:
   \item A switch:case statement based on action.type
 \end{enumerate}
 
-\subsection{ Reducer in Action }
+\subsection{ Example of Reducer }
 export function reducer(state = initialState, action: book.Actions
 | collection.Actions): State {
   switch (action.type) {
@@ -26,3 +26,6 @@ export function reducer(state = initialState, action: book.Actions
     }
   }
 }
+
+This reducer will be called whenever any action is called. However, only if
+the action matches the case statement, will the reducer actually run.
