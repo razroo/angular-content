@@ -9,3 +9,20 @@ universal across all frameworks, and usually consist of:
   \item One exported function
   \item A switch:case statement based on action.type
 \end{enumerate}
+
+\subsection{ Reducer in Action }
+export function reducer(state = initialState, action: book.Actions
+| collection.Actions): State {
+  switch (action.type) {
+    case: CodeBoxActionTypes.CodeBoxLoaded {
+      return {
+        ids: [ ...codeBoxIds ],
+        entities: Object.assign({}, codeBoxEntities),
+        selectedCodeBoxId: state.selectedCodeBoxId
+      }
+    }
+    default: {
+      return state;
+    }
+  }
+}
