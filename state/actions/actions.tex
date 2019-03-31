@@ -22,6 +22,12 @@ like the following:
 export class LoadCodeBox extends Action {
   readonly type = CodeBoxTypes.LoadCode;
 
+  constructor(public payload: {id: string}) { }
+}
+
+export class CodeBoxLoaded extends Action {
+  readonly type = CodeBoxTypes.LoadCode;
+
   constructor(public payload: CodeBox) { }
 }
 \end{lstlisting}
@@ -44,4 +50,22 @@ feature state into the app.
 }
 
 \subsection{An example of using an Action in an Angular setting}
-Now that we
+As a matter of philosophy, this book will only introduce how to use something
+as it is in the real world. Generally, an action will only be used in a variety
+of situations such as an effect, facade, or guard. \footnote{If not familiar, no
+need to worry, we will go through this as time goes on.}. As a simple example,
+let's use it in a facade \footnote{Something we will discuss, a dedicate an
+entire chapter}.
+
+\begin{lstlisting}
+  loadCodeBox(id) {
+    new LoadCodeBox({id})
+  }
+\end{lstlisting}
+
+Here we are calling the class by using new. It will call the action whenever the
+facade is called.
+
+This would be as simple as a primer can get for actions. It might seem like
+there are more questions that came up as a result (Go through potential
+questions one might have.).
