@@ -5,3 +5,15 @@ would be remiss without going through the entire lifecycle of the store, and
 mentioning it here.
 
 An action is a function with contains two very important pieces of information:
+\begin{enumerate}
+  \item What the name of the action is. \footnote{Why this is important we will
+  get to soon}
+  \item The payload of the action. Which is a single object, containing all the
+  data passed into the store.
+\end{enumerate}
+
+\subsection{An example of an Action in an Angular setting}
+An Action is pretty generic across different frameworks. \footnote{For certain
+frameworks, this is less relevant, such as React + Vue.}. However, within an
+Angular setting, it means that we are using @ngrx/store for controlling state
+across our app.
