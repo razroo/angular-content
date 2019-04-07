@@ -3,8 +3,10 @@ libs
 │   ├── data-services/
 │   │   ├── src/
 │   │   │   ├── lib/
-│   │   │   │   ├── code-box.actions.ts
-│   │   │   │   ├── code-box.adapter.ts
+│   │   │   │   ├── services/
+│   │   │   │   │   ├── user/
+│   │   │   │   │   │   ├── user.service.ts
+│   │   │   │   │   │   └── user.service.spec.ts
 │   │   ├── index.ts
 │   │   └── test.ts
 │   ├── karma.conf,file
