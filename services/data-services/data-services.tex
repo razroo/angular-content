@@ -1,7 +1,7 @@
 \maketitle{}
 \section{ Data Services - Directory Structure }
 
-In an @ngrx/store setting, a very large part of an app's services, will be
+In an @ngrx/store setting, a very large part of an app's services will be
 directed towards handling data directly. For instance, let's say you have a
 GraphQL user query that get's a current user's data. The service would look
 something like this:
@@ -23,17 +23,16 @@ export class UserService {
 }
 \end{lstlisting}
 
-Of course, the amount of queries that need to be used for any data type, is
-numerous. It's a rough guess, but odds are that 80\% of services within any
-Angular app, will have these sort of services. These services will be used by a
-number of effects. In addition, they will contain their own respective unit
-tests.
+It's a rough guess, but odds are that 80\% of services within any
+Angular app, will be built to directly work with data. These services will be
+used by a number of effects. In addition, they will contain their own respective
+unit tests.
 
 \subsection{ Setting the Landscape }
-As of Angular 6, it offers a metadata option called providedIn. In short, if
-providedIn is set to 'root', it will only be used when used. Most notably it
-allows us to bypass the need of using a module, and creates a tree-shakable
-version \footnote{https://angular.io/guide/dependency-injection-providers\#creating-tree-shakable-providers}.
+As of Angular 6, Angular offers a metadata option called providedIn. In short,
+if providedIn is set to 'root', it allows us to bypass the need of using a
+module, and creates a tree-shakable version \footnote{https://angular.io/guide/dependency-injection-providers\#creating-tree-shakable-providers}.
+
 Therefore, the bundler will be able to tell if this service is being used in a
 particular module. If it is not, service will not be bundled with particular
 module. This allows us to be very liberal with our services and put them in a
@@ -45,7 +44,7 @@ module)
 \input{./services/data-services/data-services-tree-structure}
 
 Just as simple as that. We have a central location called data-services where
-we put bulk of our services that deal with retrieving data, and returning it
+we put bulk of services that deal with retrieving data, and returning it
 as an observable. If you want to be really technical about it, you can create
 every data-service as it's own lib. However, I think this is a bit much, as
 services tend to not touch the DOM and run really fast as unit tests.
