@@ -43,3 +43,9 @@ module)
 
 \subsection{ Data Services Folder/File Structure }
 \input{./services/data-services/data-services-tree-structure}
+
+Just as simple as that. We have a central location called data-services where
+we put bulk of our services that deal with retrieving data, and returning it
+as an observable. If you want to be really technical about it, you can create
+every data-service as it's own lib. However, I think this is a bit much, as
+services tend to not touch the DOM and run really fast as unit tests.
