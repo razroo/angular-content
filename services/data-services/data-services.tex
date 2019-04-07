@@ -3,8 +3,12 @@
 
 In an @ngrx/store setting, a very large part of an app's services, will be
 directed towards handling data directly. For instance, let's say you have a
-GraphQL user query that get's a current user's data. It would look something
-like this:
+GraphQL user query that get's a current user's data. The service would look
+something like this:
 \begin{lstlisting}
+getUser(): Observable<User> {
+  const user$ = this.apollo.query({ query: GetCurrentUser });
 
+  return from(user$).pipe(pluck('data', 'getCurrentUser'));
+}
 \end{lstlisting}
