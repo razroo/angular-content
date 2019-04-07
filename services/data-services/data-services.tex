@@ -36,4 +36,9 @@ allows us to bypass the need of using a module, and creates a tree-shakable
 version \footnote{https://angular.io/guide/dependency-injection-providers\#creating-tree-shakable-providers}.
 Therefore, the bundler will be able to tell if this service is being used in a
 particular module. If it is not, service will not be bundled with particular
-module.
+module. This allows us to be very liberal with our services and put them in a
+central location. (Of course we would be able to do this with a module, but
+it make's it more architecturally appealing without the need of using a
+module)
+
+\subsection{ Setting the Landscape }
