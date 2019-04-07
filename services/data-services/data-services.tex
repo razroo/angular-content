@@ -1,5 +1,5 @@
 \maketitle{}
-\section{ Data Services }
+\section{ Data Services - Directory Structure }
 
 In an @ngrx/store setting, a very large part of an app's services, will be
 directed towards handling data directly. For instance, let's say you have a
@@ -12,6 +12,7 @@ import { Observable, from } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 import { Apollo } from 'apollo-angular';
 
+@Injectable({ providedIn: 'root' })
 export class UserService {
   getUser(): Observable<User> {
     const user$ = this.apollo.query({ query: GetCurrentUser });
@@ -27,3 +28,12 @@ numerous. It's a rough guess, but odds are that 80\% of services within any
 Angular app, will have these sort of services. These services will be used by a
 number of effects. In addition, they will contain their own respective unit
 tests.
+
+\subsection{ Setting the Landscape }
+As of Angular 6, it offers a metadata option called providedIn. In short, if
+providedIn is set to 'root', it will only be used when used. Most notably it
+allows us to bypass the need of using a module, and creates a tree-shakable
+version \footnote{https://angular.io/guide/dependency-injection-providers\#creating-tree-shakable-providers}.
+Therefore, the bundler will be able to tell if this service is being used in a
+particular module. If it is not, service will not be bundled with particular
+module.
