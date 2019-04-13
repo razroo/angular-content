@@ -1,4 +1,4 @@
-\section{ Data Models }
+\section{ Data GraphQL }
 \maketitle{}
 
 Assuming your app is using /href{https://graphql.org/}{GraphQL}, you will have
@@ -18,4 +18,18 @@ Most notably there are four different types:
 
 This section is not a time for us to go into detail for each. However, the
 question is, where within our Angular Directory Structure should we go ahead and
-put it within our app.
+put it within our app?
+
+\subsection{Dissecting the Purpose of Apollo Client Files}
+It's important to understand that Apollo Client queries, mutations, and
+subscriptions will not only be used with their respective data-service. It is
+quite possible that multiple services will be using the same query, for
+instance, in numerous ways. In addition, the fragments used for a particular
+graphql query, mutation, or subscription, will be used within multiple apollo
+client files. It therefore make sense for the all apollo client files to be
+placed in their own disctint folder within the libs folder(assuming we are using
+a mono repo), for the particular app. So now that we have decided it should
+warrant it's own folder let's take a quick look at how the Directory Structure
+might look like.
+
+\subsection{Data GraphQL Data Structure}  
