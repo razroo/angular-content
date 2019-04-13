@@ -1,12 +1,13 @@
 libs
 ├── px-illustrator/
-│   ├── data-services/
+│   ├── data-models/
 │   │   ├── src/
 │   │   │   ├── lib/
-│   │   │   │   ├── services/
-│   │   │   │   │   ├── user/
-│   │   │   │   │   │   ├── user.service.ts
-│   │   │   │   │   │   └── user.service.spec.ts
+│   │   │   │   ├── user/
+│   │   │   │   │   ├── user.fragments.ts
+│   │   │   │   │   ├── user.mutations.ts
+│   │   │   │   │   ├── user.queries.ts
+│   │   │   │   │   └── user.subscriptions.ts
 │   │   ├── index.ts
 │   │   └── test.ts
 │   ├── karma.conf,file
