@@ -1,6 +1,6 @@
 libs
 ├── px-illustrator/
-│   ├── data-models/
+│   ├── data-graphql/
 │   │   ├── src/
 │   │   │   ├── lib/
 │   │   │   │   ├── user/
