@@ -5,8 +5,25 @@ Within a design language system, a UI Skeleton, or Ghost Elements, as it should
 probably be called, is a good idea. Most commonly, it is gray box depiction of
 UI component awaiting action, that will be available in the future.
 
-\subsection{ Two Ways of Implementing Ghost Views }
+\subsection{ One True Way of Implementing Ghost Views }
 With regards to implementing Ghost elements, there is one battle tested true
 way of implementing them. That would be creating inline ghost elements with
 async loads. This will then use a data wrapper to allow data items to track
-state. The state will then then be reflected in the view components. 
+state. The state will then then be reflected in the view components.
+
+\mybox{There are
+another two options:
+\begin{enumerate}
+  \item Creating an Overlay Ghost Element
+  \item Creating an Inline Ghost Element
+\end{enumerate}
+
+The only qualm with creating an overlay ghost element, is that it needs a
+direct representation of what the entire component will look like. However,
+many times, a larger piece of a component, is comprised of many smaller pieces.
+At times the process seems synthetic, and odds are, one will frequently have to
+change the ghost element per the look and feel of the actual updated component.
+
+With regards to creating an inline component, it doesn't base it's self on
+loading data etc.
+}
