@@ -39,7 +39,7 @@
 \tikzset{
   folder/.pic={
     \filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
-      (-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);
+      (-1.05*\Size,0.2\Size+5pt) rectangle ++ (.75*\Size,-0.2\Size-5pt);
     \filldraw[draw=folderborder,top color=folderbg!50,bottom color=folderbg]
       (-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
   }
@@ -138,6 +138,7 @@
 \include{./state/facade-pattern/facade-pattern}
 \include{./state/data-access/data-access}
 \include{./state/data-access/data-access-testin-module}
+\include{./state/correlation-id-service/correlation-id-service}
 \include{./constants/constants}
 \include{./constants/enums-as-constants}
 \include{./caching/using-apollo-with-ngrx/using-apollo-with-ngrx}
