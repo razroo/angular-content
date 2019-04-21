@@ -30,4 +30,24 @@ following scenarios in mind:
   \item Unit Tests
 \end{enumerate}
 
-What would the ideal place for us to place our interfaces?
+What would be the ideal place for us to place our interfaces?
+
+\subsection{Data Models Directory Structure}
+Data Models, being that they are used by literally every part of out app, need
+to be in their own folder. They are unique, by the fact that they tie everything
+together. Data Models also seems like an appropriate name for the folder
+containing these interfaces. It is important to note that not all interfaces
+will go into this folder, but rather interfaces related to data being pulled in
+from backend. In addition, interfaces created as a result of interacting with
+aforementioned data.
+
+\input{./typescript/data-models/data-models-tree-structure}
+
+\subsection{Data Mocks}
+You will notice that we have also coupled mocks with each interface. These mocks
+help with unit tests, and by keeping them with the interface, it eases the
+ability to update when an interface is updated as well. It is obviously of less
+importance that these be kept to date, as long as general integrity of data
+is represented closely. However, as a rule of thumb, actually hooking mocks
+directly into interfaces, so that they closely represent interface, is the
+easiest way to make sure unit tests cover all use cases.
