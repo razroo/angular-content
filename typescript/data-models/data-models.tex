@@ -1,0 +1,33 @@
+\section{ Data Models }
+\maketitle{}
+
+A data model is an abstract model, that organizes different sorts of data,
+and how they relate to each other. Interfaces in Typescript, very much so cater
+to this cause. Coupling various functionality together is arguably Typescript's
+greatest strength. Imagine 40 functions using the same data model, which has
+required properties. If we add a single required property, or change/update
+a single required property, the compiler will complain on the 40 functions that
+now to be updated. This is incredibly valuable. There are many more benefits
+which are beyond the scope of this chapter. However, introducing data-models
+does introduce an interesting dillema.
+
+\subsection{Dillema with interfaces in Typescript}
+In Typescript, in any enterprise data heavy app, the majority of interfaces will
+be created to be used in unison with data being retrieved from the backend.
+In an Angular setting, this means that we will be using a service to make the
+request. In addition, we will be feeding the data through the entire ngrx/store
+pipiline, for http requests. Effect > Action > Action > Reducer. In addition,
+inside of the component that will be consuming this data, we will also need
+to use the interface. Not to mention, if we want to tightly couple our unit
+tests to our interface. We wantto make sure that there aren't any use cases
+that we do not test properly. Data types can be unique. We might be missing as a result of data type(array, dictionary, object), some particular use case.
+Integrating data type with component as well, is important. Keeping the
+following scenarios in mind:
+\begin{enumerate}
+  \item Data Services
+  \item ngrx/store pipeline (Data Access)
+  \item Component (Consuming business logic)
+  \item Unit Tests
+\end{enumerate}
+
+What would the ideal place for us to place our interfaces?
