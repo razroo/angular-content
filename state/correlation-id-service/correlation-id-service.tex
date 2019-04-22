@@ -32,5 +32,28 @@ place to make it, so state can be re-used in the future.
 
 \subsection{Architectural Danger of Using a Service}
 Naturally using a service in this scenario makes the most sense. Services can
-stay true to a particular guideline, and be manageble. One is to keep in mind
-is that there are many
+have a direct 1:1 relationship for as what they need to do. In addition, it can
+help circumvent circular dependencies in numerous scenarios, by keeping heavy
+logic from the store. However, services by default break away from the cookie
+cutter api's brought to you by the @ngrx life cycle. It is important to
+understand that if services are created, that one needs to add proper due
+dilligence to make sure services are properly used.
+\begin{enumerate}
+  \item Documentation for each method.
+  \item Functions kept small.
+  \item Readme.md in root of service lib, specifying methods used.
+  \item Heavy Unit Testing
+\end{enumerate}
+
+That would be it. Ideally these services are created sparingly, but they have
+their advantages, wherein @ngrx/store is obvious bloat.
+
+\mybox{
+Many times in a given project, there is the potential for scope creep. That is,
+product might present the data needed in a given use case, as only being used
+in a certain fashion, for the entire lifecycle of the app. As time goes on,
+however, this might not be true. If it is important for the developer to
+map out potential areas wherein this might not be true. If you see the potential
+of the business logic to expand beyond what you are working on, take that into
+consideration.
+}
