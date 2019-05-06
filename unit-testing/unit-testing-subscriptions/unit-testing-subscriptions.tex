@@ -37,6 +37,20 @@ control how we can interact with it within the unit test. In particular, we
 will always be passing in a observable, when is able to be modified. However,
 what we can do, is change the dynamics of how it becomes an observable.
 
+Let's imagine that within our component we have a facade for the user.
 \begin{lstlisting}
+constructor(private userFacade: UserFacade) {}
 
+ngOnInit() {
+  this.userFacade.user$.pipe(
+    takeUntil(this.destroyed$);
+  )
+  .subscribe(user => {
+    this.user = user;
+    this.form.reset(user);
+  });
+}
 \end{lstlisting}
+
+Here, we are mimicking the 1st scenario we spoke about, wherein we need the data
+for the form reset we are using within the app.
