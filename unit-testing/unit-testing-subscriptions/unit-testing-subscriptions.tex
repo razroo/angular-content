@@ -62,4 +62,54 @@ this.user = user;
 this.form.reset(user);
 \end{verbatim}
 
-The unit tests will complain.
+The unit tests will complain. So let's move over to the unit test.
+
+\subsection{ Unit Test }
+
+\begin{lstlisting}
+@Injectable()
+class UserFacadeMock {
+  userSubject$ = new BehaviorSubject({...userMock});
+  user$ = userSubject$.asObservable();
+}
+
+describe('ComponentClass', () => {
+  let component: ComponentClass;
+  let fixture: ComponentFixture<ComponentClass>;
+  let userFacade: UserFacadeMock;
+
+  beforeEach(async(() => {
+    Testbed.configureTestingModule({
+      declaration: [ComponentClass],
+      provides: [
+       {
+         provide: UserFacade,
+         userClass: UserFacadeMock,
+       }
+      ]
+    }).compileComponents();
+  }));
+
+  beforeEach( async( () => {
+    fixture = TestBed.createComponent(ComponentClass);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    userFacade = TestBed.get(UserFacade);
+  });
+});
+\end{lstlisting}
+
+As we can see in the above we have layed out the structure for our unit tests,
+so that we can now control the value of user, by triggering the subject. Let's
+write that unit test we meant to get around to:
+\begin{lstlisting}
+it('should properly pass in values from the subscribe block, to the' +
+'component.user and component.form.reset', () => {
+  const mockUserData: User = {...userMock};
+  spyOn(component.form, `reset');
+  userFacade.userSubject$.next({...mockUserData});
+  expect(component.user).toEqual({...mockUserData});
+  expect(component.form.reset).toHaveBeenCalledWith({...mockUserData});
+});
+\end{lstlisting}
