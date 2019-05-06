@@ -53,4 +53,13 @@ ngOnInit() {
 \end{lstlisting}
 
 Here, we are mimicking the 1st scenario we spoke about, wherein we need the data
-for the form reset we are using within the app.
+for the form reset we are using within the app. Let's say that we want to test,
+that the data is indeed being passed over the user, and form reset. In addition,
+want to set a safe guard, so that if a developer in the future accidently
+deletes any of the lines of code:
+\begin{verbatim}
+this.user = user;
+this.form.reset(user);
+\end{verbatim}
+
+The unit tests will complain.
