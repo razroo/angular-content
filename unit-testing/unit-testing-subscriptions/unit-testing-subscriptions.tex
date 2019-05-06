@@ -25,7 +25,7 @@ testing is important within an Angular setting.
   \item We have multiple projects for a user that they can use in their
   application. Data for the page will need to change when user selects a
   different project id. As a result, we will need to wrap data within the
-  projectId we are using. 
+  projectId we are using.
 \end{enumerate}
 
 \maketitle{}
@@ -33,4 +33,10 @@ testing is important within an Angular setting.
 Within our facade architecture\footnote{Which we have discussed thoroughly
 through out book}, we will be injecting the facade into our Angular
 component/class. This allows us to mock the facade within our unit test, and
-control how we can interact with it within the unit test.
+control how we can interact with it within the unit test. In particular, we
+will always be passing in a observable, when is able to be modified. However,
+what we can do, is change the dynamics of how it becomes an observable.
+
+\begin{lstlisting}
+
+\end{lstlisting}
