@@ -113,3 +113,8 @@ it('should properly pass in values from the subscribe block, to the' +
   expect(component.form.reset).toHaveBeenCalledWith({...mockUserData});
 });
 \end{lstlisting}
+
+\subsection{Dis-secting What We've Done}
+Looking back at what we've done, by hijacking the UserFacade injected into our
+component, and supplying it with a subject, we have given our unit tests full
+freedom to test how it wishes what is being done inside of the subscribe block.
