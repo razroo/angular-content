@@ -3,7 +3,7 @@
 
 Unit testing observables, heck working with obserables is never really easy.
 Primarily, it's not the logic one will come across in other parts of one's
-application. As opposed ot regular logic, where one has the option to simply
+application. As opposed to regular logic, where one has the option to simply
 console out logic and see what is there, then and there, one does not have that
 option wih observables. Observables are a stream and in the context of
 javascript it is an object that will a series of functions. In addition, an
@@ -27,7 +27,7 @@ within that set of data, we only want ids. Backend is tied, and they do not have
 the capacity to give us a pre-poulated set of data for id. Our code will look
 something like this:
 \begin{lstlisting}
-buyerIds$: Observable<string[]> = this.users$.pipe(
+userIds$: Observable<string[]> = this.users$.pipe(
   map(users => {
     return users
       .map(user => {
@@ -43,7 +43,7 @@ id's are indeed being extracted and returning a new array. We can do something
 as follows using marble tests:
 
 \begin{lstlisting}
-const buyersMock: Buyer[] = [
+const usersMock: User[] = [
   {
     id: '123',
     name: 'Charlie',
