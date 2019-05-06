@@ -9,5 +9,28 @@ and that is not the intent here to discuss. What is the intent here, is to
 discuss how to unit test scenarios where functionality is happening within
 subscribe block.
 
+\subsection{Scenarios}
+Just for clarity sake, I would like to bring up some scenarios where unit
+testing is important within an Angular setting.
+\begin{enumerate}
+  \item We are using subscribe data for a form. So that if data does exist, we
+  can use the native Angular api for forms, and reset the form with data
+  given by backend. However, we have the data by backend, has nested data
+  when it is present. When it is not present, it is null. There are therefore
+  some safeguards that need to be done by the front end inside of the subscribe
+  block for those outlier use cases.
+  \item Backend does not intend to filter for a certain scenario, as it is a one
+  off dashboard, for some clients. It is up to front end to filter based on
+  limited backend data.
+  \item We have multiple projects for a user that they can use in their
+  application. Data for the page will need to change when user selects a
+  different project id. As a result, we will need to wrap data within the
+  projectId we are using. 
+\end{enumerate}
+
 \maketitle{}
 \subsection{ Mocking a Facade }
+Within our facade architecture\footnote{Which we have discussed thoroughly
+through out book}, we will be injecting the facade into our Angular
+component/class. This allows us to mock the facade within our unit test, and
+control how we can interact with it within the unit test.
