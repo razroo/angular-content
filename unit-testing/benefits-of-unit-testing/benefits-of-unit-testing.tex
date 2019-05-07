@@ -8,4 +8,52 @@ of unit testing would be. From a developer perspective:
   \item Give confidence to developer as to why they should write unit test.
 \end{enumerate}
 
-From a management perspective
+From a management perspective, to help introduce unit testing, for those that
+might be less inclined towards unit testing.
+
+\subsection{What is Unit Testing?}
+A unit in a best case scenario, is a function that always gives you the same
+result for a given input(pure function) Testing that unit, is to make sure that
+the expected result happens when running that function.
+
+\subsection{Benefits of Unit Testing}
+\begin{enumerate}
+  \item Refactoring. Change code once, and see everything else is working.
+  \item Focus(See TDD item \#2)
+  \item Helps understand design of code working with(See TDD item \#3)
+  \item Instant visual feedback that code works as expected.
+  \item Documentation (See TDD \#4)
+  \item Helps with code-reuse. Ability to re-use code and tests. Tweak tests
+  accordingly.
+  \item Testable code
+    \begin{enumerate}
+      \item Modular
+      \item Maintainable
+      \item Readable
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{What is TDD (Test Driven Development)}
+\begin{enumerate}
+  \item Start by writing a test.
+  \item Run the test, and any other tests. At this point, your newly added test
+  should fail. If it doesn't fail here, it might not be testing the right thing,
+  and has a bug in it.
+  \item Write the minimum amount of code required to make the test pass.
+  \item Run the test to check the new test passes.
+  \item Optionally re-factor your code.
+  \item Repeat from 1.
+\end{enumerate}
+
+\subsection{ The Benefits of TDD }
+\begin{enumerate}
+  \item Higher Test Coverage
+  \item Focus
+    \begin{enumerate}
+      \item Focus one part of an issue at a time.
+      \item Allows one to realize when to stop coding.
+    \end{enumerate}
+  \item Interfaces. Allows you to think more organically about what should be
+  put into interface. Allows for interface to be written bottom
+  up(implementation, behavior) instead of top down(behavior, implementation).
+\end{enumerate}
