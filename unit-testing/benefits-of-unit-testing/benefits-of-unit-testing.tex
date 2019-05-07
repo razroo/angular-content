@@ -1,5 +1,5 @@
 \maketitle{}
-\section{ Benefits of Unit Testing - A Primer }
+\section{ Benefits of Unit Testing, TDD, and BDD }
 It truly makes sense for a definitive guide to deep dive into what the benefits
 of unit testing would be. From a developer perspective:
 \begin{enumerate}
@@ -57,3 +57,60 @@ the expected result happens when running that function.
   put into interface. Allows for interface to be written bottom
   up(implementation, behavior) instead of top down(behavior, implementation).
 \end{enumerate}
+
+\subsection{ What is BDD? }
+Typcially when unit testing, a particular function at a later date can change
+it's impementation. For instance, if we have a counter function, the counter
+can be changed to start at 5 instead of 0, breaking the expect statement of 1.
+In BDD we foucs on the intended behavior, instead of the expected result. The
+following is a great explanation:
+
+\begin{lstlisting}
+// Non BDD
+describe('Counter', () => {
+  it('should increase count to 1', () => {
+    const counter = new Counter();
+
+    counter.tick();
+
+    expect(counter.count).toEqual(1);
+  });
+})
+
+// BDD
+describe('Counter', () => {
+  it('should increase count by 1 after calling tick', () => {
+    const counter = new Counter();
+    const expectedCount = counter.count + 1;
+
+    counter.tick();
+
+    expect(counter.count).toEqual(expectedCount);
+  });
+})
+\end{lstlisting}
+
+\subsection{ The Benefits of BDD? }
+In at a later time, the counter(as seen above), for instance, has to change
+based on requirements(starting at 5, instead of 1), it will not affet the unit
+test.
+
+\subsection{What, When, and How}.
+Unit testing, is the what. TDD is the when, and BDD is the how.
+
+\mybox{Convincining the skeptic might be difficult. The following are some steps
+to convince the skeptic.
+\begin{enumerate}
+  \item Too Simple to Fail? If this is used regularly in our application,
+  doesn't it make sense to spend 5 - 30 minutes testing it?
+  \item Too difficult to Unit Test, won't it be time consuming? Good indication
+  that it needs to be re-factored, proving point of benefit of unit test.
+  \item Too Time Consuming
+    \begin{enumerate}
+      \item App will produce more bugs
+      \item Lower Quality Code
+      \item Lack of confidence. Perhaps bugs under the radar.
+      \item Lower design.
+    \end{enumerate}
+\end{enumerate}
+}
