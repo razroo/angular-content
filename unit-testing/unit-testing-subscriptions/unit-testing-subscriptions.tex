@@ -118,3 +118,8 @@ it('should properly pass in values from the subscribe block, to the' +
 Looking back at what we've done, by hijacking the UserFacade injected into our
 component, and supplying it with a subject, we have given our unit tests full
 freedom to test how it wishes what is being done inside of the subscribe block.
+
+\mybox{You might question, as to why it is that we do not directly change
+the observable to be a subject? This will cause type annotation errors, which
+is easier solved by simply creating a subject, and returning it as observable
+for the respective facade method}
