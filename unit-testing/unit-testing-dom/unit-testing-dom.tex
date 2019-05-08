@@ -1,13 +1,28 @@
 \maketitle{}
-\section{ Unit Testing - Event Handling and Text}
-In my mind, anything which is considered as architecture is something which
-isn't immediately considered as obvious. One aspect of unit testing that tends
-to be overlooked, is unit testing event handling. For instance, let's say we
-have a filter toggle, wherein we only want the filter to show when a user clicks
-on it. This is something which we can trigger from unit tests, without the need
-to have go through integration testing. In addition, certain areas of our app
-are very sensitive when it comes to text. Focusing on these two alone, allows
-our app's integrity to be head and shoulders above the rest.
+\section{ Unit Testing the DOM}
+The DOM is the one variable with front end, that complicates the unit testing
+process. While it is in the process of becoming more stable, it can be difficult
+to unit test, and can make TDD more difficult. It is very much important to do
+and can also be expensive from a unit testing perspective. A unit test will
+run much slower if it has to interact with the DOM. So, this is something to
+take into consideration as well. \footnote{Look into chapter on Cypress for
+visual unit testing.}
+
+DOM unit testing refers to a couple of scenarios:
+\begin{enumerate}
+  \item Event Handling.
+  \item Element is visible, or hidden.
+  \item Element contains certain text, or that text properly transformed.
+\end{enumerate}
+
+These three are the major types of DOM unit testing that occurs. There is, of
+course, much more to unit test from an E2E perspective. Determining whether, or
+not an element is visible, or hidden, and whether it contains text, is better
+handled by Cypress. For this please do reference the chapter on visual unit
+testing. The one piece, however, that is handled better by unit testing, is
+testing that a function did indeed run, when an element has been clicked. There
+might also be other unique situations, including the above, if team does not
+have the overhead to use Cypress. 
 
 \subsection{ Angular's best Utility Testing Suite }
 
