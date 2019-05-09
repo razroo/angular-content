@@ -1,5 +1,5 @@
 \maketitle{}
-\section{ Unit Testing the DOM}
+\section{ Unit Testing the DOM }
 The DOM is the one variable with front end, that complicates the unit testing
 process. While it is in the process of becoming more stable, it can be difficult
 to unit test, and can make TDD more difficult. It is very much important to do
@@ -21,25 +21,35 @@ not an element is visible, or hidden, and whether it contains text, is better
 handled by Cypress. For this please do reference the chapter on visual unit
 testing. The one piece, however, that is handled better by unit testing, is
 testing that a function did indeed run, when an element has been clicked. There
-might also be other unique situations, including the above, if team does not
-have the overhead to use Cypress. 
+might also be other unique situations, including the above, if your team does
+not have the capacity to use Cypress.
 
-\subsection{ Angular's best Utility Testing Suite }
+\subsection{ Selecting element }
+In an Angular setting, the most important of all testing utilities, is the
+Angular TestBed. The TestBed creates a dynamically-constructed Angular test
+module, that emulates an \@NgModule \footnote{https://angular.io/guide/testing\#testing-services-with-the-testbed}. In laymans terms, it allows you to swap out any
+piece that was included in the component, for testing purposes, and then to
+reference that swapped out piece.
 
-TODO
-
-\subsection{ Unit Testing - Event Handling }
-Going back to our previous example of a filter toggle, let's jump right in and
-see what a filter toggle unit test might look like:
+Using the testBed, we are also able to create a fixture, which we can reference
+to create target the nativeElement. We can then use the querySelector on the
+nativeElement, to target our element. Let's go back to the one use case we
+would like to target. That is, when an event is triggered, we would like to
+make sure a particular function is called. In each scenario, we would like to
+make sure that once a filter is clicked on, the appropriate filtering function
+is called.
 
 \begin{lstlisting}
-const filterToggle = fixture.nativeElement.querySelector(
-  '.filter-toggle'
-);
-filterToggle.click();
-expect(component.showFilter).toBeTruthy();
-filterToggle.click();
-expect(component.showFilter).toBeFalsy();
+it('should call the appopriate function when filterToggle element' +
+`is clicked on', () => {
+  const filterToggle = fixture.nativeElement.querySelector(
+    '.filter-toggle'
+  );
+  filterToggle.click();
+  expect(component.showFilter).toBeTruthy();
+  filterToggle.click();
+  expect(component.showFilter).toBeFalsy();
+});
 \end{lstlisting}
 
 We are using querySelector to target the first .filter-toggle html class
