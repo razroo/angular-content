@@ -42,13 +42,12 @@ is called.
 \begin{lstlisting}
 it('should call the appopriate function when filterToggle element' +
 `is clicked on', () => {
+  spyOn(component, 'filterUsers')
   const filterToggle = fixture.nativeElement.querySelector(
     '.filter-toggle'
   );
   filterToggle.click();
-  expect(component.showFilter).toBeTruthy();
-  filterToggle.click();
-  expect(component.showFilter).toBeFalsy();
+  expect(component.filterUsers).toHaveBeenCalledWith(component.id);
 });
 \end{lstlisting}
 
