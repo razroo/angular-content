@@ -45,6 +45,13 @@ the expected result happens when running that function.
   \item Repeat from 1.
 \end{enumerate}
 
+\subsection{ What is BDD? }
+Typcially when unit testing, a particular function at a later date can change
+it's impementation. For instance, if we have a counter function, the counter
+can be changed to start at 5 instead of 0, breaking the expect statement of 1.
+In BDD we focus on the intended behavior, instead of the expected result. The
+following is a great explanation:
+
 \subsection{ The Benefits of TDD }
 \begin{enumerate}
   \item Higher Test Coverage
@@ -58,13 +65,7 @@ the expected result happens when running that function.
   up(implementation, behavior) instead of top down(behavior, implementation).
 \end{enumerate}
 
-\subsection{ What is BDD? }
-Typcially when unit testing, a particular function at a later date can change
-it's impementation. For instance, if we have a counter function, the counter
-can be changed to start at 5 instead of 0, breaking the expect statement of 1.
-In BDD we foucs on the intended behavior, instead of the expected result. The
-following is a great explanation:
-
+\subsection{What is BDD - Code Example}
 \begin{lstlisting}
 // Non BDD
 describe('Counter', () => {
@@ -91,14 +92,14 @@ describe('Counter', () => {
 \end{lstlisting}
 
 \subsection{ The Benefits of BDD? }
-In at a later time, the counter(as seen above), for instance, has to change
-based on requirements(starting at 5, instead of 1), it will not affet the unit
+If at a later time, the counter(as seen above), for instance, has to change
+based on requirements(starting at 5, instead of 1), it will not affect the unit
 test.
 
 \subsection{What, When, and How}.
 Unit testing, is the what. TDD is the when, and BDD is the how.
 
-\mybox{Convincining the skeptic might be difficult. The following are some steps
+\mybox{Convincing the skeptic might be difficult. The following are some steps
 to convince the skeptic.
 \begin{enumerate}
   \item Too Simple to Fail? If this is used regularly in our application,
