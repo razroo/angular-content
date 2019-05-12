@@ -32,7 +32,7 @@ piece that was included in the component, for testing purposes, and then to
 reference that swapped out piece.
 
 Using the testBed, we are also able to create a fixture, which we can reference
-to create target the nativeElement. We can then use the querySelector on the
+to target the nativeElement. We can then use the querySelector on the
 nativeElement, to target our element. Let's go back to the one use case we
 would like to target. That is, when an event is triggered, we would like to
 make sure a particular function is called. In each scenario, we would like to
@@ -51,14 +51,12 @@ it('should call the appopriate function when filterToggle element' +
 });
 \end{lstlisting}
 
-We are using querySelector to target the first .filter-toggle html class
-(assuming there is only one on the page). Being that our default view is false,
-we are using the component.showFilter to make sure that value is truthy when
-clicked on. Moving on, when clicked on again, we want to make sure that element
-is hidden. \marginpar{consider revision of code, it should target actual element
-in addition to code}
+First, we are spying on the filterUsers method for our component. Next we are
+using the querySelector to target the .filter-toggle html class (assuming there
+is only one on the page). Moving on, when clicked on again, we want to make sure
+that the appropriate function is called.
 
-We have now completely though the power of unit testing, determined whether, or
+We have now completely through the power of unit testing, determined whether, or
 not an element is going to show up.
 
 \subsection{ Unit Testing - Determining Text }
@@ -77,3 +75,7 @@ different areas of time, and to make sure what one is looking is the correct
 format at a given time. Doing something like this takes experience to get it
 right. However, assuming you didn't know beforehand, you now know that you have
 the option to target text at a specific time.
+
+As we mentioned, text and whether, or not an element is hidden, might be better
+handled by Cypress. However, just in case you want to see it for yourself, the
+above is a great example.
