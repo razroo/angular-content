@@ -95,4 +95,54 @@ describe('Highlight Directive', () => {
 Spectator greatly simplifies how we handle event handling within Angular.
 
 \subsection{ Testing Services }
-Spectator greatly simplifies the way we can go ahead and test our services. 
+Spectator greatly simplifies the way we can go ahead and test our services as
+well. Instead of having to create a TestBed that includes the service, we
+can simply do the following:
+
+\begin{lstlisting}
+describe("AuthService", () => {
+  const spectator = createService({
+    service: AuthService,
+    mocks: [DateService]
+  });
+
+  it("should not be logged in", () => {
+    let dateService = spectator.get<DateService>(DateService);
+    dateService.isExpired.and.returnValue(true);
+    expect(spectator.service.isLoggedIn()).toBeFalsy();
+  });
+});
+\end{lstlisting}
+
+Using spectator, we are instead able to able to simply aplly mocks, the mocks
+key. We can then reference the mock service, and return a value, as Spectator
+treats all values as if they are spies.
+
+\subsection{ Testing Components With Custom Host }
+Spectator also has the ability of greatly decreasing code needed to create a
+host element
+
+\begin{lstlisting}
+@Component({ selector: 'custom-host', template: '' })
+class CustomHostComponent {
+  title = 'Custom HostComponent';
+}
+
+describe('With Custom Host Component', function () {
+  let host: SpectatorWithHost<ZippyComponent, CustomHostComponent>;
+
+  const createHost = createHostComponentFactory({
+    component: ZippyComponent,
+    host: CustomHostComponent
+  });
+
+  it('should display the host component title', () => {
+    host = createHost(`<zippy [title]="title"></zippy>`);
+
+    expect(host.query('.zippy__title')).toHaveText('Custom HostComponent');
+  });
+});
+\end{lstlisting}
+
+By using Spectator, we have the ability to create a custom host component on
+the fly. Without using spectator, this process is very difficult to do so. 
