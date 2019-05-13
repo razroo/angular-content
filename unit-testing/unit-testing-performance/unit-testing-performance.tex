@@ -1,2 +1,14 @@
 \maketitle{}
 \section{ Unit Testing Performance }
+
+Unit Testing isn't neccesarily one of those things that we tend to equate with
+performance. There are tools that allow one to a unit test by a specific folder.
+In addition, there is parallel unit testing, for the pipeline, so that unit
+tests can be sped up. However, as apps get larger, so do their unit tests. From
+a developer perspective, it is valuable to run all unit tests, to make sure
+that when larger impacting edits are made, that none of the unit tests are
+failing. Unit tests will be run when a pr is being made. In addition, they are
+going to be run when deploying. So there is enough going on, to say that being
+conscious of performance boost is something which is important.
+
+\subsection{ Understanding Different Types of Unit Tests }
