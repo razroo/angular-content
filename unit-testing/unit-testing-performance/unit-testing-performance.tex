@@ -11,4 +11,37 @@ failing. Unit tests will be run when a pr is being made. In addition, they are
 going to be run when deploying. So there is enough going on, to say that being
 conscious of performance boost is something which is important.
 
-\subsection{ Understanding Different Types of Unit Tests }
+\subsection{ Component and Integration Testing }
+It is quite common that many enterprise apps will take advantage of integration
+testing within their unit tests. However, creating the component within the unit
+test is intuitively, and is the most expensive task one can do within a unit
+test. Avoiding creating a component unless needed, is the ideal. For instance,
+the ideal scenario when creating a component, looks something like this:
+\begin{lstlisting}
+describe('BannerComponent', () => {
+  let component: BannerComponent;
+  let fixture: ComponentFixture<BannerComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ BannerComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(BannerComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeDefined();
+  });
+})
+\end{lstlisting}
+
+Here we are setting a TestBed, configuring the test module, and then compiling
+the component. While, in practice, there is nothing wrong with this, but for
+every run, this will re-compile our components. So, if there is a way we can
+get around re-compiling our component, this would obviously go a bit quicker.
