@@ -59,3 +59,14 @@ There are three different ways of unit testing a component:
   \item Shallow Unit Tests
   \item Integrated Unit Tests
 \end{enumerate}
+
+Of the three, Isolated Unit Tests, are the most performant. It will not cause
+the component to re-render itself. However, by using an isolated unit tests,
+we are simply testing the logic of the component, without testing how it
+interacts without actual html. This usually only works in certain scenarios.
+
+In most scenarios, there will be a requirement of running the TestBed, which
+can cause performance issues when running a large amount of tests, and can be
+dealt with.
+
+\subsection{ Analyzing }
