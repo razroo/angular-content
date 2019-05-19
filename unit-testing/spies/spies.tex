@@ -61,4 +61,11 @@ application. So, adopting a always put a spy in a beforeEach, can be:
 \end{enumerate}
 
 So, it would make sense that putting spies in individual it blocks will make the
-most sense. 
+most sense.
+
+\subsection{ Strategy for Using Spies }
+Spies work particularly well with function composition. The attempt of this book
+is not to overlap with common unit testing principles, such as functions should
+be kept small. It is to introduce to those that might be less familiar with how
+to use spies, how it should be used. In particular, let's imagine we had a large
+function. This function applies sorting, and filtering. 
