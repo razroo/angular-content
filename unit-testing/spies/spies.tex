@@ -68,4 +68,25 @@ Spies work particularly well with function composition. The attempt of this book
 is not to overlap with common unit testing principles, such as functions should
 be kept small. It is to introduce to those that might be less familiar with how
 to use spies, how it should be used. In particular, let's imagine we had a large
-function. This function applies sorting, and filtering. 
+function. This function applies sorting by alphebetical order, converts the text
+to camel case, and then converts it into a dictionary. From an abstract level,
+we can apply each of these into their own function.
+
+\begin{lstlisting}
+alphabetize(users: users[]) {
+  return sort(users);
+}
+
+camelCase(userName: string) {
+  return camelCase(userName);
+}
+
+convertToDictionary(userId, user) {
+  return {
+    [userId]: user
+  }
+}
+\end{lstlisting}
+
+We can then run a unit test for each of the above functions, and then run a spy
+on them, for our global function. It would look something like the following. 
