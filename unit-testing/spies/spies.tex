@@ -99,3 +99,36 @@ convertUser(users: users[]) {
 
 We can then run a unit test for each of the above functions, and then run a spy
 on them, for our global function. It would look something like the following:
+
+\begin{lstlisting}
+describe('alphabetize', () => {
+  it('should alphabetize users', () => {
+    // appropriate unit test goes here
+  });
+});
+
+describe('camelCase', () => {
+  it('should convert userNames to camelCase', () => {
+    // appropriate unit test goes here
+  });
+});
+
+describe('convertToDictionary', () => {
+  it('should convert users to dictionary', () => {
+   // appropriate unit test goes here
+  });
+});
+
+describe('convertUser', () => {
+  const users = [...usersMock];
+  it('should convertUser to appropriate name', () => {
+    spyOn(component, 'alphabetize');
+    spyOn(component, 'camelCase');
+    spyOn(component, 'convertToDictionary');
+    component.converUsers(users);
+    expect(component.alphabetize).toHaveBeenCalledWith(users);
+    expect(component.camelCase).toHaveBeenCalled();
+    expect(component.convertToDictionary).toHaveBeenCalled();
+  });
+});
+\end{lstlisting}
