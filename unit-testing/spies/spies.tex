@@ -13,5 +13,24 @@ Personally, when I started writing them professionally for Verizon, spies were o
 particularly confusing. A spy?! You mean I am spying on a function that I
 already know about? Wait, so you mean I am giving my unit tests the ability to
 tell if function has run, or what it has been called with? Also, it gives me the
-ability to hijack it with a different function, or call through as is? Wow , I
-can't think of any name to call that? Ok, I understand.  
+ability to hijack it with a different function, or call through as is? Wow, I
+can't think of any name to call that? Ok, now I understand why it was called a
+spy.
+
+\subsubsection{ Spy User Example }
+
+\begin{lstlisting}
+describe('', () => {
+  const userId = '123';
+  it('should call the userFacade.getUsers function, when getusers' +
+  'is called', () => {
+    spyOn(userFacade, 'getUsers');
+    component.getUsers(userId);
+    expect(userFacade.getUsers).toHaveBeenCalledWith(userId);
+  });
+});
+\end{lstlisting}
+
+The above is a classic example of what a real world spy would do. Here, we just
+want to just make sure that the facade is indeed being called when the
+appropriate compoennt function is run.
