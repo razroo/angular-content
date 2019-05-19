@@ -46,3 +46,19 @@ any component integration involved.
 }
 
 \subsection{ Two Methods of Declaring Spies }
+It would seem that there are two schools of thought when it comes to how one should
+place the spy. Some place the spy within the actual beforeEach statement. This
+simplifies the use of doing so. The other approach, is to apply the spy inside of
+every it block that has use of it. While I do not think it is a huge deal to have
+one approach over, the other, I do see the benefit of placing the spy in every
+it block that uses it. Why? Generally, in an enterprise Angular application,
+there will be a very small amount of spy's that will be set out throughout the
+application. So, adopting a always put a spy in a beforeEach, can be:
+\begin{enumerate}
+  \item Irresponsible for performance reasons (from a code perspective. I would still gladly call you my friend).
+  \item Totilitarian in nature of adoption. However, due to the fact that not
+  all tests require spies, it can be confusing.
+\end{enumerate}
+
+So, it would make sense that putting spies in individual it blocks will make the
+most sense. 
