@@ -33,4 +33,16 @@ describe('', () => {
 
 The above is a classic example of what a real world spy would do. Here, we just
 want to just make sure that the facade is indeed being called when the
-appropriate compoennt function is run.
+appropriate component function is run.
+
+\mybox{
+In a real world scenario, it would also be responsible of us to test, and make
+sure that the component function was indeed called. There are two ways that
+something like this can be done. One is that we can targer the dom within our
+unit test. We can also choose to make this part of the unit test within Cypress.
+I like the idea of seperating any integration testing into Cypress. It would
+allow us to keep our component unit test shallow, without the need of having
+any component integration involved.
+}
+
+\subsection{ Two Methods of Declaring Spies }
