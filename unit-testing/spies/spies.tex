@@ -86,7 +86,16 @@ convertToDictionary(userId, user) {
     [userId]: user
   }
 }
+
+convertUser(users: users[]) {
+  const users = this.alphabetize(users);
+  users.map((user: user[]) => {
+    convertToDictionary(camelCase(user));
+  })
+}
 \end{lstlisting}
 
+\mybox{This chapter, needs work, and it is something for use to work on}
+
 We can then run a unit test for each of the above functions, and then run a spy
-on them, for our global function. It would look something like the following. 
+on them, for our global function. It would look something like the following:
