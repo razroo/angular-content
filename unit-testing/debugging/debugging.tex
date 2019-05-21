@@ -5,4 +5,19 @@ Debugging in any development environment is a neccesity. When it comes to unit
 testing, sometimes a unit test will not pass, and will be a bit difficult to
 decipher why it is that it isn't passing. I would like to present the following
 strategy to greatly expedite the process of debugging, when you find yourself
-going against a unit test that is taking longer than expected. 
+going against a unit test that is taking longer than expected.
+
+\subsection{ A winning Combo }
+There are two pieces to debugging Unit Tests, that will allow you to debug unit
+tests with ease. One of them, is to create smaller modules whenever possible.
+This will allow you to unit test specific modules using:
+\begin{verbatim}
+  ng test --project user --watch
+\end{verbatim}
+
+Now you will have a window that is open, with the ability to debug, that only
+runs unit tests for the specific module.
+
+\subsection{ Opening Source }
+The simplest solution to start debugging, would be to open up inspect for that
+particular
