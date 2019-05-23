@@ -29,6 +29,15 @@ The specifics with regards to how Angular works, it can be advantageous to turn
 off the source map. The following is the syntax on how to turn off the source
 map for angular:
 
+Output inside regular karma browser window will now give enough information, and
+the window will give enough information. Zone.js, Karma, and unit tests, the
+special reason as to why something might not work, might be obfusicated by zone.
+To alleviate this, we have the ability to turn souce map off.
+
 \begin{verbatim}
-ng test --project=px-illustrator --source-maps=false
+ng test --project=px-illustrator --source-map=false
 \end{verbatim}
+
+Source map might seem like a bad idea, but by keeping if off in general, while
+developing, it would allow us to make sure we see all the errors that we need to
+see. 
