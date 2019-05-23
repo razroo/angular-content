@@ -51,3 +51,34 @@ following blog post to find out how to upgrade to Jest https://blog.nrwl.io/nrwl
 \subsection{ Primer on Jest Syntax }
 Real quick, I would like to go through a couple of things that Jest offers over
 Karma.
+
+\subsection{Switching over from Karma to Jest}
+At this point, this is the main selling point, of why Netanel Basel's
+library, Spectator, is so valuable, is that it allows for tests to be converted
+over to Jest automatically, by simply switching the imports. For instance, let's
+say that we are unit testing a service:
+\begin{lstlisting}
+import { createService } from '@netbasal/spectator';
+import { AuthService } from './auth.service';
+import { DateService } from './date.service';
+
+const spectator = createService({
+  service: AuthService,
+  mocks: [DateService]
+});
+
+it('should be logged in', () => {
+  const dateService = spectator.get<DateService>(DateService);
+  dateService.isExpired.mockReturnValue(false);
+  expect(spectator.service.isLoggedIn()).toBeTruthy();
+});
+\end{lstlisting}
+
+The above test is currently using karma. However, if we wanted to switch it over
+to use Jest, all we would need to do is change the import path:
+\begin{verbatim}
+- import { createService } from '@netbasal/spectator';
++ import { createService } from '@netbasal/spectator/jest';
+\end{verbatim}
+
+Just like that magic, we can have our entire app using Jest. 
