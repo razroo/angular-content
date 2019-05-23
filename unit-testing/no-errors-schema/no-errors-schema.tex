@@ -19,4 +19,16 @@ Adding NO_ERRORS_SCHEMA to the schemas key, will make the unit test ignore
 errors if you encounter an unknown attribute, or unknown element.
 
 \subsection{ Concerns Around Using No Errors Schema }
-One of the concerns around using NO_ERRORS_SCHEMA, is that it might cause 
+One of the concerns around using NO_ERRORS_SCHEMA, is that you are disabling
+any errors that might potentially be dangerous. Being that we are turning off
+any template errors, we might potentially be testing something wrong. What
+exactly, might be tested wrong? Well, just because Angular doesn't error out
+for the template it's self, that does not mean that an unassuming developer
+will not go ahead and attempt to develop a template related item, such as an
+input value. It is therefore best practice to avoid using the NO_ERRORS_SCHEMA
+whenever possible.
+
+\subsubsection{A Better Alternate Solution}
+A better alternate solution is to stick with the reccomended SMAG architecture,
+and provide the appropriate mocks alongside your services, pipes, and
+interfaces. 
