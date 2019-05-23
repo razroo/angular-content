@@ -20,6 +20,15 @@ runs unit tests for the specific module.
 
 \subsection{ Opening Source }
 The simplest solution to start debugging, would be to open up the inspector.
-Click on source, add a debugger for
+Click on source, add a debugger for the particular function that you are looking
+for, and re-run the page. This will cause the page to then pause on the function
+you are trying to test.
 
 \subsection{ Turning Off Source Map }
+The specifics with regards to how Angular works, it can be advantageous to turn
+off the source map. The following is the syntax on how to turn off the source
+map for angular:
+
+\begin{verbatim}
+ng test --project=px-illustrator --source-maps=false
+\end{verbatim}
