@@ -1,0 +1,19 @@
+\maketitle{}
+\section{ No Errors Schema }
+
+In Angular, when using the testBed, any providers used in the Angular component
+will cause an error, unless provided for within the Angular TestBed. There is a
+way, however, to turn off these errors, by using the no errors schema within
+Angular. It's syntax look like this:
+\begin{lstlisting}
+beforeEach(() => {
+  Testbed.configureTestingModule({
+    declarations: [pxComponent],
+    schemas: [NO_ERRORS_SCHEMA]
+  });
+  fixture = Testbed.createComponent(pxComponent);
+});
+\end{lstlisting}
+
+Adding NO_ERRORS_SCHEMA to the schemas key, will make the unit test ignore
+errors if you encounter an unknown attribute, or unknown element. 
