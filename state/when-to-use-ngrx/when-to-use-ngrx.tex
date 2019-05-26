@@ -47,4 +47,20 @@ team members, I have begun to see the way they think. This particular situation
 was about a feature for attachments that the app needed. In particular,
 multiple components on the same page, would have attachments. If a service or
 @ngrx/store was not used, there would be alot of repitition across the app. This
-led to the dillema, should a service, or @ngrx/store be used. 
+led to the dillema, should a service, or @ngrx/store be used.
+
+\subsection{ Business Requirments }
+One, is that multiple components on the same page were to use this attachments
+service. Second, is that we want to show the user when a certain attachment is
+loading, and when it is no longer loading.
+
+\subsection{ Argument for using a Service }
+In truth, the attachments were meant to be self contained within a singular
+component. This would have made the service as very simple. However, based on
+the business requirements, we would have to create a double nested correlation
+id. This means that a double nested correlation id pattern had to be created.
+One, to make sure that different components do not affect each other. Two, the
+id produced on the front end, is different than the id produced on the backend.
+We need to create an id that can be used by both. This is done by creating a
+second Uuid, that is nested within the first one. I.e. a dictionary inside of a
+dictionary.
