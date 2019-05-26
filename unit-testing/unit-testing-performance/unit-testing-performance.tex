@@ -75,7 +75,9 @@ so that they can be run separately. You will then be able to run the tests in
 parallel. This will allow for the tests to run quicker.
 
 \subsection{ Karma Parallel }
-Karma Parallel is an npm package that be used to run unit tests in parallel. 
+Karma Parallel is an npm package that be used to run unit tests in parallel. It
+would require for the karma config to be updated accordingly. The one downfall
+of the karma confi. Tjose
 
 \subsection{ Ng-Bullet }
 There is a fantastic library that has been written to accomodate for some
@@ -86,3 +88,27 @@ decrease time it will take for Karma/Jasmine unit tests regardless. I would
 imagine this is the reason why those working on Angular, have decided not to
 comment. However, Ng-bullet is a possibility to be used for those that seriously
 need the performance boost in their Angular App.
+
+\subsection{ Style Cleanup }
+The biggest improvement with regards to performance boosts comes with improving
+memory leaks. The largest memory leak is caused by CSS. If you do not clear
+your css in your unit tests, your karma tests will consistently append hundreds
+if not thousands of <style> tages to your body. This will incredibly slow down
+how fast your unit tests run. This can be alleviated by adding an afterAll to
+your unit tests:
+\begin{lstlisting}
+export function cleanStylesFromDOM(): void {
+  const head: HTMLHeadElement = document.getElementByTagName('head')[0];
+  const styles: HTMLCollectionOf<HTMLStyleElement>
+  | [] = head.getElementsByTageName('style');
+
+  for (let i: number = 0; i < styles.length; i++) {
+    head.removeChild(styles[i]);
+  }
+}
+afterAll(() => {
+  clearStylesFromDOM();
+});
+\end{lstlisting}
+
+The above functionality will improve performance of unit tests by five fold.
