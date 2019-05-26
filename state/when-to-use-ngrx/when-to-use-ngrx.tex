@@ -1,0 +1,50 @@
+\section{When to Use @ngrx/store}
+When to use @ngrx/store can be a very opiniated item to consider. State as we
+know it, is a single data object, that can be accessed anywhere within the app.
+How this happens, changes from one state management framework to another, but
+the core is the same. However, the difficulty, is that state, being that it
+exists outside of the component, can contain quite a bit of bloat.
+
+\subsection{ An Example of an @ngrx/store }
+
+For instance, let's say that we have a user-settings data-access feature. Our
+folder file structure might look like the following:
+
+\input{./state/when-to-use-ngrx/user-settings-tree-structure}
+
+This, of course, would be in an enterprise setting, which honestly this book
+is geared towards. However, it definitely strikes home a very good point. There
+is a ton of bloat to creating a store. Even once a developer get's over the hill
+of creating state, and get's used to it, it's still a lot to manage, and one
+just has to ask, does it always make sense?
+
+\subsection{ Addressing the Problems State Alleviates }
+First and foremost, I think it would be most effective if we were to directly
+jump into the problems that state solves:
+\begin{enumerate}
+  \item Avoiding Multiple Actors
+  \item Avoid Extraneous @Inputs
+  \begin{enumerate}
+    \item Pass down multiple levels to child, and send change back to parent
+    \item Siblings in a tree, might have to pass up and over
+  \end{enumerate}
+  \item Stops Event Bussing /marginpar{Look more into this one}
+  \item Decouples component interaction. Component does not know what changed,
+  only knows what changed it.
+  \item Allows for Component interaction via the Observable Pattern
+  \item Client Side Cache if needed.
+  \item Place to Put Temporary UI State
+\end{enumerate}
+
+These would be in my humble opinion, the 7 things that state has to offer. If a
+component were to be able to interact with another component on that page, by
+altering it's data, it should have state.
+
+\subsection{ Attachments Service - Story Time }
+There are some very unique cases, where perhaps state shouldn't be used. I for
+one always felt that state has a bit of bloat. However, after discussing with
+team members, I have begun to see the way they think. This particular situation
+was about a feature for attachments that the app needed. In particular,
+multiple components on the same page, would have attachments. If a service or
+@ngrx/store was not used, there would be alot of repitition across the app. This
+led to the dillema, should a service, or @ngrx/store be used. 
