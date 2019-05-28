@@ -139,16 +139,19 @@ In addition, and I can personally attest to this, by the time, I am working on
 the facade, I am already thinking of the effect that is going to tie into our
 service, and how I am going to tie it into the component. Jumping out of this
 repitition can counter-productive, even if there is less code involved by
-creating a service. 
+creating a service.
 
 \subsection{ Attachments Service - Story Time }
-There are some very unique cases, where perhaps state shouldn't be used. I for
-one always felt that state has a bit of bloat. However, after discussing with
-team members, I have begun to see the way they think. This particular situation
-was about a feature for attachments that the app needed. In particular,
-multiple components on the same page, would have attachments. If a service or
-@ngrx/store was not used, there would be alot of repitition across the app. This
-led to the dillema, should a service, or @ngrx/store be used.
+There are some very unique cases, where perhaps state shouldn't be used on an
+objective level. I for one always felt that state has a bit of bloat(, albeit my
+opinion is beggining to change). However, after discussing with team members,
+I have begun to see the way they think. This particular situation was about a
+feature for attachments that the app needed. In particular, multiple components
+on the same page, would have attachments that would be uploaded to a server.
+Then, when the api using the attachment would make a request, it would pull
+attachment from the server, using it's id. If a service or @ngrx/store was not
+used, there would be alot of repitition across the app. This led to the dillema,
+should a service, or @ngrx/store be used.
 
 \subsection{ Business Requirments }
 One, is that multiple components on the same page were to use this attachments
@@ -158,17 +161,20 @@ loading, and when it is no longer loading.
 \subsection{ Argument for using a Service }
 In truth, the attachments were meant to be self contained within a singular
 component. This would have made the service as very simple. However, based on
-the business requirements, we would have to create a double nested correlation
-id. This means that a double nested correlation id pattern had to be created.
-One, to make sure that different components do not affect each other. Two, the
-id produced on the front end, is different than the id produced on the backend.
-We need to create an id that can be used by both. This is done by creating a
-second Uuid, that is nested within the first one. I.e. \ a dictionary inside of a
-dictionary.
+the business requirements, we would have had to create a double nested
+correlation id. This means that a double nested correlation id pattern had to be
+created. One, to make sure that different components do not affect each other.
+Two, the id produced on the front end, is different than the id produced on the
+backend. We need to create an id that can be used by both. This is done by
+creating a second Uuid, that is nested within the first one. I.e. a dictionary
+inside of a dictionary.
 
 So, really in this situation, there is arguably nothing that the store has to
-offer. However, what has happened, is that using @ngrx/store, we are now
-comfortable with the API for @ngrx/entity. In addition, we have a single place
+offer. However, what has happened, using ``The Exposure Effect'' is that we are
+now comfortable with the API for @ngrx/entity. Comfortable isn't accurate
+actually. We are able to predict, @ngrx/store as a whole. Any developer who
+worked and will work within the app, can pick up on the code base easier than
+a service, beign that it is predictable. In addition, we have a single place
 where we expect all of our data to be. Creating a service like this, might make
 sense for the person spending the time thinking through the problem. However,
 for any other person, it will be an incredibly uncomfortable experience reading
@@ -177,5 +183,21 @@ as a way to make sure code is consistent, even if it isn't the right choice for
 your app.
 
 \subsection{ What Comes Out From Our Back and Forth }
-Truly, any situation, wherein a data request is made from the back end, it
-should go into our store.
+Truly, any enterprise situation, wherein a data request is made from the
+back end, it should be handled using @ngrx/store and not services. This is
+simply because, in any enterprise setting, the majority of situations is more
+properly handled using @ngrx/store.
+\begin{enumerate}
+  \item It allows for a cookie cutter api, that is used time and time again. The
+  code bloat it creates, is alleviated by use of Nrwl Nx.
+  \item Your application's performance will not affected as a result.
+  \item From personal experience, business requirment change quite a bit. The
+odds of your service now being needed to re-written to accomodate it being
+used in multiple components, is also quite high.
+\end{enumerate}
+
+\subsection{ Final Note }
+If you are building an enterprise app from the beginning and are building a
+team, put this as part of the conventions right away. It will make your life
+easier. If you have a team, and you haven't fully agreed on this one, send them
+this article and start a conversation. 
