@@ -28,6 +28,36 @@ the problem it solved, and made it easier to implement:
 
 \includegraphics[width=12.1cm, height=9cm]{./state/when-to-use-ngrx/flux_v_redux}
 
+It also more importantly, standardized the Flux architecture as a library.
+
+\subsection{@ngrx/store - Integrated Reactive Programming with the Store}
+@ngrx/store took redux one step further, and integrated observables with the
+store. There is a fantastic founding paper on the benefits of Real Time
+Programming(http://www-sop.inria.fr/members/Gerard.Berry/Papers/Berry-IFIP-89.pdf)
+
+In it, it discusses two main benefits of Reactive Programming:
+\begin{enumerate}
+  \item Asynchronous
+  \item Detemrinistic
+\end{enumerate}
+
+Just to throw out what a quote from who I consider a founder in Reactive
+programmin. Andre Staltz when discussing why one should consider Reactive
+programming really touches on the core of it all with the following, “Reactive
+Programming raises the level of abstraction of your code so you can focus on the interdependence of events that define the business logic…”.
+\footnote{https://gist.github.com/staltz/868e7e9bc2a7b8c1f754\#why-should-i-consider-adopting-rp}
+
+That being said, it immediately becomes obvious as to why one would want a
+reactive approach towards state. State is generally changed with events, and
+being able to abstract the level of state makes complete sense. I cannot stress
+how many times, I have been able to pull in an observable using @ngrx/store, and
+modify it using rxjs. It greatly abstracts, and simplifies the process.
+
+\mybox{As a side note, ngrx was actually created, to solve performance issues
+with change detection in Angular2. It from that point onwards has morphed into
+a good idea, allowing the store to be automatically hooked into state:
+https://github.com/ngrx/store/issues/16\#issuecomment-172027797}
+
 \subsection{ An Example of an @ngrx/store }
 
 For instance, let's say that we have a user-settings data-access feature. Our
@@ -40,6 +70,17 @@ is geared towards. However, it definitely strikes home a very good point. There
 is a ton of bloat to creating a store. Even once a developer get's over the hill
 of creating state, and get's used to it, it's still a lot to manage, and one
 just has to ask, does it always make sense?
+
+\subsection{Understanding the Reality of State}
+I think that looking at the above folder/file strucutre, it is very important
+to realize that state has gone so far beyond what it was originally intended to
+do. You will notice effects, a facade pattern. In addition, quietly sitting
+inside of our reducer, is @ngrx/entity. The whole suite of @ngrx is so robust
+that it deals with the entire life cycle, of pulling in data, and integrating it
+with the client side. In fact, if it wasn't for the bloat that it introduced,
+it would be able to solve every single situation, wherein we are trying to carry
+over data into the client side, in a scalable, and maintainable fashion. Ok, so
+let's deep dive into it.
 
 \subsection{ Addressing the Problems State Alleviates }
 First and foremost, I think it would be most effective if we were to directly
@@ -62,6 +103,9 @@ jump into the problems that state solves:
 These would be in my humble opinion, the 7 things that state has to offer. If a
 component were to be able to interact with another component on that page, by
 altering it's data, it should have state.
+
+\subsubsection{ Addressing Additional Three Offered by @ngrx/store }
+
 
 \subsection{ Attachments Service - Story Time }
 There are some very unique cases, where perhaps state shouldn't be used. I for
