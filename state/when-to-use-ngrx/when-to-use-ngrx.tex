@@ -5,6 +5,29 @@ How this happens, changes from one state management framework to another, but
 the core is the same. However, the difficulty, is that state, being that it
 exists outside of the component, can contain quite a bit of bloat.
 
+\mybox{It is interesting to note, that the original implementation of Flux
+was created by Facebook back in 2014\footnote{This video contains https://www.youtube.com/watch?v=nYkdrAPrdcw this fact}.
+It was because they had a bug with regards to the chat counter, that just kept
+on coming back. It would mention that a user did not read a message, but that
+wasn't true. Flux was the architecture they came up with in order to solve this
+bug. It's important to understand the history of where Flux came from, when
+trying to understand how to move forward using it. It's important to also
+realize, that the issue, wasn't they weren't able to solve it, it is that the
+bug kept coming back. Flux solved it, due to it's straight forward way of
+solving multiple components interacting with each other.
+
+``It is important to remember, that a store is about creating an in-memory client
+side database, which is a user-specific slice of the database, and use that
+data to derivce View Models from it on the client.''
+}
+
+\subsection{Redux as evolution on Flux}
+Redux solved the same problem Flux did. However, it simplified the process.
+Without going into too much detail and instead showing a photo, Redux simplified
+the problem it solved, and made it easier to implement:
+
+\includegraphics[width=12.1cm, height=9cm]{./state/when-to-use-ngrx/flux_v_redux}
+
 \subsection{ An Example of an @ngrx/store }
 
 For instance, let's say that we have a user-settings data-access feature. Our
