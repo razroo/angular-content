@@ -119,8 +119,22 @@ the above, 80\% seems like a very respectable amount.
 The following are the four different types of coverage reporting that is
 covered:
 \begin{enumerate}
-  \item Statements
-  \item Branches
-  \item Functions
-  \item Lines
+  \item Statements - Has each statement in the program been executed?
+  \item Branches - Has each branch of each control structure been executed? For
+  instance, have all case statement, or if/else statements been called?
+  \item Functions - Has each function (or subroutine) in the program been called?
+  \item Lines - has each executable line in the source file been executed?
 \end{enumerate}
+
+\mybox{ I generally find it difficult to distinguish between a statement, and a
+branch. The following is a great example. Let's say we have the following
+scenario:
+determineStatement(a: any, b: any): boolean {
+  if(a){
+     if(b){
+       statement2 = true;
+     }
+     statement1 = true
+  }
+}
+}
