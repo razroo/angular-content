@@ -126,9 +126,10 @@ covered:
   \item Lines - has each executable line in the source file been executed?
 \end{enumerate}
 
-\mybox{ I generally find it difficult to distinguish between a statement, and a
+I generally find it difficult to distinguish between a statement, and a
 branch. The following is a great example. Let's say we have the following
 scenario:
+\begin{verbatim}
 determineStatement(a: any, b: any): boolean {
   if(a){
      if(b){
@@ -137,4 +138,9 @@ determineStatement(a: any, b: any): boolean {
      statement1 = true
   }
 }
-}
+\end{verbatim}
+
+If we test a = true, and that b = true, that will give us 100\% statement
+coverage, as we have tested all statements. However, we have not tested we
+hidden else statement. Therefore while the statement coverage within our function
+is 100\%, the branch coverage is only at 50\%.
