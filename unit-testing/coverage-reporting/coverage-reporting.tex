@@ -104,10 +104,23 @@ The interesting thing about the Pareto rule, is that one can make the argument,
 that the 20\% features that make an 80\% impact, are those that are hardest to
 debug. So arguably, those tend to overlooked. However, that means that we can
 also introduce the Pareto Priority Index(PPI):
+\footnote{https://www.sixsigmadaily.com/the-six-sigma-approach-to-project-selection/}
 
 \[
 PPI = \frac{\text{savings} \times \text{probability of success}}{\text{cost} \times \text{time of completion}}
 \]
 
-However, what coverage reporting does accomplish, is that it will allow us to
-make sure that we will hit our 80\% mark.
+The Pareto Priority Index, is really just fancy way of saying, if you find this
+unit test is taking you too long, and it's not worth it, granted the unknown
+of what this unit test is, move on. So this number(80\%) is debatable, but given
+the above, 80\% seems like a very respectable amount.
+
+\subsection{ Understand Different Types of Coverage Reporting }
+The following are the four different types of coverage reporting that is
+covered:
+\begin{enumerate}
+  \item Statements
+  \item Branches
+  \item Functions
+  \item Lines
+\end{enumerate}
