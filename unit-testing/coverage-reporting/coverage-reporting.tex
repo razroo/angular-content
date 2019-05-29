@@ -160,3 +160,17 @@ function is 100\%, the branch coverage is only at 50\%.
   \item Red: Non executed lines, or pieces of code.
   \item Yellow: Branches not covered.
 \end{enumerate}
+
+\subsection{ Code Coverage Enforcement }
+
+\subsection{ Running a Coverage Report in Angular }
+My preferred method, is to add a package.json script for running a
+--code-coverage report. It would look something like the following:
+\begin{verbatim}
+  {
+    ...,
+    test-coverage: ng test --code-coverage
+  }
+\end{verbatim}
+
+Walla! Just like that, the cli will take care of emitting code-coverage for you.
