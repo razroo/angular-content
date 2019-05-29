@@ -129,7 +129,7 @@ covered:
 I generally find it difficult to distinguish between a statement, and a
 branch. The following is a great example. Let's say we have the following
 scenario:
-\begin{verbatim}
+\begin{lstlisting}
 determineStatement(a: any, b: any): boolean {
   if(a){
      if(b){
@@ -138,9 +138,25 @@ determineStatement(a: any, b: any): boolean {
      statement1 = true
   }
 }
-\end{verbatim}
+\end{lstlisting}
 
 If we test a = true, and that b = true, that will give us 100\% statement
 coverage, as we have tested all statements. However, we have not tested we
-hidden else statement. Therefore while the statement coverage within our function
-is 100\%, the branch coverage is only at 50\%.
+hidden else statement. Therefore while the statement coverage within our
+function is 100\%, the branch coverage is only at 50\%.
+
+\subsubsection{Understanding Letters on Side of Code Coverage}
+\begin{enumerate}
+  \item `E' stand for `else path not taken'. Meaning that if path has been test,
+  but not the else path.
+  \item `I' stand for `if path not taken'.
+  \item `xN' in left column, is the amount of times the line has been executed.
+\end{enumerate}
+
+\subsubsection{Understanding Colors}
+\begin{enumerate}
+  \item Orange: Functions not covered.
+  \item Pink: Statements not covered.
+  \item Red: Non executed lines, or pieces of code.
+  \item Yellow: Branches not covered.
+\end{enumerate}
