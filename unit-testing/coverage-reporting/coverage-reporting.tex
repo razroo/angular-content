@@ -162,6 +162,20 @@ function is 100\%, the branch coverage is only at 50\%.
 \end{enumerate}
 
 \subsection{ Code Coverage Enforcement }
+In line with our decided 80\% coverage, we can go into our karma.conf.js file
+and add the following in the coverageIstanbulReport: key.
+\begin{lstlisting}
+coverageIstanbulReporter: {
+  reports: [ 'html', 'lcovonly' ],
+  fixWebpackSourcePaths: true,
+  thresholds: {
+    statements: 80,
+    lines: 80,
+    branches: 80,
+    functions: 80
+  }
+}
+\end{lstlisting}
 
 \subsection{ Running a Coverage Report in Angular }
 My preferred method, is to add a package.json script for running a
