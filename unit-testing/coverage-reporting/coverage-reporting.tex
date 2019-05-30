@@ -213,8 +213,20 @@ In order to open up a coverage report, after a coverage report has been
 generated, simply navigate to your coverage/src folder, and click on the
 index.html file.
 
-\subsection{ Trap of Coverage Reporting }
-I've found that a script that's available to automatically
+\mybox{I've found that a script that's available to automatically
 open up the coverage reporting index.html has made me more prone to paying
 attention to coverage reporting. However, as time has gone on, and I realize the
-value of TDD, I think that coverage reporting is less relevant
+value of TDD, I think that coverage reporting is less relevant. At this point
+in time, I feel it is more relevant as a devops tool, and a way of making sure
+that unit testing stays at a certain caliber.}
+
+\subsection{ Trap of Coverage Reporting }
+In a perfect world, all functions would be pure, and they would solve one
+use case. However, that is frequently not the case. In addition, even if it was
+the case, a unit test should still be tested against numerous use cases. So
+Coverage reporting while on paper makes seems like it is 80\% it might be 10\%
+to 20\% less than that.
+
+
+However, that as we have already mentioned has times wherein it is not totally
+accurate.
