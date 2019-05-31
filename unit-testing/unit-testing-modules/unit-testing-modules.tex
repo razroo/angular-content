@@ -1,0 +1,33 @@
+\maketitle{}
+\section{ Unit Testing Modules }
+I think this is an important chapter, because unit testing modules are a good
+little piece of architecture in Angular. Simply put, it allows you to put a
+number of providers into the module for unit testing. Then you can just go
+ahead and import the module. In fact, even if there is only provider being
+added to the module, it is still keeping your app DRY'er(AKA Don't Repeat
+Yourself).
+
+\subsection{Comparison of Using a Module Vs a Provider}
+I would just like to illustrate the point of how simple it is to use a module
+vs a provider. The reccomended use of a unit testing module, is for a facade.
+If you will recall, our use of a facade, for our data-access architecture. This
+means, that there is only one file that is required for us to provide in our
+unit tests. Nonetheless, let's say that we are attempting to mock our UserFacade
+that we use for user-settings. Our file would look like the following:
+
+\begin{lstlisting}
+mport { NgModule } from '@angular/core';
+
+import { UserFacade } from './+state/user.facade';
+import { MockUserFacade } from './+state/user.facade.mock';
+
+@NgModule({
+  providers: [
+    {
+      provide: UserFacade,
+      useClass: MockUserFacade,
+    },
+  ],
+})
+export class PxDataAccessUserTestingModule {}
+\end{lstlisting}
