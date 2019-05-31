@@ -31,3 +31,18 @@ import { MockUserFacade } from './+state/user.facade.mock';
 })
 export class PxDataAccessUserTestingModule {}
 \end{lstlisting}
+
+Now, if we want to mock the data that we are using within our app,
+
+\begin{lstlisting}
+describe('UserSettingsComponent', () => {
+  let facade: UserFacade;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [PxDataAccessUserTestingModule],
+    });
+
+    facade = TestBed.get(UserFacade);
+  });
+\end{lstlisting}
