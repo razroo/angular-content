@@ -1,0 +1,80 @@
+\maketitle{}
+\section{ Sass Error Reporting }
+
+I have decided to include the chapter on Sass Error Reporting in the chapter
+for Design Language System. The main reason for this, is that any core style is
+going to be considered as part of the core Design Language System. However, it
+can be very difficult to maintain a core design, without some safe guards in
+place, to make sure it is consistent across the app.
+
+\subsection{ When to use Sass Error Reporting }
+One should use Sass Error reporting if it is a core style. It is a core style if
+it is used in more than one page, as a foundational piece of styling, non
+unique to specific component.
+
+\subsection{ What We Are Looking For With Using Sass Functions }
+\begin{enumerate}
+  \item No values other than these are used
+  \item When a Pr comes our way, and we say to use the above, we have a function which is self documenting.
+  \item Have a UI of sorts that also trains developers on how the internal of
+  the DLS works, so that they should be aware if anything is wrong.
+\end{enumerate}
+
+The following is a great example of what a core design function would look like.
+\begin{lstlisting}
+// Gutter variables, for padding + margin
+// function to take in multiplier(8), which must emit of one of values within ill-space-amounts
+@function ill-space-multiplier($n) {
+  $ill-space-amounts: (0, 4, 8, 16, 24, 32, 40, 48, 56, 64);
+  $ill-space-multiplier: 8;
+
+  @if(index($ill-space-amounts, ($n * $ill-space-multiplier))) {
+    @return #{$n * $ill-space-multiplier}px;
+  }
+  @else {
+    @error "Must contain one of the following numbers: #{$ill-space-amounts}.";
+  }
+}
+\end{lstlisting}
+
+If we have any component that is going to go ahead and use this function, we
+can simply go ahead and use it:
+
+\begin{lstlisting}
+@import 'src/styles/variables';
+
+:host {
+  padding: ill-space-multiplier(2);
+}
+\end{lstlisting}
+
+In this particular situation this helps, so that if the input passed to the
+multiplier is not a number, it will complain. In addition, if the result is not
+one of the multipliers, it will complain as well. So for instance, if the number
+passed in, is 1.5, it will cause the function to error out, being that there is
+no number 12, that is one of the ill space amounts.
+
+\subsection{ Applying Architecture to Design Language System as a whole? }
+The truth is that this pattern only applicable to padding, and spacing. For
+instance, we technically could create a function for breakpoints:
+\begin{lstlisting}
+// breakpoints to be used in conjunction with media queries across app
+@function ill-breakpoint($breakpoint) {
+  $breakpoints: (
+    'small': 400,
+    'medium': 720,
+    'large': 1024,
+    'extra-large': 1424
+  );
+  @if (map-get($breakpoints, $breakpoint)) {
+    @return #{map-get($breakpoints, $breakpoint)}px;
+  } @else {
+    @error 'Must contain one of the following strings: #{$breakpoints}.';
+  }
+}
+\end{lstlisting}
+
+However, we reccomend the use of flex-layout. Flex layout currently does not
+have the ability to use this pattern. Nonetheless, for padding, and spacing
+alone, this singular piece of sass functionality will probably be used on a
+daily basis, and is very much so worth it. 
