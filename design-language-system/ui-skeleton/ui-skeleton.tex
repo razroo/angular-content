@@ -1,35 +1,81 @@
 \section{ UI Skeleton }
 \maketitle{}
 
+Data, very rarely will be immediately available. Even if your app has a very
+quick backend service, bandwidth due to other web applications the user might
+be using, can affect the time it takes to load. It can be a very uncomfortable
+experience for the user if they are unaware of what is happening. I know
+personally, that I've thought of leaving Spotify, due to their web application
+having no indicator of when something is loading. Let's do everyone a favor
+and not do what Spotify does.
+
 Within a design language system, a UI Skeleton, or Ghost Elements, as it should
 probably be called, is a good idea. Most commonly, it is gray box depiction of
-UI component awaiting action, that will be available in the future.
+a UI component awaiting action, that will be available in the future. It is a
+very simple way of easing anxiety of the user, and allowing them to be aware of
+all times, that something is loading.
 
 \subsection{ One True Way of Implementing Ghost Views }
-With regards to implementing Ghost elements, there is one battle tested true
-way of implementing them. That would be creating inline ghost elements with
-async loads. This will then use a data wrapper to allow data items to track
-state. The state will then then be reflected in the view components.
-
-\mybox{There are
-another two options:
+There are three options of implementing Ghost Elements.
 \begin{enumerate}
   \item Creating an Overlay Ghost Element
   \item Creating an Inline Ghost Element
+  \item Inline Ghosts with Async Loads
 \end{enumerate}
 
-The only qualm with creating an overlay ghost element, is that it needs a
-direct representation of what the entire component will look like. However,
-many times, a larger piece of a component, is comprised of many smaller pieces.
-At times the process seems synthetic, and odds are, one will frequently have to
-change the ghost element per the look and feel of the actual updated component.
+\subsection{Why not to use an Overlay Ghost Element}
+I would personally not recommend using an Overlay Ghost Element. It requires
+that developers determine when Ghost it removed. In addition, it requires for
+layouts to match the ``Real'' DOM layouts. However, DOM layouts are changing
+all the time, and this solution is not a good long term solution. Most
+definitely not an enterprise solution.
 
-With regards to creating an inline component, it doesn't base it's self on
-loading data etc.
+\subsection{ Why not to use an Inline Ghost Element }
+There is an option to have a css only option. That is, that the css class
+changes based on whether, or not the data is available. The only real issue
+with this solution, is that it will be more of an off/on switch with regards
+to transitioning between a ghost element and an inline element.
+
+\subsection{ Why use Inline Ghosts with Async Loads}
+This is a very sophisticated solution, which I first saw from a one Thomas
+Burleson. The idea, is that we create a queryState function:
+\begin{lstlisting}
+/**
+ * Wrapper function to easily determine async state
+ */
+export function queryState<T>(item:AsyncItem<T>) {
+  return {
+    isPolling : (item.state === AsyncItemState.POLLING),
+    isLoading : (item.state === AsyncItemState.LOADING),
+    isLoaded  : (item.state === AsyncItemState.LOADED)
+  };
 }
+\end{lstlisting}
 
-\subsection{Use Case for not using Ghost Element}
-A common scenario, where one might think of using a ghost element, and that the
-ghost element is not a good solution, is where we are involving pure text, that
-is already available to us. In particular, with regards to file uploads, a
-ghost element will not be ideal.
+Then, inside of our component, we can go ahead and call the queryState within
+out component.
+
+\begin{lstlisting}
+export class UserListComponent {
+  state = queryState;
+  user$ = this.facade.users$;
+}
+\end{lstlisting}
+
+Here, we can create numerous states including polling. This is a more robust
+solution than using plain css.
+
+\subsection{ Ghost Elements Always? }
+There are scenarios wherein a ghost element might not be the ideal scenario.
+
+\subsection{Key Take Aways}
+\begin{enumerate}
+  \item Angular Animations can be implemented as re-usable recipes.
+  \item AsyncItem is a general pattern used to decorate server entity items with
+  `client side data state'
+  \item Each Ghost component is a custom component crafted for that specific
+  component. The odds of it being re-usable is next to none.
+  \item Ghost grades and annimations are re-usable.
+\end{enumerate}
+
+Ghosts might simply be css. 
