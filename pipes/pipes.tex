@@ -1,29 +1,72 @@
 \section{ Pipes }
 \maketitle{}
 
-Angular offers the ability to use Pipes out of the box. The idea behind a pipe
-is to get data, transform it, and show new transformed data to users. Pipes are
-something that I am going to assume the reader is already familiar with. Just as
-a primer, using the native angular date pipe, a pipe would do something such
-as the following:
+Angular offers the ability to use something called a pipe out of the box. The
+idea behind a pipe is to get data, transform it, and show new transformed data
+to users. It is a very common task, and Angular, rightfully so, decided to
+include it in it's framework. The easiest way to think about it, is a way
+to put a function in your html template!
+
+A pipe might look something like this:
+
 \begin{lstlisting}
-The chained hero's birthday is
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-data-table',
+  templateUrl: './data-table.component.html',
+  styleUrls: [./data-table.component.scss],
+})
+export class HeroBirthdayComponent {
+  transaction = new Date(1988, 3, 15); // April 15, 1988
+}
+\end{lstlisting}
+
+begin{lstlisting}
+<!--data-table.html-->
+<Div>Data of transaction {{ transaction | date }}</p>
+end{lstlisting}
+
+The above would display:
+\begin{verbatim}
+April 15, 1988
+\end{verbatim}
+
+The pipe in this instance, will transform transaction, from a Date object, and
+transform it to a readable date.
+
+\subsection{ The Uniqueness of Pipe }
+The unique part about an Angular pipe, is that it is something that will be
+defined as a function, but actually be in your html. Any classic way of
+thinking of a function can similarly be applied to a pipe.
+
+\subsection{Chaining Pipes}
+If you want, you can chain multiple pipes together, similar to function
+composition, to allow for multiple effects on your html.
+
+\begin{lstlisting}
+The chained transaction date is:
 {{ birthday | date | uppercase}}
 \end{lstlisting}
 
-This would display
+Would display
 \begin{verbatim}
-FRIDAY, APRIL 15, 1988
+APRIL 15, 1988
 \end{verbatim}
 
-The pipe here is taking in the timestamp of
-\begin{verbatim}
-  577065600
-\end{verbatim}
-and converting it to the proper date. Having such dates in one's application
-obviously makes it very easy to go ahead and transform data throughout one's
-app. Here we are also chaining pipes, so that the transformed data that comes
-back in addition to being transformed, is also capitalized.
+Chaining pipes, walla!
+
+\subsection{Parameters for Pipes}
+Pipes also take parameters, similar to how functions take parameters.
+
+\begin{lstlisting}
+
+\end{lstlisting}
+
+Having such dates in one's application obviously makes it very easy to go ahead
+and transform data throughout one's app. Here we are also chaining pipes, so
+that the transformed data that comes back in addition to being transformed, is
+also capitalized.
 
 \subsection{ Performance Considerations }
 It is important off the cuff to be aware of some performance concerns when it
@@ -52,4 +95,4 @@ turned into a pipe, instead of a service. That would be the simple rule.
 In addition, there are impure pipes that one can potentially do, which ususally
 has little to do with transforming data. Once again the async pipe is something
 that would register along these lines. However, I have not seen the need to
-create an impure pipe with the architecture given. 
+create an impure pipe with the architecture given.
