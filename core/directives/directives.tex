@@ -48,3 +48,33 @@ functionality is strickly tied to actual UI element.
   you find yourself writing, with what feels like too many components, don't
   worry, it's to be expected.
 }
+
+\subsection{ Passing Values into the Directive }
+A directive has the ability to pass a value in. For instance, going back to our
+highlight example, let's create an @Input() (Angulars way of passing in values)
+for our highlight directive.
+\begin{lstlisting}
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  @Input() highlightColor: string;
+
+  constructor(el: ElementRef) {
+    el.nativeElement.style.backgroundColor = this.highlightColor';
+  }
+}
+\end{lstlisting}
+
+Now if we were to go back to our template, we have the option to insert the
+color we want within the template:
+\begin{lstlisting}
+<p appHighlight='orange'>Highlight me!</p>
+\end{lstlisting}
+
+The background of this component is going to be orange!
+
+\subsection{ Modify Values Based on Events }
+Directives also give the option to modify based on an event. 
