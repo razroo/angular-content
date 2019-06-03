@@ -72,13 +72,24 @@ and transform data throughout one's app. Here we are also chaining pipes, so
 that the transformed data that comes back in addition to being transformed, is
 also capitalized.
 
-\subsection{ Custom Pipes }
+\subsection{ Dis-section of Angular Built in Pipes }
+I think it's important to show that Angular actually has a relatively limited
+amount of built in pipes:
+\begin{center}
+\begin{tabular}{ c c c }
+ AsyncPipe & CurrencyPipe & DatePipe \\
+ DecimalPipe & i18nPluralPipe & i18nSelectPipe \\
+ JsonPipe & KeyValuePipe & LowerCasePipe \\
+ PercentPipe & SlicePipe & TitleCasePipe \\
+ UpperCasePipe
+\end{tabular}
+\end{center}
 
-\subsection{ Performance Considerations }
-It is important off the cuff to be aware of some performance concerns when it
-comes to pipes.
+The reason behind it, is that truly the beauty behind pipes, is that you have
+the ability to create your own. The community, for instance, has created a vast
+amount of pipes beyond that of the built in one's Angular has created.
 
-\subsubsection{ Understanding Angulars Change Detection }
+\subsubsection{ Understanding Angular's Change Detection }
 This is a good time to interject and get into the nitty gritty of angular's
 change detection. As we discussed in the earlier chapter on change-detection,
 change detection in Angular works from the top down. That is, if a specific set
@@ -89,16 +100,20 @@ part. By using pipes, it allows one's component to be more performant.
 
 \subsection{ When to Use Pipes }
 Pipes cover alot of ground. Within our architecture, one of the pipes that will
-be used more so that others in the async pipe. However, now is not the place
+be used more so that others is the async pipe. However, now is not the place
 to put that here. What is important, is that pipes can be used transform data.
 Should they always be used whenever one is transforming data? Personally,
 I like to think of pipes as unique to html. They have a way of dealing of
 performance when working with html templates. However, within a component
 itself it is questionable. To be honest this can go either way. However, from a
-maintainability perspective, whenever data is being transformed, it should be
-turned into a pipe, instead of a service. That would be the simple rule.
+maintainability perspective, whenever data is being transformed within html it
+should be a pipe. If it is data being transformed within the component, it
+should be done through a service.
 
-In addition, there are impure pipes that one can potentially do, which ususally
-has little to do with transforming data. Once again the async pipe is something
-that would register along these lines. However, I have not seen the need to
-create an impure pipe with the architecture given.
+\mybox{
+There is the ability to create an impure pipes that one can potentially do. This
+usually has little to do with transforming data. The async pipe, for instance,
+is something that would be considered an impure pipe, that has less to do with
+transforming data, and more so with making the data available. However, I have
+not seen the need to create an impure pipe with the architecture given.
+}

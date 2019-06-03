@@ -1,0 +1,50 @@
+\section{ Attribute Directives }
+\maketitle{}
+
+An attribute directive changes the appearance, or behavior of a DOM Element.
+It is tagged on of an html element to change the way it works. For instance,
+while it is probably better to use CSS in this situation, let's create a
+really low level directive, to introduce how it works:
+\begin{lstlisting}
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  constructor(el: ElementRef) {
+    el.nativeElement.style.backgroundColor = 'yellow';
+  }
+}
+\end{lstlisting}
+
+Now we have the ability to apply this directive to out html element:
+\begin{lstlisting}
+<p appHighlight>Highlight me!</p>
+\end{lstlisting}
+
+As a result of the directive we have applied on this p element, the background
+for this p element will now yellow.
+
+It, of course, can be incredible useful.
+
+\mybox{
+ A @Directive is not to be confused with a @Component. A @Component requires
+ html, wherein a @Directive does not use html. A @Directive is meant to be
+ tagged onto html, and modify it's behavior.
+}
+
+\subsubsection{A Great Example}
+A great example of this, is adding drag and drop functionality to a component.
+That in it's self is not component worthy. However, adding a dropzone directive
+for instance, to the element, would make any potential component drag and
+droppable worthy. A
+
+A great example of a component, would be a data table. A large part of it's
+functionality is strickly tied to actual UI element.
+
+\mybox{
+  A side note with regards to our architecture, directives will be very used. If
+  you find yourself writing, with what feels like too many components, don't
+  worry, it's to be expected.
+}
