@@ -46,7 +46,7 @@ composition, to allow for multiple effects on your html.
 
 \begin{lstlisting}
 The chained transaction date is:
-{{ birthday | date | uppercase}}
+{{ transaction | date | uppercase}}
 \end{lstlisting}
 
 Would display
@@ -57,16 +57,22 @@ APRIL 15, 1988
 Chaining pipes, walla!
 
 \subsection{Parameters for Pipes}
-Pipes also take parameters, similar to how functions take parameters.
+Pipes also take parameters, similar to how functions take parameters. For
+instance, if we want to add a parameter to the default Angular pipe. For
+instance, let's say that we wanted to show the day of the week, in addition to
+actual week we can provide the pipe the following param:
 
 \begin{lstlisting}
-
+The chained + formatted transaction date is:
+{{ transaction | date: "full" | uppercase}}
 \end{lstlisting}
 
 Having such dates in one's application obviously makes it very easy to go ahead
 and transform data throughout one's app. Here we are also chaining pipes, so
 that the transformed data that comes back in addition to being transformed, is
 also capitalized.
+
+\subsection{ Custom Pipes }
 
 \subsection{ Performance Considerations }
 It is important off the cuff to be aware of some performance concerns when it
