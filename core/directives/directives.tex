@@ -113,3 +113,22 @@ Now let's say we add this directive to our <p> tag.
 <p appHighlight highlightColor="yellow">This will be Highlighted in Yellow on
 mouseenter. Good times!</p>
 \end{lstlisting}
+
+\subsection{ Examples of Directives }
+I think at this point, after just getting used to directives, it can be a bit
+difficult to internalize what an example of a directive looks like. I would
+therefore just like to jot down real quick, what an example of some custom
+directives would look like:
+\begin{enumerate}
+  \item trim-whitespace.directive.ts - A directive for trimming extra whitespace
+  from input fields. It would include an onChange event for whenever value is
+  changed. It would also include an onTouched event, so that whenever user
+  clicks on input, it will trim any of the text.
+  \item infinite-scroll.directive.ts - An infinite scroll directive. It would
+  attach its self to a container, and allow for it to make Graphql reqeusts,
+  whenever user scrolls beyond height of the container.
+  \item copy-to-clipboard.directive.ts - Allow for the ability of automatically
+  copying text to the clipboard.
+  \item go-back.directive.ts - Allows for the ability to attach the capability
+  to click on any button and go back to the previous page. 
+\end{enumerate}
