@@ -76,6 +76,34 @@ color we want within the template:
 
 The background of this component is going to be orange!
 
+\subsubsection{ Passing in Multiple Values }
+Passing in multiple values is as simple as adding a second @Input value to our
+Angular Directive:
+
+\begin{lstlisting}
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  @Input() highlightColor: string;
+  @Input() defaultColor: string;
+
+  constructor(el: ElementRef) {
+    el.nativeElement.style.backgroundColor = this.highlightColor';
+  }
+}
+\end{lstlisting}
+
+Just like that we can now pass multiple values to our html element:
+\begin{lstlisting}
+<p appHighlight="orange" defaultColor="blue" >Highlight me!</p>
+\end{lstlisting}
+
+Angular knows once the appHighlight directive has been exposed, that it has the
+input of defaultColor, or any other Input you might add for that matter. 
+
 \subsection{ Modify Values Based on Events }
 Directives also give the option to modify based on an event. For instance,
 we could add logic based on mouseenter.
@@ -130,5 +158,5 @@ directives would look like:
   \item copy-to-clipboard.directive.ts - Allow for the ability of automatically
   copying text to the clipboard.
   \item go-back.directive.ts - Allows for the ability to attach the capability
-  to click on any button and go back to the previous page. 
+  to click on any button and go back to the previous page.
 \end{enumerate}
