@@ -87,13 +87,29 @@ import { Directive, ElementRef } from '@angular/core';
   selector: '[appHighlight]'
 })
 export class HighlightDirective {
-  @HostListener('mouseenter') onMouseEnter() {
-    this.highlight('yellow');
-  }
   @Input() highlightColor: string;
 
   constructor(el: ElementRef) {
     el.nativeElement.style.backgroundColor = this.highlightColor';
   }
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlight(this.highlightColor);
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.highlight(null);
+  }
+
+  private highlight(color: string) {
+    this.el.nativeElement.style.backgroundColor = color;
+  }
 }
+\end{lstlisting}
+
+Now let's say we add this directive to our <p> tag.
+
+\begin{lstlisting}
+<p appHighlight highlightColor="yellow">This will be Highlighted in Yellow on
+mouseenter. Good times!</p>
 \end{lstlisting}
