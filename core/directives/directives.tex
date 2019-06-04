@@ -77,4 +77,23 @@ color we want within the template:
 The background of this component is going to be orange!
 
 \subsection{ Modify Values Based on Events }
-Directives also give the option to modify based on an event. 
+Directives also give the option to modify based on an event. For instance,
+we could add logic based on mouseenter.
+
+\begin{lstlisting}
+import { Directive, ElementRef } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlight('yellow');
+  }
+  @Input() highlightColor: string;
+
+  constructor(el: ElementRef) {
+    el.nativeElement.style.backgroundColor = this.highlightColor';
+  }
+}
+\end{lstlisting}
