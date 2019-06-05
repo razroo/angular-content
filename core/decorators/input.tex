@@ -33,7 +33,7 @@ class BankAccount {
   @Input() bankName: string;
   // this property value is bound to a different property name
   // when this component is instantiated in a template.
-  @Input('account-id') id: string;
+  @Input() id: string;
 }
 \end{lstlisting}
 
@@ -55,7 +55,38 @@ time.}
 Now we have the ability to include this component with an Input in another
 component:
 \begin{lstlisting}
-<bank-account bankName="RBC" account-id="4747"></bank-account>
+<bank-account bankName="RBC" id="4747"></bank-account>
 \end{lstlisting}
 
-This would be @Input() in a nutshell. 
+This would be @Input() in a nutshell.
+
+\subsection{bindProperyName}
+Input() does allow for an optional bindingPropertyName. This would mean that
+the re-usable component would internally refer to the Input value as one way,
+and the consuming component would refer to it, in another.
+
+\begin{lstlisting}
+// bank account component - bank-acount.component.ts
+@Component({
+  selector: 'bank-account',
+  template: './bank-account.component.html',
+})
+class BankAccount {
+  // This property is bound using its original name.
+  @Input() bankName: string;
+  // this property value is bound to a different property name
+  // when this component is instantiated in a template.
+  @Input('bank-account') id: string;
+}
+\end{lstlisting}
+
+In the html of your bank-account component:
+\begin{lstlisting}
+<div> Bank Name: {{ bankName }} </div>
+<div> Account Id: {{ id }} </div>
+\end{lstlisting}
+
+In the html of the component consuming the bank-account component. 
+\begin{lstlisting}
+<bank-account bankName="RBC" bank-account="4747"></bank-account>
+\end{lstlisting}
