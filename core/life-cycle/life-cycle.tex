@@ -1,0 +1,50 @@
+\maketitle{}
+\section{ Life Cycle Hooks }
+
+Any framework these days is going to have a lifecycle hook. All of them are
+actually very similar in many ways. There's a component has instantiated,
+and in between someplace, as in about to change, and is undergoing change, or
+what not. There is also, always a part in the lifecycle where the component
+is being destroyed/is destroyed. Angular is no different. I would like to
+go through the different part's of Angular's life cycle hooks, as it definitely
+is very important when it comes to development. I would also like to discuss the
+top 3 most important life cycle hooks when it comes to Angular development.
+
+\subsection{ Lifecycle Example }
+Before we get into what the entire lifecycle is, it might be helpful to
+visualize a lifecycle hook:
+
+\begin{lstlisting}
+export class PeekABoo implements OnInit {
+  constructor(private logger: LoggerService) { }
+
+  // implement OnInit's `ngOnInit` method
+  ngOnInit() { this.logIt(`OnInit`); }
+
+  logIt(msg: string) {
+    this.logger.log(`#${nextId++} ${msg}`);
+  }
+}
+\end{lstlisting}
+
+The above code is hooking into the onInit lifecycle hook. (Hook is exactly what
+it sounds like. Angular will hook into that particular part of the lifecycle,
+and implement a certain piece of code). When the component is initialized,
+it will log out a certain message. OnInit from personal experience is the most
+used lifecycle hook, so something to keep in mind.
+
+\subsection{ Angular Lifecycle }
+At this time, Angular has eight lifecycle hooks:
+\begin{enumerate}
+  \item ngOnChanges() - Triggered whenever Angular sets, or resets the data-bound
+  input properties. It is called before ngOnInit, and whenever one, or more
+  data-bound input properties change.
+  \item ngOnInit() - This one was already featured in the code above! It get's
+  called after Angular display data-bound properties, and set's the directive,
+  or component's input properties.
+  \item ngDoCheck() - This is called after an ngOnChanges, or ngOnInit. This
+  was created, so that Angular can check on updates it won't check on it's own.
+  \footnote{Example of what that would look like should go here.}
+  \item ngAfterContentInit() - Triggered after html is populated. It is called
+  once after the first ngDoCheck().
+\end{enumerate}
