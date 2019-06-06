@@ -41,5 +41,42 @@ export class PxlCodeChanger implements OnInit {
 \end{lstlisting}
 
 \begin{lstlisting}
+<div>
+<form>
+<-- Update code when we get it -->
+</form>
+</div>
+\end{lstlisting}
 
+and in the parent component consuming our component:
+
+\begin{lstlisting}
+<div>
+<pxl-color-changer></pxl-color-changer>
+</div>
+\end{lstlisting}
+
+\subsection{ bindPropertyName }
+Similar to Input, Output allows for binding an optional property name. This
+would mean that the re-usable component would internally refer to the Input
+value as one way, and the consuming component would refer to it, in another.
+
+\begin{lstlisting}
+// pxl-code-changer.component.html
+
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'pxl-color-changer',
+  template: './pxl-code-changer.component.html',
+  styleUrls: ['./pxl-code-changer.component.scss'],
+})
+export class PxlCodeChanger implements OnInit {
+  @Output('changeColor') colorChanged = new EventEmitter<any>();
+  constructor() {}
+
+  changeColor(data: string) {
+    this.colorChanged.emit(data);
+  }
+}
 \end{lstlisting}
