@@ -34,7 +34,7 @@ it will log out a certain message. OnInit from personal experience is the most
 used lifecycle hook, so something to keep in mind.
 
 \subsection{ Angular Lifecycle }
-At this time, Angular has eight lifecycle hooks:
+At this time, Angular has eight lifecycle hooks, in this order, more, or less:
 \begin{enumerate}
   \item ngOnChanges() - Triggered whenever Angular sets, or resets the data-bound
   input properties. It is called before ngOnInit, and whenever one, or more
@@ -47,4 +47,8 @@ At this time, Angular has eight lifecycle hooks:
   \footnote{Example of what that would look like should go here.}
   \item ngAfterContentInit() - Triggered after html is populated. It is called
   once after the first ngDoCheck().
+  \item ngAfterContentChecked() - After content in html is checked by Angular,
+  this will be called. Called after ngAfterContentInit() and every ngDoCheck()
+  thereafter. 
+
 \end{enumerate}
