@@ -1,4 +1,20 @@
 \maketitle{}
 \section{ Output }
 
-Output is another
+Output is another decorator native to Angular. On it's own it doesn't do
+anything. However, it does allow for the three following things to happen:
+\begin{enumerate}
+  \item Marks a class field as an output property.
+  \item Supplies configuration Metadata (we will get around to what that means
+  soon)
+  \item DOM property bound to the output property is automatically updated
+  during change detection.
+\end{enumerate}
+
+The Output decorator is always used in tandem with an event listener. What this
+means, is that we can have a re-usable component, with a button for instance.
+By using Output, we can have a function within the dumb component, that whenever
+it get's called, it triggers the parent function. Here is a great example:
+
+\begin{lstlisting}
+\end{lstlisting}
