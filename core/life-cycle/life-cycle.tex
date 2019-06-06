@@ -49,6 +49,31 @@ At this time, Angular has eight lifecycle hooks, in this order, more, or less:
   once after the first ngDoCheck().
   \item ngAfterContentChecked() - After content in html is checked by Angular,
   this will be called. Called after ngAfterContentInit() and every ngDoCheck()
-  thereafter. 
-
+  thereafter.
+  \item ngAfterViewInit() - Triggered after not only view for component is
+  initialized, but child view is initalized as well. For a directive, will
+  trigger once view it is in, will initialize.
+  \item ngAfterViewChecked() - Responds after Angular checks the component's
+  views and child views / the view that a directive is in. Called after the
+  ngAfterViewInit() and every subsequent ngAfterContentChecked().
+  \item ngOnDestroy() - Cleanup just before Angular destroys the
+  directive/component. Unsubscribe Observables and detach event handlers to
+  avoid memory leaks.
 \end{enumerate}
+
+\subsection{ Three Lifecycles Used Most Often }
+The three lifecycles that are used most often are:
+\begin{enumerate}
+  \item ngOnChanges()
+  \item ngOnInit()
+  \item ngOnDestroy()
+\end{enumerate}
+
+I would like to explain why. When a component initializes, usually we subscribe
+to some data that we have(if not familiar with subscriptions no worries, will
+get to that soon.). Sometimes, if we are working with a graphical compoent, for
+instance, like a chart, we would like to update the component whenever we get
+new data passed into our input. In addition, subscriptions that we pass in from
+the outside, mainly using state, will still stay around, and soak up our web
+application's memory. So, it is also quite a common occurence to use ngOnDestroy()
+to manually destroy subscriptions.
