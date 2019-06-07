@@ -89,3 +89,34 @@ These two tend to work in tandem with each other. Similarly here, we will be
 using directives to pass in a value, and have it work in tandem with event
 handling.
 }
+
+\subsubsection{ An Example }
+This is a simple directive, that targets the focus and blur of host element
+using the @HostListener element.
+
+\begin{lstlisting}
+@Directive({
+  selector: '[inputRef]'
+})
+export class InputRefDirective {
+  focus = false;
+
+  @HostListener("focus")
+  onFocus() {
+    this.focus = true;
+  }
+
+  @HostListener("blur")
+  onBlur() {
+    this.focus = false;
+  }
+}
+\end{lstlisting}
+
+Not we can pass this inputRef directive onto our projected content:
+\begin{lstlisting}
+<h1>FA Input</h1>
+<fa-input icon="envelope">
+  <input inputRef type="email" placeholder="Email">
+</fa-input>
+\end{lstlisting}
