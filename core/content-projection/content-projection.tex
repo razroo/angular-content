@@ -1,0 +1,74 @@
+\section{ Content Projection }
+\maketitle{}
+
+Any component can technically be re-usable. However, what makes content
+projection so great, is that it allows the content inside of a component to
+change based on the need of the application. In addition, it allows us to
+separate concerns. We can build a component for display, and another component
+built for handling user actions.
+
+\subsection{ Single Slot Projection }
+If we wanted to create a component wherein we can use content projection, it is
+as simple as adding ng-content inside of our component:
+\begin{lstlisting}
+<!-- inside reusable component -->
+<ng-content></ng-content>
+
+<!-- inside component, consuming the re-usable component -->
+<reusable-component> <p>Content goes here</p> </reusable-component>
+\end{lstlisting}
+
+As we can see, using our <reusable-component>, we have the ability to put it
+whereever we want, and change the content based on the parent component
+consuming it. However, what if we have two separate places withing our
+component that we would like to inject content. For instance, let's say we have
+a card component, and we want there to be different content inside of the header
+and main body of the component?
+
+\subsection{ Multiple Slot Projection }
+This is my preferred method of mutliple content projection, by creating binding
+content projection to class. In particular, because I feel it's a great of
+making sure content projection is transparent across the entire lifecycle. We
+can now do the following:
+
+\begin{lstlisting}
+<div class="header">
+<ng-content select=".header"></ng-content>
+</header>
+<div class="body">
+<ng-content select=".body"></ng-content>
+</div>
+\end{lstlisting}
+
+In our parent component consuming the re-usable component:
+\begin{lstlisting}
+<reusable-component>
+<div class="header">CSS</div>
+<div class="body">{{css-data}}</div>
+</reusable-component>
+\end{lstlisting}
+
+Just like that, we can have our content project in multiple places, into the
+re-usable component.
+
+\subsection{Styling Projected Content}
+One of the scenarios that comes up alot with regards to projected content, is
+attempting to style it. For instance, you might want the content in one
+component to have a top border, and in others for the text color to be of a
+different style. So how would we do this, being that we are projecting the
+content into a separate component?
+\mybox{It should be mentioned that styling in this matter isn't the right
+approach. However, because there are times wherein styling in this fashion is
+neccesary for the particular use case, this is most definitely useful
+mentioning.}
+\begin{verbatim}
+:host ::ng-deep .header {
+  color: blue;
+}
+
+:host ::ng-deep .body {
+  margin-top: pxl-space-multiplier(1);
+}
+\end{verbatim}
+
+Just like that, we are able to style the content within our project.
