@@ -28,9 +28,14 @@ export class AppModule { }
   to use \lstinline{forRoot} was introduced. It greatly decreases the need for
   using providers, but it very much so still has it's place in Angular.
   Especially for unit tests.}
-  \item declarations
-  \item exports
-  \item bootstrap
+  \item declarations - Components, directives, and pipes that belong to the
+  NgModule are put here.
+  \item exports - The components that should be able to be used in templates
+  outside of this module, when this module is imported by other modules.
+  \item bootstrap - The main application, i.e, the root component, which hosts
+  all other app views. Only the root NgModule sets the bootstrap property,
+  which is usually handled by the CLI/Nx. However, just to be conscious of it,
+  it is put here. 
 \end{enumerate}
 \footnote{Note this is not put in alphabetical order. Rather it is put in the
 order that the CLI tends to order them. It is this way, because it is the order
