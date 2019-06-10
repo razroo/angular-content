@@ -121,9 +121,9 @@ Not we can pass this inputRef directive onto our projected content:
 </fa-input>
 \end{lstlisting}
 
-Now within our re-usable component, we can use the \texttt{@ContentChild}
-decorator to inject the \texttt{inputRefDirective} within our component. Then,
-we can use the \texttt{@HostBinding} decorator to change the class on our
+Now within our re-usable component, we can use the \lstinline{@ContentChild}
+decorator to inject the \lstinline{inputRefDirective} within our component. Then,
+we can use the \lstinline{@HostBinding} decorator to change the class on our
 re-usable component, based on the status of the input ref.
 \begin{lstlisting}
 @Component({

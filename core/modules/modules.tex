@@ -20,8 +20,14 @@ export class AppModule { }
 \end{lstlisting}
 
 \begin{enumerate}
-  \item imports
-  \item providers
+  \item imports - This takes in other modules, whose exported classes, are
+  needed by this component. This can include, providers, declarations, exports,
+  and imports, contained within the other module.
+  \item providers - This is used to put all services used by components within
+  this module. \footnote{It should be noted, that as of Angular 6, the option
+  to use \lstinline{forRoot} was introduced. It greatly decreases the need for
+  using providers, but it very much so still has it's place in Angular.
+  Especially for unit tests.}
   \item declarations
   \item exports
   \item bootstrap
