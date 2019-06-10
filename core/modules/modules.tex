@@ -1,0 +1,28 @@
+\section{ Modules }
+\maketitle{}
+
+Modules are an integral part of Angular. It's interesting, because in some
+other languages, modules are a part of the language(OCaml comes to mind). A
+module in a language like OCaml, is any code contained within a file. In Angular
+a module, is a decorator attached to a class. Angular provides five key/values
+to be used with a module:
+\begin{lstlisting}
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+@NgModule({
+  imports:      [ BrowserModule ],
+  providers:    [ Logger ],
+  declarations: [ AppComponent ],
+  exports:      [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+\end{lstlisting}
+
+\begin{enumerate}
+  \item imports
+  \item providers
+  \item declarations
+  \item exports
+  \item bootstrap
+\end{enumerate}
