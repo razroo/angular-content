@@ -9,7 +9,7 @@ module. The module exposes objects meant to be public by using the export
 keyword. In Angular, a module, is completely unrelated to the system of modules
 usd by Typescript, albeit complementary. It is simply a decorator attached to a
 class that ultimately get's bundled together into a single class, for use with
-the app. 
+the app.
 
 \subsection{The Module Four, and the Fifth Wheel}
 Angular provides five key/values to be used with a module:
@@ -49,4 +49,10 @@ export class AppModule { }
 order that the CLI tends to order them. It is this way, because it is the order
 in which these items are used within the NgModule declaration.}
 
-\subsection{}
+\subsection{Identifying Different Types of Modules}
+I know for myself personally, the easiest way for me to grasp a concept is to
+section the scenarios it might be used in my mind. I'll tend to forget quite
+often, which I think is common for others as well. Having a place for me to
+reference to remind myself of what scenario I am in, is very helpful. I think
+with regards to modules, it would be very advantageous for everyone if we were
+to jot down here, different scenarios used for creating modules:
