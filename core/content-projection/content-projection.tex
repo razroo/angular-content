@@ -120,3 +120,38 @@ Not we can pass this inputRef directive onto our projected content:
   <input inputRef type="email" placeholder="Email">
 </fa-input>
 \end{lstlisting}
+
+Now within our re-usable component, we can use the \texttt{@ContentChild}
+decorator to inject the \texttt{inputRefDirective} within our component. Then,
+we can use the \texttt{@HostBinding} decorator to change the class on our
+re-usable component, based on the status of the input ref.
+\begin{lstlisting}
+@Component({
+  selector: 'fa-input',
+  template: `
+    <i class="fa" [ngClass]="classes"></i>
+    <ng-content></ng-content>
+  `,
+  styleUrls: ['./fa-input.component.css']
+})
+export class FaInputComponent {
+
+  @Input() icon: string;
+
+  @ContentChild(InputRefDirective)
+  input: InputRefDirective;
+
+  @HostBinding("class.focus")
+  get focus() {
+    return this.input ? this.input.focus : false;
+  }
+
+  get  classes() {
+    const cssClasses = {
+      fa: true
+    };
+    cssClasses['fa-' + this.icon] = true;
+    return cssClasses;
+  }
+}
+\end{lstlisting}
