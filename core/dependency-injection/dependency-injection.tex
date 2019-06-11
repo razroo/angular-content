@@ -19,6 +19,8 @@ Typescript, dependency injection, allows the framework to be completely aware
 of everything being used within the framework.
 
 \subsection{ Real World Example }
+
+\subsubsection{ Creating Injectable Service }
 The DI(Dependency Injection) Framework, allows for an injectable service class
 to be passed to a component. For instance, let's say that we want to create an
 Injectable service, we would do the following:
@@ -53,6 +55,7 @@ property does. It does two things:
 \end{enumerate}
 }
 
+\subsubsection{ Including Injectable Service in Component }
 Now if we would like to include this service in our component, we would do the
 following:
 \begin{lstlisting}
@@ -81,3 +84,7 @@ export class HeroListComponent {
   }
 }
 \end{lstlisting}
+
+\mybox{Now would technically be a good time on discussing how to test these
+mocked dependencies, however it get's a little bit complicated. This section is
+going to be moved to the bit on Angular architecture.}
