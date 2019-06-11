@@ -88,3 +88,31 @@ export class HeroListComponent {
 \mybox{Now would technically be a good time on discussing how to test these
 mocked dependencies, however it get's a little bit complicated. This section is
 going to be moved to the bit on Angular architecture.}
+
+\subsection{Services that need other services}
+Services can have their own dependencies. If we wanted to inject a service, into
+our service, it would be as simple as doing the following:
+\begin{lstlisting}
+import { Injectable } from '@angular/core';
+import { Logger } from '../logger.service';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class PxCodeService {
+  constructor(private logger: Logger) { }
+
+  getLog() {
+    this.logger.log('getting codeboxes');
+  }
+}
+\end{lstlisting}
+
+As we can see in the above, our injected service, is taking another injected
+service. By simply passing it into the constructor, similar to how we do for our
+components, we can use it within our application.
+
+\subsection{ Dependency Injection Token }
+Internally Angular uses dependency injection tokens, so determining what
+injectable it is using. However, we are able to create a new depedency injection
+token within our app. 
