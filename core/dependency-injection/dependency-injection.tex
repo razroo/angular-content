@@ -38,7 +38,8 @@ export class PxCodeService {
 This code right here is doing two things:
 \begin{enumerate}
   \item It is saying that this service is an Injectable.
-  \item It is saying that this injectable should be provided in the root.
+  \item It is saying that this injectable should be provided in the root(aka the
+  AppModule).
 \end{enumerate}
 
 \mybox{Now would be a good time to discuss what the \lstinline{providedIn}
@@ -113,6 +114,14 @@ service. By simply passing it into the constructor, similar to how we do for our
 components, we can use it within our application.
 
 \subsection{ Dependency Injection Token }
-Internally Angular uses dependency injection tokens, so determining what
-injectable it is using. However, we are able to create a new depedency injection
-token within our app. 
+Internally Angular uses dependency injection tokens for injectable services, to
+reference what injectable it is using. Outside of injectable services, we can
+use depedency tokens directly within our app. However, we are able to create a
+new depedency injection token within our app. There are two different ways of
+providing tokens in Angular:
+\begin{enumerate}
+  \item strings - {provide: ``EmailService'', useClass: MandrillService}
+  \item type tokens - {provide: EmailService, useClass: MandrillService}
+  \item injection tokens -new InjectionToken{provide: EmailService, useClass:}
+  avoids name clashes.
+\end{enumerate}

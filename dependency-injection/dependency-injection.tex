@@ -56,7 +56,7 @@ service will be included in the final bundle size regardless of whether, or not
 it is used. However, when using providedIn: 'root', if the service is never
 used within the app, it is not included in the final bundle size.
 
-\subsubsection{When to use providedIn and When Not To}
+\subsubsection{ When to use providedIn and When Not To }
 Using providedIn as a matter of architecture, I would reccomend the following:
 For any services within the actual application, do not use providedIn. These
 services are always going to be used, and if they are not going to be used,
@@ -74,4 +74,4 @@ considered as common within our app. In particular, in two places:
   \item data-services
 \end{enumerate}
 
-In these two places, providedIn should be used regardless. 
+In these two places, providedIn should be used regardless.
