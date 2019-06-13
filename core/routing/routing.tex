@@ -1,0 +1,19 @@
+\section{ Routing }
+\maketitle{}
+
+Routing is an integral part of any single page application:
+\begin{displayquote}
+\say{It allows a user to navigate from one view to the next, as a user performs
+application tasks.} \footnote{Angular Documentation - Routing \& Navigation https://angular.io/guide/router}
+\end{displayquote}
+The idea is that routing is that it is it's own internal state machine. There
+are two things that are unique to state with regards to routing:
+\begin{enumerate}
+  \item Data to be pulled in based on page.
+  \item UI to be shown based on page.
+\end{enumerate}
+
+\subsection{The Basics}
+In any Angular application, there is going to be an initial point of entry for
+routing. In an Nx/Angular CLI setting, this is going to be your
+\lstinline{app.component.html}. 
