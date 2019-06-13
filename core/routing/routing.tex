@@ -135,3 +135,16 @@ Let's say now we were to go to razroo/com/draw, the component for the
 <router-outlet></router-outlet>
 <px-grid></px-grid>  
 \end{lstlisting}
+
+\subsection{ Router Links }
+In order to actually navigate from one route to the next, you will 
+need to use the Angular equivalent of href. However, instead of 
+the classic functionality of href, routerLink, will instead 
+reload the component, based on the new url. 
+\begin{lstlisting}
+<h1>Px Illustrator</h1>
+<nav>
+  <a routerLink="/draw">Draw</a>
+</nav>
+<router-outlet></router-outlet>
+\end{lstlisting}
