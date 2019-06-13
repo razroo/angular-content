@@ -36,7 +36,7 @@ import { AppComponent } from './app.component';
       },
       {
         path: 'draw',
-        component: GridComponent
+        component: PxGridComponent
       },
       {
         path: '**',
@@ -115,3 +115,23 @@ advantageous
 so that specific routes can be matched first. More generic routes, such as the 
 wild card (\lstinline{**}) can therefore be matched, without obstructing 
 other routes.}
+
+\subsection{ Router Outlet }
+\begin{displayquote}
+\say{Router outlet is a directive from the router library that acts like a 
+component. It marks the spot in the template where the router should 
+display the components for that outlet. } 
+\footnote{Angular Documentation - Routing \& Navigation https://angular.io/guide/router}
+\end{displayquote}
+
+\begin{verbatim}
+<router-outlet></router-outlet>
+<!-- Routed components go here -->
+\end{verbatim}
+
+Let's say now we were to go to razroo/com/draw, the component for the 
+\lstinline{draw} route will be placed as a sibling component i.e. 
+\begin{lstlisting}
+<router-outlet></router-outlet>
+<px-grid></px-grid>  
+\end{lstlisting}
