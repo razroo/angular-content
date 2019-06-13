@@ -18,6 +18,7 @@
 *.dvi
 *.glg
 *.gls
+*.fls
 *.ilg
 *.ind
 *.lof
@@ -27,6 +28,7 @@
 *.mtc1
 *.out
 *.synctex.gz
+*.synctex.gz(busy)
 *.pdf
 *.DS_Store
 *.fdb_latexmk
