@@ -54,35 +54,57 @@ module.
 \subsection{ RouterModule Options }
 Let's break down all the possible options that can be passed to the router:
 \begin{enumerate}
-  \item url
-    \begin{lstlisting}
+\item url
+\begin{lstlisting}
 {
   path: 'draw',
   component: GridComponent
 },
-    \end{lstlisting}
-    Here we are using the url for draw. So, for instance, let's say the url
-    of our application is razroo.com, then razroo.com/draw, will display
-    the grid component.
-  \item id
-  Many times within our backend, we are going to retreive data, based on the 
-  user's id. Alternatively, it might also be the id for a specific api. Being
-  able to tie in the id for that particular api, into the route is very 
-  powerful. Angular routing allows for this to happen: 
-  \begin{lstlisting}
-  { 
-    path: 'hero/:id', 
-    component: HeroDetailComponent 
-  },
-  \end{lstlisting}
-  The syntax of colon, following by text(does not have to be id), means that 
-  if we were to navigate to \lstinline{razroo.com/draw/123}, it would 
-  register within our app, that we want to call the id of '123', within
-  the draw route. 
+\end{lstlisting}
+Here we are using the url for draw. So, for instance, let's say the url
+of our application is razroo.com, then razroo.com/draw, will display
+the grid component.
+\item id
+Many times within our backend, we are going to retreive data, based on the 
+user's id. Alternatively, it might also be the id for a specific api. Being
+able to tie in the id for that particular api, into the route is very 
+powerful. Angular routing allows for this to happen: 
+\begin{lstlisting}
+{
+  path: 'hero/:id', 
+  component: HeroDetailComponent 
+},
+\end{lstlisting}
+The syntax of colon, following by text(does not have to be id), means that 
+if we were to navigate to \lstinline{razroo.com/draw/123}, it would 
+register within our app, that we want to call the id of '123', within
+the draw route. 
 
-  Within our app, we are going to use this, so that we can use the custom 
-  pixel illustrator that our user opted into. 
-  \item data
-  \item empty path
-  \item ** path
+Within our app, we are going to use this, so that we can use the custom 
+pixel illustrator settings, that our user opted into. 
+\item data - Allows us to place static data, that we can retreive that is 
+specific to the route. E.g. page titles, breadcrumb text, other read-only 
+static data.
+\begin{lstlisting}
+{
+  path: 'css', 
+  component: cssComponent.
+  data: { title: 'CSS' }
+},
+\end{lstlisting}
+\item empty path - An empty path is our default route. I.e. when the app 
+loads for the first time. 
+\begin{lstlisting}
+{
+  path: '', 
+  component: HeroDetailComponent 
+},
+\end{lstlisting}
+\item ** path
+\begin{lstlisting}
+{
+  path: '**',
+  component: PageNotFoundComponent 
+}
+\end{lstlisting}
 \end{enumerate}
