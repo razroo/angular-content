@@ -148,3 +148,32 @@ reload the component, based on the new url.
 </nav>
 <router-outlet></router-outlet>
 \end{lstlisting}
+
+\subsubsection{Active Router Links}
+In addition, Angular offers a way for determing what is the current 
+active link. Something that is very valuable from a UX perspective 
+when the app needs to show to the user, what menu item is 
+currently selected. 
+
+\begin{lstlisting}
+<h1>Px Illustrator</h1>
+<nav>
+  <a routerLink="/draw" routerLinkActive="active">Draw</a>
+</nav>
+<router-outlet></router-outlet>
+\end{lstlisting}
+
+Now if the draw route is triggered, the class active will 
+be added to the <a> tag. The \lstinline{.active} class 
+can obviously be styled.
+
+Multiple active router link classes can be added for a 
+particular active route as well: 
+
+\begin{lstlisting}
+<h1>Px Illustrator</h1>
+<nav>
+  <a routerLink="/draw" routerLinkActive="'active '">Draw</a>
+</nav>
+<router-outlet></router-outlet>
+\end{lstlisting}
