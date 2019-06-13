@@ -14,6 +14,33 @@ are two things that are unique to state with regards to routing:
 \end{enumerate}
 
 \subsection{The Basics}
+\subsubsection{Base Href}
 In any Angular application, there is going to be an initial point of entry for
-routing. In an Nx/Angular CLI setting, this is going to be your
-\lstinline{app.component.html}. 
+routing. First and foremost, in your src/index.html you will need to add an
+\lstinline{<base href="/">}. This is added by the CLI by default, and not
+something you have to worry about.
+
+\subsubsection{ RouterModule }
+Routes in Angular, are singleton instance.
+
+\begin{lstlisting}
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot( [
+      {
+        path: '',
+        component: AppComponent
+      }
+      {
+        path: 'draw',
+        component: GridComponent
+      }
+    ], { initialNavigation: 'enabled' })
+  ],
+})
+export class PixelAngstAppRoutingModule {}
+\end{lstlisting}
