@@ -100,7 +100,9 @@ loads for the first time.
   component: HeroDetailComponent 
 },
 \end{lstlisting}
-\item ** path
+\item \lstinline{**} path
+Two asterisks means that the route is a wildcard. It is particularly 
+advantageous 
 \begin{lstlisting}
 {
   path: '**',
@@ -108,3 +110,8 @@ loads for the first time.
 }
 \end{lstlisting}
 \end{enumerate}
+
+\mybox{ The order of the routes in the configuration matters. This is intential
+so that specific routes can be matched first. More generic routes, such as the 
+wild card (\lstinline{**}) can therefore be matched, without obstructing 
+other routes.}
