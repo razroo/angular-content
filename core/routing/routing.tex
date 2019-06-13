@@ -178,14 +178,21 @@ particular active route as well:
 <router-outlet></router-outlet>
 \end{lstlisting}
 
-\subsection{Router State}
+\subsection{ Router State }
 After each (successful) navigation lifecycle, Angular's internal system 
 updates what's called the \lstinline{ActivateRoute} object. This can be
 accessed by using the Router service. Inside of the router service, by 
 accessing the routerState property, we can get to the plethora of 
 properties.
 \\
-\\
 \mybox{As this is a chapter on fundementals, we will not delve 
 into all the details now. However, it is important to know that it does
 exist.}
+
+\subsection{ Router Events }
+When a route get's triggered, Angular will internally trigger a series 
+of events, from when the navigation starts to where it ends. Angular 
+also exposes these series of events by using the \lstinline{Router.events}
+property. Once again, there is no need to go into all of the events, but 
+at this time, they total 17. We will discuss in future chapters situations 
+where the need for accessing the routing events can be beneficial. 
