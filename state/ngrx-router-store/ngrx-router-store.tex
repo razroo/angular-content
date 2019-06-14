@@ -98,10 +98,10 @@ A request action always kickstart the process which then runs the navigation
 action that determines if the dispatch should occur or not. If guards are valid,
 a successful navigation will occur and result in a router navigated action. If
 something went wrong due to exceptions or lack of user permissions, the router
-action will return a \texttt{ROUTER\_CANCEL} action and nullify any attempts to
+action will return a \lstinline{ROUTER\_CANCEL} action and nullify any attempts to
 access the route.
 
-A \texttt{ROUTER\_ERROR} action may occur during the navigation life cycle and
+A \lstinline{ROUTER\_ERROR} action may occur during the navigation life cycle and
 returns the stored state before navigation occurred. This is particularly useful
 as it allows the application to back track its action and restore its former
 data – a sort of back button without the need for extra configuration or call
@@ -120,7 +120,7 @@ RouterStateSerializer. It is, in a way, a middleman class that processes the
 difference between what the current state is, what is to be changed and updates
 only what is necessary.
 
-To create a custom serializer, you’ll need to import Params and
+To create a custom serializer, you will need to import Params and
 RouterStateSnapshot from @angular/router, along with RouterStateSerializer from
 @ngrx/router-store
 \begin{verbatim}
