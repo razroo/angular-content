@@ -53,8 +53,8 @@ At this time, Angular has eight lifecycle hooks, in this order, more, or less:
   \item ngAfterViewInit() - Triggered after not only view for component is
   initialized, but child view is initalized as well. For a directive, will
   trigger once view it is in, will initialize.
-  \item ngAfterViewChecked() - Responds after Angular checks the component's
-  views and child views / the view that a directive is in. Called after the
+  \item \lstinline{ngAfterViewChecked()} - Responds after Angular checks the component's
+  views and child views and the view that a directive is in. Called after the
   ngAfterViewInit() and every subsequent ngAfterContentChecked().
   \item ngOnDestroy() - Cleanup just before Angular destroys the
   directive/component. Unsubscribe Observables and detach event handlers to

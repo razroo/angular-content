@@ -77,7 +77,7 @@ hold all all of our app's .scss files. In addition, we will be creating an
  \_ill-breakpoints.scss file, to be imported in our ill-ui.scss file. We will be
 creating the following in our app:
 
-\begin{verbatim}
+\begin{lstlisting}
   @function ill-breakpoint($breakpoint) {
   $breakpoints: ('small': 400, 'medium': 720, 'large': 1024,
   'extra-large': 1424);
@@ -89,7 +89,7 @@ creating the following in our app:
     @error "Must contain one of the following strings: #{$breakpoints}.";
   }
 }
-\end{verbatim}
+\end{lstlisting}
 
 Let's imagine you are now building a media query for a specific component
 that you are using, you can do something like the following.
