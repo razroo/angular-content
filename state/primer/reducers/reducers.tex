@@ -11,6 +11,7 @@ be universal across all frameworks, and usually consist of:
 \end{enumerate}
 
 \subsection{ Example of Reducer }
+\begin{lstlisting}
 export function reducer(state = initialState, action: book.Actions
 | collection.Actions): State {
   switch (action.type) {
@@ -26,6 +27,7 @@ export function reducer(state = initialState, action: book.Actions
     }
   }
 }
+\end{lstlisting}
 
 This reducer will be called whenever any action is called. However, only if
 the action matches the case statement, will the reducer actually run.
