@@ -27,8 +27,9 @@ growth spurt in \href{https://chromereleases.googleblog.com/2015/03/stable-chann
 The change log for 2015, is the last time you will see google chrome mentioning
 performance in it's logs.
 
-Just for clarity sake, the following is a great example of how Jquery and
-Javascript "state management" would work(updated to use es6). A file which would
+\subsubsection{Jquery and Javascript example}
+The following is a great example of how Jquery and Javascript 
+"state management" would work(updated to use es6). A file which would
 contain values, would be used to create/add/delete/update across the app:
 
 \begin{lstlisting}
@@ -166,13 +167,14 @@ I remember my code reviews being rampant, with don't do this, do that etc.
 Shortly after Flux, Redux came around, and for the first time it felt like a
 mature state management system came around.
 
-/begin{lstlisting}
+\begin{lstlisting}
 // pixel-color-picker.js component
 handlePixelColorChange(e){
     const {dispatch} = this.props;
     this.setState({pixelHex: e.target.value}, function(){
         dispatch(PixelColor(this.state.pixelHex));
-        dispatch(PixelColorRGB(hexToRgb(this.state.pixelHex).r, hexToRgb(this.state.pixelHex).g, hexToRgb(this.state.pixelHex).b));
+        dispatch(PixelColorRGB(hexToRgb(this.state.pixelHex).r,
+         hexToRgb(this.state.pixelHex).g, hexToRgb(this.state.pixelHex).b));
     });
 // control-panel.js actions
 export function PixelColor(color){
@@ -187,9 +189,8 @@ case types.PIXEL\_COLOR:
   return Object.assign({}, state, {
     pixelHex: action.pixelHex || state.pixelHex
   });
-/end{lstlisting}
-
-// code take from \href{https://github.com/CharlieGreenman/pixelLight}{here}
+\end{lstlisting}
+\footnote{code take from \href{https://github.com/CharlieGreenman/pixelLight}{here}}
 
 \subsection{ Reactive State Management with React and Angular }
 Around this time @ngrx/store came out, reactive programming became more popular.
@@ -198,8 +199,8 @@ Within the context of state, this meant redux-observable for React, and
 cutter. For React and Angular, it meant that users have the ability to tie state into the
 rest of their application.
 
-/begin{lstlisting}
-Observable.merge(
+\begin{lstlisting}
+Observable.merge
   // Create observable map for  when background hex changes, and use that
   // value to update store for backgroundColor
   this.changePixelColor$.map((value: any) => (
@@ -213,8 +214,7 @@ Observable.merge(
 .subscribe((action)=>{
   store.dispatch(action)
 })
-}
-/end{lstlisting}
+\end{lstlisting}
 
 // code take from \href{https://github.com/CharlieGreenman/angularPixel_illustrator}{here}
 

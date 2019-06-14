@@ -6,7 +6,7 @@ the core is the same. However, the difficulty, is that state, being that it
 exists outside of the component, can contain quite a bit of bloat.
 
 \mybox{It is interesting to note, that the original implementation of Flux
-was created by Facebook back in 2014\footnote{This video contains https://www.youtube.com/watch?v=nYkdrAPrdcw this fact}.
+was created by Facebook back in 2014\footnote{This \href{https://www.youtube.com/watch?v=nYkdrAPrdcw}{video} contains this fact}.
 It was because they had a bug with regards to the chat counter, that just kept
 on coming back. It would mention that a user did not read a message, but that
 wasn't true. Flux was the architecture they came up with in order to solve this
@@ -32,7 +32,7 @@ It also more importantly, standardized the Flux architecture as a library.
 
 \subsection{@ngrx/store - Integrated Reactive Programming with the Store}
 @ngrx/store took redux one step further, and integrated observables with the
-store. There is a fantastic founding paper on the benefits of Real Time 
+store. There is a fantastic founding paper on the benefits of Real Time:
 \href{http://www-sop.inria.fr/members/Gerard.Berry/Papers/Berry-IFIP-89.pdf}{Programming}
 
 In it, it discusses two main benefits of Reactive Programming:
@@ -43,8 +43,9 @@ In it, it discusses two main benefits of Reactive Programming:
 
 Just to throw out what a quote from who I consider a founder in Reactive
 programmin. Andre Staltz when discussing why one should consider Reactive
-programming really touches on the core of it all with the following, “Reactive
-Programming raises the level of abstraction of your code so you can focus on the interdependence of events that define the business logic…”.
+programming really touches on the core of it all with the following, "Reactive
+Programming raises the level of abstraction of your code so you can focus on 
+the interdependence of events that define the business logic\ldots".
 \footnote{https://gist.github.com/staltz/868e7e9bc2a7b8c1f754\#why-should-i-consider-adopting-rp}
 
 That being said, it immediately becomes obvious as to why one would want a
@@ -153,7 +154,7 @@ attachment from the server, using it's id. If a service or @ngrx/store was not
 used, there would be alot of repitition across the app. This led to the dillema,
 should a service, or @ngrx/store be used.
 
-\subsection{ Business Requirments }
+\subsection{ Business Requirements }
 One, is that multiple components on the same page were to use this attachments
 service. Second, is that we want to show the user when a certain attachment is
 loading, and when it is no longer loading.
