@@ -27,11 +27,19 @@ once skim is installed, goto Skim -> Preferences -> Sync and check the box for
 ### Command line ###
 ```
 npm install
-pdftex main.tex
 npm start
 ```
+
+To test your install run `pdflatex main.tex`
 
 Anytime you come back to this project and want to start editing again, just run
 `npm start`
 
 That's it and enjoy your latex build!
+
+## Ubuntu Setup Instructions
+Install LaTeX `sudo apt install texlive-latex-extra` instead of MacTex
+
+Use Ubuntu's built in Evince pdf reader, it will automatically reload changes
+
+Start using `npm run start-linux`
