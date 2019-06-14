@@ -1,4 +1,5 @@
 \documentclass{article}
+% https://tex.stackexchange.com/questions/155604/itemize-under-sf-produce-a-font-warning
 \usepackage{setspace}
 \usepackage[explicit]{titlesec}
 \usepackage{forest}
@@ -32,7 +33,6 @@
         #2
 \end{tcolorbox}
 }
-
 \definecolor{folderbg}{RGB}{124,166,198}
 \definecolor{folderborder}{RGB}{110,144,169}
 
@@ -53,6 +53,7 @@
 \title{Angular - The Full Gamut}
 \author{Charlie Greenman}
 \renewcommand{\familydefault}{\sfdefault}
+\renewcommand\textbullet{\ensuremath{\bullet}}
 \begin{document}
 \setstretch{1.5}
 \tableofcontents
