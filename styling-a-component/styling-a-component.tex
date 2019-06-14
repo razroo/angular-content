@@ -60,9 +60,9 @@ First install Angular Material components and Angular Animations to our app.
 In addition, we will need to add default styling to our app, in order for
 styling to be applied to our Angular Material component. Inside of our
 styles.scss file, import the following.
-\begin{verbatim}
+\begin{lstlisting}
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{ Our first component }
 In our app, we are going to create our first component. It is essentially a form
@@ -113,10 +113,9 @@ target our host element our scss:
 \subsection{ CSS Naming Convention }
 In your modern day front end framework, such as Angular, generally, we do not
 have to worry about clashing namespaces. \footnote{Historal footnote, the
-turning point for me was with this article here:
-https://glenmaddern.com/articles/css-modules}. Many other issues with css at
-scale, have been solved as well, have been solved by the general ecosystem, scss
-included.
+turning point for me was with this article \href{https://glenmaddern.com/articles/css-modules}{here}}.
+Many other issues with css at scale, have been solved as well, have been 
+solved by the general ecosystem, scss included.
 
 However, reccomended architecture is that one still use something like BEM. I
 would like to argue for using BEM in an Angular setting:

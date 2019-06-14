@@ -105,12 +105,12 @@ for your Rest Service, or GraphQL query.
 
 \subsection{ Ngrx/entity Adapter Example }
 Creating an example adapter, might look something like the following:
-\begin{verbatim}
+\begin{lstlisting}
   export const adapter: EntityAdapter<any> = createEntityAdapter<any>({
   selectId: (emailStore: any) => emailStore.id,
   sortComparer: false,
 });
-\end{verbatim}
+\end{lstlisting}
 
 There will then be a series of adapter methods returned by ngrx/entity. Without
 going into them in detail, here they are:
@@ -151,7 +151,7 @@ what if we wanted to retrieved all of our ids, or all of our entities? It can
 be a bit cumbersome. So thankfully enough, you saw it coming, ngrx/entity
 offers entity selectors out of the box.
 
-\begin{verbatim}
+\begin{lstlisting}
 // get the selectors
 const { selectIds, selectEntities, selectAll, selectTotal } = adapter.getSelectors();
 
@@ -166,7 +166,7 @@ export const selectAllUsers = selectAll;
 
 // select the total user count
 export const selectUserTotal = selectTotal;
-\end{verbatim}
+\end{lstlisting}
 
 It is important to recognize that these selectors will not actually produce
 state on their own. What they do is return a function when used in

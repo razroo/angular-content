@@ -24,16 +24,17 @@ reactive programming. Reactive programming in particular introduces two concepts
 \end{enumerate}
 
 \subsubsection{Asynchronous}
-With regards to asynchronous, observables are not neccesarily reactive in the
-strictest sense. This is because the client is working separate from the server.
-Events with observables are most definitely reactive, and help, but many
-applications are data heavy, and the immediate value of observables are cut
-short. In addition, actual UI events from a browser perspective are put in a
-call stack, and are asynchronous by nature. What does help, is that baked into
-the framework is effects. Which does allow the UI to be asynchronous, but it's
-not like it's anything crazy. This is something which could easily be done with
-promises. However, @ngrx/store does tie it nicely into the store as a whole,
-allowing client state management, without going into detail.
+With regards to asynchronous programming, observables are not neccesarily 
+reactive in the strictest sense. This is because the client is working 
+separate from the server. Events with observables are most definitely reactive
+, and help, but many applications are data heavy, and the immediate value of
+observables are cut short. In addition, actual UI events from a browser 
+perspective are put in a call stack, and are asynchronous by nature. What 
+does help, is that baked into the framework is effects. Which does allow the
+UI to be asynchronous, but it's not like it's anything crazy. This is 
+something which could easily be done with promises. However, @ngrx/store does
+tie it nicely into the store as a whole, allowing client state management, 
+without going into detail.
 
 \subsubsection{Deterministic}
 With regards to determinstic, this generally means in computer science, that
