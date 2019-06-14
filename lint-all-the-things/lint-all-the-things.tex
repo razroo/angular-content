@@ -40,11 +40,11 @@ Typescript. However, it should, in my humble opinion it should also offer a
 linter for HTML and SASS. We will therefore take the default linting task, and
 add three npm scripts on top of it:
 
-\begin{verbatim}
+\begin{lstlisting}
   "lint-html": "htmlhint --rulesdir './rules/' '{apps,libs}/**/*.html'",
   "lint-scss": "sass-lint -v -q",
   "lint-ts": "ng lint --format=stylish",
-\end{verbatim}
+\end{lstlisting}
 
 We will get to the specifics of the above three scripts right now.
 

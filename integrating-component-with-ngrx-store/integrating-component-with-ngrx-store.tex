@@ -96,13 +96,13 @@ an Angular app will be as follows:
 \end{lstlisting}
 
 \subsubsection{ Setup ElementRefs in Component HTML }
-\begin{verbatim}
+\begin{lstlisting}
   <input matInput placeholder="Columns" #columns>
   <input matInput placeholder="Rows" #rows>
   <input matInput placeholder="Pixel Size" #pixelSize>
   <button (click)="updateSize$.next({columns: columns.value, rows: rows.value,
     pixelSize: pixelSize.value})"
-\end{verbatim}
+\end{lstlisting}
 
 We are now going to feed our updateSize subject into an rxjs merge, and map,
 to make it future proof.
