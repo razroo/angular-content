@@ -65,7 +65,7 @@ Here we are using the url for draw. So, for instance, let's say the url
 of our application is razroo.com, then razroo.com/draw, will display
 the grid component.
 \item id
-Many times within our backend, we are going to retreive data, based on the 
+Many times within our backend, we are going to retrieve data, based on the 
 user's id. Alternatively, it might also be the id for a specific api. Being
 able to tie in the id for that particular api, into the route is very 
 powerful. Angular routing allows for this to happen: 
@@ -82,7 +82,7 @@ the draw route.
 
 Within our app, we are going to use this, so that we can use the custom 
 pixel illustrator settings, that our user opted into. 
-\item data - Allows us to place static data, that we can retreive that is 
+\item data - Allows us to place static data, that we can retrieve that is 
 specific to the route. E.g. page titles, breadcrumb text, other read-only 
 static data.
 \begin{lstlisting}
@@ -102,7 +102,7 @@ loads for the first time.
 \end{lstlisting}
 \item \lstinline{**} path
 Two asterisks means that the route is a wildcard. It is particularly 
-advantageous 
+advantageous for error reporting: 
 \begin{lstlisting}
 {
   path: '**',
@@ -111,7 +111,7 @@ advantageous
 \end{lstlisting}
 \end{enumerate}
 
-\mybox{ The order of the routes in the configuration matters. This is intential
+\mybox{ The order of the routes in the configuration matters. This is intentional
 so that specific routes can be matched first. More generic routes, such as the 
 wild card (\lstinline{**}) can therefore be matched, without obstructing 
 other routes.}
@@ -150,7 +150,7 @@ reload the component, based on the new url.
 \end{lstlisting}
 
 \subsubsection{Active Router Links}
-In addition, Angular offers a way for determing what is the current 
+In addition, Angular offers a way for determining what is the current 
 active link. Something that is very valuable from a UX perspective 
 when the app needs to show to the user, what menu item is 
 currently selected. 
@@ -185,7 +185,7 @@ accessed by using the Router service. Inside of the router service, by
 accessing the routerState property, we can get to the plethora of 
 properties.
 \\
-\mybox{As this is a chapter on fundementals, we will not delve 
+\mybox{As this is a chapter on fundamentals, we will not delve 
 into all the details now. However, it is important to know that it does
 exist.}
 
