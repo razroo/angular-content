@@ -59,6 +59,8 @@ For that reason, I am simply going to mention Reactive forms within this book.
 If you do want to explore the subject of template driven forms on your own, I 
 invite you to go ahead and read through the Angular documenation 
 \href{https://angular.io/guide/forms-overview#setup-in-template-driven-forms}{here}. 
+Now that we have established that we will be using Reactive forms, let's get into 
+what they are all about!
 
 \subsection{ Common Foundation of Forms }
 \begin{enumerate}
@@ -73,7 +75,7 @@ invite you to go ahead and read through the Angular documenation
 \end{enumerate}
 
 \subsection{ Reactive Forms }
-First and foremost, it's important to get a really handle on what Reactive 
+First and foremost, it's important to get a really get handle on what Reactive
 means. Reactive means that your code is:
 \begin{enumerate}
   \item Asynchronous - An action happens, and something happens right after. 
@@ -106,11 +108,7 @@ export class pxColorPickerComponent {
 
 In the above code, the data for the form is controlled by FormControl. Here we
 have attached it to a \lstinline{backgroundColor} value accessor. Whenever we 
-want to retrieve the value of backgroundColor, or modify it, we can tap into 
-the value for backgroundColor. 
+want to retrieve the value of \lstinline{backgroundColor}, or modify it, we 
+can tap into the value for \lstinline{backgroundColor}. 
 
-\subsection{Template Forms}
-
-
-
-
+\subsection{ Data Flow }
