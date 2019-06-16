@@ -42,4 +42,32 @@ means. Reactive means that your code is:
   thing will happen granted an input is affected.
 \end{enumerate}
 
+\subsubsection{ Reactive Form Example }
+Reactive forms are an embodiment of the above, and I would like to show off an
+example that portays this: 
+
+\begin{lstlisting}
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+  
+@Component({
+  selector: 'px-color-picker',
+  template: `
+    Background Color: <input type="text" [formControl]="backgroundColor">
+  `
+})
+export class pxColorPickerComponent {
+  backgroundColor = new FormControl('');
+}
+\end{lstlisting}
+
+In the above code, the data for the form is controlled by FormControl. Here we
+have attached it to a \lstinline{backgroundColor} value accessor. Whenever we 
+want to retrieve the value of backgroundColor, or modify it, we can tap into 
+the value for backgroundColor. 
+
+\subsection{Template Forms}
+
+
+
 
