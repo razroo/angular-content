@@ -111,4 +111,30 @@ have attached it to a \lstinline{backgroundColor} value accessor. Whenever we
 want to retrieve the value of \lstinline{backgroundColor}, or modify it, we 
 can tap into the value for \lstinline{backgroundColor}. 
 
-\subsection{ Data Flow }
+\subsection{ Reactive Forms - Data Flow }
+
+\subsubsection{View To Model}
+In Reactive forms, the data flow is pretty straight forward. As we have already
+mentioned, that view is directly related to the component's instance of 
+\lstinline{FormControl} in the component. 
+\begin{enumerate}
+  \item User types into input
+  \item Form input emits event with latest value of input
+  \item Control value accessor \footnote{Control value accessor is an internal value within the 
+  FormControl} listening for events on the form relays value 
+  to \lstinline{FormControl} instance. 
+  \item \lstinline{FormControl.valueChanges} observable emits new value 
+  \item Subscribers to the value changes observable receive new value. 
+\end{enumerate}
+
+\subsubsection{ Model To View }
+\begin{enumerate}
+  \item User calls setValue method on FormControl(e.g. \lstinline{backgroundColor})
+  \item \lstinline{FormControl.valueChanges} emits new value
+  \item subscribers to FormControl.valueChanges recieve new value
+  \item The control value accessor on the form input element, updates the 
+  element with the new value. 
+\end{enumerate}
+
+\subsection{Form Validation}
+
