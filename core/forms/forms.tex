@@ -17,4 +17,29 @@ Angular offers two ways of handling forms:
   \item Template-driven Forms
 \end{enumerate}
 
+\subsection{ Common Foundation of Forms }
+\begin{enumerate}
+  \item \lstinline{FormControl} - Tracks the value and validation state of an 
+  individual form control.
+  \item \lstinline{FormGroup} - Tracks the same values and status for a 
+  collection of form controls.
+  \item \lstinline{FormArray} - Tracks the same values and status for an array
+  of form controls. 
+  \item \lstinline{ ControlValueAccessor } - Creates a bridge between Angular
+  FormControl instances, and native DOM elements.
+\end{enumerate}
+
 \subsection{ Reactive Forms }
+First and foremost, it's important to get a really handle on what Reactive 
+means. Reactive means that your code is:
+\begin{enumerate}
+  \item Asynchronous - An action happens, and something happens right after. 
+  Even though this can happen in regular javascript code, ideally if 
+  something is asyncrhonous, it is baked into the framework, making it 
+  more of a default.
+  \item Deterministic -  Given action a happens, always action b, will 
+  happen. Reactive forms do this, wherein a user can be sure a certain 
+  thing will happen granted an input is affected.
+\end{enumerate}
+
+
