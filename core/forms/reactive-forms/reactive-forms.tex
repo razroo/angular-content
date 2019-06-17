@@ -23,3 +23,51 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class AppModule { }
 \end{lstlisting}
+
+\subsection{Generating a component, and adding FormControl}
+No different than any other scenario: 
+\begin{verbatim}
+ng generate component grid-form 
+\end{verbatim}
+
+In your component simply add a new \lstinline{FormControl}: 
+
+\begin{lstlisting}
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+
+@Component({
+  selector: 'px-grid-form',
+  templateUrl: './grid-form.component.html',
+  styleUrls: ['./grid-form.component.css']
+})
+export class NameEditorComponent {
+  size = new FormControl('');
+}
+\end{lstlisting}
+
+\subsection{Registering Control in Template}
+\begin{lstlisting}
+<label>
+  Name:
+  <input type="text" [formControl]="name">
+</label>
+\end{lstlisting}
+
+As mentioned in the previous chapter, FormControl, will allow you to access 
+value of form within component, and view. Most importantly, update in view 
+or component, and have it affect the other. 
+
+\subsection{ Displaying Component }
+We can now include the component in any other component. E.g. 
+\begin{lstlisting}[caption=app.component.html]
+<px-grid-form></px-grid-form>  
+\end{lstlisting}
+
+\subsection{ Grouping Form Controls }
+A FormControl on it's own has value. Primarily being able set a value, and
+accesing it within the template. However, a \lstinline{formControl} is 
+incomplete without a \lstinline{formGroup}. A formGroup, will give us 
+access to all of the formControl values, so we can use them all, when 
+submitting a form. 
+
