@@ -67,7 +67,39 @@ We can now include the component in any other component. E.g.
 \subsection{ Grouping Form Controls }
 A FormControl on it's own has value. Primarily being able set a value, and
 accesing it within the template. However, a \lstinline{formControl} is 
-incomplete without a \lstinline{formGroup}. A formGroup, will give us 
+incomplete without a \lstinline{formGroup}. A \lstinline{formGroup}, will give us 
 access to all of the formControl values, so we can use them all, when 
 submitting a form. 
+
+\begin{lstlisting}
+import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+ 
+@Component({
+  selector: 'px-grid-form',
+  templateUrl: './grid-form.component.html',
+  styleUrls: ['./grid-form.component.css']
+})
+export class GridFormComponent {
+  gridForm = new FormGroup({
+    row: new FormControl(''),
+    column: new FormControl(''),
+  });
+}
+\end{lstlisting}
+
+\subsection{ Connecting FromGroup model and view }
+\begin{lstlisting}
+<form [formGroup]="gridForm">
+  <label>
+    First Name:
+    <input type="text" formControlName="row">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="column">
+  </label>
+</form>
+\end{lstlisting}
 
