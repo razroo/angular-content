@@ -180,7 +180,68 @@ ability to create custom validators. There are two types of validators:
 
 For performance reasons you will only want to use async validators. 
 
+\subsubsection{Built In Validators}
 
+\begin{lstlisting}
+ngOnInit(): void {
+  this.heroForm = new FormGroup({
+    'name': new FormControl(this.hero.name, [
+      Validators.required,
+      Validators.minLength(4),
+      forbiddenNameValidator(/bob/i) // <-- Here's how you pass in the custom validator.
+    ]),
+    'alterEgo': new FormControl(this.hero.alterEgo),
+    'power': new FormControl(this.hero.power, Validators.required)
+  });
+
+}
+
+get name() { return this.heroForm.get('name'); }
+
+get power() { return this.heroForm.get('power'); }
+\end{lstlisting}
+
+Let's dissect the above code real quick: 
+
+\begin{enumerate}
+  \item We use \lstinline{Validators.required} and \lstinline{Validators.minLength(4)}
+  and one custom validator \lstinline{forbiddenNameValidator}.
+  \item All these validators are all sync validators, you pass them in as the 
+  second argument.
+  \item You can use multiple validators, by passing in functions as a part of 
+  the array
+  \item We use getters to access values. Even though we can access values by
+  
+\end{enumerate}
+
+In addition, we need to add the respective errors within the template, so that
+we can view the errors if they so arise. 
+
+\begin{lstlisting}
+<input id="name" class="form-control"
+  formControlName="name" required >
+
+<div *ngIf="name.invalid && (name.dirty || name.touched)"
+  class="alert alert-danger">
+
+  <div *ngIf="name.errors.required">
+    Name is required.
+  </div>
+  <div *ngIf="name.errors.minlength">
+    Name must be at least 4 characters long.
+  </div>
+  <div *ngIf="name.errors.forbiddenName">
+    Name cannot be Bob.
+  </div>
+</div>
+\end{lstlisting}
+
+One note to just keep in mind, is that we are using the name getter in the 
+components class, to access errors. 
+
+\subsubsection{Custom Validators}
+The built in validators, as with anything that is built in, might not always
+match the exact use case of your application. 
 
 \subsection{ Testing Reactive Forms }
 Testing reactive forms is relatively straight forward: 
