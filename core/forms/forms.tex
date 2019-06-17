@@ -241,7 +241,21 @@ components class, to access errors.
 
 \subsubsection{Custom Validators}
 The built in validators, as with anything that is built in, might not always
-match the exact use case of your application. 
+match the exact use case of your application. Within reactive forms, custom
+validators are simply expressed as functions. For instance: 
+
+\begin{lstlisting}
+/** A hero's name can't match the given regular expression */
+export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
+  return (control: AbstractControl): {[key: string]: any} | null => {
+    const forbidden = nameRe.test(control.value);
+    return forbidden ? {'forbiddenName': {value: control.value}} : null;
+  };
+}
+\end{lstlisting}
+
+This is the function used in the above template. Custom validators are 
+relatively straight forward, and easy to use. 
 
 \subsection{ Testing Reactive Forms }
 Testing reactive forms is relatively straight forward: 
