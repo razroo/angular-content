@@ -151,4 +151,57 @@ malicious users. Of the ways forms can be abused is:
   \item SQL injection may corrupt your database backend
 \end{enumerate}
 
+\subsection{ Reactive Form Validation }
+Angular offers form validation out of the box. In addition, it gives the
+ability to create custom validators. There are two types of validators: 
+\begin{enumerate}
+  \item Sync Validators
+  \item Async Validators
+\end{enumerate}
 
+For performance reasons you will only want to use async validators. 
+
+\subsection{ Testing Reactive Forms }
+Testing reactive forms is relatively straight forward: 
+
+\subsubsection{ Testing View To Model }
+
+\begin{lstlisting}[caption=Testing View to Model]
+it('should update the value of the input field', () => {
+  const input = fixture.nativeElement.querySelector('input');
+  const event = createNewEvent('input');
+
+  input.value = 'Red';
+  input.dispatchEvent(event);
+
+  expect(fixture.componentInstance.favoriteColorControl.value).toEqual('Red');
+});
+\end{lstlisting}
+
+In the above code we are doing the following: 
+\begin{enumerate}
+  \item Query view for form input element, and create custom input event for
+  the test.
+  \item Set the value for the inout, and dispatch input event.
+  \item Asser that component's new value, based on dispatched event, matches
+  the value from the input. 
+\end{enumerate}
+
+\subsubsection{ Testing Model To View }
+
+\begin{lstlisting}
+it('should update the value in the control', () => {
+  component.favoriteColorControl.setValue('Blue');
+
+  const input = fixture.nativeElement.querySelector('input');
+
+  expect(input.value).toBe('Blue');
+});
+\end{lstlisting}
+
+In the above code we are doing the following: 
+\begin{enumerate}
+  \item Set value on the Form Control instance, to set the new value 
+  \item Assign the view for the form input element to a constant
+  \item Tap into that constant's value, and assert that it is the new value
+\end{enumerate}
