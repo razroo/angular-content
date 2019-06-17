@@ -71,6 +71,22 @@ what they are all about!
   individual form control.
   \item \lstinline{FormGroup} - Tracks the same values and status for a 
   collection of form controls.
+\begin{lstlisting}
+import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+ 
+@Component({
+  ...
+})
+export class CodeEditorComponent {
+  codeForm = new FormGroup({
+    row: new FormControl(''),
+    column: new FormControl(''),
+  });
+}
+\end{lstlisting}
+  The codeForm property, now has access to all of the formControls within the
+  app.
   \item \lstinline{FormArray} - Tracks the same values and status for an array
   of form controls. 
   \item \lstinline{ ControlValueAccessor } - Creates a bridge between Angular
@@ -163,6 +179,8 @@ ability to create custom validators. There are two types of validators:
 \end{enumerate}
 
 For performance reasons you will only want to use async validators. 
+
+
 
 \subsection{ Testing Reactive Forms }
 Testing reactive forms is relatively straight forward: 
