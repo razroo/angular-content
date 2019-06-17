@@ -137,4 +137,18 @@ mentioned, that view is directly related to the component's instance of
 \end{enumerate}
 
 \subsection{Form Validation}
-Form validation is something that 
+Form validation is something that seems like it would belond as the same 
+category as unit testing. For instance, let's make sure that nothing wrong 
+happens with regards to user submission. However, form validation, i.e. 
+making sure the right content is being inputted, before user submits, has a 
+very large reason beyond correcting user error. It is to prevent abust my 
+malicious users. Of the ways forms can be abused is: 
+\begin{enumerate}
+  \item Header injection attacks can be used to send email spam from your web 
+  server
+  \item Cross-site scripting may allow an attacker to post any data to your 
+  site
+  \item SQL injection may corrupt your database backend
+\end{enumerate}
+
+
