@@ -1,3 +1,25 @@
 \maketitle{}
 \section{ Reactive Forms }
 
+Reactive forms are extremely under-rated. As we have discussed before, there are 
+many reasons as to why forms are very complicated. Reactive forms are no 
+exception to that rule. However, we will discuss them all now. In additionm we
+are going to run through all the steps to get from point a to point b, so that
+you can constantly reference this, as you create a new reactive form component.
+
+\subsection{ Registering Reactive Forms }
+
+Importing a reactive module, is no different than your regular module, however,
+this is the module to use to when importing reactive forms. 
+
+\begin{lstlisting}
+import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [
+    // other imports ...
+    ReactiveFormsModule
+  ],
+})
+export class AppModule { }
+\end{lstlisting}
