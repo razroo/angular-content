@@ -88,11 +88,23 @@ style({
 })),
     \end{lstlisting}
   \item \lstinline{transition} - Used to specify the change that occurs 
-  between one state and another over a period of time. Accepts two 
+  between one state and another over a period of time. Accepts two arguments: 
+    \begin{enumerate}
+      \item An expression that defines the direction between the two 
+      transition states. 
+      \item An \lstinline{animate} function
+    \end{enumerate}
+    \begin{lstlisting}
+transition('open => closed', [
+  animate('1s')
+]),
+    \end{lstlisting}
 \end{enumerate}
 
-let's say that we wanted to create a simple animation. 
-
+\subsection{ Putting it all together }
+If we were to combine our animations, with our combined \lstinline{state}, 
+\lstinline{style}, and \lstinline{transitions}, it would look something like 
+the following:
 \begin{lstlisting}
 @Component({
   selector: 'app-open-close',
