@@ -202,3 +202,35 @@ updateProfile() {
 }
 \end{lstlisting}
 
+\subsection{ Generating form controls with FormBuilder }
+The Angular team realized how excessive it is to constantly include \lstinline{FormControl}'s
+and \lstinline{FormGroup}'s everytime one wants to build out a form. Instead
+they created something called the \lstinline{FormBuilder}. 
+\begin{lstlisting}
+  import { Component } from '@angular/core';
+  import { FormBuilder } from '@angular/forms';
+  
+  @Component({
+    selector: 'app-profile-editor',
+    templateUrl: './profile-editor.component.html',
+    styleUrls: ['./profile-editor.component.css']
+  })
+  export class ProfileEditorComponent {
+    profileForm = this.fb.group({
+      firstName: [''],
+      lastName: [''],
+      address: this.fb.group({
+        street: [''],
+        city: [''],
+        state: [''],
+        zip: ['']
+      }),
+    });
+  
+    constructor(private fb: FormBuilder) { }
+  }  
+\end{lstlisting}
+
+As we can see in the above, instead of having to attach \lstinline{FormGroup} to the
+parents, and attaching \lstinline{FormControl} to every child, we can just use 
+\lstinline{fb.group} on every parent. So, so nice!
