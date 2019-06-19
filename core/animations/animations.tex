@@ -62,8 +62,8 @@ property.
 })  
 \end{lstlisting}
 
-\subsection{ Animation State and Styles }
-With regards to animations, there are two main functions to keep in mind, 
+\subsection{ Animation State, Styles, and Transitions }
+With regards to animations, there are three main functions to keep in mind, 
 \begin{enumerate}
   \item \lstinline{state()} - Function to define different states to call at 
   the end of each transition. It takes two arguments: 
@@ -71,8 +71,24 @@ With regards to animations, there are two main functions to keep in mind,
       \item A unique name like \lstinline{open}, or \lstinline{closed}
       \item A \lstinline{style()} function 
     \end{enumerate}
+    \begin{lstlisting}  
+state('open', style({
+  height: '200px',
+  opacity: 1,
+  backgroundColor: 'yellow'
+})),
+    \end{lstlisting}  
   \item \lstinline{style()} - A function used to assign a set of styles for 
   a given state name. Style attributes must be camelCase.
+    \begin{lstlisting}
+style({
+  height: '200px',
+  opacity: 1,
+  backgroundColor: 'yellow'
+})),
+    \end{lstlisting}
+  \item \lstinline{transition} - Used to specify the change that occurs 
+  between one state and another over a period of time. Accepts two 
 \end{enumerate}
 
 let's say that we wanted to create a simple animation. 
