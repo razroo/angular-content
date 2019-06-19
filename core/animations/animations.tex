@@ -31,7 +31,7 @@ export class AppModule { }
 Just something to be aware of. Angular has many animation functions that can
 be used out of the box. We are not going to go into detail on them all now. 
 However, I just wanted to bring some up here, for you to be aware of: 
-\begin{lstlisting}
+\begin{lstlisting}[caption=app.component.ts]
 import { Component, HostBinding } from '@angular/core';
 import {
   trigger,
@@ -44,5 +44,23 @@ import {
 \end{lstlisting}
 
 \footnote{For a summary of available animation functions, feel free to navigate 
-\href{https://angular.io/guide/animations#animation-api-summary}{here}}
+\href{https://angular.io/guide/animations\#animation-api-summary}{here}}
+
+\subsection{Add the animation metadata property to component}
+The next step in the adding an animation to a component process, would be 
+adding an animations metadata \footnote{Clarify what a metadata property is}
+property.
+
+\begin{lstlisting}
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css'],
+  animations: [
+    // animation triggers go here
+  ]
+})  
+\end{lstlisting}
+
+let's say that we wanted to create a simple animation. 
 
