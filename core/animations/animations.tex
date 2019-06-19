@@ -1,3 +1,32 @@
 \maketitle{}
 \section{ Animations }
 
+Animations have come a long way. It's one of the most jaw dropping effects
+that any application can have. Angular has made it, so that animations can be
+baked into the framework. I would like to run through how one would go ahead
+and implement a simple animation within your component, so that you can get an 
+idea of how you can do it. 
+
+\subsection{ Include Animations Module }
+Angular has a \lstinline{BrowserAnimationsModule}, which is based off of the 
+\lstinline{BrowserModule}.
+
+\begin{lstlisting}[caption=app.module.ts]
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule
+  ],
+  declarations: [ ],
+  bootstrap: [ ]
+})
+export class AppModule { }  
+\end{lstlisting}
+
+\subsection{ Importing animation functions into component files }
+Just something to be aware of. Angular has many animation functions that can  asdasdasdasd
+be used out of the box. 
