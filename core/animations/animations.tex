@@ -28,5 +28,21 @@ export class AppModule { }
 \end{lstlisting}
 
 \subsection{ Importing animation functions into component files }
-Just something to be aware of. Angular has many animation functions that can  asdasdasdasd
-be used out of the box. 
+Just something to be aware of. Angular has many animation functions that can
+be used out of the box. We are not going to go into detail on them all now. 
+However, I just wanted to bring some up here, for you to be aware of: 
+\begin{lstlisting}
+import { Component, HostBinding } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';  
+\end{lstlisting}
+
+\footnote{For a summary of available animation functions, feel free to navigate 
+\href{https://angular.io/guide/animations#animation-api-summary}{here}}
+
