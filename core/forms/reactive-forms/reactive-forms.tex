@@ -146,9 +146,15 @@ export class CodeFormComponent {
 }
 \end{lstlisting}
 
+A great way to think of nested form groups, is that it is exactly like creating 
+a nested data object. The only different is that any parent, contains formGroup, 
+whereas children use formControl. 
+
 \subsection{ Grouping nested form in the template } 
+Now that we have created a nested FormGroup property within a class, lets' go
+ahead and show how we would access these values within our template.
 \begin{lstlisting}
-  <div formGroupName="address">
+<div formGroupName="address">
   <h3>Address</h3>
 
   <label>
@@ -171,5 +177,28 @@ export class CodeFormComponent {
     <input type="text" formControlName="zip">
   </label>
 </div>
+\end{lstlisting}
+
+Most notably you will notice that we are using the \lstinline{formGroupName}
+directive. The \lstinline{formGroupName} directive, will sync a 
+\lstinline{formGroup} to a template. That allows us to access any children of
+that \lstinline{formGroup} by simply accessing name, using \lstinline{formControlName}. 
+
+\subsection{ Partial Model Updates }
+We have already discussed in the previous chapter, the ability to update a 
+specific \lstinline{formControl} by using the \lstinline{setValue()} option is 
+definitely a viable option. However, what if we would like to update multiple 
+values at the same time within a \lstinline{formGroup()} Angular provides the 
+method called \lstinline{patchValue()}. So for instance, let's say we wanted
+to update the \lstinline{firstName}, and street address: 
+\begin{lstlisting}
+updateProfile() {
+  this.profileForm.patchValue({
+    firstName: 'Nancy',
+    address: {
+      street: '123 Drew Street'
+    }
+  });
+}
 \end{lstlisting}
 
