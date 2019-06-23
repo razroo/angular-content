@@ -100,3 +100,36 @@ trigger('myInsertRemoveTrigger', [
 
 \mybox{We do not need to use \lstinline{state}, due to the fact that these
 transitions are expected to happen in all scenarios.}
+
+\subsection{When a Value Increases, or Decreases}
+Angular has a built in transition for when a value increases, or decreases. 
+\begin{lstlisting}
+  trigger('filterAnimation', [
+    transition(':enter, * => 0, * => -1', []),
+    transition(':increment', [
+      query(':enter', [
+        style({ opacity: 0, width: '0px' }),
+        stagger(50, [
+          animate('300ms ease-out', style({ opacity: 1, width: '*' })),
+        ]),
+      ], { optional: true })
+    ]),
+    transition(':decrement', [
+      query(':leave', [
+        stagger(50, [
+          animate('300ms ease-out', style({ opacity: 0, width: '0px' })),
+        ]),
+      ])
+    ]),
+  ]),  
+\end{lstlisting}
+
+
+If the above, when the value is incremented, it will cause a transition to 
+happen. 
+
+\mybox{You might be wondering what would be the value of something like this 
+within an Angular application setting. The value is that if there is something 
+like a slider, you are able to bake transitions, into the counter of the 
+slider. Now, whenever the slider goes to the next slide, it can cause a 
+transition to happen.}
