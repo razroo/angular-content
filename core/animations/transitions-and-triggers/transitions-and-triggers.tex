@@ -152,3 +152,35 @@ animations: [
   ])
 ],
 \end{lstlisting}
+
+\subsection{ Multiple Animation Triggers }
+In an Angular setting, each time an animation is triggered, the parent always
+get's priority, and cuts off the ability for child animation to run. In order 
+for a child animation to run, a parent element must trigger an 
+\lstinline{animateChild} function placed on the child element. 
+\begin{lstlisting}[caption=open-close.component.html]
+<div [@.disabled]="isDisabled">
+<div [@childAnimation]="isOpen ? 'open' : 'closed'"
+  class="open-close-container">
+  <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+</div>
+</div>  
+\end{lstlisting}
+\begin{lstlisting}[caption=open-close.component.ts]
+@Component({
+  animations: [
+    trigger('childAnimation', [
+      // ...
+    ]),
+  ],
+})
+export class OpenCloseChildComponent {
+  isDisabled = false;
+  isOpen = false;
+}
+\end{lstlisting}
+
+\mybox{ In the above html we are using something called \lstinline{@.disabled}.
+When it is applied on the parent div, all animations on the element, as well as 
+nested animations, are disabled. Likewise, to disable all animations for an 
+Angular app, a hostBinding can be applied to the top most Angular component. }
