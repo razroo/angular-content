@@ -18,4 +18,39 @@ For instance, let's say were to use:
 All of the above four, will match when an element's state changes from open to 
 anything else. A good rule of thumb, is that similar to routing, wherein the 
 asterisk will be a wild card meant to match any remaining use cases, animation
-transitions also follow in this same vein. 
+transitions also follow in the same vein. 
+
+\subsection{ Situations where a Wildcard can be Used }
+\subsubsection{ Using Wildcard with Styles }
+\begin{lstlisting}
+transition ('* => open', [
+  animate ('1s',
+    style ({ opacity: '*' }),
+  ),
+]),  
+\end{lstlisting}
+
+In the above, the transition of animate of 1s, will match whatever it is that
+the current stule is. 
+
+\subsubsection{ Combining Wildcard and Void States }
+A void state, is a way of causing an animation to occur whenever an element is 
+entering, or leaving a page.
+\begin{lstlisting}
+animations: [
+  trigger('flyInOut', [
+    state('in', style({ transform: 'translateX(0)' })),
+    transition('void => *', [
+      style({ transform: 'translateX(-100%)' }),
+      animate(100)
+    ]),
+    transition('* => void', [
+      animate(100, style({ transform: 'translateX(100%)' }))
+    ])
+  ])
+]
+\end{lstlisting}
+
+In the above code, when an \lstinline{HTML} element isn't attached to the view, 
+we apply a transition. When entering the page, the element will fly in. When 
+leaving the page, the element will fly out. 
