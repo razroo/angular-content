@@ -183,4 +183,38 @@ export class OpenCloseChildComponent {
 \mybox{ In the above html we are using something called \lstinline{@.disabled}.
 When it is applied on the parent div, all animations on the element, as well as 
 nested animations, are disabled. Likewise, to disable all animations for an 
-Angular app, a hostBinding can be applied to the top most Angular component. }
+Angular app, a hostBinding can be applied to the top most Angular component.}
+
+\subsection{ Animation Callbacks }
+There are times wherein one might want to tap into a particular time period of
+an animation. For instance, let's say there is a slow API request, you might 
+want the download button to have some sort of pulsating animation, if it takes
+too long. When API request completes, the pulsating can stop. An icon can work 
+as well, however, there is some psychology behind if the actual item clicked 
+on is the one that animates, as opposed to bringing in an outside icon. So 
+let's imagine we are triggering an animation, we can do something such as 
+the following: 
+\begin{lstlisting}[caption=open-close.component.ts]
+@Component({
+  selector: 'app-open-close',
+  animations: [
+    trigger('openClose', [
+      // ...
+    ]),
+  ],
+  templateUrl: 'open-close.component.html',
+  styleUrls: ['open-close.component.css']
+})
+export class OpenCloseComponent {
+  onAnimationEvent ( event: AnimationEvent ) {
+  }
+}  
+\end{lstlisting}
+
+\begin{lstlisting}[caption=open-close.component.html]
+<div [@openClose]="isOpen ? 'open' : 'closed'"
+  (@openClose.start)="onAnimationEvent($event)"
+  (@openClose.done)="onAnimationEvent($event)"
+  class="open-close-container">
+</div>
+\end{lstlisting}
