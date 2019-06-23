@@ -35,16 +35,35 @@ the current stule is.
 
 \subsubsection{ Combining Wildcard and Void States }
 A void state, is a way of causing an animation to occur whenever an element is 
-entering, or leaving a page.
+entering, or leaving a page. The proper syntax for letting Angular knowing that 
+an element should be animated when leaving, or entering would be to do the 
+following: 
+\begin{lstlisting}
+animations: [
+  trigger('flyInOut', [
+    //...
+    transition('void => *', [
+      //...
+    ]),
+    transition('* => void', [
+      //...
+    ])
+  ])
+]
+\end{lstlisting}
+
+However, Angular allows for the following alias, called \lstinline{:enter} and
+\lstinline{:leave}. 
+
 \begin{lstlisting}
 animations: [
   trigger('flyInOut', [
     state('in', style({ transform: 'translateX(0)' })),
-    transition('void => *', [
+    transition(':enter', [
       style({ transform: 'translateX(-100%)' }),
       animate(100)
     ]),
-    transition('* => void', [
+    transition(':leave', [
       animate(100, style({ transform: 'translateX(100%)' }))
     ])
   ])
