@@ -1,3 +1,21 @@
 \maketitle{}
 \section{ Transitions and Triggers }
 
+It is worth noting that there are a number of transition states. We discussed 
+from open to close, and from close to open. There are, however, other states 
+that are equally as important to discuss. 
+
+\subsection{ Wildcard Matching }
+Using an asterisk in a transition state, will represent any sort of situation. 
+
+For instance, let's say were to use: 
+\begin{verbatim}
+  open => closed 
+  open => *
+  * => closed
+  * => *
+\end{verbatim}
+All of the above four, will match when an element's state changes from open to 
+anything else. A good rule of thumb, is that similar to routing, wherein the 
+asterisk will be a wild card meant to match any remaining use cases, animation
+transitions also follow in this same vein. 
