@@ -52,6 +52,8 @@ animations: [
 ]
 \end{lstlisting}
 
+\subsubsection{ :enter and :leave aliases }
+
 However, Angular allows for the following alias, called \lstinline{:enter} and
 \lstinline{:leave}. 
 
@@ -73,3 +75,28 @@ animations: [
 In the above code, when an \lstinline{HTML} element isn't attached to the view, 
 we apply a transition. When entering the page, the element will fly in. When 
 leaving the page, the element will fly out. 
+
+It is important to note that \lstinline{:enter} and \lstinline{:leave} will
+only run, if the element is removed, or added. Therefore, it is required to 
+leave an \lstinline{*ngIf} on the div. An example, would be something such as
+the following: 
+\begin{lstlisting}[caption=insert-remove.component.html]
+<div @myInsertRemoveTrigger *ngIf="isShown" class="insert-remove-container">
+  <p>The box is inserted</p>
+</div>  
+\end{lstlisting}
+
+\begin{lstlisting}[caption=insert-remove.component.ts]
+trigger('myInsertRemoveTrigger', [
+  transition(':enter', [
+    style({ opacity: 0 }),
+    animate('5s', style({ opacity: 1 })),
+  ]),
+  transition(':leave', [
+    animate('5s', style({ opacity: 0 }))
+  ])
+]),  
+\end{lstlisting}
+
+\mybox{We do not need to use \lstinline{state}, due to the fact that these
+transitions are expected to happen in all scenarios.}
