@@ -133,3 +133,22 @@ within an Angular application setting. The value is that if there is something
 like a slider, you are able to bake transitions, into the counter of the 
 slider. Now, whenever the slider goes to the next slide, it can cause a 
 transition to happen.}
+
+\subsection{ Transitions for Boolean Values }
+In many situations, we have the need for, should something be opened, or closed. 
+Should it be shown, or hidden? For situations like this, Angular offers the 
+ability to create transitions based on booleans: 
+\begin{lstlisting}[caption=open-close.component.html]
+<div [@openClose]="isOpen ? true : false" class="open-close-container">
+</div>
+\end{lstlisting}
+and
+\begin{lstlisting}[caption=open-close.component.ts]
+animations: [
+  trigger('openClose', [
+    state('true', style({ height: '*' })),
+    state('false', style({ height: '0px' })),
+    transition('false <=> true', animate(500))
+  ])
+],
+\end{lstlisting}
