@@ -256,3 +256,65 @@ that might be more than two steps. For animations of this scale, we will want
 to use Angular's \lstinline{keyframe()} function, which is very similar to 
 keyframes in CSS \footnote{Keyframes in CSS can be seen 
 \href{https://www.w3schools.com/cssref/css3_pr_animation-keyframes.asp.}{here}}.
+
+If using default keyframes, it will automatically split the different times, 
+across the time frame. 
+
+\begin{lstlisting}
+transition('* => active', [
+  animate('2s', keyframes([
+    style({ backgroundColor: 'blue' }),
+    style({ backgroundColor: 'red' }),
+    style({ backgroundColor: 'orange' })
+  ]))
+\end{lstlisting}
+
+In the above code, initially the \lstinline{backgroundColor} will be blue. 
+From 0s to 1s, the \lstinline{backgroundColor} will be red. From 1s to 2s the 
+\lstinline{backgroundColor} will be orange. 
+
+\subsubsection{ Offset }
+Angular also gives the option to define at which point in the keyframe the 
+animation should occur. Let's take the previous default animation and supply  
+it with offsets: 
+\begin{lstlisting}
+transition('* => active', [
+  animate('2s', keyframes([
+    style({ backgroundColor: 'blue', offset: 0}),
+    style({ backgroundColor: 'red', offset: 0.8}),
+    style({ backgroundColor: 'orange', offset: 1.0})
+  ])),
+]),
+transition('* => inactive', [
+  animate('2s', keyframes([
+    style({ backgroundColor: 'orange', offset: 0}),
+    style({ backgroundColor: 'red', offset: 0.2}),
+    style({ backgroundColor: 'blue', offset: 1.0})
+  ]))
+]),
+\end{lstlisting}
+
+\mybox{It is important to note, that any animatable property that can be 
+animated using CSS transitions, can be animated using Angular.}
+
+\subsection{Automatic property calculation with wildcards}
+
+Many times, we are not 100\% aware of what the height will be of the component
+that we would like to animate. Angular allows us to apply a wild card styling 
+to the element, so that the height is determined at run time. Therefore, if 
+we want, we can apply something like the following, so that we can determine 
+the height at runtime, and then shrink the element when appropriate. 
+
+\begin{lstlisting}
+animations: [
+  trigger('shrinkOut', [
+    state('in', style({ height: '*' })),
+    transition('* => void', [
+      style({ height: '*' }),
+      animate(250, style({ height: 0 }))
+    ])
+  ])
+]
+\end{lstlisting}
+
+
