@@ -60,6 +60,12 @@ const squareOddVals = pipe(
   filter((n: number) => n % 2 !== 0),
   map(n => n * n)
 );  
+
+// Create an Observable that will run the filter and map functions
+const squareOdd = squareOddVals(nums);
+ 
+// Subscribe to run the combined functions
+squareOdd.subscribe(x => console.log(x));
 \end{lstlisting}
 
 \mybox{of - Similar to \lstinline{from}, only \lstinline{of} takes values only,
@@ -69,8 +75,11 @@ the provided condition.
 map - Similar to map in Javascript. Will apply projection with each value in 
 source. 
 }
-
-In the above code, we are using 
+In the above code, we are using two separate operators, and chaining them 
+within our pipe. First we pull in odd values using the filter, then we 
+multiple files using the map. This can be an extremely powerful way of 
+using chained operators within rxjs. In particular, in scenarios like search
+rxjs can be extremely powerful. 
 
 
 
