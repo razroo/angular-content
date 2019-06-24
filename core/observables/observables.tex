@@ -45,6 +45,34 @@ publisher). We then subscribe to the publisher/observable, so that when the
 data request completes, and the data is pulled in, the subscriber will now 
 emit the data, and make it available for the app to consume. 
 
+\subsection{ Operators and Pipes }
+One of the most powerful features of rxjs, is that it offers the ability to 
+combine operators to allow for sophisticated manipulation of functions. While 
+this is not a real world example, it definitely helps in order to better 
+understand how pipeable operators work in the real world: 
+\begin{lstlisting}
+import { filter, map } from 'rxjs/operators';
+
+const nums = of(1, 2, 3, 4, 5);
+  
+// Create a function that accepts an Observable.
+const squareOddVals = pipe(
+  filter((n: number) => n % 2 !== 0),
+  map(n => n * n)
+);  
+\end{lstlisting}
+
+\mybox{of - Similar to \lstinline{from}, only \lstinline{of} takes values only,
+instead of being passed an array. 
+filter - Similar to filter in javascript. Will return all values that pass 
+the provided condition. 
+map - Similar to map in Javascript. Will apply projection with each value in 
+source. 
+}
+
+In the above code, we are using 
+
+
 
 
 
