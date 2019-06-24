@@ -98,5 +98,34 @@ amount of operators that are used.
   \end{tabular}
 \end{center}  
 
+\subsection{ Naming Conventions for Observables }
+A very popular convention for writiing observables within Angular, and really
+any setting is add a trailing \lstinline{$} to the end of the variable. 
+\begin{lstlisting}
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-stopwatch',
+  templateUrl: './stopwatch.component.html'
+})
+export class StopwatchComponent {
+
+  stopwatchValue: number;
+  stopwatchValue$: Observable<number>;
+
+  start() {
+    this.stopwatchValue$.subscribe(num =>
+      this.stopwatchValue = num
+    );
+  }
+}  
+\end{lstlisting}
+
+In the above component, \lstinline{stopwatchValue$} is visibly an observable,
+because it has the dollar sign. Why a dollar sign you ask? It's a clever way 
+of appending an "S" to the end of a variable, and signifying that it is 
+special. The s stands for stream - which is a sequence of values over time.
+
 
 
