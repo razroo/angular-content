@@ -11,3 +11,40 @@ will consist of two things:
   \item Publisher 
   \item Subscriber
 \end{enumerate}
+
+Think of a publisher as a way of saying here is the data, I want you to watch. 
+When something does indeed change, pull the data from the subscriber. This 
+allows for the publisher to take place in one piece of your code, pass that 
+through a facade of sorts, and then consume it in another file. 
+
+\subsection{ Rxjs - An Observable Example! }
+We will be using \lstinline{rxjs} as our library to create Observables. It is 
+used internally by many Angular libraries, and for good reason. For starters
+It is increcibly intuitive to use. Functions are imported as are any other 
+Javascript/Typescript library. Second, rxjs, is a part of the larger ReactiveX 
+ecosytem. Knowing how to use rxjs, you will be able to transfer your knowledge
+to other frameworks, such as Java, Swift, Python and more!
+
+\begin{lstlisting}
+import { from } from 'rxjs';
+
+// Create an Observable out of a promise
+const data = from(fetch('/api/endpoint'));
+// Subscribe to begin listening for async result
+data.subscribe((data) => {
+  // emit data returned from endpoint
+ console.log(data);
+});
+\end{lstlisting}
+
+\mybox{from - Turn an array, promise or iterable into an observable}
+
+In the above code, we are using the native rxjs \lstinline{from} function to
+turn our code into an observable(this is what we defined earlier as a 
+publisher). We then subscribe to the publisher/observable, so that when the 
+data request completes, and the data is pulled in, the subscriber will now 
+emit the data, and make it available for the app to consume. 
+
+
+
+
