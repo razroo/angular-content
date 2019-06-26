@@ -15,7 +15,18 @@ syntax for the first time, there's so much there, that it's easy to overlook
 reasons behind syntax. Perhaps we assume the reason there are different symbols,
 letters, etc. for the different ways of operating within a framework, is
 because we just need to represent the different ways of doing a particular 
-action within a framework. The following is a great example of what I mean: 
-\begin{lstlisting}
-  
+action within a framework. I think it goes without saying, that it would be 
+valuable as a matter of documentation to mention how component and Templates 
+work within Angular. However, this book will also make sure to go into the 
+syntax, and offer why it looks like the way it does. 
+
+\subsection{ Interpolation }
+
+Interpolation in the dictionary, means inserting something of a different 
+nature into something else. In the context of Angular, interpolation means
+being able to place a javascript expression, in your html. This is signified 
+by the double curly brace. 
+\begin{lstlisting}[caption=interpolation-example.component.html]
+This is 2 + 2
+<!-- This is 4 --> 
 \end{lstlisting}
