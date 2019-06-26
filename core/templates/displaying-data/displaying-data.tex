@@ -116,18 +116,32 @@ export class CodeBoxComponent implements OnInit {
 } 
 \end{lstlisting}
 
-\begin{lstlisting}[caption=px-code-box.component.ts]
-  import { Component, OnInit } from '@angular/core';
+\begin{lstlisting}[caption=px-code-box.component.html]
+<div *ngFor="let css of cssCode">
+{{css}}
+</div>   
+\end{lstlisting}
+
+The \lstinline{*ngFor} works similar to a regular Javascript \lstinline{for} 
+loop, iterating through every value within the array. 
+
+\mybox{The angular called a for loop in Angular, and ngFor, because it doesn't
+exactly act like a regular for loop within Angular. Instead, it iterates over
+every value contained within the array. It's an Angular flavored for loop. 
+\lstinline{*ngFor} is therefore a perfect name for the angular flavored for 
+loop which iterates through all values.
   
-  @Component({
-    selector: 'px-code-box',
-    templateUrl: './code-box.component.html',
-    styleUrls: ['./code-box.component.scss']
-  })
-  export class CodeBoxComponent implements OnInit {
-    @Input() cssCode: string[];
-    constructor() { }
-  
-    ngOnInit() {}
-  } 
-  \end{lstlisting}
+You might also be wondering what the \lstinline{*} is doing next to 
+\lstinline{ngFor} within Angular. The asterisk symbol \lstinline{*} has a 
+strong history within programming of meaning everything. So what is the everything
+that the asterisk here is referring to you might ask? Without going into too 
+much detail, the \lstinline{*ngFor} is actually a micro syntax. It is telling 
+Angular wrap an \lstinline{<ng-template>} (the syntax angular uses to determine
+something is a template) around all elements, and populate it with elements
+within the \lstinline{<ng-template>}. So the asterisk \lstinline{*} is actually
+saying, target all templates, and insert this unique Angular directive
+(i.e. \lstinline{*ngFor}). 
+
+\footnote{https://angular.io/guide/structural-directives\#asterisk}
+\footnote{https://angular.io/guide/template-syntax\#ngFor}
+}
