@@ -116,3 +116,60 @@ Using the above observable, we are able to determine what the url is at any
 given time. 
 
 \subsection{ Reactive Forms }
+Reactive forms, is another core Angular library that makes use of Observables. 
+In particular, the \lstinline{FormControl} \lstinline{valueChanges} property 
+contains an observable that determines whenever an event occured. 
+\begin{lstlisting}
+import { FormGroup } from '@angular/forms';
+
+@Component({
+  selector: 'my-component',
+  template: 'MyComponent Template'
+})
+export class MyComponent implements OnInit {
+  pxForm: FormGroup;
+
+  ngOnInit() {
+    this.logNameChange();
+  }
+  logNameChange() {
+    const rowControl = this.pxForm.get('name');
+    rowControl.valueChanges.subscribe(data => {
+      console.log('data');
+      console.log(data);
+    });
+  }
+}  
+\end{lstlisting}
+
+Using valueChanges in the context of formControl can be incredibly useful. 
+There might be special effects, or some sort of hurdle you need to come 
+across when building out this form, and it helps very much so in this 
+regard. 
+
+\mybox{Important to note, that http requests within Angular also support 
+Observables. However, Razroo best practices, is that we support the use of 
+Apollo Client over Angular's native http request. For that reason, it has been
+left out of this chapter.}
+
+\subsection{What is the Point of this??? }
+You might be asking yourself, what is the point of knowing specifically that 
+there are observables that are baked into the framework? It would seem one 
+would be able to just read up on the documentation, and be able to get done 
+what you need in that fashion. What value is there in organizing all of the 
+Angular observables into one location? 
+
+I think this chapter makes alot of sense. In particular, because it lays out
+all the parts of the Angular framework, wherein observables make sense. Very 
+very smart, and well thought out individuals have built, and continue to build
+the Angular framework. Therefore, it would stand to reason, that one should 
+be particularly aware of these four scenarios: 
+\begin{enumerate}
+  \item Event Emitter
+  \item Async Pipe
+  \item Router
+  \item Forms
+\end{enumerate}
+
+In all of them, being aware of the value at any given time, is incredibly 
+important. 
