@@ -176,3 +176,20 @@ export class CodeBoxComponent implements OnInit {
 As you can see, we are accessing the file property within our css object the
 same way we would any regular Javascript object.
 
+\subsection{ Conditionally Display HTML }
+Within Angular there is the ability to conditionally display html. Similar to 
+an \lstinline{if} statement within Javascript, the html will only be 
+displayed, if it matches the expected statement. 
+\begin{lstlisting}
+<div *ngFor="let css of cssCode">
+<div *ngIf="css.file as file" class="name">
+{{file}}
+</div>   
+\end{lstlisting}
+
+In the above code, file will only be shown if it actually exists on the css 
+object. 
+
+\mybox{Note: We are using a syntax called \lstinline{as}, which allows for us 
+to use a short name for our \lstinline{*ngIf} block. Will discuss this more as 
+time goes on.}
