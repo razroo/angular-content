@@ -145,3 +145,34 @@ saying, target all templates, and insert this unique Angular directive
 \footnote{https://angular.io/guide/structural-directives\#asterisk}
 \footnote{https://angular.io/guide/template-syntax\#ngFor}
 }
+
+\subsubsection{ Accessing Object Data Within Arrays }
+It is quite common that a situation will arise, that a developer will need to 
+access data within the object. Doing so, is exactly the same way as you would 
+expect within regular Javascript. Let's update our code-box component code. 
+\begin{lstlisting}[caption=px-code-box.component.ts]
+import { Component, OnInit } from '@angular/core';
+import { CssCode } from 'css-code.interface.ts';
+
+@Component({
+  selector: 'px-code-box',
+  templateUrl: './code-box.component.html',
+  styleUrls: ['./code-box.component.scss']
+})
+export class CodeBoxComponent implements OnInit {
+  @Input() cssCode: CssCode[];
+  constructor() { }
+
+  ngOnInit() {}
+} 
+\end{lstlisting}
+  
+\begin{lstlisting}[caption=px-code-box.component.html]
+<div *ngFor="let css of cssCode">
+{{css.file}}
+</div>   
+\end{lstlisting} 
+
+As you can see, we are accessing the file property within our css object the
+same way we would any regular Javascript object.
+
