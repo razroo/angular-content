@@ -30,3 +30,55 @@ by the double curly brace.
 This is 2 + 2
 <!-- This is 4 --> 
 \end{lstlisting}
+
+\subsection{ Angular Components }
+In an Angular setting, based on best practices, and those set into place by 
+the Angular CLI, the generation of the component, will consist of four files: 
+\begin{enumerate}
+  \item *.component.ts
+  \item *.component.spec.ts
+  \item *.component.html
+  \item *.component.scss
+\end{enumerate}
+
+In the above files, html and component files will tend to interact with each 
+other the most. For any component file, there is atleast going to be one, or 
+more properties placed in the respective component file. 
+\begin{lstlisting}[caption=header.component.ts]
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'pxl-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
+})
+export class HeaderComponent implements OnInit {
+  @Input() title: string;
+  constructor() { }
+
+  ngOnInit() {
+  }
+} 
+\end{lstlisting}
+
+\begin{lstlisting}[caption=header.component.html]
+<h1>{{title}}</h1>
+\end{lstlisting}
+
+Here, we are interpolating the \lstinline{title} property into our html, by 
+using double curly braces around the value. This is classic syntax in an 
+Angular setting. 
+\mybox{ The first usage of curly braces in programming languages was by a 
+language called BCPL. It was created by Martin Richards. Instead of the use of
+\lstinline{BEGIN} and {END} implemented by other languages, he used 
+\lstinline{\$( \$)}. It was a natural extension of parenthesis, which is all
+that keyboards offered at that time. In 1967, curly braces, started making their 
+way into mainstream keyboards. 
+
+The B Language developed by Ken Thompson, and later adopted the C language, was 
+officially made avialable in 1969. Curly braces was a natural extension to 
+\lstinline{\$( \$)}, as it was easier to write, and now available in keyboards. 
+  
+The reason that angular uses a double curly brace \lstinline{\{\{\}\}}
+
+}
