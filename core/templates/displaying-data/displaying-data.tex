@@ -76,9 +76,22 @@ that keyboards offered at that time. In 1967, curly braces, started making their
 way into mainstream keyboards. 
 
 The B Language developed by Ken Thompson, and later adopted the C language, was 
-officially made avialable in 1969. Curly braces was a natural extension to 
-\lstinline{\$( \$)}, as it was easier to write, and now available in keyboards. 
+officially made avialable in 1969. Brackets were already used for arrays. Curly
+ braces was a natural extension to \lstinline{\$( \$)}, as it was easier to 
+ write, and now available in keyboards. So C, which was a natural extension of 
+ the B language, and the gateway to most modern programming languages, used 
+ curly braces to group statements(i.e. actions to carried out by programming 
+ language). 
   
-The reason that angular uses a double curly brace \lstinline{\{\{\}\}}
-
+Angular, in a very similar way uses curly braces to represent statement 
+in it's html. Anything in the double curly braces \lstinline{\{\{\}\}}, can be
+regular Javascript code. 
+The reason that angular uses a double curly brace, is because:
+\begin{enumerate}
+  \item A singular curly brace in Javascript represents an object
+  \item We would come across the awkward situation, wherein a curly brace in 
+  regular html as a string, would require the need for code to be escaped. 
+  (Something I've experienced with other programming languages, and it is 
+  indeed really awkward.)
+\end{enumerate} 
 }
