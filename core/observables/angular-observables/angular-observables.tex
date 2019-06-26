@@ -161,9 +161,9 @@ Angular observables into one location?
 
 I think this chapter makes alot of sense. In particular, because it lays out
 all the parts of the Angular framework, wherein observables make sense. Very 
-very smart, and well thought out individuals have built, and continue to build
-the Angular framework. Therefore, it would stand to reason, that one should 
-be particularly aware of these four scenarios: 
+smart, and well thought out individuals have built, and continue to build the 
+Angular framework. Therefore, it would stand to reason, that one should be 
+particularly aware of these four scenarios: 
 \begin{enumerate}
   \item Event Emitter
   \item Async Pipe
@@ -172,4 +172,12 @@ be particularly aware of these four scenarios:
 \end{enumerate}
 
 In all of them, being aware of the value at any given time, is incredibly 
-important. 
+important. If something has an observable it means: 
+\begin{enumerate}
+  \item Level of complexity is higher 
+  \item Subject to change, and needs higher level of architecture
+  \item Interacts with data heavily 
+\end{enumerate}
+ 
+So keep an eye out for the above, next time you work on your Angular 
+application.
