@@ -56,8 +56,7 @@ export class HeaderComponent implements OnInit {
   @Input() title: string;
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 } 
 \end{lstlisting}
 
@@ -95,3 +94,40 @@ The reason that angular uses a double curly brace, is because:
   indeed really awkward.)
 \end{enumerate} 
 }
+
+\subsection{ Displaying an Array within an HTML Template }
+Quite a common occurence within any application, is thay the data, will return
+an array of objects(AKA collection), to be consumed by the app. Many times
+there will be a need to iterate over the array with the html, so that the data
+objects can be accessed. 
+\begin{lstlisting}[caption=px-code-box.component.ts]
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'px-code-box',
+  templateUrl: './code-box.component.html',
+  styleUrls: ['./code-box.component.scss']
+})
+export class CodeBoxComponent implements OnInit {
+  @Input() cssCode: string[];
+  constructor() { }
+
+  ngOnInit() {}
+} 
+\end{lstlisting}
+
+\begin{lstlisting}[caption=px-code-box.component.ts]
+  import { Component, OnInit } from '@angular/core';
+  
+  @Component({
+    selector: 'px-code-box',
+    templateUrl: './code-box.component.html',
+    styleUrls: ['./code-box.component.scss']
+  })
+  export class CodeBoxComponent implements OnInit {
+    @Input() cssCode: string[];
+    constructor() { }
+  
+    ngOnInit() {}
+  } 
+  \end{lstlisting}
