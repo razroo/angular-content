@@ -46,7 +46,22 @@ this, is that Angular's engine will actually first initialize the component,
 and then change the property set by the browser. In addition, Angular will 
 compile the component, as an object, and therefore internally is setting 
 objects, i.e. properties. I just thought it was a fun fact, and is actually 
-what led me to research the above re: attributes and properties. 
+what led me to research the above re: attributes and properties. Another great
+proof of this, is that if we were to modify the column span for a table by 2
+it would be: 
+\begin{lstlisting}
+<tr><td [colSpan]="2">Span 2 columns</td></tr>
+\end{lstlisting}
+
+You will notice that the above syntax for \lstinline{colSpan} is camel cased 
+as oppoed to the lowercased \lstinline{colspan}. This is because we are using
+Angular's internal property binding engine to set the value. It is instead of 
+using the native lowercased attribute \lstinline{colspan}. 
+
+\mybox{You might be wondering why Angular decided to choose brackets for 
+property binding. Without delving too much, in Javascript, wrapping an array 
+around a value, signifies that it is property. Angular is just borrowing from
+that syntax. }
 
 
 \mybox{\lstinline{<script>} tags in Angular, unlike modern html are forbidden!
