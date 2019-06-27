@@ -32,8 +32,21 @@ However, once the browser parses the code, it will turn it into an
 the type of native html element it is creating. 
 
 \subsection{ Property Binding (In Angular) }
-In Angular, property binding is a way 
+In Angular, property binding is a way to set properties of a particular 
+element. In addition, it is a way to set \lstinline{@Input()} decorators set 
+on the actual directive. 
 
+\begin{lstlisting}
+<img [src]="itemImageUrl">
+\end{lstlisting}
+
+You might be wondering why this is called property binding instead of 
+attribute binding. \lstinline{src} is actually an attribute. The reason behind
+this, is that Angular's engine will actually first initialize the component, 
+and then change the property set by the browser. In addition, Angular will 
+compile the component, as an object, and therefore internally is setting 
+objects, i.e. properties. I just thought it was a fun fact, and is actually 
+what led me to research the above re: attributes and properties. 
 
 
 \mybox{\lstinline{<script>} tags in Angular, unlike modern html are forbidden!
