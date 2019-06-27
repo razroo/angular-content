@@ -1,2 +1,41 @@
 \maketitle{}
 \section{ Template Syntax }
+
+\subsection{ Difference between Property and Attribute in HTML }
+
+First, and foremost, it is important to understand the difference between HTML 
+attributes and properties. I know myself, when writing this chapter, I realized
+that I did not fully understand the difference between an HTML attribute, and
+an HTML property. So I thought, why no re-iterate here, and hopefully it will
+make this subject a bit easier to understand. First let's dive into what the 
+computer science definition of a property, and an attribute would be. 
+
+Property - Something that can be read and written. Within a typescript setting, 
+this would be something that would be translated into a \lstinline{get} and  
+\lstinline{set} within Typescript. 
+
+Attribute - More correctly should be considered as a metadata. Something that
+is a property of a property, describing what the parent property is doing. 
+
+In HTML, the above definitions are a bit obscured. For instance, let's say
+that we are defining the type of input field, as well as it's value. 
+\begin{lstlisting}
+<input type="text" value="Name:">  
+\end{lstlisting}
+
+The \lstinline{type} and \lstinline{value} are attributes, as they are 
+explaining what the \lstinline{input} property is doing (aka metadata).
+However, once the browser parses the code, it will turn it into an 
+\lstinline{HTMLInputElement} object. This contains dozens of properties, like 
+\lstinline{className}, \lstinline{clientHeight}, and methods, such as 
+\lstinline{click()}. The browser will create a new sort of property based on 
+the type of native html element it is creating. 
+
+\subsection{ Property Binding (In Angular) }
+In Angular, property binding is a way 
+
+
+
+\mybox{\lstinline{<script>} tags in Angular, unlike modern html are forbidden!
+It will result in an error. This is done to prevent from script injections.}
+
