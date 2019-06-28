@@ -31,6 +31,9 @@ However, once the browser parses the code, it will turn it into an
 \lstinline{click()}. The browser will create a new sort of property based on 
 the type of native html element it is creating. 
 
+\mybox{\lstinline{<script>} tags in Angular, unlike modern html are forbidden!
+It will result in an error. This is done to prevent from script injections.}
+
 \subsection{ Property Binding (In Angular) }
 In Angular, property binding is a way to set properties of a particular 
 element. In addition, it is a way to set \lstinline{@Input()} decorators set 
@@ -117,8 +120,27 @@ a DOM event object. If it is not a native DOM element, and instead something
 such as an event emitter, then event will contain the value passed on through 
 the event emitter. 
 
-\mybox{\lstinline{<script>} tags in Angular, unlike modern html are forbidden!
-It will result in an error. This is done to prevent from script injections.}
+\subsection{NgClass}
+\lstinline{NgClass} is a special way to add, or remove multiple CSS classes 
+at the same time. More importantly, it gives you the ability to add a class 
+conditionally based on whether, or not a value is true. 
+\begin{lstlisting}
+<!-- toggle the "special" class on/off with a property -->
+<button (click)="!isOpen">Toggle</button>
+<div [ngClass]="isOpen ? 'open' : ''">This div is special</div>
+\end{lstlisting}
 
+In the above code, we are toggling the class active based on the status of 
+the toggle. So when the toggle button is clicked on, \lstinline{isOpen} will 
+now be true, and as a result, "open" class will now be active. 
+\lstinline{isActive}. 
 
+\mybox{The question mark(?) and colon (:), is the standard syntax for ternary
+operator in Javscript. Meaning if value is true, perform operation after
+ \lstinline{?} i.e. \lstinline{'open'}. If value is not true, then perform 
+ operation after \lstinline{:}} i.e. \lstinline{''}. 
+
+ \subsection{ NgStyle }
+This one is debatable if I want to include in the book. Let's discuss at a
+later period of time. 
 
