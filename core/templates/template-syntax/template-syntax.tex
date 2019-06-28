@@ -41,7 +41,7 @@ on the actual directive.
 \end{lstlisting}
 
 You might be wondering why this is called property binding instead of 
-attribute binding. \lstinline{src} is actually an attribute. The reason behind
+attribute binding. \lstinline{src} is actually an attribute. The reason behind1
 this, is that Angular's engine will actually first initialize the component, 
 and then change the property set by the browser. In addition, Angular will 
 compile the component, as an object, and therefore internally is setting 
@@ -61,9 +61,38 @@ using the native lowercased attribute \lstinline{colspan}.
 \mybox{You might be wondering why Angular decided to choose brackets for 
 property binding. Without delving too much, in Javascript, wrapping an array 
 around a value, signifies that it is property. Angular is just borrowing from
-that syntax. }
+that syntax.}
+
+\subsubsection{ Remembering Brackets }
+If you omit the brackets \lstinline{[]}, then Angular will treat the value
+provided as a constant. Which means for the most part, you should be using
+brackets. There are threee situations wherein omitting brackets make sense. 
+\begin{enumerate}
+  \item Target property actually uses a string. For instance, the text for 
+  the header title. 
+  \item Value of initialization never changes.
+\end{enumerate}
+
+\subsection{ Attribute Binding }
+As we discussed earlier, there is a very distinct difference between 
+attributes and properties. Setting a property is always preferable 
+simply because the syntax is more straight forward. However, there are many 
+Javascript properties that simply arent't available as properties. A great
+example of this is SVG's and ARIA labels. In a scenario like this , we can bind 
+to an attribute by doing something like the following: 
+\begin{lstlisting}
+<!-- create and set an aria attribute for assistive technology -->
+<button [attr.aria-label]="actionName">{{actionName}} with Aria</button>  
+\end{lstlisting}
+
+So we can bind to attributes similarly to how we bind to properties. Depending
+on the nature of your application, it may not, or not happen on a frequent 
+basis.
+
+\subsection{ Class Binding }
 
 
 \mybox{\lstinline{<script>} tags in Angular, unlike modern html are forbidden!
 It will result in an error. This is done to prevent from script injections.}
 
+\subsection{ Class Binding }
