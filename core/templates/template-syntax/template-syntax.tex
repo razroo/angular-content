@@ -89,10 +89,36 @@ So we can bind to attributes similarly to how we bind to properties. Depending
 on the nature of your application, it may not, or not happen on a frequent 
 basis.
 
-\subsection{ Class Binding }
+\subsection{ Event Binding }
+Event binding, is an event listening mechanism built into Angular. Whenever 
+something such a keyboard button pressed(keystrokes), mouse moves, clicks etc. 
+it will be able to trigger the appropriate function at that time. The syntax 
+for doing something like this is as follows: 
+\begin{lstlisting}
+<button (click)="onSave($event)">Save</button> 
+\end{lstlisting}
 
+In the above code, we are telling Angular, when a user clicks on the button 
+emit the method contained within our respective component called 
+\lstinline{onSave}. 
+
+\mybox{You might be wondering why Angular chose to use parenthesis for handling 
+event handlers. To me of all the different sorts of syntaxes, it always made 
+the most sense, because parenthesis is remniscient of functions. Event handling
+always results in functions. So that is what the syntax is telling us. Which 
+function would you like to trigger based on the handling of this event.}
+
+\subsection{\$event}
+In addition, we are supplying it with \lstinline{$event} which is Angular's way
+of internally passing data for that particular component. Depending on the 
+target event, it will change what is returned by \lstinline{$event}. For 
+instance, if it is a native DOM element event, then \lstinline{$event} will be 
+a DOM event object. If it is not a native DOM element, and instead something 
+such as an event emitter, then event will contain the value passed on through 
+the event emitter. 
 
 \mybox{\lstinline{<script>} tags in Angular, unlike modern html are forbidden!
 It will result in an error. This is done to prevent from script injections.}
 
-\subsection{ Class Binding }
+
+
