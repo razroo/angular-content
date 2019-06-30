@@ -149,7 +149,7 @@ Let's look into and see if this is something that we want, and decide if we
 want to get back to this. 
 
 \subsection{ NgSwitch }
-lstinline{NgSwitch} is Angular's template version of a Javascript 
+\lstinline{NgSwitch} is Angular's template version of a Javascript 
 \lstinline{switch} statement. Like switch statements in Javascript, there are 
 very few use cases wherein it makes sense. In addition, in data heavy 
 applications, in general, using something like GraphQL, you will be able to 
@@ -174,3 +174,25 @@ useful. \lstinline{NgSwitch} consists of three directives:
 </div>
 \end{lstlisting}
 
+\subsection{ Template Reference Variables }
+Template reference variables are incredibly useful within an application, and 
+are commonly used within Angular. The reason for this, is that it is 
+referencing the:
+\begin{enumerate}
+  \item DOM element within the template
+  \item Directive/Component
+  \item \lstinline{TemplateRef}
+  \item Web Component
+\end{enumerate}
+
+In order to reference a partcular template, use the hash symbol, and a name of 
+your choosing. 
+
+\begin{lstlisting}
+<input #row placeholder="code" />  
+
+<button (click)="initiateGrid(row.value)">Initiate Grid</button>
+\end{lstlisting}
+
+In the above, using our \lstinline{ref} value, we are able to retrieve the 
+text entered into our input DOM element(i.e. row.value). 
