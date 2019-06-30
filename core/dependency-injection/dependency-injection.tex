@@ -122,7 +122,10 @@ providing tokens in Angular:
 \begin{enumerate}
   \item strings - {provide: ``EmailService'', useClass: MandrillService}
   \item type tokens - {provide: EmailService, useClass: MandrillService}
-  \item injection tokens -new InjectionToken{provide: EmailService, useClass:}
+  \item injection tokens - new InjectionToken{provide: EmailService, useClass:}
   avoids name clashes.
 \end{enumerate}
 
+Tokens can be a useful way for providing a default value to be used across the 
+app, and then hijacking the value, and providing something else, in the 
+scenarios where it is not of use. 
