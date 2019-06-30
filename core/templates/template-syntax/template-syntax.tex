@@ -149,4 +149,28 @@ Let's look into and see if this is something that we want, and decide if we
 want to get back to this. 
 
 \subsection{ NgSwitch }
+lstinline{NgSwitch} is Angular's template version of a Javascript 
+\lstinline{switch} statement. Like switch statements in Javascript, there are 
+very few use cases wherein it makes sense. In addition, in data heavy 
+applications, in general, using something like GraphQL, you will be able to 
+choose what data should come back based on a certain response. However, there 
+are scenarios, where keeping lstinline{NgSwitch} in your arsenal will be 
+useful. \lstinline{NgSwitch} consists of three directives: 
+\begin{enumerate}
+  \item \lstinline{NgSwitch} - The switch in which to compare case statements against. 
+  \item \lstinline{NgSwitchCase} - The case statement, in which to display 
+  value, if match is truthy. 
+  \item \lstinline{NgSwitchDefault} - The default value, if none of the other
+  case values are matched. 
+\end{enumerate}
+
+\begin{lstlisting}
+<div [ngSwitch]="code.type">
+  <px-css-item    *ngSwitchCase="'css'"    [item]="currentItem"></px-stout-item>
+  <px-scss-item   *ngSwitchCase="'scss'"     [item]="currentItem"></px-device-item>
+  <px-javascript-item     *ngSwitchCase="'javascript'"  [item]="currentItem"></px-javascript-item>
+  <!-- . . . -->
+  <px-unknown-item  *ngSwitchDefault           [item]="currentItem"></px-unknown-item>
+</div>
+\end{lstlisting}
 
