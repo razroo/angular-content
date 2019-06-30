@@ -195,4 +195,35 @@ your choosing.
 \end{lstlisting}
 
 In the above, using our \lstinline{ref} value, we are able to retrieve the 
-text entered into our input DOM element(i.e. row.value). 
+text entered into our input DOM element(i.e. row.value). Based on the scenario, 
+ref values have their use cases. 
+
+\subsection{ Safe Navigation Operator }
+Many times when retrieving data, it might come back as null, or undefined. In
+scenario like this, doing the following: 
+\begin{lstlisting}
+<p>Hello {{user.name}}! How can we help you today?</p>  
+\end{lstlisting}
+
+In the above, if user returns as null, or undefined, the browser will return 
+an error: 
+\begin{lstlisting}
+TypeError: Cannot read property 'name' of null.  
+\end{lstlisting}
+
+However, if we use the safe navigation operator: 
+\begin{lstlisting}
+  <p>Hello {{user?.name}}! How can we help you today?</p>  
+\end{lstlisting}
+
+(notice the addition of the question mark, appended to our parent variable), 
+Angular will stop evaluating as soon as it hits the first \lstinline{null}
+value. It will therefore render without any erorrs.
+
+This also works with longer property paths. For instance: 
+\begin{lstlisting}
+<p>Hello {{user?.admin?.name}}! How can we help you today?</p>    
+\end{lstlisting}
+
+In any data heavy enterprise app, you can expect to use the safe navigation
+operator quite often. If you want, you can call it the elvis operator. 
