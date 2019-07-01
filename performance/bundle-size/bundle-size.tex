@@ -1,0 +1,32 @@
+\section{Bundle Size}
+\maketitle{}
+
+Bundle sizes ironically, are one of those things that tend to get overlooked. 
+It's ironic, because it can make such a large difference to a user, using the
+app for the first time, while simaltaneously being one of the easier things to 
+tackle. I think for that reason it tends to not get the attention it needs,
+because it doesn't exactly fit into the box of computer science.
+
+\subsection{Being Aware of Bundle Size}
+When you run \lstinline{ng build --prod}, Angular will generate 4 files: 
+\begin{enumerate}
+  \item runtime.*.js
+  \item main.*.js
+  \item polyfills.*.js
+  \item styles.*.css
+\end{enumerate}
+
+Of the above, the largest will be main.js files. If we dissect our bundle size, 
+it's important to keep in mind that this bundle size will be contributed to by 
+a number of different things. This chapter won't go into how to decrease the 
+bundle size before it is bundled, but rather after it has been bundles. 
+
+\subsection{Gzip}
+gzipping for those that are not familiar, is the process of taking a chunk of 
+data and making it smaller. The original data can be restored by un-zipping the
+compressed file. Within the context of HTTP protocol, it has the ability to
+unzip a file. There is a bit of a cost from the side of the browser to unzip a 
+file. However, generally the benefit of a lower bundle size, outweighs the fact
+that the browser will have to unzip the file.
+
+A gzipped 
