@@ -27,6 +27,20 @@ data and making it smaller. The original data can be restored by un-zipping the
 compressed file. Within the context of HTTP protocol, it has the ability to
 unzip a file. There is a bit of a cost from the side of the browser to unzip a 
 file. However, generally the benefit of a lower bundle size, outweighs the fact
-that the browser will have to unzip the file.
+that the browser will have to unzip the file. All that is needed, is for your 
+devops person, to set the gzip setting on your server.
 
-A gzipped 
+As a general rule of thumb, gzipped files are about 20\% the size of the 
+original file, which of course, will drastically decrease the initial load time
+of your app. If you would like to check and see whether, or not your files are 
+gzipeed, you can simply open up your console, and check the "Content-Encoding" 
+under the Response Headers. If it says "Content-Encoding: "gzip", then you are 
+in good hands, otherwise, you might be in trouble.
+
+\subsubsection{ How to Gzip }
+Gzip'ing is something that should be controlled by your CDN, which will also 
+deal with a slew of other things to make sure your files are served. However, 
+your backend team will be able to deal with this one relatively quick, if they 
+are not using a CDN system, due to many packages out of the box dealing with 
+this. 
+
