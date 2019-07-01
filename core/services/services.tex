@@ -28,4 +28,52 @@ that in later chapters.
 A service generally deals with data. This means making data requests, and 
 passing that data into our component. Razroo reccomends using Apollo Client
 instead of Angular's internal http client, due to the fact that we strongly 
-suggest using GraphQL for our application. 
+suggest using GraphQL for our application. This is what a typical service 
+would look like: 
+\begin{lstlisting}
+  import { Injectable } from '@angular/core';
+  
+  import { Observable, from } from 'rxjs';
+  import { pluck } from 'rxjs/operators';
+  import { Apollo } from 'apollo-angular';
+  
+  @Injectable({ providedIn: 'root' })
+  export class UserService {
+    getUser(): Observable<User> {
+      const user$ = this.apollo.query({ query: GetCurrentUser });
+  
+      return from(user$).pipe(pluck('data', 'getCurrentUser'));
+    }
+    constructor(private apollo: Apollo) {}
+  }
+\end{lstlisting}
+
+In the above code, you will notice that we have created a \lstinline{getUser()}
+method for our \lstinline{UserService}. By doing this, we have separated logic 
+from our component, and allow for our code to be more re-usabled. For instance, 
+if we want get the user data, we can simply include the service in the 
+appropriate component, and use the data as needed. 
+
+\subsection{Including Service In Our Component}
+If we would like to use this service in our component, we can simply inject 
+the appropriate service in our constructor. 
+
+\begin{lstlisting}
+  // code-box.component.ts
+  import { Component }   from '@angular/core';
+  import { User }        from './code-box.interfaces';
+  import { UserFacade } from './user.facade';
+  
+  @Component({
+    selector: 'px-code-box',
+    template: './code-box.component.html',
+    styles: ['./code-box.component.scss'],
+  })
+  export class HeroListComponent {
+    user: User;
+  
+    constructor(userFacade: UserFacade) {
+      this.user = userFacade.getUser();
+    }
+  }
+\end{lstlisting}
