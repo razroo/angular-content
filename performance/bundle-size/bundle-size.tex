@@ -44,3 +44,45 @@ your backend team will be able to deal with this one relatively quick, if they
 are not using a CDN system, due to many packages out of the box dealing with 
 this. 
 
+\subsection{Analyze Your Angular Bundle}
+Webpack has a built in tool that one can use to analyze build. For starters, 
+it has an incredible visualization of what your entire build looks like.
+\footnote{Insert photo here on snapshot.}. In addition, it will tell you about 
+things such as: 
+\begin{enumerate}
+  \item You forgot to remove some packages that you aren't using anymore.
+  \item Some packages are larger than expected, and can be replaced with
+  another.
+  \item You have improperly imported libraries.
+\end{enumerate}
+
+In order to get the above data: 
+\begin{enumerate}
+\item 
+\begin{verbatim}
+npm install -g webpack-bundle-analyzer 
+\end{verbatim}
+Then, in you Angular app, run: 
+\item 
+\begin{verbatim}
+ng build --stats-json
+\end{verbatim}
+We are going to be running stats on the original non minified build, as we 
+want to make sure we do not muddy the results coming back from out stats. 
+\item 
+Finally we run: 
+\begin{verbatim}
+webpack-bundle-analyzer path/to/your/stats.json  
+\end{verbatim}
+and navigate to \lstinline{localhost:8888} wherein we will see our results.
+\end{enumerate}
+
+\subsection{Monitoring Bundle Size}
+In Angular 7, and later, angular adds a config in your \lstinline{angular.json}
+file. 
+
+
+
+
+
+
