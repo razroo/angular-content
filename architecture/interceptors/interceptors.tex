@@ -1,3 +1,17 @@
-\section{ Interceptors }
+\section{ Http Interceptors }
 \maketitle{}
 
+An http interceptor, is a way to intercept an HTTP request, before passing them
+along. Some of the more popular reasons of doing something like this, include 
+Authentication, and adding default Headers to requests. I would like to add 
+scenarios for an Angular dev to be aware of, wherein they should apply 
+interceptors. In addition, I would like to reccomend the use of using Apollo 
+Client middleware over Angular's Http Interceptors, as that is Razroo's 
+reccomendation. Third, I would like to bring in code examples, so that it will
+be easier for the dev reading this to get up and running.
+
+\subsection{Dissecting Two Ways of Creating Interceptors}
+Within our architecture we assume that your backend team will be using GraphQL. 
+However, this is something that is beyond you as a UI Engineer. As a result,
+we give a head nod towards there being multiple apis, including those using a 
+regular 
