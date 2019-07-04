@@ -14,10 +14,32 @@ be easier for the dev reading this to get up and running.
 Within our architecture we assume that your backend team will be using GraphQL. 
 However, this is something that is beyond you as a UI Engineer. As a result,
 we give a head nod towards there being multiple apis, including those using a 
-regular RestSvc. 
+regular RestSvc. This translates to: 
+\begin{enumerate}
+  \item Apollo Client 
+  \item Angular's native \lstinline{HttpInterceptor}
+\end{enumerate}
 
 \subsection{ Understanding Interceptors In General}
-An Interceptor will take in the current request, and 
+An Interceptor will generally take in the current outgoing request, and pass 
+in the next interceptor. Alternatively, it can transform the response stream 
+it's self. A great example of how interceptors work would be wherein we simply
+want to be able to show the user a dialog, if we ever get back a response that
+doesn't 
+
+The following is a great example of how interceptors work. Let's say that we
+want to console out an error whenever it arises. In addition, we want to 
+set up different errors based on how they hapen. 
+\begin{lstlisting}
+  return next.handle(req).pipe(
+    tap((event: HttpEvent<any>) => {
+    if (event instanceof HttpResponse && event.status === 400) {
+      this.dialog.error("There was an error trying to make your request. 
+      If this continues to persists, please e-mail 401@razroo.com");
+    }
+  })
+  );
+\end{lstlisting}
 
 \subsection{ Popular Scenarios For Using Interceptors }
 Just to make it so, so that someone embarking on interceptors on the first 
