@@ -16,20 +16,21 @@ However, this is something that is beyond you as a UI Engineer. As a result,
 we give a head nod towards there being multiple apis, including those using a 
 regular RestSvc. This translates to: 
 \begin{enumerate}
-  \item Apollo Client 
   \item Angular's native \lstinline{HttpInterceptor}
+  \item Apollo Client 
 \end{enumerate}
 
-\subsection{ Understanding Interceptors In General}
+\subsection{Understanding Interceptors In General}
 An Interceptor will generally take in the current outgoing request, and pass 
 in the next interceptor. Alternatively, it can transform the response stream 
-it's self. A great example of how interceptors work would be wherein we simply
-want to be able to show the user a dialog, if we ever get back a response that
-doesn't 
+it's self. 
+
+\subsection{Example of Interceptor using HttpInterceptor}
 
 The following is a great example of how interceptors work. Let's say that we
-want to console out an error whenever it arises. In addition, we want to 
-set up different errors based on how they hapen. 
+want to console out an error whenever it happens. In addition, we want to 
+set up different errors based on how they happened. Something simple like 
+the above can setup error handling notifications across the site for all users.  
 \begin{lstlisting}
   return next.handle(req).pipe(
     tap((event: HttpEvent<any>) => {
@@ -41,7 +42,11 @@ set up different errors based on how they hapen.
   );
 \end{lstlisting}
 
-\subsection{ Popular Scenarios For Using Interceptors }
+\subsection{Example of Interceptor using Apollo Client}
+Apollo Client out of the box offers out of the box middleware to intercept an
+http request. 
+
+\subsection{Popular Scenarios For Using Interceptors}
 Just to make it so, so that someone embarking on interceptors on the first 
 time can be aware, as well, as those who have already worked on it. In
 particular, so they can reference this chapter when working on them again. 
