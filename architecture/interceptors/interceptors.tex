@@ -130,11 +130,6 @@ would make sense to create a special lib folder for apollo within common.
 Within the special folder for apollo, we can create a series of link functions
 and import them within the \lstinline{app.module.ts} file.
 
-\subsection{Popular Scenarios For Using Interceptors}
-Just to make it so, so that someone embarking on interceptors on the first 
-time can be aware, as well, as those who have already worked on it. In
-particular, so they can reference this chapter when working on them again. 
-
 \subsubsection{ Authentication }
 Starting from what will be time, and time again, the most single most important
 piece of your application. Authentication, if not already aware, is the process 
@@ -172,4 +167,9 @@ therefore becomes:
 In addition, every time authentication is worked on for the first time in an 
 application, it tends to be specific to framework, and technology within 
 framework you are working on. 
+
+\subsection{Other Interceptors to Be Aware Of}
+There are many other interceptors to be aware of. It is important to note, that
+Authentication is the main one. It is also possible to set up global errors 
+across the site based on different errors codes.
 
