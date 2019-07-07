@@ -44,7 +44,57 @@ the above can setup error handling notifications across the site for all users.
 
 \subsection{Example of Interceptor using Apollo Client}
 Apollo Client out of the box offers out of the box middleware to intercept an
-http request. 
+http request. Generally that this means, that there will be a series of 
+apollo functions in your lib folder. 
+
+\begin{lstlisting}
+// authContext to set Authorization token for every request sent from client
+const authContext = setContext(async (request, previousContext) => {
+  // Getting the token from the session service
+  const token = await this.session.getToken();
+
+  // return {} if token is not set yet
+  if(!token) {
+    return {}
+  }
+
+  // Set Authorization headers with token
+  return {
+    headers: {Authorization: `Bearer ${token}`}
+  }
+});
+\end{lstlisting}
+
+Using apolloLink, we will combine all of the middleware we have created 
+throughout the \lstinline{module.ts} file. 
+
+\begin{lstlisting}
+// creating the conditional link for http and ws requests
+const link = split(({query}) => {
+  const { kind, operation } = getMainDefinition(query);
+  return kind === 'OperationDefinition' && operation === 'subscription';
+}, ws, ApolloLink.from([authContext, error, afterwareLink, http]));
+\end{lstlisting}
+
+While in our code, for purposes of demonstration, we have only included the
+section that includes the link. Other links are bundled together. We can 
+then include this general link in our apollo \lstinline{app.module.ts} file.
+
+\begin{lstlisting}
+// creating the final Apollo client link with all the parameters
+apollo.create({
+  link: link,
+  cache: new InMemoryCache(),
+  defaultOptions: {
+    query: {
+      fetchPolicy: 'network-only'
+    }
+  }
+});
+\end{lstlisting}
+
+In the above, we are including our link in oru apollo create. This makes it, so
+that all our middleware intercepts our apollo requests before they happen. 
 
 \subsection{Popular Scenarios For Using Interceptors}
 Just to make it so, so that someone embarking on interceptors on the first 
