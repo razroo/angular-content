@@ -17,8 +17,36 @@ we give a head nod towards there being multiple apis, including those using a
 regular RestSvc. This translates to: 
 \begin{enumerate}
   \item Angular's native \lstinline{HttpInterceptor}
-  \item Apollo Client 
+  \item Apollo Client / Apollo Link
 \end{enumerate}
+
+\subsection{Should We Even Use Apollo Link At All?}
+One of the popular questions people ask, is should even be using apollo link at 
+all. HTTP Interceptor is used under the hood for Apollo Client. The truth is, 
+this is a fundemental question that can be applied in many similar scenarios. 
+We are using a framework. One piece of it that it offers, is not required by 
+our application. Should we use it, or should we not? 
+\begin{enumerate}
+  \item Are other teams using our framework, and if not will they have a chance
+  to use our tech? 
+  \item Do we ever expect to use any framework beyond the one we are using(in 
+  our scenario Apollo Client)? 
+  \item If unexpectedly, which it always is. If unexpectedly, we end up 
+  changing over our framework, how difficult will it be to create this code 
+  once again? 
+  \item Ease of use for the framework, vs using native code. 
+  \begin{enumerate}
+    \item Documentation better for one, over the other? 
+    \item Integration for this particular aspect of framework easier granted 
+    already using other pieces of framework? 
+  \end{enumerate}
+\end{enumerate}
+
+Using the above back and forth, it would make sense to use Apollo Client's 
+native functionality for middleware. To use HTTP Interceptors, and then 
+move over to Apollo Client for everything else, such as cache, makes 
+maintenance more cumbersome. For that reason Razroo reccomends using Apollo
+Link for middleware.
 
 \subsection{Understanding Interceptors In General}
 An Interceptor will generally take in the current outgoing request, and pass 
@@ -96,27 +124,11 @@ apollo.create({
 In the above, we are including our link in the apollo create. This makes it, so
 that all our middleware intercepts our apollo requests before they happen. 
 
-\subsection{Should We Even Use Apollo Link At All?}
-One of the popular questions people ask, is should even be using apollo link at 
-all. HTTP Interceptor is used under the hood for Apollo Client. The truth is, 
-this is a fundemental question that can be applied in many similar scenarios. 
-We are using a framework. One piece of it that it offers, is not required by 
-our application. Should we use it, or should we not? 
-\begin{enumerate}
-  \item Are other teams using our framework, and if not will they have a chance
-  to use our tech? 
-  \item Do we ever expect to use any framework beyond the one we are using(in 
-  our scenario Apollo Client)? 
-  \item If unexpectedly, which it always is. If unexpectedly, we end up 
-  changing over our framework, how difficult will it be to create this code 
-  once again? 
-  \item Ease of use for the framework, vs using native code. 
-\end{enumerate}
-whenever I come across scenarios like this, my thoughts are two fold. 
-
 \subsection{Folder/File Structure for HTTP Interceptors}
 Regardless, if using Apollo, or HttpInterceptors within your application, it 
-would
+would make sense to create a special lib folder for apollo within common. 
+Within the special folder for apollo, we can create a series of link functions
+and import them within the \lstinline{app.module.ts} file.
 
 \subsection{Popular Scenarios For Using Interceptors}
 Just to make it so, so that someone embarking on interceptors on the first 
