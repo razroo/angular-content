@@ -13,16 +13,72 @@ First and foremost it is important to understand something called a color
 palette. I know some of you might be aware of what it is, but personally, I was
 not aware. A color palette in the digital world, refers to the full range of 
 colors that can be displayed on a device. Within a material design application 
-it refers to the range of colors that will be used within the application. 
-Material's design language makes use of only two colors: 
+it refers to the range of colors that can be used within the application. 
+Material's design language makes use of two main colors for it's color palette: 
+
+\subsubsection{Primary and Secondary Values}
 \begin{enumerate}
-  \item Primary
-  \item Secondary
+  \item Primary - Color displayed most frequently across your app's screens and
+  components. 
+  \item Secondary - "Provides more ways to accent and distinguish your product."
+  \begin{enumerate}
+    \item Floating Action Button(Literally buttons that float over main content)
+    \item Selection controls(sliders, switches etc.)
+    \item Highlighting selected text
+    \item Progress bars
+    \item Links and headlines
+  \end{enumerate}
 \end{enumerate}
 
+\subsubsection{Material Color Maps}
+
 It will then create a series of light and dark variants based on the primary 
-and secondary values. Material will create a series of 10 color values based
-on each. 
+and secondary values. The primary and second values must be a map of colors 
+going from lightest(50) to darkest(900). 
+
+Material has already created a series of 16 color maps, for it's design system. 
+An example of material green color map, for instance, will look something like 
+this: 
+\begin{lstlisting}
+$mat-green: (
+  50: #e8f5e9,
+  100: #c8e6c9,
+  200: #a5d6a7,
+  300: #81c784,
+  400: #66bb6a,
+  500: #4caf50,
+  600: #43a047,
+  700: #388e3c,
+  800: #2e7d32,
+  900: #1b5e20,
+  A100: #b9f6ca,
+  A200: #69f0ae,
+  A400: #00e676,
+  A700: #00c853,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $dark-primary-text,
+    A400: $dark-primary-text,
+    A700: $dark-primary-text,
+  )
+);
+\end{lstlisting}
+
+For primary values, the regular value will start at 500. For secondary values, 
+the regular value will start at 200. The significagance of these values is that 
+Material Design will follow a Hierarchical system. The darker the color is, the 
+more of an emphasis we are placing on that button. The lighter it is, the less 
+emphasis we are placing on that element. 
 
 \subsection{Material Design and Sass}
 First and foremost, we have already established that we will be working within
