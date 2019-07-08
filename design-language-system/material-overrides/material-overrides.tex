@@ -21,7 +21,32 @@ npm install --save @angular/material @angular/cdk @angular/animations
 \end{lstlisting}
 
 You package.json will now include packages needed to use Angular Material 
-within the application in general. In addition, the package(@angular/material)
-to make the Sass changes we so dearly need. 
+within the application in general. In addition, the package
+(\lstinline{@angular/material}) to make the Sass changes we so dearly need. 
+
+\subsection{Import Material Design and Call Core Styles}
+The next step, is for us to go ahead and import Material Design in our 
+\lstinline{styles.scss} file. The \lstinline{styles.scss} file can be found
+in the root Angular application \lstinline{src} folder.
+
+\begin{lstlisting}[caption=styles.scss]
+@import '~@angular/material/theming';
+// always include only once per project
+@include mat-core();
+\end{lstlisting}
+
+\mybox{You will notice that we are adding a tilda\lstinline{\~} next to the
+node module folder, containing the sass file we need. This tell the sass that
+file we would like to import is located inside of the \lstinline{node\_modules}
+folder.}
+
+What the above does is import the \lstinline{theming.scss} file that contains
+all of the theming variables for material design. We are also calling the
+\lstinline{mat-core()} function, which is a, \begin{quote}
+\say{Mixin that renders all of the core styles that are not theme-dependent.}
+\end{quote} \footnote{This quote can be found in the \lstinline{_theming.scss 
+file}}
+
+\subsection{Customize Theme}
 
 
