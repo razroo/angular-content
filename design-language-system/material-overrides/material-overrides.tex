@@ -8,6 +8,22 @@ Angular Material. When that happens the developer will have to go ahead and
 customize the build for material design. Let's talk about how we can go ahead 
 and do that. 
 
+\subsection{Understanding Colors in Material}
+First and foremost it is important to understand something called a color 
+palette. I know some of you might be aware of what it is, but personally, I was
+not aware. A color palette in the digital world, refers to the full range of 
+colors that can be displayed on a device. Within a material design application 
+it refers to the range of colors that will be used within the application. 
+Material's design language makes use of only two colors: 
+\begin{enumerate}
+  \item Primary
+  \item Secondary
+\end{enumerate}
+
+It will then create a series of light and dark variants based on the primary 
+and secondary values. Material will create a series of 10 color values based
+on each. 
+
 \subsection{Material Design and Sass}
 First and foremost, we have already established that we will be working within
 a Sass environment. Material Design offers Sass out of the box, and makes it 
@@ -44,9 +60,34 @@ What the above does is import the \lstinline{theming.scss} file that contains
 all of the theming variables for material design. We are also calling the
 \lstinline{mat-core()} function, which is a, \begin{quote}
 \say{Mixin that renders all of the core styles that are not theme-dependent.}
-\end{quote} \footnote{This quote can be found in the \lstinline{_theming.scss 
-file}}
+\end{quote} \footnote{This quote can be found in the \lstinline{_theming.scss}
+file}
 
-\subsection{Customize Theme}
+\subsection{Material Light + Dark Theme}
+Angular offers out of the box in the \lstinline{_theming.scss} file a light and
+dark theme function. The function looks as follows: 
+\begin{lstlisting}
+@function mat-light-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $mat-light-theme-foreground,
+    background: $mat-light-theme-background,
+  );
+}  
+\end{lstlisting}
+
+It takes in two required parameters: 
+\begin{enumerate}
+  \item primary - Primary color
+  \item accent - Accent color 
+\end{enumerate}
+and one optional parameter called warn, which by default will be red. Material 
+will also by default specify warn as being red. 
+
+
+
 
 
