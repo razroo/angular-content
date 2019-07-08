@@ -1,3 +1,27 @@
 \maketitle{}
 \section{ Material Overrides }
 
+Based on Razroo best practices, we have established the easiest way to get 
+your app up and running, is to use material design within your Angular 
+application. Generally, an organization will want to roll it's own theme into 
+Angular Material. When that happens the developer will have to go ahead and 
+customize the build for material design. Let's talk about how we can go ahead 
+and do that. 
+
+\subsection{Material Design and Sass}
+First and foremost, we have already established that we will be working within
+a Sass environment. Material Design offers Sass out of the box, and makes it 
+incredibly easy to customize your environment based on sass overrrides. 
+
+\subsection{Npm Install Material Theme}
+First and foremost, let's make sure that we have properly installed and Angular
+Material in our Angular application. 
+\begin{lstlisting}
+npm install --save @angular/material @angular/cdk @angular/animations
+\end{lstlisting}
+
+You package.json will now include packages needed to use Angular Material 
+within the application in general. In addition, the package(@angular/material)
+to make the Sass changes we so dearly need. 
+
+
