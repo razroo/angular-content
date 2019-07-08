@@ -150,7 +150,16 @@ It takes in two required parameters:
 and one optional parameter called warn, which by default will be red. Material 
 will also by default specify warn as being red. 
 
+So let's say we wanted to create a custom theme based on some of the values 
+that Angular provides, we can do the following: 
 
+\begin{lstlisting}
+$px-app-primary: mat-palette($mat-green);
+$px-app-accent: mat-palette($mat-yellow);
 
+$px-theme: mat-light-theme($px-app-primary, $px-app-accent);
 
+@include angular-material-theme($px-theme);
+\end{lstlisting}
 
+Now all of our Angular Material components, will be using our unique theme.
