@@ -196,6 +196,44 @@ and inside of it, we are going to create a \lstinline{_themes.scss} file. Our
 generated themes using our primary, or seconday colors might look something 
 like this:
 
+\begin{lstlisting}
+$razroo-primary-blue: (
+  50 : #e7f2f4,
+  100 : #c3dee4,
+  200 : #9cc8d3,
+  300 : #74b2c1,
+  400 : #56a2b3,
+  500 : #3891a6,
+  600 : #32899e,
+  700 : #2b7e95,
+  800 : #24748b,
+  900 : #17627b,
+  A100 : #b3eaff,
+  A200 : #80dcff,
+  A400 : #4dcfff,
+  A700 : #33c8ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+\end{lstlisting}
+
+It's quite a bit, but I just wanted to visualize that all of this is created by
+using the Material Design Palette Generator. 
+
 \subsection{Background + Foreground}
 It is important to mention that using this approach, we will not be able to
 change the background, or foreground color for our application. This is
