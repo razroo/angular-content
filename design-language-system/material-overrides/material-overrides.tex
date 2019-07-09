@@ -356,7 +356,6 @@ Now, we have the option to apply a css theme specifically to the
 razroo-no-padding-dialog class. 
 
 \begin{lstlisting}
-// Add this to your global stylesheet after your theme setup
 .myapp-no-padding-dialog .mat-dialog-container {
   padding: 0;
 }
@@ -366,4 +365,14 @@ This gives us freedom moving forward, so that we can have multiple appearances
 for our material components.
 
 \subsection{Overriding Non Overlay Components}
-
+Non overlay components, do not have the option to add a \lstinline{panelClass}.
+The only solution which truly makes sense, is to create a global override on
+the component itself. So, let's say that we wanted to change the appearance of
+our material card components. Perhaps make the padding a little less pronounced.
+We would do the following: 
+\begin{lstlisting}[caption=\_mat-card.scss override]
+  .mat-card {
+    // this will be 8px
+    padding: rz-space-multiplier(1);
+  }
+\end{lstlisting}
