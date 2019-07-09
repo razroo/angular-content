@@ -331,10 +331,39 @@ times wherein we will need to override specific styles for the component.
 There really isn't any way to modify the styling ahead of time. The only way
 is to target the specific material component's class, and to modify it when 
 appropriate. However, what we can do, is consolidate all of our overridden
- components in a singular place, so that it is well organized. For instance, 
- let's say that we have a dialog that we would like to remove padding for 
- in some scenarios, but keep it in others. We would put a dialog file inside of
- our material overrides folder. Our folder/file structure will look like the
- following: 
+components in a singular place, so that it is well organized. For instance, 
+let's say that we have a dialog that we would like to remove padding for 
+in some scenarios, but keep it in others. We would put a dialog file inside of
+our material overrides folder. Our folder/file structure will look like the
+following: 
 
- \input{./design-language-system/material-overrides/material-overrides-tree-structure.tex}
+\input{./design-language-system/material-overrides/material-overrides-tree-structure.tex}
+
+We import every material override into the main 
+\lstinline{\_material-override.scss} file. Then, import the material-override 
+file in our main \lstinline{styles.scss} file. 
+
+\subsection{Overriding Overlay Components}
+If you wish to override an overlay component, overlay components have a 
+\lstinline{panelClass} property that can be used to target the overlay pane. 
+For instance, with regards to dialogs, we have the ability to add a class doing
+the following: 
+\begin{lstlisting}
+this.dialog.open(PxDialogComponent, {panelClass: 'razroo-no-padding-dialog'}) 
+\end{lstlisting}
+
+Now, we have the option to apply a css theme specifically to the 
+razroo-no-padding-dialog class. 
+
+\begin{lstlisting}
+// Add this to your global stylesheet after your theme setup
+.myapp-no-padding-dialog .mat-dialog-container {
+  padding: 0;
+}
+\end{lstlisting}
+
+This gives us freedom moving forward, so that we can have multiple appearances
+for our material components.
+
+\subsection{Overriding Non Overlay Components}
+
