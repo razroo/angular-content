@@ -164,9 +164,21 @@ $px-theme: mat-light-theme($px-app-primary, $px-app-accent);
 
 Now all of our Angular Material components, will be using our unique theme.
 
+\subsection{Creating Our Own Custom Theme}
+Quite common your organization will want to layer their own custom theme 
+outside of the 16 colors that Angular provides. This might manifest it's 
+self in two scenarioes: 
+\begin{enumerate}
+  \item A new primary and secondary color
+  \item In addition to new primary and secondary color, a new background and 
+  foreground color as well. 
+\end{enumerate}
+
 \subsection{Background + Foreground}
 It is important to mention that using this approach, we will not be able to
 change the background, or foreground color for our application. This is
 intentional, as per Material Design guidelines, background does not represent 
 brand. However, what it can represent is the energy your application is trying
-to convey. 
+to convey. However, the Material Foundation did not fully expect you to go 
+ahead and change your background, and foreground, so there is a bit more effort
+required on the side of the developer to make these edits. 
