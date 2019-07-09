@@ -1,5 +1,5 @@
 
-\section{ Input }
+\chapter{ Input }
 
 The Input decorator is one of two integral Angular Decorators, instrumental
 for passing into a component, and out of a component into a another one. It's
@@ -15,7 +15,7 @@ hand in hand. If you would like to create a re-usable component, 9/10 times
 (rough estimate), you will need to use an @Input decorator. Ok, so let's get
 down to how to use it.
 
-\subsection{ Input - An Example }
+\section{ Input - An Example }
 
 Here is a great example. Let's say we have a bank account component, that we
 would like to create. This bank account component will be used on multiple
@@ -52,7 +52,7 @@ into it's own module. This module is then going to be imported by the module,
 containing the component we are going to use. This code is not included at this
 time.}
 
-\subsubsection{ Including Component in another Component }
+\subsection{ Including Component in another Component }
 Now we have the ability to include this component with an Input in another
 component:
 \begin{lstlisting}
@@ -61,7 +61,7 @@ component:
 
 This would be @Input() in a nutshell.
 
-\subsection{ bindPropertyName }
+\section{ bindPropertyName }
 Input() does allow for an optional bindingPropertyName. This would mean that
 the re-usable component would internally refer to the Input value as one way,
 and the consuming component would refer to it, in another.

@@ -1,5 +1,5 @@
 
-\section{ Spectator for Unit Testing  }
+\chapter{ Spectator for Unit Testing  }
 
 There are many quirks that surround angular unit testing. For instance, let's
 assume we have a very basic unit test:
@@ -41,7 +41,7 @@ This sample unit test has a quirk that is specific to Angular. Each time we have
 to go ahead and create a TestBed, as well as a fixture, and include the
 component.
 
-\subsection{Eliminating }
+\section{Eliminating }
 If we were to use spectator, we can do the following:
 
 \begin{lstlisting}
@@ -66,7 +66,7 @@ the scenes, spectator will handle all of these things behind the scenes. In
 addition, we are able to use the toHaveClass method, to check whether, or not
 a class exists.
 
-\subsection{ Triggering Events }
+\section{ Triggering Events }
 
 \begin{lstlisting}
 describe('Highlight Directive', () => {
@@ -94,7 +94,7 @@ describe('Highlight Directive', () => {
 
 Spectator greatly simplifies how we handle event handling within Angular.
 
-\subsection{ Testing Services }
+\section{ Testing Services }
 Spectator greatly simplifies the way we can go ahead and test our services as
 well. Instead of having to create a TestBed that includes the service, we
 can simply do the following:
@@ -118,7 +118,7 @@ Using spectator, we are instead able to able to simply aplly mocks, the mocks
 key. We can then reference the mock service, and return a value, as Spectator
 treats all values as if they are spies.
 
-\subsection{ Testing Components With Custom Host }
+\section{ Testing Components With Custom Host }
 Spectator also has the ability of greatly decreasing code needed to create a
 host element
 

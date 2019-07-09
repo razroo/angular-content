@@ -1,4 +1,4 @@
-\section{ Pipes }
+\chapter{ Pipes }
 
 
 Angular offers the ability to use something called a pipe out of the box. The
@@ -35,12 +35,12 @@ April 15, 1988
 The pipe in this instance, will transform transaction, from a Date object, and
 transform it to a readable date.
 
-\subsection{ The Uniqueness of Pipe }
+\section{ The Uniqueness of Pipe }
 The unique part about an Angular pipe, is that it is something that will be
 defined as a function, but actually be in your html. Any classic way of
 thinking of a function can similarly be applied to a pipe.
 
-\subsection{Chaining Pipes}
+\section{Chaining Pipes}
 If you want, you can chain multiple pipes together, similar to function
 composition, to allow for multiple effects on your html.
 
@@ -56,7 +56,7 @@ APRIL 15, 1988
 
 Chaining pipes, walla!
 
-\subsection{Parameters for Pipes}
+\section{Parameters for Pipes}
 Pipes also take parameters, similar to how functions take parameters. For
 instance, if we want to add a parameter to the default Angular pipe. For
 instance, let's say that we wanted to show the day of the week, in addition to
@@ -72,7 +72,7 @@ and transform data throughout one's app. Here we are also chaining pipes, so
 that the transformed data that comes back in addition to being transformed, is
 also capitalized.
 
-\subsection{ Dis-section of Angular Built in Pipes }
+\section{ Dis-chapter of Angular Built in Pipes }
 I think it's important to show that Angular actually has a relatively limited
 amount of built in pipes:
 \begin{center}
@@ -89,7 +89,7 @@ The reason behind it, is that truly the beauty behind pipes, is that you have
 the ability to create your own. The community, for instance, has created a vast
 amount of pipes beyond that of the built in one's Angular has created.
 
-\subsubsection{ Understanding Angular's Change Detection }
+\subsection{ Understanding Angular's Change Detection }
 This is a good time to interject and get into the nitty gritty of angular's
 change detection. As we discussed in the earlier chapter on change-detection,
 change detection in Angular works from the top down. That is, if a specific set
@@ -98,7 +98,7 @@ result of new data. Angular pipes, however, change how that it is done, by
 changing content directly on the object, and only updating that one specific
 part. By using pipes, it allows one's component to be more performant.
 
-\subsection{ When to Use Pipes }
+\section{ When to Use Pipes }
 Pipes cover alot of ground. Within our architecture, one of the pipes that will
 be used more so that others is the async pipe. However, now is not the place
 to put that here. What is important, is that pipes can be used transform data.

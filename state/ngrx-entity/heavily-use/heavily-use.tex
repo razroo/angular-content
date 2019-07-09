@@ -1,7 +1,7 @@
 
-\section{ The Case for Using Ngrx/Entity by Default}
+\chapter{ The Case for Using Ngrx/Entity by Default}
 
-\subsection{ A Synopsis of Normalization}
+\section{ A Synopsis of Normalization}
 The idea of normalization with regards to relational databases(a database
 structured to recognise relations among stored items of information) is to
 eliminate data redundancy, and anomalies with regards to Insertion, Delete, and
@@ -10,7 +10,7 @@ a large portion of eliminating data redudancy, and CRUD anomalies. However,
 there are many use cases still with regards to Insertion, Delete, and Updating
 anomolies, that can be solved by using normalization within ngrx/platform.
 
-\subsection{Why Ngrx/entity is Exciting}
+\section{Why Ngrx/entity is Exciting}
 @ngrx/entity for me personally, is the most exciting part of ngrx/platform for
 two reasons:
 \begin{enumerate}
@@ -21,9 +21,9 @@ two reasons:
   freshness).
 \end{enumerate}
 
-\subsection{Dis-secting a Real World Example of ngrx/entity}
+\section{Dis-secting a Real World Example of ngrx/entity}
 
-\subsubsection{CodeBox Interface}
+\subsection{CodeBox Interface}
 Let's imagine that we are building a Pixel Illustrator application. Something
 similar to the \href{http://charliegreenman.github.io/codeILL/}{following}. One
 of our interfaces for the state contained within the codeBox, would look
@@ -50,14 +50,14 @@ data that we would like is based on one, or two parameters passed to a function.
 This can be re-used in other stores, as data is structured the same way, and
 selected in the same fashion.
 
-\subsection{ngrx/entity follows this pattern}
+\section{ngrx/entity follows this pattern}
 Ngrx/entity is a library which follows this pattern, so that data used within
 ngrx/store is normalized. This means, within the context of using JSON data,
 that we have a dictionary, combined with an array of ids. The index of the ids
 directly correlates with the key/value in the dictionary. This is very powerful,
 and I will prove it by bringing up a couple of situations.
 
-\subsubsection{The Power of Ngrx/Entity Deep Dive}
+\subsection{The Power of Ngrx/Entity Deep Dive}
 Scenario One:
 Updating one dictionary data set. Let's imagine that we were to load our
 Pixel Illustrator a set of coordinates to populate the pixel illustrator. However,
@@ -75,7 +75,7 @@ correlation id pattern. This is such a powerful pattern.
 
 Scenario Three:
 Let's say we have a data table, and we would like to know which set's of data
-we have selected. We have the ability to pass in id, into another section of
+we have selected. We have the ability to pass in id, into another chapter of
 data store, called selectedIds. So we can have a checkbox, select multiple
 checkboxes, and know which data sets have been selected.
 
@@ -86,7 +86,7 @@ more manipilating data, more re-usable.
 
 These are just four real worlds scenarios, and the list goes on.
 
-\subsection{Choosing Ngrx/entity as the Default}
+\section{Choosing Ngrx/entity as the Default}
 This leads to the point this chapter is trying to make. In any situation with
 data, odds are that you are going to update, delete, upsert, or pull in more
 data for a specific subset of data. This means, that anytime that you are going

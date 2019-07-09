@@ -1,5 +1,5 @@
 
-\section{ Pixel Grid Container Layout }
+\chapter{ Pixel Grid Container Layout }
 
 Now that we have introduced Flex Layout and our designs call for three elements:
 \begin{enumerate}
@@ -8,7 +8,7 @@ Now that we have introduced Flex Layout and our designs call for three elements:
   \item Color Picker
 \end{enumerate}
 
-\subsection{ Anticipate for Future Components }
+\section{ Anticipate for Future Components }
 
 We know that we will have three components that will be set up side by side.
 On our main page component, which will contain all three, we will set the
@@ -37,14 +37,14 @@ With regards to fxFlexFill, it will populate the host element with the following
 \footnote{Taken from documentation here:
 https://github.com/angular/flex-layout/wiki/fxFlexFill-API}
 
-\subsection{ Adding FxLayout to Pixel Grid Page }
+\section{ Adding FxLayout to Pixel Grid Page }
 
-\subsubsection{ Add Flex Layout to App }
+\subsection{ Add Flex Layout to App }
 \begin{verbatim}
   npm i --save @angular/flex-layout
 \end{verbatim}
 
-\subsubsection{ Add Flex Layout to Pixel Grid Page Module }
+\subsection{ Add Flex Layout to Pixel Grid Page Module }
 \begin{lstlisting}
 +import { FlexLayoutModule } from '@angular/flex-layout';
 

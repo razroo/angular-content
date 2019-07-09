@@ -1,5 +1,5 @@
 
-\section{ History of State Management }
+\chapter{ History of State Management }
 
 I wanted to write this, because having a history of state management put's into
 perspective why we need state management. It also put's into perspective how
@@ -12,7 +12,7 @@ add, as well as element selectors, were already present in
 this capability as well if need be. However, no one really thought of it as
 state management.
 
-\subsection{ State Management with jQuery }
+\section{ State Management with jQuery }
 A classic component, I remember that was always created with Jquery, would be
 image sliders. In the more elequent apps, they would use singleton classes,
 perhaps \href{https://www.w3schools.com/js/js\_object\_prototypes.asp}{prototypes}
@@ -27,7 +27,7 @@ growth spurt in \href{https://chromereleases.googleblog.com/2015/03/stable-chann
 The change log for 2015, is the last time you will see google chrome mentioning
 performance in it's logs.
 
-\subsubsection{Jquery and Javascript example}
+\subsection{Jquery and Javascript example}
 The following is a great example of how Jquery and Javascript 
 "state management" would work(updated to use es6). A file which would
 contain values, would be used to create/add/delete/update across the app:
@@ -59,7 +59,7 @@ updateGridColor: () => {
 \end{lstlisting}
 Above code taken from the \href{codeIllustrator}{https://github.com/CharlieGreenman/codeIllustrator} repo.
 
-\subsection{ State Management with Backbone }
+\section{ State Management with Backbone }
 Backbone applications to me were so funny, and still are. It literally looked
 like a well architected Jquery app minus routing. Which now that I think about
 it, isn't funny. Backbone was a big step up. Routing was a very nice touch that
@@ -101,7 +101,7 @@ APP.NoteModel = Backbone.Model.extend({
 This model would global, or per each component, and could be updated using the
 above syntax.
 
-\subsection{ State Management with AngularJS }
+\section{ State Management with AngularJS }
 AngularJS was fantastic because it offered two way binding out of the box. Alot
 of web applications need that. It also came hand in hand with Jasmine unit
 testing, and event handling. Completely irrelevant to state management. However,
@@ -156,7 +156,7 @@ look like:
 \end{lstlisting}
 
 
-\subsection{ State Management with React }
+\section{ State Management with React }
 React came around, and interested me atleast for two reasons. It offered
 flexibility being a library and not a framework. Second, it was fast in
 comparison to AngularJS. Flux came out, and was my first introduction to a
@@ -192,7 +192,7 @@ case types.PIXEL\_COLOR:
 \end{lstlisting}
 \footnote{code take from \href{https://github.com/CharlieGreenman/pixelLight}{here}}
 
-\subsection{ Reactive State Management with React and Angular }
+\section{ Reactive State Management with React and Angular }
 Around this time @ngrx/store came out, reactive programming became more popular.
 Within the context of state, this meant redux-observable for React, and
 @ngrx/store for Angular. For Angular, this meant that state is now cookie
@@ -218,7 +218,7 @@ Observable.merge
 
 // code take from \href{https://github.com/CharlieGreenman/angularPixel_illustrator}{here}
 
-\subsection{ Hooks and Context with React + Vue }
+\section{ Hooks and Context with React + Vue }
 Where we are at currently, is that new waves are being made with regards to
 state management. State is being baked into frameworks in ways that make it
 more lightweight, and easier to deal with. Vue and React now have a feature
@@ -263,7 +263,7 @@ export default ThemeTogglerButton;
 \end{lstlisting}
 code take from \href{https://reactjs.org/docs/context.html}{here}
 
-\subsection{ Final Words on State Management }
+\section{ Final Words on State Management }
 One point I would like to end off on. I remember 5 years when all of the
 framworks were coming out, there was a developer who told me that if you know
 what you are doing, really none of the frameworks are neccesary. That being said,

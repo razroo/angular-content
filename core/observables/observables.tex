@@ -1,5 +1,5 @@
 
-\section{ Observables }
+\chapter{ Observables }
 Observables are an integral part of any Angular application. There is no way 
 around not using observables if using state management within your application. 
 In addition, if your backend is using GraphQL + Apollo, which is the 
@@ -17,7 +17,7 @@ When something does indeed change, pull the data from the subscriber. This
 allows for the publisher to take place in one piece of your code, pass that 
 through a facade of sorts, and then consume it in another file. 
 
-\subsection{ Rxjs - An Observable Example! }
+\section{ Rxjs - An Observable Example! }
 We will be using \lstinline{rxjs} as our library to create Observables. It is 
 used internally by many Angular libraries, and for good reason. For starters
 It is increcibly intuitive to use. Functions are imported as are any other 
@@ -45,7 +45,7 @@ publisher). We then subscribe to the publisher/observable, so that when the
 data request completes, and the data is pulled in, the subscriber will now 
 emit the data, and make it available for the app to consume. 
 
-\subsection{ Operators and Pipes }
+\section{ Operators and Pipes }
 One of the most powerful features of rxjs, is that it offers the ability to 
 combine operators to allow for sophisticated manipulation of functions. While 
 this is not a real world example, it definitely helps in order to better 
@@ -81,7 +81,7 @@ multiple files using the map. This can be an extremely powerful way of
 using chained operators within rxjs. In particular, in scenarios like search
 rxjs can be extremely powerful. 
 
-\subsection{ Common Operators }
+\section{ Common Operators }
 Rxjs is full of numerous operators. However, there really are only a certain
 amount of operators that are used. 
 \begin{center}
@@ -98,7 +98,7 @@ amount of operators that are used.
   \end{tabular}
 \end{center}  
 
-\subsection{ Naming Conventions for Observables }
+\section{ Naming Conventions for Observables }
 A very popular convention for writiing observables within Angular, and really
 any setting is add a trailing \lstinline{$} to the end of the variable. 
 \begin{lstlisting}

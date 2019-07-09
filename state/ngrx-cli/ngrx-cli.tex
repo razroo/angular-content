@@ -1,5 +1,5 @@
 
-\section{ Ngrx CLI }
+\chapter{ Ngrx CLI }
 
 Of one of the better reccomendations I can give with regards to using Angular
 within you app, is using the Nrwl Nx cli. If you are using Nrwl Nx already,
@@ -7,14 +7,14 @@ which you should, and have a mono repo setup within your organization, then
 it should be readily available. If you haven't already, please refer to the
 chapter on Nrwl Nx setting it up.
 
-\subsection{ Why Use a CLI? }
+\section{ Why Use a CLI? }
 One of the benefits of using a CLI, is that it subtly enforces the entire
 team to use a particular convention. With the Nx CLI for ngrx, this is doubly
 true, as it strongly enforces conventions to be used as to how ngrx works. In
 addition, within the ngrx arena, it strongly enforces how certain files should
 be built.
 
-\subsection{ Why use a CLI for ngrx }
+\section{ Why use a CLI for ngrx }
 Without a doubt the most fustrating thing about Angular before the CLI came
 around, is the amount of boilerplate that would be required in order to work
 with Angular \footnote{As an example, having to create a scss + html + action +
@@ -23,7 +23,7 @@ The Nrwl Nx for the most part solves this. In addition, there is much more that
 can be done on top of this in the future. Think of automatically generating code
 based on instance, but I digress.
 
-\subsection{The two stages of Nx ngrx cli}
+\section{The two stages of Nx ngrx cli}
 There are going to be two stages with regards to using the Nx ngrx cli. One of
 them is to create root state. This is going to be empty, and it is just there to
 hold the feature reducers of the rest of the app. The 2nd stage, which will be
@@ -33,7 +33,7 @@ responsible for creating the project for the first time). I think it would
 beneficial to running through the steps of how you would create state with the
 @ngrx/cli, if you are not familiar with it already.
 
-\subsection{Creating a Root State}
+\section{Creating a Root State}
 \mybox{At this point, the Definitive Guide assumes that you have already setup
 your space as an Nx Workspace. If you haven't please do. It will not negatively
 impact your app in any which way, and will only positively improve the way your
@@ -58,7 +58,7 @@ generated that we can use to import other modules for state.
 This will produce the following files /marginpar{Re-visit when we get back to
 the app}
 
-\subsection{Creating Feature State}
+\section{Creating Feature State}
 \mybox{We will be going into detail, into when one should create feature state
 management, versus using a service. Or, when it might be considered overkill, or
 suprisingly the right thing to do. Please refer to the chapter on data access

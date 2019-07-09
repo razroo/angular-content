@@ -1,5 +1,5 @@
 
-\section{ Interfaces and Unit Testing }
+\chapter{ Interfaces and Unit Testing }
 In unit testing it can be very difficult to keep in sync the mocked data you
 are using, with actual data used within app's actual live UI. The easiest, and
 most efficient way of doing this is creating interfaces. The part where it
@@ -8,7 +8,7 @@ we might have state that is contained in a separate component, wherein the data
 originates from can be somewhere else. In addition, the data might also be used
 in some other component as well as in some other service.
 
-\subsection{ In Sync Data - Interface Architecture }
+\section{ In Sync Data - Interface Architecture }
 An interface at it's core is responsible for making sure that data follows a
 pre-described schema. The part, however, that is unintuitive in an Angular
 setting, is what happens when you have services, components, state, and spec
@@ -16,7 +16,7 @@ files all vying for the same data. Do we use one interface for all of them,
 or different one's for each file group? If we do end up using one interface,
 what sort of data structure is it that we will use for all of these files.
 
-\subsubsection{ Interface Architecture - The Dillema }
+\subsection{ Interface Architecture - The Dillema }
 As we discussed in the previous paragraph, in an Angular application, there will
 be services, components, state and spec files vying for the same data. The
 dillema when it comes to interfaces, however, is that they need data in
@@ -33,7 +33,7 @@ Let's imagine that we have a data-table that we need to specify data:
   data, or none of it. Respective spec will need to familiar of similar data.
 \end{itemize}
 
-\subsection{ In Sync Data - The Solution }
+\section{ In Sync Data - The Solution }
 As one can see, it is actually counter-intuitive to create a singular interface
 for one's service, state, component(s), and their respective specs. However, if
 one does not use the same singular spec for all of them, one runs the risk of
@@ -54,7 +54,7 @@ This, however, requires that all the files be tightly coupled together. In order
 to do this, we must create a well thought out folder/file structure. This is
 what we will be calling Data Access architecture.
 
-\subsection{ Data Access - Folder Structure }
+\section{ Data Access - Folder Structure }
 Let's say we are creating an grid-form component, that will make use of backend
 data. The data structure will look as follows:
 
@@ -139,7 +139,7 @@ Using this folder/file structure, we can enforce there being a single interface
 used across all files within our app that are using data. The idea is that the
 nomenclature will remain the same across
 
-\subsection{ Example of How Interface Might Be Used in Real Time }
+\section{ Example of How Interface Might Be Used in Real Time }
 Now that we have our folder/file structure in place, we can prove how having a
 singular interface can be used to make sure all of our files are in sync.
 
@@ -151,7 +151,7 @@ export interface GridForm {
 }
 \end{lstlisting}
 
-\subsection{ Example of How Data Mock Will Look Like }
+\section{ Example of How Data Mock Will Look Like }
 In addition to our interface, we will have mocked data that will be used in a
 number of different instances. It makes sense to have data in a mock.ts file
 so that it can be re-used throughout app, without having to re-create.
@@ -164,7 +164,7 @@ cost GridForm = {
 }
 \end{lstlisting}
 
-\subsubsection{ Service for Pulling in Pre-Populated Grid Form }
+\subsection{ Service for Pulling in Pre-Populated Grid Form }
 In our service, we will use the interface to determine what sort of data we
 expect to be pulled in.
 
@@ -181,7 +181,7 @@ getGridForm(projectId: string): Observable<GridForm> {
 }
 \end{lstlisting}
 
-\subsubsection{ Service Spec for Pulling in Pre-Populated Grid Form }
+\subsection{ Service Spec for Pulling in Pre-Populated Grid Form }
 In the spec for our service, we will have one consistent piece of data that will
 be used throughout the service spec:
 \begin{lstlisting}
@@ -197,7 +197,7 @@ service stays true to the data that is expected to be returned. If the data
 ever changes in actual app, the interface will be there to make sure our specs
 data mocks are up to data as well.
 
-\subsubsection{ Reducer for populating state with appropriate Grid }
+\subsection{ Reducer for populating state with appropriate Grid }
 For simplicity sake within our app, we are going to take the data as is, and
 pass it directly into our store to be used within app:
 \begin{lstlisting}
@@ -218,7 +218,7 @@ export function gridFormReducer(
 Here we have the interface telling our app that all data within our reducer
 must consist of the three items we have specified in our GridForm interface.
 
-\subsubsection{ Reducer Spec for populating state with appropriate Grid }
+\subsection{ Reducer Spec for populating state with appropriate Grid }
 \begin{lstlisting}
   describe('gridFormLoaded action', () => {
     it('should populate the buyer entities and ids', () => {
@@ -235,7 +235,7 @@ used across the app. By having an interface and using it for the data within the
 interface we can make sure that the data for the reducer spec is up to date with
 actual app.
 
-\subsubsection{ Effect for populating state with appropriate Grid }
+\subsection{ Effect for populating state with appropriate Grid }
 \begin{lstlisting}
 @Effect()
 loadGridForm$ = this.dataPersistence.fetch(BuyerTypes.LoadGridForm, {
@@ -258,7 +258,7 @@ pulling in data, and then having the appropriate action fired off, for saying
 data is loaded}. In our param for state, the most data heavy part of our effect,
 we are once again using the same interface.
 
-\subsubsection{ Effect Spec for populating state with appropriate Grid }
+\subsection{ Effect Spec for populating state with appropriate Grid }
 \begin{lstlisting}
 const projectId = '123';
 

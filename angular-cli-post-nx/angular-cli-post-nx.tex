@@ -1,5 +1,5 @@
 
-\section{ Using Angular CLI in an Nx Workspace }
+\chapter{ Using Angular CLI in an Nx Workspace }
 
 Now that we have created an nx workspace, let's create our app. Run
 \begin{verbatim}
@@ -28,14 +28,14 @@ ready to go.
 Let's now create our first component. For our Pixel Illustrator, we want a form.
 We will name the component chooseSize.
 
-\subsection {Wait a Minute!}
+\section {Wait a Minute!}
 Before we go ahead and create our component, we are going to want to tidy up
 our folder architecture. The architecture we are introducing in this book is
 heavily influenced by two projects. One, Nrwl, and by extension Nx. The other is
 the example app, introduced in the ngrx/platform repo \footnote{It can be seen
 here: https://github.com/ngrx/platform/tree/master/example-app}.
 
-\subsubsection {Sidebar}
+\subsection {Sidebar}
 At the time of thiwriting there is one main area of conflict with regards to
 ngrx/store v. Nx. Even though we have not experienced it yet, it makes sense to
 talk about it before moving on from the cli/nx workspace chapters. Nx is very
@@ -53,7 +53,7 @@ be encapsulated into their appropiate folder. If it is something that should be
 shared across app, then it should be put into it's own library. Something that
 we will discuss moving forward.
 
-\subsection {Phew, sidebar over, moving on}
+\section {Phew, sidebar over, moving on}
 
 The above being said, whenever we create a component, we are going to want to
 encapsulate it, into a local module. That way we can add state, pipes, services,

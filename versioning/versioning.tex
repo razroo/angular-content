@@ -1,18 +1,18 @@
 
-\section{ Versioning }
+\chapter{ Versioning }
 
-\subsection { Git }
+\section { Git }
 It goes without saying that you should be using Git. Unless you have an
 incredibly huge diffing tree in your repo, which is most of us, then you should
 be using Git.
 
-\subsection { Integration with JIRA }
+\section { Integration with JIRA }
 In any JIRA ticket, if one has the proper webhooks setup with Github, or if one
 is using BitBucket, then it will automatically hook up the commit into the
 ticket. All that is neccesary, is for the the commit message to include the
 ticket name. (Screenshot for example should go here).
 
-\subsection { Analyzing a Git Branch }
+\section { Analyzing a Git Branch }
 In any git environment, the name of the git branch is important for the
 following reasons:
 
@@ -32,7 +32,7 @@ following reasons:
 In addition, as we have mentioned above, it will be particularly advantageous to
 having the branch name, when it comes to integrating with JIRA.
 
-\subsection { Branching Name Convention }
+\section { Branching Name Convention }
 Let's imagine our project is called PIXE. We have a ticket called PIXE-113,
 which is responsible for adding a pixel color picker to our Pixel Illustrator
 app. We would create our branch as following:
@@ -47,20 +47,20 @@ app. We would create our branch as following:
   \item details-and-actions is abstract of ticket
 \end{itemize} \marginpar{Todo: Create a graphic for this one}
 
-\subsection { Git Client }
+\section { Git Client }
 When it comes to using an IDE, I strongly believe that every team member should
 have the freedom to use whatever they want. It is very important, in general,
 that all team members feel free to use whatever they want. In this same vein
 they should feel comfortable in using a client if they would like. I personally
 prefer using the terminal.
 
-\subsection { Fork and Pull Workflow }
+\section { Fork and Pull Workflow }
 It is reccomended to use a fork and pull workflow. There are a number of
 benefits to adopting such a workflow. Most importantly, however, is the
 realization, that setting up a workflow the sooner the better is for a project.
 In addition, the realization, that it is a one time setup.
 
-\subsubsection { Setting up a Fork and Pull Workflow with Github }
+\subsection { Setting up a Fork and Pull Workflow with Github }
 Similar to how in this book we reccomend the usage of particular architecture,
 we also reccomend specific platforms to use. We will run through this workflow
 with Github, however, it is very possible with any other client.
@@ -69,7 +69,7 @@ Click on the button which says fork: (Include image for fork here).
 Then go ahead
 
 
-\subsection { Squash and Merge }
+\section { Squash and Merge }
 Github, is our preferred client. It gives the option to squash and merge a
 particular commit. Squashing your commits should be your preferred way of doing
 commits. It allows for a clean git history. By having a clean git history, one

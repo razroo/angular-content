@@ -1,5 +1,5 @@
 
-\section{ Interfaces and Unions }
+\chapter{ Interfaces and Unions }
 
 In GraphQL, and more in particular, because we are working on things from the
 UI side of things, a Union type gives us the ability for one field to contain
@@ -30,7 +30,7 @@ we need. This is beneficial for a number of reasons.
   the backend.
 \end{enumerate}
 
-\subsection{ Using Unions with Apollo Client }
+\section{ Using Unions with Apollo Client }
 This is where at this time, things start to get really interesting. Using Apollo
 with unions/interfaces starts to become tricky. In particular, the client has
 no idea what is going on from the server side of things. Once we have different
@@ -86,7 +86,7 @@ context of Apollo Client for Angular, the only way to load in possible types
 is to go along with the way documentation reccomends it.
 }
 
-\subsection{ What to Know Ahead of Time }
+\section{ What to Know Ahead of Time }
 What would be really helpful to know ahead of time, is that this is an issue
 that can only be solved by DevOps. It requires that back end and front end are
 built at the same time. That way, they both get pushed only once the new script

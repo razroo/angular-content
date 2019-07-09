@@ -1,4 +1,4 @@
-\section{ Routing }
+\chapter{ Routing }
 
 
 Routing is an integral part of any single page application:
@@ -13,13 +13,13 @@ are two things that are unique to state with regards to routing:
   \item UI to be shown based on page.
 \end{enumerate}
 
-\subsection{Base Href}
+\section{Base Href}
 In any Angular application, there is going to be an initial point of entry for
 routing. First and foremost, in your src/index.html you will need to add an
 \lstinline{<base href="/">}. This is added by the CLI by default, and not
 something you have to worry about.
 
-\subsection{ RouterModule }
+\section{ RouterModule }
 Routes in Angular, are singleton instance.
 
 \begin{lstlisting}[caption=app.module.ts file]
@@ -51,7 +51,7 @@ export class PixelAngstAppRoutingModule {}
 As we can see in the above, we are supplying all routes within the app routing
 module.
 
-\subsection{ RouterModule Options }
+\section{ RouterModule Options }
 Let's break down all the possible options that can be passed to the router:
 \begin{enumerate}
 \item url
@@ -116,7 +116,7 @@ so that specific routes can be matched first. More generic routes, such as the
 wild card (\lstinline{**}) can therefore be matched, without obstructing 
 other routes.}
 
-\subsection{ Router Outlet }
+\section{ Router Outlet }
 \begin{displayquote}
 \say{Router outlet is a directive from the router library that acts like a 
 component. It marks the spot in the template where the router should 
@@ -136,7 +136,7 @@ Let's say now we were to go to razroo/com/draw, the component for the
 <px-grid></px-grid>  
 \end{lstlisting}
 
-\subsection{ Router Links }
+\section{ Router Links }
 In order to actually navigate from one route to the next, you will 
 need to use the Angular equivalent of href. However, instead of 
 the classic functionality of href, routerLink, will instead 
@@ -149,7 +149,7 @@ reload the component, based on the new url.
 <router-outlet></router-outlet>
 \end{lstlisting}
 
-\subsubsection{Active Router Links}
+\subsection{Active Router Links}
 In addition, Angular offers a way for determining what is the current 
 active link. Something that is very valuable from a UX perspective 
 when the app needs to show to the user, what menu item is 
@@ -178,7 +178,7 @@ particular active route as well:
 <router-outlet></router-outlet>
 \end{lstlisting}
 
-\subsection{ Router State }
+\section{ Router State }
 After each successful navigation lifecycle, Angular's internal system 
 updates what's called the \lstinline{ActivateRoute} object. This can be
 accessed by using the Router service. Inside of the router service, by 
@@ -189,7 +189,7 @@ properties.
 into all the details now. However, it is important to know that it does
 exist.}
 
-\subsection{ Router Events }
+\section{ Router Events }
 When a route get's triggered, Angular will internally trigger a series 
 of events, from when the navigation starts to where it ends. Angular 
 also exposes these series of events by using the \lstinline{Router.events}

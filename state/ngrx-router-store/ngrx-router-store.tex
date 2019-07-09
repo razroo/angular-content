@@ -1,5 +1,5 @@
 
-\section{ What is ngrx/router-store? }
+\chapter{ What is ngrx/router-store? }
 
 NgRx is an Angular module that leverages RxJS -  a reactive programming library
 that deals with the management of data streams and propagation of change. It is
@@ -27,7 +27,7 @@ stored, shared, consumed and mutated based on the routing status from
 a single source. \texttt{@ngrx/router-store}, in a way, is like an in-memory database
 for your application’s route related data.
 
-\subsection{Why do we need it?}
+\section{Why do we need it?}
 When data is decentralized and exists on the fly, it becomes prone to errors due
 to a lack of history tracking and mutations can occur from different directions.
 Duplications can accidentally happen as we try to replicate certain data in
@@ -50,7 +50,7 @@ snapshot of the route’s state and its associated data. When data is decoupled
 from routing, it allows your application to become more agile and less dependent
 on data states through route params.
 
-\subsection{How to install router store}
+\section{How to install router store}
 Once you have your Angular app, you can use npm to install router-store by using the following commands:
 
 \begin{verbatim}
@@ -80,7 +80,7 @@ To use inside your application, you’ll need to import the StoreRouterConecting
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 \end{lstlisting}
 
-\subsection{Router actions and why they might be useful}
+\section{Router actions and why they might be useful}
 An action is anything that you can do to your application. A router action is an
 event that can occur against a specific route on your Angular app. When it comes
 to routing, are 5 specific actions that can occur and they are the request, the
@@ -107,7 +107,7 @@ as it allows the application to back track its action and restore its former
 data – a sort of back button without the need for extra configuration or call
 to the router state bucket.
 
-\subsection{How to use a custom serializer}
+\section{How to use a custom serializer}
 
 A custom serializer prevents the mutation of snapshot data during the dispatch
 process. As data during the navigation cycle is prone to mutability, a custom
@@ -194,7 +194,7 @@ exported CustomSerializer class inside the StoreRouterConnectingModule.
 })
 \end{lstlisting}
 
-\subsection{Benefits of using router-store with ngrx/store-freeze}
+\section{Benefits of using router-store with ngrx/store-freeze}
 \texttt{ngrx/store-freeze} is a dev tool that can be used during the development
 phase of an Angular application to prevent state mutation when using
 \texttt{router-store}. It sits on top of \texttt{router-store} as meta data that

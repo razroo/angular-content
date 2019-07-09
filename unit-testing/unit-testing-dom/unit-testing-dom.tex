@@ -1,5 +1,5 @@
 
-\section{ Unit Testing the DOM }
+\chapter{ Unit Testing the DOM }
 The DOM is the one variable with front end, that complicates the unit testing
 process. While it is in the process of becoming more stable, it can be difficult
 to unit test, and can make TDD more difficult. It is very much important to do
@@ -24,7 +24,7 @@ testing that a function did indeed run, when an element has been clicked. There
 might also be other unique situations, including the above, if your team does
 not have the capacity to use Cypress.
 
-\subsection{ Selecting element }
+\section{ Selecting element }
 In an Angular setting, the most important of all testing utilities, is the
 Angular TestBed. The TestBed creates a dynamically-constructed Angular test
 module, that emulates an \@NgModule \footnote{https://angular.io/guide/testing\#testing-services-with-the-testbed}. In laymans terms, it allows you to swap out any
@@ -59,7 +59,7 @@ that the appropriate function is called.
 We have now completely through the power of unit testing, determined whether, or
 not an element is going to show up.
 
-\subsection{ Unit Testing - Determining Text }
+\section{ Unit Testing - Determining Text }
 With regards to text, let's say that we want to test the entire component at a
 specific time period, and want to make sure it contains three different words:
 \begin{lstlisting}

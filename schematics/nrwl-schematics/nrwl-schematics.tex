@@ -1,5 +1,5 @@
 
-\section{ Nrwl Schematics }
+\chapter{ Nrwl Schematics }
 
 We have gone into a deep dive with regards to creating custom schematics.
 However, being that we are working with Nrwl schematics, there is a slightly
@@ -15,8 +15,8 @@ custom schematics, that made use of one of schematics nrwl already has available
 for us, then it would definitely make sense to use the Workspace Specific
 Schematics.
 
-\subsection{ Workspace Specific Schematics }
-\subsubsection{Generate a workspace specific schematic}
+\section{ Workspace Specific Schematics }
+\subsection{Generate a workspace specific schematic}
 \begin{verbatim}
 ng g workspace-schematic data-access
 \end{verbatim}
@@ -24,7 +24,7 @@ ng g workspace-schematic data-access
 Go to /tools/schematics/data-access/index.ts, where we will add in our custom
 code.
 
-\subsubsection{ Adding in External Schematics}
+\subsection{ Adding in External Schematics}
 \begin{lstlisting}
 externalSchematic('@nrwl/schematics', 'lib', {
   name: name,
@@ -61,7 +61,7 @@ requests, and our actual app. In addition, we will be creating an interface
 file that will be used across all parts of our app. \footnote{Feel free to refer
 back to the chapter on interfaces.}
 
-\subsubsection{ Adding GraphQL Files }
+\subsection{ Adding GraphQL Files }
 One of the wonderful things about the Angular ecosystem, that schematics,
 follows, is the amount of cookie cutter code. Creating your own schematics at
 first can be daunting, however, the more we deep dive, we will find that we have

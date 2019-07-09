@@ -1,5 +1,5 @@
 
-\section{ State Management - @ngrx/store }
+\chapter{ State Management - @ngrx/store }
 
 Ngrx/store is a layer on top of Redux. It is a state management tool that was
 originally created, in order to solve two way binding performance issues within
@@ -11,9 +11,9 @@ Let's dive into integrating @ngrx/store into our app.
 However, another chapter will be dedicated to TDD/BDD in order to specify
 this point specifically.}
 
-\subsection{ Using nx ngrx to Generate State }
+\section{ Using nx ngrx to Generate State }
 
-\subsubsection{ Create root state using nx ngrx }
+\subsection{ Create root state using nx ngrx }
 
 First we are going to generate an empty root, for our StoreModule, as well as
 our EffectsModule. Our StoreModule is responsible as a singular store object,
@@ -25,7 +25,7 @@ effects in more detail later}
 ng generate ngrx app --module=apps/angular-pixel-illustrator/src/app/app.module.ts --onlyEmptyRoot
 \end{lstlisting}
 
-\subsubsection{ Create component state using nx ngrx }
+\subsection{ Create component state using nx ngrx }
 
 Next, we are going to create state for our choose-size component. This is done
 with ease using nx ngrx \footnote{Trust me, I've been in situations where I
@@ -49,7 +49,7 @@ And update the choose-size module,
 update apps/angular-pixel-illustrator/src/app/components/choose-size/choose-size.module.ts
 \end{lstlisting}
 
-\subsubsection{ High level overview of nx ngrx }
+\subsection{ High level overview of nx ngrx }
 So, you might be wondering, what do those files that nx ngrx generated actually
 do? It will generate three files:
 \begin{enumerate}
@@ -68,7 +68,7 @@ it to be of a certain type. However, enums, as well as type checking, fulfills
 that obligation. Therefore, if one is using Typescript along with enums, there
 should be no reason for writing unit tests.
 
-\subsubsection{ Installing Redux Dev Tools }
+\subsection{ Installing Redux Dev Tools }
 A state environment is incomplete without proper devtools. In particular, being
 able to see an action fired, as well as the complete state of any given time,
 is invaluable.

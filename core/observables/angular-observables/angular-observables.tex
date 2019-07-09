@@ -1,10 +1,10 @@
 
-\section{ Angular Observables }
+\chapter{ Angular Observables }
 It's important to point out, that there are observables that are unique to 
 Angular. It is important to be aware of the fact that internally they are 
 using an observable. 
 
-\subsection{ Event Emitter }
+\section{ Event Emitter }
 
 \begin{lstlisting}
 <zippy (open)="onOpen($event)" (close)="onClose($event)"></zippy>
@@ -37,7 +37,7 @@ export class ZippyComponent {
 }
 \end{lstlisting}
 
-\subsection{ Async Pipe }
+\section{ Async Pipe }
 The async pipe, which we will discuss more due to it's high usage within the
 app. 
 
@@ -58,8 +58,8 @@ The async pipe will subscribe to an observable(,or promise) and returns the
 latest value it has emitted. When new value has been emitted, the pipe marks 
 the component to be checked for changes. 
 
-\subsection{ Router }
-\subsubsection{Events}
+\section{ Router }
+\subsection{Events}
 Router events are supplied as an observable. So let's say we want to listen 
 in, into when a router event has reached a certain point we would be able to 
 do that. 
@@ -89,7 +89,7 @@ export class Routable1Component implements OnInit {
 }
 \end{lstlisting}
 
-\subsubsection{ ActivatedRoute }
+\subsection{ ActivatedRoute }
 \lstinline{ActivatedRoute} "contains the information about a route associated
 with a component loaded in an outlet." Specifically, one of the pieces of 
 information that the \lstinline{ActivatedRoute} injected router service 
@@ -115,7 +115,7 @@ export class Routable2Component implements OnInit {
 Using the above observable, we are able to determine what the url is at any
 given time. 
 
-\subsection{ Reactive Forms }
+\section{ Reactive Forms }
 Reactive forms, is another core Angular library that makes use of Observables. 
 In particular, the \lstinline{FormControl} \lstinline{valueChanges} property 
 contains an observable that determines whenever an event occured. 
@@ -152,7 +152,7 @@ Observables. However, Razroo best practices, is that we support the use of
 Apollo Client over Angular's native http request. For that reason, it has been
 left out of this chapter.}
 
-\subsection{What is the Point of this??? }
+\section{What is the Point of this??? }
 You might be asking yourself, what is the point of knowing specifically that 
 there are observables that are baked into the framework? It would seem one 
 would be able to just read up on the documentation, and be able to get done 

@@ -1,4 +1,4 @@
-\section{ Correlation ID Service }
+\chapter{ Correlation ID Service }
 
 
 We have addressed in a previous chapter whether, or not when to use state. One
@@ -23,14 +23,14 @@ situations as well. While @ngrx/store is something which is a good idea for the
 majority of any enterprise application, it is not neccesarily the right choice
 in this scenario.
 
-\subsection{Identifying Bloat of @ngrx/store}
+\section{Identifying Bloat of @ngrx/store}
 @ngrx/store bloat is real. To put into perspective, it requires an action, a
 reducer, a facade, in better architectured solutions, ngrx/entity, and
 selectors. In addition, state isn't naturally re-usable, as it is an object.
 Lastly, and most definitely, not least, special nomenclature must be put in
 place to make it, so state can be re-used in the future.
 
-\subsection{Architectural Danger of Using a Service}
+\section{Architectural Danger of Using a Service}
 Naturally using a service in this scenario makes the most sense. Services can
 have a direct 1:1 relationship for as what they need to do. In addition, it can
 help circumvent circular dependencies in numerous scenarios, by keeping heavy

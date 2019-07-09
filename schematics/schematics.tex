@@ -1,5 +1,5 @@
 
-\section{ Setting up Schematics Using Angular CLI }
+\chapter{ Setting up Schematics Using Angular CLI }
 
 In any project, one is ineviatbley going to have their architecture. It would
 be extremely beneficial for one to create their own schematics. Primarily so,
@@ -10,12 +10,12 @@ Schematics can be used to easily introduce and enforce project wide conventions.
 This will easily ramp up time for new developers, as well as diminish time
 spent on project for current developers.
 
-\subsection{ Download Schematics Globally }
+\section{ Download Schematics Globally }
 \begin{lstlisting}
   npm install -g @angular-devkit/schematics-cli
 \end{lstlisting}
 
-\subsection{ Create a file-directory Schematics }
+\section{ Create a file-directory Schematics }
 While the application we are building specifically for this book is a pixel
 illustrator, in practice the conventions we set up for this app, will be used
 across the app. In a previous chapter we mentioned we mentioned the following
@@ -60,7 +60,7 @@ time to solve at high level.
   schematics blank --name=px-schematics
 \end{lstlisting}
 
-\subsection{ Understanding Rules and Trees }
+\section{ Understanding Rules and Trees }
 A Tree is a data structure that contains a base \footnote{A set of files that already exists}
 and a staging area \footnote{A list of changes to be applied to the base}.
 
@@ -90,7 +90,7 @@ From the CLI, it is the command line arguments the user passed. From another
 schematic, it’s the options that were passed in by that schematic.
 }
 
-\subsubsection{ Tree Deepdive}
+\subsection{ Tree Deepdive}
 There are four methods that directly create a change in a Tree:
 \begin{enumerate}
   \item create
@@ -102,7 +102,7 @@ There are four methods that directly create a change in a Tree:
 Similar to how we used create as an example above, to create a file, we also
 have the option to use the schematic to delete, rename, or overwrite a file.
 
-\subsubsection{ Generating a Folder using Schematics }
+\subsection{ Generating a Folder using Schematics }
 We are able to create a series of folders using schematics. However, it is
 important to keep in mind two things. In any git setting a folder is only
 committed if it contains a file. In addition, within the Angular schematics

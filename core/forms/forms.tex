@@ -1,5 +1,5 @@
 
-\section{ Forms }
+\chapter{ Forms }
 
 Forms to this day, I think is still one of the most complicated pieces of UI,
 you will ever come across. Each input in a form, has a unique piece of 
@@ -11,7 +11,7 @@ book we will discuss why it is that, that is the case, as well. In addition,
 we will discuss ways that we can alleviate the pain of forms. In the meantime 
 let's discuss the fundementals of forms. 
 
-\subsection{ Let's Get Something Out of the Way }
+\section{ Let's Get Something Out of the Way }
 
 Angular offers two ways of handling forms: 
 \begin{enumerate}
@@ -31,7 +31,7 @@ he claims that we need to say goodbye to Angular Template-Driven Forms
 There is an equally amazing comment left by a one Ward Bell. It sums in totally the 
 following, which I must credit to Deborah Kurata: 
 
-\subsubsection{Template Driven}
+\subsection{Template Driven}
 \begin{enumerate}
   \item Easy to use
   \item Similar to Angular 1
@@ -39,7 +39,7 @@ following, which I must credit to Deborah Kurata:
   \item Automatically tracks form and input element state
 \end{enumerate}
 
-\subsubsection{ Reactive }
+\subsection{ Reactive }
 \begin{enumerate}
   \item More flexible \textrightarrow{} more complex scenarios
   \item Immutable Data Model
@@ -65,7 +65,7 @@ to go ahead and read through the Angular documenation
 Now that we have established that we will be using Reactive forms, let's get into 
 what they are all about!
 
-\subsection{ Common Foundation of Forms }
+\section{ Common Foundation of Forms }
 \begin{enumerate}
   \item \lstinline{FormControl} - Tracks the value and validation state of an 
   individual form control.
@@ -93,7 +93,7 @@ export class CodeEditorComponent {
   FormControl instances, and native DOM elements.
 \end{enumerate}
 
-\subsection{ Reactive Forms }
+\section{ Reactive Forms }
 First and foremost, it's important to get a really get handle on what Reactive
 means. Reactive means that your code is:
 \begin{enumerate}
@@ -106,7 +106,7 @@ means. Reactive means that your code is:
   thing will happen granted an input is affected.
 \end{enumerate}
 
-\subsubsection{ Reactive Form Example }
+\subsection{ Reactive Form Example }
 Reactive forms are an embodiment of the above, and I would like to show off an
 example that portays this: 
 
@@ -130,9 +130,9 @@ have attached it to a \lstinline{backgroundColor} value accessor. Whenever we
 want to retrieve the value of \lstinline{backgroundColor}, or modify it, we 
 can tap into the value for \lstinline{backgroundColor}. 
 
-\subsection{ Reactive Forms - Data Flow }
+\section{ Reactive Forms - Data Flow }
 
-\subsubsection{View To Model}
+\subsection{View To Model}
 In Reactive forms, the data flow is pretty straight forward. As we have already
 mentioned, that view is directly related to the component's instance of 
 \lstinline{FormControl} in the component. 
@@ -146,7 +146,7 @@ mentioned, that view is directly related to the component's instance of
   \item Subscribers to the value changes observable receive new value. 
 \end{enumerate}
 
-\subsubsection{ Model To View }
+\subsection{ Model To View }
 \begin{enumerate}
   \item User calls setValue method on FormControl(e.g. \lstinline{backgroundColor})
   \item \lstinline{FormControl.valueChanges} emits new value
@@ -155,7 +155,7 @@ mentioned, that view is directly related to the component's instance of
   element with the new value. 
 \end{enumerate}
 
-\subsection{Form Validation}
+\section{Form Validation}
 Form validation is something that seems like it would belond as the same 
 category as unit testing. For instance, let's make sure that nothing wrong 
 happens with regards to user submission. However, form validation, i.e. 
@@ -170,7 +170,7 @@ malicious users. Of the ways forms can be abused is:
   \item SQL injection may corrupt your database backend
 \end{enumerate}
 
-\subsection{ Reactive Form Validation }
+\section{ Reactive Form Validation }
 Angular offers form validation out of the box. In addition, it gives the
 ability to create custom validators. There are two types of validators: 
 \begin{enumerate}
@@ -180,7 +180,7 @@ ability to create custom validators. There are two types of validators:
 
 For performance reasons you will only want to use async validators. 
 
-\subsubsection{Built In Validators}
+\subsection{Built In Validators}
 
 \begin{lstlisting}
 ngOnInit(): void {
@@ -239,7 +239,7 @@ we can view the errors if they so arise.
 One note to just keep in mind, is that we are using the name getter in the 
 components class, to access errors. 
 
-\subsubsection{Custom Validators}
+\subsection{Custom Validators}
 The built in validators, as with anything that is built in, might not always
 match the exact use case of your application. Within reactive forms, custom
 validators are simply expressed as functions. For instance: 
@@ -257,10 +257,10 @@ export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 This is the function used in the above template. Custom validators are 
 relatively straight forward, and easy to use. 
 
-\subsection{ Testing Reactive Forms }
+\section{ Testing Reactive Forms }
 Testing reactive forms is relatively straight forward: 
 
-\subsubsection{ Testing View To Model }
+\subsection{ Testing View To Model }
 
 \begin{lstlisting}[caption=Testing View to Model]
 it('should update the value of the input field', () => {
@@ -283,7 +283,7 @@ In the above code we are doing the following:
   the value from the input. 
 \end{enumerate}
 
-\subsubsection{ Testing Model To View }
+\subsection{ Testing Model To View }
 
 \begin{lstlisting}
 it('should update the value in the control', () => {
@@ -302,8 +302,8 @@ In the above code we are doing the following:
   \item Tap into that constant's value, and assert that it is the new value
 \end{enumerate}
 
-\subsection{ Wrapping Up }
-This would be a general section on forms, that dabbled only on reactive 
+\section{ Wrapping Up }
+This would be a general chapter on forms, that dabbled only on reactive 
 programming. In the next chapter, we are going to deep dive into the
 fundementals on Reactive Programming. 
 

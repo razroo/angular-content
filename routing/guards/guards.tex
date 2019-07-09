@@ -1,7 +1,7 @@
 
-\section{ Angular Router Guards }
+\chapter{ Angular Router Guards }
 
-\subsection{ Router Guards - A Primer }
+\section{ Router Guards - A Primer }
 A Router Guard is a simply a way to guard someone from going to a page if they
 aren't allowed to go there(Also known as authentication).
 
@@ -17,7 +17,7 @@ token. The following are the find fundementals of Angular Route Guards:
   \item Resolve
 \end{enumerate}
 
-\subsubsection{ CanActivate }
+\subsection{ CanActivate }
 It is used to determine if a certain route can be activated. An example would
 be as follows:
 \begin{lstlisting}
@@ -65,15 +65,15 @@ actually has an id, and is actually a legitimate user, we will pass along the
 userFacade which will populate our store, thus populating the page with actual
 data.
 
-\subsubsection{ CanActivateChild }
+\subsection{ CanActivateChild }
 CanActivateChild is very similar to canActivate only it is for the childRoute.
 Will not go into detail on this one, use documentation.
 
-\subsubsection{ CanDeactivate }
+\subsection{ CanDeactivate }
 TODO
 
-\subsubsection{ CanLoad }
+\subsection{ CanLoad }
 TODO
 
-\subsubsection{ Resolve }
+\subsection{ Resolve }
 TODO

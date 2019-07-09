@@ -1,5 +1,5 @@
 
-\section{ Aggregation Pattern }
+\chapter{ Aggregation Pattern }
 
 Many times within any web setting, numerous apis will be feeding into a singular
 request. An example would be in an e-commerce setting wherein data for a
@@ -12,7 +12,7 @@ business logic of a particular use case. However, there are many times wherein
 this will be beyond the power of the developer. In can be in antiquated apis,
 or in unique use cases.
 
-\subsection{ The Unique Challenge with Ngrx/effects}
+\section{ The Unique Challenge with Ngrx/effects}
 In an ngrx/effects use case, when a user is hitting a single service, and
 returning a single action, it is relatively straight forward. This will look
 something like the following:
@@ -42,7 +42,7 @@ can be used for numerous actions, originating from a singular service. However,
 it immediatly becomes a problem once we start to have a singular effect call
 numerous services, wherein one action is expected to have all of it's data.
 
-\subsection{Using the Aggregator Pattern}
+\section{Using the Aggregator Pattern}
 
 \mybox{Before we introduce the aggregator pattern, it is important to make one
 note. In any situation with numerous actions, we are going to want to include a
@@ -50,7 +50,7 @@ correlation id within our app. It is important to do this, so that as we have
 numerous actions coming in at a time, the request is being done for the proper
 item at that time.}
 
-\subsubsection{Defining Types for Actions}
+\subsection{Defining Types for Actions}
 \begin{lstlisting}
 export type AggregatableAction = Action & { correlationParams?: CorrelationParams };
 
@@ -61,7 +61,7 @@ First we define the types for our different actions. Both will be a standard
 action with the addition of correlationParams, which we will use to make sure
 that we are indded calling the correct action.
 
-\subsubsection{Passing in Params for Functions}
+\subsection{Passing in Params for Functions}
 \begin{lstlisting}
 export function aggregate<T extends AggregatableAction,
     TAction1 extends AggregatableAction,
@@ -77,7 +77,7 @@ Now we go ahead and specify the params that we need to use for the aggregator
 pattern. We are going to assume that there will never be a situation wherein
 we will ever use more than two actions.
 
-\subsubsection{ Creating a Filter Action }
+\subsection{ Creating a Filter Action }
 \begin{lstlisting}
     const filterAction = (sourceAction: AggregatableAction, t: AggregatableAction) =>
         t.correlationParams && sourceAction.correlationParams &&
@@ -95,7 +95,7 @@ source action has correlation params.
   sourceAction's type.
 \end{enumerate}
 
-\subsubsection{ Creating Aggregated Actions }
+\subsection{ Creating Aggregated Actions }
 \begin{lstlisting}
 
     const getAggregatedActions = (sourceAction: AggregatableAction): Observable<[TAction1, TAction2]> => {

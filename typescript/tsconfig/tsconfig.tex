@@ -1,10 +1,10 @@
 
-\section{ Tsconfig }
+\chapter{ Tsconfig }
 
-\subsection{ What is the Tsconfig? }
+\section{ What is the Tsconfig? }
 The tsconfig file corresponds to the configuration of the Typescript compiler.
 
-\subsection{ What the Default Tsconfig Looks Like. }
+\section{ What the Default Tsconfig Looks Like. }
 Angular CLI will generate a tsconfig out the box:
 \begin{lstlisting}
   {
@@ -39,9 +39,9 @@ Angular CLI will generate a tsconfig out the box:
 \end{lstlisting}
 
 
-\subsection{ Notable Mention }
+\section{ Notable Mention }
 
-\subsubsection{ sourceMap }
+\subsection{ sourceMap }
 Source map true, will help debugging while using the console in the browser.
 However, when debugging unit tests, it will cause somewhat of an issue.
 Switching this to false at times can be helpful. Alternatively, one can hijack
@@ -50,7 +50,7 @@ the npm script for npm run test using.
   --source-maps=false
 \end{verbatim}
 
-\subsection{ Using paths }
+\section{ Using paths }
 Being that we are using a mono repo, if we were to pull components from within
 the lib folder, we would have to use a very long relative path. However,
 tsconfig has an option to specify a specific path. If you look above, in the

@@ -1,5 +1,5 @@
 
-\section{ Interfaces and Partials }
+\chapter{ Interfaces and Partials }
 
 As we discussed in the previous chapter, interfaces are a large part of
 data-access architecture. They are the glue that makes sure that all parts of
@@ -13,7 +13,7 @@ out graphql application, it will complain the fragments do not match. However,
 having the interfaces directly complain as a result of the data of the mock
 not matching is ideal.
 
-\subsection{Solution to the Above Dillema}
+\section{Solution to the Above Dillema}
 In Typescript there is the option to use:
 \begin{verbatim}
 <Partial>
@@ -21,7 +21,7 @@ In Typescript there is the option to use:
 Partial will treat an interface that will require every data type, as if
 all values are optional.
 
-\subsection{Where We Might Want a Partial}
+\section{Where We Might Want a Partial}
 So that being said, within our data-access architecture we have:
 \begin{enumerate}
   \item GraphQL
@@ -36,7 +36,7 @@ file, we want to include the interface fully, to make sure that all potential
 data is included in mock. The mock for the most part is going to be used across
 the spec for services and effects.
 
-\subsection{Word to the Wise}
+\section{Word to the Wise}
 Ideally interfaces should be a direct one to one correlation between GraphQL
 queries within app. If any of these items are used, it should be updated, and
 appropriately updated in the interface. It makes considerable sense to create a

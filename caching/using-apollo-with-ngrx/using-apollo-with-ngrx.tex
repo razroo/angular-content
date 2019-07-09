@@ -1,17 +1,17 @@
 
-\section{ Integrating ngrx/store with Apollo Client }
+\chapter{ Integrating ngrx/store with Apollo Client }
 In many architectures, it is most likely going to make sense that it is
 microservice based. That is, your data will be served over a slew of different
 apis. In which case the intent is that in a regular application, you will be
 using GraphQL. It is reccomended that you use Apollo Client as well. We will
 cover real quick, how to integrate GraphQL with Apollo Client.
 
-\subsection{ What is GraphQL }
+\section{ What is GraphQL }
 GraphQL is a backend data query language. It will allow you to use a query to
 make a request, as opposed to having to supply, url, endpoint, and type of
 request.
 
-\subsection{ The Benefit of Apollo }
+\section{ The Benefit of Apollo }
 Apollo is a GraphQL client, used to help ease use of GraphQL http requests
 within app. In particular:
 \begin{enumerate}
@@ -23,13 +23,13 @@ within app. In particular:
   when using mutations, pagination, subscriptions, and more.
 \end{enumerate}
 
-\subsection{ Dilemma When Using Apollo Client with @ngrx/store }
+\section{ Dilemma When Using Apollo Client with @ngrx/store }
 Apollo will create it’s own inMemoryCache, without dependency on Redux. However,
 this creates two separate stores within the app when using @ngrx/store.
 One for ngrx/store, and another for the Apollo client. It would be much easier,
 obviously, if we had a singular cache/store, for the app.
 
-\subsection{ Enter apollo-angular-cache-ngrx }
+\section{ Enter apollo-angular-cache-ngrx }
 apollo-angular is a series of packages for the integration of the Apollo client
 with Angular. apollo-angular-cache-ngrx is a package officially a part of one of
 the apollo-angular packages. It solves this exact problem, and allows one to use
@@ -37,7 +37,7 @@ the apollo-angular packages. It solves this exact problem, and allows one to use
 README.md for the apollo-angular-cache-ngrx repo, but going to put here for
 convenience reasons).
 
-\subsection{ Installation }
+\section{ Installation }
 We will be wanting to install the entire apollo suite at this time.
 \begin{lstlisting}
 npm install apollo-angular apollo-angular-link-http apollo-link apollo-client graphql-tag graphql --save
@@ -47,7 +47,7 @@ As well as apollo-angular-cache-ngrx
 npm install apollo-angular-cache-ngrx —-save
 \end{lstlisting}
 
-\subsection{ Usage }
+\section{ Usage }
 \begin{lstlisting}
 import {StoreModule} from '@ngrx/store';
 import {
@@ -99,7 +99,7 @@ At this time however, we are not using GraphQL within the above fashion.
 Nonetheless, your average app, will be using this sort of architecture, and it
 is very good to be aware of it, as well as how to use it.
 
-\subsection{ Bonus - Using Fetch Policy with Apollo }
+\section{ Bonus - Using Fetch Policy with Apollo }
 In apollo, there is the option to specify the fetch policy with regards to
 cache. For instance, in your
 

@@ -1,7 +1,7 @@
 
-\section{ Barrel File }
+\chapter{ Barrel File }
 
-\subsection{ What is a Barrel File? }
+\section{ What is a Barrel File? }
 
 A barrel File is a way to rollup exports from several modules into a signle
 convenience module. The barrel itself is a module file that re-exports selected
@@ -10,7 +10,7 @@ exports of other modules.
 
 \includegraphics[width=9.1cm, height=3cm]{typescript/barrel-file/monkey-barrel}
 
-\subsection{ Barrel File In Practice }
+\section{ Barrel File In Practice }
 In the previous chapter we discussed doing something like the following:
 \begin{lstlisting}
 import {module} from '@ill/color-picker';
@@ -25,7 +25,7 @@ in the index.ts(barrel file).
 export { IllColorPickerModule } from './src/ill-color-picker.module';
 \end{lstlisting}
 
-\subsection{ Enforcing Barrel File With Tslint }
+\section{ Enforcing Barrel File With Tslint }
 In addition, Nrwl nx has a tslint add on called nx-enforce-module-bounderies.
 \begin{lstlisting}
 // tslint.json

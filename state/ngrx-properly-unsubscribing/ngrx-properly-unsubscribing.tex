@@ -1,5 +1,5 @@
 
-\section{ State Management - Properly Unsubscribing }
+\chapter{ State Management - Properly Unsubscribing }
 
 In Angular, when using ngrx when trying to pull in data, using the async pipe is
 the preffered approach. It will handle both the subscribe and the unsubscribe
@@ -9,14 +9,14 @@ from the observable pipe for you.
 <div>{{ observableStream$ | async }}</div>
 \end{lstlisting}
 
-\subsection{ What to do When Async Pipe is Not an Option }
+\section{ What to do When Async Pipe is Not an Option }
 There are times When the process of subscribing and unsubscribing must be
 managed manually. In particular in situation where there is data manipilation
 that must happen within the component. In this case the recommended approach
 is to create an observable that emits when the component is destroyed, and use
 the rxjs takeUntil operator to handle the act of unsubscribing for you.
 
-\subsection{Using takUntil Example}
+\section{Using takUntil Example}
 
 \begin{lstlisting}
 import { Subject, Observable, pipe } from 'rxjs';
@@ -51,7 +51,7 @@ export class MyComponent {
 }
 \end{lstlisting}
 
-\subsection{takeUntil in Depth}
+\section{takeUntil in Depth}
 
 Let's go back in depth to takeUntil to see what we are doing:
 \begin{verbatim}

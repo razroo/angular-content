@@ -1,4 +1,4 @@
-\section{Bundle Size}
+\chapter{Bundle Size}
 
 
 Bundle sizes ironically, are one of those things that tend to get overlooked. 
@@ -7,7 +7,7 @@ app for the first time, while simaltaneously being one of the easier things to
 tackle. I think for that reason it tends to not get the attention it needs,
 because it doesn't exactly fit into the box of computer science.
 
-\subsection{Being Aware of Bundle Size}
+\section{Being Aware of Bundle Size}
 When you run \lstinline{ng build --prod}, Angular will generate 4 files: 
 \begin{enumerate}
   \item runtime.*.js
@@ -21,7 +21,7 @@ it's important to keep in mind that this bundle size will be contributed to by
 a number of different things. This chapter won't go into how to decrease the 
 bundle size before it is bundled, but rather after it has been bundles. 
 
-\subsection{Gzip}
+\section{Gzip}
 gzipping for those that are not familiar, is the process of taking a chunk of 
 data and making it smaller. The original data can be restored by un-zipping the
 compressed file. Within the context of HTTP protocol, it has the ability to
@@ -37,14 +37,14 @@ gzipeed, you can simply open up your console, and check the "Content-Encoding"
 under the Response Headers. If it says "Content-Encoding: "gzip", then you are 
 in good hands, otherwise, you might be in trouble.
 
-\subsubsection{ How to Gzip }
+\subsection{ How to Gzip }
 Gzip'ing is something that should be controlled by your CDN, which will also 
 deal with a slew of other things to make sure your files are served. However, 
 your backend team will be able to deal with this one relatively quick, if they 
 are not using a CDN system, due to many packages out of the box dealing with 
 this. 
 
-\subsection{Analyze Your Angular Bundle}
+\section{Analyze Your Angular Bundle}
 Webpack has a built in tool that one can use to analyze build. For starters, 
 it has an incredible visualization of what your entire build looks like.
 \footnote{Insert photo here on snapshot.}. In addition, it will tell you about 
@@ -77,7 +77,7 @@ webpack-bundle-analyzer path/to/your/stats.json
 and navigate to \lstinline{localhost:8888} wherein we will see our results.
 \end{enumerate}
 
-\subsection{Monitoring Bundle Size}
+\section{Monitoring Bundle Size}
 In Angular 7, and later, angular adds a config in your \lstinline{angular.json}
 file. It has a property called "budgets", and it looks like this: 
 \begin{lstlisting}

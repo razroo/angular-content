@@ -1,5 +1,5 @@
 
-\section{ Component Inheritance }
+\chapter{ Component Inheritance }
 
 Anyone who has worked with Javascript before frameworks became popular, is well
 versed with prototypes in javascript. Arguably the most complicated part of the
@@ -13,7 +13,7 @@ prototype object has a prototype of its own, and so on until an object is
 reached with null as its prototype. null, by definition, has no prototype, and
 acts as the final link in this prototype chain.
 
-\subsection{ Extending Classes }
+\section{ Extending Classes }
 In Typescript land, we have the ability to use a class to extend a parent class.
 A classic example of this is let's say we have the following parent component:
 
@@ -26,14 +26,14 @@ If we were to try and inherit it, using the following child component:
 We would unfortunately have to pass all parent providers into the child
 component to extend it.
 
-\subsection{ Creating a Class to Store Injector }
+\section{ Creating a Class to Store Injector }
 What we can do, is create a class to store our store injector. For instance:
 \lstinputlisting{./typescript/component-inheritance/app-injector.service.ts}
 
 We are then able to inject this into the AppInjector:
 \lstinputlisting{./typescript/component-inheritance/main.ts}
 
-\subsection{ New and Improved Base Component }
+\section{ New and Improved Base Component }
 Our base component now uses the injector service in order to retrieve all
 dependencies.
 \lstinputlisting{./typescript/component-inheritance/updated-base.component.ts}
@@ -42,7 +42,7 @@ Now in our child component, we can simply do the following:
 
 \lstinputlisting{./typescript/component-inheritance/updated-child.component.ts}
 
-\subsection{ Where Component Inheritance Really Shines }
+\section{ Where Component Inheritance Really Shines }
 Component Inheritance is of course, very valuable. However, having a dumb and
 smart component seems to suffice in many scenarios. However, what is very
 valuable is when using forms. Inheritance really shines in those scenarios. 

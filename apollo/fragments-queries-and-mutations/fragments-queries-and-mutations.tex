@@ -1,5 +1,5 @@
 
-\section{ Fragments Queries and Mutations }
+\chapter{ Fragments Queries and Mutations }
 
 An important part of architecture with regards to using GraphQL, is splitting
 up data requests into fragments + queries/mutations. It greatly simpifies
@@ -7,13 +7,13 @@ the architecture. The closest resemblance of how to describe using fragments
 in GraphQL, is functional composition.
 
 \mybox{
-\subsection{ Primer on Queries and Mutations }
+\section{ Primer on Queries and Mutations }
 query = SELECT
 mutation = INSERT, UPDATE, DELETE
 }
 
 
-\subsection{ Example Fragment }
+\section{ Example Fragment }
 \begin{verbatim}
 export const GridFragment = `
   fragment gridFields on GridSize {
@@ -24,7 +24,7 @@ export const GridFragment = `
 `;
 \end{verbatim}
 
-\subsection{ Using Fragment in Query }
+\section{ Using Fragment in Query }
 Now in our query, we have the ability to include our fragment.
 \begin{verbatim}
 export const GridSizeQuery = gql`
@@ -37,7 +37,7 @@ export const GridSizeQuery = gql`
 `;
 \end{verbatim}
 
-\subsubsection{ Using Fragment as interface }
+\subsection{ Using Fragment as interface }
 It also helps when creating an interface. We have the ability to keep a one to
 one relationship between our fragments and interfaces as well. If we want to
 make sure that our interfaces are up to date for a specific data type, we can
@@ -51,7 +51,7 @@ export interface GridSize {
 }
 \end{lstlisting}
 
-\subsection{ Using Fragment in Mutation }
+\section{ Using Fragment in Mutation }
 We can now use the same fragment that we used for the GridSizeQuery, for the
 AddGridSizeMutation.
 

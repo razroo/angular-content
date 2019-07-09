@@ -1,11 +1,11 @@
 
-\section{ Transitions and Triggers }
+\chapter{ Transitions and Triggers }
 
 It is worth noting that there are a number of transition states. We discussed 
 from open to close, and from close to open. There are, however, other states 
 that are equally as important to discuss. 
 
-\subsection{ Wildcard Matching }
+\section{ Wildcard Matching }
 Using an asterisk in a transition state, will represent any sort of situation. 
 
 For instance, let's say were to use: 
@@ -20,8 +20,8 @@ anything else. A good rule of thumb, is that similar to routing, wherein the
 asterisk will be a wild card meant to match any remaining use cases, animation
 transitions also follow in the same vein. 
 
-\subsection{ Situations where a Wildcard can be Used }
-\subsubsection{ Using Wildcard with Styles }
+\section{ Situations where a Wildcard can be Used }
+\subsection{ Using Wildcard with Styles }
 \begin{lstlisting}
 transition ('* => open', [
   animate ('1s',
@@ -33,7 +33,7 @@ transition ('* => open', [
 In the above, the transition of animate of 1s, will match whatever it is that
 the current stule is. 
 
-\subsubsection{ Combining Wildcard and Void States }
+\subsection{ Combining Wildcard and Void States }
 A void state, is a way of causing an animation to occur whenever an element is 
 entering, or leaving a page. The proper syntax for letting Angular knowing that 
 an element should be animated when leaving, or entering would be to do the 
@@ -52,7 +52,7 @@ animations: [
 ]
 \end{lstlisting}
 
-\subsubsection{ :enter and :leave aliases }
+\subsection{ :enter and :leave aliases }
 
 However, Angular allows for the following alias, called \lstinline{:enter} and
 \lstinline{:leave}. 
@@ -101,7 +101,7 @@ trigger('myInsertRemoveTrigger', [
 \mybox{We do not need to use \lstinline{state}, due to the fact that these
 transitions are expected to happen in all scenarios.}
 
-\subsection{When a Value Increases, or Decreases}
+\section{When a Value Increases, or Decreases}
 Angular has a built in transition for when a value increases, or decreases. 
 \begin{lstlisting}
   trigger('filterAnimation', [
@@ -134,7 +134,7 @@ like a slider, you are able to bake transitions, into the counter of the
 slider. Now, whenever the slider goes to the next slide, it can cause a 
 transition to happen.}
 
-\subsection{ Transitions for Boolean Values }
+\section{ Transitions for Boolean Values }
 In many situations, we have the need for, should something be opened, or closed. 
 Should it be shown, or hidden? For situations like this, Angular offers the 
 ability to create transitions based on booleans: 
@@ -153,7 +153,7 @@ animations: [
 ],
 \end{lstlisting}
 
-\subsection{ Multiple Animation Triggers }
+\section{ Multiple Animation Triggers }
 In an Angular setting, each time an animation is triggered, the parent always
 get's priority, and cuts off the ability for child animation to run. In order 
 for a child animation to run, a parent element must trigger an 
@@ -185,7 +185,7 @@ When it is applied on the parent div, all animations on the element, as well as
 nested animations, are disabled. Likewise, to disable all animations for an 
 Angular app, a hostBinding can be applied to the top most Angular component.}
 
-\subsection{ Animation Callbacks }
+\section{ Animation Callbacks }
 There are times wherein one might want to tap into a particular time period of
 an animation. For instance, let's say there is a slow API request, you might 
 want the download button to have some sort of pulsating animation, if it takes
@@ -219,7 +219,7 @@ export class OpenCloseComponent {
 </div>
 \end{lstlisting}
 
-\subsubsection{ Debugging Animations using Callbacks }
+\subsection{ Debugging Animations using Callbacks }
 Let's imagine in the above \lstinline{animationEvent}, if we were instead to
 use cram our animationEvent with the following: 
 \begin{lstlisting}[caption=open-close.component.ts]
@@ -249,7 +249,7 @@ export class OpenCloseComponent {
 In the above, we can now view exactly what is happening within our animation 
 and can use this to determine animation if anything is awry. 
 
-\subsection{ Keyframes }
+\section{ Keyframes }
 Many animations happen to have a simple two step solution. For instance, show 
 and hide component, or maximize height. However, there might be an animation 
 that might be more than two steps. For animations of this scale, we will want
@@ -273,7 +273,7 @@ In the above code, initially the \lstinline{backgroundColor} will be blue.
 From 0s to 1s, the \lstinline{backgroundColor} will be red. From 1s to 2s the 
 \lstinline{backgroundColor} will be orange. 
 
-\subsubsection{ Offset }
+\subsection{ Offset }
 Angular also gives the option to define at which point in the keyframe the 
 animation should occur. Let's take the previous default animation and supply  
 it with offsets: 
@@ -297,7 +297,7 @@ transition('* => inactive', [
 \mybox{It is important to note, that any animatable property that can be 
 animated using CSS transitions, can be animated using Angular.}
 
-\subsection{Automatic property calculation with wildcards}
+\section{Automatic property calculation with wildcards}
 
 Many times, we are not 100\% aware of what the height will be of the component
 that we would like to animate. Angular allows us to apply a wild card styling 

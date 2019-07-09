@@ -1,5 +1,5 @@
 
-\section{ Lazy Loading Routes }
+\chapter{ Lazy Loading Routes }
 One of the more initally overlook routing architectures when it comes to routing
 is lazy loading. That would simply mean that a module is only loaded once
 the page goes to a specific route. This will cause large initial loading times
@@ -19,7 +19,7 @@ NgModule associated with 'team'. Then it will extract the set of routes defined
 in that NgModule, and will transparently add those routes to the main
 configuration.}
 
-\subsection{Adding a tsconfig.app.json config}
+\section{Adding a tsconfig.app.json config}
 Therefore, we need to set up a config inside the main tsconfig.app.json in the
 include imports:
 \begin{verbatim}
@@ -29,7 +29,7 @@ include imports:
   ],
 \end{verbatim}
 
-\subsection{Adding forChild inside of Actual Route}
+\section{Adding forChild inside of Actual Route}
 \begin{lstlisting}
 RouterModule.forChild([
   { path: '', component: UserComponent },

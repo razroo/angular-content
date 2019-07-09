@@ -1,5 +1,5 @@
 
-\section{ Benefits of Unit Testing, TDD, and BDD }
+\chapter{ Benefits of Unit Testing, TDD, and BDD }
 It truly makes sense for a definitive guide to deep dive into what the benefits
 of unit testing would be. From a developer perspective:
 \begin{enumerate}
@@ -11,12 +11,12 @@ of unit testing would be. From a developer perspective:
 From a management perspective, to help introduce unit testing, for those that
 might be less inclined towards unit testing.
 
-\subsection{What is Unit Testing?}
+\section{What is Unit Testing?}
 A unit in a best case scenario, is a function that always gives you the same
 result for a given input(pure function) Testing that unit, is to make sure that
 the expected result happens when running that function.
 
-\subsection{Benefits of Unit Testing}
+\section{Benefits of Unit Testing}
 \begin{enumerate}
   \item Refactoring. Change code once, and see everything else is working.
   \item Focus(See TDD item \#2)
@@ -33,7 +33,7 @@ the expected result happens when running that function.
     \end{enumerate}
 \end{enumerate}
 
-\subsection{What is TDD (Test Driven Development)}
+\section{What is TDD (Test Driven Development)}
 \begin{enumerate}
   \item Start by writing a test.
   \item Run the test, and any other tests. At this point, your newly added test
@@ -45,14 +45,14 @@ the expected result happens when running that function.
   \item Repeat from 1.
 \end{enumerate}
 
-\subsection{ What is BDD? }
+\section{ What is BDD? }
 Typcially when unit testing, a particular function at a later date can change
 it's impementation. For instance, if we have a counter function, the counter
 can be changed to start at 5 instead of 0, breaking the expect statement of 1.
 In BDD we focus on the intended behavior, instead of the expected result. The
 following is a great explanation:
 
-\subsection{ The Benefits of TDD }
+\section{ The Benefits of TDD }
 \begin{enumerate}
   \item Higher Test Coverage
   \item Focus
@@ -65,7 +65,7 @@ following is a great explanation:
   up(implementation, behavior) instead of top down(behavior, implementation).
 \end{enumerate}
 
-\subsection{What is BDD - Code Example}
+\section{What is BDD - Code Example}
 \begin{lstlisting}
 // Non BDD
 describe('Counter', () => {
@@ -91,12 +91,12 @@ describe('Counter', () => {
 })
 \end{lstlisting}
 
-\subsection{ The Benefits of BDD? }
+\section{ The Benefits of BDD? }
 If at a later time, the counter(as seen above), for instance, has to change
 based on requirements(starting at 5, instead of 1), it will not affect the unit
 test.
 
-\subsection{What, When, and How}
+\section{What, When, and How}
 Unit testing, is the what. TDD is the when, and BDD is the how.
 
 \mybox{Convincing the skeptic might be difficult. The following are some steps

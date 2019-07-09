@@ -1,4 +1,4 @@
-\section{ Pipes }
+\chapter{ Pipes }
 
 
 Angular offers the ability to use Pipes out of the box. The idea behind a pipe
@@ -25,11 +25,11 @@ obviously makes it very easy to go ahead and transform data throughout one's
 app. Here we are also chaining pipes, so that the transformed data that comes
 back in addition to being transformed, is also capitalized.
 
-\subsection{ Performance Considerations }
+\section{ Performance Considerations }
 It is important off the cuff to be aware of some performance concerns when it
 comes to pipes.
 
-\subsubsection{ Understanding Angulars Change Detection }
+\subsection{ Understanding Angulars Change Detection }
 This is a good time to interject and get into the nitty gritty of angular's
 change detection. As we discussed in the earlier chapter on change-detection,
 change detection in Angular works from the top down. That is, if a specific set
@@ -38,7 +38,7 @@ result of new data. Angular pipes, however, change how that it is done, by
 changing content directly on the object, and only updating that one specific
 part. By using pipes, it allows one's component to be more performant.
 
-\subsection{ When to Use Pipes }
+\section{ When to Use Pipes }
 Pipes cover alot of ground. Within our architecture, one of the pipes that will
 be used more so that others in the async pipe. However, now is not the place
 to put that here. What is important, is that pipes can be used transform data.

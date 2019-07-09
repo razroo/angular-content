@@ -1,5 +1,5 @@
 
-\section{ Automation Engineering }
+\chapter{ Automation Engineering }
 
 In an ideal QA environment, there will be a QA team layered on top of the
 Backend and Frontend Team. Their QA tests, however, will not be integrated into
@@ -9,7 +9,7 @@ productiong.
 
 In particular, they should follow something called smoke testing.
 
-\mybox{\subsection{Smoke Testing}
+\mybox{\section{Smoke Testing}
 Smoke Testing is preliminary testing to reveal simple failures severe enough to,
 for example, reject a prospective software release. Smoke tests are a subset of
 test cases that cover the most important functionality of a component or system,
@@ -18,7 +18,7 @@ correctly. When used to determine if a computer program should be subjected to
 further, more fine-grained testing, a smoke test may be called an intake test
 }
 
-\subsection{ Automation Engineering - The Cross Over }
+\section{ Automation Engineering - The Cross Over }
 Part of the question then becomes if automation engineering is creating their
 own integration tests for your app, it is essentially a bunch of E2E tests. So,
 why should UI go ahead and create their own tests, if QA is already creating
@@ -48,20 +48,20 @@ do not have time for, then I would say it is understandable. That being said,
 the following would be the limited crossover workflow in order for this budget
 friendly process to work.
 
-\subsection{Limited Crossover Workflow}
-\subsubsection{Step \#1}
+\section{Limited Crossover Workflow}
+\subsection{Step \#1}
 
 First and foremost, you are going to need a way to hook up automation engineering
 into your actual dev environment, and run those tests as a part of your actual
 dev environment. Keep in mind, this will make build times expensive, however,
 once again, it is for budget reasons.
 
-\subsubsection{Step \#2}
+\subsection{Step \#2}
 Make sure to loop QA into any concerns with the app you have. For instance,
 things that you've noticed the current QA tests do not cover, that you have
 noticed is an actual issue.
 
-\subsubsection{Step \#3}
+\subsection{Step \#3}
 Make sure to integrate automation tests within the CI/CD pipeline that you have.
 This means it will not fail when any of the E2E tests fail.
 

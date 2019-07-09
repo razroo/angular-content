@@ -1,5 +1,5 @@
 
-\section{ Authorization }
+\chapter{ Authorization }
 
 Authorization is a corner stone of any project. Many Greenfield projects will
 not have the ability to implement authorization right away, as backend will not
@@ -7,9 +7,9 @@ have the capacity to do so. However, one of the cool things about authorization
 is that one has the ability to set it up ahead of time. When data from the
 backend comes in, the authorization service and directives will be ready to do.
 
-TODO section on creating a centralized service goes here.
+TODO chapter on creating a centralized service goes here.
 
-\subsection{Creating directives for our service}
+\section{Creating directives for our service}
 As an example, let's say that we have html that we want to disable, or hide. We
 can do the following:
 \lstinputlisting{./authorization/component.html}
@@ -20,14 +20,14 @@ if unauthorized:
 and another for hiding if unauthorized:
 \lstinputlisting{./authorization/hide-if-unauthorized.directive.ts}
 
-\subsection{Creating a Guard for unauthorized}
+\section{Creating a Guard for unauthorized}
 As the last piece of our unauthorized trifecta, we will be wanting to create a
 guard. For reference on guards, please refer to the chapter on guards.
 
 TODO - Go more into depth on what this guard is doing.
 \lstinputlisting{./authorization/auth-guard.service.ts}
 
-\subsection{Service Can Be Called Anywhere}
+\section{Service Can Be Called Anywhere}
 We have the option to call the auth service anywhere in the app that we want to,
 in addition to using directives and the guard. For instance:
 

@@ -1,7 +1,7 @@
 
-\section{ Facade Pattern }
+\chapter{ Facade Pattern }
 
-\subsection{ What is the Facade Pattern? }
+\section{ What is the Facade Pattern? }
 The facade pattern is a classic. Anyone who has read the GoF book \footnote{
 which if you haven't you should probably take a look.} knows that it is a
 mainstay of computer science. Quoting from the GoF book:
@@ -9,7 +9,7 @@ mainstay of computer science. Quoting from the GoF book:
 \say{A facade is an object that provides a simplified interface to a larger body
  of code, such as a class library.}
 
-\subsection{ A Look at your Typical Non Facade State Pattern  }
+\section{ A Look at your Typical Non Facade State Pattern  }
 This pattern is particularly advantageous when it comes to ngrx actions. If I
 may, let's imagine we have the following action:
 
@@ -46,7 +46,7 @@ Now any time that we have to call an action we have to do two things:
 Obviously, this is quite a bit of overhead. Using the facade pattern let's see
 if we can simplify this process
 
-\subsection{ Create the Facade Service  }
+\section{ Create the Facade Service  }
 
 With a facade pattern, we have the ability to take the following two items:
 \begin{enumerate}
@@ -72,12 +72,12 @@ export class ChooseSizeFacade {
 }
 \end{lstlisting}
 
-\subsection{ Hooking Facade Into Component }
+\section{ Hooking Facade Into Component }
 Now to call our action, all all we have to do is call the ChooseSizeFacade
 service, and appropriate method.
 
 \mybox{
-\subsection{ Why Even Bother Creating a Facade? }
+\section{ Why Even Bother Creating a Facade? }
 It might seem like a bit of overhead working towards creating an additional
 file as a facade for our actions. However, it keeps our component clean, and
 removes the need of keeping overhead of the different stores that our component

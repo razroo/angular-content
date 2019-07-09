@@ -1,5 +1,5 @@
 
-\section{ Material Overrides }
+\chapter{ Material Overrides }
 
 Based on Razroo best practices, we have established the easiest way to get 
 your app up and running, is to use material design within your Angular 
@@ -8,7 +8,7 @@ Angular Material. When that happens the developer will have to go ahead and
 customize the build for material design. Let's talk about how we can go ahead 
 and do that. 
 
-\subsection{Understanding Colors in Material}
+\section{Understanding Colors in Material}
 First and foremost it is important to understand something called a color 
 palette. I know some of you might be aware of what it is, but personally, I was
 not aware. A color palette in the digital world, refers to the full range of 
@@ -16,7 +16,7 @@ colors that can be displayed on a device. Within a material design application
 it refers to the range of colors that can be used within the application. 
 Material's design language makes use of two main colors for it's color palette: 
 
-\subsubsection{Primary and Secondary Values}
+\subsection{Primary and Secondary Values}
 \begin{enumerate}
   \item Primary - Color displayed most frequently across your app's screens and
   components. 
@@ -32,7 +32,7 @@ Material's design language makes use of two main colors for it's color palette:
 
 \includegraphics[width=6in]{design-language-system/material-overrides/material-design-palette.png}
 
-\subsubsection{Material Color Maps}
+\subsection{Material Color Maps}
 
 It will then create a series of light and dark variants based on the primary 
 and secondary values. The primary and second values must be a map of colors 
@@ -89,12 +89,12 @@ used by Material Desing. Other design frameworks progress by 10's(IBM Design)
 instead of 100's, for instance, or even by 1's(Open Color). It is merely a
 convention used to show that values are progressing.}
 
-\subsection{Material Design and Sass}
+\section{Material Design and Sass}
 First and foremost, we have already established that we will be working within
 a Sass environment. Material Design offers Sass out of the box, and makes it 
 incredibly easy to customize your environment based on sass overrrides. 
 
-\subsection{Npm Install Material Theme}
+\section{Npm Install Material Theme}
 First and foremost, let's make sure that we have properly installed and Angular
 Material in our Angular application. 
 \begin{lstlisting}
@@ -105,7 +105,7 @@ You package.json will now include packages needed to use Angular Material
 within the application in general. In addition, the package
 (\lstinline{@angular/material}) to make the Sass changes we so dearly need. 
 
-\subsection{Import Material Design and Call Core Styles}
+\section{Import Material Design and Call Core Styles}
 The next step, is for us to go ahead and import Material Design in our 
 \lstinline{styles.scss} file. The \lstinline{styles.scss} file can be found
 in the root Angular application \lstinline{src} folder.
@@ -128,7 +128,7 @@ all of the theming variables for material design. We are also calling the
 \end{quote} \footnote{This quote can be found in the \lstinline{_theming.scss}
 file}
 
-\subsection{Material Light + Dark Theme}
+\section{Material Light + Dark Theme}
 Angular offers out of the box in the \lstinline{_theming.scss} file a light and
 dark theme function. The function looks a follows: 
 \begin{lstlisting}
@@ -166,7 +166,7 @@ $px-theme: mat-light-theme($px-app-primary, $px-app-accent);
 
 Now all of our Angular Material components, will be using our unique theme.
 
-\subsection{Creating Our Own Custom Theme}
+\section{Creating Our Own Custom Theme}
 Quite common your organization will want to layer their own custom theme 
 outside of the 16 colors that Angular provides. This might manifest it's 
 self in two scenarioes: 
@@ -184,7 +184,7 @@ You will then have the ability to click on the clipboard icon, click on the
 dropdown for Angular JS 2 (Material 2), and copy the scss variable map. It's 
 really as simple as that. 
 
-\subsubsection{Create a \_themes.scss file}
+\subsection{Create a \_themes.scss file}
 Being that we are creating our own themes, the cleanest thing for us to do would 
 be to place it in it's own \_themes.scss file. In addition, assuming that the 
 organization is going to build out more applications, giving it the ability to
@@ -244,7 +244,7 @@ $razroo-primary-blue: (
 It's quite a bit, but I just wanted to visualize that all of this is created by
 using the Material Design Palette Generator. 
 
-\subsection{Using Libs \_themes.scss file }
+\section{Using Libs \_themes.scss file }
 Inside of our \lstinline{styles.scss} file, we can import our 
 \lstinline{\_themes.scss} file. Assuming we are just changing the primary color
 and secondary color, we can do the following: 
@@ -262,7 +262,7 @@ globally to be used by other applications/teams. In addition, using the Angular
 mat-light-theme funciton(mat-dark-theme also an option), or app is now using
 our exclusive theme. 
 
-\subsection{Background + Foreground}
+\section{Background + Foreground}
 It is important to mention that per the Material Design guidelines, background
 and foreground are not meant to represent brand. They are more so used to 
 convey the energy of the application. For Razroo's Pixel Illustrator, we wanted
@@ -327,7 +327,7 @@ $razroo-theme: razroo-theme(mat-palette($razroo-primary-blue), mat-palette($razr
 @include angular-material-theme($razroo-theme);  
 \end{lstlisting}
 
-\subsection{Overriding Components}
+\section{Overriding Components}
 After we have overridden our theme in general across the app, there will be 
 times wherein we will need to override specific styles for the component. 
 There really isn't any way to modify the styling ahead of time. The only way
@@ -345,7 +345,7 @@ We import every material override into the main
 \lstinline{\_material-override.scss} file. Then, import the material-override 
 file in our main \lstinline{styles.scss} file. 
 
-\subsection{Overriding Overlay Components}
+\section{Overriding Overlay Components}
 If you wish to override an overlay component, overlay components have a 
 \lstinline{panelClass} property that can be used to target the overlay pane. 
 For instance, with regards to dialogs, we have the ability to add a class doing
@@ -366,7 +366,7 @@ razroo-no-padding-dialog class.
 This gives us freedom moving forward, so that we can have multiple appearances
 for our material components.
 
-\subsection{Overriding Non Overlay Components}
+\section{Overriding Non Overlay Components}
 Non overlay components, do not have the option to add a \lstinline{panelClass}.
 The only solution which truly makes sense, is to create a global override on
 the component itself. So, let's say that we wanted to change the appearance of
@@ -379,7 +379,7 @@ We would do the following:
   }
 \end{lstlisting}
 
-\subsection{Wrapping up}
+\section{Wrapping up}
 Material is, and will for a very long time, be the premier design language for
 Angular. It is incredibly simple to set up, and a breeze to modify. In my humble 
 opinion, it is one of the three greatest architectural decisions someone can make 

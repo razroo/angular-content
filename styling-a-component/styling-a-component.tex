@@ -1,12 +1,12 @@
 
-\section{ Styling a Component }
+\chapter{ Styling a Component }
 
 Styling a component, of course, is a very complex topic. With styling, as an
 architect in an Angular setting, there are 4 things that you will have to keep
 in mind:
 \begin{enumerate}
   \item Pre-processor of choice(Scss, Less, PostCss, etc.)
-  \subsection{ Pre-processor of choice }
+  \section{ Pre-processor of choice }
   \item Design system
     \begin{enumerate}
       \item Material Design(Google)
@@ -17,11 +17,11 @@ in mind:
   \item Naming convention of CSS classes
 \end{enumerate}
 
-\subsection{ Pre-processor of choice }
+\section{ Pre-processor of choice }
 For our preprocessor, we have chosen Sass. \footnote{Incude link for a
 discussion of why that is}
 
-\subsection{ Naming Convention }
+\section{ Naming Convention }
 For our naming convention, we will go with BEM. It is an extremely easy way
 of setting a part a specific component from an html and css side of things. A
 quick primer on BEM.
@@ -38,7 +38,7 @@ existing element.
 \end{verbatim}
 
 
-\subsection{ Design System }
+\section{ Design System }
 In an Angular setting, the component library which seems to make most sense is
 Material Components
 \footnote{https://material.angular.io/components/categories}. For starters, it
@@ -50,7 +50,7 @@ and I can really say the documentation is just fantastic. I have used it in more
 complex settings(e.g. the data-table), and adding on new functionality has been
 just a joy.
 
-\subsection{ Adding Material Design to Our App }
+\section{ Adding Material Design to Our App }
 First install Angular Material components and Angular Animations to our app.
 \begin{verbatim}
   npm install --save @angular/material @angular/cdk
@@ -64,7 +64,7 @@ styles.scss file, import the following.
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 \end{lstlisting}
 
-\subsection{ Our first component }
+\section{ Our first component }
 In our app, we are going to create our first component. It is essentially a form
 with three fields:
 \begin{itemize}
@@ -77,7 +77,7 @@ In addition, there will be a button which will say, 'Create Grid'. We are also
 going to wrap our component, with the <mat-card> component, add a width of
 300, margin-top and center.
 
-\subsubsection{ Notable Mention - @HostBinding }
+\subsection{ Notable Mention - @HostBinding }
 In an angular app, many times, we will want to add a specific class to our
 parent container. In our situation, we will be using BEM, and creating a
 ChooseSize class. It will implement flex, and use justify content, in order to
@@ -110,7 +110,7 @@ target our host element our scss:
   }
 \end{verbatim}
 
-\subsection{ CSS Naming Convention }
+\section{ CSS Naming Convention }
 In your modern day front end framework, such as Angular, generally, we do not
 have to worry about clashing namespaces. \footnote{Historal footnote, the
 turning point for me was with this article \href{https://glenmaddern.com/articles/css-modules}{here}}.

@@ -1,12 +1,12 @@
 
-\section{ Mocking Data }
+\chapter{ Mocking Data }
 An interesting phenomenon that happens within many enterprises, is with regards
 to unit tests and maintanability. Many times the data mocks are repititions of
 themselves. In addition, utilities with regards to mocking data. I've done this
 myself, maybe you have as well. This chapter is simply there to put this in as
 convention, to go ahead and edit moving forward.
 
-\subsection{ Function Composition }
+\section{ Function Composition }
 With regards to creating re-usable data, there are two options. One can use a
 function to generate a mock. Alternatively, one can use a spread operator. For
 the most part, I prefer a function to generate a mock. It gives the option to
@@ -42,7 +42,7 @@ By using the simple above function, and proper type annotation we have the
 option to generate mocked data that is unique to our interface. In addition, we
 have the ability to pass in data as it is unique to our specific use case.
 
-\subsection{ Core Constants }
+\section{ Core Constants }
 In addition to having function composition tied to our interfaces, odds are that
 the data being passed in might have the same signature time and time again.
 

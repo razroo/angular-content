@@ -1,19 +1,19 @@
 
-\section{ Re-Usable State - An Anti-Pattern }
+\chapter{ Re-Usable State - An Anti-Pattern }
 
 Creating re-usable state in an Angular application might be one of the most
 singular important architectural decisions you might also make. In addition, it
 will probably be the longest lasting architectural decision you might make, as
 redux is something which is pretty agnostic across many different frameworks.
 
-\subsection{Why Create Re-usable State?}
+\section{Why Create Re-usable State?}
 If there is a singular component that is going to be used across a different
 page, having re-usable state, will greatly simplify the architecture. The
 logic for reducers can be created once. That logic can then be re-used numerous
 times within your app. However, I would like to express how having re-usable
 state in @ngrx/store is an anti-pattern.
 
-\subsection{Re-usable State - An Anti-Pattern}
+\section{Re-usable State - An Anti-Pattern}
 Let's imagine that you have a re-usable data-table, that you would like to use
 on numerous pages. There are certain pieces of logic that you want to use with
 your state. For instance, you want to create a reducer to determine which

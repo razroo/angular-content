@@ -1,7 +1,7 @@
 
-\section{ Creating a Dumb Component }
+\chapter{ Creating a Dumb Component }
 
-\subsection {Outline}
+\section {Outline}
 
 \begin{enumerate}
   \item Create a UI dumb component in Lib folder
@@ -14,7 +14,7 @@
   \item Add proper styling to the illColorPicker
 \end{enumerate}
 
-\subsection {Create a UI Dumb Component in Lib Folder}
+\section {Create a UI Dumb Component in Lib Folder}
 This is a dumb component, it should be created in the UI folder.
 \footnote{Please reference the chapter discussing UI architecture for why
 that is.}
@@ -24,7 +24,7 @@ ng g lib color-picker --routing --directory="ui"
 ng g component color-picker -a=color-picker --export
 \end{lstlisting}
 
-\subsection{ Add Color Picker to Pixel Grid Page Component }
+\section{ Add Color Picker to Pixel Grid Page Component }
 Let's import our ill color picker into our Pixel Grid page.
 
 \begin{lstlisting}
@@ -39,7 +39,7 @@ In addition, let's add the ill-color-picker component to our html.
 + <ill-color-picker></ill-color-picker>
 \end{lstlisting}
 
-\subsection{ Add Styling Element to Create Basic  }
+\section{ Add Styling Element to Create Basic  }
 Let's add a basic width and height for out element.
 \begin{lstlisting}
 .IllColorPicker {

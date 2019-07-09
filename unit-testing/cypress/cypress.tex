@@ -1,5 +1,5 @@
 
-\section{ Visual Unit Tests with Cypress }
+\chapter{ Visual Unit Tests with Cypress }
 
 Unit testing is all great until something changes. The current issue with
 writing traditional unit tests is that you miss out on the point of front end
@@ -30,7 +30,7 @@ This makes Cypress a powerfully easy tool to use and lowers the bar of entry
 significantly for developers wanting to drive their development efforts with
 tests, catching bugs before they morph into something too big.
 
-\subsection{How to use Cypress with Nx}
+\section{How to use Cypress with Nx}
 
 Before we proceed, Nx stands for Nrwl Extensions for Angular and is built by a
 team of ex-Google employees who were also part of the Angular core team. Nx
@@ -83,9 +83,9 @@ The --watch flag lets you write you tests in the background and Cypress
 automatically detects any changes in the test or application code and runs
 itself against the changes.
 
-\subsection{ Example usage and cases }
+\section{ Example usage and cases }
 
-\subsubsection{ Accessing store }
+\subsection{ Accessing store }
 Cypress is able to test a multitude of front end frameworks and libraries,
 Redux being one of them. By using if (window.Cypress){window.store = store }
 inside your src/index.js, you are exposing the store when the application is
@@ -106,7 +106,7 @@ it('has expected state on load', () => {
 })
 \end{lstlisting}
 
-\subsubsection{ Button Clicked }
+\subsection{ Button Clicked }
 Attaching a data-cy attribute to a button exposes the item for testing by
 Cypress. While this is not necessary as it can be accessed through classes, it
 is not recommended as it can result in the wrong object being targeted. data-cy
@@ -129,7 +129,7 @@ cy.get('[data-cy=submit]').click()
 cy.contains('Submit Me!').click()
 \end{verbatim}
 
-\subsubsection{ modal should appear when button is clicked }
+\subsection{ modal should appear when button is clicked }
 We all get given business and design rules to help us build our applications.
 It may read something like this:
 Modal should appear when button clicked, and should have drop down data, but
@@ -149,7 +149,7 @@ cy.get('[data-cy=submit]').click()
 cy.get('[data-cy=user-modal-dropdown]').click().contain([{text: 'by apples']);
 \end{lstlisting}
 
-\subsection{ Potential issues when using Cypress }
+\section{ Potential issues when using Cypress }
 The concept of code coverage refers to the percentage of code that is covered
 by my automated tests. Purity of test types may get muddied and percentage of
 test coverage may reduce over time when teams begin to mix and math e2e with
@@ -165,7 +165,7 @@ final production code. The idea of hooks is to keep the main code state
 untouched and independent from actions that are trying to observe events,
 inputs, outputs and outcomes.
 
-\subsection{ Extended Features }
+\section{ Extended Features }
 Cypress' test runner is MIT open sourced and free. However, it does have a
 commercial side to it and offers a Dashboard service allows you to centralize
 your tests and enable continuous integration at a team level. This differs from
@@ -175,7 +175,7 @@ There is a free Seed tier that currently allows for up to 3 users and 500 test
 recordings. As you move up through the plans, the level of support, users and
 number of test recordings increases.
 
-\subsection{ Final words }
+\section{ Final words }
 
 Cypress as a testing tool differs from all other testing tools, frameworks and
 assertion libraries because it offers front end developers a way to test their

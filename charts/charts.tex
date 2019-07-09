@@ -1,5 +1,5 @@
 
-\section{ Charts }
+\chapter{ Charts }
 
 Having charts in one's application might not seem like an architectural
 decision. In particular, there is a very popular library library out there
@@ -10,13 +10,13 @@ appropriate component. However, using the power on Angular, it would allow for
 the compartementalization of graphics, and makes Angular a very powerful tool
 for the job.
 
-\subsection{Install D3}
+\section{Install D3}
 \begin{verbatim}
   npm install --save d3
   npm install --save-dev @types/d3
 \end{verbatim}
 
-\subsection{Interfacing D3}
+\section{Interfacing D3}
 When using any framework in general with a graphics library, the proper approach
 is to interface through that component. So, for instance, instead of keeping
 the framework really abstract, we can tie it to the DOM of the component. When
@@ -27,7 +27,7 @@ be discussed in this chapter, such as models, or visuals are native to Angular.
 However, being that we are bringing over something which is not in an Angular
 setting, I will be discussing everything, to remove any confusion.
 
-\subsection{ Simplifying an Interface in the Context of Angular }
+\section{ Simplifying an Interface in the Context of Angular }
 We've discussed previously the concept of dumb and smart components. That is,
 having a component purely for visual purposes, and progating the need for
 retrieving data, and handling events to the smart component. This is a very
@@ -39,12 +39,12 @@ to click on an arc, or hover over, and have a specific function, we can turn
 that into a core service. Therefore, moving forward, we would be able to attach
 this logic over to another component if need be.
 
-\subsection{ Re-building Pixel Grid, interfacing d3 using Angular }
+\section{ Re-building Pixel Grid, interfacing d3 using Angular }
 Let's create a d3 rect component. Instead, we are going to call it the pixel
 component. Inside of our pixel component, we are going to interface it with
 width and height.
 
-\subsection{ ApplyClickableBehavior Service }
+\section{ ApplyClickableBehavior Service }
 In addition, we are going to want to create a service that can be used on our
 specific element, as well as on other elements. It will look something like
 the following:
@@ -52,7 +52,7 @@ the following:
 
 \end{lstlisting}
 
-\subsection{ Hooking up Services to Directives }
+\section{ Hooking up Services to Directives }
 Now that we have our services, we are going to hook up services directly to
 our directives. The directives are going to by default hook into the native
 element of

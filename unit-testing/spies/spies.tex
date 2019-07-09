@@ -1,5 +1,5 @@
 
-\section{ Spies }
+\chapter{ Spies }
 
 Spy's are an integral part of any unit testing suite. For those familiar, you
 might think of it as something that doesn't neccesarily deserve it's own
@@ -7,7 +7,7 @@ chapter. However, spies help simplify the unit test suite to such a great
 extent, that not discussing the finer detais of how it should work, almost
 seems like a crime.
 
-\subsection{ A Primer }
+\section{ A Primer }
 First and foremost, spies are actually one of the finer points of unit testing.
 Personally, when I started writing them professionally for Verizon, spies were one of the more difficult things for me to understand. I found the name
 particularly confusing. A spy?! You mean I am spying on a function that I
@@ -17,7 +17,7 @@ ability to hijack it with a different function, or call through as is? Wow, I
 can't think of any name to call that? Ok, now I understand why it was called a
 spy.
 
-\subsubsection{ Spy User Example }
+\subsection{ Spy User Example }
 
 \begin{lstlisting}
 describe('', () => {
@@ -45,7 +45,7 @@ allow us to keep our component unit test shallow, without the need of having
 any component integration involved.
 }
 
-\subsection{ Two Methods of Declaring Spies }
+\section{ Two Methods of Declaring Spies }
 It would seem that there are two schools of thought when it comes to how one should
 place the spy. Some place the spy within the actual beforeEach statement. This
 simplifies the use of doing so. The other approach, is to apply the spy inside of
@@ -63,7 +63,7 @@ application. So, adopting a always put a spy in a beforeEach, can be:
 So, it would make sense that putting spies in individual it blocks will make the
 most sense.
 
-\subsection{ Strategy for Using Spies }
+\section{ Strategy for Using Spies }
 Spies work particularly well with function composition. The attempt of this book
 is not to overlap with common unit testing principles, such as functions should
 be kept small. It is to introduce to those that might be less familiar with how
@@ -138,7 +138,7 @@ comes to composing them all into a giant function, from a unit testing
 perspective, all we need to do is make sure that they were indeed called with
 the correct parameters.
 
-\subsection{ A Final Note }
+\section{ A Final Note }
 Spies are a relatively simple concept. However, there are finer points that
 make spies a little bit of a confusing topic to understand. This chapter is an
 attempt to make that a bit easier. 

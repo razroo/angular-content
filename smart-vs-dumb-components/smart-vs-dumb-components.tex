@@ -1,5 +1,5 @@
 
-\section{ Smart Vs Dumb Components }
+\chapter{ Smart Vs Dumb Components }
 
 In any UI framework, following a smart component, and dumb component
 architecture, is going to be a good idea with regards to re-usability.  It will
@@ -10,7 +10,7 @@ when you have chance to just read this chapter. If you are already familiar,
 feel free to keep reading, I worked hard to make sure there is something to
 learn as well.
 
-\subsection{ A Dumb Component - Defined }
+\section{ A Dumb Component - Defined }
 A dumb component many times can be thought of as a child component. Think of it
 as this component is going to be re-used is many different places. How can we
 make it's logic as generic enough so that can happen? Simply put, the dumb
@@ -25,25 +25,25 @@ So the only two concerns when creating a dumb component is:
   \item Propery Binding
 \end{enumerate}
 
-\subsection{ A Smart Component - Defined }
+\section{ A Smart Component - Defined }
 A smart component inversely, will be responsible for creating the data, to be
 passed down to the dumb component. In addition, it will hook into the events
 for the specific dumb component, and make sure to make data calls at that time
 as well.
 
-\subsection{ Where does State Come In? }
+\section{ Where does State Come In? }
 One of the grayer areas when it comes to dumb vs. smart components, is state
 management. I personally have found putting a re-usable state in a dumb
 component to be extremely useful. State is to be made re-usable by keeping all
 unique sets of data nested one level deep. This is done by making the
 storeSelectName dynamic. We will discuss this in detail in another chapter.
 
-\subsection{Creating a Dumb Component in Practice}
+\section{Creating a Dumb Component in Practice}
 In an Angular setting there are two decorator functions that the framework
 offers out of the box that will help in this regard. They are @Input and
 @Output.
 
-\subsection{@Input in Detail}
+\section{@Input in Detail}
 @Input if you are not already familiar, is Angular's way of passing down data
 from parent to child. So just a quick example of how data would be passed down
 from a smart component to a dumb component would be as follows:
@@ -64,14 +64,14 @@ In our parent component's html, we would do something as the following:
 \end{lstlisting}
 
 \mybox{
-\subsubsection{Setting and Getting an @Input}
+\subsection{Setting and Getting an @Input}
 An important piece of architecture, is when getting back data it is possible to
 manipulate the data before actually being put within the component itself. I
 will not go into specifics here, but code can be seen by folliwing code
 specified in repo.
 }
 
-\subsection{@Output in Detail}
+\section{@Output in Detail}
 @Output is an observable property. It is usually always coupled with an
 event emitter. It's intended use to pick up on an even that happens within a
 dumb component, and have actual logic happen within the smart, parent component.
@@ -95,6 +95,6 @@ Then in your html, it will look something like the following:
 <data-table (open)="handleOpen()" (close)="handleClose()"></data-table>
 \end{lstlisting}
 
-\subsection{Wrapping Up}
+\section{Wrapping Up}
 That would be it. The above will allow you to architect creating a smart vs
 dumb component.

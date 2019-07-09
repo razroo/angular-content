@@ -1,5 +1,5 @@
 
-\section{ Containers, Routing + Ngrx/router }
+\chapter{ Containers, Routing + Ngrx/router }
 
 We now have a choose-size component, as well as a choose-size module.
 The dynamics of our app, is that there will only be two parent pages. One will
@@ -31,7 +31,7 @@ towards the bottom of the page.
 
 \includegraphics[width=9cm, height=6.1cm]{routing/containers-and-routing/choose-size-screenshot}
 
-\subsection{ ngrx/router-store }
+\section{ ngrx/router-store }
 
 Before we move any further with regards to angular routes, let's discuss
 ngrx/router. In short, ngrx/router exists so that the route can be in the store
@@ -40,7 +40,7 @@ as well. By default ngrx/router will dispatch a ROUTER\_NAVIGATION action
 when a navigation route get's called. This will enable time traveling with
 regards to routes.
 
-\subsection{ Why use ngrx/router-store }
+\section{ Why use ngrx/router-store }
 
 Ngrx/router-store can be advantageous in two regards. One, it adheres to the
 principle of there being a single state of truth \footnote{https://redux.js.org/docs/introduction/ThreePrinciples.html\#single-source-of-truth}.
@@ -49,7 +49,7 @@ url. If one wanted to follow an architecture, where the route contains the curre
 state of the application(filters, inputs etc.) router-store definitely make's it
 very easy to do so.
 
-\subsection{ Adding ngrx/router-store to our app }
+\section{ Adding ngrx/router-store to our app }
 
 In order to add ngrx/router-store to our app, run:
 \begin{verbatim}
@@ -79,7 +79,7 @@ In our app.module.ts we will be adding the following:
   + }),
 \end{lstlisting}
 
-\subsubsection{ Side note when using devtools with ngrx/router-store }
+\subsection{ Side note when using devtools with ngrx/router-store }
 
 One final note when using ngrx/store router-store with devtools. The
 RouteStateSnapshot is a very large object, containing large amounts of data. I've

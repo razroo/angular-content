@@ -1,5 +1,5 @@
 
-\section{ Introduction to @ngrx/store }
+\chapter{ Introduction to @ngrx/store }
 
 As discussed in the chapter on the History of State Management, there has
 been quite a series of progression with regards to state management. Redux, is
@@ -9,7 +9,7 @@ Angular's @ngrx/store, which is not front and center, is where redux meets Rxjs.
 Rxjs is the Javascript library for using observables
 \footnote{More on Observables can be read here}.
 
-\subsection{What Makes @ngrx/store Different than Redux?}
+\section{What Makes @ngrx/store Different than Redux?}
 When considering this question, it is more important to consider what is
 reactive programming. Reactive programming in particular introduces two concepts
 \footnote{http://www-sop.inria.fr/members/Gerard.Berry/Papers/Berry-IFIP-89.pdf}:
@@ -23,7 +23,7 @@ reactive programming. Reactive programming in particular introduces two concepts
   an enterprise setting, as it allows for greater re-use.}
 \end{enumerate}
 
-\subsubsection{Asynchronous}
+\subsection{Asynchronous}
 With regards to asynchronous programming, observables are not neccesarily 
 reactive in the strictest sense. This is because the client is working 
 separate from the server. Events with observables are most definitely reactive
@@ -36,13 +36,13 @@ something which could easily be done with promises. However, @ngrx/store does
 tie it nicely into the store as a whole, allowing client state management, 
 without going into detail.
 
-\subsubsection{Deterministic}
+\subsection{Deterministic}
 With regards to determinstic, this generally means in computer science, that
 with one particular input, you will alwyas have the same output. However, when
 the term is used loosely, it generally means that the code is cookie cutter.
 That is, that it can be re-used time and time again.
 
-\subsection{Wrapping Up}
+\section{Wrapping Up}
 This is really what @ngrx/store tries to produce over other frameworks. It
 offers the ability to re-use patterns time and time again. In addition, by
 hooking it into the Rxjs lifecycle by using observables it allows patterns and

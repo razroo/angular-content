@@ -1,4 +1,4 @@
-\section{ Services }
+\chapter{ Services }
 
 
 First and foremost what is a service in Angular? In Angular, a service is a way
@@ -9,7 +9,7 @@ the maintainability and scalability of an application. The bulk of discussion
 around services will be discussed in later chapters. However, it is still a 
 part of core Angular, and it is important to be aware of couple things. 
 
-\subsection{ Creating a Service and ProvidedIn: Root }
+\section{ Creating a Service and ProvidedIn: Root }
 In order to create a service, navigate to the folder you would like to create 
 your service, and run: 
 \begin{lstlisting}
@@ -24,7 +24,7 @@ to injected, without the need to include it in the respective module. It has
 some performance boosts, besides level of convenience. We will get more into 
 that in later chapters. 
 
-\subsection{ What Generally Goes in a Service }
+\section{ What Generally Goes in a Service }
 A service generally deals with data. This means making data requests, and 
 passing that data into our component. Razroo reccomends using Apollo Client
 instead of Angular's internal http client, due to the fact that we strongly 
@@ -54,7 +54,7 @@ from our component, and allow for our code to be more re-usabled. For instance,
 if we want get the user data, we can simply include the service in the 
 appropriate component, and use the data as needed. 
 
-\subsection{Including Service In Our Component}
+\section{Including Service In Our Component}
 If we would like to use this service in our component, we can simply inject 
 the appropriate service in our constructor. 
 
@@ -84,7 +84,7 @@ fed through the facade file. Regardless, for now, what should be kept in mind,
 is that including service in the contructor, is all that is needed to consume 
 the service. 
 
-\subsection{Ending Off}
+\section{Ending Off}
 I would just like to end off saying that actually creating a service is 
 actually quite simple. It's a piece of architecture, so arguably from an 
 architectural perspective, it is one of the more complex pieces of Angular. 

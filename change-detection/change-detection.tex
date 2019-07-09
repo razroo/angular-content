@@ -1,4 +1,4 @@
-\section{ Change Detection }
+\chapter{ Change Detection }
 
 
 Change detection is one of the found principles behind Angular. It is a large
@@ -7,7 +7,7 @@ minute details of Angular's change detection, can very such help us understand
 all other parts of the framework. In addition, help us increase boosts when it
 comes to performance.
 
-\subsection{Understanding Change Detection as a Concept}
+\section{Understanding Change Detection as a Concept}
 Without a framework in place, we would change a particular piece of text
 using Javascript. For instance, let's say we have a promise which returns data,
 with that new data, we would do something like the following:
@@ -33,7 +33,7 @@ this.facade.user$.subscribe((userData) => {
 Very simply, using the above, any time that our newData changes, all of the
 relevant data inside of out html file will be updated.
 
-\subsection{ Understanding Change Detection Performance }
+\section{ Understanding Change Detection Performance }
 First and foremost, every component in Angular has it's own change detection.
 This means that if data changes for the component, only that particular
 component will be updated. In addition, as is probably intuitive at this point,
@@ -43,7 +43,7 @@ all child components will be re-rendered.
 In addition, in angular, there is the ability to emit data. Even if a component
 is a parent component, it will still be updated accordingly.
 
-\subsubsection{ Sibling Components under Same Parent Component }
+\subsection{ Sibling Components under Same Parent Component }
 Sibling components under the same parent component will not update unless they
 both feed from the same component. Keeping change detection at this level
 from an architectural perspective is really all you need to know. It is

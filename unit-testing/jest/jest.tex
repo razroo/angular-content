@@ -1,36 +1,36 @@
 
-\section{ Jest }
+\chapter{ Jest }
 
-\subsection{ A Primer. }
+\section{ A Primer. }
 Jest is a test runner created by Facebook to allow for the "Delightful
 Javascript Testing".
 
-\subsection{ The Benefits of Jest Vs. Karma }
+\section{ The Benefits of Jest Vs. Karma }
 \begin{enumerate}
   \item Fast and sandboxed
   \item Built-in code coverage reports
 \end{enumerate}
 
-\subsubsection{ Fast and sandboxed }
+\subsection{ Fast and sandboxed }
 Jest parallelizes test runs across workers to maximize performance.
 Console messages are buffered and printed together with test results. Sandboxed
 test files and automatic global state resets for every test so no two tests
 conflict with each other.
 
-\subsubsection{ Built-in code coverage reports }
+\subsection{ Built-in code coverage reports }
 One has the ability to create code coverage reports using --coverage.  No
 additional setup, or libraries are needed. Jest can collect code coverage
 information from entire projects, including untested files. The way it moves
 focus away from something like istanbul is fantastic. The UI, in my humble
 opinion, for what it's worth, is not the greatest.
 
-\subsubsection{ Does not require starting a Browser }
+\subsection{ Does not require starting a Browser }
 This one in particular helps with regards to CI/CD. Not requiring a browser,
 does not require a browser to be built into the CI/CD. In addition, a large
 part of performance issues with regards to unit tests, is having to start the
 browser every time.
 
-\subsection{ Using Jest within an Nx Setting }
+\section{ Using Jest within an Nx Setting }
 \begin{verbatim}
   ng generate jest
 \end{verbatim}
@@ -48,11 +48,11 @@ generating a lib, one can now do:
 \footnote{If you are coming from an existing nrwl workspace, please use the
 following blog post to find out how to upgrade to Jest https://blog.nrwl.io/nrwl-nx-6-3-faster-testing-with-jest-20a8ddb5064}
 
-\subsection{ Primer on Jest Syntax }
+\section{ Primer on Jest Syntax }
 Real quick, I would like to go through a couple of things that Jest offers over
 Karma.
 
-\subsection{Switching over from Karma to Jest}
+\section{Switching over from Karma to Jest}
 At this point, this is the main selling point, of why Netanel Basel's
 library, Spectator, is so valuable, is that it allows for tests to be converted
 over to Jest automatically, by simply switching the imports. For instance, let's

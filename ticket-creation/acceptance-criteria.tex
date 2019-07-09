@@ -1,20 +1,20 @@
 
-\section{ Acceptance Criteria }
+\chapter{ Acceptance Criteria }
 Acceptance Criteria should generally not be in the court of the software
 engineer. However, as is quite common in software engineering, product will
 need a bit of prodding from engineering, in order to discuss what it is that
 they are looking for.
 
-\subsection{ Real Quick - What are Acceptance Criteria? }
+\section{ Real Quick - What are Acceptance Criteria? }
 They are the conditions that a software product must satisfy to be accepted by
 a user, customer, or in the case of system level functionality, the consuming
 system.
 
-\subsection{ Ideal Syntax for Acceptance Criteria? }
+\section{ Ideal Syntax for Acceptance Criteria? }
 After being in a number of settings, the ideal way to create acceptance criteria
 is to use Cucumber/Gherkin syntax.
 
-\subsection{ What Gherkin Syntax? }
+\section{ What Gherkin Syntax? }
 Gherkin is a syntax which supports BDD. It is aimed at making executable
 specifications written in plain language\footnote{We will get to how we will
 integrate this with our QA efforts in a moment}:
@@ -25,7 +25,7 @@ integrate this with our QA efforts in a moment}:
   Then I should have 7 cucumbers
 \end{verbatim}
 
-\subsection{ Why is it important that we use Gherkin Syntax? }
+\section{ Why is it important that we use Gherkin Syntax? }
 Gherkin syntax is designed to be succint, and easily understandable which it is.
 In addition, it is a syntax that the entire company can rally around, being that
 it will be used by Automation Engineers as well\footnote{Surpise! They will be
@@ -34,7 +34,7 @@ not a suprise.}. It is also in my experience, the only way to convince product
 to write acceptance criteria that actually stays the same from ticket from
 ticket, but don't tell them I said that!
 
-\subsection{ Sample Ticket Creation for Choose Size Form. }
+\section{ Sample Ticket Creation for Choose Size Form. }
 \begin{verbatim}
 Scenario: When Using the Choose Size picker
   Given I enter pixel size

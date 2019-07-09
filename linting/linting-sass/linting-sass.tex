@@ -1,17 +1,17 @@
 
-\section{ Linting Sass }
+\chapter{ Linting Sass }
 
 As we mentioned in the previous chapter, there is a greate matter of importance
 when it comes to linting. In particular when it comes to sass, the Angular CLI,
 nor the Nrwl Nx cli will offer sass linting out of the box. In particular,
 we will be choosing the package sass-lint.
 
-\subsection{Installing Sass Lint}
+\section{Installing Sass Lint}
 \begin{verbatim}
   npm install sass-lint --save-dev
 \end{verbatim}
 
-\subsection{Adding a Lint Config File}
+\section{Adding a Lint Config File}
 For sass-lint, it will hook into by default a file that is in the root of
 folder called .sass-lint.yml. It's quite long, and you can see the rest of the
 file in the actual github repo. However, you would create a sass-lint.yml file.
@@ -59,12 +59,12 @@ combined with the functional sass paradigms we will mention, it becomes
 self managing architecture for styling. Let me say that again, SELF MANAGING. I
 thought that might be worth repeating.
 
-\subsection{Adding an NPM Script in your package.json}
+\section{Adding an NPM Script in your package.json}
 \begin{verbatim}
   "lint-scss": "sass-lint -v -q",
 \end{verbatim}
 
-\subsection{The Final Touch}
+\section{The Final Touch}
 
 Adding the sass-lint npm script as part of your CI/CD architecture is what
 really brings it all together. This is twofold of course. One so that when you

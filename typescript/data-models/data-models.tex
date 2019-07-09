@@ -1,4 +1,4 @@
-\section{ Data Models }
+\chapter{ Data Models }
 
 
 A data model is an abstract model, that organizes different sorts of data,
@@ -11,7 +11,7 @@ now to be updated. This is incredibly valuable. There are many more benefits
 which are beyond the scope of this chapter. However, introducing data-models
 does introduce an interesting dilemma.
 
-\subsection{Dilemma with interfaces in Typescript}
+\section{Dilemma with interfaces in Typescript}
 In any enterprise data heavy app, the majority of interfaces will
 be created to be used in unison with data being retrieved from the backend.
 In an Angular setting, this means that we will be using a service to make the
@@ -32,14 +32,14 @@ following scenarios in mind:
 
 What would be the ideal place for us to place our interfaces?
 
-\subsection{Data Models Directory Structure}
+\section{Data Models Directory Structure}
 Data Models, are unique, by the fact that they tie everything together. Data
 Models also seems like an appropriate name for the folder containing these interfaces. It is important to note that not all interfaces will go into this folder, but rather interfaces related to data being pulled in from backend. In addition, interfaces created as a result of interacting with aforementioned
 data.
 
 \input{./typescript/data-models/data-models-tree-structure}
 
-\subsection{Data Mocks}
+\section{Data Mocks}
 You will notice that we have also coupled mocks with each interface. These mocks
 help with unit tests, and by keeping them with the interface, it eases the
 ability to update when an interface is updated as well. It is obviously of less

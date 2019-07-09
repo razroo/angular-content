@@ -1,5 +1,5 @@
 
-\section{ Reactive Forms }
+\chapter{ Reactive Forms }
 
 Reactive forms are extremely under-rated. As we have discussed before, there are 
 many reasons as to why forms are very complicated. Reactive forms are no 
@@ -7,7 +7,7 @@ exception to that rule. However, we will discuss them all now. In additionm we
 are going to run through all the steps to get from point a to point b, so that
 you can constantly reference this, as you create a new reactive form component.
 
-\subsection{ Registering Reactive Forms }
+\section{ Registering Reactive Forms }
 
 Importing a reactive module, is no different than your regular module, however,
 this is the module to use to when importing reactive forms. 
@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class AppModule { }
 \end{lstlisting}
 
-\subsection{Generating a component, and adding FormControl}
+\section{Generating a component, and adding FormControl}
 No different than any other scenario: 
 \begin{verbatim}
 ng generate component grid-form 
@@ -46,7 +46,7 @@ export class NameEditorComponent {
 }
 \end{lstlisting}
 
-\subsection{Registering Control in Template}
+\section{Registering Control in Template}
 \begin{lstlisting}
 <label>
   Name:
@@ -58,13 +58,13 @@ As mentioned in the previous chapter, FormControl, will allow you to access
 value of form within component, and view. Most importantly, update in view 
 or component, and have it affect the other. 
 
-\subsection{ Displaying Component }
+\section{ Displaying Component }
 We can now include the component in any other component. E.g. 
 \begin{lstlisting}[caption=app.component.html]
 <px-grid-form></px-grid-form>  
 \end{lstlisting}
 
-\subsection{ Grouping Form Controls }
+\section{ Grouping Form Controls }
 A FormControl on it's own has value. Primarily being able set a value, and
 accesing it within the template. However, a \lstinline{formControl} is 
 incomplete without a \lstinline{formGroup}. A \lstinline{formGroup}, will give us 
@@ -88,7 +88,7 @@ export class GridFormComponent {
 }
 \end{lstlisting}
 
-\subsection{ Connecting FromGroup model and view }
+\section{ Connecting FromGroup model and view }
 \begin{lstlisting}
 <form [formGroup]="gridForm">
   <label>
@@ -105,7 +105,7 @@ export class GridFormComponent {
 Within our template, we attach the \lstinline{formGroup} directive supplied by
 the \lstinline{ReactiveFormsModule}, to our component's \lstinline{new FormGroup}.
 
-\subsection{Saving Form Data}
+\section{Saving Form Data}
 The formGroup directive internally has an \lstinline{(ngSubmit)} method, that 
 can be used to call whenever you are ready to save data for the entire form, 
 and pass it along to the backend. 
@@ -120,7 +120,7 @@ onSubmit() {
 }
 \end{lstlisting}
 
-\subsection{ Nested Form Groups }
+\section{ Nested Form Groups }
 In Angular, there is the ability to create nested form groups: 
 
 \begin{lstlisting}[caption=px-code-form.component.ts]
@@ -150,7 +150,7 @@ A great way to think of nested form groups, is that it is exactly like creating
 a nested data object. The only different is that any parent, contains formGroup, 
 whereas children use formControl. 
 
-\subsection{ Grouping nested form in the template } 
+\section{ Grouping nested form in the template } 
 Now that we have created a nested FormGroup property within a class, lets' go
 ahead and show how we would access these values within our template.
 \begin{lstlisting}
@@ -184,7 +184,7 @@ directive. The \lstinline{formGroupName} directive, will sync a
 \lstinline{formGroup} to a template. That allows us to access any children of
 that \lstinline{formGroup} by simply accessing name, using \lstinline{formControlName}. 
 
-\subsection{ Partial Model Updates }
+\section{ Partial Model Updates }
 We have already discussed in the previous chapter, the ability to update a 
 specific \lstinline{formControl} by using the \lstinline{setValue()} option is 
 definitely a viable option. However, what if we would like to update multiple 
@@ -202,7 +202,7 @@ updateProfile() {
 }
 \end{lstlisting}
 
-\subsection{ Generating form controls with FormBuilder }
+\section{ Generating form controls with FormBuilder }
 The Angular team realized how excessive it is to constantly include \lstinline{FormControl}'s
 and \lstinline{FormGroup}'s everytime one wants to build out a form. Instead
 they created something called the \lstinline{FormBuilder}. 

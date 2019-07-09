@@ -1,4 +1,4 @@
-\section{ Content Projection }
+\chapter{ Content Projection }
 
 
 Any component can technically be re-usable. However, what makes content
@@ -7,7 +7,7 @@ change based on the need of the application. In addition, it allows us to
 separate concerns. We can build a component for display, and another component
 built for handling user actions.
 
-\subsection{ Single Slot Projection }
+\section{ Single Slot Projection }
 If we wanted to create a component wherein we can use content projection, it is
 as simple as adding ng-content inside of our component:
 \begin{lstlisting}
@@ -25,7 +25,7 @@ component that we would like to inject content. For instance, let's say we have
 a card component, and we want there to be different content inside of the header
 and main body of the component?
 
-\subsection{ Multiple Slot Projection }
+\section{ Multiple Slot Projection }
 This is my preferred method of mutliple content projection, by creating binding
 content projection to class. In particular, because I feel it's a great of
 making sure content projection is transparent across the entire lifecycle. We
@@ -51,7 +51,7 @@ In our parent component consuming the re-usable component:
 Just like that, we can have our content project in multiple places, into the
 re-usable component.
 
-\subsection{Styling Projected Content}
+\section{Styling Projected Content}
 One of the scenarios that comes up alot with regards to projected content, is
 attempting to style it. For instance, you might want the content in one
 component to have a top border, and in others for the text color to be of a
@@ -73,7 +73,7 @@ mentioning.}
 
 Just like that, we are able to style the content within our project.
 
-\subsection{ Interacting with Projected Content }
+\section{ Interacting with Projected Content }
 One more scenario to take into consideration when working with projected content
 is to interact with it. For instance, let's say that we want to project an
 input field into our projected content. In addition, we would like to determine
@@ -90,7 +90,7 @@ using directives to pass in a value, and have it work in tandem with event
 handling.
 }
 
-\subsubsection{ An Example }
+\subsection{ An Example }
 This is a simple directive, that targets the focus and blur of host element
 using the @HostListener element.
 
@@ -156,7 +156,7 @@ export class FaInputComponent {
 }
 \end{lstlisting}
 
-\subsection{ Wrapping Up }
+\section{ Wrapping Up }
 As we have seen, content projection is a very powerful way of re-using content
 within our component. We have also covered the two stereo-typical uses cases,
 which we will have to solve in an enterprise app from time to time. I.e. event

@@ -1,7 +1,7 @@
 
-\section{ Lint all the Things }
+\chapter{ Lint all the Things }
 
-\subsection{ Lint all the Things }
+\section{ Lint all the Things }
 
 Linting is incredibly important. Think of it this way. Someone's favorite food
 item might be brocolli, another person's favorite food item, might be steak.
@@ -24,7 +24,7 @@ automatically formats these things for us. So, from an architectural perspective
 when we are looking for a linter, we are also looking for a formatter to go along
 with it.
 
-\subsection{ What are we trying to lint? }
+\section{ What are we trying to lint? }
 We are trying to lint HTML, SASS, and Typescipt. Angular CLI, offers Tslint out
 of the box. A Tslint has been created out of the box for the Angular CLI.
 However, the tslint.json that comes out of the box, will not work well with the
@@ -48,13 +48,13 @@ add three npm scripts on top of it:
 
 We will get to the specifics of the above three scripts right now.
 
-\subsection{ Linting Typescript }
+\section{ Linting Typescript }
 As we mentioned Typescript will offer an ng lint command out of the box for
 Typescript. This should be moved over to it's own lint-ts command to make room
 for linting for html and scss. In addition, the tslint.json should be updated
 accordingly to work with prettier.
 
-\subsection{ Linting Sass }
+\section{ Linting Sass }
 For linting SASS, we are going to be using the sass-lint package.
 \begin{lstlisting}
 npm install sass-lint --save-dev
@@ -72,7 +72,7 @@ following chapter}
 
 Note: Put a link to the appropriate gist here.
 
-\subsection{ Linting HTML }
+\section{ Linting HTML }
 For HTML, we are going to be using HTML Hint. It can be argued that it hasn't
 been maintained for a while. Two things: One we are banking on the fact that
 prettier is going have formatting for HTML soon. Second, how much has html really

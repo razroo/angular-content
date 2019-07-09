@@ -1,5 +1,5 @@
 
-\section{ Data Services - Directory Structure }
+\chapter{ Data Services - Directory Structure }
 
 In an @ngrx/store setting, a very large part of an app's services will be
 directed towards handling data directly. For instance, let's say you have a
@@ -28,7 +28,7 @@ Angular app, will be built to directly work with data. These services will be
 used by a number of effects. In addition, they will contain their own respective
 unit tests.
 
-\subsection{ Setting the Landscape }
+\section{ Setting the Landscape }
 As of Angular 6, Angular offers a metadata option called providedIn. In short,
 if providedIn is set to 'root', it allows us to bypass the need of using a
 module, and creates a tree-shakable version \footnote{https://angular.io/guide/dependency-injection-providers\#creating-tree-shakable-providers}.
@@ -40,7 +40,7 @@ central location. (Of course we would be able to do this with a module, but
 it make's it more architecturally appealing without the need of using a
 module)
 
-\subsection{ Data Services Folder/File Structure }
+\section{ Data Services Folder/File Structure }
 \input{./services/data-services/data-services-tree-structure}
 
 Just as simple as that. We have a central location called data-services where

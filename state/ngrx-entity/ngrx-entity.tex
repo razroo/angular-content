@@ -1,12 +1,12 @@
 
-\section{ Ngrx Entity }
+\chapter{ Ngrx Entity }
 
 The Ngrx repo until recently had many similar functionalities to your regular
 redux app. It included actions, reducers, selectors. However, there has been
 efforts to go ahead and create libraries for aspects of ngrx that can perhaps
 be re-usable. One of these is @ngrx/entity.
 
-\subsection{ Ngrx Entity at a High Level }
+\section{ Ngrx Entity at a High Level }
 At it's core, ngrx entity is an API for manipulating and querying entity
 collections. In particular:
 \begin{enumerate}
@@ -22,7 +22,7 @@ every page that pulls in data. Throughout every page, you have a way of
 manipulating this data. Using ngrx/entity will allow for this architecture to
 be fluid, and have all manipulation of data be within a singular area.
 
-\subsection{ Example of Ngrx Entity }
+\section{ Example of Ngrx Entity }
 Within our app we the ability to illustrate a pixelated charachter using pixels.
 Every time that a pixel within the grid is selected, we are going to add it to
 our store. This store is going to be used to display the code version of the
@@ -31,12 +31,12 @@ within our store. In addition, if we have selected a new color, and we select a
 new pixel with that color, that pixel should be updated with the proper color.
 What we have just described is a perfect CRUD app.
 
-\subsection{ Installing ngrx/enity }
+\section{ Installing ngrx/enity }
 \begin{verbatim}
   npm install @ngrx/entity --save
 \end{verbatim}
 
-\subsection{ ngrx/entity - A Step Back }
+\section{ ngrx/entity - A Step Back }
 Let's step back for the time being and look into what ngrx/entity actually does.
 Ngrx/entity will create a list of ids and a dictionary of entities. Let's brush
 up on entity, list, and dictionary:
@@ -73,7 +73,7 @@ That being said, a sample ngrx/entity data structure will look like this:
 
 \end{lstlisting}
 
-\subsection{ Adapter Pattern - A Primer  }
+\section{ Adapter Pattern - A Primer  }
 Before we go ahead and discuss what an ngrx/entity adapter is, let's go through
 a quick primer on the adapter pattern in general. Per the GoF book
 \footnote{A.K.A. Design Patterns: Elements of Reusable Object-Oriented Software}
@@ -84,7 +84,7 @@ shared with the Decorator pattern) that allows the interface of an existing
 class to be used as another interface. It is often used to make existing
 classes work with others without modifying their source code.}
 
-\subsection{ Introducing Ngrx/entity adapter }
+\section{ Introducing Ngrx/entity adapter }
 The ngrx/entity adapter, similarly, will take in data, and wrap it inside of ids
 and entities. So the adapter can be considered as something that will modify
 the data. The default adapter that comes with ngrx/entity, takes two default
@@ -103,7 +103,7 @@ be returned by the database for that particular item. One will then be able to
 use that id for all crud operations. In addition, most likely pass in that id
 for your Rest Service, or GraphQL query.
 
-\subsection{ Ngrx/entity Adapter Example }
+\section{ Ngrx/entity Adapter Example }
 Creating an example adapter, might look something like the following:
 \begin{lstlisting}
   export const adapter: EntityAdapter<any> = createEntityAdapter<any>({
@@ -127,12 +127,12 @@ going into them in detail, here they are:
   \item upsertMany: Add or Update multiple entities in the collection
 \end{itemize}
 
-\subsection{ addOne example }
+\section{ addOne example }
 In our app we will be using a series of different ngrx/entity methods. However,
 we will be using addMany as for the most part many of the methods are very
 similar.
 
-Let's focus on a specific reducer section within our app.
+Let's focus on a specific reducer chapter within our app.
 \begin{verbatim}
   case gridTypes.added {
     return {
@@ -144,7 +144,7 @@ Let's focus on a specific reducer section within our app.
 That would really be it \^. It will insert a unique id for that specific pixel.
 In addition, it will go ahead and new entity within the entities object.
 
-\subsection{ Identifying Different Entity Selectors }
+\section{ Identifying Different Entity Selectors }
 So far ngrx/entity has given us an adapter, which allows us to choose the id
 we would like to use for our entity dictionary, as well as our id list. However,
 what if we wanted to retrieved all of our ids, or all of our entities? It can
@@ -173,7 +173,7 @@ state on their own. What they do is return a function when used in
 conjuction with the createSelector function, will return the appropriate
 entity.
 
-\subsection{ How to use getSelectors }
+\section{ How to use getSelectors }
 These selectors are then meant to be used with the createSelector function.
 The following is an example:
 \begin{verbatim}
@@ -185,7 +185,7 @@ export const selectUserIds = createSelector(
 
 Now one will have a state that specifically returns ids for a specific list.
 
-\subsection{ Using updateOne }
+\section{ Using updateOne }
 Just to show how convenient ngrx/entity is. Let's say in your app you wanted to
 update a specific field. For instance, in our app it is going to be the color
 for a specific pixel.] All you would need to do is the following:
@@ -200,7 +200,7 @@ for a specific pixel.] All you would need to do is the following:
 The only difference between the signature for addOne and updateOne, is that with
 updateOne, you are just supplying the id to be updated.
 
-\subsection{ Wrapping Up }
+\section{ Wrapping Up }
 Suffice to say that using ngrx/entity will greatly increase the efficiency of
 your app. Being able to use a CRUD app in this fashion, will simplify the
 architcture across the app, wherein this state can be used in numerous places.

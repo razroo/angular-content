@@ -1,4 +1,4 @@
-\section{ Attribute Directives }
+\chapter{ Attribute Directives }
 
 
 An attribute directive changes the appearance, or behavior of a DOM Element.
@@ -34,7 +34,7 @@ It, of course, can be incredible useful.
  tagged onto html, and modify it's behavior.
 }
 
-\subsection{A Great Example}
+\section{A Great Example}
 A great example of this, is adding drag and drop functionality to a component.
 That in it's self is not component worthy. However, adding a dropzone directive
 for instance, to the element, would make any potential component drag and
@@ -49,7 +49,7 @@ functionality is strickly tied to actual UI element.
   worry, it's to be expected.
 }
 
-\subsection{ Passing Values into the Directive }
+\section{ Passing Values into the Directive }
 A directive has the ability to pass a value in. For instance, going back to our
 highlight example, let's create an @Input() (Angulars way of passing in values)
 for our highlight directive.
@@ -76,7 +76,7 @@ color we want within the template:
 
 The background of this component is going to be orange!
 
-\subsubsection{ Passing in Multiple Values }
+\subsection{ Passing in Multiple Values }
 Passing in multiple values is as simple as adding a second @Input value to our
 Angular Directive:
 
@@ -104,7 +104,7 @@ Just like that we can now pass multiple values to our html element:
 Angular knows once the appHighlight directive has been exposed, that it has the
 input of defaultColor, or any other Input you might add for that matter. 
 
-\subsection{ Modify Values Based on Events }
+\section{ Modify Values Based on Events }
 Directives also give the option to modify based on an event. For instance,
 we could add logic based on mouseenter.
 
@@ -142,7 +142,7 @@ Now let's say we add this directive to our <p> tag.
 mouseenter. Good times!</p>
 \end{lstlisting}
 
-\subsection{ Examples of Directives }
+\section{ Examples of Directives }
 I think at this point, after just getting used to directives, it can be a bit
 difficult to internalize what an example of a directive looks like. I would
 therefore just like to jot down real quick, what an example of some custom

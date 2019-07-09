@@ -1,5 +1,5 @@
 
-\section{ Coverage Reporting }
+\chapter{ Coverage Reporting }
 
 Coverage reporting for an Angular application using the Angular CLI is
 objectively easy to implement in this day of age. Albeit easy to generate
@@ -9,7 +9,7 @@ importance. I find myself spontaneously checking up on coverage reporting from
 time to time (usually every week), to make sure the team is hitting the numbers
 we want.
 
-\subsection{Testivus On Test Coverage}
+\section{Testivus On Test Coverage}
 There is a funny, yet honestly, largely impactful founding post by a one
 Alberto Savioa\footnote{https://www.artima.com/weblogs/viewpost.jsp?thread=204677}.
 It is entitled, ``Testivus On Test Coverage''. I would like to post the entire
@@ -84,7 +84,7 @@ answers … and then does not follow them anyway.” The young apprentice and th
 grizzled great master finished drinking their tea in contemplative silence.
 }
 
-\subsection{The Impact of Testivus}
+\section{The Impact of Testivus}
 Testivus's impact on unit testing cannot be overrated. At most organizations
 that I have worked at, 80\% is indeed the golden number. The question is, what
 is the validity of the number 80\%? First, and foremost, I think that culturally
@@ -104,7 +104,7 @@ to be aware of potential bugs before they happen, is once again, impossible.
 Instead what we should do, is focus on 80\%. This means that we have a 4/5
 chance of catching a 20\% bug.
 
-\subsection{The phenomenon of the Pareto Rule}
+\section{The phenomenon of the Pareto Rule}
 It is also important to realize, that within the  Pareto rule, there is a 20\%
 within the 80\%. That is, the difficulty of  completing a meaningful test(i.e.
 one that solves 80\% of uses cases)increases.
@@ -126,7 +126,7 @@ of what this unit test is, move on. So this number(80\%) is debatable, but given
 the above, 80\% seems like a very respectable amount. I personally keep it at
 80, and even the Angular docs reccomend \href{https://github.com/angular/angular-cli/wiki/stories-code-coverage}{80}.
 
-\subsection{ Different Types of Coverage Reporting }
+\section{ Different Types of Coverage Reporting }
 The following are the four different types of coverage reporting:
 \begin{enumerate}
   \item Statements - Has each statement in the program been executed?
@@ -136,7 +136,7 @@ The following are the four different types of coverage reporting:
   \item Lines - has each executable line in the source file been executed?
 \end{enumerate}
 
-\subsubsection{Distinguish Between Statements + Branches}
+\subsection{Distinguish Between Statements + Branches}
 I generally find it difficult to distinguish between a statement, and a
 branch. The following is a great example. Let's say we have the following
 scenario:
@@ -156,7 +156,7 @@ coverage, as we have tested all statements. However, we have not tested the
 hidden else statements. Therefore while the statement coverage within our
 function is 100\%, the branch coverage is only at 50\%.
 
-\subsubsection{Understanding Letters on Side of Code Coverage}
+\subsection{Understanding Letters on Side of Code Coverage}
 \begin{enumerate}
   \item `E' stand for `else path not taken'. Meaning that if path has been test,
   but not the else path.
@@ -164,7 +164,7 @@ function is 100\%, the branch coverage is only at 50\%.
   \item `xN' in left column, is the amount of times the line has been executed.
 \end{enumerate}
 
-\subsubsection{Understanding Colors}
+\subsection{Understanding Colors}
 \begin{enumerate}
   \item Orange: Functions not covered.
   \item Pink: Statements not covered.
@@ -172,7 +172,7 @@ function is 100\%, the branch coverage is only at 50\%.
   \item Yellow: Branches not covered.
 \end{enumerate}
 
-\subsection{ Code Coverage Enforcement }
+\section{ Code Coverage Enforcement }
 In line with our decided 80\% coverage, we can go into our karma.conf.js file
 and add the following in the coverageIstanbulReport: key.
 \begin{lstlisting}
@@ -191,7 +191,7 @@ Now we have made it that our unit testing will fail whenever we reach a
 threshold below 80\%. This is useful for development, and useful for devops, as
 we can keep a consistent way of keeping our unit tests at a certain level.
 
-\subsection{ Running a Coverage Report in Angular }
+\section{ Running a Coverage Report in Angular }
 My preferred method, is to add a package.json script for running a
 --code-coverage report. It would look something like the following:
 \begin{verbatim}
@@ -208,7 +208,7 @@ npm run test test-coverage
 
 Walla! Just like that, the CLI will take care of emitting code-coverage for you.
 
-\subsection{ Opening up Coverage Reporting }
+\section{ Opening up Coverage Reporting }
 In order to open up a coverage report, after a coverage report has been
 generated, simply navigate to your coverage/src folder, and click on the
 index.html file.
@@ -220,7 +220,7 @@ value of TDD, I think that coverage reporting is less relevant. At this point
 in time, I feel it is more relevant as a devops tool, and a way of making sure
 that unit testing stays at a certain caliber.}
 
-\subsection{ Trap of Coverage Reporting }
+\section{ Trap of Coverage Reporting }
 In a perfect world, all functions would be pure, and they would solve one
 use case. However, that is frequently not the case. In addition, even if it was
 the case, a unit test should still be tested against numerous use cases. So

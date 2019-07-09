@@ -1,4 +1,4 @@
-\section{ UI Skeleton }
+\chapter{ UI Skeleton }
 
 
 Data, very rarely will be immediately available. Even if your app has a very
@@ -15,7 +15,7 @@ a UI component awaiting action, that will be available in the future. It is a
 very simple way of easing anxiety of the user, and allowing them to be aware of
 all times, that something is loading.
 
-\subsection{ One True Way of Implementing Ghost Views }
+\section{ One True Way of Implementing Ghost Views }
 There are three options of implementing Ghost Elements.
 \begin{enumerate}
   \item Creating an Overlay Ghost Element
@@ -23,20 +23,20 @@ There are three options of implementing Ghost Elements.
   \item Inline Ghosts with Async Loads
 \end{enumerate}
 
-\subsection{Why not to use an Overlay Ghost Element}
+\section{Why not to use an Overlay Ghost Element}
 I would personally not recommend using an Overlay Ghost Element. It requires
 that developers determine when Ghost it removed. In addition, it requires for
 layouts to match the ``Real'' DOM layouts. However, DOM layouts are changing
 all the time, and this solution is not a good long term solution. Most
 definitely not an enterprise solution.
 
-\subsection{ Why not to use an Inline Ghost Element }
+\section{ Why not to use an Inline Ghost Element }
 There is an option to have a css only option. That is, that the css class
 changes based on whether, or not the data is available. The only real issue
 with this solution, is that it will be more of an off/on switch with regards
 to transitioning between a ghost element and an inline element.
 
-\subsection{ Why use Inline Ghosts with Async Loads}
+\section{ Why use Inline Ghosts with Async Loads}
 This is a very sophisticated solution, which I first saw from a one Thomas
 Burleson. The idea, is that we create a queryState function:
 \begin{lstlisting}
@@ -65,10 +65,10 @@ export class UserListComponent {
 Here, we can create numerous states including polling. This is a more robust
 solution than using plain css.
 
-\subsection{ Ghost Elements Always? }
+\section{ Ghost Elements Always? }
 There are scenarios wherein a ghost element might not be the ideal scenario.
 
-\subsection{Key Take Aways}
+\section{Key Take Aways}
 \begin{enumerate}
   \item Angular Animations can be implemented as re-usable recipes.
   \item AsyncItem is a general pattern used to decorate server entity items with

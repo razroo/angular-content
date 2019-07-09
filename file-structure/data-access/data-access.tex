@@ -1,9 +1,9 @@
 
-\section{ Data Access }
+\chapter{ Data Access }
 When working within a GraphQL app, having a manageable way of accessing data
 is important.
 
-\subsection{ Data Access Folder/File Structure}
+\section{ Data Access Folder/File Structure}
 \begin{verbatim}
 buyers
   state
@@ -29,7 +29,7 @@ buyers
         buyers-state.module.ts
     index.ts
 \end{verbatim}
-\subsection{ Data Access Deep Dive}
+\section{ Data Access Deep Dive}
 There are really four parts in one with regards to this folder/file structure.
 They are
 \begin{enumerate}
@@ -39,7 +39,7 @@ They are
   \item State
 \end{enumerate}
 
-\subsection{ The Data Access Life-Cycle}
+\section{ The Data Access Life-Cycle}
 First, one is to specify fragments and queries for the GraphQL request. At this
 time, one is to specify the the interface, which is a UI carbon copy of the
 fragment. Next, one is to create a service that will be used for the GraphQL

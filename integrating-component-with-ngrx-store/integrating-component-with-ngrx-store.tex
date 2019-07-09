@@ -1,5 +1,5 @@
 
-\section{ Integrating a Component with @ngrx/store }
+\chapter{ Integrating a Component with @ngrx/store }
 
 Another chapter has been dedicated solely to integrating a component
 with @ngrx/store. This is because it is a cookie cutter process. Observables
@@ -33,7 +33,7 @@ It is this simple, and will follow this formula, and yes, you should be in shock
 in how seamless integrating state management technology is at this point,
 because I am.
 
-\subsection{ Re-iterating purpose of book }
+\section{ Re-iterating purpose of book }
 
 I would just like to re-iterate, that the point of this book, is to go through
 the architecture of the entire angular ecosystem. So that someone can read this
@@ -42,7 +42,7 @@ way, and that they do not have to look elsewhere. That being said, I will not be
 going into the whole code base of what is happening. However, I would like to show
 an example of along the lines of what will end up happening.
 
-\subsection{ Set up action }
+\section{ Set up action }
 For our action, we are going to create an action type, and simple action, that
 is taking in a payload. Your action should not be doing anything fancy, and if
 it does, then you are not doing it right.
@@ -56,7 +56,7 @@ export class ChooseSizeUpdated implements Action {
 }
 \end{lstlisting}
 
-\subsection{ Set up store }
+\section{ Set up store }
 In any given component, we must setup a select for our store, in order to tell
 @ngrx/store, how we plan on interacting with it. The following is cookie cutter
 code, like the rest of this chapter, that will be repeated throughout any
@@ -66,7 +66,7 @@ code, like the rest of this chapter, that will be repeated throughout any
 this.chooseSize = store.select('chooseSize');
 \end{lstlisting}
 
-\subsection{ Creating a subject }
+\section{ Creating a subject }
 
 To re-iterate, what is a subject? It is both an observable and an observer?
 \begin{enumerate}
@@ -86,16 +86,16 @@ an Angular app will be as follows:
   \item Setup Reducer for action
 \end{enumerate}
 
-\subsection{ Creating a Subject - Code Dive }
+\section{ Creating a Subject - Code Dive }
 
-\subsubsection{ Creating Subject - In Component }
+\subsection{ Creating Subject - In Component }
 \begin{lstlisting}
   import { Subject } from 'rxjs/Subject';
 
   updateSize$ = new Subject();
 \end{lstlisting}
 
-\subsubsection{ Setup ElementRefs in Component HTML }
+\subsection{ Setup ElementRefs in Component HTML }
 \begin{lstlisting}
   <input matInput placeholder="Columns" #columns>
   <input matInput placeholder="Rows" #rows>
@@ -107,7 +107,7 @@ an Angular app will be as follows:
 We are now going to feed our updateSize subject into an rxjs merge, and map,
 to make it future proof.
 
-\subsubsection{ Merge Subjects into Singular Subscribe }
+\subsection{ Merge Subjects into Singular Subscribe }
 
 \begin{lstlisting}
 merge(
@@ -119,14 +119,14 @@ merge(
   });
 \end{lstlisting}
 
-\subsection{ Setting up a Reducer for our App }
+\section{ Setting up a Reducer for our App }
 \begin{lstlisting}
   case ChooseSizeActionTypes.ChooseSizeUpdated: {
     return { ...state, ...action.payload };
   }
 \end{lstlisting}
 
-\subsection{ Wrapping up }
+\section{ Wrapping up }
 We have gone through the full gamut, of what it is going to look like adding new
 elements of state into your app. This is the one part with regards to state that
 will have to be done manually. Who knows, maybe down the line, we will have more

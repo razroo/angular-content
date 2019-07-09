@@ -1,4 +1,4 @@
-\section{ Http Interceptors }
+\chapter{ Http Interceptors }
 
 
 An http interceptor, is a way to intercept an HTTP request, before passing them
@@ -10,7 +10,7 @@ Client middleware over Angular's Http Interceptors, as that is Razroo's
 reccomendation. Third, I would like to bring in code examples, so that it will
 be easier for the dev reading this to get up and running.
 
-\subsection{Dissecting Two Ways of Creating Interceptors}
+\section{Dissecting Two Ways of Creating Interceptors}
 Within our architecture we assume that your backend team will be using GraphQL. 
 However, this is something that is beyond you as a UI Engineer. As a result,
 we give a head nod towards there being multiple apis, including those using a 
@@ -20,7 +20,7 @@ regular RestSvc. This translates to:
   \item Apollo Client / Apollo Link
 \end{enumerate}
 
-\subsection{Should We Even Use Apollo Link At All?}
+\section{Should We Even Use Apollo Link At All?}
 One of the popular questions people ask, is should even be using apollo link at 
 all. HTTP Interceptor is used under the hood for Apollo Client. The truth is, 
 this is a fundemental question that can be applied in many similar scenarios. 
@@ -48,12 +48,12 @@ move over to Apollo Client for everything else, such as cache, makes
 maintenance more cumbersome. For that reason Razroo reccomends using Apollo
 Link for middleware.
 
-\subsection{Understanding Interceptors In General}
+\section{Understanding Interceptors In General}
 An Interceptor will generally take in the current outgoing request, and pass 
 in the next interceptor. Alternatively, it can transform the response stream 
 it's self. 
 
-\subsection{Example of Interceptor using HttpInterceptor}
+\section{Example of Interceptor using HttpInterceptor}
 
 The following is a great example of how interceptors work. Let's say that we
 want to console out an error whenever it happens. In addition, we want to 
@@ -70,7 +70,7 @@ the above can setup error handling notifications across the site for all users.
   );
 \end{lstlisting}
 
-\subsection{Example of Interceptor using Apollo Client}
+\section{Example of Interceptor using Apollo Client}
 Apollo Client out of the box offers out of the box middleware to intercept an
 http request. Generally that this means, that there will be a series of 
 apollo functions in your lib folder. 
@@ -105,7 +105,7 @@ const link = split(({query}) => {
 \end{lstlisting}
 
 While in our code, for purposes of demonstration, we have only included the
-section that includes the link. Other links are bundled together. We can 
+chapter that includes the link. Other links are bundled together. We can 
 then include this general link in our apollo \lstinline{app.module.ts} file.
 
 \begin{lstlisting}
@@ -124,13 +124,13 @@ apollo.create({
 In the above, we are including our link in the apollo create. This makes it, so
 that all our middleware intercepts our apollo requests before they happen. 
 
-\subsection{Folder/File Structure for HTTP Interceptors}
+\section{Folder/File Structure for HTTP Interceptors}
 Regardless, if using Apollo, or HttpInterceptors within your application, it 
 would make sense to create a special lib folder for apollo within common. 
 Within the special folder for apollo, we can create a series of link functions
 and import them within the \lstinline{app.module.ts} file.
 
-\subsubsection{ Authentication }
+\subsection{ Authentication }
 Starting from what will be time, and time again, the most single most important
 piece of your application. Authentication, if not already aware, is the process 
 of identifying an individual usually based on a username and a password. There
@@ -168,7 +168,7 @@ In addition, every time authentication is worked on for the first time in an
 application, it tends to be specific to framework, and technology within 
 framework you are working on. 
 
-\subsection{Other Interceptors to Be Aware Of}
+\section{Other Interceptors to Be Aware Of}
 There are many other interceptors to be aware of. It is important to note, that
 Authentication is the main one. It is also possible to set up global errors 
 across the site based on different errors codes.

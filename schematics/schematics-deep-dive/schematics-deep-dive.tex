@@ -1,11 +1,11 @@
 
-\section{ Schematics Deep Dive }
+\chapter{ Schematics Deep Dive }
 
 In the previous chapter we have created a px-schematics schematics. The first
 thing that we are going to want to modify is the collection.json file for
 px-schematics. Let's add an alias for 'px', as well as create a description.
 
-\subsection{ Creating an Alias and Description }
+\section{ Creating an Alias and Description }
 \begin{lstlisting}
   "px-schematics": {
     "description": "Schematic for generating app folder structure",
@@ -14,7 +14,7 @@ px-schematics. Let's add an alias for 'px', as well as create a description.
   }
 \end{lstlisting}
 
-\subsection{ Using NPM Link for development }
+\section{ Using NPM Link for development }
 Being that we do not have an npm module yet, there is a super easy way to hook
 up our custom schematic, to the actual Angular Schematics. Go into the root
 of your px-schematics project. For instance, for me that would be:
@@ -29,7 +29,7 @@ cd /Users/charlie/angularPixelillustrator/libs/px-schematics;
 npm link px-schematics;
 \end{verbatim}
 
-\subsubsection{ What NPM Link Actually Does? }
+\subsection{ What NPM Link Actually Does? }
 When we ran npm link px-schematics, it automatically targeted our px-schematics
 folder, and
 \begin{lstlisting}
@@ -38,7 +38,7 @@ folder, and
   /Users/charlie/angularpixelillustrator/libs/px-schematics
 \end{lstlisting}
 
-\subsection{ Creating a schema.json for px-schematics }
+\section{ Creating a schema.json for px-schematics }
 The schema.json works like a regular schema, telling the CLI(command line
 interface) what options can be used. In order to add a schema that is specific
 for a collection create a schema.json file in you collection root. E.g.:
@@ -71,7 +71,7 @@ name as a default. Therefore if we were to pass our schema an option, without
 giving it a flag \footnote{For instance: \mybox{px angularPixelillustrator}}
 then it will execute it by default.
 
-\subsection{ Change Folder Architecture }
+\section{ Change Folder Architecture }
 We are going to want to brace for future collections. So let's create a
 collections folder to put our schematics into.
 \begin{verbatim}

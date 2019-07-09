@@ -1,5 +1,5 @@
 
-\section{ Marble Unit Testing }
+\chapter{ Marble Unit Testing }
 
 Unit testing observables, heck working with obserables is never really easy.
 Primarily, it's not the logic one will come across in other parts of one's
@@ -10,7 +10,7 @@ javascript it is an object that will a series of functions. In addition, an
 Observable as a stream contains more than one snippet of data in it's entire
 lifecycle.
 
-\subsection{ Marble Unit Testing - A Primer }
+\section{ Marble Unit Testing - A Primer }
 Marble unit testing is a very efficient way of unit testing observables. It
 keeps in mind the following:
 \begin{enumerate}
@@ -21,7 +21,7 @@ keeps in mind the following:
   completely different times.
 \end{enumerate}
 
-\subsection{ Great Example }
+\section{ Great Example }
 Let's imagine that we get back a specific set of data as an observable. However,
 within that set of data, we only want ids. Backend is tied, and they do not have
 the capacity to give us a pre-poulated set of data for id. Our code will look
@@ -37,7 +37,7 @@ userIds$: Observable<string[]> = this.users$.pipe(
 );
 \end{lstlisting}
 
-\subsubsection{Creating a unit test}
+\subsection{Creating a unit test}
 In our unit test, we would like to make sure that when we pass a set of data,
 id's are indeed being extracted and returning a new array. We can do something
 as follows using marble tests:

@@ -1,5 +1,5 @@
 
-\section{ Displaying Data }
+\chapter{ Displaying Data }
 
 In Angular, one of the nicer things about the migration from AngularJS to 
 Angular, was that many html bindings felt at home. If you are someone who like
@@ -20,7 +20,7 @@ valuable as a matter of documentation to mention how component and Templates
 work within Angular. However, this book will also make sure to go into the 
 syntax, and offer why it looks like the way it does. 
 
-\subsection{ Interpolation }
+\section{ Interpolation }
 
 Interpolation in the dictionary, means inserting something of a different 
 nature into something else. In the context of Angular, interpolation means
@@ -31,7 +31,7 @@ This is 2 + 2
 <!-- This is 4 --> 
 \end{lstlisting}
 
-\subsection{ Angular Components }
+\section{ Angular Components }
 In an Angular setting, based on best practices, and those set into place by 
 the Angular CLI, the generation of the component, will consist of four files: 
 \begin{enumerate}
@@ -95,7 +95,7 @@ The reason that angular uses a double curly brace, is because:
 \end{enumerate} 
 }
 
-\subsection{ Displaying an Array within an HTML Template }
+\section{ Displaying an Array within an HTML Template }
 Quite a common occurence within any application, is thay the data, will return
 an array of objects(AKA collection), to be consumed by the app. Many times
 there will be a need to iterate over the array with the html, so that the data
@@ -146,7 +146,7 @@ saying, target all templates, and insert this unique Angular directive
 \footnote{https://angular.io/guide/template-syntax\#ngFor}
 }
 
-\subsubsection{ Accessing Object Data Within Arrays }
+\subsection{ Accessing Object Data Within Arrays }
 It is quite common that a situation will arise, that a developer will need to 
 access data within the object. Doing so, is exactly the same way as you would 
 expect within regular Javascript. Let's update our code-box component code. 
@@ -176,7 +176,7 @@ export class CodeBoxComponent implements OnInit {
 As you can see, we are accessing the file property within our css object the
 same way we would any regular Javascript object.
 
-\subsection{ Conditionally Display HTML }
+\section{ Conditionally Display HTML }
 Within Angular there is the ability to conditionally display html. Similar to 
 an \lstinline{if} statement within Javascript, the html will only be 
 displayed, if it matches the expected statement. 

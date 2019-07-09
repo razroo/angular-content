@@ -1,5 +1,5 @@
 
-\section{ The Angular Service Worker - Implenting in App }
+\chapter{ The Angular Service Worker - Implenting in App }
 
 For those of you unaware, a service worker is a a script that runs in the web
 browser that manages caching for an application. So let's say you are offline
@@ -8,7 +8,7 @@ the service workers will make it so that request can go through even without a
 network request. In short, having a servie worker, can increase dependency on a
 network, and will greatly increase the user experience.
 
-\subsection{ Design Goals }
+\section{ Design Goals }
 \begin{enumerate}
   \item Caching an application is like installing a native application.
   The application is cached as one unit, and all files update together.
@@ -24,12 +24,12 @@ network, and will greatly increase the user experience.
   downloaded if they've changed.
 \end{enumerate}
 
-\subsection{ Manifest File }
+\section{ Manifest File }
 To support the above design goals, Angular loads a manifest file. The manifest
 describes the resources to cache and includes hashes of every file's contents
 \footnote{taken from https://angular.io/guide/service-worker-intro}.
 
-\subsection{ Using Angular CLI to Enable Service Workers }
+\section{ Using Angular CLI to Enable Service Workers }
 In the chapter where we used ng new for the first time, we set it up with a flag
 for service workers. [For practical purposes, if you did not use the flag for
 creating service workers, use the link \href{https://angular.io/guide/service-worker-getting-started}{here}]
@@ -46,7 +46,7 @@ For academic purposes, here is what the service worker flag does:
   worker
 \end{enumerate}
 
-\subsection{ Simulating a Network Issue }
+\section{ Simulating a Network Issue }
 \begin{enumerate}
   \item Go to Chrome dev tools \footnote{write something here if person does not know how
   to do so}
@@ -63,9 +63,9 @@ I agree, reading their documentation can be a bit bland at times, but it is
 really thorough and more than get's the job done. Good job Angular documentation
 person, or persons!
 
-\subsection{ Some other architectural decisions }
+\section{ Some other architectural decisions }
 
-\subsection{ Available and Activated Updates }
+\section{ Available and Activated Updates }
 There is an SwUpdate service available within app, after importing the
 ServiceWorkerModule. It can be used to notify users, for instance, to update
 their page(s), when the code they are running is out of date:
@@ -77,7 +77,7 @@ their page(s), when the code they are running is out of date:
     });
 \end{lstlisting}
 
-\subsection{ Checking for Updates }
+\section{ Checking for Updates }
 Within the same SwUpdate service, we can also check for updates, and set up a
 subscriber of sorts, for instance:
 \begin{lstlisting}[caption=app.routing.module.ts file]

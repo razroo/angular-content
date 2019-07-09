@@ -1,5 +1,5 @@
 
-\section{ Linting HTML }
+\chapter{ Linting HTML }
 
 Linting html is not as mature as it is with regards to Sass and Javscript in my
 opinion. Howvever, that makes sense as html is essentially strucutred xml that
@@ -9,7 +9,7 @@ That being said, once again, there is no linter that is offered out of the box
 through the Angular CLI, or Nrwl Nx either. It is, however, beneficial.
 
 \mybox{
-\subsection{ Side Bar }
+\section{ Side Bar }
 Why not use something like Pug(once called Jade) for html templating. The main
 benefit of something like Pug I have found is that it tells me where the html
 begins and ends. In a complex html element, where there are many levels of
@@ -19,7 +19,7 @@ rarely been on a team where after selling Pug, engineers have been enthusiastic
 in using it.
 }
 
-\subsection{Why We Chose HTML Hint}
+\section{Why We Chose HTML Hint}
 The honest truth is that the landscape for html hasn't drastically changed at
 it's core level over the past couple of years. Of course, if there was a more
 mature linter, the linter would complain that the engineer should use certain
@@ -27,12 +27,12 @@ html element as opposed to another. That being said, we have found html hint
 to be the most robust html linter, even though development has been lack luster
 over the past couple of years.
 
-\subsection{Installing HTML Hint}
+\section{Installing HTML Hint}
 \begin{verbatim}
   npm install htmlhint --save-dev
 \end{verbatim}
 
-\subsection{Create an .htmlhintrc config file}
+\section{Create an .htmlhintrc config file}
 In the root of your app, create an .htmlhintrc file. The .htmlhintrc is set up
 to be the default config name for html hint. A sample config for html hint will
 just be a simple JSON object containing key values. For instance:
@@ -44,17 +44,17 @@ just be a simple JSON object containing key values. For instance:
 }
 \end{lstlisting}
 
-\subsection{Adding an NPM Script in your package.json}
+\section{Adding an NPM Script in your package.json}
 \begin{lstlisting}
   "lint-html": "htmlhint --rulesdir './rules/' '{apps,libs}/**/*.html'",
 \end{lstlisting}
 
-\subsection{Adding a Rules Directory for html hint}
+\section{Adding a Rules Directory for html hint}
 You will notice that inside of our html hint command, we have created a rules
 directory. We are doing this so that we can potentially create our own sample
 html hint rule.
 
-\subsection{What a Sample Rule Looks Like}
+\section{What a Sample Rule Looks Like}
 In the root of your directory, create a rules directory. Inside of that
 directory, let's create some sample logic:
 \begin{lstlisting}

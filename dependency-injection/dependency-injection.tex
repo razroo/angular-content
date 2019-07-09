@@ -1,12 +1,12 @@
 
-\section{ Dependency Injection }
+\chapter{ Dependency Injection }
 
 Dependency Injection is one of the sticking points of angular. It makes it
 distinctively different than other frameworks in this regard. That being said,
 it is very important to understand the nuances of injection when it comes to
 architecture when it comes to unit tests, performance, and re-usability.
 
-\subsection{ Understanding Providers }
+\section{ Understanding Providers }
 As per the angular documentation, "Dependencies are services or objects that a
 class needs to perform its function. DI is a coding pattern in which a class
 asks for dependencies from external sources rather than creating them itself."
@@ -15,7 +15,7 @@ an idea of what dependency injection is, and how services might work. However,
 because dependencies are a large part of files that Angular will be using,
 properly understanding the specifics can have a large impact on performance.
 
-\subsection{ providedIn metaData }
+\section{ providedIn metaData }
 The @Injectable decorator has the providedIn metaData option. It will allow you
 to specificy the root, or a specific module for the service to be injected in.
 To clarify, what this means, is that if root is specified as the providedIn
@@ -30,7 +30,7 @@ export class UserService {}
 It will be considered as a singleton in your application, meaning that you can
 use this service anywhere you want in your application, without having to
 specify it as a provider.
-\subsubsection{Make Unit Testing Easier}
+\subsection{Make Unit Testing Easier}
 This makes unit testing easier, as it is no longer neccesary to specify
 service in in unit testing module. However, being that it is good practice
 to mock services, it is still reccomended to do the following:
@@ -50,13 +50,13 @@ In fact, one can argue, that the fact that it will not error out in one's unit
 test, might make unit testing even more difficult. Nonethecreating-a-config.texless, performance is
 where providedIn: Root is very valuable.
 
-\subsubsection{ Increase Performance }
+\subsection{ Increase Performance }
 Without using providedIn, and adding a service to the provider of a module, the
 service will be included in the final bundle size regardless of whether, or not
 it is used. However, when using providedIn: 'root', if the service is never
 used within the app, it is not included in the final bundle size.
 
-\subsubsection{ When to use providedIn and When Not To }
+\subsection{ When to use providedIn and When Not To }
 Using providedIn as a matter of architecture, I would reccomend the following:
 For any services within the actual application, do not use providedIn. These
 services are always going to be used, and if they are not going to be used,
@@ -66,7 +66,7 @@ Any services that are going to be used within a library, should have
 providedIn: 'root' added to them. A service that is included in a module, for
 instance, might not neccesarily be sued within app.
 
-\subsection{ProvidedIn in our Data Access Architecture}
+\section{ProvidedIn in our Data Access Architecture}
 In our data-access architecture, we have a number of services that are
 considered as common within our app. In particular, in two places:
 \begin{enumerate}

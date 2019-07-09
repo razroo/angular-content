@@ -1,5 +1,5 @@
 
-\section{ Store Selectors }
+\chapter{ Store Selectors }
 
 Selectors are pure functions /footnote{pure function in case you are not aware
 of already, are functions which always return the same result, given a certain
@@ -10,7 +10,7 @@ that we can pass to our components.
 the finer detail of pure functions. The following covers about 90\% of all
 use cases.}
 
-\subsection{Object That We Will be Working With}
+\section{Object That We Will be Working With}
 \begin{verbatim}
 {
   settings: {
@@ -43,7 +43,7 @@ use cases.}
 }
 \end{verbatim}
 
-\subsection{Basics of Select using ngrx/store}
+\section{Basics of Select using ngrx/store}
 
 The simplest method is to grab state by the using store select method:
 \begin{lstlisting}
@@ -68,7 +68,7 @@ instance, let's say inside of our component, doing:
   }
 \end{verbatim}
 
-\subsection{ Feature State in NGRX }
+\section{ Feature State in NGRX }
 Previously we discussed being able to select a certain slice of state being
 using store.select. However, there are many scenarios wherein it is not
 as simple as selecting the featureState and passing it to the component. For
@@ -90,7 +90,7 @@ createFeatureSelector will always be used, and in the enterprise applications
 that I work on, they are consistently used for every data-access feature I
 create.}
 
-\subsection{ Feature State in NGRX - An Example using Ngrx/entity}
+\section{ Feature State in NGRX - An Example using Ngrx/entity}
 
 Ngrx/entity if not familiar already, will use what is called a normalized
 database. It is a way of having the way of accessing something independent of
@@ -137,7 +137,7 @@ const getSelectCodeboxId = createSelector(
 \end{lstlisting}
 
 \mybox{
-\subsection{How this would look like in a real world application}
+\section{How this would look like in a real world application}
 Just to douse curiousity of someone who might be wondering how this would work
 in the real world. Normally one would wire this into a facade file. The facade
 line of code would look something like the following:
@@ -149,7 +149,7 @@ This code would then be brought over to the component in the following fashion:
 this.codeBoxData = this.codeBoxFacade.codeBoxEntities\$
 }
 
-\subsection{Introducing createSelector}
+\section{Introducing createSelector}
 You will have noticed that in the above code we have also introduced the idea
 of a createSelector. What a createSelector does, is take the value from a
 createFeatureSelector base, and build on it. What we have done in our app, for
@@ -160,13 +160,13 @@ are able to streamline the process of getting the data we need, pass it to our
 facade. Pass it to the component.ts file we are using, and then use it directly
 within the component.html.
 
-\subsection{Final Notes}
+\section{Final Notes}
 There is more to be discussed on this topic, however, this covers about 80\% of
 situations wherein selectors are used. By following this formula it allows for
 selecting data to be cookie cutter. It is highly recoemmended that ngrx/entity
 be used in addition, to make this cookie cutter process easier.
 
-\subsubsection{UI Architecture Notes}
+\subsection{UI Architecture Notes}
 With regards to making data re-usable. As an app get's larger, the same sort
 of data formulation repeats it's self. For instance, in cases that involve
 pagination, sorting, and filtering, these are data sets that are going to

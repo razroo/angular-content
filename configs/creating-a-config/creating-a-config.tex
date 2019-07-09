@@ -1,5 +1,5 @@
 
-\section{ Creating a Config }
+\chapter{ Creating a Config }
 
 \textit{ Note: Creating your own config for the most part is not ideal. Ideally,
 configs should be altered in the backend and pulled in as an api. It should be
@@ -9,7 +9,7 @@ iteration, even in larger enterprises. This chapter therefore deals with the
 importance of having configs available within app. In addition, the importance
 of having a config within app.}
 
-\subsection{ Use Case for Creating a Config }
+\section{ Use Case for Creating a Config }
 Just for clarity sake, I would like to present why one would want to create
 their own config. We are, of course, all aware of what the environemnt config
 that is naturally baked into every Angular project \footnote{If not, feel free
@@ -28,7 +28,7 @@ Technically, these can all be broken into a singular config. It would be a giant
 environment file. However, it would be cleaner to break these into smaller
 pieces, that give different values based on the central environment file.
 
-\subsection{ How to Setup a Config File for App. }
+\section{ How to Setup a Config File for App. }
 
 With the mono repo architecture we are using, let's assume that our code is
 going into the \appNameKebabCase{} folder. It will be in the common folder,
@@ -42,7 +42,7 @@ wherein there will be a configs folder. Something like this:
   ]
 \end{forest}
 
-\subsubsection{ How to Setup a Config File for App. }
+\subsection{ How to Setup a Config File for App. }
 As config files, are giant data globs, we are going to want to create an
 interface for them. The actual config files will go in our config file. So let's
 say we want to create a config specifically for OAuth, we would create a config
@@ -61,13 +61,13 @@ folder called oauth-config, with the following files:
   ]
 \end{forest}
 
-\subsubsection{ Creating a Config Service }
+\subsection{ Creating a Config Service }
 It is then important at this point to create a service, that will take it the
 appropriate config file, based on the appropriate envrionment.
 
 \lstinputlisting[language=JavaScript]{./configs/creating-a-config/app-config.service.ts}
 
-\subsubsection{ Load Files Prior to App Creation }
+\subsection{ Load Files Prior to App Creation }
 Angular provides a token called APP\_INITIALIZER, which will allow for our
 application to execute once application is finished.
 

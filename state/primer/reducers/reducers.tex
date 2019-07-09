@@ -1,5 +1,5 @@
 
-\section{ Primer - Reducers }
+\chapter{ Primer - Reducers }
 Reducers are pure functions that take in data \footnote{Should take in data only
 and for the sake of this primer, we are going to keep it this way.}, and return
 a new data object. Immutability is ideal when using reducers, so that data is
@@ -10,7 +10,7 @@ be universal across all frameworks, and usually consist of:
   \item A switch:case statement based on action.type
 \end{enumerate}
 
-\subsection{ Example of Reducer }
+\section{ Example of Reducer }
 \begin{lstlisting}
 export function reducer(state = initialState, action: book.Actions
 | collection.Actions): State {

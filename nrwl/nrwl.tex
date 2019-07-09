@@ -1,13 +1,13 @@
 
-\section{Introducing Nrwl Nx}
+\chapter{Introducing Nrwl Nx}
 
-\subsection{Arguably The Greatest Strength of Angular}
+\section{Arguably The Greatest Strength of Angular}
 
 Arguably one of the greatest strengths of the Angular(2+) ecosystem is
 consistency(a point we've discussed before). As a result, Angular has the most
 advanced Front End Framework CLI.
 
-\subsection{Angular CLI Shortcoming with Regards to State Management}
+\section{Angular CLI Shortcoming with Regards to State Management}
 
 However, the Angular CLI does not deal with state management. State management
 in Angular2, for the most part should be done using NGRX. State management in
@@ -17,14 +17,14 @@ In addition, the Angular Framework is not built around state management. It is
 easy for it to fall through the cracks, and for an app to be done without it in
 the first place. Introducing the Nrwl nx CLI.
 
-\subsection{NX CLI}
+\section{NX CLI}
 NX is built by a team called Nrwl. They are perhaps thought leaders in the
 Angular space, as they well should be, being that a large part of them came
 from the core Angular team. They decided to build a cli around state management.
 However, using their cli comes the following pre-conditions, include the NX
 Workspace.
 
-\subsection{Introducing the NX Workspace}
+\section{Introducing the NX Workspace}
 One of the things that the Nrwk team really tries to push, that isn't mainstream
 yet, is the concept of a workspace. Perhaps you will remember an article
 floating around a while back, about
@@ -70,7 +70,7 @@ Some of the biggest disadvantages include:
   \item Make it overkill to work on a small feature.
 \end{enumerate}
 
-\subsection{Why We Love the Iea of a Workspace}
+\section{Why We Love the Iea of a Workspace}
 
 \paragraph{Code Re-use}
 In any large application, code re-use is key. Any corporation not using a
@@ -86,7 +86,7 @@ specific to that feature, service, or component, in the aforementioned folder.
 It makes it so everything is in the same place, and that is a perfect place to
 move on the to the next point.
 
-\subsection{Let's Begin to Build Our Application}
+\section{Let's Begin to Build Our Application}
 
 First we are going to want and make sure that we install both the Nrwl Schematics
 and the Angular/Cli. The Nrwl Schematics are an extension to the Angular CLI.
@@ -118,16 +118,16 @@ tsconfig.json
 tsconfig.spec.json
 \end{verbatim}
 
-\subsection{Nrwl nx notable mentions}
+\section{Nrwl nx notable mentions}
 
-\subsubsection{apps folder}
+\subsection{apps folder}
 All application that we will be creating will go into the apps folder.
 
-\subsubsection{libs folder}
+\subsection{libs folder}
 All code intended to be shared by any one of our apps, will be created in the
 libs folder. It is a secret weapon.
 
-\subsubsection{tsconfig, test, and linting}
+\subsection{tsconfig, test, and linting}
 Universal configuratiomns for Typescript, unit testing, and linting. It will
 be used across all applications apps folder, as well as all libraries in the lib
 folder.

@@ -1,5 +1,5 @@
 
-\section{ Re-using Reducer Logic }
+\chapter{ Re-using Reducer Logic }
 
 In any state management setting, many times an individual will come across
 business logic that is repeated many times throughout one's feature state. For
@@ -12,7 +12,7 @@ facade, reducer, and effects. The question is how can we make our state
 re-usable so that it we can use it in multiple reducers without having to
 re-write logic?
 
-\subsection{ Strategy }
+\section{ Strategy }
 
 The strategy for how we would create a re-usable state is as follows. We would
 have a facade/action that would pass in an actionTypeName along with the
@@ -25,7 +25,7 @@ compare the actionNameIdentifier passed in from the action.paylod to the
 actionTypeName passed in from the reducer. If they are equal to each other, then
 we allow for the reducer logic to happen. Let's deep dive on this approach.
 
-\subsection{Creating a re-usable Facade and Action}
+\section{Creating a re-usable Facade and Action}
 Our UploadFile action will pass the following:
 \begin{itemize}
   \item actionNameIdentifier - For allowing us to re-use reducer
@@ -60,7 +60,7 @@ Most notable, we pass in a parameter called actionNameIdentifier. This will be
 compared against created by the reducer to make sure we are targeting the
 featureState that we would like to work with.
 
-\subsection{Higher Order Reducers}
+\section{Higher Order Reducers}
 
 A higher order reducer borrows it's name from a higher order function.
 
@@ -101,7 +101,7 @@ identifier called actionNameIdentifier. In our reducer we compare the
 actionTypeName created in the reducer, against the actionTypeName in the action,
 in order to re-use reducer logic, for any feature state we would like to use it.
 
-\subsection{Combining Higher Order Reducer with Feature State Reducer }
+\section{Combining Higher Order Reducer with Feature State Reducer }
 
 Higher order reducers are fantastic. However, many times, the higher order
 reducer only solves one specific problem of state with regards to a particular
@@ -128,7 +128,7 @@ export default class UserModule { }
 Now, any action that is made that matches the name for feature state we are
 working on, will update the state for the respective reducer.
 
-\subsection{Re-Using Effects}
+\section{Re-Using Effects}
 Effects are really a bridge from an action, to service, back to an action again.
 We are therefore able to re-use effect by simply passing in the
 actionNameIdentifier and making sure that it makes it's way back to reducer
@@ -160,7 +160,7 @@ once again.
   );
 \end{lstlisting}
 
-\subsection{ Ending Notes }
+\section{ Ending Notes }
 There is some discussion along the lines of whether, or not this pattern makes
 sense. Arguably some scenarios where one might be tempted to use a pattern like
 this, might not be ideal. Therefore, it is worth noting to re-assess the reason

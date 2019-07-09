@@ -1,4 +1,4 @@
-\section{When to Use @ngrx/store}
+\chapter{When to Use @ngrx/store}
 When to use @ngrx/store can be a very opiniated item to consider. State as we
 know it, is a single data object, that can be accessed anywhere within the app.
 How this happens, changes from one state management framework to another, but
@@ -21,7 +21,7 @@ side database, which is a user-specific slice of the database, and use that
 data to derivce View Models from it on the client.''
 }
 
-\subsection{Redux as evolution on Flux}
+\section{Redux as evolution on Flux}
 Redux solved the same problem Flux did. However, it simplified the process.
 Without going into too much detail and instead showing a photo, Redux simplified
 the problem it solved, and made it easier to implement:
@@ -30,7 +30,7 @@ the problem it solved, and made it easier to implement:
 
 It also more importantly, standardized the Flux architecture as a library.
 
-\subsection{@ngrx/store - Integrated Reactive Programming with the Store}
+\section{@ngrx/store - Integrated Reactive Programming with the Store}
 @ngrx/store took redux one step further, and integrated observables with the
 store. There is a fantastic founding paper on the benefits of Real Time:
 \href{http://www-sop.inria.fr/members/Gerard.Berry/Papers/Berry-IFIP-89.pdf}{Programming}
@@ -59,7 +59,7 @@ with change detection in Angular2. It from that point onwards has morphed into
 a good idea, allowing the store to be automatically hooked into state:
 https://github.com/ngrx/store/issues/16\#issuecomment-172027797}
 
-\subsection{ An Example of an @ngrx/store }
+\section{ An Example of an @ngrx/store }
 
 For instance, let's say that we have a user-settings data-access feature. Our
 folder file structure might look like the following:
@@ -72,7 +72,7 @@ is a ton of bloat to creating a store. Even once a developer get's over the hill
 of creating state, and get's used to it, it's still a lot to manage, and one
 just has to ask, does it always make sense?
 
-\subsection{Understanding the Reality of State}
+\section{Understanding the Reality of State}
 I think that looking at the above folder/file strucutre, it is very important
 to realize that state has gone so far beyond what it was originally intended to
 do. You will notice effects, a facade pattern. In addition, quietly sitting
@@ -83,7 +83,7 @@ it would be able to solve every single situation, wherein we are trying to carry
 over data into the client side, in a scalable, and maintainable fashion. Ok, so
 let's deep dive into it.
 
-\subsection{ Addressing the Problems State Alleviates }
+\section{ Addressing the Problems State Alleviates }
 First and foremost, I think it would be most effective if we were to directly
 jump into the problems that state solves:
 \begin{enumerate}
@@ -105,7 +105,7 @@ These would be in my humble opinion, the 7 things that state has to offer. If a
 component were to be able to interact with another component on that page, by
 altering it's data, it should have state.
 
-\subsubsection{ Addressing Additional two Offered by @ngrx/store }
+\subsection{ Addressing Additional two Offered by @ngrx/store }
 Added into your classic @nrwl/nx ecosystem, is:
 \begin{enumerate}
   \item @ngrx/entity
@@ -113,7 +113,7 @@ Added into your classic @nrwl/nx ecosystem, is:
   \item Effects for asynchronous programming
 \end{enumerate}
 
-\subsection{The Mesmerism of @ngrx/store}
+\section{The Mesmerism of @ngrx/store}
 
 So, as mentioned before, the @ngrx/store ecosytem has grown into a beast. In
 fact, an Angular developer working on an enterprise, data heavy application,
@@ -142,7 +142,7 @@ service, and how I am going to tie it into the component. Jumping out of this
 repitition can counter-productive, even if there is less code involved by
 creating a service.
 
-\subsection{ Attachments Service - Story Time }
+\section{ Attachments Service - Story Time }
 There are some very unique cases, where perhaps state shouldn't be used on an
 objective level. I for one always felt that state has a bit of bloat(, albeit my
 opinion is beggining to change). However, after discussing with team members,
@@ -154,12 +154,12 @@ attachment from the server, using it's id. If a service or @ngrx/store was not
 used, there would be alot of repitition across the app. This led to the dillema,
 should a service, or @ngrx/store be used.
 
-\subsection{ Business Requirements }
+\section{ Business Requirements }
 One, is that multiple components on the same page were to use this attachments
 service. Second, is that we want to show the user when a certain attachment is
 loading, and when it is no longer loading.
 
-\subsection{ Argument for using a Service }
+\section{ Argument for using a Service }
 In truth, the attachments were meant to be self contained within a singular
 component. This would have made the service as very simple. However, based on
 the business requirements, we would have had to create a double nested
@@ -183,7 +183,7 @@ through your code. @ngrx/store therefore at this point takes on it's new life
 as a way to make sure code is consistent, even if it isn't the right choice for
 your app.
 
-\subsection{ What Comes Out From Our Back and Forth }
+\section{ What Comes Out From Our Back and Forth }
 Truly, any enterprise situation, wherein a data request is made from the
 back end, it should be handled using @ngrx/store and not services. This is
 simply because, in any enterprise setting, the majority of situations is more
@@ -197,7 +197,7 @@ odds of your service now being needed to re-written to accomodate it being
 used in multiple components, is also quite high.
 \end{enumerate}
 
-\subsection{ Final Note }
+\section{ Final Note }
 If you are building an enterprise app from the beginning and are building a
 team, put this as part of the conventions right away. It will make your life
 easier. If you have a team, and you haven't fully agreed on this one, send them
