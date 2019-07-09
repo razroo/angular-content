@@ -190,7 +190,15 @@ plug and play the companies theme, will really speed up development for other
 parts of the company. That being said, Razroo best practices is to create a lib
 folder for styles.
 
-\input{./design-language-system/material-overrides/material-overrides-tree-structure.tex};
+\begin{forest}
+  [libs
+    [common
+      [styles
+        [\_themes.scss,file]
+      ]
+    ]
+  ]
+\end{forest}
 
 and inside of it, we are going to create a \lstinline{_themes.scss} file. Our 
 generated themes using our primary, or seconday colors might look something 
@@ -323,4 +331,10 @@ times wherein we will need to override specific styles for the component.
 There really isn't any way to modify the styling ahead of time. The only way
 is to target the specific material component's class, and to modify it when 
 appropriate. However, what we can do, is consolidate all of our overridden
- components in a singular place, so that it is well organized. 
+ components in a singular place, so that it is well organized. For instance, 
+ let's say that we have a dialog that we would like to remove padding for 
+ in some scenarios, but keep it in others. We would put a dialog file inside of
+ our material overrides folder. Our folder/file structure will look like the
+ following: 
+
+ \input{./design-language-system/material-overrides/material-overrides-tree-structure.tex}
