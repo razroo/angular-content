@@ -128,7 +128,7 @@ file}
 
 \subsection{Material Light + Dark Theme}
 Angular offers out of the box in the \lstinline{_theming.scss} file a light and
-dark theme function. The function looks as follows: 
+dark theme function. The function looks a follows: 
 \begin{lstlisting}
 @function mat-light-theme($primary, $accent, $warn: mat-palette($mat-red)) {
   @return (
@@ -173,6 +173,28 @@ self in two scenarioes:
   \item In addition to new primary and secondary color, a new background and 
   foreground color as well. 
 \end{enumerate}
+
+Designers have a tool that allows them to automatically generate the appropriate
+color in their design by supplying a singular color. Angular developers have
+that luxury as well. There are tools that will do that for you. My personal 
+favorite is the \href{http://mcg.mbitson.com}{Material Design Palette Generator}.
+You will then have the ability to click on the clipboard icon, click on the 
+dropdown for Angular JS 2 (Material 2), and copy the scss variable map. It's 
+really as simple as that. 
+
+\subsubsection{Create a \_themes.scss file}
+Being that we are creating our own themes, the cleanest thing for us to do would 
+be to place it in it's own \_themes.scss file. In addition, assuming that the 
+organization is going to build out more applications, giving it the ability to
+plug and play the companies theme, will really speed up development for other
+parts of the company. That being said, Razroo best practices is to create a lib
+folder for styles.
+
+\input{./design-language-system/material-overrides/material-overrides-tree-structure.tex};
+
+and inside of it, we are going to create a \lstinline{_themes.scss} file. Our 
+generated themes using our primary, or seconday colors might look something 
+like this:
 
 \subsection{Background + Foreground}
 It is important to mention that using this approach, we will not be able to
