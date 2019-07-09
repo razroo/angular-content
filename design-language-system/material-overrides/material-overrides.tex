@@ -234,11 +234,78 @@ $razroo-primary-blue: (
 It's quite a bit, but I just wanted to visualize that all of this is created by
 using the Material Design Palette Generator. 
 
+\subsection{Using Libs \_themes.scss file }
+Inside of our \lstinline{styles.scss} file, we can import our 
+\lstinline{\_themes.scss} file. Assuming we are just changing the primary color
+and secondary color, we can do the following: 
+\begin{lstlisting}
+@import '~@angular/material/theming';
+@import 'libs/common/styles/_themes';  
+
+//@include angular-material-theme($mat-light-theme-background);
+$razroo-theme: mat-light-theme(mat-palette($razroo-primary-blue), mat-palette($razroo-secondary-red));
+@include angular-material-theme($razroo-theme);
+\end{lstlisting}
+
+We now have our own custom themes that we have created. They are available 
+globally to be used by other applications/teams. In addition, using the Angular 
+mat-light-theme funciton(mat-dark-theme also an option), or app is now using
+our exclusive theme. 
+
 \subsection{Background + Foreground}
-It is important to mention that using this approach, we will not be able to
-change the background, or foreground color for our application. This is
-intentional, as per Material Design guidelines, background does not represent 
-brand. However, what it can represent is the energy your application is trying
-to convey. However, the Material Foundation did not fully expect you to go 
-ahead and change your background, and foreground, so there is a bit more effort
-required on the side of the developer to make these edits. 
+It is important to mention that per the Material Design guidelines, background
+and foreground are not meant to represent brand. They are more so used to 
+convey the energy of the application. For Razroo's Pixel Illustrator, we wanted
+to create a very vibrant appliation. This meant that we wanted to use our own 
+background and foreground colors. Doing something like this requires a bit more 
+of effort. There are three steps required to change the background to what you 
+want. 
+
+\begin{enumerate}
+  \item Generate color theme maps, using our Material Design Palette Generator
+  \item Create a backround theme, and foreground theme for our application.
+  \item Create our own custom theme function.
+  \item Creating a default background for html + body, being that this will 
+  only work as an override for material design components. 
+\end{enumerate}
+
+\begin{lstlisting}[caption=Example of what a custom background theme looks like.]
+// Background palette for light themes.
+$razroo-theme-background: (
+  status-bar: map_get($razroo-background-yellow, 300),
+  app-bar:    map_get($razroo-background-yellow, 100),
+  background: map_get($razroo-background-yellow, 50),
+  hover:      rgba(map_get($razroo-background-yellow, 500), 0.04), // TODO(kara): check style with Material Design UX
+  card:       map_get($razroo-background-yellow, 500),
+  dialog:     map_get($razroo-background-yellow, 500),
+  disabled-button: rgba(map_get($razroo-background-yellow, 500), 0.12),
+  raised-button: map_get($razroo-background-yellow, 500),
+  focused-button: $dark-focused,
+  selected-button: map_get($razroo-background-yellow, 300),
+  selected-disabled-button: map_get($razroo-background-yellow, 400),
+  disabled-button-toggle: map_get($razroo-background-yellow, 200),
+  unselected-chip: map_get($razroo-background-yellow, 300),
+  disabled-list-option: map_get($razroo-background-yellow, 200),
+);
+\end{lstlisting}
+
+\begin{lstlisting}[caption=What custom theme function would look like]
+@function razroo-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $mat-light-theme-foreground,
+    background: $razroo-theme-background,
+  );
+}  
+\end{lstlisting}
+
+\begin{lstlisting}[caption=html and body override]
+//@include angular-material-theme($mat-light-theme-background);
+$razroo-theme: razroo-theme(mat-palette($razroo-primary-blue), mat-palette($razroo-secondary-red));
+
+// Include the default theme styles.
+@include angular-material-theme($razroo-theme);  
+\end{lstlisting}
