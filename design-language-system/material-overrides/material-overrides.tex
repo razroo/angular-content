@@ -258,8 +258,8 @@ and foreground are not meant to represent brand. They are more so used to
 convey the energy of the application. For Razroo's Pixel Illustrator, we wanted
 to create a very vibrant appliation. This meant that we wanted to use our own 
 background and foreground colors. Doing something like this requires a bit more 
-of effort. There are three steps required to change the background to what you 
-want. 
+of effort probably from the Material team expecting you to do it less. There 
+are three steps required to change the background to what you want. 
 
 \begin{enumerate}
   \item Generate color theme maps, using our Material Design Palette Generator
@@ -289,6 +289,13 @@ $razroo-theme-background: (
 );
 \end{lstlisting}
 
+\mybox{Your team should have a designer who figures out what the opposite color 
+of your background is, in order to create foreground. However, you can use a tool 
+such as such as Color Tool's 
+\href{https://www.colortools.net/color_complementary.html}{Opposite Color Tool}}.
+Then you can follow up with the Material Design Color Palette tool, and
+create the appropriate color map.
+
 \begin{lstlisting}[caption=What custom theme function would look like]
 @function razroo-theme($primary, $accent, $warn: mat-palette($mat-red)) {
   @return (
@@ -309,3 +316,11 @@ $razroo-theme: razroo-theme(mat-palette($razroo-primary-blue), mat-palette($razr
 // Include the default theme styles.
 @include angular-material-theme($razroo-theme);  
 \end{lstlisting}
+
+\subsection{Overriding Components}
+After we have overridden our theme in general across the app, there will be 
+times wherein we will need to override specific styles for the component. 
+There really isn't any way to modify the styling ahead of time. The only way
+is to target the specific material component's class, and to modify it when 
+appropriate. However, what we can do, is consolidate all of our overridden
+ components in a singular place, so that it is well organized. 
