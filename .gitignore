@@ -29,7 +29,9 @@
 *.out
 *.synctex.gz
 *.synctex.gz(busy)
-*.pdf
+main.pdf
+angular_the_full_gamut.pdf
+angular_the_full_gamut_rough_draft.pdf
 *.DS_Store
 *.fdb_latexmk
 
