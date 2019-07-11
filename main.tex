@@ -1,13 +1,8 @@
-\documentclass[a4paper,
-                             oneside,
-                             BCOR1.0cm,
-                             DIV11,
-                             parskip=full,
-                             11pt]{scrbook}
-
+\documentclass[a4paper, twoside, BCOR1.0cm, DIV11, parskip=full, 11pt]{scrbook}
 \usepackage{setspace}
 \usepackage[explicit]{titlesec}
 \usepackage{forest}
+\usepackage{fancyvrb}
 \usepackage{lmodern}
 \usepackage{hyperref}
 % textcomp need to use testrightarrow
@@ -57,13 +52,11 @@
 \include{./libs/code-styling}
 \include{./libs/forest-styling}
 \include{./libs/variables}
-
 \title{Angular - The Full Gamut}
 \author{Charlie Greenman}
 \renewcommand{\familydefault}{\sfdefault}
 \renewcommand\textbullet{\ensuremath{\bullet}}
 \begin{document}
-\setstretch{1.5}
 \tableofcontents
 \include{./introduction/introduction}
 \include{./building-our-application/building-our-application}
