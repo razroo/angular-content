@@ -1,5 +1,5 @@
 
-\chapter{ Material Overrides }
+\chapter{ Customize Angular Material Design }
 
 Razroo best practices, is that the easiest way to get your app up and running,
 is to use Material Design within your Angular application. Generally, an
@@ -79,7 +79,7 @@ $mat-green: (
 \end{lstlisting}
 
 For primary values, the most used value will start be 500. For secondary values, 
-the most used value will is 200. The significagance of these values is that
+the most used value will is 200. The significance of these values is that
 Material Design will follow a Hierarchical system. The darker the color is, the 
 more of an emphasis we are placing on that button. The lighter it is, the less 
 emphasis we are placing on that element. 
@@ -87,13 +87,13 @@ emphasis we are placing on that element.
 \mybox{You might be wondering about two things. For starters, why is it that 
 the values progress by 100's? Second, what is up with the values that have an 
 "A" attached to the left side? Values progress by 100's is merely a convention
-used by Material Desing. Other design frameworks progress by 10's(IBM Design)
+used by Material Design. Other design frameworks progress by 10's(IBM Design)
 instead of 100's, for instance, or even by 1's(Open Color). It is merely a
 convention used to show that values are progressing. 
 
 Values attached with an A on the left side, are Accent colors. Accent colors 
 are colors used for emphasis within a color scheme. In particular, within the 
-seting of Angular, these are used within" 
+setting of Angular, these are used within" 
 \begin{enumerate}
   \item Text fields and cursors
   \item Text Selection
@@ -102,14 +102,14 @@ seting of Angular, these are used within"
 \end{enumerate}  
 
 The contrast color map is used by Angular to display the appropriate text color 
-based on resepctive non-contrast color map
+based on respective non-contrast color map
 }
 
 \section{Material Design and Sass}
 In Angular, Sass tends to be the de-facto CSS pre-processor that is used across
-mutliple libraries in Angular. Material Design unexpectedly offers Sass 
+multiple libraries in Angular. Material Design unexpectedly offers Sass 
 functionality out of the box, and makes it incredibly easy to customize your
-environment based on sass overrrides. Let's install Angular Material, so that
+environment based on sass overrides. Let's install Angular Material, so that
 we can use Material's Sass Library, and customize the theme as we see
 appropriate. 
 
@@ -149,10 +149,10 @@ file}
 
 \section{ Using The Material Light + Dark Theme}
 Angular offers out of the box in the \lstinline{_theming.scss} file a light and
-dark theme function. The function looks a follows: 
+dark theme function. The function looks as follows: 
 \begin{lstlisting}
 @function mat-light-theme($primary, $accent, $warn: mat-palette($mat-red)) {
-  @return (
+  @return (-
     primary: $primary,
     accent: $accent,
     warn: $warn,
@@ -269,20 +269,19 @@ expect when you do the same.
 
 \section{Using Libs \_themes.scss file }
 Inside of our \lstinline{styles.scss} file, we can import our 
-\lstinline{\_themes.scss} file. Assuming we are just changing the primary color
+\lstinline{_themes.scss} file. Assuming we are just changing the primary color
 and secondary color, we can do the following: 
 \begin{lstlisting}
 @import '~@angular/material/theming';
 @import 'libs/common/styles/_themes';  
 
-//@include angular-material-theme($mat-light-theme-background);
 $razroo-theme: mat-light-theme(mat-palette($razroo-primary-blue), mat-palette($razroo-secondary-red));
 @include angular-material-theme($razroo-theme);
 \end{lstlisting}
 
 We now have custom themes that we have created. With the architecture we setup,
 they are available globally to be used by other applications/teams. In addition
-, using the Angular mat-light-theme funciton(mat-dark-theme also an option), 
+, using the Angular mat-light-theme function(mat-dark-theme also an option), 
 or app is now using our exclusive theme. 
 
 \section{Background + Foreground}
@@ -291,7 +290,7 @@ and foreground are not meant to represent brand. They are more so used to
 convey the energy of the application. For that reason the Material Team does 
 not offer a way of the box to change it. For Razroo's Pixel Illustrator(the world's most 
 complete open source enterprise application that Razroo will be open sourcing 
-soon), we wanted to create a very vibrant appliation. This meant that we 
+soon), we wanted to create a very vibrant application. This meant that we 
 wanted to use our own background and foreground colors. Doing something like
 this requires a bit more of effort probably from the Material team expecting 
 you to do it less. There are four steps required to change the background to 
@@ -329,9 +328,9 @@ $razroo-theme-background: (
 of your background is, in order to create foreground. However, you can use a tool 
 such as such as Color Tool's 
 \href{https://www.colortools.net/color_complementary.html}{Opposite Color Tool}. 
-Granted, that is, you}
-Then you can follow up with the Material Design Color Palette tool, and
-create the appropriate color map.
+Granted, that you do not have a designer as a resource.}
+Use the background + foreground color by designer, and follow up with the 
+Material Design Color Palette tool, and create the appropriate color map.
 
 \begin{lstlisting}[caption=What custom theme function would look like]
 @function razroo-theme($primary, $accent, $warn: mat-palette($mat-red)) {
@@ -347,10 +346,9 @@ create the appropriate color map.
 \end{lstlisting}
 
 \begin{lstlisting}[caption=html and body override]
-//@include angular-material-theme($mat-light-theme-background);
 $razroo-theme: razroo-theme(mat-palette($razroo-primary-blue), mat-palette($razroo-secondary-red));
 
-// Include the default theme styles.
+// Inject $razroo-theme across angular-material-theme
 @include angular-material-theme($razroo-theme);  
 
 html, body {
@@ -422,5 +420,5 @@ Angular. It is incredibly simple to set up, and a breeze to modify. I am
 incredibly thankful to the Angular team for all they have done to integrate 
 Material out of the box. In my humble opinion, it is one of the three greatest 
 architectural decisions a team can make for Angular(State management, and extensive
-unit testing being the others). In my humble opinion, I believe it can knock of 2 
+unit testing being the others). In my humble opinion, I believe it can knock off 2 
 months of development time, from a team of 3 over the course of 2 years. 
