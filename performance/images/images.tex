@@ -15,4 +15,31 @@ That is what we are going to attempt to do.
 
 \section{Lazy Loading Images}
 Lazy loading, if not already familiar, is the idea of loading an image only
-when neccesary. 
+when neccesary. It is powerful primarily, because, non-critical images are 
+loaded when needed, allowing for a quicker load of content on page load. It 
+is also useful for the additional following reasons: 
+\begin{enumerate}
+  \item It reduces data consumption, i.e. less work for the server side.
+  \item Less workload for the browser. 
+  \item Improve webpage loading time.
+\end{enumerate}
+
+great way to see what images might need optimization, is to use Lighthouse 
+in Chrome DevTools to see what might need changing. 
+
+\section{ Using lazysizes for Loading Images }
+\lstinline{lazysizes}, in my opinion is the most robust library for making
+use of lazy loading libraries. Some of the benefits of using it as a library 
+include: 
+\begin{enumerate}
+  \item Requires no configuration.
+  \item Fantastic Performance.
+  \item Optional integration with \href{https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API}{Intersection Observer}. 
+  \footnote{It's a relatively modern api that provides a way to asynchronously observe 
+  changes in the intersection of a target element.
+  \item Supports Plugins
+\end{enumerate}
+
+
+
+
