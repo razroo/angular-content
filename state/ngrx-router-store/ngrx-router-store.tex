@@ -14,18 +14,18 @@ everything in medium to larger sized applications, especially when navigation
 is expected to occur in high frequency.
 
 NgRx solves this issue and provides a solution by creating a central storage
-space. It keeps all your current application’s data in one space – turning parts
-of your browser’s memory into a  storage bucket for all your data where all
+space. It keeps all your current application's data in one space - turning parts
+of your browser's memory into a  storage bucket for all your data where all
 mutations occur only through explicit dispatch actions known as reducers and
-becomes the application’s single source of truth. It allows for your
-application’s events to exist in a unified manner rather than decentralized
+becomes the application's single source of truth. It allows for your
+application's events to exist in a unified manner rather than decentralized
 across different parts, children, siblings, partials, factories and routes.
 
 router-store, specifically, is the portion of NgRx module that allows for
 listeners to be used for routing actions, meaning that data is allowed to be
 stored, shared, consumed and mutated based on the routing status from
 a single source. \texttt{@ngrx/router-store}, in a way, is like an in-memory database
-for your application’s route related data.
+for your application's route related data.
 
 \section{Why do we need it?}
 When data is decentralized and exists on the fly, it becomes prone to errors due
@@ -33,7 +33,7 @@ to a lack of history tracking and mutations can occur from different directions.
 Duplications can accidentally happen as we try to replicate certain data in
 different states and parts of the application.
 
-When relying on Angular’s routing system, we rely on data persistence through
+When relying on Angular's routing system, we rely on data persistence through
 params from navigation/router state. If a child or sibling component requires
 that data, it becomes coupled with the parent and data needs to be presented
 again in order to be consumed. While factory patterns may solve this issue, it
@@ -46,23 +46,24 @@ ngRx solves this, along with the reduction of time and code overheads needed to
 create factory patterns and singular storage spaces. The library comes ready to
 be plugged into any Angular application with its own set of Redux inspired
 approach to centralized state storage. Each cycle in a router-store captures a
-snapshot of the route’s state and its associated data. When data is decoupled
+snapshot of the route's state and its associated data. When data is decoupled
 from routing, it allows your application to become more agile and less dependent
 on data states through route params.
 
 \section{How to install router store}
-Once you have your Angular app, you can use npm to install router-store by using the following commands:
+Once you have your Angular app, you can use npm to install router-store by 
+using the following commands:
 
 \begin{verbatim}
-Npm install @ngrx/router-store –save
+npm install @ngrx/router-store –save
 \end{verbatim}
 
-If you’re using yarn:
+If you're using yarn:
 \begin{verbatim}
-Yarn add @ngrx/router-store
+yarn add @ngrx/router-store
 \end{verbatim}
 
-If you’re project is created with Angular CLI version 6+, you can use the
+If you're project is created with Angular CLI version 6+, you can use the
 following command:
 
 \begin{verbatim}
@@ -74,7 +75,9 @@ To check your Angular CLI version, use the following command:
 ng --version
 \end{verbatim}
 
-To use inside your application, you’ll need to import the StoreRouterConectingModule and routerReducer from @ngrx/router-store like so:
+To use inside your application, you'll need to import the 
+\lstinline{StoreRouterConectingModule} and \lstinline{routerReducer} from 
+\lstinline{@ngrx/router-store} like so:
 
 \begin{lstlisting}
 import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
@@ -89,9 +92,9 @@ navigation error.
 
 Being able to access and track these actions allows you to control the flow of
 route state storage management, access to data and the life cycle process. When
-used in conjunction with route guards – a feature that allows you to protect
-your views from rendering when there isn’t enough information or the right
-access permissions – router actions can help with the resolutions of states and
+used in conjunction with route guards - a feature that allows you to protect
+your views from rendering when there isn't enough information or the right
+access permissions - router actions can help with the resolutions of states and
 its consumption.
 
 A request action always kickstart the process which then runs the navigation
@@ -132,7 +135,7 @@ To create a custom serializer, export a class that implements
 RouterStateSerializer with an interface to ensure object uniformity.
 
 Using the serialize() method to convert the state object into a unified format
-that conforms to your application’s requirements. This often comes in the form
+that conforms to your application's requirements. This often comes in the form
 of mapping router state values to a predefined interface that may look something
 like this:
 
@@ -203,7 +206,7 @@ transfer to state storage.
 
 As \texttt{router-store} provides snapshots of the \texttt{RouterState} during
 the navigation life cycle, it is vital that snapshots passed do not change
-during the process of dispatch as this will result the store cycle’s truthiness
+during the process of dispatch as this will result the store cycle's truthiness
 breaking due to inaccurate snapshot data.
 
 While serialization already prevents this, \texttt{store-freeze} acts as an
