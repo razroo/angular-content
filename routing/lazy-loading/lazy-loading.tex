@@ -1,10 +1,18 @@
 
 \chapter{ Lazy Loading Routes }
-One of the more initally overlook routing architectures when it comes to routing
-is lazy loading. That would simply mean that a module is only loaded once
-the page goes to a specific route. This will cause large initial loading times
-if all of the pages are initially bundled into the root app.
+One of the more initally overlooked pieces of UI Architecture, is with regards to 
+lazy loading. With regards to Angular, lazy loading is a routing architecture.
+Similar to how lazy people only do things when it is required of them, lazy loading 
+will only load when it is required for the page it is navigating to. 
 
+The main benefit of lazy loading, is so that on initial load of the web application, 
+or Angular site, we drastically decrease the bundle size. Thankfully, Angular 
+makes it relatively easy to include a lazy loaded module into the app. The Angular CLI 
+even has a command, for easily setting up a lazy loaded route. However, before we go 
+ahead and discuss that command, let's discuss the internal of what happens when we
+add a lazy loaded route. 
+
+\subsection{Example of What Lazy Loading Looks Like}
 An example of a lazy route is as follows:
 \begin{lstlisting}
 {
