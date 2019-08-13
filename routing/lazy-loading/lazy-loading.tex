@@ -53,14 +53,23 @@ the import path is using our Nx workspaces shortened path. Which here would be t
 
 The second edit for us to make, will be in the actual module for our about page: 
 \begin{lstlisting}
-  
+@NgModule({
+  imports: [
+    //...
+    RouterModule.forChild([
+      {path: '', pathMatch: 'full', component: AboutComponent}
+    ])
+  ],
+  declarations: [AboutComponent]
+})
+export class RazrooAboutModule {}
 \end{lstlisting}
 
-As mentioned in the actual docs:
-\mybox{ The router will use registered NgModuleFactoryLoader to fetch an
-NgModule associated with 'about'. Then it will extract the set of routes defined
-in that NgModule, and will transparently add those routes to the main
-configuration.}
+\mybox{You will notice that in the above code we are actually using an AboutComponent. 
+This component will need to be generated in addition to module we've already created, and 
+can be done simply by navigating to our libs folder, and runnning 
+\lstinline{ng g component about}.
+}
 
 \section{Adding a tsconfig.app.json config}
 Therefore, we need to set up a config inside the main tsconfig.app.json in the
