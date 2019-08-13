@@ -9,21 +9,30 @@ The main benefit of lazy loading, is so that on initial load of the web applicat
 or Angular site, we drastically decrease the bundle size. Thankfully, Angular 
 makes it relatively easy to include a lazy loaded module into the app. The Angular CLI 
 even has a command, for easily setting up a lazy loaded route. However, before we go 
-ahead and discuss that command, let's discuss the internal of what happens when we
+ahead and discuss that command, let's discuss the internals of what happens when we
 add a lazy loaded route. 
 
 \subsection{Example of What Lazy Loading Looks Like}
-An example of a lazy route is as follows:
+Let's imagine that we have an about page, that we are creating using Angular.
+An example of such a lazy route, would be as follows:
 \begin{lstlisting}
 {
-  path: 'customers',
-  loadChildren: 'lib/users/users.module#UsersModule'
-}
+  path: 'about',
+  loadChildren: () =>
+    import('@razroo/razroo/about').then(
+      module => module.RazrooAboutModule
+    )
+},
 \end{lstlisting}
+
+You will notice the above syntax is using the Angular 8 syntax for lazy loaded
+modules. In addition, being that we are using Nrwl Nx, which is a reccomended 
+technology throughout the book, we are using the shortened path, in our import 
+path. 
 
 As mentioned in the actual docs:
 \mybox{ The router will use registered NgModuleFactoryLoader to fetch an
-NgModule associated with 'team'. Then it will extract the set of routes defined
+NgModule associated with 'about'. Then it will extract the set of routes defined
 in that NgModule, and will transparently add those routes to the main
 configuration.}
 
