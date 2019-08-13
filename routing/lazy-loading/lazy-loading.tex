@@ -1,5 +1,5 @@
 
-\chapter{ Lazy Loading Routes }
+\chapter{ Lazy Loading Modules }
 One of the more initally overlooked pieces of UI Architecture, is with regards to 
 lazy loading. Lazy loading, if not already familiar, is the concept of loading
 something when it is required, rather than all at once on page load. Similar to 
@@ -11,27 +11,50 @@ The main benefit of lazy loading, is so that on initial load of the web page, we
 drastically decrease the bundle size. This improves user experience. Thankfully, Angular 
 makes it relatively easy to include a lazy loaded module into the app. The Angular CLI 
 even has a command, for easily setting up a lazy loaded route. However, before we go 
-ahead and show that command, let's discuss how to add a lazy loaded route. 
+ahead and show the command, that automatically scaffolds lazy loading for us, let's discuss
+how to add a lazy loaded route if we were to do that process manually. 
 
-\subsection{Example of What Lazy Loading Looks Like}
-Let's imagine that we have an about page, that we are creating using Angular.
-An example of such a lazy route, would be as follows:
+\section{Adding a Lazy Loaded Module Using Angular CLI}
+\begin{verbatim}
+  ng g lib about --routing --lazy --directory=razroo
+\end{verbatim}
+
+This command will automatically add a module to our lib. In addition, will 
+modify the route within the about.module.ts, so that it can be used as a
+lazy loaded route. 
+
+\section{What We Should Edit Post Generation}
+Now that we have generated a route for our "about" page, let's make the two 
+edits required post CLI generation. Edit one, will be in our main 
+\lstinline{app.module.routing.ts} file:
 \begin{lstlisting}
 {
   path: 'about',
-  loadChildren: () =>
+  loadChildren: () =>  
     import('@razroo/razroo/about').then(
       module => module.RazrooAboutModule
     )
 },
 \end{lstlisting}
+\footnote{Just in case you are familiar with a different syntax, this is the 
+latest syntax for Angular 8+.}
 
-Test
+You will notice two things in the above code: 
+\begin{enumerate}
+  \item A \lstinline{path} key, standard for Angular routing, to specify what 
+  module should be loaded when navigating to a specific route. 
+  \item A \lstinline{loadChildren} key, which calls a function followed by the 
+  standard syntax for importing a module. 
+\end{enumerate}
 
-You will notice the above syntax is using the Angular 8 syntax for lazy loaded
-modules. In addition, being that we are using Nrwl Nx, which is a reccomended 
-technology throughout the book, we are using the shortened path, in our import 
-path. 
+In addition, being that we are using Nrwl Nx (which this book is littered with)
+the import path is using our Nx workspaces shortened path. Which here would be the 
+\lstinline{razroo-workspace/razroo-lib/lib-name}.
+
+The second edit for us to make, will be in the actual module for our about page: 
+\begin{lstlisting}
+  
+\end{lstlisting}
 
 As mentioned in the actual docs:
 \mybox{ The router will use registered NgModuleFactoryLoader to fetch an
