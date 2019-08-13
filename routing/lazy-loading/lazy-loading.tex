@@ -1,16 +1,17 @@
 
 \chapter{ Lazy Loading Routes }
 One of the more initally overlooked pieces of UI Architecture, is with regards to 
-lazy loading. With regards to Angular, lazy loading is a routing architecture.
-Similar to how lazy people only do things when it is required of them, lazy loading 
-will only load when it is required for the page it is navigating to. 
+lazy loading. Lazy loading, if not already familiar, is the concept of loading
+something when it is required, rather than all at once on page load. Similar to 
+how lazy people only do things when it is required of them, lazy loading will 
+only load when it is required for the page it is navigating to. With regards to Angular,
+lazy loading is a routing/module architecture, and heavily tied to routing. 
 
-The main benefit of lazy loading, is so that on initial load of the web application, 
-or Angular site, we drastically decrease the bundle size. Thankfully, Angular 
+The main benefit of lazy loading, is so that on initial load of the web page, we
+drastically decrease the bundle size. This improves user experience. Thankfully, Angular 
 makes it relatively easy to include a lazy loaded module into the app. The Angular CLI 
 even has a command, for easily setting up a lazy loaded route. However, before we go 
-ahead and discuss that command, let's discuss the internals of what happens when we
-add a lazy loaded route. 
+ahead and show that command, let's discuss how to add a lazy loaded route. 
 
 \subsection{Example of What Lazy Loading Looks Like}
 Let's imagine that we have an about page, that we are creating using Angular.
@@ -24,6 +25,8 @@ An example of such a lazy route, would be as follows:
     )
 },
 \end{lstlisting}
+
+Test
 
 You will notice the above syntax is using the Angular 8 syntax for lazy loaded
 modules. In addition, being that we are using Nrwl Nx, which is a reccomended 
