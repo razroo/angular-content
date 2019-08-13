@@ -23,6 +23,16 @@ This command will automatically add a module to our lib. In addition, will
 modify the route within the about.module.ts, so that it can be used as a
 lazy loaded route. 
 
+\mybox{An important note is that all the additional --routing --lazy flags will
+add is this line: 
+RouterModule.forChild([
+  /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */
+])
+
+If you are upgrading an existing module to use lazy loading, the following 
+directions will work for you as well. 
+}
+
 \section{What We Should Edit Post Generation}
 Now that we have generated a route for our "about" page, let's make the two 
 edits required post CLI generation. 
@@ -73,18 +83,8 @@ can be done simply by navigating to our libs folder, and runnning
 \lstinline{ng g component about}.
 }
 
-
-\section{Adding a tsconfig.app.json config}
-Therefore, we need to set up a config inside the main tsconfig.app.json in the
-include imports:
-\begin{verbatim}
-  "include": [
-    "**/*.ts",
-    "../../../libs/users/users/index.ts"
-  ],
-\end{verbatim}
-
 The above is the cookie cutter process involved with creating a lazy loaded module 
-within an Angular application. It is architecture that is worth implementing early on 
-in the app. Especially being, architectural decisions, such as implementing modals, and 
-navigations might be affected from lazy loading. 
+within an Angular application. Thankfully, due to Angular, it is relatively painless 
+process for what it is accomplishing. It is architecture that is worth implementing
+early on in the app. In particular, it might save you from circular dependency 
+nightmares later on. 
