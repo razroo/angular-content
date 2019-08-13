@@ -25,8 +25,10 @@ lazy loaded route.
 
 \section{What We Should Edit Post Generation}
 Now that we have generated a route for our "about" page, let's make the two 
-edits required post CLI generation. Edit one, will be in our main 
-\lstinline{app.module.routing.ts} file:
+edits required post CLI generation. 
+
+\subsection{Editing app.module.routing.ts File}
+Edit one, will be in our main \lstinline{app.module.routing.ts} file:
 \begin{lstlisting}
 {
   path: 'about',
@@ -48,7 +50,7 @@ You will notice two things in the above code:
 \end{enumerate}
 
 In addition, being that we are using Nrwl Nx (which this book is littered with)
-the import path is using our Nx workspaces shortened path. Which here would be the 
+the import path is using our Nx workspaces shortened path. Here that would be the 
 \lstinline{razroo-workspace/razroo-lib/lib-name}.
 
 The second edit for us to make, will be in the actual module for our about page: 
@@ -71,6 +73,7 @@ can be done simply by navigating to our libs folder, and runnning
 \lstinline{ng g component about}.
 }
 
+
 \section{Adding a tsconfig.app.json config}
 Therefore, we need to set up a config inside the main tsconfig.app.json in the
 include imports:
@@ -81,14 +84,7 @@ include imports:
   ],
 \end{verbatim}
 
-\section{Adding forChild inside of Actual Route}
-\begin{lstlisting}
-RouterModule.forChild([
-  { path: '', component: UserComponent },
-]),
-\end{lstlisting}
-
-The above is the cookie cutter process involved with create a component with a
-lazy route. It is architecture that is worth implementing early on in the app.
-Especially being some future components such as side navigations and modals
-might be complicated.
+The above is the cookie cutter process involved with creating a lazy loaded module 
+within an Angular application. It is architecture that is worth implementing early on 
+in the app. Especially being, architectural decisions, such as implementing modals, and 
+navigations might be affected from lazy loading. 
