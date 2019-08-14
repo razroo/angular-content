@@ -7,7 +7,7 @@ that is generally spread around with regards to performance for webpages.
 In short, it presents the following very persuasive set of data: 
 
 \begin{center}
-  \begin{tabular}{@{} l *4c @}
+  \begin{tabular}{@{} l *4c @{}
     \toprule
     \multicolumn{1}{c}{\color{red}As page load time increases}\\
     \toprule
@@ -44,3 +44,15 @@ and then wait an additional second to see what the feature image looks like.
 Therefore, when creating lazy loaded images, it is important to not create a 
 blanket rule that will apply to all images. Rather, those images which are not 
 primary to the page, those should be lazy loaded. 
+
+\section{ Real Talk - Implementing Lazy Loading }
+Within Angular, there would be a way to implement lazy loading from scratch. 
+The simplest solution I've seen is wrapping an Angular Directive around the 
+\lstinline{Intersection Observer} api. It will allow you to determine when 
+an element is in the viewport. 
+This \href{https://blog.angularindepth.com/a-modern-solution-to-lazy-loading-using-intersection-observer-9280c149bbc}{approach}
+, while quite nice, does lack browser support, in particular for mobile devices. 
+The repo for this can be seen out of the box \href{https://github.com/TradeMe/ng-defer-load}{here}
+out of the box support for some devices. 
+
+In addition, the 
