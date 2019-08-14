@@ -141,3 +141,12 @@ img.ng-lazyloaded {
 \end{lstlisting}
 
 That is all it would take to put a transition effect on your photos.
+
+\section{ Hooking Up Lazy Loading To Our Back End }
+I am going to assume that the reader is intelligent enough to figure out how to
+hook up the backend to their component, without the need of this book. Therefore, 
+I just wanted to mention the strategy really quick. In short, you would get all 
+image urls from the actual GraphQL query. You would put them underneath the 
+\lstinline{lazyload} directive. Just like that you have lazy loaded configured. 
+
+
