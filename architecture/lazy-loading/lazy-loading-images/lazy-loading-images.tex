@@ -105,7 +105,7 @@ If want to use IE, will need to use a polyfill.
   export class MyAppModule {}
 \end{lstlisting}
 
-\subsection{Example Use Case}
+\section{Example Use Case}
 The following is an example use case, of how to create a lazy loaded image 
 with ng-lazy-load: 
 \begin{lstlisting}[language=javascript]
@@ -122,3 +122,22 @@ class ImageComponent {
   image = 'https://images.unsplash.com/photo-1443890923422-7819ed4101c0?fm=jpg';
 }
 \end{lstlisting}
+
+The package also has examples for multiple other use cases such as background 
+images, responsive images, async images(i.e. \lstinline{| async}) etc. 
+
+\section{Transitioning Photos}
+Something that you might want to do is add a transition to your photo, so that 
+it swaps out the defaultImage with the lazyLoaded image. Doing something like 
+this would be relatively straightforward. For instance: 
+\begin{lstlisting}
+img.ng-lazyloaded {
+  animation: fadein .5s;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}  
+\end{lstlisting}
+
+That is all it would take to put a transition effect on your photos.
