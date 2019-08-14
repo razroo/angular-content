@@ -80,3 +80,45 @@ import { AppComponent } from './app.component';
 })
 export class MyAppModule {}
 \end{lstlisting}
+
+\mybox{
+\subsection{If Using IE}
+If want to use IE, will need to use a polyfill. 
+}
+
+\begin{lstlisting}[language=javascript]
+  import { NgModule } from '@angular/core';
+  import { BrowserModule } from '@angular/platform-browser';
+  import { LazyLoadImageModule, intersectionObserverPreset } from 'ng-lazyload-image'; // <-- include intersectionObserverPreset
+  import { AppComponent } from './app.component';
+  
+  @NgModule({
+      declarations: [ AppComponent ],
+      imports: [
+        BrowserModule,
+        LazyLoadImageModule.forRoot({
+          preset: intersectionObserverPreset // <-- tell LazyLoadImage that you want to use IntersectionObserver
+        })
+      ],
+      bootstrap: [ AppComponent ]
+  })
+  export class MyAppModule {}
+\end{lstlisting}
+
+\subsection{Example Use Case}
+The following is an example use case, of how to create a lazy loaded image 
+with ng-lazy-load: 
+\begin{lstlisting}[language=javascript]
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'image',
+  template: `
+    <img [defaultImage]="defaultImage" [lazyLoad]="image">
+  `
+})
+class ImageComponent {
+  defaultImage = 'https://www.placecage.com/1000/1000';
+  image = 'https://images.unsplash.com/photo-1443890923422-7819ed4101c0?fm=jpg';
+}
+\end{lstlisting}
