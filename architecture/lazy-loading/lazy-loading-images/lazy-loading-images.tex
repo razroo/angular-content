@@ -23,3 +23,24 @@ In short, it presents the following very persuasive set of data:
 As we can see with the data presented above, performance of our webpages are 
 very important. More so it presents the data very clearly that the faster 
 a webpage is, the higher probability there is to retain our user base. 
+
+\section{The Idea of Lazy Loading Images}
+There are, of course many different ways to increase performance. The intent 
+of this chapter, however, is just to discuss the one performance boost that 
+is gained by lazy loading images. The idea of lazy loading images, similar 
+to lazy loading modules in general, is to load an image only when a user 
+get's to that image. 
+
+\subsection{Side bar - User Experience and Lazy Loaded Images}
+It is important to note, that we do not want to lazy load all images
+that are present on our page. For instance, imagine that we were creating a 
+blog for our website. On each single blog page, we have a feature image 
+that shows up first for our blog. In addition, we have more images that 
+show up throughout the remainder of the blog. It can be strongly argued 
+that lazy loading should not be applied to the feature image. Because, it 
+would potentially cause an awkward experience for the user, to load the page 
+and then wait an additional second to see what the feature image looks like. 
+
+Therefore, when creating lazy loaded images, it is important to not create a 
+blanket rule that will apply to all images. Rather, those images which are not 
+primary to the page, those should be lazy loaded. 
