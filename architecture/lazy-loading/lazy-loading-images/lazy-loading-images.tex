@@ -9,9 +9,9 @@ In short, it presents the following very persuasive set of data:
 \begin{center}
   \begin{tabular}{@{} l *4c @{}}
     \toprule
-    \multicolumn{1}{c}{\color{red}As page load time increases}\\
+    {\color{red}As page load time increases}\\
     \toprule
-    \multicolumn{1}{c}{\color{red}Seconds} & Probability of Bounce \\
+    {\color{red}Seconds} & Probability of Bounce \\
     \midrule
     1s to 3s       & Increases by 32\% \\
     1s to 5s       & Increases by 90\% \\
@@ -25,7 +25,7 @@ very important. More so it presents the data very clearly that the faster
 a webpage is, the higher probability there is to retain our user base. 
 
 \section{The Idea of Lazy Loading Images}
-There are, of course many different ways to increase performance. The intent 
+There are, of course, many different ways to increase performance. The intent 
 of this chapter, however, is just to discuss the one performance boost that 
 is gained by lazy loading images. The idea of lazy loading images, similar 
 to lazy loading modules in general, is to load an image only when a user 
@@ -148,5 +148,4 @@ hook up the backend to their component, without the need of this book. Therefore
 I just wanted to mention the strategy really quick. In short, you would get all 
 image urls from the actual GraphQL query. You would put them underneath the 
 \lstinline{lazyload} directive. Just like that you have lazy loaded configured. 
-
 
