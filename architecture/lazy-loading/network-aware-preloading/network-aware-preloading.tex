@@ -56,7 +56,7 @@ would follow the following strategy:
    to be used within our custom pre-loading function.
   \item Create custom pre-loading function, that makes use of our unique data. 
   \item Pass in custom pre-loading as a provider to the \lstinline{preloadingStrategy} 
-  method.
+  key.
 \end{enumerate}
 
 \subsection{Strategy Exemplified in Code}
@@ -70,14 +70,20 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot(
       [
         {
-          path: 'product',
-          loadChildren: './product.module',
-          data: {preload: true}
+          path: 'books',
+          loadChildren: () =>
+            import('@razroo/razroo/books').then(
+              module => module.RazrooBooksModule
+            ),
+          data: { preload: true }
         },
         {
-          path: 'about',
-          loadChildren: './about.module'
-        }
+          path: 'consulting',
+          loadChildren: () =>
+            import('@razroo/razroo/consulting').then(
+              module => module.RazrooConsultingModule
+            )
+        },
       ],
       {
         initialNavigation: 'enabled',
@@ -102,5 +108,42 @@ export class PreloadSelectedModulesList implements PreloadingStrategy {
 It is worthwhile to note that Razroo put's the \lstinline{custom-preloading.ts} 
 util file in the \lstinline{libs/common/utils} folder.
 
-\subsubsection{}
+\subsubsection{Pass in custom pre-loading as a Provider}
+\begin{lstlisting}[caption=app.routing.module.ts]
+  import { NgModule } from '@angular/core';
+  import { RouterModule } from '@angular/router';
+  import { PreloadSelectedModulesList } from '@razroo/common/ui/utils';
+  
+  @NgModule({
+    imports: [
+      RouterModule.forRoot(
+        [
+          // ...routes go here
+        ],
+        {
+          preloadingStrategy: PreloadSelectedModulesList
+          //...
+        }
+      )
+    ],
+    exports: [RouterModule]
+  })
+  export class RazrooAppRoutingModule {}
+  \end{lstlisting}
+
+\section{Enabling Module Pre-loading on Custom Event}
+If we would like to extend the pre-loading architecture one step further, 
+tying in custom events with custom pre-loading, will make things even 
+more efficient. In particular, when a user hovers over a navigation menu item, 
+we can pre-load a module. 
+
+\subsection{General Strategy}
+The general strategy will look very similar to custom pre-loading. 
+There are two differences. In our \lstinline{custom-preload} util function,
+we will be adding an observable. Why an observable you might ask? Well, 
+that observable is going to be used within our \lstinline{custom-preload} util 
+function. 
+
+
+
 
