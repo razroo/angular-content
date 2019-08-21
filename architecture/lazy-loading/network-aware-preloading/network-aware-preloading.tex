@@ -41,4 +41,35 @@ are less expensive. In addition, make the pre-loading happen at a time more
 convenient for the app. Let's dive into what that means.
 
 \section{ Custom Pre-Loading }
-Angular offers the ability to pre-load content. 
+Angular offers the ability to pre-load content. It offers a \lstinline{preload}
+method that takes two arguments: 
+\begin{enumerate}
+  \item route - Route object to tap into, for the load function.
+  \item load - Function when run, triggers the module being loaded
+\end{enumerate}
+
+\subsection{General Strategy}
+If we wanted to pre-load some modules, and did not want to pre-load others, we
+would follow the following strategy:
+\begin{enumerate}
+  \item Give our route some unique data(i.e. \lstinline{preload: true})
+   to be used within our custom pre-loading function.
+  \item Pass in a custom function for pre-loading, that makes use of our unique data. 
+  \item Pass in custom function as a provider to the \lstinline{preloadingStrategy} 
+  method.
+\end{enumerate}
+
+\subsection{Strategy Exemplified in Code}
+\begin{lstlisting}
+const routes = [
+  {
+    path: 'product',
+    loadChildren: './product.module',
+    data: {preload: true}
+  },
+  {
+    path: 'about',
+    loadChildren: './about.module'
+  }
+];
+\end{lstlisting}
