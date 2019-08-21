@@ -54,12 +54,13 @@ would follow the following strategy:
 \begin{enumerate}
   \item Give our route some unique data(i.e. \lstinline{preload: true})
    to be used within our custom pre-loading function.
-  \item Pass in a custom function for pre-loading, that makes use of our unique data. 
-  \item Pass in custom function as a provider to the \lstinline{preloadingStrategy} 
+  \item Create custom pre-loading function, that makes use of our unique data. 
+  \item Pass in custom pre-loading as a provider to the \lstinline{preloadingStrategy} 
   method.
 \end{enumerate}
 
 \subsection{Strategy Exemplified in Code}
+\subsubsection{Give Route Unique Data}
 \begin{lstlisting}[caption=app.routing.module.ts]
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -88,4 +89,18 @@ import { RouterModule } from '@angular/router';
 })
 export class RazrooAppRoutingModule {}
 \end{lstlisting}
+
+\subsubsection{Custom Function For Pre-Loading}
+\begin{lstlisting}[caption=custom-preloading.ts]
+export class PreloadSelectedModulesList implements PreloadingStrategy {
+  preload(route: Route, load: Function): Observable<any> {
+    return route.data && route.data.preload ? load() : of(null);
+  }
+}
+\end{lstlisting}
+
+It is worthwhile to note that Razroo put's the \lstinline{custom-preloading.ts} 
+util file in the \lstinline{libs/common/utils} folder.
+
+\subsubsection{}
 
