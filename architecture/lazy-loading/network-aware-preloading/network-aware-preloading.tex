@@ -60,16 +60,32 @@ would follow the following strategy:
 \end{enumerate}
 
 \subsection{Strategy Exemplified in Code}
-\begin{lstlisting}
-const routes = [
-  {
-    path: 'product',
-    loadChildren: './product.module',
-    data: {preload: true}
-  },
-  {
-    path: 'about',
-    loadChildren: './about.module'
-  }
-];
+\begin{lstlisting}[caption=app.routing.module.ts]
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(
+      [
+        {
+          path: 'product',
+          loadChildren: './product.module',
+          data: {preload: true}
+        },
+        {
+          path: 'about',
+          loadChildren: './about.module'
+        }
+      ],
+      {
+        initialNavigation: 'enabled',
+        relativeLinkResolution: 'corrected'
+      }
+    )
+  ],
+  exports: [RouterModule]
+})
+export class RazrooAppRoutingModule {}
 \end{lstlisting}
+
