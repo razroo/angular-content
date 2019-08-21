@@ -1,4 +1,4 @@
-\chapter{ Network Aware Pre-Loading }
+\chapter{ Network Aware Predictive Pre-Loading }
 
 Pre-loading is a strategy baked into the router in Angular, that allows for
 modules to pre-loaded when it becomes available. Lazy loading modules, allows 
@@ -17,3 +17,28 @@ let's throw out an arbitrary number. If you have a module that is going to
 use more than 20 imports inside of it's module, then worry about a pre-loading 
 strategy. That being said, it is something that you should be aware of, and
 here is how to go around following that strategy. 
+
+\section{Pre-Load Everything}
+While this strategy will rarely work for any real-world application, there is 
+an option to pre-load everything in Angular. To do so, you would do something 
+such as the following: 
+\begin{lstlisting}
+import { RouterModule, PreloadAllModules } from '@angular/router';
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
+})
+class AppRoutingModule {}
+\end{lstlisting}
+
+However, what does make more sense, in an enterprise setting, is custom pre-loading
+modules. That is, pre-load the more expensive modules, and not pre-load those that 
+are less expensive. In addition, make the pre-loading happen at a time more 
+convenient for the app. Let's dive into what that means.
+
+\section{ Custom Pre-Loading }
+Angular offers the ability to pre-load content. 
