@@ -110,26 +110,26 @@ util file in the \lstinline{libs/common/utils} folder.
 
 \subsubsection{Pass in custom pre-loading as a Provider}
 \begin{lstlisting}[caption=app.routing.module.ts]
-  import { NgModule } from '@angular/core';
-  import { RouterModule } from '@angular/router';
-  import { PreloadSelectedModulesList } from '@razroo/common/ui/utils';
-  
-  @NgModule({
-    imports: [
-      RouterModule.forRoot(
-        [
-          // ...routes go here
-        ],
-        {
-          preloadingStrategy: PreloadSelectedModulesList
-          //...
-        }
-      )
-    ],
-    exports: [RouterModule]
-  })
-  export class RazrooAppRoutingModule {}
-  \end{lstlisting}
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { PreloadSelectedModulesList } from '@razroo/common/ui/utils';
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(
+      [
+        // ...routes go here
+      ],
+      {
+        preloadingStrategy: PreloadSelectedModulesList
+        //...
+      }
+    )
+  ],
+  exports: [RouterModule]
+})
+export class RazrooAppRoutingModule {}
+\end{lstlisting}
 
 \subsection{How to See That Module Has Indeed Pre-Loaded}
 In order to see that your module has pre-loaded, you can go to the JS
