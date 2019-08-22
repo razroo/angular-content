@@ -145,17 +145,24 @@ more efficient. In particular, when a user hovers over a navigation menu item,
 we can pre-load a module. 
 
 \subsection{ General Strategy }
-The general strategy will look very similar to custom pre-loading. 
-There are three added steps. 
+The general strategy will look somewhat similar custom pre-loading. 
+With some modified/added steps.
+
 \begin{enumerate}
-  \item In our \lstinline{custom-preload} util function, we will be adding an observable
-  to the pre-load function. 
-  \item We will create a separate service that will be used to trigger a next on the 
-  observable, and preload specified route. 
+  \item Give our route some unique data(i.e. preload: true)
+   to be used within our custom-preloading function.
+   \item Create custom pre-loading function, that makes use of our unique data. In addition, 
+   give it access to a \lstinline{Subject}, so it can be triggerred, by an outside service. 
+   \item Pass in custom pre-loading as a provider to the \lstinline{preloadingStrategy} 
+   key.
+  \item Create a separate service that will be used to trigger a next on the 
+  observable contained in the custom-preloading function. 
   \item Use a mouseover function, that can trigger the service.
 \end{enumerate}
 
 \subsection{ Strategy Exemplified in Code }
+
+
 
 
 
