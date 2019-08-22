@@ -131,6 +131,13 @@ util file in the \lstinline{libs/common/utils} folder.
   export class RazrooAppRoutingModule {}
   \end{lstlisting}
 
+\subsection{How to See That Module Has Indeed Pre-Loaded}
+In order to see that your module has pre-loaded, you can go to the JS
+tab in your chrome dev tools. There you will see the amount of time it 
+took to load. For me personally, it took about 4 ms. So that is the amount 
+of time you might be saving for smaller modules. I would imagine that 
+larger modules would take longer. 
+
 \section{Enabling Module Pre-loading on Custom Event}
 If we would like to extend the pre-loading architecture one step further, 
 tying in custom events with custom pre-loading, will make things even 
