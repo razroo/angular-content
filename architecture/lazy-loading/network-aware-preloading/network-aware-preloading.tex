@@ -235,4 +235,26 @@ export class OnDemandPreloadStrategy implements PreloadingStrategy {
 }
 \end{lstlisting}
 
+\subsubsection{Pass in Custom Pre-loading Service as a Provider}
+\begin{lstlisting}[caption=app.routing.module.ts]
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CustomPreloadingService } from '@razroo/common/services';
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(
+      [
+        // ...routes go here
+      ],
+      {
+        preloadingStrategy: CustomPreloadingService
+        //...
+      }
+    )
+  ],
+  exports: [RouterModule]
+})
+export class RazrooAppRoutingModule {}
+\end{lstlisting}
 
