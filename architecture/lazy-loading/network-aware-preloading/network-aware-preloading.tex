@@ -153,7 +153,7 @@ With some modified/added steps.
    to be used within our custom-preloading function.
    \item Create custom pre-loading function, that makes use of our unique data. In addition, 
    give it access to a \lstinline{Subject}, so it can be triggerred, by an outside service. 
-   \item Pass in custom pre-loading as a provider to the \lstinline{preloadingStrategy} 
+   \item Pass in custom pre-loading service as a provider to the \lstinline{preloadingStrategy} 
    key.
   \item Create a separate service that will be used to trigger a next on the 
   observable contained in the custom-preloading function. 
@@ -161,11 +161,78 @@ With some modified/added steps.
 \end{enumerate}
 
 \subsection{ Strategy Exemplified in Code }
+We will be giving our route the same unique data: 
 
+\subsubsection{Give Route Unique Data}
+\begin{lstlisting}[caption=app.routing.module.ts]
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
+@NgModule({
+  imports: [
+    RouterModule.forRoot(
+      [
+        {
+          path: 'books',
+          loadChildren: () =>
+            import('@razroo/razroo/books').then(
+              module => module.RazrooBooksModule
+            ),
+          data: { preload: true }
+        },
+        {
+          path: 'consulting',
+          loadChildren: () =>
+            import('@razroo/razroo/consulting').then(
+              module => module.RazrooConsultingModule
+            )
+        },
+      ],
+      {
+        initialNavigation: 'enabled',
+        relativeLinkResolution: 'corrected'
+      }
+    )
+  ],
+  exports: [RouterModule]
+})
+export class RazrooAppRoutingModule {}
+\end{lstlisting}
 
+\subsubsection{Custom Pre-Loading Service}
+\begin{lstlisting}
+import { Injectable } from '@angular/core';
+import { PreloadingStrategy, Route } from '@angular/router';
+import { EMPTY, Observable, of } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
+import { OnDemandPreloadOptions, OnDemandPreloadService } from './on-demand-preload.service';
 
+@Injectable({ providedIn: 'root', deps: [OnDemandPreloadService] })
+export class OnDemandPreloadStrategy implements PreloadingStrategy {
+  private preloadOnDemand$: Observable<OnDemandPreloadOptions>;
 
+  constructor(private preloadOnDemandService: OnDemandPreloadService) {
+    this.preloadOnDemand$ = this.preloadOnDemandService.state;
+  }
 
+  preload(route: Route, load: () => Observable<any>): Observable<any> {
+    return this.preloadOnDemand$.pipe(
+      mergeMap(preloadOptions => {
+        const shouldPreload = this.preloadCheck(route, preloadOptions);
+        return shouldPreload ? load() : EMPTY;
+      })
+    );
+  }
+
+  private preloadCheck(route: Route, preloadOptions: OnDemandPreloadOptions) {
+    return (
+      route.data &&
+      route.data['preload'] &&
+      [route.path, '*'].includes(preloadOptions.routePath) &&
+      preloadOptions.preload
+    );
+  }
+}
+\end{lstlisting}
 
 
