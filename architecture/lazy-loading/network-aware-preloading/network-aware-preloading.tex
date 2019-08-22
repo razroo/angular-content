@@ -151,12 +151,12 @@ With some modified/added steps.
 \begin{enumerate}
   \item Give our route some unique data(i.e. preload: true)
    to be used within our custom-preloading function.
+   \item Create a separate service that will be used to trigger a next on the 
+   observable contained in the custom-preloading function. 
    \item Create custom pre-loading function, that makes use of our unique data. In addition, 
    give it access to a \lstinline{Subject}, so it can be triggerred, by an outside service. 
    \item Pass in custom pre-loading service as a provider to the \lstinline{preloadingStrategy} 
    key.
-  \item Create a separate service that will be used to trigger a next on the 
-  observable contained in the custom-preloading function. 
   \item Use a mouseover function, that can trigger the service.
 \end{enumerate}
 
@@ -198,6 +198,11 @@ import { RouterModule } from '@angular/router';
 })
 export class RazrooAppRoutingModule {}
 \end{lstlisting}
+
+\subsubsection{ Create a Separate Service to Trigger Pre-Loading }
+We will be creating a separate service, that will be used within our CustomPreloadingService
+to trigger 
+
 
 \subsubsection{Custom Pre-Loading Service}
 \begin{lstlisting}
@@ -258,3 +263,22 @@ import { CustomPreloadingService } from '@razroo/common/services';
 export class RazrooAppRoutingModule {}
 \end{lstlisting}
 
+\subsubsection{Trigger Service}
+In our particular scenario, as would make sense for alot of applications, is trigger 
+module pre-loading on mouseover. We can therefore do something such as the following: 
+\begin{lstlisting}
+<a
+  [routerLink]="item.link"
+  class="nav-link"
+  (mouseover)="preloadBundle('heroes')"
+  >heroes</a
+>  
+\end{lstlisting}
+
+\begin{lstlisting}
+preloadBundle(routePath) {
+  this.preloadOnDemandService.startPreload(routePath);
+}
+\end{lstlisting}
+
+Using this method, we can also create a directive to use within 
