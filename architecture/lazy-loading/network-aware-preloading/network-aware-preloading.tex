@@ -316,4 +316,43 @@ will return an error. This allows us to now simply add the following:
 When the user mouses over, we will now be able to see in our chrome console,
 that the appropriate module has been pre-loaded. 
 
+\section{ Network Aware Pre-Loading }
+We've created an on-demand pre-loading strategy. When a user hovers over a 
+menu item, and before they click on it, it will already begin to pre-load. 
+It's a very clever strategy, that uses the user's own intent to maximize 
+the app's performance. However, let's say in our pre-loading strategy, we 
+have three pages. 
+\begin{enumerate}
+  \item About 
+  \item Product
+  \item Application Page
+\end{enumerate}
+
+The application page opens up a very heavy js bundle, that take's about 
+.25 seconds to load on a fast network. However, on a slower network it might 
+take around an entire second. In such a slow netowrk, if the user hovers
+over the large applications page first, and then the much smaller about page,
+our pre-loading strategy might have the reverse effect in such a slow network.
+If we want an air tight strategy that takes care of all scenarios, it makes 
+sense for us to go ahead and take network connection into account. 
+
+\subsection{Network Information API}
+I have seen some blogs in this regards suggesting use of the network
+information api, for figuring out the speed of the network. It's actually 
+interesting, W3C specs have included talks for the Network Information API 
+since \href{https://www.w3.org/TR/2011/WD-netinfo-api-20110607/}{2011}. However, 
+there have been many discussions since then, landing on the latest version
+solidified in \href{https://www.w3.org/TR/netinfo-api/}{2014}. 
+
+First and foremost, before discussing how to use this API, it probably makes 
+sense to go ahead and discuss that for the API we plan on using, current usage 
+is at about 70\%. It's worth noting that the lions share of the percentage is 
+with regards to IOS Safari(a whopping 10\%), which does not support this feature. 
+In addition, Firefox currently does not support. However, Chrome which is used 
+by the majority of users between Android and Desktop is at about 60\% on it's own. 
+
+Still the API has ways to go, so understandably, this is not a fool proof 
+solution. 
+
+
 
