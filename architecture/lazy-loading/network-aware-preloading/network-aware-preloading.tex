@@ -281,4 +281,39 @@ preloadBundle(routePath) {
 }
 \end{lstlisting}
 
-Using this method, we can also create a directive to use within 
+\section{Creating a Directive}
+Using this method, we can also create a directive to allow the logic for 
+preloading to be re-usable. 
+
+\begin{lstlisting}[caption=preload.directive.ts]
+import { Directive, ElementRef, HostListener } from '@angular/core';
+import { OnDemandPreloadService } from '@razroo/common/services';
+
+@Directive({
+  selector: '[razrooPreload]'
+})
+export class PreloadDirective {
+
+  constructor(private elementRef : ElementRef,
+              private onDemandPreloadService: OnDemandPreloadService) {}
+
+  @HostListener('mouseenter')
+  onMouseEnter() {
+    const pathName = this.elementRef.nativeElement.attributes.routerlink.value;
+    this.onDemandPreloadService.startPreload(pathName);
+  }
+}
+\end{lstlisting}
+
+In the above code for the directive we are assuming that there 
+is a routerlink, on the a tag we are looking for. If there isn't, the directive 
+will return an error. This allows us to now simply add the following: 
+\begin{lstlisting}
+  <a routerLink="books" razrooPreload>
+  </a> 
+\end{lstlisting}
+
+When the user mouses over, we will now be able to see in our chrome console,
+that the appropriate module has been pre-loaded. 
+
+
