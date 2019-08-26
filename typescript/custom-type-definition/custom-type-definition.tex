@@ -32,3 +32,49 @@ tsconfig.json has two properties available:
   \item \lstinline{types}
 \end{enumerate}
 
+\subsection{Type Roots}
+Specifies the folder in which the Typescript transpiler should look for type 
+definitions. This simplifies the process of being able to install npm packages.
+Any typescript definition, can be created as an npm package underneath \lstinline{@types}.
+
+\subsection{types}
+Now that we have specified our \lstinline{typeRoots}, installed our type, into 
+the \lstinline{@types} folder, all we need to do is specify it in our 
+tsconfig.json file which types we want to use. Specifically within an Nrwl Nx 
+setting, and it's mono-repo approach, there is a separate tsconfig.json file 
+for every lib. That is where we will specify the types that we would like to 
+use. 
+
+\subsection{Example Code as is in Nrwl Workspace}
+In the root \lstinline{tsconfig.json} file, the Angular CLI/Nrwl Nx has automatically
+specify the root \lstinline{typeRoots} config for use, which is \lstinline{node_modules/@types}.
+If we wanted, we could create our own package, and specify another 
+\lstinline{typeRoots} to be used within Typescript. 
+\begin{lstlisting}[caption=tsconfig.json]
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types"],
+    "types": [],
+    ...
+  }
+  "exclude": ["node_modules", "tmp"]
+}
+\end{lstlisting}
+
+and then inside of our tsconfig.json file, Nrwl Nx will automatically generate
+for us the types that we will be using within our lib. 
+\begin{lstlisting}[caption=libs/common/services/tsconfig.json]
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node", "jest"]
+  },
+  "include": ["**/*.ts"]
+} 
+\end{lstlisting}
+
+\subsection{Adding Our Own Custom Type}
+
+
+
