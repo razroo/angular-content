@@ -120,7 +120,7 @@ First, let's go and install Typescript as a dev dependency:
 npm i typescript -D  
 \end{verbatim}
 
-Next, let's create a \lstinline{tsconfig.json} file and make it look like this: 
+Next, let's create a \lstinline{tsconfig.json} file and make it look like this:
 \begin{lstlisting}
 {
   "compilerOptions": {
@@ -132,6 +132,16 @@ Next, let's create a \lstinline{tsconfig.json} file and make it look like this:
   }
 }  
 \end{lstlisting}
+
+\section{Adding a index.d.ts File}
+When creating a custom type definition file, generally we will follow a three 
+step process:
+\begin{enumerate}
+  \item Create Private Types
+  \item Create Private Interfaces
+  \item Create Public Interface 
+  \item Extend Public Interface, to be Used/Consumed by Typescript
+\end{enumerate}
 
 
 
