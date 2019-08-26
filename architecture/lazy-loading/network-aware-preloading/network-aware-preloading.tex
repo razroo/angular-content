@@ -352,7 +352,35 @@ In addition, Firefox currently does not support. However, Chrome which is used
 by the majority of users between Android and Desktop is at about 60\% on it's own. 
 
 Still the API has ways to go, so understandably, this is not a fool proof 
-solution. 
+solution. However, seeing as support is somewhat decent, and this is relatively 
+easy to implement, let's go ahead and do so. 
 
+\subsection{ Strategy Exemplified in Code }
 
+First and foremost, since the Network Information API, is still experiemental 
+technology, Typescript will not support it as part of it's core library yet. 
+Howeever, the following \href{https://github.com/lacolaco/network-information-types}{types}
+is complete in my opinion, and no reason to add anything special. 
 
+\begin{lstlisting}[caption=custom-preloading.ts]
+hasGoodConnection(): boolean {
+  const conn = navigator.connection;
+  if (conn) {
+    if (conn.saveData) {
+      return false; // save data mode is enabled, so dont preload
+    }
+    const avoidTheseConnections = ['slow-2g', '2g'];
+    // 'slow-2g', '2g', '3g', or '4g'
+    const effectiveType = conn.effectiveType || '';
+    if (avoidTheseConnections.includes(effectiveType)) {
+      return false;
+    }
+  }
+  return true;
+}
+\end{lstlisting}
+
+In the above function, we are using the navigator.connection effective types, 
+which tells us the connection that the user is currently experiencing. If it is slow-2g, 
+or 2g, we return false in this function. We can now hook it up into the pre-emptive loading
+code we had before. 
