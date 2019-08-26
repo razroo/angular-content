@@ -1,1 +1,34 @@
 \chapter{ Create a Custom Type Definition }
+Typescript by default actually includes type definitions for all of core
+Javascript. Any time you are using a core javascript method, typescript
+within it's core framework has a typing for it. However, any time you
+plan on using something not a part of core Typescript, you will have to
+create a type definition. 
+
+\section{Example Scenario}
+For instance, in another chapter, we reccomend using the native Network 
+Information API. Because it is experimental(atthe time of this writing),
+as is the case in all scenarios, the Typescript team has not included 
+type definitions for it. So, we need to go ahead, and create our own 
+custom type definitions. 
+
+In addition, there will be times within your Angular application, wherein 
+due to the requirements of your organization, you might need to create your 
+own custom type definition. Whether is be new technology, or simply security
+concerns. 
+
+The following is the cookie cutter process for creating a custom type 
+definition within Typescript in Angular. 
+
+\section{Create a Custom Type Definition File}
+A custom type definition file, is a file that Typescript will automatically 
+pull out. By default adding the type definition \lstinline{*.d.ts} suffix to
+the app, will cause Typescript to know to use this type definition.
+
+It is also important to note that as of Typescript 2.* and greater, the
+tsconfig.json has two properties available: 
+\begin{enumerate}
+  \item \lstinline{typeRoots}
+  \item \lstinline{types}
+\end{enumerate}
+
