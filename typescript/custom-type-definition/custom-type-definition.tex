@@ -114,3 +114,24 @@ default options.
 }
 \end{lstlisting}
 
+\subsection{Install Typescript and modify tsconfig.json}
+First, let's go and install Typescript as a dev dependency: 
+\begin{verbatim}
+npm i typescript -D  
+\end{verbatim}
+
+Next, let's create a \lstinline{tsconfig.json} file and make it look like this: 
+\begin{lstlisting}
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./dist",
+    "strict": true
+  }
+}  
+\end{lstlisting}
+
+
+
