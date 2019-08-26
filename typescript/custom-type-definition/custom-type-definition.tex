@@ -45,7 +45,7 @@ setting, and it's mono-repo approach, there is a separate tsconfig.json file
 for every lib. That is where we will specify the types that we would like to 
 use. 
 
-\subsection{Example Code as is in Nrwl Workspace}
+\section{Example Code as is in Nrwl Workspace}
 In the root \lstinline{tsconfig.json} file, the Angular CLI/Nrwl Nx has automatically
 specify the root \lstinline{typeRoots} config for use, which is \lstinline{node_modules/@types}.
 If we wanted, we could create our own package, and specify another 
@@ -74,8 +74,43 @@ for us the types that we will be using within our lib.
 } 
 \end{lstlisting}
 
-\subsection{Adding Our Own Custom Type NPM Package}
+\section{Adding Our Own Custom Type NPM Package}
 There are very few scenarios within Angular, wherein we would add our own 
 custom types. I am of the opinion, that if you do find yourself having to 
 add a custom type, let's make it available to everyone. I.e. let's open source 
-our package, and make it something everyone can use. 
+our package, and make it something everyone can use. So let's run through the 
+steps of creating our own NPM package. 
+
+\subsection{Creating a Github Repo}
+We have created a github repo entitled \lstinline{network-information-types}. 
+We checked the box for initializing with a README, a .gitignore file for Node,
+and a MIT license. We clone it locally by running: 
+\begin{verbatim}
+git clone git@github.com:razroo/network-information-types.git
+\end{verbatim}
+
+\subsection{Running npm init}
+Next, we navigate to our newly cloned repo, and run: 
+\begin{verbatim}
+npm init -y
+\end{verbatim}
+The \lstinline{-y} tells the \lstinline{package.json} that we want to use all
+default options. 
+\begin{lstlisting}[caption=package.json]  
+{
+  "name": "project-name",
+  "version": "0.0.1",
+  "description": "Project Description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "the repositories url"
+  },
+  "author": "your name",
+  "license": "N/A"
+}
+\end{lstlisting}
+
