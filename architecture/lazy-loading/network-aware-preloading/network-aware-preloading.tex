@@ -388,7 +388,7 @@ code we had before.
 Because the network information api is experimental technology, let's just add a custom 
 type declaration in our file, to knock out any type errors that we receive. Putting it 
 all together, our file will something like the following: 
-\begin{lstlisting}
+\begin{lstlisting}[pre]
 import { Injectable } from '@angular/core';
 import { PreloadingStrategy, Route } from '@angular/router';
 import { EMPTY, Observable, of } from 'rxjs';
@@ -444,5 +444,7 @@ export class CustomPreloadingService implements PreloadingStrategy {
     return true;
   }
 }
-
 \end{lstlisting}
+
+If you would like to try it yourself, throttle the network speed using the console 
+and see that it doens't download. 
