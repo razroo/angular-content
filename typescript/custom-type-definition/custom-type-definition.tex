@@ -134,7 +134,7 @@ Next, let's create a \lstinline{tsconfig.json} file and make it look like this:
 \end{lstlisting}
 
 \section{Adding a index.d.ts File}
-When creating a custom type definition file, generally we will follow a three 
+When creating a custom type definition file, generally we will follow a four
 step process:
 \begin{enumerate}
   \item Create Private Types
@@ -143,5 +143,75 @@ step process:
   \item Extend Public Interface, to be Used/Consumed by Typescript
 \end{enumerate}
 
+In our scenario, we are creating an interface around navigator. So: 
+\begin{lstlisting}[caption=index.d.ts]
+// W3C Spec Draft http://wicg.github.io/netinfo/
+// Edition: Draft Community Group Report 20 February 2019
 
+// http://wicg.github.io/netinfo/#navigatornetworkinformation-interface
+declare interface Navigator extends NavigatorNetworkInformation {}
+declare interface WorkerNavigator extends NavigatorNetworkInformation {}
 
+// http://wicg.github.io/netinfo/#navigatornetworkinformation-interface
+declare interface NavigatorNetworkInformation {
+  readonly connection?: NetworkInformation;
+}
+
+// http://wicg.github.io/netinfo/#connection-types
+type ConnectionType =
+  | 'bluetooth'
+  | 'cellular'
+  | 'ethernet'
+  | 'mixed'
+  | 'none'
+  | 'other'
+  | 'unknown'
+  | 'wifi'
+  | 'wimax';
+
+// http://wicg.github.io/netinfo/#effectiveconnectiontype-enum
+type EffectiveConnectionType = '2g' | '3g' | '4g' | 'slow-2g';
+
+// http://wicg.github.io/netinfo/#dom-megabit
+type Megabit = number;
+// http://wicg.github.io/netinfo/#dom-millisecond
+type Millisecond = number;
+
+// http://wicg.github.io/netinfo/#networkinformation-interface
+interface NetworkInformation extends EventTarget {
+  // http://wicg.github.io/netinfo/#type-attribute
+  readonly type?: ConnectionType;
+  // http://wicg.github.io/netinfo/#effectivetype-attribute
+  readonly effectiveType?: EffectiveConnectionType;
+  // http://wicg.github.io/netinfo/#downlinkmax-attribute
+  readonly downlinkMax?: Megabit;
+  // http://wicg.github.io/netinfo/#downlink-attribute
+  readonly downlink?: Megabit;
+  // http://wicg.github.io/netinfo/#rtt-attribute
+  readonly rtt?: Millisecond;
+  // http://wicg.github.io/netinfo/#savedata-attribute
+  readonly saveData?: boolean;
+  // http://wicg.github.io/netinfo/#handling-changes-to-the-underlying-connection
+  onchange?: EventListener;
+}  
+\end{lstlisting}[index.d.ts]
+
+\section{Creating our own NPM Package (Continued...)}
+\subsection{Adding Ability to Build Typescript}
+
+We are going to be using Pika/pack within our application. As of now, I have found 
+it to be the easiest tool to use to build an npm library. In particular, it greatly 
+eases out of the box the need for building a package.json file. 
+
+We are going to tap into Typescript to build our application. Let's add a build 
+script to our \lstinline{package.json} file.
+\begin{verbatim}
+"build": "tsc"
+\end{verbatim}
+
+Next, we are going to add some NPM scripts to our app, so that we can go ahead
+and build/test our type definitions. 
+
+More content needs to be written here: 
+
+\section{Publishing Our NPM Package}
