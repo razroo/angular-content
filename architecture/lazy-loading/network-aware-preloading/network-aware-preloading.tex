@@ -216,7 +216,7 @@ import { mergeMap } from 'rxjs/operators';
 import { OnDemandPreloadOptions, OnDemandPreloadService } from './on-demand-preload.service';
 
 @Injectable({ providedIn: 'root', deps: [OnDemandPreloadService] })
-export class OnDemandPreloadStrategy implements PreloadingStrategy {
+export class CustomPreloadingService implements PreloadingStrategy {
   private preloadOnDemand$: Observable<OnDemandPreloadOptions>;
 
   constructor(private preloadOnDemandService: OnDemandPreloadService) {
@@ -243,6 +243,11 @@ export class OnDemandPreloadStrategy implements PreloadingStrategy {
 }
 \end{lstlisting}
 
+The most important piece with the above code, is that we are passing in 
+the preloadOnDemandService as an observable, to the preload function. 
+Therefore, we can tap into the internal Angular preload strategy and 
+re-load it whenever we call our \lstinline{OnDemandPreloadService}.
+
 \subsubsection{Pass in Custom Pre-loading Service as a Provider}
 \begin{lstlisting}[caption=app.routing.module.ts]
 import { NgModule } from '@angular/core';
@@ -266,9 +271,15 @@ import { CustomPreloadingService } from '@razroo/common/services';
 export class RazrooAppRoutingModule {}
 \end{lstlisting}
 
+Here there is nothing particularly novel about what we are doing. 
+We simply inject our \lstinline{CustomPreloadingService} into 
+\lstinline{preloadingStrategy}, to tell Angular to use it as our 
+preloading strategy. 
+
 \subsubsection{Trigger Service}
 In our particular scenario, as would make sense for alot of applications, is trigger 
-module pre-loading on mouseover. We can therefore do something such as the following: 
+module pre-loading on mouseover. For instance, when a user hovers over a menu item 
+trigger pre-loading. We can therefore do something such as the following: 
 \begin{lstlisting}
 <a
   [routerLink]="item.link"
