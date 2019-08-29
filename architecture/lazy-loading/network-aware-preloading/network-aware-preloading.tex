@@ -140,22 +140,15 @@ import { PreloadSelectedModulesList } from '@razroo/common/ui/utils';
 export class RazrooAppRoutingModule {}
 \end{lstlisting}
 
-\subsection{ How to See That Module Has Indeed Pre-Loaded }
-In order to see that your module has pre-loaded, you can go to the JS
-tab in your chrome dev tools. There you will see the amount of time it 
-took to load. For me personally, it took about 4 ms. So that is the amount 
-of time you might be saving for smaller modules. I would imagine that 
-larger modules would take longer. 
-
-\section{ Enabling Module Pre-loading on Custom Event }
-If we would like to extend the pre-loading architecture one step further, 
-tying in custom events with custom pre-loading, will make things even 
-more efficient. In particular, when a user hovers over a navigation menu item, 
+\section{ Enabling Module Pre-loading on a Custom Event }
+We can extend the pre-loading architecture one step further. We can
+tie in custom events into already exisiting custom pre-loading. In particular, we 
+will implement a strategy, that when a user hovers over a navigation menu item, 
 we can pre-load a module. 
 
-\subsection{ General Strategy }
-The general strategy will look somewhat similar custom pre-loading. 
-With some modified/added steps.
+\subsection{ General Strategy For Event Driven Preloading}
+The general strategy will look somewhat similar to custom pre-loading, with
+some modified/added steps.
 
 \begin{enumerate}
   \item Give our route some unique data(i.e. preload: true)
@@ -170,7 +163,8 @@ With some modified/added steps.
 \end{enumerate}
 
 \subsection{ Strategy Exemplified in Code }
-We will be giving our route the same unique data: 
+We will be giving our route the same unique data for event driven module pre-loading 
+as we did for custom module pre-loading: 
 
 \subsubsection{Give Route Unique Data}
 \begin{lstlisting}[caption=app.routing.module.ts]
@@ -209,8 +203,8 @@ export class RazrooAppRoutingModule {}
 \end{lstlisting}
 
 \subsubsection{ Create a Separate Service to Trigger Pre-Loading }
-We will be creating a separate service, that will be used within our CustomPreloadingService
-to trigger 
+We will be creating a separate service, that will be used within our 
+\lstinline{CustomPreloadingService} to trigger 
 
 
 \subsubsection{Custom Pre-Loading Service}
