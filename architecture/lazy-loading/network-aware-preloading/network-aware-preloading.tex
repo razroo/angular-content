@@ -1,11 +1,17 @@
 \chapter{ Network Aware Predictive Pre-Loading }
 
-Pre-loading is a strategy baked into the router in Angular, that allows for
-modules to pre-loaded when it becomes available. Lazy loading modules, allows 
-for modules to be optimized, so that the initial load, only includes the page 
-the user is navigating to. This helps to decrease the initial load time. 
-However, depending on how expensive including a module is, pre-loading can
-save you time. 
+Lazy loading modules in Angular, allows for javascript loading to be optimized. 
+That is, so browser only loads the page the user is navigating to. This helps to
+decrease the initial load time. However, depending on how expensive including a
+module is, pre-loading can save you time. Pre-loading is a strategy that allows
+for modules in Angular to be loaded as soon as possible. You can check yourself 
+how long it takes for a module to load, by opening up your console, navigating 
+to the js section, of the network tab, and then loading a page. 
+
+\begin{figure}[h]
+\includegraphics[width=414pt]{architecture/lazy-loading/network-aware-preloading/network-preloading-console-screenshot.pdf}
+\caption{As we can see, it took 2ms to download the Razroo About page.}
+\end{figure}
 
 \section{ Being Aware of How Much Time Pre-Loading Saves }
 You might be curious as to how much time is actually saved with regards to 
@@ -388,7 +394,7 @@ code we had before.
 Because the network information api is experimental technology, let's just add a custom 
 type declaration in our file, to knock out any type errors that we receive. Putting it 
 all together, our file will something like the following: 
-\begin{lstlisting}[pre]
+\begin{lstlisting}[caption=custom-preloading.service.ts]
 import { Injectable } from '@angular/core';
 import { PreloadingStrategy, Route } from '@angular/router';
 import { EMPTY, Observable, of } from 'rxjs';
@@ -447,4 +453,4 @@ export class CustomPreloadingService implements PreloadingStrategy {
 \end{lstlisting}
 
 If you would like to try it yourself, throttle the network speed using the console 
-and see that it doens't download. 
+and see that it doesn't download. 
