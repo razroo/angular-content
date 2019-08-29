@@ -15,14 +15,14 @@ to the js section, of the network tab, and then loading a page.
 
 \section{ Being Aware of How Much Time Pre-Loading Saves }
 You might be curious as to how much time is actually saved with regards to 
-pre-loading? I was curious as well. I tried personally, and the amount of 
-time saved, to be honest, is negligable. However, I also realize that the 
-app I am working on has a minimal amount of modules. I can see that for 
-another app, wherein there are multiple modules that are loaded. Therefore, 
+pre-loading? I was curious as well. I tried personally(as shared in the screenshot 
+above), and the amount of time saved, to be honest, is negligable. However, I also
+realize that the app I am working on has a minimal amount of modules. I can see that 
+for another app, wherein there are multiple modules that are loaded. Therefore, 
 let's throw out an arbitrary number. If you have a module that is going to 
 use more than 20 imports inside of it's module, then worry about a pre-loading 
-strategy. That being said, it is something that you should be aware of, and
-here is how to go around following that strategy. 
+strategy. Regardless, it is something to be aware of, and here is how to go 
+around implementing pre-loading. 
 
 \section{Pre-Load Everything}
 While this strategy will rarely work for any real-world application, there is 
