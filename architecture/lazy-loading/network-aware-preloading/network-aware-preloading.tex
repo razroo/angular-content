@@ -4,9 +4,11 @@ Lazy loading modules in Angular, allows for javascript loading to be optimized.
 That is, so browser only loads the page the user is navigating to. This helps to
 decrease the initial load time. However, depending on how expensive including a
 module is, pre-loading can save you time. Pre-loading is a strategy that allows
-for modules in Angular to be loaded as soon as possible. You can check yourself 
-how long it takes for a module to load, by opening up your console, navigating 
-to the js section, of the network tab, and then loading a page. 
+for modules in Angular to be loaded as soon as possible. Modules can be pre-loaded 
+either all at the same time, or a select few, or when a custom event happens. You
+can check yourself how long it takes for a module to load, and the potential value 
+of pre-loading. Open up your developer console tool(I'm using Chrome), navigate to
+the js section, of the network tab, and then load the page you want to test. 
 
 \begin{figure}[h]
 \includegraphics[width=414pt]{architecture/lazy-loading/network-aware-preloading/network-preloading-console-screenshot.pdf}
@@ -26,8 +28,8 @@ around implementing pre-loading.
 
 \section{Pre-Load Everything}
 While this strategy will rarely work for any real-world application, there is 
-an option to pre-load everything in Angular. To do so, you would do something 
-such as the following: 
+an option to pre-load every module in Angular. To do so, you would use \lstinline{PreloadAllModules}
+as your preloading strategy: 
 \begin{lstlisting}
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
@@ -41,26 +43,27 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 class AppRoutingModule {}
 \end{lstlisting}
 
-However, what does make more sense, in an enterprise setting, is custom pre-loading
-modules. That is, pre-load the more expensive modules, and not pre-load those that 
-are less expensive. In addition, make the pre-loading happen at a time more 
-convenient for the app. Let's dive into what that means.
-
 \section{ Custom Pre-Loading }
-Angular offers the ability to pre-load content. It offers a \lstinline{preload}
+What does make more sense in an enterprise setting, is custom pre-loading
+modules. That is, pre-load the more expensive modules, and do not pre-load those
+that are less expensive. In addition, make the pre-loading happen at a time more 
+convenient for the app. Let's dive into what that means and how we can do that.
+
+Angular offers the ability to pre-load specific modules(as opposed to all of them 
+at the same time, as we showed before). It offers a \lstinline{preload}
 method that takes two arguments: 
 \begin{enumerate}
   \item route - Route object to tap into, for the load function.
-  \item load - Function when run, triggers the module being loaded
+  \item load - Function that when run, triggers the module being loaded
 \end{enumerate}
 
 \subsection{General Strategy}
 If we wanted to pre-load some modules, and did not want to pre-load others, we
 would follow the following strategy:
 \begin{enumerate}
-  \item Give our route some unique data(i.e. \lstinline{preload: true})
+  \item Give our route unique data(i.e. \lstinline{preload: true})
    to be used within our custom pre-loading function.
-  \item Create custom pre-loading function, that makes use of our unique data. 
+  \item Create a custom pre-loading function, that makes use of our unique data. 
   \item Pass in custom pre-loading as a provider to the \lstinline{preloadingStrategy} 
   key.
 \end{enumerate}
@@ -111,8 +114,8 @@ export class PreloadSelectedModulesList implements PreloadingStrategy {
 }
 \end{lstlisting}
 
-It is worthwhile to note that Razroo put's the \lstinline{custom-preloading.ts} 
-util file in the \lstinline{libs/common/utils} folder.
+\textit{It is worthwhile to note that Razroo put's the \lstinline{custom-preloading.ts} 
+util file in the \lstinline{libs/common/services} folder.}
 
 \subsubsection{Pass in custom pre-loading as a Provider}
 \begin{lstlisting}[caption=app.routing.module.ts]
