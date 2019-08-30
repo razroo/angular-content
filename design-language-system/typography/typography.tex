@@ -74,7 +74,7 @@ sense as to how we can implement Angular Material typography ourselves.
 
 \subsection{Angular Material Cards}
 Let's dissect the Sass Mixin the Angular team uses for typography,
-for the material card. 
+for the material card component. 
 \begin{lstlisting}[caption=@angular/material/\_theming.scss]
 @mixin mat-card-typography($config) {
   .mat-card {
@@ -99,6 +99,55 @@ for the material card.
 }
 \end{lstlisting}
 
-\subsubsection{Title}
-\subsubsection{Subtitle and Content}
-\subsubsection{Subtitle and Content}
+\begin{enumerate}
+  \item Title - Uses the config relating to h2 for size(\$headline), and 
+  weight of equivalent for 
+  \item Title within Header - Uses the config for title(h3) through and through.
+  \item Subtitle and Content - Uses smaller body(\$body-1).
+\end{enumerate}
+
+This gives us a bit of an idea. The config, as expected, directly correlates to 
+the purpose of the mat-card. It also brings home, that mat-card isn't meant to 
+directly encompass content of a page, and rather for minor pieces of content 
+here and there. 
+
+\subsection{Angular Material Headers}
+It is important to note, that the Angular Material theme will not by default 
+change native elements. HTML Elements such as headers(\lstinline{<h1>, <h2>, <h3>}), 
+list items(\lstinline{<li>}), and \lstinline{<p>} tagswill have not have default 
+material styling. However, material design does have it's own internal typography 
+system, that can be seen here: 
+\begin{lstlisting}[caption=@angular/material/\_theming.scss]
+@mixin mat-base-typography($config, $selector: '.mat-typography') {
+  .mat-h1, .mat-headline, #{$selector} h1 {
+    @include mat-typography-level-to-styles($config, headline);
+    margin: 0 0 16px;
+  }
+
+  .mat-h2, .mat-title, #{$selector} h2 {
+    @include mat-typography-level-to-styles($config, title);
+    margin: 0 0 16px;
+  }
+
+  .mat-h3, .mat-subheading-2, #{$selector} h3 {
+    @include mat-typography-level-to-styles($config, subheading-2);
+    margin: 0 0 16px;
+  }
+
+  .mat-h4, .mat-subheading-1, #{$selector} h4 {
+    @include mat-typography-level-to-styles($config, subheading-1);
+    margin: 0 0 16px;
+  }  
+  // ...
+}
+\end{lstlisting}
+
+In the above, we can see that Angular Material stays true to the Material
+spec, and applies the respective style. I.e. 
+\begin{enumerate}
+  \item .mat-h1 - headline
+  \item .mat-h2 - title
+  \item .mat-h3 - subheading-2
+  \item .mat-h4 - subheading-1
+\end{enumerate}
+
