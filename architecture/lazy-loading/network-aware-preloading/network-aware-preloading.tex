@@ -10,7 +10,7 @@ can check yourself how long it takes for a module to load, and the potential val
 of pre-loading. Open up your developer console tool(I'm using Chrome), navigate to
 the js section, of the network tab, and then load the page you want to test. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \includegraphics[width=414pt]{architecture/lazy-loading/network-aware-preloading/network-preloading-console-screenshot.pdf}
 \caption{As we can see, it took 2ms to download the Razroo About page.}
 \end{figure}
@@ -408,7 +408,7 @@ function to our \lstinline{custom-preloading.ts} file, so that we can tell
 whether, or not a user has a good connection. 
 
 \begin{lstlisting}[caption=custom-preloading.ts]
-  export declare var navigator;
+export declare var navigator;
 hasGoodConnection(): boolean {
   const conn = navigator.connection;
   if (conn) {
