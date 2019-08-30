@@ -23,5 +23,35 @@ you yourself can do it, and let your message, and brand bleed through the
 text is important. 
 
 \section{Understanding Different Levels of Typography in Angular Material}
+First and foremost, let's start at ground zero. Let's discuss the different 
+levels of Angular Material Typography. The easiest way do this, is to copy 
+and paste the sass function the material typography config. 
+
+\begin{lstlisting}[caption=@angular/material/\_theming.scss]
+// Represents a collection of typography levels.
+// Defaults come from https://material.io/guidelines/style/typography.html
+// Note: The spec doesn't mention letter spacing. The values here come from
+// eyeballing it until it looked exactly like the spec examples.
+@function mat-typography-config(
+  $font-family:   'Roboto, "Helvetica Neue", sans-serif',
+  $display-4:     mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $display-3:     mat-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $display-2:     mat-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $display-1:     mat-typography-level(34px, 40px, 400),
+  $headline:      mat-typography-level(24px, 32px, 400),
+  $title:         mat-typography-level(20px, 32px, 500),
+  $subheading-2:  mat-typography-level(16px, 28px, 400),
+  $subheading-1:  mat-typography-level(15px, 24px, 400),
+  $body-2:        mat-typography-level(14px, 24px, 500),
+  $body-1:        mat-typography-level(14px, 20px, 400),
+  $caption:       mat-typography-level(12px, 20px, 400),
+  $button:        mat-typography-level(14px, 14px, 500),
+  // Line-height must be unit-less fraction of the font-size.
+  $input:         mat-typography-level(inherit, 1.125, 400)
+) {
+  // ..rest of function goes here
+}  
+\end{lstlisting}
+
 
 
