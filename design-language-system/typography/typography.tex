@@ -25,7 +25,8 @@ text is important.
 \section{Understanding Different Levels of Typography in Angular Material}
 First and foremost, let's start at ground zero. Let's discuss the different 
 levels of Angular Material Typography. The easiest way do this, is to copy 
-and paste the sass function the material typography config. 
+and paste the sass function the material typography config. I have also 
+added comments, to make it appropriate for the context of this book.
 
 \begin{lstlisting}[caption=@angular/material/\_theming.scss]
 // Represents a collection of typography levels.
@@ -34,24 +35,70 @@ and paste the sass function the material typography config.
 // eyeballing it until it looked exactly like the spec examples.
 @function mat-typography-config(
   $font-family:   'Roboto, "Helvetica Neue", sans-serif',
+  // Large, one-off header, usually at the top of the page (e.g. a hero header).
   $display-4:     mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  // Large, one-off header, usually at the top of the page (e.g. a hero header).
   $display-3:     mat-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  // Large, one-off header, usually at the top of the page (e.g. a hero header).
   $display-2:     mat-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  // Large, one-off header, usually at the top of the page (e.g. a hero header).
   $display-1:     mat-typography-level(34px, 40px, 400),
+  // Section heading corresponding to the <h1> tag.
   $headline:      mat-typography-level(24px, 32px, 400),
+  // Section heading corresponding to the <h2> tag.
   $title:         mat-typography-level(20px, 32px, 500),
+  // Section heading corresponding to the <h3> tag.
   $subheading-2:  mat-typography-level(16px, 28px, 400),
+  // Section heading corresponding to the <h4> tag.
   $subheading-1:  mat-typography-level(15px, 24px, 400),
+  // Bolder body text.
   $body-2:        mat-typography-level(14px, 24px, 500),
+  // Base body text.
   $body-1:        mat-typography-level(14px, 20px, 400),
+  // Smaller body and hint text.
   $caption:       mat-typography-level(12px, 20px, 400),
+  // Buttons and anchors.
   $button:        mat-typography-level(14px, 14px, 500),
   // Line-height must be unit-less fraction of the font-size.
+  // Form input fields.
   $input:         mat-typography-level(inherit, 1.125, 400)
 ) {
   // ..rest of function goes here
 }  
 \end{lstlisting}
 
+There are a total of 13 items, which we have the ability to override. Just an 
+example, as to how these feed into general components throughout the site, and 
+also in our actual app. Let's take two a look at two examples, to get an intuitive 
+sense as to how we can implement Angular Material typography ourselves. 
 
+\subsection{Angular Material Cards}
+Let's dissect the Sass Mixin the Angular team uses for typography,
+for the material card. 
+\begin{lstlisting}[caption=@angular/material/\_theming.scss]
+@mixin mat-card-typography($config) {
+  .mat-card {
+    font-family: mat-font-family($config);
+  }
 
+  .mat-card-title {
+    font: {
+      size: mat-font-size($config, headline);
+      weight: mat-font-weight($config, title);
+    }
+  }
+
+  .mat-card-header .mat-card-title {
+    font-size: mat-font-size($config, title);
+  }
+
+  .mat-card-subtitle,
+  .mat-card-content {
+    font-size: mat-font-size($config, body-1);
+  }
+}
+\end{lstlisting}
+
+\subsubsection{Title}
+\subsubsection{Subtitle and Content}
+\subsubsection{Subtitle and Content}
