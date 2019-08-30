@@ -1,28 +1,30 @@
 
-\chapter{ What is ngrx/router-store? }
+\chapter{ ngrx/router-store }
 
-NgRx is an Angular module that leverages RxJS -  a reactive programming library
-that deals with the management of data streams and propagation of change. It is
-time bound, meaning that data tracking and histories are stored for referencing
-and tracing.
+Ngrx/store as discussed previously is an Angular flavored Redux styled 
+state management library, that leverages Rxjs. It deals with the management 
+of data streams and propagation of change. It is time bound, meaning that
+ data tracking and histories are stored for referencing and tracing.
 
-Under the traditional model, data is decentralized and sits on each routing
-state. This means that if the route changes, history of that data is lost. There
-is no past and future states, only the present and navigating away discards any
-memory of such occurrences. This can become quite a challenge to keep track of
+Under the traditional model of routing, data is decentralized and sits on each
+routing state. This means that if the route changes, history of that data is lost.
+There is no past and future states, only the present and navigating away discards 
+any memory of such occurrences. This can become quite a challenge to keep track of
 everything in medium to larger sized applications, especially when navigation
 is expected to occur in high frequency.
 
-NgRx solves this issue and provides a solution by creating a central storage
-space. It keeps all your current application's data in one space - turning parts
-of your browser's memory into a  storage bucket for all your data where all
-mutations occur only through explicit dispatch actions known as reducers and
-becomes the application's single source of truth. It allows for your
-application's events to exist in a unified manner rather than decentralized
-across different parts, children, siblings, partials, factories and routes.
+Ngrx solves this issue by creating a central storage space for routing. This
+official library is called \lstinline{ngrx/router-store} and is pre-defined, 
+to automatically hook into your ngrx/store. It keeps all your current
+application's data in one space - turning parts of your browser's memory into
+a  storage bucket for all your data where all mutations occur only through 
+explicit dispatch actions known as reducers and becomes the application's
+single source of truth. It allows for your application's events to exist
+in a unified manner rather than decentralized across different parts, 
+children, siblings, partials, factories and routes.
 
-router-store, specifically, is the portion of NgRx module that allows for
-listeners to be used for routing actions, meaning that data is allowed to be
+\lstinline{ngrx/router-store}, specifically, is the portion of NgRx module that allows
+for listeners to be used for routing actions, meaning that data is allowed to be
 stored, shared, consumed and mutated based on the routing status from
 a single source. \texttt{@ngrx/router-store}, in a way, is like an in-memory database
 for your application's route related data.
@@ -218,3 +220,5 @@ It automatically \emph{`deep freezes'} the entire store state object and
 dispatch actions, resulting in a read only effect before it gets passed to the
 serializer. This allows errors to be caught before it gets dispatched,
 serialized and passed into storage.
+
+
