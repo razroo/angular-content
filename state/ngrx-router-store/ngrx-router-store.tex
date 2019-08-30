@@ -186,7 +186,9 @@ exported CustomSerializer class inside the StoreRouterConnectingModule.
 \begin{lstlisting}
 @NgModule({
   imports: [
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(
+      { router: routerReducer },
+    ),
     RouterModule.forRoot([
       // routes
     ]),
@@ -196,6 +198,7 @@ exported CustomSerializer class inside the StoreRouterConnectingModule.
   ],
 })
 \end{lstlisting}
+
 
 \section{Benefits of using router-store with ngrx/store-freeze}
 \texttt{ngrx/store-freeze} is a dev tool that can be used during the development
