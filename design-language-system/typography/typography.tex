@@ -151,3 +151,40 @@ spec, and applies the respective style. I.e.
   \item .mat-h4 - subheading-1
 \end{enumerate}
 
+\section{Realizing That Material Specs Do Not Cover Everything}
+It is important to realize, that the Material specs will not cover
+every use case. In particular, this is exemplified by code inside of 
+the \lstinline{\_theming.scss} file. 
+
+\begin{lstlisting}
+// Note: the spec doesn't have anything that would correspond to h5 and h6, but we add these for
+// consistency. The font sizes come from the Chrome user agent styles which have h5 at 0.83em
+// and h6 at 0.67em.
+.mat-h5, #{$selector} h5 {
+  @include mat-typography-font-shorthand(
+      // calc is used here to support css variables
+    calc(#{mat-font-size($config, body-1)} * 0.83),
+    mat-font-weight($config, body-1),
+    mat-line-height($config, body-1),
+    mat-font-family($config, body-1)
+  );
+
+  margin: 0 0 12px;
+}
+
+.mat-h6, #{$selector} h6 {
+  @include mat-typography-font-shorthand(
+      // calc is used here to support css variables
+    calc(#{mat-font-size($config, body-1)} * 0.67),
+    mat-font-weight($config, body-1),
+    mat-line-height($config, body-1),
+    mat-font-family($config, body-1)
+  );
+
+  margin: 0 0 12px;
+}
+\end{lstlisting}
+
+As you can see in the above example, core Angular Engineers have had to comment 
+inside of their core code base, that the spec doesn't have anything that 
+correlates, but they have create styling for consistencty sake. 
