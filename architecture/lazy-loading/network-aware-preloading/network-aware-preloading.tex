@@ -18,7 +18,7 @@ the js section, of the network tab, and then load the page you want to test.
 \section{ Being Aware of How Much Time Pre-Loading Saves }
 You might be curious as to how much time is actually saved with regards to 
 pre-loading? I was curious as well. I tried personally(as shared in the screenshot 
-above), and the amount of time saved, to be honest, is negligable. However, I also
+above), and the amount of time saved, to be honest, is negligible. However, I also
 realize that the app I am working on has a minimal amount of modules. I can see that 
 for another app, wherein there are multiple modules that are loaded. Therefore, 
 let's throw out an arbitrary number. If you have a module that is going to 
@@ -107,7 +107,7 @@ export class RazrooAppRoutingModule {}
 
 \subsubsection{Custom Function For Pre-Loading}
 \begin{lstlisting}[caption=custom-preloading.ts]
-export class PreloadSelectedModulesList implements PreloadingStrategy {
+export class CustomPreloadingService implements PreloadingStrategy {
   preload(route: Route, load: Function): Observable<any> {
     return route.data && route.data.preload ? load() : of(null);
   }
@@ -121,7 +121,7 @@ util file in the \lstinline{libs/common/services} folder.}
 \begin{lstlisting}[caption=app.routing.module.ts]
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PreloadSelectedModulesList } from '@razroo/common/ui/utils';
+import { CustomPreloadingService } from '@razroo/common/ui/services';
 
 @NgModule({
   imports: [
@@ -130,7 +130,7 @@ import { PreloadSelectedModulesList } from '@razroo/common/ui/utils';
         // ...routes go here
       ],
       {
-        preloadingStrategy: PreloadSelectedModulesList
+        preloadingStrategy: CustomPreloadingService
         //...
       }
     )
@@ -142,7 +142,7 @@ export class RazrooAppRoutingModule {}
 
 \section{ Enabling Module Pre-loading on a Custom Event }
 We can extend the pre-loading architecture one step further. We can
-tie in custom events into already exisiting custom pre-loading. In particular, we 
+tie in custom events into already existing custom pre-loading. In particular, we 
 will implement a strategy, that when a user hovers over a navigation menu item, 
 we can pre-load a module. 
 
@@ -204,11 +204,36 @@ export class RazrooAppRoutingModule {}
 
 \subsubsection{ Create a Separate Service to Trigger Pre-Loading }
 We will be creating a separate service, that will be used within our 
-\lstinline{CustomPreloadingService} to trigger 
+\lstinline{CustomPreloadingService} to trigger preloading: 
+
+\begin{lstlisting}[caption=on-demand-preloading.service.ts]
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+
+export class OnDemandPreloadOptions {
+  constructor(public routePath: string, public preload = true) {}
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OnDemandPreloadService {
+  private subject = new Subject<OnDemandPreloadOptions>();
+  state = this.subject.asObservable();
+
+  startPreload(routePath: string) {
+    const message = new OnDemandPreloadOptions(routePath, true);
+    this.subject.next(message);
+  }
+}
+\end{lstlisting}
 
 
 \subsubsection{Custom Pre-Loading Service}
-\begin{lstlisting}
+Now we will be integrating our \lstinline{OnDemandPreloadService} 
+with our \lstinline{CustomPreloadingService}
+
+\begin{lstlisting}[caption=custom-preloading.service.ts]
 import { Injectable } from '@angular/core';
 import { PreloadingStrategy, Route } from '@angular/router';
 import { EMPTY, Observable, of } from 'rxjs';
@@ -347,7 +372,7 @@ let's say in our pre-loading strategy, we have three pages.
 
 The application page opens up a very heavy js bundle, that take's about 
 .25 seconds to load on a fast network. However, on a slower network it might 
-take around an entire second. In such a slow netowrk, if the user hovers
+take around an entire second. In such a slow network, if the user hovers
 over the larger Applications menu item first, and then the much smaller About page,
 our pre-loading strategy might have the reverse effect in such a slow network(the user 
 will not have to wait longer for the about page to load). If we want an air tight
@@ -377,12 +402,13 @@ easy to implement, let's go ahead and do so.
 \subsection{ Strategy Exemplified in Code }
 
 Since the Network Information API, is still experiemental technology, Typescript 
-will not support it as part of it's core library yet. So we will simply add in 
-\begin{lstlisting}
-export declare var navigator;
-\end{lstlisting}
+will not support it as part of it's core library yet. So we will simply declare a 
+var for navigator to make it go away. Let's add a has \lstinline{GoodConnection} 
+function to our \lstinline{custom-preloading.ts} file, so that we can tell 
+whether, or not a user has a good connection. 
 
 \begin{lstlisting}[caption=custom-preloading.ts]
+  export declare var navigator;
 hasGoodConnection(): boolean {
   const conn = navigator.connection;
   if (conn) {
