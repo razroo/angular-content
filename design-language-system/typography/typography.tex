@@ -189,6 +189,55 @@ As you can see in the above example, core Angular Engineers have had to comment
 inside of their core code base, that the spec doesn't have anything that 
 correlates, but they have created styling for consistencty sake. In the same vein,
 it is important to realize that Material Design will not cover all use cases 
-that you need.
+that you need. You will have to use your general sense of what Material Design 
+covers in order 
 
-\section{Including Etc .}
+\section{Mat Typography Customization}
+As we have mentioned before, material design will not apply to global css by 
+default. There is a class that one can use called \lstinline{.mat-typography}
+that the Angular Material library provides, that one can use. It's a viable 
+option, but it requires implementing it on a case per case basis. A more 
+sophisticated approach, is being able to customize internally the typography 
+and apply it to your app. We have the ability to customize internally the 
+material typography config, using the internal material theming: 
+
+\begin{lstlisting}
+@import '~@angular/material/theming';
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+\end{lstlisting}
+
+\mybox{It should be noted, that we have the option to override any of the 
+mat-typography-config variables. To see them, navigate to the material 
+theming sass file, and search for mat-typography-config.}
+
+Once we have created our config we can use it in one of four ways: 
+\begin{enumerate}
+\item Override Typography CSS classes(e.g. \lstinline{mat-h1, mat-display-1, etc.})
+\begin{lstlisting}
+@include mat-base-typography($custom-typography);
+\end{lstlisting}
+
+\item Override typography for a specific Angular Material component.
+\begin{lstlisting}
+@include mat-checkbox-typography($custom-typography);
+\end{lstlisting}
+
+\item Override typography for all Angular Material
+\begin{lstlisting}
+  @include angular-material-typography($custom-typography);
+\end{lstlisting}
+
+\item Override typography in the core CSS
+\begin{lstlisting}
+  @include mat-core($custom-typography);
+\end{lstlisting} 
+\end{enumerate}
+ that happens, we can now use it to override 
+
