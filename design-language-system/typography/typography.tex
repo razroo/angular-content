@@ -190,13 +190,28 @@ inside of their core code base, that the spec doesn't have anything that
 correlates, but they have created styling for consistencty sake. In the same vein,
 it is important to realize that Material Design will not cover all use cases 
 that you need. You will have to use your general sense of what Material Design 
-covers in order 
+covers in order to fill in the gaps where there is nothing mentioned specifically 
+in the specs. 
 
-\section{Mat Typography Customization}
+\section{Apply Mat Typography Globally}
 As we have mentioned before, material design will not apply to global css by 
 default. There is a class that one can use called \lstinline{.mat-typography}
-that the Angular Material library provides, that one can use. It's a viable 
-option, but it requires implementing it on a case per case basis. A more 
+that the Angular Material library provides. To apply it globally, one can do 
+something such as the following: 
+\begin{lstlisting}[caption=app.component.html]
+<div class="page-wrap">
+  <razroo-header></razroo-header>
+  <div class="content mat-typography">
+    <router-outlet></router-outlet>
+  </div>
+  <razroo-footer></razroo-footer>
+</div>
+\end{lstlisting}
+
+It's a viable option, but it requires implementing it on a case per case basis.
+
+\section{Mat Typography Customization}
+A more 
 sophisticated approach, is being able to customize internally the typography 
 and apply it to your app. We have the ability to customize internally the 
 material typography config, using the internal material theming: 
@@ -236,8 +251,9 @@ Once we have created our config we can use it in one of four ways:
 
 \item Override typography in the core CSS
 \begin{lstlisting}
-  @include mat-core($custom-typography);
+@include mat-core($custom-typography);
 \end{lstlisting} 
 \end{enumerate}
- that happens, we can now use it to override 
+
+
 
