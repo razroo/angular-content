@@ -1,32 +1,35 @@
 \chapter{ Angular Material Typography }
 
 Typography at a design level, is a way of presenting text in an attractive 
-fashion. In particular, this is at three levels: 
+fashion. In particular, this is in three areas: 
 \begin{enumerate}
-  \item Decipher different letters.
+  \item Decipher difference between letters.
   \item Make blocks of elements, such as paragraphs, or headers, easy to 
   distinguish between each other. 
-  \item Have text that draws you in, or speaks to you as a reader. 
+  \item Have text that draws you in, or speaks to you as a reader. It 
+  should ideally be unique to your brand.
 \end{enumerate}
 
-Typography in this regard is very unique. Because at it's core, it's 
-not that complex. There maybe are 10-20 different elements to keep in
+Typography, at a functionality level is a paradox. A it's core, it is 
+not that complex. There maybe are 10-20 different html elements to keep in
 mind. However, because those 10-20 different elements get used literally 
-everywhere, it makes typography the single most used item in your site. 
+everywhere, it makes typography the single most used item in your site. Typography,
+while it by nature design, and therefore involves less functionality, it should 
+still be treated with the same gravity as UI architecture. 
 
 This book, as well as the creators (i.e. Razroo), are strong believers of 
 using Material Design as part of your MVP. After that, moving onto some sort 
 of other design language system as soon as your product is validated. So 
 we reccomend the use of Material Design with Angular, and do indeed use it
-throughout the book. Understanding how to override the typography, so that
-you yourself can do it, and let your message, and brand bleed through the 
-text is important. 
+throughout the book. Understanding how to override the Material typography,
+so that you yourself can do it, and let your message, and brand bleed 
+through the text is important!
 
 \section{Understanding Different Levels of Typography in Angular Material}
-First and foremost, let's start at ground zero. Let's discuss the different 
-levels of Angular Material Typography. The easiest way do this, is to copy 
-and paste the sass function the material typography config. I have also 
-added comments, to make it appropriate for the context of this book.
+First and foremost, let us begin at ground zero. Let's discuss the different 
+levels of Angular Material Typography. The easiest way do this, is to dissect 
+the core sass function for the Angular Material typography config. Razroo has 
+also added comments, to make it appropriate for the context of this book.
 
 \begin{lstlisting}[caption=@angular/material/\_theming.scss]
 // Represents a collection of typography levels.
@@ -67,14 +70,15 @@ added comments, to make it appropriate for the context of this book.
 }  
 \end{lstlisting}
 
-There are a total of 13 items, which we have the ability to override. Just an 
-example, as to how these feed into general components throughout the site, and 
-also in our actual app. Let's take two a look at two examples, to get an intuitive 
-sense as to how we can implement Angular Material typography ourselves. 
+There are a total of 13 typography items, which we have the ability to override. 
+To understand how these feed into general components throughout the site, 
+let's take two a look at two examples. This is so that we can get an intuitive 
+sense as to how we can create our own typography based on Angular Material 
+Design. 
 
 \subsection{Angular Material Cards}
-Let's dissect the Sass Mixin the Angular team uses for typography,
-for the material card component. 
+Let's dissect the typography Sass mixin the Angular team uses for the material card
+component. 
 \begin{lstlisting}[caption=@angular/material/\_theming.scss]
 @mixin mat-card-typography($config) {
   .mat-card {
@@ -100,23 +104,24 @@ for the material card component.
 \end{lstlisting}
 
 \begin{enumerate}
-  \item Title - Uses the config relating to h2 for size(\$headline), and 
-  weight of equivalent for 
-  \item Title within Header - Uses the config for title(h3) through and through.
-  \item Subtitle and Content - Uses smaller body(\$body-1).
+  \item Title - Uses the config relating to \lstinline{h2} for size
+  (\lstinline{$headline}), and weight of equivalent config for \lstinline{h3}.
+  \item Title within Header - Uses the config equivalent for (\lstinline{h3}) 
+  through out.
+  \item Subtitle and Content - Uses smaller body config (\lstinline{$body-1}).
 \end{enumerate}
 
 This gives us a bit of an idea. The config, as expected, directly correlates to 
-the purpose of the mat-card. It also brings home, that mat-card isn't meant to 
-directly encompass content of a page, and rather for minor pieces of content 
-here and there. 
+the purpose of the mat-card to give extra importance. It also brings home, that
+mat-card isn't meant to directly encompass main content of the page. (However,
+once again, it's ultimately you who get's decide how you want to use something.)
 
-\subsection{Angular Material Headers}
+\subsection{Dybamics of Applying Angular Material Typography Globally}
 It is important to note, that the Angular Material theme will not by default 
-change native elements. HTML Elements such as headers(\lstinline{<h1>, <h2>, <h3>}), 
-list items(\lstinline{<li>}), and \lstinline{<p>} tagswill have not have default 
-material styling. However, material design does have it's own internal typography 
-system, that can be seen here: 
+change native global HTML elements. HTML Elements such as headers
+(\lstinline{<h1>, <h2>, <h3>}), list items(\lstinline{<li>}), and \lstinline{<p>} 
+tags will not be styled by default. However, Angular Material Design design 
+does have it's own internal typography system, that can be seen here: 
 \begin{lstlisting}[caption=@angular/material/\_theming.scss]
 @mixin mat-base-typography($config, $selector: '.mat-typography') {
   .mat-h1, .mat-headline, #{$selector} h1 {
@@ -150,6 +155,22 @@ spec, and applies the respective style. I.e.
   \item .mat-h3 - subheading-2
   \item .mat-h4 - subheading-1
 \end{enumerate}
+
+This is true for all of other global typography HTML elements as well. 
+
+\subsection{Code Example}
+There is a class that one can use called \lstinline{.mat-typography}
+that the Angular Material library provides. To apply it globally, you 
+can apply it on the div wrapper for your content: 
+\begin{lstlisting}[caption=app.component.html]
+<div class="page-wrap">
+  <razroo-header></razroo-header>
+  <div class="content mat-typography">
+    <router-outlet></router-outlet>
+  </div>
+  <razroo-footer></razroo-footer>
+</div>
+\end{lstlisting}
 
 \section{Realizing That Material Specs Do Not Cover Everything}
 It is important to realize, that the Material specs will not cover
@@ -193,30 +214,9 @@ that you need. You will have to use your general sense of what Material Design
 covers in order to fill in the gaps where there is nothing mentioned specifically 
 in the specs. 
 
-\section{Apply Mat Typography Globally}
-As we have mentioned before, material design will not apply to global css by 
-default. There is a class that one can use called \lstinline{.mat-typography}
-that the Angular Material library provides. To apply it globally, one can do 
-something such as the following: 
-\begin{lstlisting}[caption=app.component.html]
-<div class="page-wrap">
-  <razroo-header></razroo-header>
-  <div class="content mat-typography">
-    <router-outlet></router-outlet>
-  </div>
-  <razroo-footer></razroo-footer>
-</div>
-\end{lstlisting}
-
-\subsection{Note on Applying Mat Typography Globally}
-Odds are, in any application, you will have multiple themes.
-You will want to apply 
-
 \section{Mat Typography Customization}
-A more 
-sophisticated approach, is being able to customize internally the typography 
-and apply it to your app. We have the ability to customize internally the 
-material typography config, using the internal material theming: 
+Within Angular Material we have the ability to customize internally the 
+material typography config: 
 
 \begin{lstlisting}
 @import '~@angular/material/theming';
@@ -231,8 +231,8 @@ $custom-typography: mat-typography-config(
 \end{lstlisting}
 
 \mybox{It should be noted, that we have the option to override any of the 
-mat-typography-config variables. To see them, navigate to the material 
-theming sass file, and search for mat-typography-config.}
+mat-typography-config variables. To see them, navigate to the Angular Material 
+theming Sass file, and search for mat-typography-config.}
 
 Once we have created our config we can use it in one of four ways: 
 \begin{enumerate}
