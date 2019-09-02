@@ -1,4 +1,4 @@
-\chapter{ Typography }
+\chapter{ Angular Material Typography }
 
 Typography at a design level, is a way of presenting text in an attractive 
 fashion. In particular, this is at three levels: 
@@ -208,7 +208,9 @@ something such as the following:
 </div>
 \end{lstlisting}
 
-It's a viable option, but it requires implementing it on a case per case basis.
+\subsection{Note on Applying Mat Typography Globally}
+Odds are, in any application, you will have multiple themes.
+You will want to apply 
 
 \section{Mat Typography Customization}
 A more 
@@ -235,25 +237,28 @@ theming sass file, and search for mat-typography-config.}
 Once we have created our config we can use it in one of four ways: 
 \begin{enumerate}
 \item Override Typography CSS classes(e.g. \lstinline{mat-h1, mat-display-1, etc.})
-\begin{lstlisting}
+\begin{verbatim}
 @include mat-base-typography($custom-typography);
-\end{lstlisting}
+\end{verbatim}
 
 \item Override typography for a specific Angular Material component.
-\begin{lstlisting}
+\begin{verbatim}
 @include mat-checkbox-typography($custom-typography);
-\end{lstlisting}
+\end{verbatim}
 
 \item Override typography for all Angular Material
-\begin{lstlisting}
-  @include angular-material-typography($custom-typography);
-\end{lstlisting}
+\begin{verbatim}
+@include angular-material-typography($custom-typography);
+\end{verbatim}
 
 \item Override typography in the core CSS
-\begin{lstlisting}
+\begin{verbatim}
 @include mat-core($custom-typography);
-\end{lstlisting} 
+\end{verbatim}
 \end{enumerate}
+
+My personal favorite is to use \lstinline{mat-core}, just because it anyways  
+has to be included atleast once per project. 
 
 
 
