@@ -7,3 +7,25 @@ controlled, as that is handled by the internals of the framework. However, the
 real question that we should be asking ourselves, is when does this happen. 
 
 \section{Exploring Ahead of Time Compilation}
+Without using the ahead-of-time compilation flag \lstinline{--aot} i.e. 
+\begin{verbatim}
+ng serve
+\end{verbatim}
+
+Angular will convert the code from Angular code, to browser readable 
+code at run time. By using the \lstinline{--aot} compiler i.e.
+\begin{verbatim}
+ng serve --aot
+\end{verbatim}
+
+The Angular compiler will compile the code at build time. The benefits 
+of compiling the code at build time are as follows: 
+\begin{enumerate}
+\item Faster rendering - Browser doesn't have to compile code first
+\item Fewer Requests - The compiler will inline external html and css.
+\item Smaller bundle sizes - Angular Compiler not included in bundle size. 
+\item Template errors - They happen inside of compiler, instead of at runtime.
+\item Better security - HTML and Components(css included), are compiled into 
+Javascript before the webpage loads. Preventing against many different types
+of injections. 
+\end{enumerate}
