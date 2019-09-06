@@ -40,16 +40,13 @@ The AOT collector only understands a subset of Javascript. It's quite a long
 list. Therefore, when using the \lstinline{--aot} flag, and the AOT compiler 
 comes across something it doesn't understand, it will throw the error into 
 the \lstinline{.metadata.json}. Later on, if it needs that piece of code 
-to generate the application code, the compiler will complain. However, I have 
+to generate the application code, the compiler will complain. (However, I have 
 personally found that there are scenarios wherein the AOT compiler will say
-that things are working as expected, but it won't actually work. 
+that things are working as expected, but it won't actually work). 
 
-The \lstinline{ng serve} will go through as 
-usual, but it will fail silently in the form of it not appearing on the site. 
-The reason that the AOT compiler works this way, is 
-
-The easiest way to be aware of the limitations is to change the config 
-in your \lstinline{angularCompilerOptions}. 
+The \lstinline{ng serve} will go through as usual, but it will fail silently 
+in the form of it not appearing on the site. The easiest way to be aware of
+the limitations is to change the config in your \lstinline{angularCompilerOptions}. 
 
 \begin{lstlisting}
 "angularCompilerOptions": {
@@ -60,4 +57,10 @@ in your \lstinline{angularCompilerOptions}.
 
 By changing the \lstinline{strictMetadataEmit} to \lstinline{true}, it will
 emit an error to the console directly, when using the \lstinline{--aot} flag.
+\mybox{It should be noted that in this book we reccomend the use of Nrwl Nx. 
+Nrwl Nx when creating a library, will by default add the 
+\lstinline{"strictMetadataEmit": true}}
 
+The best approach towards AOT with regards to limitations is to be aware that 
+there are those. Sometimes the compiler will throw code that it cannot read 
+into an AST. 
