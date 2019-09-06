@@ -33,7 +33,31 @@ of injections.
 The internals are somewhat complex, and the Angular documentation does a really
 good job at discussing what that is. From a practical perspective, let's discuss 
 the expression limitations. I will admit, at this time, why there are these 
-limiations is beyond me. 
+limitations is beyond me. 
 
-\seciton{Expression Syntax Limitations }
+\section{Expression Syntax Limitations}
+The AOT collector only understands a subset of Javascript. It's quite a long 
+list. Therefore, when using the \lstinline{--aot} flag, and the AOT compiler 
+comes across something it doesn't understand, it will throw the error into 
+the \lstinline{.metadata.json}. Later on, if it needs that piece of code 
+to generate the application code, the compiler will complain. However, I have 
+personally found that there are scenarios wherein the AOT compiler will say
+that things are working as expected, but it won't actually work. 
+
+The \lstinline{ng serve} will go through as 
+usual, but it will fail silently in the form of it not appearing on the site. 
+The reason that the AOT compiler works this way, is 
+
+The easiest way to be aware of the limitations is to change the config 
+in your \lstinline{angularCompilerOptions}. 
+
+\begin{lstlisting}
+"angularCompilerOptions": {
+  ...
+  "strictMetadataEmit" : true
+}  
+\end{lstlisting}
+
+By changing the \lstinline{strictMetadataEmit} to \lstinline{true}, it will
+emit an error to the console directly, when using the \lstinline{--aot} flag.
 
