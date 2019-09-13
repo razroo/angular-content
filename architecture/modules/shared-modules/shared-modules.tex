@@ -117,5 +117,8 @@ Which will then call:
 \end{lstlisting}
 
 Webpack require takes something like less than a millisecond to perform. However, too many of them there 
-in your application, and this can add a 1ms here, or there. 
+in your application, and this can add a 1ms here, or there. So from a performance perspective, shared 
+modules immediately jumps out as an architecture that might not be ideal. However, beyond that 
+from a maintainability perspective, modules can be difficult to know what exactly is contained 
+within. If they get too large, it can be a bit of a sink hole. 
 
