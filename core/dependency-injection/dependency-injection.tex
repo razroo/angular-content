@@ -1,14 +1,57 @@
 \chapter{ Dependency Injection }
 
+Dependency Injection from an Angular perspective, pragmatically only solves 
+one real issue. In particular, because in an Angular/Typescript setting 
+a developer will have the ability to import and export a file. So there 
+already is a way of decoupling different services/classes from each other. 
+This one real issue, would be unit tesitng. For instance, imagine the following 
+\begin{lstlisting}[caption=passing in without dependency injection]
+import { PostsFacade } from '@razroo/razroo/data-access/posts';  
 
-Dependency Injection on it's own a important design pattern. It solves the
-following problems in any scenario:
-\begin{enumerate}
-  \item How can a class be independent of how it's objects are created.
-  \item How can way objects are create be specified in different configuration
-  files.
-  \item How can an application support different configurations?
-\end{enumerate}
+@Component({
+  selector: 'razroo-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.scss']
+})
+export class BlogComponent implements OnInit {
+  posts: any[];
+  allPosts$: Observable<Post[]> = new PostsFacade().allPosts$;
+
+  constructor() {}
+
+  ngOnInit() {}
+
+}
+\end{lstlisting}
+In the above, our class doesn't control how this value in injected. It 
+goes straight from the import into our class. However, if we were to do 
+something like this: 
+
+\begin{lstlisting}[caption=passing in with dependency injection]
+import { PostsFacade } from '@razroo/razroo/data-access/posts';  
+
+@Component({
+  selector: 'razroo-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.scss']
+})
+export class BlogComponent implements OnInit {
+  posts: any[];
+  allPosts$: Observable<Post[]> = this.postFacade.allPosts$;
+
+  constructor(private postsFacade: PostsFacade) {}
+
+  ngOnInit() {}
+
+}  
+\end{lstlisting}
+
+Now it is out BlogComponent class that is controlling how the postsFacade 
+is getting passed through. This makes things particularly easy when it comes
+to unit testing. It allows us to override the value in our unit test, and create 
+mocks for all services. We will discuss more on this in the chapters in the chapters 
+involving unit testing, but I just wanted to bring up the main reason behind unit 
+testing here. 
 
 Angular has adopted dependency injection as part of it's framework since the
 inception of AngularJS. When using dependency in real world applications, it
