@@ -53,11 +53,11 @@ value in our unit test, and create mocks for all services. \textit{We will discu
 on this in the chapters in the chapters involving unit testing, but I just 
 wanted to bring up the main reason behind unit testing here.}
 
-Less obvious, is dependency injection also helps keep bundle sizes compact.
-This is done by tree shaking, which refers to the compiler removing code from 
-final app, if it is not actually referenced by the app. If we use something 
-within the app, through dependency injection, if not used in the app in the 
-end, it will not actually be bundled in the module.
+Less obvious, and specifically if the \lstinline{providedIn} is used, is 
+dependency injection also helps keep bundle sizes compact. This is done by tree
+shaking, which refers to the compiler removing code from final app, if it is not
+actually referenced by the app. If we do not use \lstinline{providedIn}, tree 
+shaking will not be done. 
 
 In addition, as we discussed above, it allows us to keep our configurations 
 separate. While the ability to export/import is an option within Typescript, 
@@ -202,4 +202,7 @@ export class MyApp {}
 This allows for numerous components across the app, using the same token to 
 be overridden. 
 
-
+\section{Wrapping Up}
+The intent of this chapter, is to introduce the concept of dependency injection 
+in Angular. In addition, present the scenarios in which it is used in a regular 
+enterprise application. 
