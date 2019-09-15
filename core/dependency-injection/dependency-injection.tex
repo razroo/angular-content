@@ -1,10 +1,10 @@
 \chapter{ Dependency Injection }
 
 Dependency Injection from an Angular perspective, pragmatically only solves 
-one real issue. In particular, because in an Angular/Typescript setting 
-a developer will have the ability to import and export a file. So there 
-already is a way of decoupling different services/classes from each other. 
-This one real issue, would be unit tesitng. For instance, imagine the following 
+one real issue. That one issue is Unit Testing. That is, because in an 
+Angular/Typescript setting a developer will have the ability to import and 
+export a file. So there already is a way of decoupling different services/
+classes from each other. 
 \begin{lstlisting}[caption=passing in without dependency injection]
 import { PostsFacade } from '@razroo/razroo/data-access/posts';  
 
@@ -46,27 +46,33 @@ export class BlogComponent implements OnInit {
 }  
 \end{lstlisting}
 
-Now it is out BlogComponent class that is controlling how the postsFacade 
-is getting passed through. This makes things particularly easy when it comes
-to unit testing. It allows us to override the value in our unit test, and create 
-mocks for all services. We will discuss more on this in the chapters in the chapters 
-involving unit testing, but I just wanted to bring up the main reason behind unit 
-testing here. 
+Now it is our \lstinline{BlogComponent} class that is controlling how the 
+\lstinline{postsFacade} is getting passed through. This makes things 
+particularly easy when it comes to unit testing. It allows us to override the 
+value in our unit test, and create mocks for all services. \textit{We will discuss more
+on this in the chapters in the chapters involving unit testing, but I just 
+wanted to bring up the main reason behind unit testing here.}
 
-Angular has adopted dependency injection as part of it's framework since the
-inception of AngularJS. When using dependency in real world applications, it
-immediately becomes obvious that it is extremely useful for unit testing. Less obvious, but something somewhat intuitive as well, is that it helps keep bundle
-sizes compact. In addition, as we discussed above, it allows us to keep our
-configurations separate. While the ability to export/import is an option within
-Typescript, dependency injection, allows the framework to be completely aware
-of everything being used within the framework.
+Less obvious, is dependency injection also helps keep bundle sizes compact.
+This is done by tree shaking, which refers to the compiler removing code from 
+final app, if it is not actually referenced by the app. If we use something 
+within the app, through dependency injection, if not used in the app in the 
+end, it will not actually be bundled in the module.
+
+In addition, as we discussed above, it allows us to keep our configurations 
+separate. While the ability to export/import is an option within Typescript, 
+dependency injection, allows the framework to be completely aware of everything
+being used within the framework. So, besides unit testing, this architecture 
+can be useful for using tokens which contain a particular value, and then 
+being overridden depending on environment of application(e.g. development vs.
+production).
 
 \section{ Real World Example }
 
 \subsection{ Creating Injectable Service }
 The DI(Dependency Injection) Framework, allows for an injectable service class
 to be passed to a component. For instance, let's say that we want to create an
-Injectable service, we would do the following:
+injectable service, we would do the following:
 \begin{lstlisting}
 import { Injectable } from '@angular/core';
 
@@ -86,7 +92,7 @@ This code right here is doing two things:
 \end{enumerate}
 
 \mybox{Now would be a good time to discuss what the \lstinline{providedIn}
-property does. It does two things:
+property does. It accomplishes two things:
 \begin{enumerate}
   \item Angular creates a single, shared instance of the service and injects it
   into any class that asks for it. So, there is no need to insert it as a
@@ -130,8 +136,8 @@ export class HeroListComponent {
 \end{lstlisting}
 
 \mybox{Now would technically be a good time on discussing how to test these
-mocked dependencies, however it get's a little bit complicated. This chapter is
-going to be moved to the bit on Angular architecture.}
+mocked dependencies, however it get's a little bit complicated. How to mock 
+dependencies, will be discussed in the section on unit testing.}
 
 \section{Services that need other services}
 Services can have their own dependencies. If we wanted to inject a service, into
@@ -158,17 +164,42 @@ components, we can use it within our application.
 
 \section{ Dependency Injection Token }
 Internally Angular uses dependency injection tokens for injectable services, to
-reference what injectable it is using. Outside of injectable services, we can
-use depedency tokens directly within our app. However, we are able to create a
-new depedency injection token within our app. There are two different ways of
-providing tokens in Angular:
+reference what injectable it is using. As an Angular developer, we also have the 
+option to use these tokens directly within our app. There are two different 
+ways of providing tokens in Angular:
 \begin{enumerate}
-  \item strings - {provide: ``EmailService'', useClass: MandrillService}
-  \item type tokens - {provide: EmailService, useClass: MandrillService}
-  \item injection tokens - new InjectionToken{provide: EmailService, useClass:}
-  avoids name clashes.
+  \item Strings 
+\begin{lstlisting}  
+{provide: 'EmailService', useClass: MandrillService}
+\end{lstlisting}  
+  \item Type Tokens
+\begin{lstlisting}    
+{provide: EmailService, useClass: MandrillService}
+\end{lstlisting}  
+  \item Injection Tokens
+\begin{lstlisting}   
+new InjectionToken{provide: EmailService, useClass:} 
+\end{lstlisting}   
+Benefit of this approach, is that it avoids name clashes.
 \end{enumerate}
 
 Tokens can be a useful way for providing a default value to be used across the 
-app, and then hijacking the value, and providing something else, in the 
-scenarios where it is not of use. 
+app, hijacking the value, and providing something else, in the 
+scenarios where it is not of use. An example of such, is within the Angular 
+Material Components. By default, the \lstinline{MAT_DATE_LOCALE} will use 
+the existing \lstinline{LOCALE_ID}. However, if you would like to override the 
+date locale across the app, all that needs to be done, is to overrride the 
+\lstinline{MAT_DATE_LOCALE} token. 
+\begin{lstlisting}
+@NgModule({
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+  ],
+})
+export class MyApp {}
+\end{lstlisting}
+
+This allows for numerous components across the app, using the same token to 
+be overridden. 
+
+
