@@ -76,4 +76,38 @@ In addition, if we create separate function for the directive, it allows us
 to re-use the functionality for the directive without directly using the
 directive.
 
+\subsection{Creating Custom Directive Validator}
+Let's create a custom directive validator for numbers. We are using the NX 
+workspace. In addition, we are using the Razroo reccomended folder structure. 
+A custom directive validator, will go in the common folder for directives. 
+
+\begin{verbatim}
+ng g lib directive --directory=common  
+\end{verbatim}
+
+Inside of newly created \lstinline{CommonDirectivesModule}, we will create 
+a folder 
+\begin{verbatim}
+cd libs/common/directives/src/lib/;
+mdkir number; 
+\end{verbatim}
+
+So now let's navigate to our number folder:
+\begin{verbatim}
+cd number;  
+\end{verbatim}  
+
+and run the appropriate Angular CLI command for generating a directive, 
+and exporting it within our \lstinline{CommonDirectivesModule}
+
+\begin{verbatim}
+ng g directive number --export  
+\end{verbatim}
+
+This will generate the following output inside of the terminal: 
+\begin{verbatim}
+CREATE libs/common/directives/src/lib/number/number.directive.spec.ts (224 bytes)
+CREATE libs/common/directives/src/lib/number/number.directive.ts (144 bytes)
+UPDATE libs/common/directives/src/lib/common-directives.module.ts (493 bytes)
+\end{verbatim}
 
