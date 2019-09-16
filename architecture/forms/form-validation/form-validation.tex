@@ -123,7 +123,7 @@ touch validator.spec.ts
 
 Inside of our \lstinline{validate.ts} file, we will go ahead and create logic for numbers.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=number-validator.ts]
 import { AbstractControl, Validators, ValidatorFn } from '@angular/forms';
 
 function isPresent(obj: any): boolean {
@@ -140,3 +140,24 @@ export const number: ValidatorFn = (control: AbstractControl): {[key: string]: b
 
 \subsubsection{Hook In Validator Function to Directive}
 We will now go ahead and integrate the number function into our directive. 
+
+\begin{lstlisting}[caption=number.directive.ts]
+import { Directive } from '@angular/core';
+import { AbstractControl } from '@angular/forms';
+import { number } from './validator';
+
+@Directive({
+  selector: '[razrooNumber]'
+})
+export class NumberDirective {
+
+  constructor() { }
+
+  validate(c: AbstractControl): {[key: string]: any} {
+    return number(c);
+  }
+
+}
+\end{lstlisting}
+
+We now have the ability to use this as a directive within our application. 
