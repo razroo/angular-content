@@ -29,7 +29,7 @@ most likely any app you work on, us going to need it's own custom validatores,
 but before we go ahead and do that, let's see how we can integrate this with
 out application. 
 
-\section{Integrating Form Validators}
+\section{Integrating Form Validators within Component}
 Let's imagine that we have a newsletter component within our application. We 
 want to ensure the user uses an email pattern, and it is also required. We write 
 the following: 
@@ -46,3 +46,19 @@ ngOnInit() {
 As we can see using the above we have added two native angular validators to
 our formControl field email. This is the process wherein we would add Angular 
 form validators to our application. 
+
+\section{Integrating Form Validators within HTML Template}
+If we would like to integrate our form validators within our app, so that we 
+click on the button and they get triggered, we would do the following: 
+
+\begin{lstlisting}[caption=Integrate Form Validation with HTML]
+<ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+  <div *ngIf="email.errors.required">
+    Name is required.
+  </div>
+
+  <div *ngIf="email.errors.email">
+    Email is invalid
+  </div>
+</ng-container>
+\end{lstlisting}
