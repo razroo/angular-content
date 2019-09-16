@@ -63,4 +63,17 @@ click on the button and they get triggered, we would do the following:
 \end{lstlisting}
 
 In the above, we are creating a way of displaying the error if it appears. It 
-should only appear if user has actually touched the email field. 
+should only appear if a user has actually touched the email field. 
+
+\section{Custom Validators}
+As mentioned before, odds are that your application, being that it needs to 
+have some unique business case for it to actually make money, will also need 
+it's own set of custom validators. In order to create your own set of custom 
+validators, you would simply need your own function. That function would then 
+be hooked into the validators array. However, it is more efficient if we create
+a directive that can be used to automatically create validation for our form. 
+In addition, if we create separate function for the directive, it allows us
+to re-use the functionality for the directive without directly using the
+directive.
+
+
