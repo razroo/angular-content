@@ -40,6 +40,10 @@ ngOnInit() {
       Validators.compose([Validators.required, Validators.email])
     ],
   });
+
+  get email() {
+    return this.newsletterForm.get('email');
+  }
 }
 \end{lstlisting}
 
@@ -53,12 +57,10 @@ click on the button and they get triggered, we would do the following:
 
 \begin{lstlisting}[caption=Integrate Form Validation with HTML]
 <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
-  <div *ngIf="email.errors.required">
-    Name is required.
-  </div>
-
-  <div *ngIf="email.errors.email">
-    Email is invalid
-  </div>
+  <mat-error *ngIf="email.errors.required">Name is required.</mat-error>
+  <mat-error *ngIf="email.errors.email">Email is invalid</mat-error>
 </ng-container>
 \end{lstlisting}
+
+In the above, we are creating a way of displaying the error if it appears. It 
+should only appear if user has actually touched the email field. 
