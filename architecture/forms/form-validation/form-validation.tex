@@ -81,6 +81,8 @@ Let's create a custom directive validator for numbers. We are using the NX
 workspace. In addition, we are using the Razroo reccomended folder structure. 
 A custom directive validator, will go in the common folder for directives. 
 
+
+\subsubsection{Generate The Directive}
 \begin{verbatim}
 ng g lib directive --directory=common  
 \end{verbatim}
@@ -111,3 +113,30 @@ CREATE libs/common/directives/src/lib/number/number.directive.ts (144 bytes)
 UPDATE libs/common/directives/src/lib/common-directives.module.ts (493 bytes)
 \end{verbatim}
 
+\subsubsection{Create The Function for Directive}
+Inside of the folder for our number directive, let's also create a number validator file.
+
+\begin{verbatim}
+touch validator.ts;
+touch validator.spec.ts
+\end{verbatim}
+
+Inside of our \lstinline{validate.ts} file, we will go ahead and create logic for numbers.
+
+\begin{lstlisting}
+import { AbstractControl, Validators, ValidatorFn } from '@angular/forms';
+
+function isPresent(obj: any): boolean {
+  return obj !== undefined && obj !== null;
+}
+
+export const number: ValidatorFn = (control: AbstractControl): {[key: string]: boolean} => {
+  if (isPresent(Validators.required(control))) return null;
+
+  let v: string = control.value;
+  return /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(v) ? null : {'number': true};
+}; 
+\end{lstlisting}
+
+\subsubsection{Hook In Validator Function to Directive}
+We will now go ahead and integrate the number function into our directive. 
