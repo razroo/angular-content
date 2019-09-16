@@ -30,5 +30,19 @@ but before we go ahead and do that, let's see how we can integrate this with
 out application. 
 
 \section{Integrating Form Validators}
+Let's imagine that we have a newsletter component within our application. We 
+want to ensure the user uses an email pattern, and it is also required. We write 
+the following: 
+\begin{lstlisting}
+ngOnInit() {
+  this.newsletterForm = this.fb.group({
+    email: ['',
+      Validators.compose([Validators.required, Validators.email])
+    ],
+  });
+}
+\end{lstlisting}
 
-
+As we can see using the above we have added two native angular validators to
+our formControl field email. This is the process wherein we would add Angular 
+form validators to our application. 
