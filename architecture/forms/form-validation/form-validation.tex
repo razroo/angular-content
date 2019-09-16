@@ -2,4 +2,33 @@
 
 One of main reasons why one would choose to use the internal Angular Form 
 Group architecture, is the way it eases validation. Angular has a series 
-of built in validators. 
+of built in validators, that can be used for the fields in your form. For 
+the sake of clarity, and brevity, I would like to jot down the name of current 
+Angular Validators here, without going into detail: 
+\begin{enumerate}
+  \item min
+  \item max
+  \item required
+  \item requiredTrue
+  \item email
+  \item minlength
+  \item maxlength
+  \item pattern
+  \item nullValidator
+  \item compose
+  \item composeAsync
+\end{enumerate}
+
+I think for the most part, the above validators speak for themselves as to 
+what they do, with the exception of \lstinline{compose}. \lstinline{compose}
+will allow you to combine multiple validotors, and return an error map for 
+them. As you can see, the more popular errors, such as min, and max(for use
+with passwords/usernames) and emails, and patterns are what angulars internal 
+validators are there for. There is the ability to make custom validators, and 
+most likely any app you work on, us going to need it's own custom validatores,
+but before we go ahead and do that, let's see how we can integrate this with
+out application. 
+
+\section{Integrating Form Validators}
+
+
