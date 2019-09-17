@@ -164,9 +164,19 @@ export class NumberDirective implements Validator {
 \end{lstlisting}
 
 We now have the ability to use this as a directive within our application. It 
-should be noted that we are doing two unique things within our directive. One 
-of them is 
+should be noted that we are doing two unique things within our directive. 
+\begin{enumerate}
+  \item \lstinline{Validator} -  Our class is implementing \lstinline{Validator}
+  which is the same internal function used for validating a formControl. 
+  \item We are providing a value called \lstinline{NUMBER_VALIDATOR}. 
+  \lstinline{NUMBER_VALIDATOR} will cause the \lstinline{NG_VALIDATOR} 
+  \lstinline{injectionToken}, which is the Angular provided token 
+  for custom providers, to use the value of \lstinline{NumberDirective}.
+  The internal Angular \lstinline{forwardRef} value is there to make sure 
+  that it doesn't error out if no value exists. (More on \lstinline{forwardRef}
+  in another chapter.)
+\end{enumerate}
 
 \subsubsection{Hook In Directive to Component Template}
-Now, all we need to do, is hook the directive into the template for our 
+Now all we need to do, is hook the directive into the template for our 
 component. 
