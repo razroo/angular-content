@@ -180,3 +180,19 @@ should be noted that we are doing two unique things within our directive.
 \subsubsection{Hook In Directive to Component Template}
 Now all we need to do, is hook the directive into the template for our 
 component. 
+
+\begin{lstlisting}[caption=newsletter.component.html]
+<mat-form-field [formGroup]="newsletterForm" class="email-field" >
+  <input matInput razrooNumber formControlName="email" placeholder="Your E-mail" required>
+</mat-form-field>
+
+<ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+  <mat-error *ngIf="email.errors.number">Not a number</mat-error>
+</ng-container>
+\end{lstlisting}
+
+As you can see, all we had to add to our input is the directive for 
+\lstinline{razrooNumber}. We can then the appropriate \lstinline{mat-error}
+within our application in order to hook into the respective error created for number.
+The reason it is number, is that within our number validator, we are returning a 
+boolean for number. 
