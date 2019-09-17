@@ -196,3 +196,23 @@ As you can see, all we had to add to our input is the directive for
 within our application in order to hook into the respective error created for number.
 The reason it is number, is that within our number validator, we are returning a 
 boolean for number. 
+
+\subsection{A Word on This Approach}
+If you were to take a look at the documentation, it offers two approaches.
+\begin{enumerate}
+  \item Template Driven Custom Validators 
+  \item Reactive Custom Validators 
+\end{enumerate}
+
+Razroo reccomends this approach for using directives, which is a bit contrary to our 
+general suggestion of using Reactive Forms. It is our understanding, that reactive 
+forms are extremely valuable, because they group the form as one. Making it 
+easily accesible from the Typescript side of things. However, in this
+particular aspect, of re-using custom validators, re-using functions as a utility 
+function, we feel makes the app more brittle than directives. Primarily, because 
+directives are more explicit. 
+
+That being said, with our approach, we are separating the logic of validation from 
+the actual directive. Moving forward if your team, or other teams within your 
+organization would like to use different approaches, they do have the flexibility
+to do so. 
