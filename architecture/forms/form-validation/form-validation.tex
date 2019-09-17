@@ -142,22 +142,31 @@ export const number: ValidatorFn = (control: AbstractControl): {[key: string]: b
 We will now go ahead and integrate the number function into our directive. 
 
 \begin{lstlisting}[caption=number.directive.ts]
-import { Directive } from '@angular/core';
-import { AbstractControl } from '@angular/forms';
+import { Directive, forwardRef } from '@angular/core';
+import { AbstractControl, NG_VALIDATORS, Validator } from '@angular/forms';
 import { number } from './validator';
 
+const NUMBER_VALIDATOR: any = {
+  provide: NG_VALIDATORS,
+  useExisting: forwardRef(() => NumberDirective),
+  multi: true
+};
+
 @Directive({
-  selector: '[razrooNumber]'
+  selector: '[razrooNumber]',
+  providers: [NUMBER_VALIDATOR]
 })
-export class NumberDirective {
-
-  constructor() { }
-
+export class NumberDirective implements Validator {
   validate(c: AbstractControl): {[key: string]: any} {
     return number(c);
   }
-
-}
+}  
 \end{lstlisting}
 
-We now have the ability to use this as a directive within our application. 
+We now have the ability to use this as a directive within our application. It 
+should be noted that we are doing two unique things within our directive. One 
+of them is 
+
+\subsubsection{Hook In Directive to Component Template}
+Now, all we need to do, is hook the directive into the template for our 
+component. 
