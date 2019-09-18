@@ -214,20 +214,20 @@ directives are more explicit.
 
 That being said, with our approach, we are separating the logic of validation from 
 the actual directive. Moving forward if your team, or other teams within your 
-organization would like to use different approaches, they do have the flexibility
-to do so. 
+organization would like to use different approaches, they do have the 
+flexibility to do so. 
 
 \section{Cross Field Validation}
 When I first came across the term "cross field validation", I was a bit 
 confused. I thought of it as a way for different field's validation to 
 be dependent on each other. After reading more, I found that "cross 
 field" validation is exactly that. We are validating our field based on 
-two field's correlation to each other. For instance, let's say we are 
-working on a finance application. We only want the "Submit" button to 
-be valid, if amount and interest rate is above certain number(respective 
-to that person's currency). We would be able to set up the internal Angular
-form validators, so that the form is invalid, if this cross field reference 
-is not valid. 
+two field's correlation to each other. 
+
+For instance, let's say we are working on a finance application. We only want
+the "Business Loan Amount" input field to show, if yearly gross income minus expenses, 
+exceeds \$100,000. We would be able to set up the internal Angular form validators,
+so that the loan-amount is invalid, if this cross field reference(grosss) is not valid. 
 
 THe one point to keep in mind, is that cross field validation is distinct 
 from single form validation in two regards: 
@@ -244,7 +244,26 @@ validation tends to be component specific, contrary to our reccomendation above
 of using a directive for a single field validation, we would reccomend using a 
 function. However, as teams are wont to do, they are going to want to have 
 the flexibility to choose how they want to integrate with their app. So we still
-be following the separate directive and validate function approach.}
+will be following the separate directive and validate function approach.}
 
-\subsection{Reactive Forms}
+\subsection{Sample Validator Logic}
+For the sake of brevity, we will not go through the steps we did earlier, re: 
+proper folder structure, directive generation, and respective function. Just one 
+note that I would like to make. We mentioned earlier, that due to cross field 
+validators usually being unique to specific business logic, we prefer the use 
+reactive form validator functions. Therefore, as opposed to prior single field 
+validators going in the \lstinline{common/directives} folder, multiple form 
+validators will go in the app specific folder (e.g. \lstinline{razroo/common/directives}).
 
+However, we will go into the validator logic required for multiple \lstinline{formControl} 
+values. 
+
+\begin{lstlisting}[loan-amount.directive.ts]
+/** A hero's name can't match the hero's alter ego */
+export const identityRevealedValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
+  const income = control.get('income');
+  const expenses = control.get('expenses');
+
+  return income && expenses && income.value === expenses.value ? { 'loanAmount': true } : null;
+};
+\end{lstlisting}
