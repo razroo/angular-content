@@ -239,6 +239,12 @@ from single form validation in two regards:
   will not make sense to be re-usable. 
 \end{enumerate}
 
+\mybox{It should be noted, that based on the above, being that cross field 
+validation tends to be component specific, contrary to our reccomendation above
+of using a directive for a single field validation, we would reccomend using a 
+function. However, as teams are wont to do, they are going to want to have 
+the flexibility to choose how they want to integrate with their app. So we still
+be following the separate directive and validate function approach.}
+
 \subsection{Reactive Forms}
-For Reactive Forms, the main thing to keep in mind, is the logic is going to
-be different in so much that we are working towards multiple fields. 
+
