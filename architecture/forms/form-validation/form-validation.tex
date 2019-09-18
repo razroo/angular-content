@@ -222,7 +222,22 @@ When I first came across the term "cross field validation", I was a bit
 confused. I thought of it as a way for different field's validation to 
 be dependent on each other. After reading more, I found that "cross 
 field" validation is exactly that. We are validating our field based on 
-two fields
+two field's correlation to each other. For instance, let's say we are 
+working on a finance application. We only want the "Submit" button to 
+be valid, if amount and interest rate is above certain number(respective 
+to that person's currency). We would be able to set up the internal Angular
+form validators, so that the form is invalid, if this cross field reference 
+is not valid. 
+
+THe one point to keep in mind, is that cross field validation is distinct 
+from single form validation in two regards: 
+\begin{enumerate}
+  \item The validator will be used on two, or more form validators. This 
+  means, that we need access to the parent level formControl.
+  \item The validator will need to be aware of the specific field that it is
+  operating on. Therefore usability will be limited to the app, and most likely
+  will not make sense to be re-usable. 
+\end{enumerate}
 
 \subsection{Reactive Forms}
 For Reactive Forms, the main thing to keep in mind, is the logic is going to
