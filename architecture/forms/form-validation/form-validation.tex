@@ -362,7 +362,22 @@ and it's one team building it for the entire organization. If I do include,
 will include it to the addendum later on. 
 
 Howevever, how to include within our component would be the following: 
-
 \begin{lstlisting}
-  
+
 \end{lstlisting}
+
+\subsection{ Performance Concern }
+All validators are run after every form value change. As in, when an input 
+value is changed, the validator will be run after every letter/number is added. 
+Sychronous validators, which are not dependent on the backend, generally do 
+not suffer from performance issues in this regard. However, when doing 
+something like making an http request after every time a letter is clicked, it 
+can be expensive. There is a general reccomended approach of making validators 
+run on \lstinline{blur}, or \lstinline{submit} instead. So, let's say in our 
+app, we want the http request to only be made if the user clicks off of the 
+input, we would do something like the following: 
+
+\begin{lstlisting}[caption=Reactive Forms Using Blur]
+new FormControl('', {updateOn: 'blur'});
+\end{lstlisting}
+
