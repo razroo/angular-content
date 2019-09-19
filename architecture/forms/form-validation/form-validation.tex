@@ -306,3 +306,18 @@ export class LoanAmountDirective implements Validator {
 
 } 
 \end{lstlisting}
+
+Here we are just pulling in the service, and tucking it into our validate function. So, 
+now using our prefferred approach of reactive form validators, for cross field validation, 
+integrating it, would be as simple as this:
+
+\begin{lstlisting}[caption=finance-calculator.ts]
+constructor(private fb: FormBuilder,
+            private loanAmountValidatorService: LoanAmountValidatorService) { }
+
+ngOnInit() {
+  this.newsletterForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+  }, {validators: this.loanAmountValidatorService.loanAmountValidator});
+}
+\end{lstlisting}
