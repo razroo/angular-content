@@ -258,12 +258,29 @@ validators will go in the app specific folder (e.g. \lstinline{razroo/common/dir
 However, we will go into the validator logic required for multiple \lstinline{formControl} 
 values. 
 
-\begin{lstlisting}[loan-amount.directive.ts]
-/** A hero's name can't match the hero's alter ego */
-export const identityRevealedValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
-  const income = control.get('income');
-  const expenses = control.get('expenses');
+\begin{lstlisting}[caption=loan-amount-validator.ts]
+import { Injectable } from '@angular/core';
+import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-  return income && expenses && income.value === expenses.value ? { 'loanAmount': true } : null;
-};
+@Injectable({
+  providedIn: 'root'
+})
+export class LoanAmountValidatorService {
+
+  constructor() { }
+
+  identityRevealedValidator: ValidatorFn = (formGroup: FormGroup): ValidationErrors | null => {
+    const income = formGroup.get('income');
+    const expenses = formGroup.get('expenses');
+
+    return income && expenses && income.value - expenses.value > 100000 ? { 'loanAmount': true } : null;
+  };
+}  
 \end{lstlisting}
+
+As we can see in the above code, our logic is now tapping into the entire 
+\lstinline{formGroup}. We are: 
+\begin{enumerate}
+  \item Targeting every field that we need.
+  \item Creating logic, based on those two fields    
+\end{enumerate}
