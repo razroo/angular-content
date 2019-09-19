@@ -331,7 +331,7 @@ ngOnInit() {
 Integrating the error within our app, is exactly as we would have done for a
 singular field.
 
-\begin{lstlisting}[finance-calculator.component.html]
+\begin{lstlisting}[caption=finance-calculator.component.html]
 <ng-container *ngIf="finance.invalid && (finance.dirty || finance.touched)">
   <mat-error *ngIf="finance.errors.loanAmount">Calculator</mat-error>
 </ng-container>
@@ -342,3 +342,27 @@ An async validator, is a validator which returns an observable(promises work too
 we do not reccomend using a promise within an Angular setting). One other important 
 note, is that the Observable must be finite i.e. end. So adding something like 
 \lstinline{first} to the async directive more than works. 
+
+A classic example with async validation is to see if a username is take already. 
+In order to give the user instant feedback, we can make an http request everytime
+the user types in the input. A validator is a one to one relationship, and is not 
+meant to have a lifecycle beyond that of the initial validation. Using state for 
+something like this would be overkill. However, we do use GraphQL within our 
+application. So, we are going to return an observable, and call first on it. 
+
+\subsection{Integrating Service for Async Validation}
+We will create a service for async validation. Being that async validators
+need to use the backend, using a directive is out of the question. It would 
+be too brittle, and hack to work through our code(too time consuming to talk 
+about now). However, do take mine, and the official Angular documentation's 
+word for it. I am going to decide in this piece to not discuss the code 
+behind service actually making request. Reason is, that use cases wherein 
+we would use asynchronous validation, is usually in an enterprise setting, 
+and it's one team building it for the entire organization. If I do include, 
+will include it to the addendum later on. 
+
+Howevever, how to include within our component would be the following: 
+
+\begin{lstlisting}
+  
+\end{lstlisting}
