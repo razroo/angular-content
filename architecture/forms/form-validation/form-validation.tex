@@ -279,8 +279,30 @@ export class LoanAmountValidatorService {
 \end{lstlisting}
 
 As we can see in the above code, our logic is now tapping into the entire 
-\lstinline{formGroup}. We are: 
+\lstinline{formGroup} control. We are: 
 \begin{enumerate}
   \item Targeting every field that we need.
-  \item Creating logic, based on those two fields    
+  \item Creating logic, based on those two fields.    
 \end{enumerate}
+
+Cross form validation logic integration with our directive, is straightforward and very similar 
+to how single form validation works: 
+
+\begin{lstlisting}[caption=loan-amount.directive.ts]
+import { Directive } from '@angular/core';
+import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
+import { LoanAmountValidatorService } from './loan-amount-validator.service';
+
+@Directive({
+  selector: '[razrooLoanAmount]',
+  providers: [{ provide: NG_VALIDATORS, useExisting: LoanAmountDirective, multi: true }]
+})
+export class LoanAmountDirective implements Validator {
+  constructor(private loanAmountValidatorService: LoanAmountValidatorService) {}
+
+  validate(control: AbstractControl): ValidationErrors {
+    return this.loanAmountValidatorService.loanAmountValidator(control)
+  }
+
+} 
+\end{lstlisting}
