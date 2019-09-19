@@ -366,7 +366,7 @@ Howevever, how to include within our component would be the following:
 
 \end{lstlisting}
 
-\subsection{ Performance Concern }
+\section{ Performance Concern }
 All validators are run after every form value change. As in, when an input 
 value is changed, the validator will be run after every letter/number is added. 
 Sychronous validators, which are not dependent on the backend, generally do 
@@ -381,3 +381,11 @@ input, we would do something like the following:
 new FormControl('', {updateOn: 'blur'});
 \end{lstlisting}
 
+\section{A Final Note on Form Validators}
+Form validation is an integral part of any application. The wonderful way 
+about how Angular does things really shine with the way they approach form 
+validation. Form validation is particularly difficult, because due to it's 
+repetitive nature, and existing outside of component logic. By following 
+the \lstinline{common/directive} architecture for single field validation, and
+the \lstinline{<app>/common/service/validators} architecture for cross field 
+validation, your organization and app, will be in a very good place to scale.
