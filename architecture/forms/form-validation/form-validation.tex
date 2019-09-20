@@ -343,30 +343,54 @@ we do not reccomend using a promise within an Angular setting). One other import
 note, is that the Observable must be finite i.e. end. So adding something like 
 \lstinline{first} to the async directive more than works. 
 
-A classic example with async validation is to see if a username is take already. 
+A classic example with async validation is to see if a username is taken already. 
 In order to give the user instant feedback, we can make an http request everytime
 the user types in the input. A validator is a one to one relationship, and is not 
 meant to have a lifecycle beyond that of the initial validation. Using state for 
 something like this would be overkill. However, we do use GraphQL within our 
 application. So, we are going to return an observable, and call first on it. 
 
-\subsection{Integrating Service for Async Validation}
-We will create a service for async validation. Being that async validators
-need to use the backend, using a directive is out of the question. It would 
-be too brittle, and hack to work through our code(too time consuming to talk 
-about now). However, do take mine, and the official Angular documentation's 
-word for it. I am going to decide in this piece to not discuss the code 
-behind service actually making request. Reason is, that use cases wherein 
-we would use asynchronous validation, is usually in an enterprise setting, 
-and it's one team building it for the entire organization. If I do include, 
-will include it to the addendum later on. 
+\subsection{Integrating Service with Component for Async Validation}
+The nature of async validators is they need to use the backend to operate. 
+Therefore using a directive is out of the question. It would be too brittle,
+and a hack to make work. I am not going to discuss the code behind service
+actually making request. Reason is, that use cases wherein we would use 
+asynchronous validation, is usually in an enterprise setting, and it's one
+team building it for the entire organization. I feel like the use case for 
+something like this so rare, albeit useful when the time arises. I want to 
+discuss it more conceptually, so you know when to use something like this.
 
-Howevever, how to include within our component would be the following: 
-\begin{lstlisting}
-
+So that being said, let's assume that we have a service that returns a
+finite observable. It makes a request and determines whether, or not the user
+email is already taken.
+\begin{lstlisting}{caption=user-signup.component.ts}
+ngOnInit() {
+  this.myForm = this.fb.group({
+    name: ['', Validators.required],
+    email: [
+      '',
+      [Validators.required, Validators.email],
+      ValidateEmailNotTaken.createValidator(this.signupService)
+    ]
+  });
+}
 \end{lstlisting}
 
-\section{ Performance Concern }
+Within our template, we would do the following: 
+\begin{lstlisting}[caption=user-signup.component.html]
+<form [formGroup]="myForm">
+<input type="text" formControlName="name">
+<input type="email" formControlName="email">
+
+<!-- Other related errors go here-->
+
+<div *ngIf="myForm.get('email').errors && myForm.get('email').errors.emailUnavailable">
+  This email is already taken. 
+</div>
+</form>  
+\end{lstlisting}
+
+\section{ Performance Concerns }
 All validators are run after every form value change. As in, when an input 
 value is changed, the validator will be run after every letter/number is added. 
 Sychronous validators, which are not dependent on the backend, generally do 
@@ -377,8 +401,18 @@ run on \lstinline{blur}, or \lstinline{submit} instead. So, let's say in our
 app, we want the http request to only be made if the user clicks off of the 
 input, we would do something like the following: 
 
-\begin{lstlisting}[caption=Reactive Forms Using Blur]
-new FormControl('', {updateOn: 'blur'});
+\begin{lstlisting}{caption=Update user-signup.component.ts}
+  ngOnInit() {
+  this.myForm = this.fb.group({
+    name: ['', Validators.required],
+    email: [
+      '',
+      [Validators.required, Validators.email],
+      ValidateEmailNotTaken.createValidator(this.signupService),
+      {updateOn: 'blur'}
+    ]
+  });
+}
 \end{lstlisting}
 
 \section{A Final Note on Form Validators}
