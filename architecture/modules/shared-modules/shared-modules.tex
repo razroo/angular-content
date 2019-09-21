@@ -116,9 +116,20 @@ Which will then call:
   /******/ ]);  
 \end{lstlisting}
 
-Webpack require takes something like less than a millisecond to perform. However, too many of them there 
-in your application, and this can add a 1ms here, or there. So from a performance perspective, shared 
-modules immediately jumps out as an architecture that might not be ideal. However, beyond that 
-from a maintainability perspective, modules can be difficult to know what exactly is contained 
-within. If they get too large, it can be a bit of a sink hole. 
+Webpack require takes something like less than a millisecond to perform. 
+However, too many of them there in your application, and this can add a 1ms
+here, or there. Shared modules can potentially cause the following issues: 
+\begin{enumerate}
+  \item Performance issues. Shared modules only work within the context of 
+services wherein one has the ability to use \lstinline{providedIn: root}. 
+However, for modules, they will be bundled regardless. So using shared 
+modules within your app, can cause bloat in your application when it is 
+not needed. 
+  \item Maintanability. Modules can be difficult to know what exactly is 
+  contained within. The only module that consistently get's used time and time
+  again, is \lstinline{CommonModules}. \lstinline{CommonModules} is used 
+  across all modules. However, if it's an arbitrary module, not used
+  consistently across the app, it will end up being confusing for all team
+  members. 
+\end{enumerate}
 

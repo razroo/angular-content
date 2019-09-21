@@ -21,11 +21,11 @@ Angular Validators here, without going into detail:
 
 I think for the most part, the above validators speak for themselves as to 
 what they do, with the exception of \lstinline{compose}. \lstinline{compose}
-will allow you to combine multiple validotors, and return an error map for 
+will allow you to combine multiple validators, and return an error map for 
 them. As you can see, the more popular errors, such as min, and max(for use
-with passwords/usernames) and emails, and patterns are what angulars internal 
+with passwords/usernames) and emails, and patterns are what Angular's internal 
 validators are there for. There is the ability to make custom validators, and 
-most likely any app you work on, us going to need it's own custom validatores,
+most likely any app you work on, us going to need it's own custom validators,
 but before we go ahead and do that, let's see how we can integrate this with
 out application. 
 
@@ -36,8 +36,7 @@ the following:
 \begin{lstlisting}
 ngOnInit() {
   this.newsletterForm = this.fb.group({
-    email: ['',
-      Validators.compose([Validators.required, Validators.email])
+    email: ['', [Validators.required, Validators.email]
     ],
   });
 
@@ -49,11 +48,13 @@ ngOnInit() {
 
 As we can see using the above we have added two native angular validators to
 our formControl field email. This is the process wherein we would add Angular 
-form validators to our application. 
+form validators to our application. It should be noted that in Angular, when 
+we want to use multiple validators, we place them in a sub-array, within the 
+array for the \lstinline{fb.group}.
 
 \section{Integrating Form Validators within HTML Template}
-If we would like to integrate our form validators within our app, so that we 
-click on the button and they get triggered, we would do the following: 
+If we would like to integrate our form validators within our app, so that when 
+we click on the button, they get triggered, we would do the following:
 
 \begin{lstlisting}[caption=Integrate Form Validation with HTML]
 <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
@@ -66,21 +67,18 @@ In the above, we are creating a way of displaying the error if it appears. It
 should only appear if a user has actually touched the email field. 
 
 \section{Custom Validators}
-As mentioned before, odds are that your application, being that it needs to 
-have some unique business case for it to actually make money, will also need 
-it's own set of custom validators. In order to create your own set of custom 
-validators, you would simply need your own function. That function would then 
-be hooked into the validators array. However, it is more efficient if we create
+As mentioned before, odds are your application, will also need it's own set of
+custom validators. Custom validators require their own function that returns 
+true, based on value pass through. That function is then be hooked into 
+the validators array. However, Razroo believes it is more scalable if we create
 a directive that can be used to automatically create validation for our form. 
-In addition, if we create separate function for the directive, it allows us
-to re-use the functionality for the directive without directly using the
-directive.
+In addition, if we create a separate function for the directive, it allows us to
+re-use the functionality for the directive without directly using the directive.
 
 \subsection{Creating Custom Directive Validator}
 Let's create a custom directive validator for numbers. We are using the NX 
-workspace. In addition, we are using the Razroo reccomended folder structure. 
+workspace. In addition, we are using the Razroo reccommended folder structure. 
 A custom directive validator, will go in the common folder for directives. 
-
 
 \subsubsection{Generate The Directive}
 \begin{verbatim}
@@ -95,7 +93,7 @@ mdkir number;
 \end{verbatim}
 
 So now let's navigate to our number folder:
-\begin{verbatim}
+\begin{verbatim} 
 cd number;  
 \end{verbatim}  
 
@@ -204,10 +202,10 @@ If you were to take a look at the documentation, it offers two approaches.
   \item Reactive Custom Validators 
 \end{enumerate}
 
-Razroo reccomends this approach for using directives, which is a bit contrary to our 
+Razroo reccommends this approach for using directives, which is a bit contrary to our 
 general suggestion of using Reactive Forms. It is our understanding, that reactive 
 forms are extremely valuable, because they group the form as one. Making it 
-easily accesible from the Typescript side of things. However, in this
+easily accessible from the Typescript side of things. However, in this
 particular aspect, of re-using custom validators, re-using functions as a utility 
 function, we feel makes the app more brittle than directives. Primarily, because 
 directives are more explicit. 
@@ -363,7 +361,7 @@ discuss it more conceptually, so you know when to use something like this.
 So that being said, let's assume that we have a service that returns a
 finite observable. It makes a request and determines whether, or not the user
 email is already taken.
-\begin{lstlisting}{caption=user-signup.component.ts}
+\begin{lstlisting}[caption=user-signup.component.ts]
 ngOnInit() {
   this.myForm = this.fb.group({
     name: ['', Validators.required],
@@ -384,7 +382,7 @@ Within our template, we would do the following:
 
 <!-- Other related errors go here-->
 
-<div *ngIf="myForm.get('email').errors && myForm.get('email').errors.emailUnavailable">
+<div *ngIf=" =myForm.get('email').errors && myForm.get('email').errors.emailUnavailable">
   This email is already taken. 
 </div>
 </form>  
@@ -401,8 +399,8 @@ run on \lstinline{blur}, or \lstinline{submit} instead. So, let's say in our
 app, we want the http request to only be made if the user clicks off of the 
 input, we would do something like the following: 
 
-\begin{lstlisting}{caption=Update user-signup.component.ts}
-  ngOnInit() {
+\begin{lstlisting}[caption=Updated user-signup.component.ts]
+ngOnInit() {
   this.myForm = this.fb.group({
     name: ['', Validators.required],
     email: [
