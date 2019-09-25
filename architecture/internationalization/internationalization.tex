@@ -1,11 +1,31 @@
+\chapter{ Internationalization and Localization}
 
-\chapter{ Internationalization }
+If not familiar with already, internationalization is the process of making sure
+your app can be used by a worldwide audience. Localization, not to be confused 
+with internatilization, is the process of changing app's text, to represent 
+locale of user.
 
 Internationalization is one of those things that is generally done farther down
-the life cycle of an app. "We would like a data table put on every page with
-specific data", she says. Only later on i nthe app will having it be
-translatable to French and Mandarin, something that we really want to integrate
-within the app.
+the life cycle of an app. This makes complete sense, as when building a product, 
+a team will generally want to build the infrastructure first, based on a 
+particular language. Then, it will want to make it so that the app can be based 
+on numerous different demographics. However, being aware of the following will 
+make internationalization more of a seamless process. 
+
+\section{General Concerns of Internationalization }
+
+\begin{enumerate}
+  \item What type of dates, numbers, perxentages and currencies do you want. 
+  \item Setting aside text in components, so can be swapped out to the 
+  appropriate language. 
+  \item Plural words are different in different languages. So it's important 
+  have something baked within the framework that does this. 
+  \item Alternate text based on scenario(e.g. if person in New York display 
+  such and such event, if person in San Francisco display message such and 
+  such.)
+\end{enumerate}
+
+\section{General Concerns of Localization }
 
 \section{ Architecting Internationalization }
 The reason why architecting internationalization can be something that is
