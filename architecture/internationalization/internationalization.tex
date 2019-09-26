@@ -26,6 +26,22 @@ make internationalization more of a seamless process.
 \end{enumerate}
 
 \section{General Concerns of Localization }
+\begin{enumerate}
+  \item Creating multiple language versions of app(will get to how that is done)
+  \item Extracting Localizable text(not sure exactly what that is).
+  \item Building and servimg an app for a given locale. 
+\end{enumerate}
+
+\section{Default Locale}
+Localization for years, well before Angular, have been using ids for the 
+applicaton to understand what the language should be. Angular, as well, has an
+extensive list of different languages within it's framework. 
+
+\mybox{Angular's internal framework uses the BCP47 norm. It's very important
+to note that if you plan on building on top of Angular's localization framework,
+that you use this as your standard within the framework.}
+
+Angular by default will use 
 
 \section{ Architecting Internationalization }
 The reason why architecting internationalization can be something that is
