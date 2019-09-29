@@ -73,8 +73,28 @@ Normalization, defined more recently, also have numeronym forms (c14n and n11n).
 
 There is no actual pipe actually called the "i18n" pipe. However, four pipes: 
 \begin{enumerate}
-  \item 
+  \item \lstinline{DatePipe}
+  \item \lstinline{CurrencyPipe}
+  \item \lstinline{DecimalPipe}
+  \item \lstinline{PercentPipe}
 \end{enumerate}
+
+Do use the \lstinline{i18n} internal logic, and will automatically modify 
+themselves based on the locale supplied within the app. As mentioned earlier,
+Angular will only by default import \lstinline{en-US}. If you want to use other
+languages within the app. 
+
+\subsection{Import Locale Data for Other Languages}
+If you would like to import data for other languages, import them locally 
+within your \lstinline{app.module.ts} file. 
+
+\begin{lstlisting}[caption=app.module.ts]
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+// the second parameter 'fr' is optional
+registerLocaleData(localeFr, 'fr');
+\end{lstlisting}
 
 \section{ Architecting Internationalization }
 The reason why architecting internationalization can be something that is
