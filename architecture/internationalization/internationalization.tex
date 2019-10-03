@@ -125,10 +125,30 @@ Angular compiler does it's magic.}
 Angular also offers the ability to add a description and a meaning to the
 \lstinline{i18n} tag. 
 \begin{lstlisting}[caption=i18n description]
-<h1 i18n="i18n tutorial text">i18n example</h1>
+<h1 i18n="i18n tutorial text for internationalization chapter">i18n example</h1>
 \end{lstlisting}
 
+We can also add a meaning to the \lstinline{i18n} tag, in additon, to our 
+already added description. The interface looks like this 
+\lstinline{<meaning | description>}.
 
+\begin{lstlisting}[caption=i18n \lstinline{<meaning | description>} Example]
+<h1 i18n="tutorial text|i18n tutorial text for internationalization chapter">i18n example</h1>
+\end{lstlisting}
+
+You might be wondering how offering a meaning and description will make a 
+difference with regards to the translation of the application. The Angular 
+extraction tool preserves both meaning and description in the translation 
+source file. When using only a meaning, or a description, the compiler will
+preserve the meaning, or description with the compiled text. 
+
+\subsubsection{Comibation of Meaning and Description}
+However, the combiation of meaning and description within your app, will produce 
+a specific id of a translation. With regards to the combination of meaning and 
+description, meaning is the main identifier in this process. Only if the meaning 
+is different, will the Angular compiler produce a different id. If, for instance, 
+the meaning is the same, but the description is different, the compiler will 
+still produce the same id. 
 
 \section{ Architecting Internationalization }
 The reason why architecting internationalization can be something that is
