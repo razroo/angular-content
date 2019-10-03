@@ -96,6 +96,40 @@ import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr, 'fr');
 \end{lstlisting}
 
+\section{ Understanding Translation Process }
+There are four steps to the Angular translation process: 
+\begin{enumerate}
+  \item It determines what is static text, so that it can be translated.
+  \item Uses the internal Angular CLI \lstinline{i18n} command to transfer over 
+  determined translatable text to an industry standard translation file. (Need 
+  more information as to what this looks like.)
+  \item Translates extracted text, into the target language. The dynamics of
+  how this works, is that it edits the already existing file, to the targeted 
+  language. 
+  \item It then merges the translated file into the app, by replacing the 
+  original untranslated text, with the new translated text. 
+\end{enumerate}
+
+\section{How to Make Content Translatable}
+You might be wondering how to make content translatable. Angular intenrally 
+allows for cotnent to be marked with the \lstinline{i18n} tag like such: 
+\begin{lstlisting}
+  <h1 i18n>i18n example</h1>
+\end{lstlisting}
+
+\mybox{It is important to note the i18n tag is not an Angular directive. It is 
+a custom tag recognized by the Angular compiler, and will be removed once the
+Angular compiler does it's magic.}
+
+\subsection{Add a Description and a Meaning}
+Angular also offers the ability to add a description and a meaning to the
+\lstinline{i18n} tag. 
+\begin{lstlisting}[caption=i18n description]
+<h1 i18n="i18n tutorial text">i18n example</h1>
+\end{lstlisting}
+
+
+
 \section{ Architecting Internationalization }
 The reason why architecting internationalization can be something that is
 something for us to keep in mind, is that it can have an affect on how we might
