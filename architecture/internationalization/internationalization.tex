@@ -150,6 +150,43 @@ is different, will the Angular compiler produce a different id. If, for instance
 the meaning is the same, but the description is different, the compiler will 
 still produce the same id. 
 
+\section{Set a Custom ID for Persistance and Maintenance}
+For each file that the Angular translator produces, it will by default attach 
+an id to that file as well. It will look something like the following: 
+\begin{lstlisting}[caption=example.fr.xlf.html]
+<trans-unit id="ba01234d3d68bf669f97b8d96a4c5d8d9559aa3" datatype="html">
+\end{lstlisting}
+
+When the text is changed, the extractor tool will generate new text. You 
+must then go ahead and manually change the id. \footnote{Not sure if this 
+means that the text must be manually updated, or if compiler will do that
+for you.} 
+
+\subsection{Setting up Custom ID}
+Angular will also allow you to set up a custom id for your translatable text:
+\begin{lstlisting}
+<h1 i18n="@@sampleText">i18n Sample</h1>
+\end{lstlisting}
+
+The custom id persists even when text changes. This allows for maintenance 
+and scalability. Perhaps even the ability to hook an id into a content 
+management system, and allow for an admin to control translation of different
+parts of the application. 
+
+\subsection{Using a Custom ID with a Description and/or Meaning}
+There is also the option within the app to use a custom id with the 
+description. 
+\begin{lstlisting}[caption=custom id with description]
+<h1 i18n="i18n tutorial text for internationalization chapter@@sampleText">i18n example</h1>
+\end{lstlisting}
+
+In addition, you can add meaning along with description to your custom id:
+\begin{lstlisting}[caption=custom id with meaning and description]
+<h1 i18n="tutorial text|i18n tutorial text for internationalization chapter@@sampleText">
+  i18n example
+</h1>
+\end{lstlisting}
+
 \section{ Architecting Internationalization }
 The reason why architecting internationalization can be something that is
 something for us to keep in mind, is that it can have an affect on how we might
