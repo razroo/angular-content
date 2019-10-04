@@ -187,6 +187,20 @@ In addition, you can add meaning along with description to your custom id:
 </h1>
 \end{lstlisting}
 
+\mybox{Make sure to use unique custom ids for translation. If two of the same
+ids are used for translation, Angular will only use the one which is meant to 
+be used within your app. }
+
+\section{Tips and Tricks}
+
+\subsection{Using ng-container with i18n}
+While something that might be obvious when thinking about it more, you can use 
+\lstinline{ng-container} to remove the requirement of having an html element 
+be created when translating text. E.g. 
+\begin{lstlisting}
+<ng-container i18n>Translate this into multiple languages</ng-container>
+\end{lstlisting}
+
 \section{ Architecting Internationalization }
 The reason why architecting internationalization can be something that is
 something for us to keep in mind, is that it can have an affect on how we might
