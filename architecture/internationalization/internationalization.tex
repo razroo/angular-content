@@ -191,6 +191,18 @@ In addition, you can add meaning along with description to your custom id:
 ids are used for translation, Angular will only use the one which is meant to 
 be used within your app. }
 
+\subsection{Translating attributes}
+Text can be contained inside of an attribute such as \lstinline{placeholder}, 
+or \lstinline{title}. Due to the dynamics of how the \lstinline{i18n} compiler 
+works, if you would like to translate the text within an attribute, you will 
+have to use the \lstinline{i18n} flavored attribute. It follows the syntax of 
+\lstinline{i18n-x} wherein \lstinline{x} is the name of the attribute you want
+to translate. 
+
+\begin{lstlisting}
+<img [src]="logo" i18n-title title="Razroo logo" />
+\end{lstlisting}
+
 \section{Tips and Tricks}
 
 \subsection{Using ng-container with i18n}
