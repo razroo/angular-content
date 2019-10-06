@@ -324,6 +324,58 @@ ng xi18n  --i18n-format=xlf2
 ng xi18n  --i18n-format=xmb  
 \end{verbatim}
 
+\subsubsection{Other Notable CLI options}
+The CLI also offers the ability to change the name of the translation source 
+file using the \lstinline{--outFile} command option
+\begin{verbatim}
+ng xi18n --out-file source.xlf  
+\end{verbatim}
+
+There is also the option to change the base locale of your app, from the 
+default \lstinline{US-EN} using the \lstinline{--i18n-locale} command option.
+\begin{verbatim}
+ng xi18n --i18n-locale fr
+\end{verbatim}
+
+\subsection{Translate the source text}
+As mentioned earlier, when we were trying to understand the process behind 
+creating a source file, we mentiiend that we will be creating translation 
+source files. We will then be going ahead and sending those translation 
+source files over to a translater. As standard practice Razroo reccomends
+a singular folder that can be used for the localization process. We do this 
+by using the \lstinline{output-path} option mentioned before:
+\begin{verbatim}
+ng xi18n --output-path src/locale  
+\end{verbatim}
+
+and the file that will be generated will be the \lstinline{messages.xlf} file:
+
+\begin{lstlisting}[caption=src/locale/messages.xlf]
+<trans-unit id="introductionHeader" datatype="html">
+  <source>Hello i18n!</source>
+  <note priority="1" from="description">An introduction header for this sample</note>
+  <note priority="1" from="meaning">User welcome</note>
+</trans-unit>
+\end{lstlisting}
+
+and now after translation, and creating the resepctive french file, it will 
+look something like the following: 
+
+\begin{lstlisting}[caption=src/locale/messages.fr.xlf(after translation)]
+<trans-unit id="introductionHeader" datatype="html">
+  <source>Hello i18n!</source>
+  <target>Bonjour i18n !</target>
+  <note priority="1" from="description">An introduction header for this sample</note>
+  <note priority="1" from="meaning">User welcome</note>
+</trans-unit>
+\end{lstlisting}
+
+In the above you will notice that we create a target equivalent XML tag. This
+is used by the framework internally to say what the source should be translated 
+over to. 
+
+\section{Translation Source File hat includes plural and select expressions}
+
 \section{Tips and Tricks}
 
 \subsection{Using ng-container with i18n}
