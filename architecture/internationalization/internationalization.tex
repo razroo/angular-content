@@ -260,6 +260,21 @@ other {{{minutes}} minutes ago by {gender, select, male {male} female {female} o
 As you can see in the above code, the other section, is combined with code for
 select. Absolutely wonderful. 
 
+\section{Translation Source File}
+First and foremost, before describing how to create a translation source file,
+let's discuss the purpose of a translation source file. The idea is, is that 
+we have tagged all files that we would like to translate, with the \lstinline{i18n} 
+attribute (which really isn't an attribute, and is more a compiler specific 
+indicator, but I digress). After the source file is created, we have an xml 
+specific file. It will look something like this: 
+\begin{lstlisting}[caption=src/locale/messages.xlf]
+<trans-unit id="introductionHeader" datatype="html">
+  <source>Hello i18n!</source>
+  <note priority="1" from="description">An introduction header for this sample</note>
+  <note priority="1" from="meaning">User welcome</note>
+</trans-unit>  
+\end{lstlisting}
+
 \section{Tips and Tricks}
 
 \subsection{Using ng-container with i18n}
