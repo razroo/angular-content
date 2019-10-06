@@ -261,6 +261,7 @@ As you can see in the above code, the other section, is combined with code for
 select. Absolutely wonderful. 
 
 \section{Translation Source File}
+\subsection{Understanding the Angular Translation Process}
 First and foremost, before describing how to create a translation source file,
 let's discuss the purpose of a translation source file. The idea is, is that 
 we have tagged all files that we would like to translate, with the \lstinline{i18n} 
@@ -272,8 +273,56 @@ specific file. It will look something like this:
   <source>Hello i18n!</source>
   <note priority="1" from="description">An introduction header for this sample</note>
   <note priority="1" from="meaning">User welcome</note>
-</trans-unit>  
+</trans-unit>
 \end{lstlisting}
+
+Now if we would like, for instance, to create a french equivalent file, we would 
+create a source file with the \lstinline{fr} suffix. 
+
+\begin{lstlisting}[caption=src/locale/messages.fr.xlf]
+<trans-unit id="introductionHeader" datatype="html">
+  <source>Hello i18n!</source>
+  <note priority="1" from="description">An introduction header for this sample</note>
+  <note priority="1" from="meaning">User welcome</note>
+</trans-unit>
+\end{lstlisting}
+
+\subsection{XLIFF Editor}
+This in an enterprise setting, the xlf file is usually sent over to a french
+translater, who will then convert the english inside of these french files, to
+french. They will use something called an XLIFF Editor, which stands for textit{XML 
+Localization Interchange File Format}. The xlf file suffix stands for 
+\textit{XML Localization Format}.
+
+\subsection{Create a Translation Source File}
+The Angular CLI has an internal mechanism for generating a translation source file.
+Simply open a terminal window at the root of the app project and run the 
+\lstinline{CLI} command \lstinline{xi18n}.
+\begin{verbatim}
+ng xi18n 
+\end{verbatim}
+
+Personally, I like to create files inside of the app's \lstinline{src/locale} 
+folder path. For that let's change the output path using the CLI: 
+\begin{verbatim}
+ng xi18n --output-path src/locale  
+\end{verbatim}
+
+\subsubsection{Generating Different Translation Formats}
+The Angular CLI also offers the ability to alter the format of the outputted 
+file. 
+\begin{enumerate}
+  \item XLIFF 1.2 (default)
+  \item XLIFF 2
+  \item XML Message Bundle (XMB)
+\end{enumerate}
+
+Respectively, that would be: 
+\begin{verbatim}
+ng xi18n  --i18n-format=xlf
+ng xi18n  --i18n-format=xlf2
+ng xi18n  --i18n-format=xmb  
+\end{verbatim}
 
 \section{Tips and Tricks}
 
