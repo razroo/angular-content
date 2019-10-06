@@ -203,6 +203,60 @@ to translate.
 <img [src]="logo" i18n-title title="Razroo logo" />
 \end{lstlisting}
 
+\section{ Regular Expressions - Pluralization | Selections }
+Different languages treat the plural form of a word different ways. Angular 
+offers a plural pipe out of the box. This is combination with \lstinline{i18n}
+allows for a very sophisticated method with regards to internatilization. 
+
+\begin{lstlisting}
+<span i18n>Updated {minutes, plural, =0 {just now} =1 {one minute ago} other {{{minutes}} minutes ago}}</span>
+\end{lstlisting}
+
+The plural pipe, allows for the specification of the following categories: 
+\begin{enumerate}
+\item =0(or any other number)  
+\item zero  
+\item one
+\item two
+\item few
+\item many
+\item other
+\end{enumerate}
+
+In the above code, we are specifying: 
+\begin{enumerate}
+\item Just now if the numbers of minutes is 0 
+\item "one minute ago" if the number of minutes is 1
+\item and for every other amount we are specifying "x minutes ago" 
+\end{enumerate}
+
+By tagging in the \lstinline{i18n} attribute into our span element, we are 
+translating the appropriate text based on the appropriate scenario. 
+
+\subsection{Alternative Text Messages}
+In addition to the scenario of plural text, another scenario to keep in mind, 
+is when we want to select a certain text based on the variable provided. 
+
+\begin{lstlisting}
+<span i18n>The author is {gender, select, male {male} female {female} other {other}}</span>  
+\end{lstlisting}
+
+In the above text, based on whether, or not the author is a female, or male, or 
+other, we will allow for a specific type of text to be displayed. In addition,
+being that we are supplying the \lstinline{i18n} pipe to our app, this text 
+will appropriately be changed to the correct text based on a certain localization.
+
+\subsection{Alternative + Plural Combined}
+There is also the option is combine plural and alternative text message capabilities 
+together. 
+\begin{lstlisting}
+<span i18n>Updated: {minutes, plural,
+=0 {just now}
+=1 {one minute ago}
+other {{{minutes}} minutes ago by {gender, select, male {male} female {female} other {other}}}}
+</span>
+\end{lstlisting}
+
 \section{Tips and Tricks}
 
 \subsection{Using ng-container with i18n}
