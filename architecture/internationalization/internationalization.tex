@@ -620,6 +620,51 @@ import { AppComponent } from '../src/app/app.component';
 export class AppModule { }  
 \end{lstlisting}
 
+\section{Know When a Translation is Missing}
+When a translation is missing the build will still succeed. However, it will 
+still generate an error. As to what level that is, that is something that you 
+can control. There are three levels: 
+\begin{enumerate}
+  \item Error - Throw an error. If AOT, build will fail. If JIT, app will fail 
+  to load. 
+  \item Warning - Shows a warning("Missing translation") in the console, or 
+  shell.
+  \item Ignore - Do nothing yo. 
+\end{enumerate}
+
+\subsection{Specify Warning in Practice}
+For the AOT Compiler we specify the warning in the actual
+\lstinline{angular.json} file. 
+\begin{lstlisting}[caption=angular.json]
+"configurations": {
+  ...
+  "fr": {
+    ...
+    "i18nMissingTranslation": "error"
+  }
+}  
+\end{lstlisting}
+
+Notice that in the above, the option for \lstinline{i18nMissingTranslation} is
+located within the key/value for \lstinline{fr}.
+
+For the JIT Compiler, the configuration is set within the \lstinline{main.ts}
+file: 
+\begin{lstlisting}[caption=src/main.ts]
+import { MissingTranslationStrategy } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
+// ...
+
+platformBrowserDynamic().bootstrapModule(AppModule, {
+  missingTranslation: MissingTranslationStrategy.Error,
+  providers: [
+    // ...
+  ]
+});
+\end{lstlisting}
+Notice the added \lstinline{missingTranslation: MissingTranslationStrategy.Error,}
+
 \section{Tips and Tricks}
 \subsection{Using ng-container with i18n}
 While something that might be obvious when thinking about it more, you can use 
@@ -628,17 +673,3 @@ be created when translating text. E.g.
 \begin{lstlisting}
 <ng-container i18n>Translate this into multiple languages</ng-container>
 \end{lstlisting}
-
-\section{ Architecting Internationalization }
-The reason why architecting internationalization can be something that is
-something for us to keep in mind, is that it can have an affect on how we might
-view the architecture of our application. A data table, for instance, is a great
-example. We might want to propose a rigid re-usable data-table. However, once
-we introduce internationalization, having data tables that are unique per each
-language will be important. Having a re-usable data table that takes care of
-information through passing in props can be cumbsersome.
-
-\section{ Smart and Dumb Components }
-Creating smart and dumb components, is your most valuable resource when it comes
-to internatilization. It will allow you to set up different components based on
-certain languages. 
