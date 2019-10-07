@@ -375,12 +375,86 @@ is used by the framework internally to say what the source should be translated
 over to. 
 
 \section{Translation Source File that includes plural and select expressions}
-The reason that plural and select experessions requires it's own section in 
-this chapter, is because the Angular translator will actually extract it into 
-different sections. If I may, I would like to show what I mean. 
+
+\subsection{Translating Plural}
+To translate a \lstinline{plural} we only translate the text related values. 
+
+\begin{lstlisting}[caption=src/locale/messages.fr.xlf]
+<trans-unit id="5a134dee893586d02bffc9611056b9cadf9abfad" datatype="html">
+  <source>{VAR_PLURAL, plural, =0 {just now} =1 {one minute ago} other {<x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes ago} }</source>
+  <target>{VAR_PLURAL, plural, =0 {à l'instant} =1 {il y a une minute} other {il y a <x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes} }</target>
+</trans-unit>  
+\end{lstlisting}
+
+\subsection{Translating Select}
+Similarly for select: 
+\begin{lstlisting}
+<span i18n>The author is {gender, select, male {male} female {female} other {other}}</span>  
+\end{lstlisting}
+
+The Angular extraction tool, will break the above into two separate parts: 
+\begin{lstlisting}[caption=src/locale/messages.fr.xlf]
+<trans-unit id="f99f34ac9bd4606345071bd813858dec29f3b7d1" datatype="html">
+  <source>The author is <x id="ICU" equiv-text="{gender, select, male {...} female {...} other {...}}"/></source>
+  <target>L'auteur est <x id="ICU" equiv-text="{gender, select, male {...} female {...} other {...}}"/></target>
+</trans-unit>  
+<trans-unit id="eff74b75ab7364b6fa888f1cbfae901aaaf02295" datatype="html">
+  <source>{VAR_SELECT, select, male {male} female {female} other {other} }</source>
+  <target>{VAR_SELECT, select, male {un homme} female {une femme} other {autre} }</target>
+</trans-unit>
+\end{lstlisting}
+
+The first \lstinline{<trans-unit>} will contain the text outside of 
+\lstinline{select}. The second \lstinline{<trans-unit>} will contain the text
+inside of the \lstinline{select} message. The reason that the extraction tool 
+will separate it into two separate sections, is because each expression unit is 
+separate. (For our \lstinline{plural} expression it was all on it's own. If it 
+had text ourside of the \lstinline{plural} expression, it would indeed be 
+separated into two parts)
+
+\subsection{Translating a Nested Experssion}
+So let's say that we have mixed and matched plural and select as follows: 
+\begin{lstlisting}
+<span i18n>Updated: {minutes, plural,
+=0 {just now}
+=1 {one minute ago}
+other {{{minutes}} minutes ago by {gender, select, male {male} female {female} other {other}}}}
+</span>
+\end{lstlisting}
+
+The result will be very similar to before. The extraction tool will separate 
+this into two different parts: 
+\begin{lstlisting}[caption=src/locale/messages.fr.xlf]
+<trans-unit id="972cb0cf3e442f7b1c00d7dab168ac08d6bdf20c" datatype="html">
+  <source>Updated: <x id="ICU" equiv-text="{minutes, plural, =0 {...} =1 {...} other {...}}"/></source>
+  <target>Mis à jour: <x id="ICU" equiv-text="{minutes, plural, =0 {...} =1 {...} other {...}}"/></target>
+</trans-unit>
+<trans-unit id="7151c2e67748b726f0864fc443861d45df21d706" datatype="html">
+  <source>{VAR_PLURAL, plural, =0 {just now} =1 {one minute ago} other {<x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes ago by {VAR_SELECT, select, male {male} female {female} other {other} }} }</source>
+  <target>{VAR_PLURAL, plural, =0 {à l'instant} =1 {il y a une minute} other {il y a <x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes par {VAR_SELECT, select, male {un homme} female {une femme} other {autre} }} }</target>
+</trans-unit>  
+\end{lstlisting}
+
+\section{Merge Translated Files I.E. How to Use With App}
+So now that we have our completed translated files, we will need to provide the
+Angular compiler with three pieces of information: 
+\begin{enumerate}
+  \item The translation file(e.g. \lstinline{messages.fr.xlf})
+  \item The translation file format(e.g. \lstinline{xlf})
+  \item The locale(e.g. \lstinline{fr})
+\end{enumerate}
+
+\subsection{JIT v. AOT}
+This all depends on how you are compiling your app. Just to re-iterate, there
+are two ways of doing this:
+\begin{enumerate}
+  \item JIT(Which compiles at run time)
+  \item AOT(Which compiles at build time)
+\end{enumerate}
+
+Depending on how you are running your app, this depends.
 
 \section{Tips and Tricks}
-
 \subsection{Using ng-container with i18n}
 While something that might be obvious when thinking about it more, you can use 
 \lstinline{ng-container} to remove the requirement of having an html element 
