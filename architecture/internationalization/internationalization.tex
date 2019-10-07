@@ -458,6 +458,100 @@ will need to specify configurations. If you are using JIT, you will have to
 specify providers with your app, so that it is aware of the translation 
 files.
 
+\subsection{Merge Files with AOT Compiler}
+With AOT there will be four configurations: 
+\begin{enumerate}
+  \item \lstinline{i18nFile}: the path to the translation file.
+  \item \lstinline{i18nFormat}: the format of the translation file.
+  \item \lstinline{i18nLocale}: the locale id.
+  \item \lstinline{outputPath}: folder to distribute build.
+\end{enumerate}
+
+That you will want to add to your \lstinline{angular.json} file.
+
+\subsection{Configuration for Development Environment}
+
+\begin{lstlisting}[caption=angular.json]
+"build": {
+  ...
+  "configurations": {
+    ...
+    "fr": {
+      "aot": true,
+      "outputPath": "dist/my-project-fr/",
+      "i18nFile": "src/locale/messages.fr.xlf",
+      "i18nFormat": "xlf",
+      "i18nLocale": "fr",
+      ...
+    }
+  }
+},
+"serve": {
+  ...
+  "configurations": {
+    ...
+    "fr": {
+      "browserTarget": "*project-name*:build:fr"
+    }
+  }
+}  
+\end{lstlisting}
+
+You can pass configuration to the \lstinline{ng-serve}, or \lstinline{ng-build}
+commans by doing the following: 
+\begin{verbatim}
+ng serve --configuration=fr
+\end{verbatim}
+
+\subsection{Configuration for Production Environment}
+For prod, we specify a separate \lstinline{production-fr} build configuration 
+in the CLI configuration file: 
+\begin{lstlisting}[caption=angular.json]
+...
+"architect": {
+  "build": {
+    "builder": "@angular-devkit/build-angular:browser",
+    "options": { ... },
+    "configurations": {
+      "fr": {
+        "aot": true,
+        "outputPath": "dist/my-project-fr/",
+        "i18nFile": "src/locale/messages.fr.xlf",
+        "i18nFormat": "xlf",
+        "i18nLocale": "fr",
+        "i18nMissingTranslation": "error",
+      }
+    }
+  },
+  ...
+  "serve": {
+    "builder": "@angular-devkit/build-angular:dev-server",
+    "options": {
+      "browserTarget": "my-project:build"
+    },
+    "configurations": {
+      "production": {
+        "browserTarget": "my-project:build:production"
+      },
+      "fr": {
+        "browserTarget": "my-project:build:fr"
+      }
+    }
+  }
+}  
+\end{lstlisting}
+
+\subsection{Merge Files with JIT Compiler}
+JIT is an entirely different beast than working with AOT. 
+In truth, I prefer AOT because it is much more straightforward. I was debating 
+in this chapter at all to mention configurations for JIT. However, as I have 
+been in a similar scenario, there will be an app that will be built out with 
+JIT, and moving over to AOT, immediately is something which will be very 
+difficult, and might prevent the app from being able to move forward. For that
+reason, I am jotting down configurations for JIT as well. However, Razroo 
+reccomended architecture, is that your app uses \lstinline{AOT} exclusively 
+from the beginning. 
+
 \section{Tips and Tricks}
 \subsection{Using ng-container with i18n}
 While something that might be obvious when thinking about it more, you can use 
