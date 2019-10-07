@@ -543,14 +543,82 @@ in the CLI configuration file:
 
 \subsection{Merge Files with JIT Compiler}
 JIT is an entirely different beast than working with AOT. 
-In truth, I prefer AOT because it is much more straightforward. I was debating 
+
+\mybox{In truth, I prefer AOT because it is much more straightforward. I was debating 
 in this chapter at all to mention configurations for JIT. However, as I have 
 been in a similar scenario, there will be an app that will be built out with 
 JIT, and moving over to AOT, immediately is something which will be very 
 difficult, and might prevent the app from being able to move forward. For that
 reason, I am jotting down configurations for JIT as well. However, Razroo 
 reccomended architecture, is that your app uses \lstinline{AOT} exclusively 
-from the beginning. 
+from the beginning.}
+
+\subsubsection{ Knowledge of Three Things }
+The JIT compiler requires the knowledge of three things to support translation: 
+\begin{enumerate}
+  \item Import lanugage translation file as a string constant
+  \item Create corresponding translation provider
+  \item Bootstrap app with aforementioned providers
+\end{enumerate}
+
+\subsubsection{ Three Providers To Be Aware Of }
+There are three providers within an Angular JIT translation setting to be aware 
+of:
+\begin{enumerate}
+  \item \lstinline{TRANSLATIONS} - String containing content of translation file.
+  \item \lstinline{TRANSLATIONS_FORMAT} - Format of file i.e. \lstinline{xlf, xlf2, or xtb}
+  \item \lstinline{LOCALE_ID} - locale of the target language
+\end{enumerate}
+
+\subsection{Merge Files with JIT Compiler In practice}
+Let's take a look at how this might work in practice. 
+
+First and foremost, in our main.ts let's provide:
+\begin{enumerate}
+  \item \lstinline{TRANSLATIONS} (We will be using the webpack raw-loader to
+  return the content as a string)
+  \item \lstinline{TRANSLATIONS_FORMAT}
+\end{enumerate}
+
+\begin{lstlisting}[caption=src/main.ts]
+import { enableProdMode, TRANSLATIONS, TRANSLATIONS_FORMAT } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
+}
+
+// use the require method provided by webpack
+declare const require;
+// we use the webpack raw-loader to return the content as a string
+const translations = require('raw-loader!./locale/messages.fr.xlf').default;
+
+platformBrowserDynamic().bootstrapModule(AppModule, {
+  providers: [
+    {provide: TRANSLATIONS, useValue: translations},
+    {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'}
+  ]
+});  
+\end{lstlisting}
+
+Next, let's provide the \lstinline{LOCALED_ID} in our main module: 
+\begin{lstlisting}[caption=app.module.ts]
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from '../src/app/app.component';
+
+@NgModule({
+  imports: [ BrowserModule ],
+  declarations: [ AppComponent ],
+  providers: [ { provide: LOCALE_ID, useValue: 'fr' } ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule { }  
+\end{lstlisting}
 
 \section{Tips and Tricks}
 \subsection{Using ng-container with i18n}
