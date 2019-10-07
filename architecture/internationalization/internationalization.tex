@@ -444,15 +444,19 @@ Angular compiler with three pieces of information:
   \item The locale(e.g. \lstinline{fr})
 \end{enumerate}
 
-\subsection{JIT v. AOT}
+\subsection{AOT v. JIT}
 This all depends on how you are compiling your app. Just to re-iterate, there
 are two ways of doing this:
 \begin{enumerate}
-  \item JIT(Which compiles at run time)
   \item AOT(Which compiles at build time)
+  \item JIT(Which compiles at run time)
 \end{enumerate}
 
-Depending on how you are running your app, this depends.
+Depending on how you are running your app, this depends. If you are running 
+using AOT, then being that the compilation is being done at build time, you 
+will need to specify configurations. If you are using JIT, you will have to 
+specify providers with your app, so that it is aware of the translation 
+files.
 
 \section{Tips and Tricks}
 \subsection{Using ng-container with i18n}
