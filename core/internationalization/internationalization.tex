@@ -9,50 +9,52 @@ Internationalization is one of those things that is generally done farther down
 the life cycle of an app. This makes complete sense, as when building a product, 
 a team will generally want to build the infrastructure first, based on a 
 particular language. Then, it will want to make it so that the app can be based 
-on numerous different demographics. However, being aware of the following will 
-make internationalization more of a seamless process. 
+on numerous different demographics. However, being aware of the following ahead 
+of time will make internationalization more of a seamless process. This chapter 
+goes through the entire process of internalization and localization.
 
 \section{General Concerns of Internationalization }
 
 \begin{enumerate}
-  \item What type of dates, numbers, perxentages and currencies do you want. 
-  \item Setting aside text in components, so can be swapped out to the 
+  \item What type of dates, numbers, percentages and currencies should the user
+  get.
+  \item Setting aside text in components, so they can be swapped out to the 
   appropriate language. 
-  \item Plural words are different in different languages. So it's important 
-  have something baked within the framework that does this. 
+  \item Plural words are different in different languages. It's important 
+  to have something baked within the framework that does this. 
   \item Alternate text based on scenario(e.g. if person in New York display 
   such and such event, if person in San Francisco display message such and 
   such.)
 \end{enumerate}
 
 \section{General Concerns of Localization }
+There are three concerns with regards to localization: 
 \begin{enumerate}
   \item Creating multiple language versions of app(will get to how that is done)
-  \item Extracting Localizable text(not sure exactly what that is).
+  \item Extracting Localizable text(We will get to this, but in short create 
+  an enterprise grade source file, that only deals with the text to be
+  translated)
   \item Building and servimg an app for a given locale. 
 \end{enumerate}
 
 \section{Default Locale}
-Localization for years, well before Angular, have been using ids for the 
-applicaton to understand what the language should be. Angular, as well, has an
-extensive list of different languages within it's framework. 
-
-\mybox{Angular's internal framework uses the BCP47 norm. It's very important
+Angular's internal framework uses the BCP47 norm. It's very important
 to note that if you plan on building on top of Angular's localization framework,
 that you use this as your standard within the framework. Specifications for BCP47 
 change over time. However, this might not make a difference within your 
-application, as this only happens to subset. }
+application, as this only happens to subset.
 
-Angular by default will use \lstinline{en-us} thereby once again solidifying 
-the United States as the dominating world power. 
+Angular by default will use \lstinline{en-us}. Therefore the default locale is
+American English. 
 
 \section{i18n pipes}
 Angular includes within the framework, the ability to use something called i18n 
 pipes. i18n is an abbreviation of word "internationalization". It's perhaps the 
 world's most clever abbreviation standing for "i plus eighteen letters, plus the 
-letter n". 
+letter n". I thought I'd share a little bit of the interesting history behind 
+\lstinline{i18n}. 
 
-\mybox{A DEC employee named Jan Scherpenhuizen was given an email account of 
+\mybox{"A DEC employee named Jan Scherpenhuizen was given an email account of 
 S12n by a system administrator, since his name was too long to be an account 
 name. This approach to abbreviating long names was intended to be humorous and
 became generalized at DEC. The convention was applied to "internationalization"
@@ -66,8 +68,11 @@ American Electronic Association, 1992.
 The extension of this naming convention to the terms Localization (l10n), 
 Europeanization (e13n), Japanization (j10n), Globalization (g11n), seemed to 
 come somewhat after the invention of "i18n". The terms Canonicalization and 
-Normalization, defined more recently, also have numeronym forms (c14n and n11n).
+Normalization, defined more recently, also have numeronym forms (c14n and n11n)."
+\footnote{http://www.i18nguy.com/origini18n.html}Starfish1@
+
 }
+
 
 (Graphic goes here for internationalization)
 
