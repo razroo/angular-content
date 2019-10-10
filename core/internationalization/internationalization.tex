@@ -74,7 +74,8 @@ Normalization, defined more recently, also have numeronym forms (c14n and n11n).
 
 (Graphic goes here for internationalization)
 
-There is no actual pipe actually called the "i18n" pipe. However, four pipes: 
+There is no actual pipe actually called the "i18n" pipe. However, these four 
+pipes: 
 \begin{enumerate}
   \item \lstinline{DatePipe}
   \item \lstinline{CurrencyPipe}
@@ -82,7 +83,7 @@ There is no actual pipe actually called the "i18n" pipe. However, four pipes:
   \item \lstinline{PercentPipe}
 \end{enumerate}
 
-Do use the \lstinline{i18n} internal logic, and will automatically modify 
+do use the \lstinline{i18n} internal logic, and will automatically modify 
 themselves based on the locale supplied within the app. As mentioned earlier,
 Angular will only by default import \lstinline{en-US}. If you want to use other
 languages within the app. 
@@ -100,9 +101,12 @@ registerLocaleData(localeFr, 'fr');
 \end{lstlisting}
 
 \section{ Understanding Translation Process }
-There are four steps to the Angular translation process: 
+The Angular translation process definitely seems foreign, and even after going 
+through it a couple of times, it can be difficult to grasp the whole picture. 
+So, I just want to re-iterate four step process to Angular Translation here: 
 \begin{enumerate}
-  \item It determines what is static text, so that it can be translated.
+  \item It determines what is static text(as opposed to dynamic text retreived back
+  from the backend), so that it can be translated.
   \item Uses the internal Angular CLI \lstinline{i18n} command to transfer over 
   determined translatable text to an industry standard translation file. (Need 
   more information as to what this looks like.)
@@ -114,8 +118,8 @@ There are four steps to the Angular translation process:
 \end{enumerate}
 
 \section{How to Make Content Translatable}
-You might be wondering how to make content translatable. Angular intenrally 
-allows for cotnent to be marked with the \lstinline{i18n} tag like such: 
+You might be wondering how to make content translatable. Angular internally 
+allows for content to be marked with the \lstinline{i18n} tag like such: 
 \begin{lstlisting}
   <h1 i18n>i18n example</h1>
 \end{lstlisting}
@@ -142,11 +146,13 @@ already added description. The interface looks like this
 You might be wondering how offering a meaning and description will make a 
 difference with regards to the translation of the application. The Angular 
 extraction tool preserves both meaning and description in the translation 
-source file. When using only a meaning, or a description, the compiler will
-preserve the meaning, or description with the compiled text. 
+source file. The translater, then translating the source file, can use 
+the meaning and description to properly determine how file should be 
+translated. (Likewise, when using only a meaning, or a description, the 
+compiler will preserve the meaning, or description with the compiled text.)
 
-\subsubsection{Comibation of Meaning and Description}
-However, the combiation of meaning and description within your app, will produce 
+\subsubsection{Combination of Meaning and Description}
+However, the combination of meaning and description within your app, will produce 
 a specific id of a translation. With regards to the combination of meaning and 
 description, meaning is the main identifier in this process. Only if the meaning 
 is different, will the Angular compiler produce a different id. If, for instance, 
