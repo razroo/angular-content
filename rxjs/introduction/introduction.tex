@@ -1,9 +1,58 @@
 \chapter{ Introduction to Rxjs }
-\mybox{ Rxjs is }
 
+\section{ What is Reactive Programming}
+
+Rxjs is a library based on the concept of Reactive programming. To re-iterate 
+what we mentioned in the chapter on ngrx. A great founding paper discussing 
+reactive programming for concurrent programming can be found here. 
+\footnote{http://www-sop.inria.fr/members/Gerard.Berry/Papers/Berry-IFIP-89.pdf}
+
+It discusses the benefit of Real Time Progamming a.k.a., reactive programming.
+In it, it discusses the two main benefits of Reactive Programming:
+\begin{enumerate}
+  \item Asynchronous
+  \item Detemrinistic
+\end{enumerate}
+
+That would be reactive programming in a nutshell. It makes sure, that one 
+function happens after another. In addition, by it's definition of being 
+a set of pre-made functions, it gives stability around the way we are 
+transforming our data in Angular. However, really the most important part 
+about Rxjs, still goes to Andre Staltz: 
+
+\begin{quote}
+  \say{Reactive Programming raises the level of abstraction of your code so you
+   can focus on the interdependence of events that define the business logic...”.}
+\end{quote} 
+\footnote{This quote can be found in his excellent article on why you should 
+consider adopting Reactive programming principles in your app 
+https://gist.github.com/staltz/868e7e9bc2a7b8c1f754\#why-should-i-consider-adopting-rp}
+
+The next question becomes how Reactive programming accomplishes the above. I 
+could put a diagram here and explain what it does in detail, but for the sake 
+of brevity, I am just going to jump into Rxjs code. But first, let's talk 
+about the importance of Rxjs in Angular!
+
+\section{Rxjs's Importance in Angular }
 Rxjs has a pretty big place in Angular. I would say that in your average app, 
 I would consider it as one of the big three, alongside Typescript, and Ngrx. 
 Even though these are independent libaries, when working on enterprise Angular
 applications, I personally come across them on a day to day basis. So, while 
 they are independent entities to Angular, I very much so consider them as part 
 of the Angular framework. 
+
+\section{The Rxjs Observable}
+The core of Rxjs, is the ability to program reactively using observables. Rxjs 
+offers the ability to create observables, as well as manipulate them. Assuming 
+we were using Apollo client to retrieve data from our GraphQL requests, rxjs 
+gives us the ability to transfer data we have retrieved into an observable: 
+\begin{lstlisting}
+import { from } from 'rxjs';
+
+// Create an Observable out of a promise
+const data = from(fetch('/api/endpoint'));
+// Subscribe to begin listening for async result
+data.subscribe((data) => {
+  console.log(data);
+});  
+\end{lstlisting}
