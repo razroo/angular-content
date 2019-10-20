@@ -51,7 +51,7 @@ an observabe:
   \item counter
   \item event
   \item AJAX request
-\begin{enumerate}
+\end{enumerate}
 
 \subsection{ Promise }
 Assuming we were using Apollo client to retrieve data from our GraphQL 
@@ -77,3 +77,46 @@ available as an observable. In addition, being that other parts of our
 application is using observables, then being able to have them all follow 
 the same logic, is beneficial to our application. 
 
+\subsection{Counter}
+\begin{lstlisting}
+import { interval } from 'rxjs';
+
+// Create an Observable that will publish a value on an interval
+const secondsCounter = interval(1000);
+// Subscribe to begin publishing values
+secondsCounter.subscribe(n =>
+  console.log(`It's been ${n} seconds since subscribing!`));
+\end{lstlisting}
+
+\subsection{Event}
+
+\begin{lstlisting}
+import { fromEvent } from 'rxjs';
+
+const el = document.getElementById('my-element');
+
+// Create an Observable that will publish mouse movements
+const mouseMoves = fromEvent(el, 'mousemove');
+
+// Subscribe to start listening for mouse-move events
+const subscription = mouseMoves.subscribe((evt: MouseEvent) => {
+  // Log coords of mouse movements
+  console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
+
+  // When the mouse is over the upper-left of the screen,
+  // unsubscribe to stop listening for mouse movements
+  if (evt.clientX < 40 && evt.clientY < 40) {
+    subscription.unsubscribe();
+  }
+});
+\end{lstlisting}
+
+\subsection{AJAX Request}
+\begin{lstlisting}
+import { ajax } from 'rxjs/ajax';
+
+// Create an Observable that will create an AJAX request
+const apiData = ajax('/api/data');
+// Subscribe to create the request
+apiData.subscribe(res => console.log(res.status, res.response));
+\end{lstlisting}
