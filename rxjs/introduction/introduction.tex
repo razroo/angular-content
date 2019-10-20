@@ -33,7 +33,7 @@ could put a diagram here and explain what it does in detail, but for the sake
 of brevity, I am just going to jump into Rxjs code. But first, let's talk 
 about the importance of Rxjs in Angular!
 
-\section{Rxjs's Importance in Angular }
+\section{ Rxjs's Importance in Angular }
 Rxjs has a pretty big place in Angular. I would say that in your average app, 
 I would consider it as one of the big three, alongside Typescript, and Ngrx. 
 Even though these are independent libaries, when working on enterprise Angular
@@ -41,11 +41,22 @@ applications, I personally come across them on a day to day basis. So, while
 they are independent entities to Angular, I very much so consider them as part 
 of the Angular framework. 
 
-\section{The Rxjs Observable}
+\section{ The Rxjs Observable }
 The core of Rxjs, is the ability to program reactively using observables. Rxjs 
-offers the ability to create observables, as well as manipulate them. Assuming 
-we were using Apollo client to retrieve data from our GraphQL requests, rxjs 
-gives us the ability to transfer data we have retrieved into an observable: 
+offers the ability to create observables, as well as manipulate them. In 
+particular, there are five scenarios to keep in mind, when it comes to creating
+an observabe: 
+\begin{enumerate}
+  \item promise
+  \item counter
+  \item event
+  \item AJAX request
+\begin{enumerate}
+
+\subsection{ Promise }
+Assuming we were using Apollo client to retrieve data from our GraphQL 
+requests, rxjs gives us the ability to transfer data we have retrieved into an
+observable: 
 \begin{lstlisting}
 import { from } from 'rxjs';
 
@@ -56,3 +67,13 @@ data.subscribe((data) => {
   console.log(data);
 });  
 \end{lstlisting}
+
+In the above we are using \lstinline{from}, to convert the data we have into a 
+an observable. This way, it can be accessed using subscribe. You might be 
+wondering what may be the benefit of using an observable over JSON data and 
+a promise in this scenario. Well, the benefit would be that if we do plan on 
+mutating this data in the near future, then it will be beneficial to have data
+available as an observable. In addition, being that other parts of our 
+application is using observables, then being able to have them all follow 
+the same logic, is beneficial to our application. 
+
