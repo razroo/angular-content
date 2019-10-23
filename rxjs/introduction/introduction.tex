@@ -120,3 +120,35 @@ const apiData = ajax('/api/data');
 // Subscribe to create the request
 apiData.subscribe(res => console.log(res.status, res.response));
 \end{lstlisting}
+
+\section{Operators}
+
+Once an observable has been created, Rxjs provides operators to manipulate 
+the data contained within an obserable. The following is a great example. Let's
+say that we have an observable. In this observable, we have data for user 
+settings. Specifically, there are settings for currency preferences that we 
+would like. Within our official schema, it looks something like this: 
+\begin{lstlisting}
+{
+  settings {
+    currency: {
+      ...
+    }
+  }
+}  
+\end{lstlisting}
+
+We would like to make sure that when we subscribe to our data store 
+across the application, we would pull in a specific subset of data. We can map 
+our data within our \lstinline{ngrx/store} data selector. 
+
+\begin{lstlisting}[caption=settings.selector.ts]
+const getPostsCollection = createSelector(
+  getAllPostEntities,
+  getAllPostIds,
+  (entities: any, ids: any) => ids.map(id => entities[id])
+);
+\end{lstlisting}
+
+Without having to specify what data that is every time, we can map our data 
+to a specific data field. 
