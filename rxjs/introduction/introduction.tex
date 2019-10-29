@@ -270,4 +270,54 @@ Note the final next, which is logged from both subscribers, whereas the 2nd next
 having only one subscriber instantiated, only logs one amount.
 
 \subsection{BehaviorSubject}
+\lstinline{BehaviorSubject} As opposed to a subject, allows you to supply an 
+initial value. It can be useful when using something such as a re-usable 
+component, and want to supply an initial value, or unit testing, and want 
+to circumvent the extra code need to use next. 
+\begin{lstlisting}
+// RxJS v6+
+import { BehaviorSubject } from 'rxjs';
 
+const subject = new BehaviorSubject(123);
+
+// two new subscribers will get initial value => output: 123, 123
+subject.subscribe(console.log);
+subject.subscribe(console.log);
+
+// two subscribers will get new value => output: 456, 456
+subject.next(456);
+
+// new subscriber will get latest value (456) => output: 456
+subject.subscribe(console.log);
+
+// all three subscribers will get new value => output: 789, 789, 789
+subject.next(789);
+
+// output: 123, 123, 456, 456, 456, 789, 789, 789  
+\end{lstlisting}
+
+\subsection{ReplaySubject}
+\lstinline{ReplaySubject}, in addition to allowing an initial value, will also 
+store the old values. 
+\begin{lstlisting}
+// RxJS v6+
+import { ReplaySubject } from 'rxjs';
+
+const sub = new ReplaySubject(3);
+
+sub.next(1);
+sub.next(2);
+sub.subscribe(console.log); // OUTPUT => 1,2
+sub.next(3); // OUTPUT => 3
+sub.next(4); // OUTPUT => 4
+sub.subscribe(console.log); // OUTPUT => 2,3,4 (log of last 3 values from new subscriber)
+sub.next(5); // OUTPUT => 5,5 (log from both subscribers)  
+\end{lstlisting}
+
+In the above code, we have given our \lstinline{ReplaySubject} a buffer size of
+3. Therefore, every next we have, before instantiating another subscribe, will 
+introduce buffer size of 3. This can be useful for instance, when we are using something 
+such as a timeline, or a table of contents, need to access to an observable, and want to 
+keep track of all previous selections of user. 
+
+\section{Naming Conventions for Observables}
