@@ -206,6 +206,7 @@ verson 5.)
 Ironically, what this did is start to create transparency around what would be 
 considered a common operator. The Rxjs then went ahead and started creating 
 what would be considered common operators. The following are common operators
+listed by the Angular documentation:
   
 \begin{center}
   \begin{tabular}{@{} l *4c @{}}
@@ -224,3 +225,49 @@ what would be considered common operators. The following are common operators
   Multicasting & \texttt{share}\tabularnewline
   \end{tabular}
 \end{center}  
+
+We will get into these at a very high level at a later time within this book. 
+It's important to have this table in mind, so that you know the rxjs operators 
+to keep in mind. 
+
+\section{Subjects}
+It's also a worth noting the use of subjects within rxjs, as they get used
+quite often. A subject in addition to being an observable, is also an observer. 
+This means that we can use next to add a value to an observable. Depending on 
+type of subject, this relationship will change. Three subjects come up quite 
+common, and are worth mentioning simply to keep them in mind. 
+
+Before we get to the different types of subjects, let's first lighly graze 
+what an observer is(,in addition to the observable which we are already 
+familiar with). An observer is simply a set of callback function attached 
+to an observable: 
+\begin{verbatim}
+const observer = {
+  next: x => console.log('Observer got a next value: ' + x),
+  error: err => console.error('Observer got an error: ' + err),
+  complete: () => console.log('Observer got a complete notification'),
+};  
+\end{verbatim}
+
+Based on the type of callback called, that is the value the observable will 
+have. With this is mind: 
+
+\begin{lstlisting}[caption=using next on our subject]
+// RxJS v6+
+import { Subject } from 'rxjs';
+
+const sub = new Subject();
+
+sub.next(1);
+sub.subscribe(console.log);
+sub.next(2); // OUTPUT => 2
+sub.subscribe(console.log);
+sub.next(3); // OUTPUT => 3,3 (logged from both subscribers)
+\end{lstlisting}
+
+In the above code, calling next will call all previous instantiated observables. 
+Note the final next, which is logged from both subscribers, whereas the 2nd next, 
+having only one subscriber instantiated, only logs one amount.
+
+\subsection{BehaviorSubject}
+
