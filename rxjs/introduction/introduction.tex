@@ -123,6 +123,7 @@ apiData.subscribe(res => console.log(res.status, res.response));
 
 \section{Operators}
 
+\subsection{Sophisticated Manipulation}
 Once an observable has been created, Rxjs provides operators to manipulate 
 the data contained within an obserable. The following is a great example. Let's
 say that we have an observable. In this observable, we have data for user 
@@ -151,4 +152,7 @@ const getPostsCollection = createSelector(
 \end{lstlisting}
 
 Without having to specify what data that is every time, we can map our data 
-to a specific data field. 
+to a specific data field. Here we are using the \lstinline{ngrx/entity} 
+library, as well as the \lstinline{map} method to create a collection of 
+entities. Very sophisticated, and allows us to pull in all the data we need
+within the observable.
