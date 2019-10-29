@@ -156,3 +156,71 @@ to a specific data field. Here we are using the \lstinline{ngrx/entity}
 library, as well as the \lstinline{map} method to create a collection of 
 entities. Very sophisticated, and allows us to pull in all the data we need
 within the observable.
+
+\subsection{Link Operators Together}
+Rxjs offers the ability to link operators together. For instance, let's say 
+within our entity we wanted to filter out all posts that have a wordCount 
+that is greater than 2000. I know it seems like it's a weird key/value to have 
+in an api, but just work with me here, ok?! Cool. Alright here we go: 
+\begin{lstlisting}
+import { filter, map } from 'rxjs/operators';
+
+const nums = of(1, 2, 3, 4, 5);
+
+// Create a function that accepts an Observable.
+const squareOddVals = pipe(
+  filter((n: number) => n % 2 !== 0),
+  map(n => n * n)
+);
+
+// Create an Observable that will run the filter and map functions
+const squareOdd = squareOddVals(nums);
+
+// Subscribe to run the combined functions
+squareOdd.subscribe(x => console.log(x));  
+\end{lstlisting}
+
+\mybox{You might be wondering why rxjs called this a pipe?! Well if not 
+familiar with already, the concept of a pipe originally comes form Unix. 
+It is the ability to pass information from one process to another. For 
+instance, if using a the terminal in Unix, something such as the following
+ps aux | grep root | pbcopy; would display all processes, grep specifically 
+for those tied to root, and then copy that to the clipboard.}
+
+\subsection{No subscribe, No describe}
+In case you didn't get that one, it's unit testing joke. But for real, if you 
+do not call a subscribe on your pipe, it will never be called. Consider the 
+pipe as the function(which under the hood it is), and subscribe effectively
+calling the pipe. So, don't forget to call the subscribe. 
+
+\subsection{Common Operators}
+One of the biggest complaints that many have about Rxjs, is that it's an 
+overly bloated library. A while back, a man by the name of Andre Saltz who is
+very so responsible for popularizing observables within Javascript, created a 
+library called XStream, to focus just on the operators one needs to use on a 
+day to day basis. Primarily, because some people were complaining of the vast 
+amount of operators they happened to learn. (One can perhaps complain on the 
+bloat that the rxjs library adds, however, rxjs introduced tree shaking in 
+verson 5.)
+
+Ironically, what this did is start to create transparency around what would be 
+considered a common operator. The Rxjs then went ahead and started creating 
+what would be considered common operators. The following are common operators
+  
+\begin{center}
+  \begin{tabular}{@{} l *4c @{}}
+    \toprule
+    {\color{red}Area} & Operators \\
+    \midrule
+    Creation & \texttt{from},\texttt{fromEvent}, \texttt{of}\tabularnewline
+    Combination & \texttt{combineLatest}, \texttt{concat}, \texttt{merge},
+  \texttt{startWith} , \texttt{withLatestFrom},
+  \texttt{zip}\tabularnewline
+  Filtering & \texttt{debounceTime}, \texttt{distinctUntilChanged},
+  \texttt{filter}, \texttt{take}, \texttt{takeUntil}\tabularnewline
+  Transformation & \texttt{bufferTime}, \texttt{concatMap}, \texttt{map},
+  \texttt{mergeMap}, \texttt{scan}, \texttt{switchMap}\tabularnewline
+  Utility & \texttt{tap}\tabularnewline
+  Multicasting & \texttt{share}\tabularnewline
+  \end{tabular}
+\end{center}  
