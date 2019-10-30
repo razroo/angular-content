@@ -321,3 +321,53 @@ such as a timeline, or a table of contents, need to access to an observable, and
 keep track of all previous selections of user. 
 
 \section{Naming Conventions for Observables}
+Hands down, my favorite naming convention in an Angular application is the use of a 
+dollar sign \lstinline{$} as an indicator of an observable. Observables started 
+becoming popular before the use of Typescript. While Typescript/rxjs does have 
+the type annotation of \lstinline{<Observable>} to indicate an observable, I still
+approve of the trailing \lstinline{$} to indicate an observable. 
+
+\begin{lstlisting}[caption=Observable Naming Convention]
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-stopwatch',
+  templateUrl: './stopwatch.component.html'
+})
+export class StopwatchComponent {
+
+  stopwatchValue: number;
+  stopwatchValue$: Observable<number>;
+
+  start() {
+    this.stopwatchValue$.subscribe(num =>
+      this.stopwatchValue = num
+    );
+  }
+}  
+\end{lstlisting}
+
+\subsection{Why Dollar sign was chosen as a convention}
+You will notice in the above code, for the Observable 
+\lstinline{stopwatchValue$}, we add a \lstinline{$} to the end. This is to 
+signify that this value is a stream. In many languages such as Java, there is a 
+concept called a stream. While similar, there are some distinct difference such 
+as: 
+\begin{enumerate}
+  \item Observables are asynchronous as opposed to Streams, which aren't.
+  \item Observables can be subscribed to multiple times. 
+  \item Observables are push based, streams are pull based.
+\end{enumerate}
+
+Nonetheless, being that streams existed before, and have this sort of naming 
+convention, it bled it's way to it's similar cousing the observable. 
+
+\subsection{Benefits of Naming Convention}
+The benefits of this naming convention are two-fold: 
+\begin{enumerate}
+  \item When scanning through code, and looking for observable values
+  \item If you want a non observable value, to store observable value, 
+  it can simply have no dollar value. This can then be used without a dollar 
+  sign, and makes for really transparent code. 
+\end{enumerate}
