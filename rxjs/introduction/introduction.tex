@@ -1,4 +1,4 @@
-\chapter{ Introduction to Rxjs }
+\chapter{ Introduction to Rxjs - The Rxjs Airplane}
 
 \section{ What is Reactive Programming}
 
@@ -95,7 +95,6 @@ secondsCounter.subscribe(n =>
 \end{lstlisting}
 
 \subsection{Event}
-
 \begin{lstlisting}
 import { fromEvent } from 'rxjs';
 
@@ -146,7 +145,7 @@ would like. Within our official schema, it looks something like this:
 \end{lstlisting}
 
 We would like to make sure that when we subscribe to our data store 
-across the application, we would pull in a specific subset of data. We can map 
+across the application, we pull in a specific subset of data. We can map 
 our data within our \lstinline{ngrx/store} data selector. 
 
 \begin{lstlisting}[caption=settings.selector.ts]
@@ -161,13 +160,14 @@ Without having to specify what data that is every time, we can map our data
 to a specific data field. Here we are using the \lstinline{ngrx/entity} 
 library, as well as the \lstinline{map} method to create a collection of 
 entities. Very sophisticated, and allows us to pull in all the data we need
-within the observable.
+within the observable. This keeps logic outside of individual 
+component, and therefore re-usable.
 
 \subsection{Link Operators Together}
-Rxjs offers the ability to link operators together. For instance, let's say 
-within our entity we wanted to filter out all posts that have a wordCount 
-that is greater than 2000. I know it seems like it's a weird key/value to have 
-in an api, but just work with me here, ok?! Cool. Alright here we go: 
+Rxjs also offers the ability to link operators together. For instance, let's 
+say within our entity we want to filter out all numbers that are odd. Then 
+we want to square that number:
+
 \begin{lstlisting}
 import { filter, map } from 'rxjs/operators';
 
@@ -186,7 +186,7 @@ const squareOdd = squareOddVals(nums);
 squareOdd.subscribe(x => console.log(x));  
 \end{lstlisting}
 
-\mybox{You might be wondering why rxjs called this a pipe?! Well if not 
+\mybox{You might be wondering why rxjs cals this a pipe?! Well if not 
 familiar with already, the concept of a pipe originally comes form Unix. 
 It is the ability to pass information from one process to another. For 
 instance, if using a the terminal in Unix, something such as the following
@@ -194,25 +194,26 @@ ps aux | grep root | pbcopy; would display all processes, grep specifically
 for those tied to root, and then copy that to the clipboard.}
 
 \subsection{No subscribe, No describe}
-In case you didn't get that one, it's unit testing joke. But for real, if you 
-do not call a subscribe on your pipe, it will never be called. Consider the 
+In case you didn't get that title, it's a unit testing joke. But for real, if 
+you do not call a subscribe on your pipe, it will never be called. Consider the
 pipe as the function(which under the hood it is), and subscribe effectively
-calling the pipe. So, don't forget to call the subscribe. 
+calling the pipe(i.e. calling function). So, if pipe not being called, that 
+might be why.
 
 \subsection{Common Operators}
 One of the biggest complaints that many have about Rxjs, is that it's an 
 overly bloated library. A while back, a man by the name of Andre Saltz who is
-very so responsible for popularizing observables within Javascript, created a 
-library called XStream, to focus just on the operators one needs to use on a 
-day to day basis. Primarily, because some people were complaining of the vast 
-amount of operators they happened to learn. (One can perhaps complain on the 
-bloat that the rxjs library adds, however, rxjs introduced tree shaking in 
-verson 5.)
+very much so responsible for popularizing observables within Javascript, 
+created a library called XStream, to focus just on the operators one needs to 
+use on a day to day basis. Primarily, because some people were complaining of 
+the vast amount of operators they happened to learn. (One can perhaps complain
+on the bloat that the rxjs library adds, however, rxjs introduced tree shaking
+in verson 5.5)
 
-Ironically, what this did is start to create transparency around what would be 
-considered a common operator. The Rxjs then went ahead and started creating 
-what would be considered common operators. The following are common operators
-listed by the Angular documentation:
+Ironically, what this did do, is start to create transparency around what 
+would be considered a common operator. The Rxjs then went ahead and started 
+creating what would be considered common operators. The following are common 
+operators listed by the Angular documentation:
   
 \begin{center}
   \begin{tabular}{@{} l *4c @{}}
@@ -232,16 +233,19 @@ listed by the Angular documentation:
   \end{tabular}
 \end{center}  
 
+I like to call these the Rxjs airplane. 
+
 We will get into these at a very high level at a later time within this book. 
 It's important to have this table in mind, so that you know the rxjs operators 
-to keep in mind. 
+to keep an eye out for. 
 
 \section{Subjects}
 It's also a worth noting the use of subjects within rxjs, as they get used
-quite often. A subject in addition to being an observable, is also an observer. 
-This means that we can use next to add a value to an observable. Depending on 
-type of subject, this relationship will change. Three subjects come up quite 
-common, and are worth mentioning simply to keep them in mind. 
+quite often. A subject, in addition to being an observable, is also an observer. 
+This means that we can use \lstinline{next} to add a value to an observable. 
+Depending on type of subject, the relationship with next will change. Three 
+subjects come up quite common, and are worth mentioning simply to keep them in 
+mind. 
 
 Before we get to the different types of subjects, let's first lighly graze 
 what an observer is(,in addition to the observable which we are already 
@@ -256,7 +260,8 @@ const observer = {
 \end{verbatim}
 
 Based on the type of callback called, that is the value the observable will 
-have. With this is mind: 
+have. So a subject is this observer type, in addition to the observable type 
+already familiar with. With this is mind: 
 
 \begin{lstlisting}[caption=using next on our subject]
 // RxJS v6+
@@ -277,9 +282,9 @@ having only one subscriber instantiated, only logs one amount.
 
 \subsection{BehaviorSubject}
 \lstinline{BehaviorSubject} As opposed to a subject, allows you to supply an 
-initial value. It can be useful when using something such as a re-usable 
-component, and want to supply an initial value, or unit testing, and want 
-to circumvent the extra code need to use next. 
+initial value. It can be useful when creating something such as a re-usable 
+component, and want to supply an initial value. In addition, unit testing, 
+and want to circumvent the extra code need to use next, when mocking values. 
 \begin{lstlisting}
 // RxJS v6+
 import { BehaviorSubject } from 'rxjs';
@@ -373,7 +378,11 @@ convention, it bled it's way to it's similar cousing the observable.
 The benefits of this naming convention are two-fold: 
 \begin{enumerate}
   \item When scanning through code, and looking for observable values
-  \item If you want a non observable value, to store observable value, 
+  \item If you want a non-observable value to store observable value, 
   it can simply have no dollar value. This can then be used without a dollar 
   sign, and makes for really transparent code. 
 \end{enumerate}
+
+That pretty much wraps the introduction to Rxjs, as I would have liked to 
+have been introduced to Rxjs. I hope you like it, because I really wanted 
+to help on this one.
