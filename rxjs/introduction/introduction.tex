@@ -17,21 +17,25 @@ In it, it discusses the two main benefits of Reactive Programming:
 That would be reactive programming in a nutshell. It makes sure, that one 
 function happens after another. In addition, by it's definition of being 
 a set of pre-made functions, it gives stability around the way we are 
-transforming our data in Angular. However, really the most important part 
-about Rxjs, still goes to Andre Staltz: 
+transforming our data in Angular. I always did, and still love what is in my 
+opinion the most equally profound and succint quote on Reacting Progamming by 
+Andre Statlz: 
 
 \begin{quote}
   \say{Reactive Programming raises the level of abstraction of your code so you
-   can focus on the interdependence of events that define the business logic...”.}
+   can focus on the interdependence of events that define the business logic...}
 \end{quote} 
 \footnote{This quote can be found in his excellent article on why you should 
 consider adopting Reactive programming principles in your app 
 https://gist.github.com/staltz/868e7e9bc2a7b8c1f754\#why-should-i-consider-adopting-rp}
 
-The next question becomes how Reactive programming accomplishes the above. I 
-could put a diagram here and explain what it does in detail, but for the sake 
-of brevity, I am just going to jump into Rxjs code. But first, let's talk 
-about the importance of Rxjs in Angular!
+I.e. Rxjs allows for cookie cutter code, so that after mastering Reactive 
+Progamming, you can apply those same operators time and time again.
+
+\section{How Reactive Progamming Allows for Cookie Cutter Code}
+Naturally, the next question becomes, well how does Reactive Programming accomplish cookie 
+cutter code. For the sake of brevity, let's jump into a synopsis of what Rxjs 
+code is. More effectively, let's talk about Rxjs within the context of Angular.
 
 \section{ Rxjs's Importance in Angular }
 Rxjs has a pretty big place in Angular. I would say that in your average app, 
@@ -44,8 +48,8 @@ of the Angular framework.
 \section{ The Rxjs Observable }
 The core of Rxjs, is the ability to program reactively using observables. Rxjs 
 offers the ability to create observables, as well as manipulate them. In 
-particular, there are five scenarios to keep in mind, when it comes to creating
-an observabe: 
+particular, there are four scenarios to keep in mind, when it comes to creating
+an observable: 
 \begin{enumerate}
   \item promise
   \item counter
@@ -55,8 +59,8 @@ an observabe:
 
 \subsection{ Promise }
 Assuming we were using Apollo client to retrieve data from our GraphQL 
-requests, rxjs gives us the ability to transfer data we have retrieved into an
-observable: 
+requests, rxjs gives us the ability to transfer data we have retrieved from our
+backend into an observable: 
 \begin{lstlisting}
 import { from } from 'rxjs';
 
@@ -68,14 +72,16 @@ data.subscribe((data) => {
 });  
 \end{lstlisting}
 
-In the above we are using \lstinline{from}, to convert the data we have into a 
-an observable. This way, it can be accessed using subscribe. You might be 
-wondering what may be the benefit of using an observable over JSON data and 
-a promise in this scenario. Well, the benefit would be that if we do plan on 
-mutating this data in the near future, then it will be beneficial to have data
-available as an observable. In addition, being that other parts of our 
-application is using observables, then being able to have them all follow 
-the same logic, is beneficial to our application. 
+In the above we are using rxjs \lstinline{from} method to convert the data we
+have into an observable. This way, it can be accessed using subscribe. You 
+might be wondering what may be the benefit of using an observable over JSON 
+data and a promise in this scenario. Well, the benefit would be that if we do 
+plan on mutating this data in the near future, then it will be beneficial to 
+have data available as an observable. So that when data is mutated, your 
+front end component will register the change. In addition, being that other parts 
+of our application are using observables(for instance, through the use of 
+subject and next, which we will get to soon), then being able to have them all
+follow the same cookie cutter logic, is beneficial to our application. 
 
 \subsection{Counter}
 \begin{lstlisting}
