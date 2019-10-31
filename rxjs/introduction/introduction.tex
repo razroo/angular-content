@@ -46,10 +46,13 @@ they are independent entities to Angular, I very much so consider them as part
 of the Angular framework. 
 
 \section{ The RxJS Observable }
-The core of RxJS, is the ability to program reactively using observables. RxJS 
-offers the ability to create observables, as well as manipulate them. In 
-particular, there are four scenarios to keep in mind, when it comes to creating
-an observable: 
+The core of RxJS, is the ability to program reactively using observables. The
+easiest way to understand an observable, is that it's like a promise that can
+emit multiple values, over a series of time. (A promise is an object that may
+produce a single value some time in the future: either a resolved value, or a
+reason that it's not resolved (e.g., a network error occurred)). RxJS offers 
+the ability to create observables, as well as manipulate them. In particular,
+there are four scenarios to keep in mind, when it comes to creating an observable: 
 \begin{enumerate}
   \item promise
   \item counter
@@ -72,16 +75,16 @@ data.subscribe((data) => {
 });  
 \end{lstlisting}
 
-In the above we are using RxJS \lstinline{from} method to convert the data we
+In the above we are using the RxJS \lstinline{from} method to convert the data we
 have into an observable. This way, it can be accessed using subscribe. You 
 might be wondering what may be the benefit of using an observable over JSON 
-data and a promise in this scenario. Well, the benefit would be that if we do 
+data and a promise in this scenario. Well, the benefit would be that if we do
 plan on mutating this data in the near future, then it will be beneficial to 
-have data available as an observable. So that when data is mutated, your 
-front end component will register the change. In addition, being that other parts 
-of our application are using observables(for instance, through the use of 
-subject and next, which we will get to soon), then being able to have them all
-follow the same cookie cutter logic, is beneficial to our application. 
+have data available as an observable. Primarily, when data is mutated, your 
+front end component will register the change. In addition, being that other 
+parts of our application are using observables(for instance, through the use 
+of subject and next, which we will get to soon), being able to have them all 
+follow the same cookie cutter logic, is beneficial to our application.
 
 \subsection{Counter}
 \begin{lstlisting}
@@ -130,7 +133,7 @@ apiData.subscribe(res => console.log(res.status, res.response));
 
 \subsection{Sophisticated Manipulation}
 Once an observable has been created, RxJS provides operators to manipulate 
-the data contained within an obserable. The following is a great example. Let's
+the data contained within an observable. The following is a great example. Let's
 say that we have an observable. In this observable, we have data for user 
 settings. Specifically, there are settings for currency preferences that we 
 would like. Within our official schema, it looks something like this: 
@@ -186,7 +189,7 @@ const squareOdd = squareOddVals(nums);
 squareOdd.subscribe(x => console.log(x));  
 \end{lstlisting}
 
-\mybox{You might be wondering why RxJS cals this a pipe?! Well if not 
+\mybox{You might be wondering why RxJS calls this a pipe?! Well if not 
 familiar with already, the concept of a pipe originally comes form Unix. 
 It is the ability to pass information from one process to another. For 
 instance, if using a the terminal in Unix, something such as the following
@@ -233,7 +236,7 @@ operators listed by the Angular documentation:
   \end{tabular}
 \end{center}  
 
-I like to call these the RxJS airplane. 
+I like to call these operators the RxJS airplane. 
 
 We will get into these at a very high level at a later time within this book. 
 It's important to have this table in mind, so that you know the RxJS operators 
@@ -247,7 +250,7 @@ Depending on type of subject, the relationship with next will change. Three
 subjects come up quite common, and are worth mentioning simply to keep them in 
 mind. 
 
-Before we get to the different types of subjects, let's first lighly graze 
+Before we get to the different types of subjects, let's first lightly graze 
 what an observer is(,in addition to the observable which we are already 
 familiar with). An observer is simply a set of callback function attached 
 to an observable: 
@@ -372,7 +375,7 @@ as:
 \end{enumerate}
 
 Nonetheless, being that streams existed before, and have this sort of naming 
-convention, it bled it's way to it's similar cousing the observable. 
+convention, it bled it's way to it's cousin the observable.
 
 \subsection{Benefits of Naming Convention}
 The benefits of this naming convention are two-fold: 
