@@ -1,8 +1,8 @@
-\chapter{ Introduction to Rxjs - The Rxjs Airplane}
+\chapter{ Introduction to RxJS - The RxJS Airplane}
 
 \section{ What is Reactive Programming}
 
-Rxjs is a library based on the concept of Reactive programming. To re-iterate 
+RxJS is a library based on the concept of Reactive programming. To re-iterate 
 what we mentioned in the chapter on ngrx. A great founding paper discussing 
 reactive programming for concurrent programming can be found here. 
 \footnote{http://www-sop.inria.fr/members/Gerard.Berry/Papers/Berry-IFIP-89.pdf}
@@ -29,24 +29,24 @@ Andre Statlz:
 consider adopting Reactive programming principles in your app 
 https://gist.github.com/staltz/868e7e9bc2a7b8c1f754\#why-should-i-consider-adopting-rp}
 
-I.e. Rxjs allows for cookie cutter code, so that after mastering Reactive 
+I.e. RxJS allows for cookie cutter code, so that after mastering Reactive 
 Progamming, you can apply those same operators time and time again.
 
 \section{How Reactive Progamming Allows for Cookie Cutter Code}
 Naturally, the next question becomes, well how does Reactive Programming accomplish cookie 
-cutter code. For the sake of brevity, let's jump into a synopsis of what Rxjs 
-code is. More effectively, let's talk about Rxjs within the context of Angular.
+cutter code. For the sake of brevity, let's jump into a synopsis of what RxJS 
+code is. More effectively, let's talk about RxJS within the context of Angular.
 
-\section{ Rxjs's Importance in Angular }
-Rxjs has a pretty big place in Angular. I would say that in your average app, 
+\section{ RxJS's Importance in Angular }
+RxJS has a pretty big place in Angular. I would say that in your average app, 
 I would consider it as one of the big three, alongside Typescript, and Ngrx. 
 Even though these are independent libaries, when working on enterprise Angular
 applications, I personally come across them on a day to day basis. So, while 
 they are independent entities to Angular, I very much so consider them as part 
 of the Angular framework. 
 
-\section{ The Rxjs Observable }
-The core of Rxjs, is the ability to program reactively using observables. Rxjs 
+\section{ The RxJS Observable }
+The core of RxJS, is the ability to program reactively using observables. RxJS 
 offers the ability to create observables, as well as manipulate them. In 
 particular, there are four scenarios to keep in mind, when it comes to creating
 an observable: 
@@ -59,7 +59,7 @@ an observable:
 
 \subsection{ Promise }
 Assuming we were using Apollo client to retrieve data from our GraphQL 
-requests, rxjs gives us the ability to transfer data we have retrieved from our
+requests, RxJS gives us the ability to transfer data we have retrieved from our
 backend into an observable: 
 \begin{lstlisting}
 import { from } from 'rxjs';
@@ -72,7 +72,7 @@ data.subscribe((data) => {
 });  
 \end{lstlisting}
 
-In the above we are using rxjs \lstinline{from} method to convert the data we
+In the above we are using RxJS \lstinline{from} method to convert the data we
 have into an observable. This way, it can be accessed using subscribe. You 
 might be wondering what may be the benefit of using an observable over JSON 
 data and a promise in this scenario. Well, the benefit would be that if we do 
@@ -129,7 +129,7 @@ apiData.subscribe(res => console.log(res.status, res.response));
 \section{Operators}
 
 \subsection{Sophisticated Manipulation}
-Once an observable has been created, Rxjs provides operators to manipulate 
+Once an observable has been created, RxJS provides operators to manipulate 
 the data contained within an obserable. The following is a great example. Let's
 say that we have an observable. In this observable, we have data for user 
 settings. Specifically, there are settings for currency preferences that we 
@@ -164,7 +164,7 @@ within the observable. This keeps logic outside of individual
 component, and therefore re-usable.
 
 \subsection{Link Operators Together}
-Rxjs also offers the ability to link operators together. For instance, let's 
+RxJS also offers the ability to link operators together. For instance, let's 
 say within our entity we want to filter out all numbers that are odd. Then 
 we want to square that number:
 
@@ -186,7 +186,7 @@ const squareOdd = squareOddVals(nums);
 squareOdd.subscribe(x => console.log(x));  
 \end{lstlisting}
 
-\mybox{You might be wondering why rxjs cals this a pipe?! Well if not 
+\mybox{You might be wondering why RxJS cals this a pipe?! Well if not 
 familiar with already, the concept of a pipe originally comes form Unix. 
 It is the ability to pass information from one process to another. For 
 instance, if using a the terminal in Unix, something such as the following
@@ -201,17 +201,17 @@ calling the pipe(i.e. calling function). So, if pipe not being called, that
 might be why.
 
 \subsection{Common Operators}
-One of the biggest complaints that many have about Rxjs, is that it's an 
+One of the biggest complaints that many have about RxJS, is that it's an 
 overly bloated library. A while back, a man by the name of Andre Saltz who is
 very much so responsible for popularizing observables within Javascript, 
 created a library called XStream, to focus just on the operators one needs to 
 use on a day to day basis. Primarily, because some people were complaining of 
 the vast amount of operators they happened to learn. (One can perhaps complain
-on the bloat that the rxjs library adds, however, rxjs introduced tree shaking
+on the bloat that the RxJS library adds, however, RxJS introduced tree shaking
 in verson 5.5)
 
 Ironically, what this did do, is start to create transparency around what 
-would be considered a common operator. The Rxjs then went ahead and started 
+would be considered a common operator. The RxJS then went ahead and started 
 creating what would be considered common operators. The following are common 
 operators listed by the Angular documentation:
   
@@ -233,14 +233,14 @@ operators listed by the Angular documentation:
   \end{tabular}
 \end{center}  
 
-I like to call these the Rxjs airplane. 
+I like to call these the RxJS airplane. 
 
 We will get into these at a very high level at a later time within this book. 
-It's important to have this table in mind, so that you know the rxjs operators 
+It's important to have this table in mind, so that you know the RxJS operators 
 to keep an eye out for. 
 
 \section{Subjects}
-It's also a worth noting the use of subjects within rxjs, as they get used
+It's also a worth noting the use of subjects within RxJS, as they get used
 quite often. A subject, in addition to being an observable, is also an observer. 
 This means that we can use \lstinline{next} to add a value to an observable. 
 Depending on type of subject, the relationship with next will change. Three 
@@ -334,7 +334,7 @@ keep track of all previous selections of user.
 \section{Naming Conventions for Observables}
 Hands down, my favorite naming convention in an Angular application is the use of a 
 dollar sign \lstinline{$} as an indicator of an observable. Observables started 
-becoming popular before the use of Typescript. While Typescript/rxjs does have 
+becoming popular before the use of Typescript. While Typescript/RxJS does have 
 the type annotation of \lstinline{<Observable>} to indicate an observable, I still
 approve of the trailing \lstinline{$} to indicate an observable. 
 
@@ -383,6 +383,6 @@ The benefits of this naming convention are two-fold:
   sign, and makes for really transparent code. 
 \end{enumerate}
 
-That pretty much wraps the introduction to Rxjs, as I would have liked to 
-have been introduced to Rxjs. I hope you like it, because I really wanted 
+That pretty much wraps the introduction to RxJS, as I would have liked to 
+have been introduced to RxJS. I hope you like it, because I really wanted 
 to help on this one.
