@@ -1,2 +1,23 @@
 \chapter{Combination}
 
+\section{combineLatest}
+Combine latest allows us to combine multiple observables into one, and emit a 
+
+\section{concat}
+One very useful use of concat within an enterprise setting, is that if you 
+have all of the data you need available. However, you would like to make 
+sure that they emit in proper order of each other. Using the following: 
+\begin{lstlisting}[caption=concat-example.ts]
+import { concat } from 'rxjs/operators';
+
+concat(printLog1, printLog23, printLog4); 
+\end{lstlisting}
+
+\section{merge}
+
+
+\section{startWith}
+
+\section{withLatestFrom}
+
+\section{zip}
