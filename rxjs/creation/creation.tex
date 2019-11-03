@@ -55,3 +55,19 @@ so that it can be passed into your ngrx/store:
 \end{lstlisting}
 
 \section{fromEvent}
+Whole \lstinline{fromEvent} is a common operator in RxJS, I would argue that within 
+an Angular setting, it is not a common operator. There is truly no scenario within 
+Angular wherein \lstinline{fromEvent} makes sense. Instead use the core Angular 
+even handlers within your template: 
+
+\begin{lstlisting}[caption=user-form.input.ts]
+<button (click)="submitForm()">
+\end{lstlisting}
+
+\begin{lstlisting}[caption=user-form.component.ts]
+
+submitForm(userData: User) {
+  this.userFormFacade.submitForm(userData);
+}
+\end{lstlisting}
+
