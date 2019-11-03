@@ -90,9 +90,9 @@ Observable.from([1, 2, 3]).subscribe(x => console.log(x));
 \lstinline{from} for the most part is preferabble, as data will usually 
 be contained in an array, and \lstinline{from} sidesteps the need of 
 tapping into the array, doing something like this:
-\begin{verbatin}
+\begin{verbatim}
 console.log(data[0]);
-\end{verbatin}
+\end{verbatim}
 
 From my personal experience, \lstinline{of} becomes invaluable when it comes 
 to mocking data within your unit tests. For instance, doing something such as
