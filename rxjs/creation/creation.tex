@@ -71,3 +71,43 @@ submitForm(userData: User) {
 }
 \end{lstlisting}
 
+\section{of}
+\lstinline{of} while similar in purpose to of, will convert a value to an 
+observable. However, the main difference between the two, can be seen here
+in this snipper of code:
+\begin{lstlisting}
+// the subscribe here, will emit all of the data at once  
+// [1, 2, 3]
+Observable.of([1, 2, 3]).subscribe(x => console.log(x));  
+
+// the subscribe here, will iterate through data one at a time
+Observable.from([1, 2, 3]).subscribe(x => console.log(x));  
+// 1
+// 2
+// 3
+\end{lstlisting} 
+
+\lstinline{from} for the most part is preferabble, as data will usually 
+be contained in an array, and \lstinline{from} sidesteps the need of 
+tapping into the array, doing something like this:
+\begin{verbatin}
+console.log(data[0]);
+\end{verbatin}
+
+From my personal experience, \lstinline{of} becomes invaluable when it comes 
+to mocking data within your unit tests. For instance, doing something such as
+the following: 
+\begin{lstlisting}
+const postMock = {
+  id: '123',
+  title: 'test title',
+  featureImage: 'sample feature image',
+  created_at: '2019-08-05T07:49:11.405Z' 
+}
+
+const postMock$ = of(postMock);
+\end{lstlisting}
+
+This is the most efficient solution is this scenario for mocking data, and 
+comes up quite frequently within your app, and something to be aware of. 
+
