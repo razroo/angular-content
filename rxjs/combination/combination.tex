@@ -61,11 +61,50 @@ sure that they emit in proper order of each other. Using the following:
 \begin{lstlisting}[caption=concat-example.ts]
 import { concat } from 'rxjs/operators';
 
-concat(printLog1, printLog23, printLog4); 
+concat(printLog1, printLog2, printLog3); 
+// printLog1 emits, then printLog2, and then printLog3
+\end{lstlisting}
+
+In a realistic scenario, this will come up in a situation such as we would like to
+
+\begin{lstlisting}[caption=search-bar.component.ts]
+export class AppComponent {
+  searchStream$ = new BehaviorSubject('');
+
+  constructor(private productsService: ProductsService) {}
+
+  obs$ = this.searchStream$.pipe(
+    debounceTime(200),
+    distinctUntilChanged(),
+    switchMap((query) => 
+      concat(
+        of({ type: 'start'}),
+        this.productsService.getByFilter(query).pipe(map(value => ({ type: 'finish', value })))
+      ))
+  );
+}   
 \end{lstlisting}
 
 \section{merge}
+Merge allows us to "merge" multiple observables into one singular observable. A
+great re-occuring real world example, is to group multiple events into single 
+observable. For instance, if we are trying to create a music player:
+\begin{lstlisting}[caption=player-buttons.component.ts]
+const start$ = fromEvent(this.startButton.nativeElement, 'click').pipe(mapTo(true));
+const pause$ = fromEvent(this.pauseButton.nativeElement, 'click').pipe(mapTo(false));
+const reset$ = fromEvent(this.resetButton.nativeElement, 'click').pipe(mapTo(null));
 
+this.playerButtons$ = merge(start$, pause$, reset$, stateChange$).pipe(
+  switchMap(val => {
+    if(val === null) // reset 
+    else if(val) // start
+    else // stop
+  }
+);
+\end{lstlisting}
+
+Here, by merging all of our events within a single observable, it tidies up our
+code base, and allows us to deal with all of our events in a singular fashion.
 
 \section{startWith}
 
