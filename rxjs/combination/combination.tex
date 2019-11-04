@@ -1,7 +1,58 @@
 \chapter{Combination}
 
 \section{combineLatest}
-Combine latest allows us to combine multiple observables into one, and emit a 
+Combine latest allows us to combine multiple observables into one, and have 
+the subscribe emit when either of them are called. A common enterprise 
+example, is let's say that we have a form. The form gives us a search bar,
+but we would like to have our search bar, search against a drop down as well. 
+
+\begin{lstlisting}[caption=search-form.component.ts]
+export class AppComponent implements OnInit, OnDestroy {
+  private destroyed$ = new Subject<void>();
+
+  get searchText() {
+    return this.form.get('searchText');
+  }
+
+  get searchFor() {
+    return this.form.get('searchFor');
+  }
+
+  form: FormGroup;
+
+  constructor(formBuilder: FormBuilder) {
+    this.form = formBuilder.group({
+      searchText: null,
+      searchFor: null,
+    });
+  }
+
+  ngOnInit() {
+    const searchText$ = this.searchText.valueChanges;
+    const searchFor$ = this.searchFor.valueChanges;
+
+    // combineLatest emits when any of the source observables
+    // emits (provided that they have all emitted once to
+    // begin with). that's why the console.logs start appearing
+    // after values are selected for both form controls
+    combineLatest(searchText$, searchFor$)
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(([searchText, searchFor]) => {
+        console.log('searchText', searchText);
+        console.log('searchFor', searchFor);
+
+        // make a call to an API whenever either observable
+        // emits
+        // this.apiService.loadData(searchText, searchFor)
+      })
+  }
+
+  ngOnDestroy() {
+    this.destroyed$.next();
+    this.destroyed$.complete();
+  }
+} 
+\end{lstlisting}
 
 \section{concat}
 One very useful use of concat within an enterprise setting, is that if you 
