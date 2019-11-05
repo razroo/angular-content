@@ -107,7 +107,53 @@ Here, by merging all of our events within a single observable, it tidies up our
 code base, and allows us to deal with all of our events in a singular fashion.
 
 \section{startWith}
+There is a really old tweet by Andre Saltz, that is no longer available for some 
+reason. Regardless, the tweet goes something along these lines: 
+\begin{quote}
+\say{You rarely want \lstinline{combineLatest()}, unless mixed with \lstinline{startWith()}}
+\end{quote}
+
+\lstinline{startWith}, as the name implies, is a way to tell your observable 
+to start with a paticular value. With the advent of \lstinline{behaviorSubject}
+which allows you to supply the initial value, or the alternative scenario 
+of data being retrieved from the backend, with the use of Angular's 
+\lstinline{async} pipe, wherein the initial value is superfluous. 
+
+However, there is one scenario wherein the \lstinline{startWith} pipe does get
+used alot within an Angular setting. That is in conjuction with 
+\lstinline{combineLatest}. However, even in this scenario, I would like to argue
+that \lstinline{behaviorSubject} get's used more. \footnote{To see why not to 
+use startWith and go with behaviorSubject, check the addendum}
 
 \section{withLatestFrom}
+\lstinline{withLatestFrom} will combine two observables with each other. However,
+only when the value changes for the primary observable, will the subscribe be 
+triggered. If the secondary observable value changes, the subscribe will not be 
+triggered. 
+
+Let's use an common example that will occur within the enterprise architecture 
+set up by Razroo. Let's say that you are using \lstinline{ngrx/store}, and
+that you would like to make determine whether, or not a blog post exists 
+already. 
+
+\begin{lstlisting}
+color$.pipe(withLatestFrom(logo$))
+  .subscribe(([color, logo]) => console.log(`${color} shirt with ${logo}`));
+\end{lstlisting}
 
 \section{zip}
+
+\begin{lstlisting}[caption=yin-yang.component.ts]
+const yin   = Rx.Observable.of('peanut butter', 'wine','rainbows')
+const yang  = Rx.Observable.of('jelly', 'cheese', 'unicorns')
+
+const combo = Rx.Observable.zip(yin, yang)
+
+combo.subscribe( arr => console.log(arr) )
+// peanut butter, jelly
+// wine, cheese
+// rainbows, unicorns  
+\end{lstlisting}
+
+Haven't really found a common scenario for using this within an Angular 
+setting.
