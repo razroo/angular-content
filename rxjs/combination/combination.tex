@@ -133,23 +133,24 @@ triggered.
 
 Let's use a common example that will occur within the enterprise architecture 
 set up by Razroo. Let's say that you are using \lstinline{ngrx/store}, and
-that you would like to determine whether, or not a blog post exists already. 
-
-\begin{lstlisting}
-color$.pipe(withLatestFrom(logo$))
-  .subscribe(([color, logo]) => console.log(`${color} shirt with ${logo}`));
-\end{lstlisting}
+that you would like to determine whether, or not a blog post exists already
+within our store. If the blog post already exists within our store, then do
+make another HTTP request, as we have the data we need already. 
 
 \begin{lstlisting}[caption=data-access-post.ts]
 pipe(
   ofType(LoadPost),
-  fromStore(
-    postsQuery.getCurrentPost
+  withLatestFrom(
+    this.store.pipe(select(postsQuery.getCurrentPost))
   )(this.store),
   filter([post] => !post),
   mergeMap([a] => s.getPost(a.id))
 )
 \end{lstlisting}
+
+In the, we are looking to see if current post already exists within our blog 
+store. If it does, then we do not make the request. If it does not, then 
+we go ahead and make the request once again. 
 
 \section{zip}
 
