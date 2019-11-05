@@ -131,10 +131,9 @@ only when the value changes for the primary observable, will the subscribe be
 triggered. If the secondary observable value changes, the subscribe will not be 
 triggered. 
 
-Let's use an common example that will occur within the enterprise architecture 
+Let's use a common example that will occur within the enterprise architecture 
 set up by Razroo. Let's say that you are using \lstinline{ngrx/store}, and
-that you would like to make determine whether, or not a blog post exists 
-already. 
+that you would like to determine whether, or not a blog post exists already. 
 
 \begin{lstlisting}
 color$.pipe(withLatestFrom(logo$))
@@ -144,12 +143,12 @@ color$.pipe(withLatestFrom(logo$))
 \section{zip}
 
 \begin{lstlisting}[caption=yin-yang.component.ts]
-const yin   = Rx.Observable.of('peanut butter', 'wine','rainbows')
-const yang  = Rx.Observable.of('jelly', 'cheese', 'unicorns')
+const yin   = Rx.Observable.of('peanut butter', 'wine','rainbows');
+const yang  = Rx.Observable.of('jelly', 'cheese', 'unicorns');
 
-const combo = Rx.Observable.zip(yin, yang)
+const combo = Rx.Observable.zip(yin, yang);
 
-combo.subscribe( arr => console.log(arr) )
+combo.subscribe( arr => console.log(arr));
 // peanut butter, jelly
 // wine, cheese
 // rainbows, unicorns  
