@@ -140,6 +140,17 @@ color$.pipe(withLatestFrom(logo$))
   .subscribe(([color, logo]) => console.log(`${color} shirt with ${logo}`));
 \end{lstlisting}
 
+\begin{lstlisting}[caption=data-access-post.ts]
+pipe(
+  ofType(LoadPost),
+  fromStore(
+    postsQuery.getCurrentPost
+  )(this.store),
+  filter([post] => !post),
+  mergeMap([a] => s.getPost(a.id))
+)
+\end{lstlisting}
+
 \section{zip}
 
 \begin{lstlisting}[caption=yin-yang.component.ts]

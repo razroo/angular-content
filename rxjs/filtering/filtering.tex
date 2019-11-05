@@ -8,6 +8,12 @@ It can also be used it regular event handlers, to prevent from clicking a
 submit button multiple times. However, Angular's internal event handler 
 is usually pretty good at this. 
 
+\begin{lstlisting}[caption=blog-search.component.ts]
+const search$ = pipe(
+  debounceTime(500)
+);
+\end{lstlisting}
+
 \section{distinctUntilChanged} 
 
 \section{filter} 
