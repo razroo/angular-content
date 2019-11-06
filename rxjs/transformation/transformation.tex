@@ -1,8 +1,48 @@
 \chapter{Transformation}
+Transforming in RxJS is the process of modifying a value. It is quite 
+a common occurence within RxJS.
 
 \section{bufferTime}
+\lstinline{bufferTime} will collect a value until the provided time elapses. 
+Once time has ellapsed it will emit values collected during that time as an 
+array. (It will not unsubscribe from the observable). A good example of when we
+would want to use bufferTime, is if we want to give the user notifications 
+within their application. However, we don't want to flood them with 
+notifications. In addition, the updates within our application are quite 
+frequent, and are updated quite frequently. Think a stock market application.
+
+\begin{lstlisting}
+this.notificationService.updates$.pipe(
+  bufferTime(5000)
+).subscribe(batch => {
+  this.notifications = notifications;
+});  
+\end{lstlisting}
+
+\section{concatMap, mergeMap, switchMap}
+Before we dive into these three values it's important to note that they are 
+all similar in one regard. It will subscribe to an inner observable. This 
+means that it allows for access to the value, and will create an inner 
+observable. This inner observable can then be modified. Why create an inner
+observable? Well this get's into something called higher order observables. 
+Think about the way classic promises work. Let's say we wanted to modify the 
+data nested twice within our observable.
+\begin{lstlisting}
+this.postService.getPosts().then(data => {
+  const blogIds = data.map(data => data.id);
+  this.analyticsService.analytics(blogIds).then(analyticsData => {
+    this.analyticsData = analyticsData;; 
+  });
+});  
+\end{lstlisting}
+
+In the above code, we have one promise inside of another promise. RxJS allows us
+to do all of these within the same stream. It allows for the observable stream to 
+be more manageable and concise. 
 
 \section{concatMap}
+\lstinline{concatMap} will map values to the inner observable, subscribe and 
+emit in order. It's important to note that t
 
 \section{map} 
 
