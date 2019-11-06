@@ -72,7 +72,7 @@ engine of RxJS works.
 
 \section{take} 
 \lstinline{take} will specify how many times a value should be used. A 
-very common example within an enterprise setting, is to use \lstinline{take(1)}
+very common example within an enterprise setting, is to use          \lstinline{take(1)}
 to unsubscribe from an observable. 
 
 \begin{lstlisting}
@@ -97,3 +97,19 @@ up because we want to know on average what is the most attention grabbing part
 of our site.
 
 \section{takeUntil}
+\lstinline{takeUntil} operator will unsubscribe from the observable once it 
+has satisfied a certain condition. \lstinline{takeUntil} in my opinion is the 
+cleanest way of unsubscribing from an observable. 
+
+\begin{lstlisting}[caption=blog.component.ts]
+private unsubscribe$ = new Subject();
+
+this.postFacade.blogPosts$.pipe(
+  takeUntil(this.unsubscribe$);
+);
+
+ngOnDestroy(): void {
+  this.unsubscribe$.next();
+  this.unsubscribe$.complete();
+};
+\end{lstlisting}
