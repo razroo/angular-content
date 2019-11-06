@@ -24,11 +24,31 @@ The above is a common re-occuring pattern within the \lstinline{ngrx/effects}
 library. We will be debouncing our search, so that if a user searches again 
 within a given time, then it will cancel the previous observable. 
 
-\mybox{It should be noted, that the service will be called again nonetheless.
-This will only help from the CPU side of things. }
-
 \section{distinctUntilChanged} 
-don't send a request if value stays the same 
+Adding a \lstinline{distinctUntilChanged()} operator to your pipe, will make 
+it so that an observable is not changed if current value emitted, is the same
+as the prior value. A great use case for this, is within the effect we 
+already used within our app.
+
+\begin{lstlisting}[caption=blog.effects.ts]
+  @Effect() searchImage$ = this.actions$.pipe(
+    ofType(fromBlog.SEARCH_BLOGS),
+    map((action: fromBlogActions.SearchBlog) => action.query),
+    debounceTime(300),
+    distinctUntilChanged(),
+    switchMap(query: string) => this.blogService.getBlogBySearching(query))
+\end{lstlisting}
+
+The reason we are adding this, is that there is one use case we have not
+handled yet within our stream. Let's say that a user types part of their 
+name \texttt{char}, proceeds to write \texttt{charlee}, and then shortly
+thereafter deletes \texttt{lee}, because they decide for this site they 
+would like keep with their nickname \texttt{char}. The letters l, e, and
+e were typed within the 500 \lstinline{debounceTime} time limit. However, 
+the deletion of the final letter of \texttt{l} after the deletion of 
+\text{ee} did happen after the \lstinline{debounceTime}. Adding 
+\lstinline{distinctUntilChanged} into the mix, makes it so that in this one 
+particular use case, the event is not fired again. 
 
 \section{filter} 
 
