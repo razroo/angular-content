@@ -166,5 +166,51 @@ combo.subscribe( arr => console.log(arr));
 // rainbows, unicorns  
 \end{lstlisting}
 
-Haven't really found a common scenario for using this within an Angular 
-setting.
+\section{Expontential Backoff}
+\lstinline{zip} can be particularly useful using something called exponential 
+backoff. Exponential backoff is a technique wherein you retry an API after 
+failure. However, instead of retrying let's say every 5 seconds, instead 
+we increase the values exponentially after each consecutive failure, with a 
+maximum amount of retries. This can potentially be really complex, but zip 
+makes something like this alot easier:
+
+\begin{lstlisting}
+import { pipe, range, timer, zip } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
+import { retryWhen, map, mergeMap } from 'rxjs/operators';
+
+function backoff(maxTries, ms) {
+ return pipe(
+   retryWhen(attempts => zip(range(1, maxTries), attempts)
+     .pipe(
+       map(([i]) => i * i),
+       mergeMap(i =>  timer(i * ms))
+     )
+   )
+ );
+}
+
+ajax('/api/endpoint')
+  .pipe(backoff(3, 250))
+  .subscribe(data => handleData(data));
+
+function handleData(data) {
+  // ...
+}
+\end{lstlisting}
+
+In my opinion, the above code, is a bit like ninja code, so let's go ahead and
+unpack everything that is being done here. 
+\begin{enumerate}
+  \item First we pass maximum amount of tires, and multiplier to increase 
+  exponentially.
+  \item In our rxjs pipe, we first use \lstinline{retryWhen}. This is an 
+  \lstinline{rxjs} operator that takes in an observable, and then retries 
+  that for x amounts of time.
+  \item within our \lstinline{retryWhen} we pass a zip, so that we create x 
+  x amount of observable streams equal to the amount of \lstinline{maxTries}
+  \item We then pass the \lstinline{retryWhen} index, and increase that 
+  exponentially.
+  \item We then use the new value, and pipe that over to our timer, 
+  which is passed as the new \lstinline{retryWhen} amount.
+\end{enumerate}
