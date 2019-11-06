@@ -71,5 +71,29 @@ returns null, which makes the observable cancel itself, as the internal
 engine of RxJS works.
 
 \section{take} 
+\lstinline{take} will specify how many times a value should be used. A 
+very common example within an enterprise setting, is to use \lstinline{take(1)}
+to unsubscribe from an observable. 
+
+\begin{lstlisting}
+// RxJS v6+
+import { fromEvent } from 'rxjs';
+import { take, tap } from 'rxjs/operators';
+
+const oneClickEvent = fromEvent(document, 'click').pipe(
+  take(1),
+  tap(v => `'${v.screenX}:${v.screenY}`')
+);
+
+const subscribe = oneClickEvent.subscribe(clickLocation => {
+  this.analyticsFacade.locationAnalytics(clickLocation);
+});
+  
+\end{lstlisting}
+In the above code, we have a specific internal analytics service set up. We 
+want to see the first location that the user clicks on. After that point in 
+time, we no longer want to collect the user data. We have these analytics set 
+up because we want to know on average what is the most attention grabbing part
+of our site.
 
 \section{takeUntil}
