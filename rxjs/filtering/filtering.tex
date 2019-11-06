@@ -5,16 +5,30 @@
 \lstinline{debounceTime} method, another event is fired, it will cancel 
 previous stream. This is a very common use case that is used within search.
 It can also be used it regular event handlers, to prevent from clicking a 
-submit button multiple times. However, Angular's internal event handler 
-is usually pretty good at this. 
+submit button multiple times.(However, Angular's internal event handler 
+is usually pretty good at this.)
 
-\begin{lstlisting}[caption=blog-search.component.ts]
-const search$ = pipe(
-  debounceTime(500)
-);
+\mybox{It's important to note, that adding a debounce method, while will 
+greatly help backend with amount of requests needed to be made, will also
+help with the users CPU.}
+
+\begin{lstlisting}[caption=blog.effects.ts]
+@Effect() searchImage$ = this.actions$.pipe(
+  ofType(fromBlog.SEARCH_BLOGS),
+  map((action: fromBlogActions.SearchBlog) => action.query),
+  debounceTime(300),
+  switchMap(query: string) => this.blogService.getBlogBySearching(query))
 \end{lstlisting}
 
+The above is a common re-occuring pattern within the \lstinline{ngrx/effects}
+library. We will be debouncing our search, so that if a user searches again 
+within a given time, then it will cancel the previous observable. 
+
+\mybox{It should be noted, that the service will be called again nonetheless.
+This will only help from the CPU side of things. }
+
 \section{distinctUntilChanged} 
+don't send a request if value stays the same 
 
 \section{filter} 
 
