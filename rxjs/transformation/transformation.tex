@@ -19,8 +19,8 @@ this.notificationService.updates$.pipe(
 });  
 \end{lstlisting}
 
-\section{concatMap, mergeMap, switchMap}
-Before we dive into these three values it's important to note that they are 
+\section{RxJs Higher Order Mapping}
+Before we dive into these four values it's important to note that they are 
 all similar in one regard. It will subscribe to an inner observable. This 
 means that it allows for access to the value, and will create an inner 
 observable. This inner observable can then be modified. Why create an inner
@@ -37,12 +37,14 @@ this.postService.getPosts().then(data => {
 \end{lstlisting}
 
 In the above code, we have one promise inside of another promise. RxJS allows us
-to do all of these within the same stream. It allows for the observable stream to 
-be more manageable and concise. 
+to do all of these within the same stream. It allows for the observable stream
+to be more manageable and concise(i.e. avoiding nested subscribes). These are
+what would be called higher order observables. 
 
 \section{concatMap}
 \lstinline{concatMap} will map values to the inner observable, subscribe and 
-emit in order. It's important to note that t
+emit in order. Emphasis is emit in order, that is what \lstinline{concatMap} 
+specializes in. 
 
 \section{map} 
 
