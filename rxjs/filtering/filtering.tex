@@ -51,6 +51,24 @@ the deletion of the final letter of \texttt{l} after the deletion of
 particular use case, the event is not fired again. 
 
 \section{filter} 
+\lstinline{filter} in RxJS will very similarly to the method in Javascript, 
+only return those values which pass the condition. We can re-visit our code
+snippet from the \lstinline{withLatestFrom} example.
+
+\begin{lstlisting}[caption=data-access-post.ts]
+pipe(
+  ofType(LoadPost),
+  withLatestFrom(
+    this.store.pipe(select(postsQuery.getCurrentPost))
+  )(this.store),
+  filter([post] => !post),
+  mergeMap([a] => s.getPost(a.id))
+)
+\end{lstlisting}  
+
+Here with are taking the currentPost. If it already exists, the filter 
+returns null, which makes the observable cancel itself, as the internal 
+engine of RxJS works.
 
 \section{take} 
 
