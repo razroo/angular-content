@@ -81,7 +81,7 @@ to the \lstinline{switchMap}, and kills any other observables from happening.
 @Effect()
 loadAllBlogPosts$: Observable<any> = this.actions$.pipe(
   ofType(PokemonActions.loadPokemon),
-  switchMap(() =>
+  mergeMap(() =>
     this.postsService.getAll().pipe(
       map(posts => PokemonActions.loadPokemonSuccess({ posts })),
       catchError(message => of(PokemonActions.loadPostsFailed({ message })))
@@ -94,27 +94,37 @@ Here we are mapping and returning an action to our effect. This allows us to
 hook in an effect to our general /lstinline{ngrx/effect} ecosystem.
 
 \section{mergeMap}
+\lstinline{switchMap} (similar to \lstinline{mergeMap} and \lstinline{concatMap}),
+will create an inner observable. The main difference, is that \lstinline{mergeMap},
+will merge all observables into one(, as opposed to \lstinline{switchMap}, 
+which will cancel all prior observables). 
+
+\begin{lstlisting}[caption=mergeMap example]
+  @Effect()
+  loadAllBlogPosts$: Observable<any> = this.actions$.pipe(
+    ofType(PokemonActions.loadPokemon),
+    switchMap(() =>
+      this.postsService.getAll().pipe(
+        map(posts => PokemonActions.loadPokemonSuccess({ posts })),
+        catchError(message => of(PokemonActions.loadPostsFailed({ message })))
+      )
+    )
+  );  
+\end{lstlisting}
+\mybox{You might notice that we are using mergeMap for what might be otherwise
+thought of using a switchMap for. The reason I like using mergeMap is that 
+switchMap doesn't actually do anything in this scenario. Even if we were to 
+cancel the inner observable the action and http request has still made it's 
+way through. I feel like using mergeMap makes this scenario more transparent 
+and is therefore the right thing to use in this scenario.}
 
 \section{scan}
 
 \section{switchMap}
-\lstinline{switchMap} (similar to \lstinline{concatMap} and \lstinline{mergeMap}
-will create), will create an inner observable. The main difference is that it
-will complete the previous inner observable. We can re-use the example we used
-for \lstinline{map}. 
-
-\begin{lstlisting}[caption=switchMap example]
-@Effect()
-loadAllBlogPosts$: Observable<any> = this.actions$.pipe(
-  ofType(PokemonActions.loadPokemon),
-  switchMap(() =>
-    this.postsService.getAll().pipe(
-      map(posts => PokemonActions.loadPokemonSuccess({ posts })),
-      catchError(message => of(PokemonActions.loadPostsFailed({ message })))
-    )
-  )
-);  
-\end{lstlisting}
+\lstinline{switchMap} (similar to \lstinline{concatMap} and \lstinline{mergeMap}),
+will create an inner observable. The main difference is that it will complete 
+the previous inner observable. We can re-use the example we used for 
+\lstinline{map}. 
 
 In this example, whenever a new loadAllBlogPosts is emitted, we no longer 
 have a need for the previous stream, so \lstinline{switchMap} is the 
