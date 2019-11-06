@@ -44,12 +44,78 @@ what would be called higher order observables.
 \section{concatMap}
 \lstinline{concatMap} will map values to the inner observable, subscribe and 
 emit in order. Emphasis is emit in order, that is what \lstinline{concatMap} 
-specializes in. 
+specializes in. A great way to visualize this, is let's say we wanted to 
+create a cascading effect within our application. 
+
+\begin{lstlisting}[caption=data-table.component.ts]
+getItems(ids: number[]): Observable<Item> {
+  return from(ids).pipe(
+     concatMap(id => <Observable<Item>> this.httpClient.get(`item/${id}`))
+  );
+}
+\end{lstlisting}
+
+In the above, the previous observable will emit first, causing a waterfall 
+effect within our app. 
 
 \section{map} 
+\lstinline{map} will apply a projection to each value in source. For instance: 
+\begin{lstlisting}[caption=rxjs map example]
+// RxJS v6+
+import { from } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+//emit (1,2,3,4,5)
+const source = from([1, 2, 3, 4, 5]);
+//add 10 to each value
+const example = source.pipe(map(val => val + 10));
+//output: 11,12,13,14,15
+const subscribe = example.subscribe(val => console.log(val));
+\end{lstlisting}
+
+A common occurence within actual applications is to use map within a 
+switchMap, when using an \lstinline{ngrx/effect}. That way, it returns the map
+to the \lstinline{switchMap}, and kills any other observables from happening.
+
+\begin{lstlisting}[caption=map example]
+@Effect()
+loadAllBlogPosts$: Observable<any> = this.actions$.pipe(
+  ofType(PokemonActions.loadPokemon),
+  switchMap(() =>
+    this.postsService.getAll().pipe(
+      map(posts => PokemonActions.loadPokemonSuccess({ posts })),
+      catchError(message => of(PokemonActions.loadPostsFailed({ message })))
+    )
+  )
+);  
+\end{lstlisting}
+
+Here we are mapping and returning an action to our effect. This allows us to 
+hook in an effect to our general /lstinline{ngrx/effect} ecosystem.
 
 \section{mergeMap}
 
 \section{scan}
 
 \section{switchMap}
+\lstinline{switchMap} (similar to \lstinline{concatMap} and \lstinline{mergeMap}
+will create), will create an inner observable. The main difference is that it
+will complete the previous inner observable. We can re-use the example we used
+for \lstinline{map}. 
+
+\begin{lstlisting}[caption=switchMap example]
+@Effect()
+loadAllBlogPosts$: Observable<any> = this.actions$.pipe(
+  ofType(PokemonActions.loadPokemon),
+  switchMap(() =>
+    this.postsService.getAll().pipe(
+      map(posts => PokemonActions.loadPokemonSuccess({ posts })),
+      catchError(message => of(PokemonActions.loadPostsFailed({ message })))
+    )
+  )
+);  
+\end{lstlisting}
+
+In this example, whenever a new loadAllBlogPosts is emitted, we no longer 
+have a need for the previous stream, so \lstinline{switchMap} is the 
+appropriate observable in this scenario. 
