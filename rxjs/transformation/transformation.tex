@@ -9,7 +9,8 @@ array. (It will not unsubscribe from the observable). A good example of when we
 would want to use bufferTime, is if we want to give the user notifications 
 within their application. However, we don't want to flood them with 
 notifications. In addition, the updates within our application are quite 
-frequent, and are updated quite frequently. Think a stock market application.
+frequent, and are updated quite frequently. Think something along the lines of
+a stock market application.
 
 \begin{lstlisting}
 this.notificationService.updates$.pipe(
@@ -26,7 +27,7 @@ means that it allows for access to the value, and will create an inner
 observable. This inner observable can then be modified. Why create an inner
 observable? Well this get's into something called higher order observables. 
 Think about the way classic promises work. Let's say we wanted to modify the 
-data nested twice within our observable.
+data nested twice within our promise:
 \begin{lstlisting}
 this.postService.getPosts().then(data => {
   const blogIds = data.map(data => data.id);
@@ -55,8 +56,8 @@ getItems(ids: number[]): Observable<Item> {
 }
 \end{lstlisting}
 
-In the above, the previous observable will emit first, causing a waterfall 
-effect within our app. 
+In the above, the previous observable will emit first, causing a visual 
+waterfall effect within our app. 
 
 \section{map} 
 \lstinline{map} will apply a projection to each value in source. For instance: 
@@ -91,7 +92,7 @@ loadAllBlogPosts$: Observable<any> = this.actions$.pipe(
 \end{lstlisting}
 
 Here we are mapping and returning an action to our effect. This allows us to 
-hook in an effect to our general /lstinline{ngrx/effect} ecosystem.
+hook in an effect to our general \lstinline{ngrx/effect} ecosystem.
 
 \section{mergeMap}
 \lstinline{switchMap} (similar to \lstinline{mergeMap} and \lstinline{concatMap}),
@@ -103,7 +104,7 @@ which will cancel all prior observables).
   @Effect()
   loadAllBlogPosts$: Observable<any> = this.actions$.pipe(
     ofType(PokemonActions.loadPokemon),
-    switchMap(() =>
+    mergeMap(() =>
       this.postsService.getAll().pipe(
         map(posts => PokemonActions.loadPokemonSuccess({ posts })),
         catchError(message => of(PokemonActions.loadPostsFailed({ message })))
@@ -123,9 +124,36 @@ and is therefore the right thing to use in this scenario.}
 \section{switchMap}
 \lstinline{switchMap} (similar to \lstinline{concatMap} and \lstinline{mergeMap}),
 will create an inner observable. The main difference is that it will complete 
-the previous inner observable. We can re-use the example we used for 
-\lstinline{map}. 
+the previous inner observable, so that only the latest observable is re-used. 
 
-In this example, whenever a new loadAllBlogPosts is emitted, we no longer 
-have a need for the previous stream, so \lstinline{switchMap} is the 
-appropriate observable in this scenario. 
+\begin{lstlisting}[caption=search-bar.component.ts]
+@Effect()
+findAddresses: Observable<any> = this.actions.pipe(
+  ofType(LocationActionTypes.FindAddresses),
+  map(action => action.partialAddress),
+  debounceTime(400),
+  distinctUntilChanged(),
+  switchMap(partialAddress => this.backend
+    .findAddresses(partialAddress)
+    .pipe(
+      map(results => new FindAddressesFulfilled(results)),
+      catchError(error => of(new FindAddressesRejected(error)))
+    )
+  )
+);  
+\end{lstlisting}
+ 
+In the example above, we have set up our effect to handle search. It has a 
+\begin{enumerate}
+  \item \lstinline{debounceTime} so that if user types multiple times within
+  a 400 milliseconds, it will only trigger once
+  \item \lstinline{distinctUntilChanged} to handle the use case wherein user 
+  deletes letters after typing, but returns to same word after deleting
+  \item ...and then the magic! \lstinline{switchMap} is used within our app,
+  because once a new search is made, prior observables are no longer needed 
+  and can be removed. 
+\end{enumerate}
+
+It's interesting. While this has value, alternative options could have been 
+used, such as \lstinline{concatMap}. Due to the finicky nature of maps, and 
+complexity behind it, maps can also be considered as a way of documentation. 
