@@ -69,10 +69,10 @@ In the above, the previous observable will emit first, causing a visual
 waterfall effect within our app. 
 
 \section{mergeMap}
-\lstinline{switchMap} (similar to \lstinline{mergeMap} and \lstinline{concatMap}),
+\lstinline{mergeMap} (similar to \lstinline{switchMap} and \lstinline{concatMap}),
 will create an inner observable. The main difference, is that \lstinline{mergeMap},
 will merge all observables into one(, as opposed to \lstinline{switchMap}, 
-which will cancel all prior observables). 
+which will cancel all prior observables).
 
 \begin{lstlisting}[caption=mergeMap example]
   @Effect()
@@ -129,6 +129,10 @@ In the example above, we have set up our effect to handle search. It has a
 It's interesting. While this has value, an alternative option could have been 
 used, i.e. \lstinline{concatMap}. Due to the finicky nature of maps, and 
 complexity behind it, maps can also be considered as a way of documentation.
+In my opinion, on documentation alone, it is useful to use the most appropriate 
+higher order observable. However, thinking about it again now, there are always 
+use cases that get overlooked. So, choosing the most appropriate observable, on 
+top of unit tests, is the most bonafide way to sidestep potential bugs.
 
 \mybox{When choosing a flattening operator for an effect/epic, if subsequent 
 actions of the same type will render pending results stale, switchMap is 
@@ -169,9 +173,10 @@ const example = source.pipe(map(val => val + 10));
 const subscribe = example.subscribe(val => console.log(val));
 \end{lstlisting}
 
-A common occurence within actual applications is to use map within a 
-switchMap, when using an \lstinline{ngrx/effect}. That way, it returns the map
-to the \lstinline{switchMap}, and kills any other observables from happening.
+A common occurrence within actual applications is to use map within a 
+\lstinline{switchMap}, when using an \lstinline{ngrx/effects}. That way, it 
+returns the \lstinline{map} to the \lstinline{switchMap}, and kills any other
+observables from happening.
 
 \begin{lstlisting}[caption=map example]
 @Effect()
@@ -186,5 +191,5 @@ loadAllBlogPosts$: Observable<any> = this.actions$.pipe(
 );  
 \end{lstlisting}
 
-Here we are mapping and returning an action to our effect. This allows us to 
-hook in an effect to our general \lstinline{ngrx/effect} ecosystem.
+Here we are mapping and returning an action observable to our effect. This 
+allows us to hook in a backend service to our general state ecosystem.
