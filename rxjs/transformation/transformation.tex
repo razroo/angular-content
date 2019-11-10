@@ -120,6 +120,24 @@ way through. I feel like using mergeMap makes this scenario more transparent
 and is therefore the right thing to use in this scenario.}
 
 \section{scan}
+\lstinline{scan} actually works exactly like \lstinline{reduce} does in 
+regular Javascript for arrays, but for observables. So, why did the RxJS team 
+call it \lstinline{scan} instead of \lstinline{reduce}? Well, it turns out there 
+is one little difference. \lstinline{reduce} actually is an operator in RxJS as
+well. However, \lstinline{scan} will emit the value for every iteration, whereas 
+\lstinline{reduce} will emit only the final value. 
+
+\lstinline{scan} therefore as a combinator has more use than reduce does, 
+because it allows us to tap into the history of our state. (In fact, while we
+won't go into that here, we can create a really low level state management 
+using \lstinline{scan})
+
+So in an enterprise setting, where we already have use of 
+\lstinline{ngrx/store}, why would scan be considered as a common operator? The 
+truth is, that within an enterprise Angular application, using \lstinline{ngrx/store}
+there are some really one of cases that use it. It is not an operator that I would keep 
+in mind, unless you are trying to introduce state to legacy Angular application, 
+that does not have state. 
 
 \section{switchMap}
 \lstinline{switchMap} (similar to \lstinline{concatMap} and \lstinline{mergeMap}),
@@ -154,6 +172,10 @@ In the example above, we have set up our effect to handle search. It has a
   and can be removed. 
 \end{enumerate}
 
-It's interesting. While this has value, alternative options could have been 
-used, such as \lstinline{concatMap}. Due to the finicky nature of maps, and 
-complexity behind it, maps can also be considered as a way of documentation. 
+It's interesting. While this has value, an alternative option could have been 
+used, i.e. \lstinline{concatMap}. Due to the finicky nature of maps, and 
+complexity behind it, maps can also be considered as a way of documentation.
+
+\mybox{When choosing a flattening operator for an effect/epic, if subsequent 
+actions of the same type will render pending results stale, switchMap is 
+unequivocally the best choice.}
