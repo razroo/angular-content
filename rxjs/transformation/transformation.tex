@@ -4,7 +4,7 @@ a common occurence within RxJS.
 
 \section{bufferTime}
 \lstinline{bufferTime} will collect a value until the provided time elapses. 
-Once time has ellapsed it will emit values collected during that time as an 
+Once time has elapsed it will emit values collected during that time as an 
 array. (It will not unsubscribe from the observable). A good example of when we
 would want to use bufferTime, is if we want to give the user notifications 
 within their application. However, we don't want to flood them with 
@@ -20,14 +20,23 @@ this.notificationService.updates$.pipe(
 });  
 \end{lstlisting}
 
+To be honest, within an enterprise Angular application, I haven't used 
+\lstinline{bufferTime} very often. 
+
 \section{RxJs Higher Order Mapping}
-Before we dive into these four values it's important to note that they are 
-all similar in one regard. It will subscribe to an inner observable. This 
-means that it allows for access to the value, and will create an inner 
-observable. This inner observable can then be modified. Why create an inner
-observable? Well this get's into something called higher order observables. 
-Think about the way classic promises work. Let's say we wanted to modify the 
-data nested twice within our promise:
+Before we dive into these three values:
+\begin{enumerate}
+  \item \lstinline{concatMap}
+  \item \lstinline{mergeMap}
+  \item \lstinline{switchMap}
+\end{enumerate}
+
+it's important to note that they are all similar in one regard. It will 
+subscribe to an inner observable. This means that it allows for access to the 
+value, and will create an inner observable. This inner observable can then be 
+modified. Why create an inner observable? Well this get's into something called
+higher order observables. Think about the way classic promises work. Let's say
+we wanted to modify the data nested twice within our promise:
 \begin{lstlisting}
 this.postService.getPosts().then(data => {
   const blogIds = data.map(data => data.id);
@@ -59,41 +68,6 @@ getItems(ids: number[]): Observable<Item> {
 In the above, the previous observable will emit first, causing a visual 
 waterfall effect within our app. 
 
-\section{map} 
-\lstinline{map} will apply a projection to each value in source. For instance: 
-\begin{lstlisting}[caption=rxjs map example]
-// RxJS v6+
-import { from } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-//emit (1,2,3,4,5)
-const source = from([1, 2, 3, 4, 5]);
-//add 10 to each value
-const example = source.pipe(map(val => val + 10));
-//output: 11,12,13,14,15
-const subscribe = example.subscribe(val => console.log(val));
-\end{lstlisting}
-
-A common occurence within actual applications is to use map within a 
-switchMap, when using an \lstinline{ngrx/effect}. That way, it returns the map
-to the \lstinline{switchMap}, and kills any other observables from happening.
-
-\begin{lstlisting}[caption=map example]
-@Effect()
-loadAllBlogPosts$: Observable<any> = this.actions$.pipe(
-  ofType(PokemonActions.loadPokemon),
-  mergeMap(() =>
-    this.postsService.getAll().pipe(
-      map(posts => PokemonActions.loadPokemonSuccess({ posts })),
-      catchError(message => of(PokemonActions.loadPostsFailed({ message })))
-    )
-  )
-);  
-\end{lstlisting}
-
-Here we are mapping and returning an action to our effect. This allows us to 
-hook in an effect to our general \lstinline{ngrx/effect} ecosystem.
-
 \section{mergeMap}
 \lstinline{switchMap} (similar to \lstinline{mergeMap} and \lstinline{concatMap}),
 will create an inner observable. The main difference, is that \lstinline{mergeMap},
@@ -118,26 +92,6 @@ switchMap doesn't actually do anything in this scenario. Even if we were to
 cancel the inner observable the action and http request has still made it's 
 way through. I feel like using mergeMap makes this scenario more transparent 
 and is therefore the right thing to use in this scenario.}
-
-\section{scan}
-\lstinline{scan} actually works exactly like \lstinline{reduce} does in 
-regular Javascript for arrays, but for observables. So, why did the RxJS team 
-call it \lstinline{scan} instead of \lstinline{reduce}? Well, it turns out there 
-is one little difference. \lstinline{reduce} actually is an operator in RxJS as
-well. However, \lstinline{scan} will emit the value for every iteration, whereas 
-\lstinline{reduce} will emit only the final value. 
-
-\lstinline{scan} therefore as a combinator has more use than reduce does, 
-because it allows us to tap into the history of our state. (In fact, while we
-won't go into that here, we can create a really low level state management 
-using \lstinline{scan})
-
-So in an enterprise setting, where we already have use of 
-\lstinline{ngrx/store}, why would scan be considered as a common operator? The 
-truth is, that within an enterprise Angular application, using \lstinline{ngrx/store}
-there are some really one of cases that use it. It is not an operator that I would keep 
-in mind, unless you are trying to introduce state to legacy Angular application, 
-that does not have state. 
 
 \section{switchMap}
 \lstinline{switchMap} (similar to \lstinline{concatMap} and \lstinline{mergeMap}),
@@ -179,3 +133,58 @@ complexity behind it, maps can also be considered as a way of documentation.
 \mybox{When choosing a flattening operator for an effect/epic, if subsequent 
 actions of the same type will render pending results stale, switchMap is 
 unequivocally the best choice.}
+
+\section{scan}
+\lstinline{scan} actually works exactly like \lstinline{reduce} does in 
+regular Javascript for arrays, but for observables. So, why did the RxJS team 
+call it \lstinline{scan} instead of \lstinline{reduce}? Well, it turns out there 
+is one little difference. \lstinline{reduce} actually is an operator in RxJS as
+well. However, \lstinline{scan} will emit the value for every iteration, whereas 
+\lstinline{reduce} will emit only the final value. 
+
+\lstinline{scan} therefore as a combinator has more use than reduce does, 
+because it allows us to tap into the history of our state. (In fact, while we
+won't go into that here, we can create a really low level state management 
+using \lstinline{scan})
+
+So in an enterprise setting, where we already have use of 
+\lstinline{ngrx/store}, why would scan be considered as a common operator? The 
+truth is, that within an enterprise Angular application, using \lstinline{ngrx/store}
+there are some really one of cases that use it. It is not an operator that I would keep 
+in mind, unless you are trying to introduce state to legacy Angular application, 
+that does not have state. 
+
+\section{map} 
+\lstinline{map} will apply a projection to each value in source. For instance: 
+\begin{lstlisting}[caption=rxjs map example]
+// RxJS v6+
+import { from } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+//emit (1,2,3,4,5)
+const source = from([1, 2, 3, 4, 5]);
+//add 10 to each value
+const example = source.pipe(map(val => val + 10));
+//output: 11,12,13,14,15
+const subscribe = example.subscribe(val => console.log(val));
+\end{lstlisting}
+
+A common occurence within actual applications is to use map within a 
+switchMap, when using an \lstinline{ngrx/effect}. That way, it returns the map
+to the \lstinline{switchMap}, and kills any other observables from happening.
+
+\begin{lstlisting}[caption=map example]
+@Effect()
+loadAllBlogPosts$: Observable<any> = this.actions$.pipe(
+  ofType(PokemonActions.loadPokemon),
+  mergeMap(() =>
+    this.postsService.getAll().pipe(
+      map(posts => PokemonActions.loadPokemonSuccess({ posts })),
+      catchError(message => of(PokemonActions.loadPostsFailed({ message })))
+    )
+  )
+);  
+\end{lstlisting}
+
+Here we are mapping and returning an action to our effect. This allows us to 
+hook in an effect to our general \lstinline{ngrx/effect} ecosystem.
