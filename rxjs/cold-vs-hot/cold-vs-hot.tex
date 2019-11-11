@@ -1,0 +1,68 @@
+\chapter{Cold v Hot Observables}
+One of the foundational understandings of RxJS, is understanding what the 
+difference between cold and hot ovservables is. First and foremost, let's 
+keep in mind difference:
+\begin{quote}
+\say{When the data is produced by the Observable itself, we call it a cold Observable. When the data is produced outside the Observable, we call it a hot Observable.}
+\end{quote}
+
+There is a lot to unpack here, so let's disect. 
+
+\section{Cold Observables}
+To re-iterate, an observable is called "cold", when the data is produced outside of the observable. An observable is only instantiated, once the
+subscribe is called. So, we can have something like this: 
+
+\begin{lstlisting}[caption=observable without subscribe]
+import { filter, map } from 'rxjs/operators';
+
+const nums = of(1, 2, 3, 4, 5);
+// Create a function that accepts an Observable.
+const randomVals = pipe( 
+  map(r => r[Math.floor(Math.random() * r.length)]),
+);
+
+// Create an Observable that will run the filter and map functions
+const randomVals$ = randomVals(nums);
+\end{lstlisting}
+
+That will actually create an observable, but it will not be called until we add a \lstinline{subscribe} to the code. 
+
+\begin{lstlisting}[caption=observable with subscribe]
+import { filter, map } from 'rxjs/operators';
+
+const nums = of(1, 2, 3, 4, 5);
+// Create a function that accepts an Observable.
+const randomVals = pipe( 
+  map(r => r[Math.floor(Math.random() * r.length)]),
+);
+
+// Create an Observable that will run the filter and map functions
+const randomVals$ = randomVals(nums);
+
+// Subscribe to run the combined functions
+randomVals$.subscribe(x => console.log(x));
+\end{lstlisting}
+
+For that reason, it's possible to have it subscribe mutliple times to a singular observable, yet get different results each time. If in the above 
+code, we created two subscribes, so that our code now look like this: 
+\begin{lstlisting}[caption=observable with two subscribes]
+import { filter, map } from 'rxjs/operators';
+
+const nums = of(1, 2, 3, 4, 5);
+// Create a function that accepts an Observable.
+const randomVals = pipe( 
+  map(r => r[Math.floor(Math.random() * r.length)]),
+);
+
+// Create an Observable that will run the filter and map functions
+const randomVals$ = randomVals(nums);
+
+// Subscribe to run the combined functions
+randomVals$.subscribe(x => console.log(x));
+// 2
+randomVals$.subscribe(x => console.log(x));
+// 5
+\end{lstlisting}
+
+As we can see in the comments above, each one will give us a new value.
+
