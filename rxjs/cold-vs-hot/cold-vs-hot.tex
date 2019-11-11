@@ -44,7 +44,7 @@ randomVals$.subscribe(x => console.log(x));
 
 As we can see in the comments above, each subscribe will give us a new value.
 
-\subsection{Maintaining Same Value for Both Subscribers}
+\subsection{Maintaining Same Value for Both Subscribers - Venture into the Land of Hot}
 However, let's say that we wanted to maintain the same random value for 
 both subscribers. What we would do, it create a constant outside of the 
 subject logic, so that it remains for both. 
@@ -65,5 +65,51 @@ randomVals$.subscribe(x => console.log(x));
 Here, we have moved the data producer(i.e. \lstinline{Math.random()}) out of observable. So, to go back to our definition of a hot, vs cold observable. Being that this data was produced outside of the observable, our observable now just went from being a cold observable to a hot observable. Viola and yes it is that easy! However, as time goes on, you will have to apply this logic to the scenario to truly understand what is producing the data.
 
 \section{Hot Observables}
+So, while we have produced a good example for what a cold vs hot observable is, we have not produced an enterprise example, that really drives it home. The truth is, that actually \lstinline{@ngrx/store} is based on hot observables. In particular when using \lstinline{@ngrx/effects}. 
+\begin{lstlisting}
+@Effect() loadPosts$ = this.dataPersistence.fetch(
+  PostsActionTypes.LoadPosts,
+  {
+    run: (action: LoadPosts, state: PostsPartialState) => {
+      return this.postsService.getPosts().pipe(
+        map((posts: Post[]) => new PostsLoaded(posts))
+      );
+    },
+    onError: (action: LoadPosts, error) => {
+      console.error('Error', error);
+      return new PostsLoadError(error);
+    }
+  }
+);  
+\end{lstlisting}
 
+As we can see, we are passing in an action that already exists. In fact, we are using nrwl's utility function \lstinline{dataPersistence} to make sure our data persists. If we dig deep, we will see that it extends this core functionality of \lstinline{ngrx/effects}: 
+\begin{lstlisting}[caption=data-persistence.d.ts file from nrwl library]
+/**
+* @whatItDoes Provides convenience methods for implementing common operations of persisting data.
+*/
+export declare class DataPersistence<T> {
+  store: Store<T>;
+  actions: Actions;
+  constructor(store: Store<T>, actions: Actions);  
+\end{lstlisting}
+
+\begin{lstlisting}[caption=actions.d.ts file from ngrx/effects library]
+export declare class Actions<V = Action> extends Observable<V> {
+  constructor(source?: Observable<V>);
+  lift<R>(operator: Operator<V, R>): Observable<R>;
+  static ngInjectableDef: ɵngcc0.ɵɵInjectableDef<Actions<any>>;
+}  
+\end{lstlisting}
+
+Here we are extending the \lstinline{Observable} class. 
+
+So, as we can see, we are accepting data from an action, thereby making the data produced outside of our effects observable. This is a classic scenario that happens time and time again, that is in truth a hot observable. Knowing this truth is very valuable, especially when it comes to unit testing your code.
+
+\section{Why Make an Observable Hot?}
+To re-iterate, and Observable by default is cold. So, why would one want to make an observable hot? This has value in two particular situations: 
+\begin{enumerate}
+  \item Have multiple subscribers get the same data
+  \item New instance of something for each observable creation(e.g. Websocket); By passing it through, and making it as a hot observable, allows our code to be dry.
+\end{enumerate}
 
