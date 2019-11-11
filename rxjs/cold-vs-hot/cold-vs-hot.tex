@@ -113,3 +113,6 @@ To re-iterate, and Observable by default is cold. So, why would one want to make
   \item New instance of something for each observable creation(e.g. Websocket); By passing it through, and making it as a hot observable, allows our code to be dry.
 \end{enumerate}
 
+Within our effects setting, we create an observable, and listen to all actions.
+\lstinline{hot} here can be used simply so we have access to something already 
+priorly created.
