@@ -98,6 +98,14 @@ console.log('razrooAssetsBaseURL');
 console.log(razrooAssetsBaseURL);
 \end{lstlisting}
 
+We can also create a global namespace, without the need of using a import/export. We would do this by writing: 
+\begin{verbatim}
+declare namespace myLib {
+  function makeGreeting(s: string): string;
+  let numberOfGreetings: number;
+}  
+\end{verbatim}
+
 \subsubsection{What is a Type Definition}
 A type definition in Angular 
 
