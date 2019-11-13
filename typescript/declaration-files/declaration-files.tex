@@ -1,4 +1,6 @@
 \chapter{Declaration Files}
+Declaration files have an integral part of the Angular/Typescript ecosystem. They happen to not make their way into the day to day of our applications because most major libraries have them bundled in already. In addition, there is a 5,000+ open source library that creates types for non-typed libraries. However, it is nonetheless integral to understanding how it works. Every application usually has a one off use case that makes it special. When that time arrives, knowing how a declaration file works is going to come in handy.
+
 \section{Type Annotation}
 First, there is what we quite frequently see within a Typescript application called a type annotation. That looks something like this: 
 \begin{verbatim}
@@ -29,10 +31,6 @@ export interface UserState {
 
 In the above interface for UserState, our list, which is where our reducer is going to place user data, has the type annotation for the \lstinline{User} interface.
 
-
-
-% \subsection{What is a Type Definition? Modules and Namespaces}
-% In order to understand type definitions in Typescript, we need to understand modules and namespaces in Typescript. 
 \section{Modules in Typescript}
 A module in Typescript is any file containing: 
 \begin{enumerate}
