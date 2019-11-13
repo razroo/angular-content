@@ -35,7 +35,7 @@ In the above interface for UserState, our list, which is where our reducer is go
 
 \subsection{What is a Type Definition? Modules and Namespaces}
 In order to understand type definitions in Typescript, we need to understand modules and namespaces in Typescript. 
-\subsubsection{Module}
+\subsubsection{Modules in Typescript}
 A module in Typescript is any file containing: 
 \begin{enumerate}
   \item Values 
@@ -48,7 +48,7 @@ export const person: Person;
 // e.g. 
 export function square(n: number) {
   return n * n;
-}  
+}
 \end{verbatim}
 \item Classes (e.g. export const person: Person;)
 \begin{verbatim}
@@ -64,14 +64,42 @@ export class AppComponent {
 \end{verbatim}
 \end{enumerate}
 
-values 
+A great example of using a module in Typescript is a classic \lstinline{import}. It's so commonplace that you've undoubtedly come across of it, and when you read this code example will say, "ooooh, that's a module, i know what that is" \lstinline{module}
+\begin{lstlisting}
+import { add } from "./math";
+\end{lstlisting}
 
+\^ the above would be a module in Typescript.
 
+\subsubsection{Namespaces in Typescript}
+Similarly, you most likely have come across a namespace in Typescript as well. It looks somthing like this:
+\begin{lstlisting}
+import * as math from "./math";
+\end{lstlisting}
+A namespace in Typescript is a way to group features(e.g. interfaces, functions etc.) and objects that share common relationships. So in the above, if we access now anything within the math file, all we would have to do is:
+\begin{verbatim}
+this.math.add(2, 3);
+// 5  
+\end{verbatim}
 
-A type definition in Typescript 
+A great way to better understand namespaces, is to think of it as an internal module system. In this way, interfaces, classes, functions, and variables are all included into the internal Typescript compiler. (we will get to how we can create a global namespace later).
 
+\subsubsection{Global in Typescript - The Last Piece}
+There is just one last missing foundational piece in order to understand what and how a type definition is created. In Typescript, there is the ability to 
+create global variables, functions, and namespaces. For instance, if we want to create a variable called \lstinline{car} and have it available across our entire app, we can use something really cool called \lstinline{declare}: 
 
-While Typescript gives the ability to create an interface, there is also the
+\begin{verbatim}
+declare let razrooAssetsBaseURL = 'assets/logo';  
+\end{verbatim}
+
+Now that we have this global variable within our app, we can use it anwhere we want. 
+\begin{lstlisting}[caption=useless.component.ts]
+console.log('razrooAssetsBaseURL');
+console.log(razrooAssetsBaseURL);
+\end{lstlisting}
+
+\subsubsection{What is a Type Definition}
+A type definition in Angular 
 
 First and foremost, a type annotation, is what you will quite frequently see within typescript. For instance, something specifying that a 
 
@@ -84,7 +112,7 @@ create a type definition.
 
 \section{Example Scenario}
 For instance, in another chapter, we reccomend using the native Network 
-Information API. Because it is experimental(atthe time of this writing),
+Information API. Because it is experimental(at the time of this writing),
 as is the case in all scenarios, the Typescript team has not included 
 type definitions for it. So, we need to go ahead, and create our own 
 custom type definitions. 
