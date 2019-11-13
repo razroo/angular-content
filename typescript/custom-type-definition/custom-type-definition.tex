@@ -1,4 +1,81 @@
-\chapter{ Create a Custom Type Definition }
+\chapter{ Custom Type Definitions }
+
+\section{Understanding Custom Type Definitions}
+Before we describe what a custom type definiton is, let's walk through the food chain so to speak in Typescript. 
+
+\subsection{Type Annotation}
+First, there is what we quite frequently see within a Typescript application called a type annotation. That looks something like this: 
+\begin{verbatim}
+const userName: string;  
+\end{verbatim}
+
+In the above, we are using Typescript's internal framework, to inform that compiler, that the type of this constant is a string. 
+
+\subsection{Typescript Interface}
+Moving on, the next level would be an interface. A Typescript interface can be used to describe an entire object, such as the following user interface: 
+\begin{lstlisting}[caption=Typescript User Interface]
+export interface User {
+  password: string;
+  userName: string;
+  email: string;
+}
+\end{lstlisting}
+
+Now, in our application, if we plan on having user data, we can annotate that object with our interface. A common enterprise example of this: 
+\begin{lstlisting}[caption=user.reducer.ts]
+export interface UserState {
+  list: User; // list of Users; analogous to a sql normalized table
+  selectedId?: string | number; // which User record has been selected
+  loaded: boolean; // has the User list been loaded
+  error?: any; // last none error (if any)
+}  
+\end{lstlisting}
+
+In the above interface for UserState, our list, which is where our reducer is going to place user data, has the type annotation for the \lstinline{User} interface.
+
+\subsection{What is a Type Definition? Modules and Namespaces}
+In order to understand type definitions in Typescript, we need to understand modules and namespaces in Typescript. 
+\subsubsection{Module}
+A module in Typescript is any file containing: 
+\begin{enumerate}
+  \item Values 
+\begin{verbatim}
+// e.g.  
+export const person: Person;  
+\end{verbatim}  
+\item Functions
+\begin{verbatim}
+// e.g. 
+export function square(n: number) {
+  return n * n;
+}  
+\end{verbatim}
+\item Classes (e.g. export const person: Person;)
+\begin{verbatim}
+// e.g.
+@Component({
+  selector: 'razroo-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  constructor() {}
+}
+\end{verbatim}
+\end{enumerate}
+
+values 
+
+
+
+A type definition in Typescript 
+
+
+While Typescript gives the ability to create an interface, there is also the
+
+First and foremost, a type annotation, is what you will quite frequently see within typescript. For instance, something specifying that a 
+
+
 Typescript by default actually includes type definitions for all of core
 Javascript. Any time you are using a core javascript method, typescript
 within it's core framework has a typing for it. However, any time you
@@ -14,7 +91,7 @@ custom type definitions.
 
 In addition, there will be times within your Angular application, wherein 
 due to the requirements of your organization, you might need to create your 
-own custom type definition. Whether is be new technology, or simply security
+own custom type definition. Whether it be new technology, or simply security
 concerns. 
 
 The following is the cookie cutter process for creating a custom type 
