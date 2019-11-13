@@ -1,9 +1,7 @@
-\chapter{ Custom Type Definitions }
-
-\section{Understanding Custom Type Definitions}
+\chapter{ Declaration Files }
 Before we describe what a custom type definiton is, let's walk through the food chain so to speak in Typescript. 
 
-\subsection{Type Annotation}
+\section{Type Annotation}
 First, there is what we quite frequently see within a Typescript application called a type annotation. That looks something like this: 
 \begin{verbatim}
 const userName: string;  
@@ -11,7 +9,7 @@ const userName: string;
 
 In the above, we are using Typescript's internal framework, to inform that compiler, that the type of this constant is a string. 
 
-\subsection{Typescript Interface}
+\section{Typescript Interface}
 Moving on, the next level would be an interface. A Typescript interface can be used to describe an entire object, such as the following user interface: 
 \begin{lstlisting}[caption=Typescript User Interface]
 export interface User {
@@ -33,9 +31,11 @@ export interface UserState {
 
 In the above interface for UserState, our list, which is where our reducer is going to place user data, has the type annotation for the \lstinline{User} interface.
 
-\subsection{What is a Type Definition? Modules and Namespaces}
-In order to understand type definitions in Typescript, we need to understand modules and namespaces in Typescript. 
-\subsubsection{Modules in Typescript}
+
+
+% \subsection{What is a Type Definition? Modules and Namespaces}
+% In order to understand type definitions in Typescript, we need to understand modules and namespaces in Typescript. 
+\section{Modules in Typescript}
 A module in Typescript is any file containing: 
 \begin{enumerate}
   \item Values 
@@ -71,7 +71,7 @@ import { add } from "./math";
 
 \^ the above would be a module in Typescript.
 
-\subsubsection{Namespaces in Typescript}
+\section{Namespaces in Typescript}
 Similarly, you most likely have come across a namespace in Typescript as well. It looks somthing like this:
 \begin{lstlisting}
 import * as math from "./math";
@@ -84,7 +84,7 @@ this.math.add(2, 3);
 
 A great way to better understand namespaces, is to think of it as an internal module system. In this way, interfaces, classes, functions, and variables are all included into the internal Typescript compiler. (we will get to how we can create a global namespace later).
 
-\subsubsection{Global in Typescript - The Last Piece}
+\section{Global in Typescript - The Last Piece}
 There is just one last missing foundational piece in order to understand what and how a type definition is created. In Typescript, there is the ability to 
 create global variables, functions, and namespaces. For instance, if we want to create a variable called \lstinline{car} and have it available across our entire app, we can use something really cool called \lstinline{declare}: 
 
@@ -100,17 +100,43 @@ console.log(razrooAssetsBaseURL);
 
 We can also create a global namespace, without the need of using a import/export. We would do this by writing: 
 \begin{verbatim}
-declare namespace myLib {
+declare namespace razrooLib {
   function makeGreeting(s: string): string;
   let numberOfGreetings: number;
-}  
+}
 \end{verbatim}
 
-\subsubsection{What is a Type Definition}
-A type definition in Angular 
+\section{What is a Declaration File?}
+Defined concisely: 
+\begin{quote}
+\say{A declaration file in Typescript is simply a way of transferring over a Javascript library to Typescript}
+\end{quote}
 
-First and foremost, a type annotation, is what you will quite frequently see within typescript. For instance, something specifying that a 
+There is a bit to unpack in this definition, as it's not immediately apparent why a Javascript library would need to be converted over to Typescript? 
 
+\subsection{Fantastic Moment.js Example }
+The Moment.js library, is an extremely popular library used for dates. For me personally, in the past 10 years working on applications, it is the only library to consistenly be used in every application. The actualy library is written in Javscript. However, in order for the Typescript compiler to understand the function, and to make sure the application you are working on is type safe, the moment core contributers have created their own typescript definition files \footnote{github.com/moment/moment/blob/0aae7249928ae0dacad94de30d68434cabc03844/moment.d.ts}.  
+
+One of the most commonly use \lstinline{Moment} functions is format.
+\begin{lstlisting}[caption=moment.d.ts]
+declare namespace moment {
+  //..
+  interface Moment extends Object {
+    format(format?: string): string;
+    //..
+  }
+  //..
+}
+\end{lstlisting}
+
+There are three things that have been done here, in order for this type to take hold:
+\begin{enumerate}
+\item We created a global namespace called moment. Whenever Typescript feeds into the Javascript moment library, it immediately taps into the types for \lstinline{Moment}
+\item We create a type annotation all of our methods. Here we are showing one of the more commonly used one's format. Wherein the library specifies that it can optionally take in string parameter, and returns a string.
+\item The actual file has the suffix \lstinline{.d.ts}. When a file has a suffix of \lstinline{.d.ts}, the Typescript compiler will immediately identify it as a declaration file. 
+\end{enumerate}
+
+A type definition in Angular, or better termed declaration files 
 
 Typescript by default actually includes type definitions for all of core
 Javascript. Any time you are using a core javascript method, typescript
