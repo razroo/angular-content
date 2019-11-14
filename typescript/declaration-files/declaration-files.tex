@@ -36,30 +36,30 @@ export interface UserState {
 
 In the above \lstinline{UserState} interface, our \lstinline{list}, which is where our reducer is going to place \lstinline{user} data, has the type annotation for the \lstinline{User} interface.
 
-\subsection{The Multiple Interface Dillema}
-Ok, great, so now we know that we can create an interface, and use that to type annotate our object. However, what if wanted to use 10, or so interfaces from the \lstinline{user.models.ts} file(the file where our user interaces are located), is there are a more efficient way to import them all at once, instead of doing something like this:? 
-
-\begin{lstlisting}
-import { User, UserTable, UserSettings, UserForm, UserProject, UserCorporate, UserConsumer } from '@razroo/data-models/user';
+\subsection{The Multiple Interface Dilemma}
+Ok, great, so now we know that we can create an interface, and use that to type annotate our object. However, what if wanted to use 10, or so interfaces from the \lstinline{user.models.ts} file(the file where our user interfaces are located), is there are a more efficient way to import them all at once, instead of doing something like this:? 
 
 \begin{lstlisting}[caption=user.reducer.ts]
-  // let's pretend that they're all being used in this file, for the sake of
-  // brevity.. 
-  export interface UserState {
-    list: User; // list of Users; analogous to a sql normalized table
-    //..
-  }  
+import { User, UserTable, UserSettings, UserForm, UserProject, UserCorporate, UserConsumer } from '@razroo/data-models/user';
+
+// let's pretend that all imports are being used in this file, for the sake of
+// brevity.. 
+export interface UserState {
+  list: User; // list of Users; analogous to a sql normalized table
   //..
-  \end{lstlisting}  
+}  
+//..
 \end{lstlisting}
 
-That would lead us to the next two core concpts in Typescript:
+Typescript's answer to this came in form of the next two core concepts we shall discuss:
 \begin{enumerate}
   \item Modules
   \item Namespaces
 \end{enumerate}
 
 \section{Modules in Typescript}
+
+\subsection{What is a Module}
 A module in Typescript is any file containing: 
 \begin{enumerate}
   \item Values 
@@ -74,7 +74,7 @@ export function square(n: number) {
   return n * n;
 }
 \end{verbatim}
-\item Classes (e.g. export const person: Person;)
+\item Classes
 \begin{verbatim}
 // e.g.
 @Component({
@@ -88,47 +88,61 @@ export class AppComponent {
 \end{verbatim}
 \end{enumerate}
 
-A great example of using a module in Typescript is a classic \lstinline{import}. It's so commonplace that you've undoubtedly come across of it, and when you read this code example will say, "ooooh, that's a module, i know what that is" \lstinline{module}
+\subsection{Example of Module in Typescript}
+A great example of using a module in Typescript is the classic \lstinline{import}. It's so commonplace that you've undoubtedly come across it, and when you read this code example (probably) will say, "Ooooh, that's a module, I know what that is!".
 \begin{lstlisting}
 import { add } from "./math";
 \end{lstlisting}
 
-\^ the above would be a module in Typescript.
+\^ the math file is a module in Typescript.
 
 \section{Namespaces in Typescript}
-Similarly, you most likely have come across a namespace in Typescript as well. It looks somthing like this:
+You most likely have come across a namespace in Typescript as well. A local namespace looks something like this:
+
 \begin{lstlisting}
 import * as math from "./math";
 \end{lstlisting}
-A namespace in Typescript is a way to group features(e.g. interfaces, functions etc.) and objects that share common relationships. So in the above, if we access now anything within the math file, all we would have to do is:
-\begin{verbatim}
-this.math.add(2, 3);
+
+wherein math is the namespace for the \lstinline{math} module. Now that we have our namespace, we can tap into any method within the namespace, using classic dot notation:
+
+\begin{verbatim}  
+math.add(2, 3);
 // 5  
 \end{verbatim}
 
-A great way to better understand namespaces, is to think of it as an internal module system. In this way, interfaces, classes, functions, and variables are all included into the internal Typescript compiler. (we will get to how we can create a global namespace later).
+A namespace put simply, is a way of grouping all Typescript interfaces, classes,  functions, and variables under one single name. Similar to what we did above \^ for the \lstinline{math} namespace. The benefits of this are two-fold: 
+\begin{enumerate}
+  \item Simplify process of import.
+  \item Create a respective Typescript interface overlay \textrightarrow{} for a non-Typescript Javascript library(something we will get to momentarily). 
+\end{enumerate}
 
 \section{Global in Typescript - The Last Piece}
-There is just one last missing foundational piece in order to understand what and how a type definition is created. In Typescript, there is the ability to 
-create global variables, functions, and namespaces. For instance, if we want to create a variable called \lstinline{car} and have it available across our entire app, we can use something really cool called \lstinline{declare}: 
+There is just one last missing foundational piece in order to understanding a declaration file is. 
+
+In Typescript, there is the ability to create global variables, functions, and namespaces. For instance, if we want to create a variable called \lstinline{razrooAssetsBaseURL}and have it be available across our entire app, we can use something really cool called \lstinline{declare}:
 
 \begin{verbatim}
 declare let razrooAssetsBaseURL = 'assets/logo';  
 \end{verbatim}
 
-Now that we have this global variable within our app, we can use it anwhere we want. 
+Now that we have this global variable within our app, we can use it anywhere we want.
+
 \begin{lstlisting}[caption=useless.component.ts]
 console.log('razrooAssetsBaseURL');
 console.log(razrooAssetsBaseURL);
 \end{lstlisting}
 
-We can also create a global namespace, without the need of using a import/export. We would do this by writing: 
+\subsection{Creating a Global Namespace}
+We can also create a global namespace, without the need of using an import/export. We would do this by coding:
+
 \begin{verbatim}
 declare namespace razrooLib {
   function makeGreeting(s: string): string;
   let numberOfGreetings: number;
 }
 \end{verbatim}
+
+Now we are all set to finally jump into what a declaration file is.
 
 \section{What is a Declaration File?}
 Defined concisely: 
