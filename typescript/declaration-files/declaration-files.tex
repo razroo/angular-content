@@ -172,13 +172,21 @@ declare namespace moment {
 \end{lstlisting}
 \footnote{github.com/moment/moment/blob/0aae7249928ae0dacad94de30d68434cabc03844/moment.d.ts}.  
 
-There are three things that have been done here, in order for this type to take hold:
+There are three things that have been done here, in order for this declaration file to take hold:
 \begin{enumerate}
-\item We created a global namespace called moment. Whenever Typescript feeds into the Javascript moment library, it immediately taps into the types for \lstinline{Moment}
-\item We create a type annotation all of our methods. Here we are showing one of the more commonly used one's format. Wherein the library specifies that it can optionally take in string parameter, and returns a string.
-\item The actual file has the suffix \lstinline{.d.ts}. When a file has a suffix of \lstinline{.d.ts}, the Typescript compiler will not immediately know of it's existence. Instead of reference file similar to: 
+\item We created a global namespace called moment. Whenever Typescript imports the Javascript \lstinline{moment} library, it immediately taps into the types for Moment, contained within the global \lstinline{moment} namespace.
+\item We create a type annotation for all of our methods. Here we are showing one of the more commonly used one's - \lstinline{format}(along with \lstinline{startof} and \lstinline{endOf}). Wherein the library specifies that it can optionally take in string parameter, and returns a string.
+\item The actual file has the suffix \lstinline{.d.ts}. When a file has a suffix of \lstinline{.d.ts}, the Typescript compiler will not immediately know of it's existence. Instead you will have to use a reference path similar to:
 \begin{verbatim} 
 ///<reference path="path/to/file.d.ts" />
 \end{verbatim} 
-Will have to be created, so typescript knows it exists. The current practice is to place all reference paths in an \lstinline{index.d.ts} file, and then feed that one \lstinline{index.d.ts} file into your application.
+The current practice is to place all reference paths in an \lstinline{index.d.ts} file, and then feed that one \lstinline{index.d.ts} file into your application. This is fed into main application, by putting this type into the "typings"/"types" field in your package.json
+\begin{lstlisting}[caption=typings field as used by the moment.js library]
+{
+  "name": "moment",
+  ...
+  "typings": "./moment.d.ts",
+  ...
+}  
+\end{lstlisting}
 \end{enumerate}
