@@ -1,16 +1,19 @@
 \chapter{Declaration Files}
-Declaration files have an integral part of the Angular/Typescript ecosystem. They happen to not make their way into the day to day of our applications because most major libraries have them bundled in already. In addition, there is a 5,000+ open source library that creates types for non-typed libraries. However, it is nonetheless integral to understanding how it works. Every application usually has a one off use case that makes it special. When that time arrives, knowing how a declaration file works is going to come in handy.
+Declaration files have an integral part of the Angular/Typescript ecosystem. However, if you haven't worked with declaration files, it's because most major libraries have them bundled with library already. In addition, there are 5,000+ typings created by the open source library DefinitelyTyped. Nonetheless, granted this is the reality of present day Angular development, it is nonetheless integral to understand how it works. Every application usually has a one-off use case that makes it special. When that time arrives, knowing how a declaration file works is going to come in handy. Most likely because you will need to create one yourself.
+
+Declaration files, however, happen to be very involved. They need understanding of numerous prior Typescript concepts. Let's go through that now, as efficiently we can.
 
 \section{Type Annotation}
 First, there is what we quite frequently see within a Typescript application called a type annotation. That looks something like this: 
+
 \begin{verbatim}
 const userName: string;  
 \end{verbatim}
 
-In the above, we are using Typescript's internal framework, to inform that compiler, that the type of this constant is a string. 
+In the above, we are inform the Typescript compiler, that the type of this constant is a string. This is for a single value. Let's move onto the next step in the ladder, type annotating an object.
 
 \section{Typescript Interface}
-Moving on, the next level would be an interface. A Typescript interface can be used to describe an entire object, such as the following user interface: 
+A Typescript interface can be used to describe an entire object, such as the following \lstinline{User} interface: 
 \begin{lstlisting}[caption=Typescript User Interface]
 export interface User {
   password: string;
@@ -19,8 +22,10 @@ export interface User {
 }
 \end{lstlisting}
 
-Now, in our application, if we plan on having user data, we can annotate that object with our interface. A common enterprise example of this: 
+Now, in our application, if we plan on having user data, we can (type) annotate that object with our interface. A common enterprise example of this: 
 \begin{lstlisting}[caption=user.reducer.ts]
+import { User } from '@razroo/data-models/user';
+
 export interface UserState {
   list: User; // list of Users; analogous to a sql normalized table
   selectedId?: string | number; // which User record has been selected
@@ -29,7 +34,30 @@ export interface UserState {
 }  
 \end{lstlisting}
 
-In the above interface for UserState, our list, which is where our reducer is going to place user data, has the type annotation for the \lstinline{User} interface.
+In the above \lstinline{UserState} interface, our \lstinline{list}, which is where our reducer is going to place \lstinline{user} data, has the type annotation for the \lstinline{User} interface.
+
+\subsection{The Multiple Interface Dillema}
+Ok, great, so now we know that we can create an interface, and use that to type annotate our object. However, what if wanted to use 10, or so interfaces from the \lstinline{user.models.ts} file(the file where our user interaces are located), is there are a more efficient way to import them all at once, instead of doing something like this:? 
+
+\begin{lstlisting}
+import { User, UserTable, UserSettings, UserForm, UserProject, UserCorporate, UserConsumer } from '@razroo/data-models/user';
+
+\begin{lstlisting}[caption=user.reducer.ts]
+  // let's pretend that they're all being used in this file, for the sake of
+  // brevity.. 
+  export interface UserState {
+    list: User; // list of Users; analogous to a sql normalized table
+    //..
+  }  
+  //..
+  \end{lstlisting}  
+\end{lstlisting}
+
+That would lead us to the next two core concpts in Typescript:
+\begin{enumerate}
+  \item Modules
+  \item Namespaces
+\end{enumerate}
 
 \section{Modules in Typescript}
 A module in Typescript is any file containing: 
