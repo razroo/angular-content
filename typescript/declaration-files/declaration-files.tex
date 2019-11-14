@@ -150,22 +150,27 @@ Defined concisely:
 \say{A declaration file in Typescript is simply a way of transferring over a Javascript library to Typescript}
 \end{quote}
 
-There is a bit to unpack in this definition, as it's not immediately apparent why a Javascript library would need to be converted over to Typescript? 
+There is a bit to unpack in this definition, as it's not immediately apparent why a Javascript library would need to be converted over to Typescript? In addition, how exactly would a declaration file covert a Javascript library to Typescript?
 
-\subsection{Fantastic Moment.js Example }
-The Moment.js library, is an extremely popular library used for dates. For me personally, in the past 10 years working on applications, it is the only library to consistenly be used in every application. The actualy library is written in Javscript. However, in order for the Typescript compiler to understand the function, and to make sure the application you are working on is type safe, the moment core contributers have created their own typescript definition files \footnote{github.com/moment/moment/blob/0aae7249928ae0dacad94de30d68434cabc03844/moment.d.ts}.  
+\subsection{ Fantastic Moment.js Example }
+The \lstinline{Moment.js} library, is an extremely popular library used for dates. (For me personally, in the past 10 years working on applications, it is the only library to consistently be used in every application.) The actual library is written in Javascript. However, in order for the Typescript compiler to understand the Moment library, it is necessary to create a declaration file.
 
-One of the most commonly use \lstinline{Moment} functions is format.
-\begin{lstlisting}[caption=moment.d.ts]
+Lucky for us, the Moment.js core contributors have created their own typescript definition files. These definition files are bundled with the moment npm package. Lets look at the moment definition file:
+
+\begin{lstlisting}[caption=moment.d.ts currently at the time of writing 736 lines long chockfull with interfaces for the Moment library]
 declare namespace moment {
   //..
   interface Moment extends Object {
     format(format?: string): string;
+
+    startOf(unitOfTime: unitOfTime.StartOf): Moment;
+    endOf(unitOfTime: unitOfTime.StartOf): Moment;
     //..
   }
   //..
 }
 \end{lstlisting}
+\footnote{github.com/moment/moment/blob/0aae7249928ae0dacad94de30d68434cabc03844/moment.d.ts}.  
 
 There are three things that have been done here, in order for this type to take hold:
 \begin{enumerate}
