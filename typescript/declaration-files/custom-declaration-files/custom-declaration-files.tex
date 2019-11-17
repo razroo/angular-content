@@ -1,17 +1,14 @@
 \chapter{ Custom Declaration Files }
-Earlier we described what a declaration file is, and went through all the steps to fully understand what a declaration file is. We brought up an example of the \lstinline{moment.js} library, and they created their own declaration file. However, let's say we needed to create our own custom declaration file, how would we go around doing something like that? 
+Earlier we through all the steps neccesary to fully understand what a declaration file is. We brought up an example of the \lstinline{moment.js} library, and how they created their own declaration file. However, let's say we needed to create our own custom declaration file, how would we go around doing something like that? 
 
-\section{Example Scenario}
-For instance, in another chapter, we reccomend using the native Network 
-Information API. Because it is experimental(at the time of this writing),
-as is the case in all scenarios, the Typescript team has not included 
-type definitions for it. So, we need to go ahead, and create our own 
-custom type definitions. 
+\section{Example Scenario - Taking a Step Back}
+Ok, so let's take a step back. In what situation would it arise that a declaration file is not readily available, and we would have to create one ourselves? Well, for starters, in another chapter, we reccomend using the native Network Information API for performance boosts. 
+
+It is experimental(at the time of this writing). As is the case with all experiemental Javascript technology, the Typescript team has not included core type definitions for it. (Which for clarity sake, as opposed to non-experimental Javascript technology, which they do include core type definitions for). So, we need to go ahead, and create our own custom type definitions. 
 
 In addition, there will be times within your Angular application, wherein 
 due to the requirements of your organization, you might need to create your 
-own custom type definition. Whether it be new technology, or simply security
-concerns. 
+own custom type definition. Primarily for security concerns. For instance, sometimes "typings" will be available for a particular package, however, it might be produced by someone who you cannot trust for your company based on security concerns. 
 
 The following is the cookie cutter process for creating a custom type 
 definition within Typescript in Angular. 
