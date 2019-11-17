@@ -1,11 +1,10 @@
 \chapter{ Image Performance in Angular }
 
 Image optimization is a concept which is ubiquitous to all of web development.
-Nonetheless, it is a bit unique of how to work it into an Angular setting. It 
-is also worth noting, that in many applications, they are more data heavy, and 
-less image heavy. Having this conversation might only be neccesary when you 
-are finally ready to move over to prod. However, this is something that can be 
-done ahead of time, granted you are: 
+Nonetheless, it is a bit unique of how to work it into an Angular setting. Primarily, because of Angular's use of routing for lazy loading, file bundling, and modules. It is also worth noting, in many enterprise applications, the types that are better suited for Angular, they are more data heavy, and 
+less image heavy. Image optimization isn't something I've come across frequently in Angular applications, albeit something still very important to discuss. 
+
+In addition, the dynamics of image optimization, is that this is something that can be discussed at a later date. Having this conversation might only be neccesary when you are finally ready to deploy application to prod. However, this is something that can be done ahead of time, with minimal effort. It only requires the following two steps: 
 \begin{enumerate}
   \item Aware of it. 
   \item Implementing it is made easy to implement in less than 3 steps
