@@ -1,12 +1,8 @@
 \chapter{ Track By }
-
-
 In Angular, there are performance enhancements that are valuable here and there.
-That being said, it can be hard to miss them. This is one of the few chapters
-written with regards to performance. In particular when it comes to for loops
-for angular. The way that change detection works, is that if any part of the
-array is changed, Angular will agressively change the entire DOM. This is of
-course can lead to performance issues.
+It can be easy to miss them, because they are performance ehancements. So they are not integral towards the core documentation. However, for anyone building an application, these are things that one should be aware of. 
+
+In particular, when it comes to for loops for Angular, the way that change detection works, is that if any part of the array is changed, Angular will agressively change the entire DOM. This is of course can lead to performance issues, if all we need is a particular piece of data to be changed. The Angular framework has an internal \lstinline{trackBy} function to combat these performance leaks. 
 
 \section{ Using Track By in Angular }
 Using *ngFors in Angular is actually quite common. I'm sure many of us listen
