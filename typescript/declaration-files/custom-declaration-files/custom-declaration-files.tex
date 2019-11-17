@@ -41,22 +41,9 @@ touch network-information.d.ts;
 It is also important to note that as of Typescript 2.* and greater, the
 tsconfig.json has two properties available: 
 \begin{enumerate}
-  \item \lstinline{typeRoots}
-  \item \lstinline{types}
+  \item \lstinline{typeRoots}: Specifies the folder in which the Typescript transpiler should look for type definitions.
+  \item \lstinline{types}: Will target a specific file within your application.
 \end{enumerate}
-
-\subsection{Type Roots}
-Specifies the folder in which the Typescript transpiler should look for type 
-definitions. This simplifies the process of being able to install npm packages.
-Any typescript definition, can be created as an npm package underneath \lstinline{@types}.
-
-\subsection{types}
-Now that we have specified our \lstinline{typeRoots}, installed our type, into 
-the \lstinline{@types} folder, all we need to do is specify it in our 
-tsconfig.json file which types we want to use. Specifically within an Nrwl Nx 
-setting, and it's mono-repo approach, there is a separate tsconfig.json file 
-for every lib. That is where we will specify the types that we would like to 
-use. 
 
 \section{Example Code as is in Nrwl Workspace}
 In the root \lstinline{tsconfig.json} file, the Angular CLI/Nrwl Nx has automatically
