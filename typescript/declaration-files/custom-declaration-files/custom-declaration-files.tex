@@ -13,10 +13,30 @@ own custom type definition. Primarily for security concerns. For instance, somet
 The following is the cookie cutter process for creating a custom type 
 definition within Typescript in Angular. 
 
-\section{Create a Custom Type Definition File}
-A custom type definition file, is a file that Typescript will automatically 
-pull out. By default adding the type definition \lstinline{*.d.ts} suffix to
-the app, will cause Typescript to know to use this type definition.
+\section{Create a Custom Declaration File}
+Just to re-iterate(as explained in depth in previous chapter)
+
+\begin{quote}
+  \say{A declaration file in Typescript is simply a way of transferring over a Javascript library to Typescript}
+\end{quote}
+
+It is important to note that it is common practice to add the \lstinline{*.d.ts} suffix to a Typescript Declaration file. The \lstinline{*.d.ts} makes it apparent to anyone perusing through your files, that this is a decleration file. The folder/file structure that we will be using, will drive that point even more so. 
+
+So let's go ahead and create our typescript file. In addition, let's be aware of our folder/file directory. We are going to create a lib module called typings. Using \lstinline{@nrwl/nx}
+\begin{verbatim}
+ng g lib typings;
+"In which directory should the library be generated?": common
+"What stylesheet format would you like to use?": SASS(.scss)
+\end{verbatim}
+
+In addition, within our \lstinline{common/typings} folder let's create a \lstinline{network-information} folder, and a \lstinline{network-information.d.ts} file.
+
+\begin{verbatim}
+mkdir network-information;
+touch network-information.d.ts;
+\end{verbatim}
+
+\section{Hooking in our Declaration File to Typescript}
 
 It is also important to note that as of Typescript 2.* and greater, the
 tsconfig.json has two properties available: 
