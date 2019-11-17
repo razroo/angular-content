@@ -1,6 +1,4 @@
-
 \chapter{ No Errors Schema }
-
 In Angular, when using the testBed, any providers used in the Angular component
 will cause an error, unless provided for within the Angular TestBed. There is a
 way, however, to turn off these errors, by using the no errors schema within
@@ -25,8 +23,7 @@ any template errors, we might potentially be testing something wrong. What
 exactly, might be tested wrong? Well, just because Angular doesn't error out
 for the template it's self, that does not mean that an unassuming developer
 will not go ahead and attempt to develop a template related item, such as an
-input value. It is therefore best practice to avoid using the NO_ERRORS_SCHEMA
-whenever possible.
+input value. The test might come up as true, or false as expected, when really it's just an undefined value that it being returned. It is therefore best practice to avoid using the NO_ERRORS_SCHEMA whenever possible.
 
 \subsection{A Better Alternate Solution}
 A better alternate solution is to stick with the reccomended SMAG architecture,
