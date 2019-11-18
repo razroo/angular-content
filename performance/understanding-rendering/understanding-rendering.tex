@@ -47,3 +47,16 @@ I was then able to continue on with my understanding of rendering. So I just wan
 Server rendering will generate all of the html for page based on navigation. It's important to keep in mind the two scenarios above, and that server side rendering only happens for the navigation side of things. Events will still have the client side render changes. 
 
 This will produce a fast first paint, and a fast first contentful paint. In addition, it allows for a fast time to interactive. The one draw back with regards to this approach, is the Time to First Byte. Being that we have to generate all of the content in the server first, it takes longer than usual to generate the page. Within the Angular context, it has something called Universal, which is a bit of a mix and much between server and client. Something that we will discuss momentarily. 
+
+\section{Static Rendering}
+Static rendering, is where we generate the full set of html content ahead of time. This checks all boxes with regards to performance i.e. 
+\begin{enumerate}
+  \item Fast TTFB, fast FP, fast FCP, fast TTI. 
+  \item Fast FP
+  \item Fast FCP
+  \item Fast TTI  
+\end{enumerate}
+
+You might be familiar with tools like Jekyl, Gatsby, or Hugo that accomplish this. The main drawback with this approach, is that if we have dynamic content that we don't know ahead of time what the html page is going to look like, static sites are not able to accomplish this task. 
+
+\mybox{A really good rule of thumb to find out if your site can be used as a static site, go ahead and disable Javascript. If you site is still able to operate, then you site can be turned into a static site.}
