@@ -91,3 +91,9 @@ This allows for you to send HTML in chunks, so that the browser can progressivel
 
 \subsection{Progressive Rehydration}
 With this approach, individual pieces of an application are booted up over time as opposed to an entire application. This will help reduce the amount of Javascript required for an application as it is aware of what it is that the user specifically needs. This also helps prevent one of the major concerns of SSR rehydration, wherein a server rendered DOM tree rebuilds itself. 
+
+\mybox{
+\subsection{Notable Mention}
+The idea behind this approach is for the browser to understand what parts of an actual application are being used. If some part of the application is not being used, then the browser will turn it into an inert HTML/decorative Javascript.
+}
+
