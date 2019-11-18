@@ -1,6 +1,6 @@
 \chapter{Understanding Rendering}
 
-Rendering within Angular is a really important thing to understand. Primarily, because of it's nature as a framework, the default way of doing things, can be a bit slower than needed. As an engineer, as you get to understand the framework better, you will find that there are performance boosts baked into the framework, to make your app more performant. Rendering within Angular is definitely one of those topics. Therefore, let's dive into the different ways of rendering on the web, so we can bring that over to Angular.
+Rendering within Angular is a really important thing to understand. Primarily, because of it's nature as a framework, the default way of doing things, can be a bit slower than needed. As an engineer, as you get to understand the framework better, you will find that there are performance boosts baked into the framework, to make your app more performant. Rendering within Angular is definitely one of those topics. Therefore, let's dive into the different ways of rendering on the web, so we can bring that over to Angular. 
 
 \section{Terminology}
 
@@ -34,4 +34,14 @@ Rendering within Angular is a really important thing to understand. Primarily, b
   \item TTI: Time to Ineractive - The time at which a page becomes interactive (events wired up, etc.)
 \end{enumerate}
 
+\section{ Setting Proper Frame of Mind - When Rendering Happens }
+For me personally, when trying to understand how rendering worked, I realized that one of the things holding me back was that I wasn't quite fully aware when I happened. When I was able to put into perspective that it happens in two scenarios: 
+\begin{enumerate}
+  \item Navigation 
+  \item Events
+\end{enumerate}
 
+I was then able to continue on with my understanding of rendering. So I just wanted to part this tidbit of information to you the reader.
+
+\section{Server Rendering}
+Server rendering will generate all of the html for page 
