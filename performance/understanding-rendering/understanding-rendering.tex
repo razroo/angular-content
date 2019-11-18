@@ -1,4 +1,37 @@
 \chapter{Understanding Rendering}
 
-Rendering within Angular is a really important thing to understand. Primarily, because of it's nature as a framework, the default way of doing things, can be a bit slower than needed. As an engineer, as you get to understand the framework better, you will find that there are performance boosts baked into the framework, to make your app more performant. Rendering within Angular is definitely one of those topics. Therefore, let's dive into the different ways of rendering on the web, so we can bring that over to Angular. 
+Rendering within Angular is a really important thing to understand. Primarily, because of it's nature as a framework, the default way of doing things, can be a bit slower than needed. As an engineer, as you get to understand the framework better, you will find that there are performance boosts baked into the framework, to make your app more performant. Rendering within Angular is definitely one of those topics. Therefore, let's dive into the different ways of rendering on the web, so we can bring that over to Angular.
+
+\section{Terminology}
+
+\begin{center}
+  \begin{tabular}{@{} l *4c @{}}
+    \toprule
+    {{\color{red}Rendering} and {\color{blue}Performance} Terminology}\\
+    \toprule
+    {\color{red}Rendering} & {\color{blue}Performance} \\
+    \midrule
+    SSR           & TTFB \\
+    CSR           & FP \\
+    Rehydration   & FCP \\
+    Prerendering  & TTI \\
+  \end{tabular}
+\end{center}  
+
+\subsection{Rendering}
+\begin{enumerate}
+  \item SSR: Server-Side Rendering - Rendering a client-side, or universal app to HTML on the server
+  \item CSR: Client-Side Rendering - Rendering an app in a browser, generally using the DOM.
+  \item Rehydration: "Booting up" Javascript views on the client such that they re-use the server-rendered HTML's DOM tree and data
+  \item Pre-rendering: Rinning a client-side application at build time, to capture it's initial state as static HTML.
+\end{enumerate}
+
+\subsection{Performance}
+\begin{enumerate}
+  \item TTFB: Time to First Byte - seen as the time between clicking a link and the first bit of content coming in.
+  \item FP: First Paint - The first time any pixel becomes visible to the user.
+  \item FCP: First Contentful Paint - The time when request content (body, header etc.), becomes visible. 
+  \item TTI: Time to Ineractive - The time at which a page becomes interactive (events wired up, etc.)
+\end{enumerate}
+
 
