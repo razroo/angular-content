@@ -60,3 +60,34 @@ Static rendering, is where we generate the full set of html content ahead of tim
 You might be familiar with tools like Jekyl, Gatsby, or Hugo that accomplish this. The main drawback with this approach, is that if we have dynamic content that we don't know ahead of time what the html page is going to look like, static sites are not able to accomplish this task. 
 
 \mybox{A really good rule of thumb to find out if your site can be used as a static site, go ahead and disable Javascript. If you site is still able to operate, then you site can be turned into a static site.}
+
+\section{Server vs. Static Rendering}
+So let's say that you are coming across a situation wherein you cannot use static rendering. You would like to use static rendering. The only issue in this regard, is that you have a page that is dynamic. Even in this instance, server side rendering is not an end all be all solution. There will need to be some sort of caching solution offered in this regard, for server side rendering to be truly effective. 
+
+\section{ Client Side Rendering }
+Client side rendering is what usually happens by default in an Angular applciation. 
+\begin{enumerate}
+  \item logic 
+  \item Data fetching
+  \item Templating 
+  \item Routing 
+\end{enumerate}
+
+Will all happen on the client side. There are a couple of downsides when it comes to rendering client side. One of the more notable downsides is as follows: 
+\begin{enumerate}
+  \item Performance concerns for mobile
+\end{enumerate}
+
+\marginpar{Irrelevant within an Angular setting}
+
+\section{Universal Rendering - Server + Client Side}
+Universal rendering is the happy medium between server side and client side rendering. Navigation requests(full page loads + reloads) are accomplished by the server side. The actual HTML is delivered by the server. The Javascript and data needed is embedded into the document. The one downside to SSR, is that it might look like it is fully loaded, but a user will not be able to interact with until the Javascript is fully embedded. On devices such as mobile, this can take a couple of seconds. The one outlier with regards to SSR, is that if you can find a use case wherein the content will be highly cacheable, then SSR might be a good candidate. 
+
+\section{Up and Coming Technologies}
+There are some technologies that are on the horizon that are useful to keep an eye on. There are two in particular, streaming server rendering + progressive rehydration.
+
+\subsection{Streaming Server Rendering}
+This allows for you to send HTML in chunks, so that the browser can progressively render as it's recieved. 
+
+\subsection{Progressive Rehydration}
+With this approach, individual pieces of an application are booted up over time as opposed to an entire application. This will help reduce the amount of Javascript required for an application as it is aware of what it is that the user specifically needs. This also helps prevent one of the major concerns of SSR rehydration, wherein a server rendered DOM tree rebuilds itself. 
