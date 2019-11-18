@@ -44,4 +44,6 @@ For me personally, when trying to understand how rendering worked, I realized th
 I was then able to continue on with my understanding of rendering. So I just wanted to part this tidbit of information to you the reader.
 
 \section{Server Rendering}
-Server rendering will generate all of the html for page 
+Server rendering will generate all of the html for page based on navigation. It's important to keep in mind the two scenarios above, and that server side rendering only happens for the navigation side of things. Events will still have the client side render changes. 
+
+This will produce a fast first paint, and a fast first contentful paint. In addition, it allows for a fast time to interactive. The one draw back with regards to this approach, is the Time to First Byte. Being that we have to generate all of the content in the server first, it takes longer than usual to generate the page. Within the Angular context, it has something called Universal, which is a bit of a mix and much between server and client. Something that we will discuss momentarily. 
