@@ -1,22 +1,21 @@
 \chapter{ Angular Universal }
 
-
 \section{What is Server Side Rendering?}
 \begin{quote}
   \say{Angular Universal is Angular's way of rendering something server side.}
 \end{quote}
 
-By default Angular will render HTML on the page using Javascript within the browser. Server side rendering, however, will produce all of the HTML off the browser and within the server. Noramlly, people come across using Angular Universal for two reasons: 
+By default, Angular will render HTML on the page using Javascript within the browser. Server side rendering, however, will produce all of the HTML off the browser and within the server. Normally, people come across using Angular Universal for two reasons: 
 \begin{enumerate}
-  \item They want to use a mobile app
-  \item They pages rendered on the server side for SEO reasons. 
+  \item Mobile app - Javscript engines on mobile phones, while much stronger, are still lacking. In addition, while having the server generate the HTML instead of the client, can potentially boost battery performance of application.
+  \item SEO reasons - Angular Universal will make your site static. 
 \end{enumerate}
 
+Another added benefit of Angular Universal, is that it has a very fast FCP(first contentful paint). When you use Angular Universal for the first time, this will immediately be apparent. It should be noted however, the TTI(Time to interactive), wherein user will be able to interact with the page, will still be loading in the background. 
 
+\section{Angular Universal Actually Requires A Sever}
+One thing that people using Angular Universal will be surprised, when using it for the first time, is that it actually requires a server! Looking back it will make sense, because obviously it is server side rendering. However, the name "Angular Universal" doesn't exactly lend to that assumption. Anywho, I digress, any web server will work with Angular Universal. 
 
-reasons for using Angular Universal include the following:
-\begin{enumerate}
-  \item Facilitate web crawlers (SEO)
-  \item Improve performance on mobile and low-powered devices
-  \item Show the first page quickly
-\end{enumerate}
+\section{A Couple of Points to Keep in Mind}
+Angular Universal has a \lstinline{renderModuleFactory()} function. 
+
