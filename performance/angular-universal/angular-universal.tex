@@ -61,3 +61,6 @@ There are two notable items in the code above:
 \end{enumerate}
 
 The \lstinline{ngExpressEngine} function returns a callback promise to the client. 
+
+\subsection{Security + Static Files}
+In order to ensure that all static files are delivered properly to clients. Put all client side files in the \lstinline{dist} folder. Only honor requests for files coming from the \lstinline{dist} folder. 
