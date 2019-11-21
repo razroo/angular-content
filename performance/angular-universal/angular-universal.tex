@@ -17,5 +17,20 @@ Another added benefit of Angular Universal, is that it has a very fast FCP(first
 One thing that people using Angular Universal will be surprised, when using it for the first time, is that it actually requires a server! Looking back it will make sense, because obviously it is server side rendering. However, the name "Angular Universal" doesn't exactly lend to that assumption. Anywho, I digress, any web server will work with Angular Universal. 
 
 \section{A Couple of Points to Keep in Mind}
-Angular Universal has a \lstinline{renderModuleFactory()} function. 
+
+\subsection{How Angular Universal Works}
+\begin{enumerate}
+  \item Angular Universal uses the \lstinline{platform-server} package under the hood. This provides low level features that don't rely on a browser(\lstinline{XMLHttpRequest}, etc.)
+  \item Server passes the client request (for application pages) to the \lstinline{ngExpressEngine} which calls the Universal \lstinline{renderModuleFactory}. This function inputs: 
+  \begin{enumerate}
+    \item Template HTML page.
+    \item Angular \lstinline{module} containing components.
+    \item \lstinline{route} determining which components to display. 
+  \end{enumerate}
+  \item The \lstinline{renderModuleFactory()} function, renders view within the \lstinline{<app>} tag of template. 
+  \item The server will then return rendered page to the client. 
+\end{enumerate}
+
+
+
 
