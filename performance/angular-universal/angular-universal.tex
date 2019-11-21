@@ -41,6 +41,23 @@ There is an interesting dynamic between serving on the browser, and serving on t
 
 Well, think of it this way. When generation is happening within the browser, it is fully aware of everything going on from the client side of things. The actual url is irrelevant. There could potentially be a way of approaching this problem. However, after looking into the github issues, for the angular github, one will find that this is actually a surprisingly complicated issue. Given the way the package works out. 
 
-From a server side, it does not have access to the client side, so using relative paths is not an option. You will need to create an interceptor to pass a full url to your server, based on your client data. 
+From a server side, it does not have access to the client side, so using relative paths is not an option. You will need to create an interceptor to pass a full url to your server, based on your client data. (It is possible to do this on the server's side of things, but arguably less overhead to do this on the client side.)
 
-\subsection{Test}
+\subsection{Universal Template Engine}
+Within your \lstinline{server.ts} file, you will write something similar to the following: 
+\begin{lstlisting}[caption=server.ts]
+app.engine('html', ngExpressEngine({
+  bootstrap: AppServerModuleNgFactory,
+  providers: [
+    provideModuleMap(LAZY_MODULE_MAP)
+  ]
+}));
+\end{lstlisting}
+
+There are two notable items in the code above: 
+\begin{enumerate}
+  \item AppServerModule - This is the bridge between the client and server. 
+  \item extraProviders - This one is optional, and is something that 
+\end{enumerate}
+
+The \lstinline{ngExpressEngine} function returns a callback promise to the client. 
