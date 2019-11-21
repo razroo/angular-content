@@ -31,6 +31,7 @@ One thing that people using Angular Universal will be surprised, when using it f
   \item The server will then return rendered page to the client. 
 \end{enumerate}
 
+\subsection{Dynamic of Browser APIs with Angular Universal}
+A universal app works on the server side. Because of that, it needs to create abstractions over classic APis such as \lstinline{window}, or \lstinline{location}. There some bugs that might show as a result, if your app does anything fancy. 
 
-
-
+Another really important point, is that a Universal app cannot interact with a mouse, or keyboard event. Without some hack/workaround, it is important to make your entire app routable. 
