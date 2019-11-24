@@ -16,4 +16,13 @@ For me, the eureka moment really came when I started using Web Components. I was
 So, suffice to say, I am going to attempt to create this solution on my own as well, for this one.
 
 \section{Using Nx}
-Granted you are working within the Nx workspace, which once I highly reccomend, 
+Granted you are working within the Nx workspace, which once again, I highly reccomend, but please do use with caution.
+
+\subsection{Created Web Components Lib}
+Within Nrwl Nx there is the ability to create a none framework library, which will include all of our framework agnostic code. 
+
+\begin{lstlisting}
+ng g lib ui --framework=none  
+\end{lstlisting}
+
+This will generate a libs folder with the following: 
