@@ -3,7 +3,7 @@
 One of the singular most fustrating parts of front end development, is the fact
 that frameworks change quite often as time goes on. In addition, different frameworks have different usages. Two of the currently most profitable front end "ecosystems" are Angular + React. Sometimes, having something only available in Angular can be cumbersome. Being able to break into the React ecosystem, for instance, can be extremely valuable. 
 
-Microsoft came across the use case of needing to have React within their Angular applications. They created the open source library called \lstinline{angular-react}. It allows for the ability to use React in Angular. Let's discuss that.
+Microsoft came across the use case of needing to have React within their Angular applications. They created the open source library called \href{github.com/microsoft/angular-react}{angular-react}. It allows for the ability to use React in Angular. Let's discuss that.
 
 \section{ Reasons to use React in Angular? }
 
@@ -14,6 +14,16 @@ Microsoft came across the use case of needing to have React within their Angular
 \end{enumerate}
 
 \subsection{Sidebar - When Not to Use React in Angular}
-Intuitively, one can look at the
+Intuitively, one can look at the ability to use React in Angular, and think great! I'll use the best of both frameworks!!! Ok, well hold on their Cowboy, or Cowgirl. It might not be the best idea to create a Frankenstein of an Angular + React application. The two ecosystems can clash with each other. Between the way data is passed around, rendering, libraries used for state management etc. However, if you find yourself gravitating towards one of the three reasons above, using React in Angular, can be very beneficial.
 
-\section{Performance Concerns of React in Angular }
+\section{Performance Concerns of React in Angular}
+Obviously rendering React elements inside of Angular seems like a little bit too go to be true, right? Well this is a partially correct assumption. Let's dissect the logic within 
+
+\section{Nature of the Library}
+I always try to do my background research on a library before I go ahead and use it within my application. In this one, there are two red flags: 
+\begin{enumerate}
+  \item They created this library to use Office UI Fabric. I.e. rendering of singular components within an Angular setting. 
+  \item It is a product team on Microsoft, that are the main maintainers for this library. Given the limited use case of this library, expect it to not be optimized for maximum performance, or when multiple components are needed. Honest, a React Elements approach makes more sense in this scenario. 
+\end{enumerate}
+
+In most applications I've worked on, the use case for \lstinline{angular-react} is very limited. Proceed to the next chapter 
