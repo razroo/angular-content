@@ -6,7 +6,14 @@ One very intelligent piece of architecture that will be getting more press as ti
 I would promote this practice by default to use in any application that you work on. All dumb component should be created as a custom web component, so any team can modify it. 
 
 \section{Before We Get To Nx}
-Before we get to Nx, I would like to discuss one thing that really at this point bothers me. Nx controls too much of my code. If the team at Nrwl decides to take the direction of paid code, or documentation is lacking, I am screwed over. It really seems like a large price to pay, for tooling that can be created by my own team. So while I am going to reccomend using Nx, so that I don't through the rabbit hole too much, I am going to attempt to create this solution on my own as well. 
+Before we get to Nx, I would like to discuss one thing that really at this point bothers me. Nx controls too much of my code. If the team at Nrwl decides to take the direction of paid code, or documentation is lacking, I am screwed over. It really seems like a large price to pay, for tooling that can be created by my own team. 
+
+So while I am going to reccomend using Nx, and I know the people at Nrwl personally. I actually love them to death. Jeff and Viktor are some of my biggest personal inspirations. I really want them to succeed, and that their company balloons into a giant. However, I can't help but feel it irresponsible
+so that I don't through the rabbit hole too much. I remember sitting at a company with a very large engineering team, and the fact they weren't educating their own team members on Webpack, Bazel, and creating transparent schematics, almost seemed like a travesty. You are pretty much gaurenteeing that your company will have to use them as consultants to keep you app ticking, if you come across some quirk. 
+
+For me, the eureka moment really came when I started using Web Components. I was like at this point, ok, fine. I will use your app to scaffold ngrx, and generate the initial workspace. However, when I have to use you to actually build my app, that is when it becomes problematic.
+
+So, suffice to say, I am going to attempt to create this solution on my own as well, for this one.
 
 \section{Using Nx}
-Granted you are working within the Nx workspace which I highly reccomend, 
+Granted you are working within the Nx workspace, which once I highly reccomend, 
