@@ -18,11 +18,38 @@ So, suffice to say, I am going to attempt to create this solution on my own as w
 \section{Using Nx}
 Granted you are working within the Nx workspace, which once again, I highly reccomend, but please do use with caution.
 
-\subsection{Created Web Components Lib}
+\subsection{Scaffolding Web Components Lib}
 Within Nrwl Nx there is the ability to create a none framework library, which will include all of our framework agnostic code. 
 
 \begin{lstlisting}
 ng g lib ui --framework=none  
 \end{lstlisting}
 
-This will generate a libs folder with the following: 
+This will generate a \lstinline{ui} directory structure, that will something like the folliwing, within your application: 
+
+\begin{forest}
+  [libs
+    [ui
+      [src
+        [lib]
+        [\/index.ts,file]
+      ]
+      [\/jest.conf.js, file]
+      [\/tsconfig.lib.json, file]
+      [\/tsconfig.json, file]
+      [\/tsconfig.spec.json, file]
+      [\/tslint.json, file]
+    ]
+    [\/index.ts,file]
+    [\/test.ts,file]
+  ]
+\end{forest}
+
+\subsection{Create An elements.ts File and Export}
+Inside of your lib folder, let's create a data-table component. 
+\begin{verbatim}
+cd libs/ui/src/lib;
+mkdir data-table;
+\end{verbatim}
+
+Inside of that data table, let's go ahead and create a custom web component. 
