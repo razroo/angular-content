@@ -53,3 +53,46 @@ mkdir data-table;
 \end{verbatim}
 
 Inside of that data table, let's go ahead and create a custom web component. 
+
+\begin{lstlisting}[caption=custom web component]
+export class GreetingElement extends HTMLElement {
+  public static observedAttributes = ['title'];
+
+  attributeChangedCallback() {
+    this.innerHTML = `<h1>Welcome to ${this.title}!</h1>`;
+  }
+}
+
+customElements.define('happynrwl-greeting', GreetingElement);
+\end{lstlisting}
+
+\mybox{A custom web component somewhat interacts like a regular Javascript component and styling is very similar in that regard. Here you can see us using the inner.html code, and other components are similar in this regard.}
+
+\subsection{Reexport in index.ts file}
+You will want to go ahead and re-export it in your web-element component. This will simplify that way things work, and allow you to re-use within your app. 
+
+\section{General Architecture of Inserting Web Element}
+\subsection{Changing Target}
+Because custom web elements are a relativley new technology, it will require the target to be changed to ES2015. 
+
+\subsection{Importing library}
+Your app will require importing the library into your web application.
+
+\subsection{Tell Framework To Take Chill Pill}
+Every framework will have a specific schema towards it's web application. Custom Web Elements are outside of the regular schema of every framework. So you will have to use the framework's preffered method of "taking a chill pill". I.e. saying the schema for custom web elements is cool, and should not be errored out.
+
+\subsection{Actually Using Element}
+Actually going ahead and using element similar to how you would use a component in any regular application. 
+
+\section{Inserting component in Angular App}
+
+\subsection{Change Target}
+In our \lstinlne{tsconfig.json} we will go ahead and change the output target to \lstinline{es2015}. Custom web elements are a relatively new technology, and require es2015 by default to be bundled as part of the application. 
+
+\subsection{Change Target}
+Within our Angular application we will tell the schema that it should allow for custom elements i.e. \lstinline{CUSTOM_ELEMENTS_SCHEMA}. This is primarily so it will allow for custom elements to be used within the app. 
+
+\subsection{Insert Component in Angualr App}
+Inserting a web component within an Angular app, is done in exactly the same fashion that a regular Angular component would be inserted. 
+
+\section{Inserting component in React App}
