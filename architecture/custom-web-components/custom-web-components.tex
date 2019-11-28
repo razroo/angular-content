@@ -82,7 +82,7 @@ Your app will require importing the library into your web application.
 Every framework will have a specific schema towards it's web application. Custom Web Elements are outside of the regular schema of every framework. So you will have to use the framework's preffered method of "taking a chill pill". I.e. saying the schema for custom web elements is cool, and should not be errored out.
 
 \subsection{Actually Using Element}
-Actually going ahead and using element similar to how you would use a component in any regular application. 
+Actually going ahead and using element similar to how you would use a component in any regular application. Now that we have specified these four steps, let's actually bring them to our application.
 
 \section{Inserting component in Angular App}
 
@@ -96,3 +96,15 @@ Within our Angular application we will tell the schema that it should allow for 
 Inserting a web component within an Angular app, is done in exactly the same fashion that a regular Angular component would be inserted. 
 
 \section{Inserting component in React App}
+
+\subsection{Update Target}
+Change the target in target in React to \lstinline{es2015}.
+
+\subsection{Importing Library}
+We go ahead and import library within our application. 
+
+\subsection{Adding Intrisic Types}                                              
+This step is somewhat different within an Angular application. Instead of adding to the schema, we will go ahead and create an \lstinline{intrisic.d.ts} file. 
+
+\subsection{Actually Using ELement}
+We then go ahead include this element within our application. 
