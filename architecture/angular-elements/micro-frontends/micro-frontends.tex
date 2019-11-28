@@ -1,2 +1,22 @@
 \chapter{ Micro Frontends }
+Micro frontends is definitely a "buzzword". I consider it most synonymous with the buzzword "the cloud". Simply it means breaking up the application into smaller more manageable parts. So, you might be asking yourself, what makes this different than simply architecting an application well? The answer to that,is that it's not so much folder/file directory, but rather flexibility in bundling and deployment. By allowing for flexible bundling and deployment within app. This accomplishes three things: 
+\begin{enumerate}
+  \item Increases testability
+  \item Increases re-usability
+  \item Ability to select multiple frameworks
+\end{enumerate}
 
+The turth is that micro-frontends have been around for a really long time. Doing something like this is possible in vanilla Javacript by simply separating micro applications into different folders. A DevOps person would then be able to build these different folders into different javascript bundles. The backend could then at that point in time be responsible for routing, to create a team wide way of accomplishing routing. 
+
+\section{Illustration in Code}
+A simple way of illustrating how we can create micoservices within Angular, would be as follows. Let's say that we have an application. One of them is a pdf viewer application. The other is the application for analytics. We want our teams to be able to build applications independent of each other. 
+
+\subsection{Adding Tools We Need}
+\begin{verbatim}
+ng add @angular/elements
+ng add ngx-build-plus
+\end{verbatim}
+
+The general strategy is like this. We are going to bundle our applications into Javascript using Angular Elements. We then will go ahead and route to those specific applications within you applications. Ideally using the Angular router. We also want it to be robust enough, so that we can go ahead and create router-outlets. 
+
+\subsection{test}
