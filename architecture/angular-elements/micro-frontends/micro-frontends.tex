@@ -6,7 +6,9 @@ Micro frontends is definitely a "buzzword". I consider it most synonymous with t
   \item Ability to select multiple frameworks
 \end{enumerate}
 
-The truth is that micro-frontends have been around for a really long time. Doing something like this is possible in vanilla Javacript by simply separating micro applications into different folders. A DevOps person would then be able to build these different folders into different javascript bundles. The backend could then at that point in time be responsible for routing, to create a team wide way of accomplishing routing. 
+The truth is that micro-frontends have been around for a really long time. Doing something like this is possible in vanilla Javacript by simply separating micro applications into different folders. A DevOps person would then be able to build these different folders into different javascript bundles. The backend could then at that point in time be responsible for routing, to create a team wide way of accomplishing routing. I've done similar like this in the past. However, I'm not sure if anyone on the team has ever coined this as "micro frontends". I think that we were all struggling so much to keep with the framework we were using, that it never really ever came into focus. 
+
+A large part of the inspiration of micro-frontends, comes from the architecture that has been around with micro-services for quite sometime. 
 
 \section{Illustration in Code}
 A simple way of illustrating how we can create micoservices within Angular, would be as follows. Let's say that we have an application. One of them is a pdf viewer application. The other is the application for analytics. We want our teams to be able to build applications independent of each other. 
@@ -20,4 +22,16 @@ ng add ngx-build-plus
 This adds Angular Elements to our app. In addition, we are going to be adding a tool called \lstinline{ngx-build-plus} which allows us to extend the default Angular CLI without injecting. That way, we can continue adding default Angular CLI builds to our app. 
 
 \subsection{General Strategy}
-The general strategy is like this. We are going to bundle our applications into Javascript using Angular Elements. We then will go ahead and route to those specific applications within you applications. Ideally using the Angular router. We also want it to be robust enough, so that we can go ahead and create router-outlets. 
+The general strategy is like this. We are going to create miniature using Angular Elements. We are going to then insert these bundled applications into our main Angular application. 
+
+We then will go ahead and route to those specific applications within our application. Ideally using the Angular router. Particularly, because we want it to be robust enough, so that we can go ahead and create router-outlets. 
+
+\section{Difference Of Approach Using Custom Web Components}
+The difference between the approach we are using here, and how we approached using custom web components is as follows. When creating micro-frontends, we don't just need access to our custom web components, however, we actually want to build them separately. Once again we do this so that: 
+\begin{enumerate}
+  \item Increase testability
+  \item Increase re-usability
+  \item Ability to select multiple frameworks for these specific apps
+\end{enumerate}
+
+\section{Leg Work}
