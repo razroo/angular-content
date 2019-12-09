@@ -10,6 +10,35 @@ The truth is that micro-frontends have been around for a really long time. Doing
 
 A large part of the inspiration of micro-frontends, comes from the architecture that has been around with micro-services for quite sometime. 
 
+\section{History of Web Applications}
+Now is a good time to discuss the history of web applications, and to understand why it is.
+
+\subsection{Monolith Applications}
+In the earlier days, when front ends were relatively new, applications were generally built in a monolith fashion. Applications would be built with a single Java WAR file.
+
+\subsection{Separating Backend and Frontend}
+As time went on, backend and frontend would be separated. Html files, and javascript would be separated, and the appropriate data would be inserted using php, or perl tokens, or the like. Every single api was in the php application, and it would be used, by simply inserting the php data needed for that site. 
+
+\subsection{Creating Micoservices}
+As time went on, and mobile devices became more popular, including apps, it became more cost efficient for companies to create micro services, that multiple teams could work on. It's important to note that a micro service is not a silver bullet, and won't neccesarily increase the efficiency, and maintainability of your application. However, it has it's place, and greatly resolves scaling issues. 
+
+However, as front ends are growing very large in size, creating micro front ends, it can greatly help us design the architecture of our front end application in a scaleable way.
+
+\section{Recap on Microservices Design Principles}
+\begin{enumerate}
+  \item High Cohesion 
+  \item Autonomous 
+Deployed independently 
+  \item Business Centric
+References a specific area within business 
+  \item Resiliency 
+If one area of application faults, allows us to degrade just one section of the application. 
+  \item Observable 
+Centralized logging, and monitoring, we can see what our individual micro front ends are doing.
+  \item Automation 
+Each micro frontend are independently testable and Deployable. 
+\end{enumerate}
+
 \section{Illustration in Code}
 A simple way of illustrating how we can create micoservices within Angular, would be as follows. Let's say that we have an application. One of them is a pdf viewer application. The other is the application for analytics. We want our teams to be able to build applications independent of each other. 
 
