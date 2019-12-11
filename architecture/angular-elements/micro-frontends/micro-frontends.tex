@@ -74,4 +74,11 @@ The difference between the approach we are using here, and how we approached usi
   \item Ability to select multiple frameworks for these specific apps
 \end{enumerate}
 
-\section{Leg Work}
+\section{Router Dillema}
+The main dillema within our Angular applications, is the fact that angular routers consist of two parts: 
+\begin{enumerate}
+  \item forRoot
+  \item forChild
+\end{enumerate}
+
+Within our web components, or our Angular Elements rather, our forRoot will be reserved for our root component specifically. If we want to use web components within our app, forChild won't work either, because these are all micro front ends. In fact using something like Angular Router for our application, is a bit of an anti-pattern, because the whole point is to create a framework agnostic architecture. So, what should we use within our Angular application. 
