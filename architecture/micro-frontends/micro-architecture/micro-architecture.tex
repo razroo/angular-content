@@ -1,0 +1,35 @@
+\section{Micro Architecture}
+As I personally feel, micro architecture has officially made it's way over to front end architecture. This means that it is now important for UI Engineer, to be aware of what constitutes micro architecture. Martin Fowler, one of my favorites, has an excellent article on what the characteristics of microservice architecture is. I would like to go through that, and then explain how those same concepts would apply to front end. 
+
+\section{Single Responsibility Principle}
+\href{https://en.wikipedia.org/wiki/Robert_C._Martin}{Robert C. Martin}, otherwise known as "Uncle Bob", is best known creating the Agile Manifesto. In addition, he is well known for creating/promoting the SOLID principles. One of the SOLID principles, in fact the first letter stands for the single responsibility principle. The single responsiblity principle states:
+
+\begin{quote}
+  \say{Gather together those things that change for the same reason, and separate those things that change for different reasons.}
+\end{quote}
+
+\section{Micro Architecture Design Principles}
+\begin{enumerate}
+  \item High Cohesion 
+  \item Autonomous 
+Deployed independently 
+  \item Business Centric
+References a specific area within business 
+  \item Resiliency 
+If one area of application faults, allows us to degrade just one section of the application. 
+  \item Observable 
+Centralized logging, and monitoring, we can see what our individual micro front ends are doing.
+  \item Automation 
+Each micro frontend are independently testable and Deployable. 
+\end{enumerate}
+
+\section{Micro Frontends}
+As we have expressed above, micro frontends work very similar to micro services above. However, what we attempt to do, is co-ordinate with the micro service, and try to create a micro frontend slice that is exactly vertical to the micro service slice. So let's say we have a product api, we would have a micro service product slice. If we have a cart api, then we would create a cart slice. 
+
+\section{Autonomous Features}
+So when something is autonomous in programming it means that everything can be changed independently, without breaking anything else within our app. So that would mean that code is isolated, so that variables are not shared from one to another etc. In addition, we should have a base app, that houses all of our micro-fronteds into a singular application. All micro frontends must communicate independently, in a similar way, micro frontends should do that as well. 
+
+We will therefore use our base app/DOM, or our root ngrx/store in order to get all micro frontends to talk to each other. 
+
+\section{Team Ownership}
+This part can be a bit controversial. The idea here, is that now that we have a micro application, now members of the team are 
