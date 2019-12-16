@@ -1,12 +1,38 @@
 \section{Micro Architecture}
-As I personally feel, micro architecture has officially made it's way over to front end architecture. This means that it is now important for UI Engineer, to be aware of what constitutes micro architecture. Martin Fowler, one of my favorites, has an excellent article on what the characteristics of microservice architecture is. I would like to go through that, and then explain how those same concepts would apply to front end. 
+As I personally feel, micro architecture has officially made it's way over to front end architecture. This means that it is now important for UI Engineer, to be aware of what constitutes micro architecture. Martin Fowler, one of my favorites, has an excellent article on what the characteristics of microservice architecture is. I would like to go through that, however, only apply within the context of micro frontends.
 
 \section{Single Responsibility Principle}
-\href{https://en.wikipedia.org/wiki/Robert_C._Martin}{Robert C. Martin}, otherwise known as "Uncle Bob", is best known creating the Agile Manifesto. In addition, he is well known for creating/promoting the SOLID principles. One of the SOLID principles, in fact the first letter stands for the single responsibility principle. The single responsiblity principle states:
+\href{https://en.wikipedia.org/wiki/Robert_C._Martin}{Robert C. Martin}, otherwise known as "Uncle Bob", is best known creating the Agile Manifesto. In addition, he is well known for creating/promoting the SOLID principles. One of the SOLID principles, in fact the first letter stands for the single responsibility principle. The \href{https://en.wikipedia.org/wiki/Single_responsibility_principle}{single responsiblity principle} states:
 
 \begin{quote}
   \say{Gather together those things that change for the same reason, and separate those things that change for different reasons.}
 \end{quote}
+
+Micro service architecture is a natural extension of this concept. It takes services which serve different purposes, and makes it so that they are developed, deployed, and maintained independently. However, these services can still communicate with each other, thereby gathering those things that change for the same reason.  
+
+\section{Micro Frontend Architecture Design Principles}
+What a micro frontend would look like:
+
+\subsection{Autonomous Features}
+An autonomous feature in programming means something that can control it's self independently. So an autonomous feature here means a front end that can:
+\begin{enumerate}
+  \item Independently change 
+  \item Independently deploy 
+\end{enumerate}
+without breaking other front ends. 
+
+\begin{enumerate}
+  \item independently changeable
+  \item independently deployable
+  \item Code isolation
+  \item Base app
+  \item Simple feature API
+  \begin{enumerate}
+    \item Communication with Other Features
+    \item Communication with Base App
+    \item Communication via services
+  \end{enumerate}
+\end{enumerate}
 
 \section{Micro Architecture Design Principles}
 \begin{enumerate}
