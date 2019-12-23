@@ -1,29 +1,46 @@
 \section{Micro Architecture}
-As I personally feel, micro architecture has officially made it's way over to front end architecture. This means that it is now important for UI Engineer, to be aware of what constitutes micro architecture. Martin Fowler, one of my favorites, has an excellent article on what the characteristics of microservice architecture is. I would like to go through that, however, only apply within the context of micro frontends.
+I personally feel that micro architecture has officially made it's way over to front end architecture. This means that it is now important for a UI Engineer, to be aware of what constitutes micro architecture. Martin Fowler, one of my favorites, has an excellent article on what the characteristics of micro-service architecture are. 
+
+[I will admit that I'm a bit new to this micro-service architecture, as I'm starting to break more into backend architecture. However, when I did a deep dive, I started to look for something similar within front end. That is sort what perked my interest, and why I am now writing about it.]
+
+I would like to go through the points mentioned in this article and others I've found as well. However, for the sake of efficiency, only apply those concepts within the confines of micro frontend architecture.
 
 \section{Single Responsibility Principle}
-\href{https://en.wikipedia.org/wiki/Robert_C._Martin}{Robert C. Martin}, otherwise known as "Uncle Bob", is best known creating the Agile Manifesto. In addition, he is well known for creating/promoting the SOLID principles. One of the SOLID principles, in fact the first letter stands for the single responsibility principle. The \href{https://en.wikipedia.org/wiki/Single_responsibility_principle}{single responsiblity principle} states:
+\href{https://en.wikipedia.org/wiki/Robert_C._Martin}{Robert C. Martin}, otherwise known as "Uncle Bob", is best known creating the Agile Manifesto. In addition, he is well known for creating/promoting the SOLID principles. One of the SOLID principles, in fact the first letter stands for the single responsibility principle. The \href{https://en.wikipedia.org/wiki/Single_responsibility_principle}{single responsibility principle} states:
 
 \begin{quote}
   \say{Gather together those things that change for the same reason, and separate those things that change for different reasons.}
 \end{quote}
 
-Micro service architecture is a natural extension of this concept. It takes services which serve different purposes, and makes it so that they are developed, deployed, and maintained independently. However, these services can still communicate with each other, thereby gathering those things that change for the same reason.  
+Micro front end architecture is a natural extension of this concept. It takes front ends which serve different purposes, and makes it so that they are developed, deployed, and maintained independently. However, these services can still communicate with each other, thereby gathering those things that change for the same reason.
 
 \section{Micro Frontend Architecture Design Principles}
 What a micro frontend would look like:
 
 \subsection{Autonomous Features}
-An autonomous feature in programming means something that can control it's self independently. So an autonomous feature here means a front end that can:
+An autonomous feature (in software) means something that can control it's self independently. So an autonomous feature here means a front end that can:
 \begin{enumerate}
   \item Independently change 
   \item Independently deploy 
 \end{enumerate}
 without breaking other front ends. 
 
+\subsection{Business Centric}
+Each front end address a particular business need of you application.
+For instance, let's say that we have an online book store, and that we would like:
 \begin{enumerate}
-  \item independently changeable
-  \item independently deployable
+  \item Shopping Cart
+  \item Single Book Page
+  \item Multiple Book Page
+  \item Header
+  \item Footer 
+\end{enumerate}
+
+Each one of these elements, serves an all around different business purpose within our application. The shopping cart, to give people an option to see everything they've bought so far. The multiple book page, to give the user the ability to see all books we are going to sell. The single book page, to get in depth detail of the book they want to buy. The header, to allow people to properly navigate through our site. The footer to give people an abstract of our information. 
+
+So, based on the fact that each one of these elements contains a different business use, we would build them into their own application(,or once again it's own library, as we will do).
+
+\begin{enumerate}
   \item Code isolation
   \item Base app
   \item Simple feature API
@@ -34,10 +51,10 @@ without breaking other front ends.
   \end{enumerate}
 \end{enumerate}
 
+
 \section{Micro Architecture Design Principles}
 \begin{enumerate}
   \item High Cohesion 
-  \item Autonomous 
 Deployed independently 
   \item Business Centric
 References a specific area within business 
