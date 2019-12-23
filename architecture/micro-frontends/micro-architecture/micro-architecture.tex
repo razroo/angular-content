@@ -26,7 +26,7 @@ An autonomous feature (in software) means something that can control it's self i
 without breaking other front ends. 
 
 What comes out from this, is that in order to independently change and deploy, we will need the following three requirements: 
-\begin{enumerate} 
+\begin{enumerate}
   \item Code isolation - We recommend using libraries(e.g. \lstinline{ng g lib product-cart}), to separate micro frontends.
   \item Base app - All of our micro frontends are going to need a base app to hook all of our frontends into each other.
   \item Front End API - Within the context of an enterprise Angular front end application. This means allowing our micro front ends to communicate with eacth other through 
@@ -64,7 +64,6 @@ So, based on the fact that each one of these elements contains a different busin
   \end{enumerate}
 \end{enumerate}
 
-
 \section{Micro Architecture Design Principles}
 \begin{enumerate}
   \item High Cohesion 
@@ -79,13 +78,11 @@ Centralized logging, and monitoring, we can see what our individual micro front 
 Each micro frontend are independently testable and Deployable. 
 \end{enumerate}
 
-\section{Micro Frontends}
-As we have expressed above, micro frontends work very similar to micro services above. However, what we attempt to do, is co-ordinate with the micro service, and try to create a micro frontend slice that is exactly vertical to the micro service slice. So let's say we have a product api, we would have a micro service product slice. If we have a cart api, then we would create a cart slice. 
-
-\section{Autonomous Features}
-So when something is autonomous in programming it means that everything can be changed independently, without breaking anything else within our app. So that would mean that code is isolated, so that variables are not shared from one to another etc. In addition, we should have a base app, that houses all of our micro-fronteds into a singular application. All micro frontends must communicate independently, in a similar way, micro frontends should do that as well. 
-
-We will therefore use our base app/DOM, or our root ngrx/store in order to get all micro frontends to talk to each other. 
-
 \section{Team Ownership}
-This part can be a bit controversial. The idea here, is that now that we have a micro application, now members of the team are 
+This part can be a bit controversial, and I can definitely see some companies having opposition to this, being that the ecosystem isn't yet fully ready for something like this. However, the idea is, is that now we have a micro frontend,we can actually create an entire "slice" of our product, end to end by one team. This means that a single member, will be expected to contribute to front end, backend and the database. Arguably, this is beneficial for two reasons: 
+\begin{enumerate}
+  \item Simplifies communication. No need to talk to database, or devops, because they are the devops. 
+  \item Simplifies co-ordination. No reason to talk to backend, or database specialist, because they are the specialist. 
+  \item Changes happen quicker - Due to expeditious communication.
+  \item Improved performance - The developer get's to see how optimization they made on database, or back end, affects the performance on the front end. 
+\end{enumerate}
