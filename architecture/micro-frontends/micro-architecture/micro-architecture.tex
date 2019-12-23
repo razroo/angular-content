@@ -25,6 +25,19 @@ An autonomous feature (in software) means something that can control it's self i
 \end{enumerate}
 without breaking other front ends. 
 
+What comes out from this, is that in order to independently change and deploy, we will need the following three requirements: 
+\begin{enumerate} 
+  \item Code isolation - We recommend using libraries(e.g. \lstinline{ng g lib product-cart}), to separate micro frontends.
+  \item Base app - All of our micro frontends are going to need a base app to hook all of our frontends into each other.
+  \item Front End API - Within the context of an enterprise Angular front end application. This means allowing our micro front ends to communicate with eacth other through 
+  \begin{enumerate}
+    \item The Angular Router
+    \item @ngrx/store
+    \item services/observables
+  \end{enumerate}
+  This singular instance, will be piped through the base app, and be triggered through another front end. 
+\end{enumerate} 
+
 \subsection{Business Centric}
 Each front end address a particular business need of you application.
 For instance, let's say that we have an online book store, and that we would like:
