@@ -1,4 +1,4 @@
-\section{Micro Architecture}
+\section{Micro Architecture - Key Design Principles}
 I personally feel that micro architecture has officially made it's way over to front end architecture. This means that it is now important for a UI Engineer, to be aware of what constitutes micro architecture. Martin Fowler, one of my favorites, has an excellent article on what the characteristics of micro-service architecture are. 
 
 [I will admit that I'm a bit new to this micro-service architecture, as I'm starting to break more into backend architecture. However, when I did a deep dive, I started to look for something similar within front end. That is sort what perked my interest, and why I am now writing about it.]
@@ -15,28 +15,12 @@ I would like to go through the points mentioned in this article and others I've 
 Micro front end architecture is a natural extension of this concept. It takes front ends which serve different purposes, and makes it so that they are developed, deployed, and maintained independently. However, these services can still communicate with each other, thereby gathering those things that change for the same reason.
 
 \section{Micro Frontend Architecture Design Principles}
-What a micro frontend would look like:
+\begin{quote}
+  \say{An architectural style where independently deliverable frontend applications are composed into a greater whole}
+\end{quote} 
+\footnote{https://martinfowler.com/articles/micro-frontends.html}
 
-\subsection{Autonomous Features}
-An autonomous feature (in software) means something that can control it's self independently. So an autonomous feature here means a front end that can:
-\begin{enumerate}
-  \item Independently change 
-  \item Independently deploy 
-\end{enumerate}
-without breaking other front ends. 
-
-What comes out from this, is that in order to independently change and deploy, we will need the following three requirements: 
-\begin{enumerate}
-  \item Code isolation - We recommend using libraries(e.g. \lstinline{ng g lib product-cart}), to separate micro frontends.
-  \item Base app - All of our micro frontends are going to need a base app to hook all of our frontends into each other.
-  \item Front End API - Within the context of an enterprise Angular front end application. This means allowing our micro front ends to communicate with eacth other through 
-  \begin{enumerate}
-    \item The Angular Router
-    \item @ngrx/store
-    \item services/observables
-  \end{enumerate}
-  This singular instance, will be piped through the base app, and be triggered through another front end. 
-\end{enumerate} 
+Micro Frontend technology is still being developed, and I think there is still a lot of confusion around the benefits of such. I would imagine there is going to be a happy medium moving forward. However, right now I would like to present design principles as I view them, with the best tech currently available. 
 
 \subsection{Business Centric}
 Each front end address a particular business need of you application.
@@ -51,7 +35,46 @@ For instance, let's say that we have an online book store, and that we would lik
 
 Each one of these elements, serves an all around different business purpose within our application. The shopping cart, to give people an option to see everything they've bought so far. The multiple book page, to give the user the ability to see all books we are going to sell. The single book page, to get in depth detail of the book they want to buy. The header, to allow people to properly navigate through our site. The footer to give people an abstract of our information. 
 
-So, based on the fact that each one of these elements contains a different business use, we would build them into their own application(,or once again it's own library, as we will do).
+So, based on the fact that each one of these elements contains a different business use, we would build them into their own application(,or once again it's own library, as we will do). \footnote{martinfowler.com/articles/microservices.html\#OrganizedAroundBusinessCapabilities}
+
+\section{Front End Framework Agnostic}
+For me personally, one of the main selling points of micro-frontend architecture, is the idea of being able to use different front end frameworks, for a single application. For instance, if your shopping cart, is built as a micro front end, it can be built in Vue. Our Header, and Footer, can be built in React. Our single book page, multiple book page, can be built in Angular. 
+
+The main benefit of being framework agnostic, is the freedom to give teams to work on the right technology. In addition, the ability to expirement on new technologies during work, without affecting time to market. 
+
+The difficulty with the approach of hooking in multiple frameworks, is that this architecture needs to be built from the ground up, in order to work effectively. Imagine a legacy system, using Javascript + Jquery, trying to integrate a React + Redux application. It would be a mess to integrate state, into a vanilla Javascript/Jquery application. In addition, have the unique parts of each technology talk to each other, such as global names, state mananagement, data requests etc, can be very cumbersome. Also, not all teams want to learn new frameworks. I've been on many large teams where the developers have families, with kids, and are really just looking for a place where they can have a comfortable 9-5, with good benefits. Flexibility more so than salary is what is important. 
+
+I believe that working within a singular framework at this point is the ideal, until we have an ecosystem properly built at an enterprise level for handling multiple frameworks. I say this because dev tools right now don't handle them in the same way that let's say nrwl/nx deals with Angular development. However, the best tool we have come across at Razroo, is the \href{github.com/CanopyTax/single-spa}{single spa} library. It allows you to stitch in any framework you want, and this is the best library we have found so far. 
+
+\section{Team Code Isolation + Browser Events}
+All apps should be self contained. They should be able to run independently of any other app that is currently running. The technology we use once again for this is: 
+\begin{enumerate}
+  \item \href{github.com/chrisdavies/eev}{eev}
+  \item \href{github.com/CanopyTax/single-spa}{single-spa}
+\end{enumerate}
+
+
+\subsection{Autonomous Features}
+An autonomous feature (in software) means something that can control it's self independently. So an autonomous feature here means a front end that can:
+\begin{enumerate}
+  \item Independently changable 
+  \item Independently deployable
+  \item Independently testable
+\end{enumerate}
+without breaking other front ends. 
+
+\begin{enumerate}
+  \item Code isolation - We recommend using libraries(e.g. \lstinline{ng g lib product-cart}), to separate micro frontends.
+  \item Base app - All of our micro frontends are going to need a base app to hook all of our frontends into each other.
+  \item Front End API - Within the context of an enterprise Angular front end application. This means allowing our micro front ends to communicate with eacth other through 
+  \begin{enumerate}
+    \item The Angular Router
+    \item @ngrx/store
+    \item services/observables
+  \end{enumerate}
+  This singular instance, will be piped through the base app, and be triggered through another front end. 
+\end{enumerate} 
+
 
 \begin{enumerate}
   \item Code isolation
@@ -64,25 +87,22 @@ So, based on the fact that each one of these elements contains a different busin
   \end{enumerate}
 \end{enumerate}
 
+\section{Team Ownership}
+This part can be a bit controversial, and I can definitely see some companies having opposition to this, being that the ecosystem isn't yet fully ready for something like this. However, the idea is, is that now we have a micro frontend, we can actually tie an entire "slice" of our product, end to end, by one team. This means that a single member, will be expected to contribute to front end, backend and the database. Arguably, this is beneficial for two reasons: 
+\begin{enumerate}
+  \item Simplifies communication. No need to talk to database, or dev-ops, because they are the dev-ops. 
+  \item Simplifies co-ordination. No reason to talk to backend, or database specialist, because they are the specialist. 
+  \item Changes happen quicker - Due to expedi  tious communication.
+  \item Improved performance - The developer get's to see how optimization they made on database, or back end, affects the performance on the front end. 
+\end{enumerate}
+
 \section{Micro Architecture Design Principles}
 \begin{enumerate}
-  \item High Cohesion 
-Deployed independently 
-  \item Business Centric
-References a specific area within business 
+
   \item Resiliency 
 If one area of application faults, allows us to degrade just one section of the application. 
   \item Observable 
 Centralized logging, and monitoring, we can see what our individual micro front ends are doing.
   \item Automation 
 Each micro frontend are independently testable and Deployable. 
-\end{enumerate}
-
-\section{Team Ownership}
-This part can be a bit controversial, and I can definitely see some companies having opposition to this, being that the ecosystem isn't yet fully ready for something like this. However, the idea is, is that now we have a micro frontend,we can actually create an entire "slice" of our product, end to end by one team. This means that a single member, will be expected to contribute to front end, backend and the database. Arguably, this is beneficial for two reasons: 
-\begin{enumerate}
-  \item Simplifies communication. No need to talk to database, or devops, because they are the devops. 
-  \item Simplifies co-ordination. No reason to talk to backend, or database specialist, because they are the specialist. 
-  \item Changes happen quicker - Due to expeditious communication.
-  \item Improved performance - The developer get's to see how optimization they made on database, or back end, affects the performance on the front end. 
 \end{enumerate}
