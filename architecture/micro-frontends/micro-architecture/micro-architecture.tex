@@ -33,26 +33,24 @@ For instance, let's say that we have an online book store, and that we would lik
   \item Footer 
 \end{enumerate}
 
-Each one of these elements, serves an all around different business purpose within our application. The shopping cart, to give people an option to see everything they've bought so far. The multiple book page, to give the user the ability to see all books we are going to sell. The single book page, to get in depth detail of the book they want to buy. The header, to allow people to properly navigate through our site. The footer to give people an abstract of our information. 
+Each one of these elements, serves an all around different business purpose within our application. The shopping cart, to give people an option to see everything they've bought so far. The multiple book page, to give the user the ability to see all books we are going to sell. The single book page, to get in depth detail of the book they want to buy. The header, to allow people to properly navigate through our site. The footer to give people an abstract of our information.
 
 So, based on the fact that each one of these elements contains a different business use, we would build them into their own application(,or once again it's own library, as we will do). \footnote{martinfowler.com/articles/microservices.html\#OrganizedAroundBusinessCapabilities}
 
 \section{Autonomous Features}
-An autonomous feature (in software) means something that can control it's self independently. So an autonomous feature here means a front end that can:
+An autonomous feature (in software) means something that can control itself independently. So an autonomous feature here means a front end that can:
 \begin{enumerate}
-  \item Independently change 
-  \item Independently deployable
-  \item Be Independently testable
+  \item Change, test and deploy independently
   \item Resiliency - If one area of application faults, allows us to degrade just one section of the application. 
   \item Observable - Centralized logging, and monitoring, we can see what our individual micro front ends are doing.
 \end{enumerate}
-without breaking other front ends. The immediate obvious benefit to this, is allowing teams to work indepedently of each other. As a result of such
+without breaking other front ends. The immediate obvious benefit to this, is allowing teams to work independently of each other.
 
 \section{Front End Framework Agnostic}
 In practice, autonomous features requires this one distinct feature, which is that applications are front end framework agnostic. From a practical perspective, this means:
 
 \begin{enumerate}
-  \item Code isolation - All micro frontends are built as a separate libary. We use \href{github.com/CanopyTax/single-spa}{single-spa} to accomplish mounting separate front end frameworks. In addition, using nrwl nx to keep libs separate, and build separately.
+  \item Code isolation - All micro frontends are built as a separate library. We use \href{github.com/CanopyTax/single-spa}{single-spa} to accomplish mounting separate front end frameworks. In addition, using Nrwl Nx to keep libs separate, and build separately.
   \item Base app - All of our micro frontends are going to need a base app to hook all of our frontends into each other. However, ideally being able to use the browser directly instead of a base app, is ideal.
   \item Front End API - Within the context of an enterprise Angular front end application. This means allowing our micro front ends to communicate with eacth other through: 
   \begin{enumerate}
@@ -65,23 +63,23 @@ In practice, autonomous features requires this one distinct feature, which is th
 Being that we are going to be hooking in potentially multiple frameworks, that can have an impact on the initial load time of our site. Being able to have a visible site, without data, or Javascript being loaded is key. Using something like \href{https://medium.com/angular-in-depth/https-medium-com-thomasburleson-animated-ghosts-bfc045a51fba}{Ghost Elements}, is crucial, even more so than a single page application. Integrating universal rendering, or static site generation is also a good idea, just to make sure the ability of it loading is faster, granted the cohesive, performance heavy nature of bundling.
 
 \section{Team Ownership}
-This part can be a bit controversial, and I can definitely see some companies having opposition to this, being that the ecosystem isn't yet fully ready for something like this. However, the idea is, is that now we have a micro frontend, we can actually tie an entire "slice" of our product, end to end, by one team. This means that a single member, will be expected to contribute to front end, backend and the database. Arguably, this is beneficial for two reasons: 
+This part can be a bit controversial, and I can definitely see some companies having opposition to this, being that the ecosystem isn't yet fully ready for something like this. However, the idea is, is that now we have a micro frontend, we can actually tie an entire "slice" of our product, end to end, by one team. This means that a single member, will be expected to contribute to front end, backend and the database. Arguably, this is beneficial for four reasons: 
 \begin{enumerate}
   \item Simplifies communication. No need to talk to database, or dev-ops, because they are the dev-ops. 
   \item Simplifies co-ordination. No reason to talk to backend, or database specialist, because they are the specialist. 
-  \item Changes happen quicker - Due to expedi  tious communication.
+  \item Changes happen quicker - Due to expeditious communication.
   \item Improved performance - The developer get's to see how optimization they made on database, or back end, affects the performance on the front end. 
 \end{enumerate}
 
 \section{Final Thoughts on Micro Frontends}
-The most humerous and simaltaneously enlightening piece I found while putting it all together, is a Tweet by \href{twitter.com/dan_abramov/status/1132493678730252288?s=20}{Dan Abramov}. It's a very brave tweet, something along the lines of, "I don't understand micro-frontends". Two of my favorite open sourcers on this topic, Joel Denning + Michael Greers, respond something like the following. It allows teams to be:
+The most humorous and simultaneously enlightening piece I found while putting it all together, is a Tweet by \href{twitter.com/dan_abramov/status/1132493678730252288?s=20}{Dan Abramov}. It's a very brave tweet, something along the lines of, "I don't understand micro-frontends". Two of my favorite open sourcers on this topic, Joel Denning + Michael Greers, respond something like the following. It allows teams to be:
 \begin{enumerate}
   \item Autonomous(work on their own without co-ordination of other teams)
   \item Full stack
 \end{enumerate}
 
-The above two are the single greatest reasons given by both and them, and are synonymous with the reasons for micro-services.
+The above two are the single greatest reasons given by both and them, and are synonymous with the reasons for micro-services. However, as I started to think about it more, not quite. 
 
-The difference for me, in my very humble opinion between the two, is that the tech + tools available within a singular framework(such as Angular) is arguably easier to work with. The micro front end ecosystem does not have a state management that can be used across all frameworks, or dev tools such as Nrwl Nx. It's going to require a very large overhead from the team's side of things. For me, it doesn't make sense at this point in time to implement. Especially if this does indeed start to become an issue, micro frontends can start to be built out, at this point in time. 
+The difference for me, in my very humble opinion between the two(micro-services vs micro-frontends), is that the tech + tools available within a singular framework(such as Angular) is arguably easier to work with. The micro front end ecosystem does not have a state management that can be used across all frameworks, or dev tools such as Nrwl Nx. It's going to require a very large overhead from the team's side of things. For me, it doesn't make sense at this point in time to implement. Especially if this does indeed start to become an issue, micro frontends can start to be built out, at this point in time. 
 
 Once the tool ecosystem becomes more sophisticated for micro frontends, this is something I would start reccomending. Right now, I don't think it's fair to have teams work full stack, and learn multiple frameworks, unless the company is willing to invest in something like that.
