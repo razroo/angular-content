@@ -12,23 +12,23 @@ TODO chapter on creating a centralized service goes here.
 \section{Creating directives for our service}
 As an example, let's say that we have html that we want to disable, or hide. We
 can do the following:
-\lstinputlisting{./authorization/component.html}
+\lstinputlisting{./miscellaneous/authorization/component.html}
 
 One is then going to want to create two different directives. One for disabling
 if unauthorized:
-\lstinputlisting{./authorization/disable-if-unauthorized.directive.ts}
+\lstinputlisting{./miscellaneous/authorization/disable-if-unauthorized.directive.ts}
 and another for hiding if unauthorized:
-\lstinputlisting{./authorization/hide-if-unauthorized.directive.ts}
+\lstinputlisting{./miscellaneous/authorization/hide-if-unauthorized.directive.ts}
 
 \section{Creating a Guard for unauthorized}
 As the last piece of our unauthorized trifecta, we will be wanting to create a
 guard. For reference on guards, please refer to the chapter on guards.
 
 TODO - Go more into depth on what this guard is doing.
-\lstinputlisting{./authorization/auth-guard.service.ts}
+\lstinputlisting{./miscellaneous/authorization/auth-guard.service.ts}
 
 \section{Service Can Be Called Anywhere}
 We have the option to call the auth service anywhere in the app that we want to,
 in addition to using directives and the guard. For instance:
 
-\lstinputlisting{./authorization/menu.service.ts}
+\lstinputlisting{./miscellaneous/authorization/menu.service.ts}
