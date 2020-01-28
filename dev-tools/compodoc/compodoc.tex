@@ -91,3 +91,14 @@ displayAll() {
 \end{figure}
 
 It will take the JsDoc documentation and generate it in a way that is very, very easy to peruse. 
+
+\section{Pushing Documentation to Staging Area }
+As we did initially, is that we created a two npm scripts. One of them for compodoc development, and the other compodoc production. By running: 
+\begin{lstlisting}
+"compodoc": "compodoc -p tsconfig.json",
+\end{lstlisting}
+
+This will generate documentation in your default output folder. You can then push this bundled output to a link, that everyone can go to, to see existing documentation for your app. 
+
+\section{Ending Thoughts}
+There are many people out there that have incredible things to say about Compodoc. Nonetheless, I want to make sure, that anyone I advise on Angular, this is the one of the things I inform them about. In addition, more importantly I want to advise them on a way that they can go ahead and do this, with the push of a button. 
