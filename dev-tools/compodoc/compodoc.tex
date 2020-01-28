@@ -65,3 +65,29 @@ Another one of the favorites is the ability to visualize all the routes that are
 \end{figure}
 
 It also gives you the ability to click through the routes and see which components are using a particular route.
+
+\section{Documentation Coverage}
+Documentation coverage is another cool item with regards to compodoc. It's something that already exists in a number of different frameworks. However, it is nice that compodoc includes it, so all documentation is included in one place. In particular, the flavor of documentation it uses is JsDoc. For instance, if we have a method within our component, and it looks some like this: 
+\begin{lstlisting}
+/**
+  * Display only completed todos
+  */
+displayCompleted() {
+  this.currentFilter = 'completed';
+  EmitterService.get(this.id).emit('displayCompleted');
+}
+/**
+  * Display all todos
+  */
+displayAll() {
+  this.currentFilter = 'all';
+  EmitterService.get(this.id).emit('displayAll');
+}
+\end{lstlisting}
+
+\begin{figure}[h!]
+\caption{Compodoc Documentation Example}
+\includegraphics[width=414pt]{graphics/compodoc/documentation/documentation-coverage.pdf}
+\end{figure}
+
+It will take the JsDoc documentation and generate it in a way that is very, very easy to peruse. 
