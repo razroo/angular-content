@@ -20,7 +20,7 @@ npm install -g @compodoc/compodoc --save-dev
   "compodoc-serve": "compodoc -s tsconfig.json",
 \end{verbatim}
 
-Now if we want to generate documentation, and we are in development mode, we can simply run 
+Now if we want to generate documentation, and we are in development mode, we can simply run:
 \begin{verbatim}
 npm run compodoc-serve  
 \end{verbatim}
@@ -35,17 +35,18 @@ Compodoc has a section called overview. It allows you to see all of your modules
 
 In the above image, we can see how Compodoc works. We can very clearly see what components are feeding into which module. If too many lines are randomly feeding into each other, then we know our app needs to be better organized. Also, if we have any components that do not feed into any modules, then we can clearly say that it is dead code, and should be deleted.
 
-\section{Depedencies}
-While it would be as simple as going into your package.json, it does stick out like a sore thumb, and does make you keep it in mind. So if this was the only feature, it wouldn't have that much value. However, I do like the fact that they did include it. 
+\section{Dependencies}
+Seeing the depedencies within your application is usually as simple as going into your package.json. However, I've personally found that the package.json usually does not receive the attention it needs, respective to it's importance.
+Using Compodoc, it sticks out like a sore thumb, and does make you keep it in mind. So if this was the only feature, it wouldn't have that much value. However, I do like the fact that they did include it. 
 \begin{figure}[h!]
 \caption{Compodoc overview}
 \includegraphics[width=414pt]{graphics/compodoc/dependencies/compo-dependencies-screenshot.pdf}
 \end{figure}
 
-So we can look through the above and immediately, oh ok, this is what version of angular we are on. I really like it for that reason, because the package.json has a way of creeping up on a project. This makes sure that it is front and center. 
+So we can look through the above and immediately say, \say{oh ok}, this is what version of Angular we are on. I really like it for that reason, because, once again, the package.json has a way of creeping up on a project. This makes sure that it is front and center. 
 
 \section{Various Types of Modules, Components etc.}
-Compodoc also has offers dropdown of all modules, components, classes, services, interceptors, guards, interfaces, nad miscellaneous within app. I like this for two reasons: 
+Compodoc also has offers dropdown of all modules, components, classes, services, interceptors, guards, interfaces, and miscellaneous within app. I like this for two reasons: 
 \begin{enumerate}
   \item It lays everything out there, so I know everything that's going on within my app.
   \item Also defines all the things that we should see in our app. In particular, I like the sections for interceptors, guards, and interfaces. It can leave an impact on the team, that these are things that should be written.
@@ -90,7 +91,7 @@ displayAll() {
 \includegraphics[width=414pt]{graphics/compodoc/documentation/documentation-coverage.pdf}
 \end{figure}
 
-It will take the JsDoc documentation and generate it in a way that is very, very easy to peruse. 
+Compodoc will take the JsDoc documentation and generate it in a way that is very, very easy to navigate. 
 
 \section{Pushing Documentation to Staging Area }
 As we did initially, is that we created a two npm scripts. One of them for compodoc development, and the other compodoc production. By running: 
@@ -100,5 +101,5 @@ As we did initially, is that we created a two npm scripts. One of them for compo
 
 This will generate documentation in your default output folder. You can then push this bundled output to a link, that everyone can go to, to see existing documentation for your app. 
 
-\section{Ending Thoughts}
-There are many people out there that have incredible things to say about Compodoc. Nonetheless, I want to make sure, that anyone I advise on Angular, this is the one of the things I inform them about. In addition, more importantly I want to advise them on a way that they can go ahead and do this, with the push of a button. 
+\section{Final Thoughts}
+There are many people out there that have incredible things to say about Compodoc. Nonetheless, I want to make sure, that anyone I advise on Angular, this is the one of the things I inform them about. In addition, more importantly I want to advise them on a way that they can go ahead and do this, with the push of a button. Compodoc is the documentation tool that Razroo recommend's time and time again.
