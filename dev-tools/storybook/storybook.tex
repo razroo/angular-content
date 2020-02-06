@@ -11,9 +11,25 @@ Storybook is really good at two things:
 It does this by creating an interactive showcase for each component. 
 
 \section{Using storybook within Nrwl Nx}
-Nx now offers Storybook out of the box by running: 
-\begin{lstlisting}
-ng g @nrwl:angular  
-\end{lstlisting}
+Nrwl Nx as usual has made things really easy, by offering storybook out of the box. 
+
+\subsection{Generatng configuration for Nrwl/nx}
+This an be done by running the following command: 
+\begin{verbatim}
+nx g @nrwl/angular:storybook-configuration project-name
+\end{verbatim}
+
+This will generate a storybook folder at the root of your workspace if none has been previously created. In addition, this will also generate a project specific folder for your application. 
+
+\subsection{Serve storybook using Nrwl Nx}
+\begin{verbatim}
+nx run project-name:storybook  
+\end{verbatim}
+
+\subsection{Cool Features Offered Out of the Box}
+Some cool features that are offered out of the box for Nrwl/Nx include the following: 
+\begin{verbatim}
+  
+\end{verbatim}
 
 
