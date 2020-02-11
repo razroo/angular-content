@@ -378,7 +378,7 @@ export class DashboardPageComponent implements OnInit {
 }  
 \end{lstlisting}
 
-Notice how, even with two levels of nesting, we are slipping into pyramid of doom territory. What’s worse, we can’t take advantage of our async pipes because we have to store the returned data as properties on the component instance!
+Notice how, even with two levels of nesting, we are slipping into pyramid of doom territory. What's worse, we can't take advantage of our async pipes because we have to store the returned data as properties on the component instance!
 
 Instead, you can use higher-order mapping functions in order to flatten nested Observables into a single Observable. For example, the previous code could be written as: 
 \begin{lstlisting}
@@ -435,9 +435,9 @@ Note that we use shareReplay(1) above to safe-guard against multiple subscriptio
 Let’s look at what we’ve accomplished here:
 
 \begin{enumerate}
-  \item We’ve completely removed the need for OnInit
-  \item We’ve reduced the amount of code we’ve had to write
-  \item We’ve removed all subscribing and side-effect code completely from the component, making it fully reactive! We could easily add push-based change detection to this component now, and take advantage of the async\$ pipe in order to manage Observable subscriptions.
+  \item We've completely removed the need for OnInit
+  \item We've reduced the amount of code we’ve had to write
+  \item We've removed all subscribing and side-effect code completely from the component, making it fully reactive! We could easily add push-based change detection to this component now, and take advantage of the async\$ pipe in order to manage Observable subscriptions.
 \end{enumerate}
  
 Becoming proficient with higher-order mapping functions, and reactive programming in general, will take some practice, but once you do your code will become a lot cleaner. If you’d like to dive deep into how higher-order mapping functions, and operators in general, work, I wrote an article on that recently :)
