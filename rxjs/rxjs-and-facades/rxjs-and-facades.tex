@@ -1,10 +1,52 @@
 \chapter{ RxJS and Facades }
-Many times within your application, using ngrx/store can seem like a bit of over kill. A common enterprise level example, taken from a fantastic article on this topic by Thomas Burleson, is if we are trying to implment an enterprise level ticket search. (graphic for a ticket search goes here).
+In the chapter on state management we discussed the value of implementing facades within your ngrx/store archtiecture. Within an ngrx/store setting it is incredibly valuable, because it allows us to to tie in all stores into a singular file. 
 
-can be when implementing search within you application. Some common business use cases for search includes: 
+\section{Recap: Ngrx + facades}
+Just to re-iterate, let's say that we have a todo app, and we create a todo.facade.ts file:
+
+\begin{lstlisting}[caption=todo.facade.ts]
+@Injectable({})
+class TodoFacade {
+  constructor(private store: Store<any>) {}
+
+  todos$: Observable<Todo[]> = this.store.pipe(select(getTodos));
+  idOfTodos$: Observable<Todo[]> = this.store.pipe(select(getTodosIds));
+  loaded$: Observable<boolean> = this.store.pipe(select(getTodosLoading));
+
+  UpdateTodo(TodoPayload): void {
+    this.store.dispatch(new TodoUpdated(TodoPayload));
+  }
+}  
+\end{lstlisting}
+
+Our facade within an ngrx/store setting is doing three unique things.
 \begin{enumerate}
-  \item 
-  \item
-  \item
-  \item
+  \item Handling the store constructor for us. (With regards to unit testing this makes life alot easier.)
+  \item Allows us to have to only put selector in one location(our facade), and trickle it down to all other areas. 
+  \item Create a simpler to use interface for our actions, that can be re-used time and time again. Especially if we decide to change the logic, or dynanimics of how action works, we only have to update in one particular area. 
 \end{enumerate}
+
+\section{Recap on the Facade Pattern}
+I want this piece of information to be as authentic as possible. Therefore, I would like to present the facade pattern in the way that I first learnt how to do so. There is a fundemental book on computer science called "Design Patterns: Elements of Re-usable Object-Oriented Software". It's a bit of classic in software, and I would say analogous to, "How to Win Friends and Influence People" by Dale Carnegie from within the business world. In there, it discussed the idea of the facade pattern is to(paraphrasing): 
+\begin{enumerate}
+  \item Implements a singular interface that contains multiple interfaces. Those interfaces work through the singular interface.
+  \begin{enumerate}
+    \item This helps readability by making the name more straight to the point. For instance, in our scenario, \lstinline{UpdateTodo}, vs. \lstinline{this.store.dispatch(new TodoUpdated(TodoPayload))}. 
+    \item Usability by removing need of dependencies, and truncated form of functonality. For instance, in our scenario, we using \lstinline{UpdateTodo}, there is no need to include dependency for store. In addition, developer can now just type in \lstinline{UpdateTodo} instead 
+  \end{enumerate}
+  \item Provide context specific interface. This is non relevant within an ngrx setting, as state by default is generally very, very specific.
+  \item Serve as a launching point for a broader re-factor, or a tightly coupled system, in favor a more loosely coupled code. For instance, in our scenario, by tying all of our state underneath a singular facade, if at a later date we want to swap out the tech needed to manage state, we can do that by simple changing the logic within a particular location. 
+\end{enumerate}
+
+\section{Progressing Idea of Facades over to RxJS}
+
+
+
+Of all the use cases that come up time and time again within your applications, with heavy use of RxJS is search. To this day, there isn't a single application that I have used that doesn't have the ability to search. Some of the business use cases with search include: 
+\begin{enumerate}
+  \item Search by typing text into search bar(let's say here searching for companies)
+  \item Route between search, company, or company details view 
+  \item Company details
+\end{enumerate}
+
+
