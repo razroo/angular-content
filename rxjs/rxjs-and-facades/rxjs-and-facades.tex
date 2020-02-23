@@ -1,15 +1,18 @@
 \chapter{ RxJS and Facades }
-In the chapter on state management we discussed the value of implementing facades within your ngrx/store archtiecture. Within an ngrx/store setting it is incredibly valuable, because it allows us to to tie in all stores into a singular file. 
+\section{The point of this Chapter}
+This entire chapter, is going to discuss how you can create your own "light" internal state, using RxJS and Facades. However, the WHOLE point of this, is to make you strongly consider, using Ngrx/store in the first place, without using Facades + RxJS. In addition, proving to the developer, create an internal service for a component, that interacts with an http service, likewise should use ngrx/store in the first place. 
+
+I think this is important to read through, because there is going to be a time in your career already, where you have decided, /lstinline{ngrx/store} might be too much for what you are working on. Likewise the point of this article is to push back on that urge, and how ngrx/store will actually the decrease the time it takes to build the application long term. 
 
 \section{Recap on the Facade Pattern}
-I want this piece of information to be as authentic as possible. Therefore, I would like to present the facade pattern in the way that I first learnt how to do so. There is a fundemental book on computer science called "Design Patterns: Elements of Re-usable Object-Oriented Software". It's a bit of classic in software, and I would say analogous to, "How to Win Friends and Influence People" by Dale Carnegie from within the business world. In there, it discussed the idea of the facade pattern is to(paraphrasing): 
+I want this piece of information to be as authentic as possible. Therefore, I would like to present the facade pattern in the way that I first learnt how to do so. There is a fundemental book on computer science called "Design Patterns: Elements of Re-usable Object-Oriented Software" otherwise known as the GoF(Gang of Four) book due to it's four authors. It's a bit of classic in software, and I would say analogous to, "How to Win Friends and Influence People" by Dale Carnegie, if you are familiar. In the GoF book, it discusses the idea of the facade pattern. Paraphrasing it: 
 \begin{enumerate}
   \item Implements a singular interface that contains multiple interfaces. Those interfaces work through the singular interface.
   \begin{enumerate}
     \item This helps readability by making the name more straight to the point. For instance, in our scenario, \lstinline{UpdateTodo}, vs. \lstinline{this.store.dispatch(new TodoUpdated(TodoPayload))}. 
-    \item Usability by removing need of dependencies, and truncated form of functonality. For instance, in our scenario, we using \lstinline{UpdateTodo}, there is no need to include dependency for store. In addition, developer can now just type in \lstinline{UpdateTodo} instead 
+    \item Usability by removing need of dependencies, and truncated form of functonality. For instance, in our scenario, we are using \lstinline{UpdateTodo}, there is no need to include dependency for store. In addition, developer can now just type in \lstinline{UpdateTodo} instead 
   \end{enumerate}
-  \item Provide context specific interface. This is non relevant within an ngrx setting, as state by default is generally very, very specific.
+  \item Provide context specific interface. This is non relevant within an ngrx setting, as front end services by default, without state, is generally very, very specific.
   \item Serve as a launching point for a broader re-factor, or a tightly coupled system, in favor a more loosely coupled code. For instance, in our scenario, by tying all of our state underneath a singular facade, if at a later date we want to swap out the tech needed to manage state, we can do that by simple changing the logic within a particular location. 
 \end{enumerate}
 
@@ -86,4 +89,49 @@ Let's diessect our RxJS code:
   \item \lstinline{switchMap} - Powerful, because it has an internal project function, which allows us to break from the observables and use our "transformed" value. Here we are passing it to the service, which calls our compnayService, based on search criteria user passed in. 
 \end{enumerate}
 
-Obviously the logic here is contained within the 
+\section{Addressing Architectural Concerns in Above Code}
+\subsection{Concern One - Business Logic in View Layer}
+Obviously the logic here is contained within the view layer of the actual component. Best practices dictate, logic pertaining to view itself should be contained within component. Business logic, such as here, pertaining to when the service should fire should be moved to a different service. 
+
+\subsection{Concern Two - State }
+Primarily around caching. In addition, updating the search criteria. For instance, if we want to search our application by companies, use one service. If we want to search by CEO's, then another function for CEOs. If we want to use another search criteria, let's say a particular category, then we will need another facade for controlling that. This ends up having alot of internal logic, and it greatly simplifies our app, by having the state be external. Especially, if would like to seperate search from the data-table. Having the logic be re-usable, and be able to be used in multiple places, is useful.
+
+\section{Creating State Using RxJS}
+I would like to jump straight to this one. I don't want to jot down here the interface, rather the internal logic that we can create withing our SearchFacade. It would look somehting like this:  
+
+\begin{lstlisting}[caption=company-search.facade.ts]
+export class CompanySearchFacade {
+  searchResults$: Observable<SearchResult[]> = this.dispatch
+    .asObserable() 
+    .pipe(map(state => state.companies), startWith([] as SearchResult[]));
+
+  searchCriteria$ = Observable<SearchCriteria> = this.dispatch.asObservable().pipe(map(state => state.criteria)
+  ) 
+
+  constructor(private companyService: CompanyService, private userService: UserService)
+    
+  searchCompanies(companyName: string): Observable<SearchResult[]> {
+    pendingCompanies$.subscribe(companies => {
+      connst type = SearchActionTypes.UPDATE_RERULTS;
+      const action = { payload: tickets, type};
+      this.dispatch.next(
+        (this.state = reduce(this.state, action))
+      );
+    });
+  }
+
+  function reduce(state: SearchState, action: SearchAction): SearchState {
+    switch (action.type) {
+      case SearchActionTypes.UPDATE_CRITERIA: return {
+        ...state,
+        criteria: action.payload as SearchCriteria
+      };
+      case SearchActionTypes.UPDATE_RESULTS: return {
+        ...state,
+        companies: action.payload as SearchResult[]
+      }
+    }
+  }
+
+}  
+\end{lstlisting} 
