@@ -41,10 +41,49 @@ Our facade within an ngrx/store setting is doing three unique things.
 \section{Progressing Idea of Facades over to RxJS}
 Similarly, the idea of facades is incredibly valuable within RxJs. Let's imagine the most heavily used RxJS use case(atleast the most heavily used one I've come across). Perhaps, because there isn't a single appliation that doesn't use it, "Search".
 
-Some of the business use cases with search include: 
+Some of the business use cases with our particular company search includes: 
 \begin{enumerate}
   \item Search by typing text into search bar(let's say here searching for companies)
   \item Route between search, company, or company details view 
   \item Company details
 \end{enumerate}
 
+Our particular RxJS code 
+\begin{lstlisting}[caption=search-companies.compoennt.ts]
+@Component({
+  selector: 'search-companies',
+  templateUrl: './search-companies.component.html',
+  styleUrls: ['./search-companies.component.scss']
+})
+export class SearchCompaniesComponent implements OnInit {
+  companies$: Observable<Company[]>;
+  searchCriteria = new FormControl();
+
+  constructor(private companyService: CompanyService) {}
+
+  ngOnInit() {
+    // Observable stream to input control values
+    const searchBy$ = this.searchTerm.valueChanges;
+    
+    this.companies$ = searchBy$.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      startWith(''),      
+      switchMap((criteria:string) => {
+        const request$ = this.companyService.searchCompanies(criteria);
+        return !criteria.length ? of([]) : request$          
+      })
+    );
+  }
+}  
+\end{lstlisting}
+
+Let's diessect our RxJS code: 
+\begin{enumerate}
+  \item \lstinline{debounceTime(300)} - Only after 300 milliseconds, will the request go through. If the user decides to type once again, within 300 milliseconds, the 300 millisecond count time, restarts again. 
+  \item \lstinline{distinctUntilChanged()} - Let's say the string the user inputs is "Apple". Then they decide to delete the e "Appl", but then add it again, "Apple", this will not trigger the http request. This is because, this is the exact same word that it was initially. 
+  \item \lstinline{startWith('')} - Not completely neccesary, but will make sure that is an empty string everytime we initialize this page again. 
+  \item \lstinline{switchMap} - Powerful, because it has an internal project function, which allows us to break from the observables and use our "transformed" value. Here we are passing it to the service, which calls our compnayService, based on search criteria user passed in. 
+\end{enumerate}
+
+Obviously the logic here is contained within the 
