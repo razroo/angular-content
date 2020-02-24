@@ -100,6 +100,16 @@ Primarily around caching. In addition, updating the search criteria. For instanc
 I would like to jump straight to this one. I don't want to jot down here the interface, rather the internal logic that we can create withing our SearchFacade. It would look somehting like this:  
 
 \begin{lstlisting}[caption=company-search.facade.ts]
+export enum CompanySearchActionTypes {
+  UPDATE_CRITERIA = 'Update Search Criteria',
+  UPDATE_RESULTS = 'Update Search Results'
+}
+
+export interface SearchAction {
+  readonly type: SearchActionTypes;
+  readonly payload: SearchCriteria | SearchResult[];
+}
+
 export class CompanySearchFacade {
   searchResults$: Observable<SearchResult[]> = this.dispatch
     .asObserable() 
