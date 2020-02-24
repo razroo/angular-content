@@ -120,7 +120,16 @@ export class CompanySearchFacade {
     });
   }
 
-  function reduce(state: SearchState, action: SearchAction): SearchState {
+  updateCompanyCriteria(companyName: string, categoryName: string) {
+    const type = SearchActionTypes.UPDATE_CRITERIA;
+    const payload = { user, ticket };
+    const state = reduce(this,state, {type, payload});
+
+    this.dispatch.next((this.state = state));
+  }
+}  
+
+function reduce(state: SearchState, action: SearchAction): SearchState {
     switch (action.type) {
       case SearchActionTypes.UPDATE_CRITERIA: return {
         ...state,
@@ -132,6 +141,4 @@ export class CompanySearchFacade {
       }
     }
   }
-
-}  
 \end{lstlisting} 
