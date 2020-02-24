@@ -152,3 +152,21 @@ function reduce(state: SearchState, action: SearchAction): SearchState {
     }
   }
 \end{lstlisting} 
+
+Don't think too much into the above code. However, what we've proven is that we can maintain a relatively simple store within our Facade simply using RxJS. That being said, I would like to make the following case for not doing the above and sticking with ngrx/store.
+
+\section{Why you should stick to ngrx/store}
+The assumption with doing the above, is that the code is light enough, to where we don't need to use ngrx/store. However, let's say within our code, we want to create a general company. Here we sort of move companies over to a cart of sorts, where we can then move these companies over an analytics platform. Here, we would be able to combine search, and our product cart under one store. Using the above facade, it would fracture our store between many different things. We might: 
+\begin{enumerate}
+  \item Want to create an ngrx/effect, so that whenever a user searches, it resets the product cart(who knows, maybe product wants it).
+  \item We want to modify our data to use ngrx/entity. 
+  \item Maybe we want a history of all searches, to be used for internal analytics periodically. 
+  \item Our reducers and actions bloat out of control, wherein it makes sense to put them into two separate files. While we are at it, we might as well be using state. 
+  \item We have similar state logic elsewhere(let's say for our influencer search), and want to use that our company logic as well. It might be easier to keep them all in the same sort of structure.
+  \item It might make our code more brittle. Who's to say now that we have ngrx/store and rxjs/facades, that the team won't break up into more patterns. For instance, a once off internal service? 
+\end{enumerate}
+
+For this reason, and many others, once you are building an enterprise application, it makes sense to use ngrx/store. 
+
+\texttt{I've worked with many startups, and I've seen them work really quickly with ngrx/store as well. When done correctly, I would argue that ngrx/store speeds up team development, due to it's cookie cutter style of front end architecture}
+
