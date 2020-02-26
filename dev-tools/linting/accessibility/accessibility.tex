@@ -1,0 +1,38 @@
+\chapter{ Accessibility with Codelyzer}    
+Codelyzer if not familiar already, is a static code analyzer using Tslint. It's a layer over Tslint with pre-made rules. More important, is the fact that Codelyzer will be default include rules into Tslint. Some of the rules pre-included are: 
+\begin{enumerate}
+  \item Component selectors are kebab-case
+  \item Directive selectors are camelCased
+  \item no-host-metadata-property - Disallows use of \lstinlone{host} within components
+\end{enumerate}
+
+I love Codelyzer, because it's a great example of how simply thinking ahead, and finding the right tool, can make all the difference in your application. True, you could implement these \lstinline{a11y} compliant linting rules later on. However, having it initially will make you cognizant of everything to begin with. Angular CLI will use codelyzer out of the box. but being that any linting rules regarding Accessibility are experimental, these will not be included in your app by default. You can use codelyzer to audit your app's accessibility. 
+
+\section{Add rules to tslint.json}
+Let's jump straight into it, assuming you have codelyzer installed automatically,
+\begin{lstlisting}
+{
+  "rulesDirectory": [
+    "codelyzer"
+  ],
+  "rules": {
+    ...,
+    "template-accessibility-alt-text": true,
+    "template-accessibility-elements-content": true,
+    "template-accessibility-label-for": true,
+    "template-accessibility-tabindex-no-positive": true,
+    "template-accessibility-table-scope": true,
+    "template-accessibility-valid-aria": true,
+    "template-click-events-have-key-events": true,
+    "template-mouse-events-have-key-events": true,
+    "template-no-autofocus": true,
+    "template-no-distracting-elements": true
+  }
+}  
+\end{lstlisting}
+
+Granted you have tslint enabled within your code editor, there will be two scenarios in which you can take advantage of these rules. 
+\begin{enumerate}
+  \item From within your Typescript files.
+  \item Whenever you run \lstinline{ng lint} over entire project.
+\end{enumerate}
