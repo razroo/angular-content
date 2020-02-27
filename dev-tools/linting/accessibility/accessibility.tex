@@ -3,7 +3,7 @@ Codelyzer if not familiar already, is a static code analyzer using Tslint. It's 
 \begin{enumerate}
   \item Component selectors are kebab-case
   \item Directive selectors are camelCased
-  \item no-host-metadata-property - Disallows use of \lstinlone{host} within components
+  \item no-host-metadata-property - Disallows use of \lstinline{host} within components
 \end{enumerate}
 
 I love Codelyzer, because it's a great example of how simply thinking ahead, and finding the right tool, can make all the difference in your application. True, you could implement these \lstinline{a11y} compliant linting rules later on. However, having it initially will make you cognizant of everything to begin with. Angular CLI will use codelyzer out of the box. but being that any linting rules regarding Accessibility are experimental, these will not be included in your app by default. You can use codelyzer to audit your app's accessibility. 
