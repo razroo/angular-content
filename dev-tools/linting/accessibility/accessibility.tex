@@ -1,24 +1,26 @@
 \chapter{ Accessibility with Codelyzer}    
-Codelyzer if not familiar already, is a static code analyzer built on top of Tslint. It's a layer over Tslint with pre-made rules. Some of which include 
+Codelyzer if not familiar already, is a static code analyzer built on top of Tslint. It's a layer over Tslint with pre-made rules. Some of which include:
 
-More important, is the fact that Codelyzer will be default include rules into Tslint. Some of the rules pre-included are: 
 \begin{enumerate}
   \item Component selectors are kebab-case
   \item Directive selectors are camelCased
   \item no-host-metadata-property - Disallows use of \lstinline{host} within components
 \end{enumerate}
 
-I love Codelyzer, because it's a great example of how simply thinking ahead, and finding the right tool, can make all the difference in your application. True, you could implement these \lstinline{a11y} compliant linting rules later on. However, having it initially will make you cognizant of everything to begin with. Front loading things ahead of time, while developing new features, will always make things easier long term. 
+\section{Why I Love Codelyzer}
+I love Codelyzer, because it's a great example of a situation where one should think harder, instead of work harder. In this instance, by thinking ahead, and finding the right tool, it can make all the difference in your application. True, you could implement these \lstinline{a11y} compliant linting rules later on. However, having these Codelyzer \lstinline{a11y} compliant rules available ahead of time, will make you cognizant of everything to begin with. Front loading things ahead of time, while developing new features, will always make things easier long term. Ok, so in practical terms, how does one implement Codelyzer? 
 
 \section{Angular CLI and Codelyzer}
-Angular CLI will actually inlude codelyzer out of the box. However, Codelyzer will not include accessibility rules by default, as these are all "experimental" aka not enough people care about enough by default. Which is a shame, because once again, empathy. So, if you want to go ahead and include these into your application, you will have to physically add them to the tslint.json file. 
+Surprise if not already aware, Angular CLI will actually inlude Codelyzer out of the box. However, Codelyzer will not include \lstinline{a11y} rules by default, as these are all "experimental". AKA not enough people care about enough to make it a default. \footnote{Which is a shame, because once again, empathy, but I digress.} So, if you want to go ahead and include these into your application, you will have to physically add them to the tslint.json file. 
 
-\subsection{Add rules to tslint.json}
+\subsection{Install Codelyzer If Not Using CLI}
 We are assuming you have codelyzer installed already due to the fact that Angular CLI/NX by default installs Codelyzer. If you do not have it installed, feel free to run the following: 
 \begin{verbatim}
 npm i codelyzer --save-dev;
 \end{verbatim}
 
+\subsection{Add rules to tslint.json}
+The following are the rules that suggested by the Codelyzer team as of now to add accessibility to your application: 
 \begin{lstlisting}
 {
   "rulesDirectory": [
@@ -42,6 +44,12 @@ npm i codelyzer --save-dev;
 
 Granted you have tslint enabled within your code editor, there will be two scenarios in which you can take advantage of these rules. 
 \begin{enumerate}
-  \item From within your Typescript files.
-  \item Whenever you run \lstinline{ng lint} over entire project.
+  \item From within your Typescript files, wherei
+  \item Whenever you run \lstinline{ng lint} over entire project. You can tie ng lint into your CI/CD process, of course, to make sure project is thrown back if these ng lint rules do not pass. 
 \end{enumerate}
+
+\mybox{
+\section{Accessibility tools in general}
+It is important to note there are other tools on accessibility that Razroo reccomends as well. We will get to those soon. However, within the context of linting, codelyzer is the only tool you will need in your dev tool chain. 
+}
+
