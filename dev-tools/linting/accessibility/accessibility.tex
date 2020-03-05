@@ -7,11 +7,11 @@ Codelyzer if not familiar already, is a static code analyzer built on top of Tsl
   \item no-host-metadata-property - Disallows use of \lstinline{host} within components
 \end{enumerate}
 
-\section{Why I Love Codelyzer}
-I love Codelyzer, because it's a great example of a situation where one should think harder, instead of work harder. In this instance, by thinking ahead, and finding the right tool, it can make all the difference in your application. True, you could implement these \lstinline{a11y} compliant linting rules later on. However, having these Codelyzer \lstinline{a11y} compliant rules available ahead of time, will make you cognizant of everything to begin with. Front loading things ahead of time, while developing new features, will always make things easier long term. Ok, so in practical terms, how does one implement Codelyzer? 
+\section{Why Codelyzer is Amazing}
+Codelyzer is amazing, because it's a great example of a situation where one should think harder, instead of work harder. In this instance, by thinking ahead, and finding the right tool, it can make all the difference in your application. True, you could implement these \lstinline{a11y} compliant linting rules later on. However, having these Codelyzer \lstinline{a11y} compliant rules available ahead of time, will make you cognizant of everything to begin with. Front loading things ahead of time, while developing new features, will always make things easier long term. Ok, so in practical terms, how does one implement Codelyzer? 
 
 \section{Angular CLI and Codelyzer}
-Surprise if not already aware, Angular CLI will actually inlude Codelyzer out of the box. However, Codelyzer will not include \lstinline{a11y} rules by default, as these are all "experimental". AKA not enough people care about enough to make it a default. \footnote{Which is a shame, because once again, empathy, but I digress.} So, if you want to go ahead and include these into your application, you will have to physically add them to the tslint.json file. 
+Surprise if not already aware, Angular CLI will actually include Codelyzer out of the box. However, Codelyzer will not include \lstinline{a11y} rules by default, as these are all "experimental". AKA not enough people care about enough to make it a default. \footnote{Which is a shame, because once again, empathy, but I digress.} So, if you want to go ahead and include these into your application, you will have to physically add them to the tslint.json file. 
 
 \subsection{Install Codelyzer If Not Using CLI}
 We are assuming you have codelyzer installed already due to the fact that Angular CLI/NX by default installs Codelyzer. If you do not have it installed, feel free to run the following: 
@@ -44,7 +44,7 @@ The following are the rules that suggested by the Codelyzer team as of now to ad
 
 Granted you have tslint enabled within your code editor, there will be two scenarios in which you can take advantage of these rules. 
 \begin{enumerate}
-  \item From within your Typescript files, wherei
+  \item From within your Typescript files.
   \item Whenever you run \lstinline{ng lint} over entire project. You can tie ng lint into your CI/CD process, of course, to make sure project is thrown back if these ng lint rules do not pass. 
 \end{enumerate}
 
