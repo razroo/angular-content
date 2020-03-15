@@ -9,11 +9,18 @@ Lighthouse is a framework agnostic piece of technology for auditing web pages. W
 Here is an example of what lighthouse looks like: 
 
 \section{My Concern with Lighthouse}
-While Lighthouse is a fantastic tool, it is more so marketed as a one off tool, whereing you can check periodically you website. This is great, and fantastic for the web developer-journeyman. However, for the average software engineer working on an enterprise level application, it can seem like a bit frustrating. Lighthouse is such a powerful tool, yet included as CI does not seem to push heavily. That being said, we recommend that you use Lighthouse. In addition, we want to make the CI approach more approachabe, so that this becomes the default approach.
+While Lighthouse is a fantastic tool, it is more so marketed as a one off tool, whereing you can check periodically you website. This is great, and fantastic for the web developer-journeyman. However, for the average software engineer working on an enterprise level application, it can seem like a bit frustrating. Lighthouse is such a powerful tool, yet included as CI does not seem to push heavily. That being said, we recommend that you use Lighthouse. In addition, we want to make the CI approach more approachabe, so that this becomes the default approach. I for one am not a fan of how TravisCI is the only CI tool introduced alongside Lighthouse CI.
 
 \section{Using Lighthouse CI}
+The Lighthouse CI is split into two different sections: 
+\begin{enumerate}
+  \item Lighthouse Node CLI - \say{Runs Lighthouse, asserts results, and uploads reports.}
+  \item Lighthouse Node Server - \say{stores results, compares reports, and displays historical results with a dashboard UI.}
+\end{enumerate}
 
-I find that Lighthouse seems a bit happenstance. Most of the time I use, it doesn't seem like it is an integrated tool of my development environment. Using 
-Lighthouse CI, however, makes it seem like Lighthouse is regular, seamless part of my development tool chain. 
+\section{Using the Lighthouse Node CLI}
+\subsection{Install the Lighthouse Node CLI}
+\begin{verbatim}
+npm install -g @lhci/cli
+\end{verbatim}
 
-being able to steadily integrate as part of your application can make it so that it less happenstance, and more of your day to day. 
