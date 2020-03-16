@@ -31,3 +31,32 @@ He then goes back, and refreshes the page where the \lstinline{console.log} was,
 \end{verbatim}
 
 \mybox{In practice, something like this should ideally be tested using unit tests. However, many enterprise applications unfortunately are not built in the optimal fashion for various reasons.}
+
+\section{Using Source Within Developer Tool}
+The only other tool that I usually have within my tool belt to dissect an error immediately is the developer tools within chrome. Any time that there is an error, there is a unique signature that your code will throw out. In a modern day application, this will happen even if it isn't unique to your application. So the console.log --> source tool will simly display the error whenever it happens. 
+
+\section{Debugging within RxJS - The Dilemma}
+The immediate issue with debugging RxJS from a traditional setting, is that it's only the final result that can be debugged. So you might have a stream of numerous chained events: 
+\begin{lstlisting}
+this.companies$ = searchBy$.pipe(
+  debounceTime(300),
+  distinctUntilChanged(),
+  startWith(''),      
+  switchMap((criteria:string) => {
+    const request$ = this.companyService.searchCompanies(criteria);
+    return !criteria.length ? of([]) : request$          
+  })
+);  
+\end{lstlisting}
+
+In the above, only in the switchMap, or in a subscribe will we be able to tap into the result that we are looking for. For instance, let's go through the potential bugs that might happen with the above stream: 
+
+\begin{enumerate}
+  \item The result might not appear because it is within the \lstinline{debounceTime}
+  \item It might not have changed from the previous result i.e. \lstinline{distinctUntilChanged} and therefore is not triggered.
+  \item The \lstinline{companyService.searchCompanies} request might be erroring out, or there might be some internal logic to the \lstinline{companyService.searchCompanies} request making something error out.
+\end{enumerate}
+
+So of course we need a similar way to console out, similar it works in non RxJS. 
+
+\section{Using Tap}
