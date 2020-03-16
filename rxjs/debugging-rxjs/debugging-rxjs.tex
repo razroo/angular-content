@@ -89,3 +89,5 @@ this.companies$ = searchBy$.pipe(
 \end{lstlisting}
 
 Here we are no longer receiving the console.log that we want. This is telling us that the reason we might not be recieving our result, is that it is not being registered as anything distinct.
+
+\mybox{I've seen one other article in particular claim use of a debug utility functionality that is only turned on in development mode. I personally am against such debugging patterns, and feel it is an anti-pattern. I strongly believe that unit tests should be in place to prevent errors. Debugging should happen in one off scenarios, and then reinforced with unit tests and integration tests to make sure error does not happen again.}
