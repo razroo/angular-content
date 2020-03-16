@@ -60,3 +60,32 @@ In the above, only in the switchMap, or in a subscribe will we be able to tap in
 So of course we need a similar way to console out, similar it works in non RxJS. 
 
 \section{Using Tap}
+\lstinline{tap} is RxJS's way of taking the current value and outputting it. It is commonly used in real life code, by taking the value returned by a service, and emitting it. However, tap can also be used a debugger. For instance, in the above code, let's say we aren't getting a result. So we do the following: 
+\begin{lstlisting}
+this.companies$ = searchBy$.pipe(
+  debounceTime(300),
+  tap(result => console.log(result)),
+  distinctUntilChanged(),
+  startWith(''),
+  switchMap((criteria:string) => {
+    const request$ = this.companyService.searchCompanies(criteria);
+    return !criteria.length ? of([]) : request$
+  })
+);  
+\end{lstlisting}
+
+In the above tap, a result is coming back so we know that it is not erroring out before \lstinline{debounceTime}. Ok, so let's move the tap one more down: 
+\begin{lstlisting}
+this.companies$ = searchBy$.pipe(
+  debounceTime(300),
+  distinctUntilChanged(),
+  tap(result => console.log(result)),
+  startWith(''),
+  switchMap((criteria:string) => {
+    const request$ = this.companyService.searchCompanies(criteria);
+    return !criteria.length ? of([]) : request$
+  })
+);  
+\end{lstlisting}
+
+Here we are no longer receiving the console.log that we want. This is telling us that the reason we might not be recieving our result, is that it is not being registered as anything distinct.
