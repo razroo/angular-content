@@ -6,4 +6,28 @@ One of the more difficult things to master when learning RxJS, is learning how t
 \end{enumerate}
 
 \section{Using Console.log}
-In a regular Typescript/Javascript setting 
+In a regular Typescript/Javascript setting a \lstinline{console.log} is a relatively simple concept. We show(,or log out), whatever the current status is of our code at a given time. So for instance, let's say that we wanted to create a piece of code that takes the first and last name, and combines(proper software term is concantenates) them together. Something like this: 
+\begin{lstlisting}[caption=console in action]
+combinedName(firstName: string, lastName: string): string {
+  return firstName + lastName;
+}
+\end{lstlisting}
+
+So the developer, due to the low level of the logic of this function, mistakenly forgets to add a white space in between. He decides to console out the function, before applying the logic directly to the application, to make sure it works as expected. So the developer does something like this(assuming we are talking about a method within a service): 
+\begin{lstlisting}
+console.log(this.combinedName('James', 'Harden));
+\end{lstlisting}
+
+The developer is expecting it to look like 'James Harden', but instead the developer finds out that it is 'JamesHarden'. The developer immediately realizes that there is a missing white space in between the two words, and edits the function, so that it works as expected: 
+
+\begin{lstlisting}
+combinedName(firstName: string, lastName: string): string {
+  return firstName + ' ' + lastName;
+} 
+\end{lstlisting}
+He then goes back, and refreshes the page where the \lstinline{console.log} was,and finds out that it now looks like: 
+\begin{verbatim}
+'James Harden'  
+\end{verbatim}
+
+\mybox{In practice, something like this should ideally be tested using unit tests. However, many enterprise applications unfortunately are not built in the optimal fashion for various reasons.}
