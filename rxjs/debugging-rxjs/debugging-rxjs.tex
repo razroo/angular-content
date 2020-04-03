@@ -6,7 +6,7 @@ One of the more difficult things to master when learning RxJS, is learning how t
 \end{enumerate}
 
 \section{Using Console.log}
-In a regular Typescript/Javascript setting a \lstinline{console.log} is a relatively simple concept. We show(,or log out), whatever the current status is of our code at a given time. So for instance, let's say that we wanted to create a piece of code that takes the first and last name, and combines(proper software term is concantenates) them together. Something like this: 
+In a regular Typescript/Javascript setting a \lstinline{console.log} is a relatively simple concept. We show(,or log out), whatever the current status is of our code at a given time. So for instance, let's say that we wanted to create a piece of code that takes the first and last name, and combines(proper software term is concatenates) them together. Something like this: 
 \begin{lstlisting}[caption=console in action]
 combinedName(firstName: string, lastName: string): string {
   return firstName + lastName;
@@ -30,10 +30,10 @@ He then goes back, and refreshes the page where the \lstinline{console.log} was,
 'James Harden'  
 \end{verbatim}
 
-\mybox{In practice, something like this should ideally be tested using unit tests. However, many enterprise applications unfortunately are not built in the optimal fashion for various reasons.}
+\mybox{In practice, something like this should ideally be tested using unit tests. However, many enterprise applications unfortunately are not built in this optimal fashion for various reasons.}
 
 \section{Using Source Within Developer Tool}
-The only other tool that I usually have within my tool belt to dissect an error immediately is the developer tools within chrome. Any time that there is an error, there is a unique signature that your code will throw out. In a modern day application, this will happen even if it isn't unique to your application. So the console.log --> source tool will simly display the error whenever it happens. 
+The only other tool that I usually have within my tool belt to dissect an error immediately is the developer tools within chrome. Any time that there is an error, there is a unique signature that your code will throw out. In a modern day application, this will happen even if it isn't unique to your application, due to the number of libraries/frameworks we use. However, it can still be incredibly useful for hard to find bugs. This article will not discuss this technique in depth. However, it will be the top two tools in your debugging tool belt. Feel free to checkout this video on egghead.io for more.
 
 \section{Debugging within RxJS - The Dilemma}
 The immediate issue with debugging RxJS from a traditional setting, is that it's only the final result that can be debugged. So you might have a stream of numerous chained events: 
@@ -57,10 +57,10 @@ In the above, only in the switchMap, or in a subscribe will we be able to tap in
   \item The \lstinline{companyService.searchCompanies} request might be erroring out, or there might be some internal logic to the \lstinline{companyService.searchCompanies} request making something error out.
 \end{enumerate}
 
-So of course we need a similar way to console out, similar it works in non RxJS. 
+So of course we need a similar way to console out our results along the line of the stream, to figure out where our error is happening.
 
 \section{Using Tap}
-\lstinline{tap} is RxJS's way of taking the current value and outputting it. It is commonly used in real life code, by taking the value returned by a service, and emitting it. However, tap can also be used a debugger. For instance, in the above code, let's say we aren't getting a result. So we do the following: 
+\lstinline{tap} is RxJS's way of taking the current value and outputting it. It is commonly used in real life code, by taking the value returned by a service, and emitting it. However, tap can also be used a debugger. For instance, in the above code, let's say we aren't getting the result we wanted. We can do the following: 
 \begin{lstlisting}
 this.companies$ = searchBy$.pipe(
   debounceTime(300),
@@ -74,7 +74,7 @@ this.companies$ = searchBy$.pipe(
 );  
 \end{lstlisting}
 
-In the above tap, a result is coming back so we know that it is not erroring out before \lstinline{debounceTime}. Ok, so let's move the tap one more down: 
+In the above \lstinline{tap}, a result is coming back so we know that it is not erroring out before \lstinline{debounceTime}. Ok, so let's move the tap one more down: 
 \begin{lstlisting}
 this.companies$ = searchBy$.pipe(
   debounceTime(300),
