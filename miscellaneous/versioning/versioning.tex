@@ -1,4 +1,3 @@
-
 \chapter{ Versioning }
 
 \section { Git }
@@ -9,7 +8,7 @@ It goes without saying that you should be using Git for version control. Just to
   \item Faster Release Cycle - Stability, distribution, pull requests, and community is streamlined. 
 \end{enumerate} 
 
-It goes without saying, Git should play as a foundational piece in your applicaiton. In addition, such a thing as Git architecture exists, especially within the conext of an Angular application. Let's dive into that now. 
+It goes without saying, Git should play as a foundational piece in your application. In addition, such a thing as Git architecture exists, especially within the context of an Angular application. Let's dive into that now. 
 
 \section { Integration with JIRA }
 In any JIRA ticket, if one has the proper webhooks setup with Github, or if one
@@ -27,6 +26,7 @@ Understanding the different types of branches is equally just as important. In a
       \item bugfix
       \item refactor
       \item cleanup
+      \item e2e
     \end{enumerate}
   \item Inform the developer of ticket being worked on.
   \item Inform the developer of abstract of ticket.
@@ -42,7 +42,7 @@ Let's imagine our project is called \say{Pixe}. We have a ticket called PIXE-113
   \item \say{feature} is issue type, all lowercase, followed by forward slash.
   \item \say{PIXE-113} is the name of ticket in all caps, followed by a dash
   \item details-and-actions is abstract of ticket.
-\end{enumerate} \marginpar{Todo: Create a graphic for this one}
+\end{enumerate}
 
 Now, anyone looking through the current branch, can immediately find out the intent of the branch. It's a relatively low levle way of 
 
@@ -56,7 +56,7 @@ they should feel comfortable in using a client if they would like. However, I pe
 There are numerous different Git workflows, however, the one I think is ideal, is a Fork and Pull Workflow. Your workflow will evolve on time, but this core will not change, and therefore I can confidently suggest it within this book. The workflow I am going to suggest is the fork and pull workflow. I am going to lightly describe what it is, it's benefits, and then delve more specifically into what it is.
 
 \subsection{What is a Fork and Pull Workflow}
-A traditional git workflow, is that each developer shares the same repository, it's just that they have different branches. In a fork and pull workflow, developers in addition to having their own branch, they also have their own repository.
+A traditional git workflow, is that each developer shares the same repository, it's just that they have different branches. In a fork and pull workflow, developers in addition to having their own branch, also have their own repository.
 
 \subsection{Benefits of a Fork and Pull Workflow}
 \begin{enumerate}
@@ -64,23 +64,30 @@ A traditional git workflow, is that each developer shares the same repository, i
   \item No need to clean up git branches, as it is on each user's local repository.
   \item Promotes developers to contribute to open source, being that this pattern is the defacto for open source projects. 
   \item A hidden one that I found myself doing, is doing side projects without worrying about it cluttering the main app.
+  \item If using a Mono Repo architecture, a fork and pull workflow is absolutely neccesary. At Razroo, we think a Mono Repo architecture is ideal, and have seen first hand, how it alleviates many things. 
 \end{enumerate}
 
-I think that this is cleaner approach, even for private repositories. In truth the biggest benefit of such, is that it makes developers more comfortable with open source. This is combination, with a company that promotes open source during company time, is a dangerous combo.
-
-At Razroo, we use a Fork and Pull workflow, even when using a private repositories. It allows for a cleaner workflow, and works better especially within a mono repo setting. Something we aspire to one day. 
+At Razroo, we use a Fork and Pull workflow, even when using private repositories. It allows for a cleaner workflow, and works better especially within a mono repo setting. Something we aspire to one day. 
 
 \subsection { Setting up a Fork and Pull Workflow with Github }
-Similar to how in this book we reccomend the usage of particular architecture,
-we also reccomend specific platforms to use. We will run through this workflow
-with Github, however, it is very possible with any other client.
-
-Click on the button which says fork: (Include image for fork here).
-Then go ahead 
+With Github, setting up a Fork and Pull workflow is as simple as: 
+\begin{enumerate}
+  \item Clicking on the fork button.
+  \item Clone your forked repo.
+  \item Sync repo with upstream 
+\begin{verbatim}
+git remote add upstream {forked from repo goes here}
+\end{verbatim}
+Now whenever you would like to pull from upstream dev branch can simply do: 
+\begin{verbatim}
+git pull upstream dev   
+\end{verbatim}
+  \item push to your branch as usual
+  \item Pull branch from forked repo, while in original repo 
+\end{enumerate}
 
 \section { Squash and Merge }
-Github, is our preferred client. It gives the option to squash and merge a
-particular commit. Squashing your commits should be your preferred way of doing
-commits. It allows for a clean git history. By having a clean git history, one
-can create a very clean version log, which specifies which features were built
-in the latest version. 
+Github, is our preferred client. However, git itself, as well as all other major 3rd party vendors, give the option to squash all other commits before merged. Some will offer the option to re-base as well. (If you are in a very Fortune 50 setting, and are working within a company wide Mono Repo, most likely you will want to re-base.) However, our reccomended aproach is to squash and merge, so you can maintain the integrity of the commits that happened along the way. 
+
+\section{Ending Off}
+So there you go, the next time your team is wondering about what standards they should follow for Git, show them this. 
