@@ -1,14 +1,15 @@
 \chapter{ Versioning }
 
+\textit{A thank you, to a one Chris Bautista and Bobbie Barker for helping me formulate this strategy.}
 \section { Git }
 It goes without saying that you should be using Git for version control. Just to re-iterate the benefits of \href{https://git-scm.com/}{Git}, are as follows: 
 \begin{enumerate} 
   \item Islolated Environments - I.e. every developer on your team works on the code base without affected others. 
-  \item Pull Requests - Allows other developers to approve your code before officially merged in. 
+  \item Pull Requests - Allows other developers to approve your code before officially being merged in. 
   \item Faster Release Cycle - Stability, distribution, pull requests, and community is streamlined. 
 \end{enumerate} 
 
-It goes without saying, Git should play as a foundational piece in your application. In addition, such a thing as Git architecture exists, especially within the context of an Angular application. Let's dive into that now. 
+Git should play as a foundational piece in your application. In addition, such a thing as Git architecture exists, especially within the context of an Angular application. Let's dive into that now. 
 
 \section { Integration with JIRA }
 In any JIRA ticket, if one has the proper webhooks setup with Github, or if one
@@ -86,8 +87,10 @@ git pull upstream dev
   \item Pull branch from forked repo, while in original repo 
 \end{enumerate}
 
+\section{Trunk Based Development}
+
 \section { Squash and Merge }
 Github, is our preferred client. However, git itself, as well as all other major 3rd party vendors, give the option to squash all other commits before merged. Some will offer the option to re-base as well. (If you are in a very Fortune 50 setting, and are working within a company wide Mono Repo, most likely you will want to re-base.) However, our reccomended aproach is to squash and merge, so you can maintain the integrity of the commits that happened along the way. 
 
 \section{Ending Off}
-So there you go, the next time your team is wondering about what standards they should follow for Git, show them this. 
+So there you go, the next time your team is wondering about what standards they should follow for Git, show them this. In the next chapter, we are going to dicusss, a proper Git workflow. I.e. master, dev, and test. We will get to that soon. 
