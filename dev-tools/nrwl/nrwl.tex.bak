@@ -91,15 +91,8 @@ In the directory of your choice \footnote{Personally, I have a directory called 
   npx create-nx-workspace angularPixelIllustrator
 \end{verbatim}
 
-You will be presented with a few questions. Here are the options to choose for this project:
-
-\begin{verbatim}
-? What to create in the new workspace empty [an empty workspace]
-? CLI to power the Nx workspace Angular CLI  [Extensible CLI for Angular applications. Recommended for Angular pro
-jects.]
-\end{verbatim}
-
-This will create a folder called \lstinline{angularPixelIllustrator} and will contain the following files/folders:
+You will be presented with a list of options. Select 
+\lstinline{[a workspace with a singlar Angular application]}. Give the application a name and this will create a folder called \lstinline{angularPixelIllustrator}. This will contain the following files/folders:
 \begin{verbatim}
 apps/
 libs/

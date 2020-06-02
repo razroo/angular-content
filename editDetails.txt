@@ -1,0 +1,28 @@
+/************************************************************************
+C O N T E N T  T R A C K I N G / N O T E S 
+************************************************************************/
+
+2. Dependency Graph
+[ ] dependency graph screenshot 
+[ ] using dependency graph content
+
+3. Angular CLI
+[*] Tone edited
+[*] Angular CLI commands added to list as reference for devs
+[ ] Needs note on why service worker is important / what it does 
+
+4. Introducing Nrwl Nx
+[*] Tone edited
+[*] Too much expected knowledge required. Attempted to quickly encapsulate state for the reader. 
+[*] Revised links and short summary of linked articles
+[*] Article links moved to footnotes for further referencing
+[*] command line error fixed. 
+[*] Added more details on how to create a workspace. Assumes too much prior knowledge from reader. 
+
+5. Compodoc
+
+6. Using Angular CLI in an Nx Workspace
+
+
+
+\lstinline{}
