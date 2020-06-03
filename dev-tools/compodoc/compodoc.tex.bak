@@ -46,21 +46,25 @@ In the above image, we can see how Compodoc works. The tree structure allows us 
 
 
 \section{Dependencies}
-Seeing what dependencies your app is using is as simple as going to your \lstinline{package.json} file. 
-Seeing the depedencies within your application is usually as simple as going into your package.json. However, I've personally found that the package.json usually does not receive the attention it needs, respective to its importance.
-Using Compodoc, it sticks out like a sore thumb, and does make you keep it in mind. So if this was the only feature, it wouldn't have that much value. However, I do like the fact that they did include it. 
+Seeing what dependencies your app is using is as simple as going to your \lstinline{package.json} file. However, if you've got more than a barebones Angular app, the file is not visually appealing to look at. It's hard to see how everything is interconnected with one another. 
+
+Compodoc solves this issue by creating a visual output. This allows us to quickly capture relationships without having to slow down and manually figure things out. 
+
 \begin{figure}
 \caption{Compodoc overview}
 \includegraphics[width=414pt]{graphics/compodoc/dependencies/compo-dependencies-screenshot.pdf}
 \end{figure}
 
-So we can look through the above and immediately say, \say{oh ok}, this is what version of Angular we are on. I really like it for that reason, because, once again, the package.json has a way of creeping up on a project. This makes sure that it is front and center. 
+
+\lstinline{package.json} has a way of creeping up on a project, making it hard to navigate. With compodoc, your meta information is presented in a way that's easier to mentally digest. 
 
 \section{Various Types of Modules, Components etc.}
-Compodoc also has offers dropdown of all modules, components, classes, services, interceptors, guards, interfaces, and miscellaneous within app. I like this for two reasons: 
+Compodoc provide dropdowns of all modules, components, classes, services, interceptors, guards, interfaces, and miscellaneous within app.
+
+This is good for two reasons: 
 \begin{enumerate}
-  \item It lays everything out there, so I know everything that's going on within my app.
-  \item Also defines all the things that we should see in our app. In particular, I like the sections for interceptors, guards, and interfaces. It can leave an impact on the team, that these are things that should be written.
+  \item It lays everything out. There is no secrets, or hidden surprises. You know exactly what's going on within the app. 
+  \item Defines everything within your app - including but not limited to interceptors, guards, and interfaces. This information is good in team settings, where members may be working on islands of code that may need to connect to and impact on pieces created by others. 
 \end{enumerate}
 
 \begin{figure}
@@ -69,17 +73,21 @@ Compodoc also has offers dropdown of all modules, components, classes, services,
 \end{figure}
 
 \section{Routes}
-Another one of the favorites is the ability to visualize all the routes that are in your application, and which components are attached. 
+Compodoc also gives you the ability to visualize the routes that are in your application, and which components are attached. This is useful for large applications. The visualization also lets you mock the relationships and help you see how the parts of your app is connected to one another. 
 
 \begin{figure}
 \caption{Compodoc Routes Example}
 \includegraphics[width=414pt]{graphics/compodoc/routes/compodoc-routes.pdf}
 \end{figure}
 
-It also gives you the ability to click through the routes and see which components are using a particular route.
+You can also click through the routes. With compodoc, your documentation becomes a meta living document that can help speed up your workflow by turning your meta information into something visual.
+
 
 \section{Documentation Coverage}
-Documentation coverage is another cool item with regards to compodoc. It's something that already exists in a number of different frameworks. However, it is nice that compodoc includes it, so all documentation is included in one place. In particular, the flavor of documentation it uses is JsDoc. For instance, if we have a method within our component, and it looks some like this: 
+Compodoc compiles documentation in one place. In contrast to other available frameworks, this is a major perk because it gives you the bigger picture approach to your application, while still having the ability to drill down into the finer points. 
+
+For example, if you have a method within a component that looks something like this: 
+
 \begin{lstlisting}
 /**
   * Display only completed todos
@@ -102,15 +110,19 @@ displayAll() {
 \includegraphics[width=414pt]{graphics/compodoc/documentation/documentation-coverage.pdf}
 \end{figure}
 
-Compodoc will take the JsDoc documentation and generate it in a way that is very, very easy to navigate. 
+Compodoc will take the JsDoc documentation and generate it in a way that is simple to navigate. 
 
 \section{Pushing Documentation to Staging Area }
-As we did initially, is that we created a two npm scripts. One of them for compodoc development, and the other compodoc production. By running: 
+As we did initially, is that we created a two npm scripts. One of them for compodoc development, and the other compodoc production.
+
+By running the following, you can generate documentation in your default output folder.
+ 
 \begin{lstlisting}
 "compodoc": "compodoc -p tsconfig.json",
 \end{lstlisting}
 
-This will generate documentation in your default output folder. You can then push this bundled output to a link, that everyone can go to, to see existing documentation for your app. 
+This link can be pushed and bundled with your project so that everyone has access to it. 
 
 \section{Final Thoughts}
+
 There are many people out there that have incredible things to say about Compodoc. Nonetheless, I want to make sure, that anyone I advise on Angular, this is the one of the things I inform them about. In addition, more importantly I want to advise them on a way that they can go ahead and do this, with the push of a button. Compodoc is the documentation tool that Razroo recommend's time and time again.
