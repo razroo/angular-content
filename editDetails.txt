@@ -2,6 +2,21 @@
 C O N T E N T  T R A C K I N G / N O T E S 
 ************************************************************************/
 
+Thoughts and suggestions:
+
+The current structure jumps around quite a bit. As a fellow Angular developer, I understand where you're going with the content but from a beginner/advancing intermediate dev new to Angular, this may be a little too jagged and confusing.
+
+There is also a lot of future - we will do this later, we'll talk about this later - that pads out a lot of the content. This is removed to create focus. 
+
+Sidebars are rebranded to sidesteps because it can confuse people reading it as creating an actual side bar in the app. 
+
+Suggestions:
+
+- add an overview of what the Pixel Illustrator will look like.
+- add a learning outcomes outline to help set up expectations and track progress.
+
+Chapter by chapter notes rundown:
+
 2. Dependency Graph
 [ ] dependency graph screenshot 
 [ ] using dependency graph content
@@ -11,17 +26,400 @@ C O N T E N T  T R A C K I N G / N O T E S
 [*] Angular CLI commands added to list as reference for devs
 [ ] Needs note on why service worker is important / what it does 
 
-4. Introducing Nrwl Nx
+4. Introducing Nrwl Nx ***
 [*] Tone edited
 [*] Too much expected knowledge required. Attempted to quickly encapsulate state for the reader. 
 [*] Revised links and short summary of linked articles
 [*] Article links moved to footnotes for further referencing
 [*] command line error fixed. 
 [*] Added more details on how to create a workspace. Assumes too much prior knowledge from reader. 
+[*] managed to get nrwl nx running, but the instructions currently in the book is still too sketchy to be error free. Chapter technical notes need to be reviewed. 
 
 5. Compodoc
+[*] Addition information added with rewrites on paragraphs to unify overall tone and constant switching.
+[ ] compodoc is still quite vague. Needs a little more detailing and how it relates to the overall pixel illustrator project.
+[*] Final thoughts section removed. Too much insider knowledge and not enough details to explain why. 
 
 6. Using Angular CLI in an Nx Workspace
+[ ] author is assuming that reader knows what encapsulation means
+[*] removed footnotes. Too distracting with eyes having to jump around
+[*] --export flag edited. --exports doesn't exist
+
+
+7. Creating Code Owners
+[*] repeated content removed. 
+
+8. Github Wiki
+[ ] very vague section. Not sure how it all fits it. Feels more like a side thought section.
+
+9. Github Board
+[ ] can technically be combined with the github wiki section and just have it as one side stepping section on github workflows?
+
+10. Format all the things
+[*] removed condescending tone in relation to IDE types
+
+11. Lint all the things
+
+12. Linting HTML
+
+13. Linting Sass
+
+14. Accessibility with Codelyzer
+
+15. Lighthouse
+
+***
+
+16. Setting up Schematics using Angular CLI
+
+17. Schematics Deep Dive
+
+18. px schematics
+
+19. Nrwl Schematics
+
+20. Storybook
+
+***
+
+21. Data Access interface
+
+22. Data Models
+
+23. Interfaces and Partials
+
+24. Tsconfig
+
+25. Component Inheritance
+
+26. Barrel File
+
+27. Typescript - Getting and Setting
+
+28. Typescript - Immutability
+
+29. Declaration Files
+
+30. Custom Declaration Files
+
+31.Design Language System
+
+32. Material Design
+
+33. Customize Angular Material Design
+
+34. Angular Material Typography
+
+35. UI Skeleton
+
+****
+
+36. Icons
+
+37. Sass Error Reporting
+
+38. Introduction to RxJS - The RxJS Airplane
+
+39. Debugging Rxjs
+
+40. Cold vs Hot Observales
+
+***
+
+41. RxJS Common Creation Operators
+
+42. Combination
+
+43. Filtering
+
+44. Transofrmation
+
+45. Utility
+***
+
+46. Multicasting
+
+47.RxJS Pitfalls
+
+48. RxJS and Facades
+
+49. Creating a Config
+
+50. Creating Feature Flags
+
+51. Environment
+
+52. Environment Architecture - Deep Dive
+
+53. Lib File Structure
+
+54. Setting Up Lib Folder Structure
+******
+
+55. Data Access
+
+56. Nx Lib Conventions
+
+57. Data Services - Directory Structure
+
+58. Dialogs
+
+59. Lazy Loading Modules
+
+60. Transloco
+
+61. Lazy Loading Images
+
+62. Network Aware Predictive Pre-Loading
+
+63. Shared Modules
+
+64. Form Validation
+
+65. Angular Elements - Introduction
+
+66. Using React with Angular
+
+67. Custom Web Components
+
+68. Micro Frontends
+
+69. Static Site Generation
+
+70. Smart vs. dumb components
+
+71. Error Handling
+
+72. Http Interceptors
+
+73. Angular Router Gouards
+
+74. Pre-loading with Route Guards
+
+75. Containers, Routing + ngrx/router
+
+76. Output
+
+77. Life Cycle Hooks
+
+78. Dependency Injection
+
+79. Input
+
+80. @Output
+
+81. Internationalization and localization
+
+82. Content projection
+
+83. Displaying data
+
+84. Template syntax
+
+85. Modules
+
+86. Services
+
+87. Routing
+
+88. Forms
+
+89. Reactive Forms
+
+90. Attribute Directives
+
+91. Pipes
+
+92. Observables
+
+93. Angular Observables
+
+94. Animations
+
+95. Transitions and Triggers
+
+96. Track By
+
+97. Bundle size
+
+98. Image performance in Angular
+
+99. Modern Script Loading
+
+100. Ahead of time compilation
+
+101. The Angular Service Worker - Implementing in App
+
+102. Understanding rendering
+
+103. Angular Universal
+
+104. Angular Elements Load Time
+
+105. Change Detection
+
+106. Integrating ngrx/store with Appollo Client
+
+107. Sockets
+
+108. Apollo Caching with Sockets
+
+109. Responsive Design
+
+110. PWA Toolset - Physical devices
+
+111. PWA Toolset - Sauce Labs
+
+112. Mobile First - Building a Progressive Web App
+
+113. Flex layout
+
+114. Styling a Component
+
+115. Scully: Static Site Generation for Angular
+
+116. When to use @ngrx/store
+
+117. Primer - Actions
+
+118. Primer - Reducers
+
+119. History of State Management
+
+120. Introduction to @ngrx/store
+
+121. ngrx CLI
+
+122. State management - @ngrx/store
+
+123. ngrx/router-store
+
+124. store selectors
+
+125. Aggregation pattern
+
+126. er-using reducer logic
+
+127. ngrx effects
+
+128. the case for using ngrx/entity by default
+
+129. ngrx entity
+
+130. state management - properly ubsubscribing
+
+131. re-usable state - an anti-pattern
+
+132. facade pattern
+
+133. state directory structure
+
+134. correlation ID service
+
+135. Integrating a component with @ngrx/store
+
+136. charts
+
+137. benefits of unit testing, TDD, and BDD
+
+138. unit testing performance
+
+139. fixture vs debug
+
+140. sass unit testing
+
+141. spectator for unit testing
+
+142. unit testing
+
+143. understanding different types of unit tests
+
+144. Jest
+
+145. Visual unit tests with Cypress
+
+146. Testing Cypress Locally with Authentication
+
+147. Unit testing state
+
+148. unit testing architecture
+
+149. Interfaces and unit testing
+
+150. mocking data
+
+151. spies
+
+152. Debugging
+
+153. Coverage reporting
+
+154. Unit testing the DOM
+
+155. Unit Testing - mocking providers
+
+156. unit testing moduels
+
+157. Marble unit testing
+
+158. unit testing subscriptions
+
+159. unit testing TDD - first principles Discovery
+
+160. E2E Testing in a TDD/BDD setting
+
+161. Automation Engineering
+
+162. Writing E2E Tests
+
+163. Angular CLI
+
+164. Unit testing component using Apollo
+
+165. Apollo client middleware
+
+166. interfaces and unions
+
+167. Data GraphQL
+
+168. Versioning
+
+169. ng container hack for structural directives
+
+170. npm vs yarn
+
+171. Weekly Meetings
+
+172. Creating a component
+
+173. Creating a second component
+
+174. Ceating a dumb component
+
+175. Technical design notes
+
+176. Acceptance criteria
+
+177. Ticket creation - component design
+
+178. Code reviews
+
+179. Pixel Grid Container
+
+180. Pixel Grid container Layout
+
+181. Color Picker
+
+182. Constants
+
+183. Enums as Constants
+
+184. Authorization
+
+185. Building our application
+
+
+
 
 
 

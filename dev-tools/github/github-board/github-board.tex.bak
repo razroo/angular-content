@@ -1,13 +1,11 @@
 
 \chapter{ Github Board }
 
-The github board, for open source projects is used in a task management
-capacity. In an enterprise setting, it can be used to track the one thing
-that can't be tracked through JIRA, app considerations.
+GitHub has a work board functionality. This can be found on their website and can be used to task manage your team's features and ticket items. 
 
-For instance, let's say you would like to migrate your app to the latest version
-of Angular. You would create a board called "Tech Concerns". You would then go
-ahead and create a widget for Upgrade Angular. Everyone on your team would then
-know that you have certain things that you would like to progress in tech.
-This can be used for other items as well, such as change directory structure to
-use mono repo, or integrate E2E tests within app.
+It can be used to track app considerations - something which cannot be effectively tracked through enterprize software managements tools such as Jira.
+
+For example, if you want to migrate your app to the latest version of Angular, you could create a board called "Tech Concerns" and then add a widget for "Upgrade Angular". Everyone on the team would know that you certain things you'd like to do but not necessary part of the main feature release flow.
+
+This can be used for other items such as changes in directory structures, or integration E2E testing within the app. 
+

@@ -122,7 +122,3 @@ By running the following, you can generate documentation in your default output 
 \end{lstlisting}
 
 This link can be pushed and bundled with your project so that everyone has access to it. 
-
-\section{Final Thoughts}
-
-There are many people out there that have incredible things to say about Compodoc. Nonetheless, I want to make sure, that anyone I advise on Angular, this is the one of the things I inform them about. In addition, more importantly I want to advise them on a way that they can go ahead and do this, with the push of a button. Compodoc is the documentation tool that Razroo recommend's time and time again.
