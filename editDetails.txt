@@ -74,10 +74,15 @@ Chapter by chapter notes rundown:
 [*] removed condescending tone
 
 15. Lighthouse
+[ ] It took a while to figure out what your issue with lighthouse was...edited the paragraph to be clearer. It went off on a tangent and not enough information to substantiate it. 
+[ ] you keep saying things are useful but don't really explain what the usefulness of those things are
+[ ] feels incomplete. 
 
 ***
 
 16. Setting up Schematics using Angular CLI
+
+[*] Double negative opinion that contradicts with previous chapters removed. Too much thinking required to try and understand what you're trying to convey.
 
 17. Schematics Deep Dive
 
