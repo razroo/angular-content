@@ -100,15 +100,17 @@ Chapter by chapter notes rundown:
 [ ] intro doesn't work. I'm sure you haven't introduced data access folder. 
 [ ] interface context not established or linked to a specific chapter.
 
-
 22. Data Models
+[ ] no focus or flow. Attempted to edit as much as I could. 
 
 23. Interfaces and Partials
+[ ] this is an incomplete section
 
 24. Tsconfig
+[ ] run on sentences edited
 
 25. Component Inheritance
-
+[ ] minor edits made for grammar and clarity
 
 
 
