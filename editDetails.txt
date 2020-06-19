@@ -45,7 +45,6 @@ Chapter by chapter notes rundown:
 [*] removed footnotes. Too distracting with eyes having to jump around
 [*] --export flag edited. --exports doesn't exist
 
-
 7. Creating Code Owners
 [*] repeated content removed. 
 
@@ -59,12 +58,20 @@ Chapter by chapter notes rundown:
 [*] removed condescending tone in relation to IDE types
 
 11. Lint all the things
+[ ] Too much looking into the future. General trend of the book, which can be frustrating to read because you have to remember all these things that is going to be coming soon. Get's repetitive and confusing.
 
 12. Linting HTML
-
+[ ] html is part of the markup family and is different from xml in its special way. 
+[*] changed tone to be less waffle/condescending and more objective strength
+ 
 13. Linting Sass
+[*] changed tone to appear more confident
+[*] less random yelling
+[ ] repetition is ok, but not in the same sentence. Then it just looks like you're trying to pad out the paragraph.
 
 14. Accessibility with Codelyzer
+[*] content runs off into a tangent train of thought style that was confusing to follow. Re-edited to make it easier and clearer to read. Not sure if I recaptured all your thoughts correctly.
+[*] removed condescending tone
 
 15. Lighthouse
 
@@ -112,8 +119,6 @@ Chapter by chapter notes rundown:
 
 35. UI Skeleton
 
-****
-
 36. Icons
 
 37. Sass Error Reporting
@@ -144,6 +149,7 @@ Chapter by chapter notes rundown:
 48. RxJS and Facades
 
 49. Creating a Config
+******
 
 50. Creating Feature Flags
 
@@ -154,7 +160,6 @@ Chapter by chapter notes rundown:
 53. Lib File Structure
 
 54. Setting Up Lib Folder Structure
-******
 
 55. Data Access
 
@@ -167,6 +172,7 @@ Chapter by chapter notes rundown:
 59. Lazy Loading Modules
 
 60. Transloco
+******
 
 61. Lazy Loading Images
 
@@ -176,6 +182,7 @@ Chapter by chapter notes rundown:
 
 64. Form Validation
 
+******
 65. Angular Elements - Introduction
 
 66. Using React with Angular
@@ -207,6 +214,7 @@ Chapter by chapter notes rundown:
 79. Input
 
 80. @Output
+******
 
 81. Internationalization and localization
 
@@ -215,7 +223,7 @@ Chapter by chapter notes rundown:
 83. Displaying data
 
 84. Template syntax
-
+******
 85. Modules
 
 86. Services
@@ -225,6 +233,7 @@ Chapter by chapter notes rundown:
 88. Forms
 
 89. Reactive Forms
+******
 
 90. Attribute Directives
 
@@ -233,6 +242,7 @@ Chapter by chapter notes rundown:
 92. Observables
 
 93. Angular Observables
+******
 
 94. Animations
 
@@ -257,7 +267,7 @@ Chapter by chapter notes rundown:
 104. Angular Elements Load Time
 
 105. Change Detection
-
+******
 106. Integrating ngrx/store with Appollo Client
 
 107. Sockets
@@ -265,6 +275,7 @@ Chapter by chapter notes rundown:
 108. Apollo Caching with Sockets
 
 109. Responsive Design
+******
 
 110. PWA Toolset - Physical devices
 
@@ -297,6 +308,7 @@ Chapter by chapter notes rundown:
 124. store selectors
 
 125. Aggregation pattern
+******
 
 126. er-using reducer logic
 
@@ -305,6 +317,7 @@ Chapter by chapter notes rundown:
 128. the case for using ngrx/entity by default
 
 129. ngrx entity
+******
 
 130. state management - properly ubsubscribing
 
@@ -327,6 +340,7 @@ Chapter by chapter notes rundown:
 139. fixture vs debug
 
 140. sass unit testing
+******
 
 141. spectator for unit testing
 
@@ -335,6 +349,7 @@ Chapter by chapter notes rundown:
 143. understanding different types of unit tests
 
 144. Jest
+******
 
 145. Visual unit tests with Cypress
 
@@ -357,6 +372,7 @@ Chapter by chapter notes rundown:
 154. Unit testing the DOM
 
 155. Unit Testing - mocking providers
+******
 
 156. unit testing moduels
 
@@ -365,6 +381,7 @@ Chapter by chapter notes rundown:
 158. unit testing subscriptions
 
 159. unit testing TDD - first principles Discovery
+******
 
 160. E2E Testing in a TDD/BDD setting
 
@@ -373,6 +390,7 @@ Chapter by chapter notes rundown:
 162. Writing E2E Tests
 
 163. Angular CLI
+******
 
 164. Unit testing component using Apollo
 
@@ -381,6 +399,7 @@ Chapter by chapter notes rundown:
 166. interfaces and unions
 
 167. Data GraphQL
+******
 
 168. Versioning
 
@@ -407,6 +426,7 @@ Chapter by chapter notes rundown:
 179. Pixel Grid Container
 
 180. Pixel Grid container Layout
+******
 
 181. Color Picker
 
