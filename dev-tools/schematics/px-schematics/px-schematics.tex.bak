@@ -1,0 +1,111 @@
+
+\chapter{px schematics}
+
+Now that we have deep dived into creating a schematic. We have the particulars
+with regards to our application. We would like to architect a folder structure
+that might include some repeat files, such as our app logo.
+
+\mybox{
+\section{A Word to the Wise}
+First off, there is a need to run npm run build within the repo, everytime
+that you go ahead and create a schematic. Otherwise, it will not work as
+expected.
+}
+
+\section{Analyzing a File Directory}
+Within our px-schematics, let's create a files directory:
+
+
+\begin{forest}
+  [libs
+    [common
+      [animations
+      ]
+      [assets
+      ]
+      [core
+       [auth]
+       [guards]
+       [pipes]
+       [validators]
+      ]
+      [models
+      ]
+      [testing
+      ]
+      [ui
+      ]
+      [utils
+      ]
+      [styles
+      ]
+      [vendor
+      ]
+    ]
+  ]
+\end{forest}
+
+Due to how Angular Schematics works, we can go ahead and create a folder
+directory as is, and supplant it within our app. We are going to create the
+following folder directory with placeholder files for our app.
+
+\section{Creating a Files Directory}
+We are going to follow a really simply approach when it comes to creating our
+files directory and follow a functional approach. We are going to create a
+.gitkeep file for each of our directories so that they can be committed to the
+app and kept there. It looks something like this:
+
+\begin{lstlisting}
+import {
+  apply, branchAndMerge, chain, mergeWith,
+  Rule,
+  SchematicContext, template,
+  Tree, url,
+} from '@angular-devkit/schematics';
+import { strings } from '@angular-devkit/core';
+import { libVersions } from "@nrwl/schematics/src/lib-versions";
+import { DEFAULT_NRWL_PRETTIER_CONFIG } from "@nrwl/schematics/src/utils/common";
+
+// You don't have to export the function as default. You can also have more than one rule factory
+// per file.
+export function pxSchematics(options: any): Rule {
+  return (host: Tree, context: SchematicContext) => {
+    const templateSource = applyTemplateSource(options);
+    return chain([branchAndMerge(chain([mergeWith(templateSource)]))])(
+      host,
+      context
+    );
+  };
+}
+
+let applyTemplateSource = (options: any) => {
+  const npmScope = options.npmScope ? options.npmScope : options.name;
+
+  return apply(url('./files'), [
+    template({
+      utils: strings,
+      dot: '.',
+      tmpl: '',
+      ...libVersions,
+      ...(options as object),
+      npmScope,
+      defaultNrwlPrettierConfig: JSON.stringify(
+        DEFAULT_NRWL_PRETTIER_CONFIG,
+        null,
+        2
+      )
+    })
+  ]);
+};
+\end{lstlisting}
+
+\section{ Briefly Discussing Code Base}
+What we have done in our code, is that we have created a virtual file system,
+which has been read from our ./files directory. It is then combined with our
+actual file system. This function is called branchAndMerge. This is a really
+simple rinse and repeat for generating files within your app.
+
+The documenation for schematics is ever evolving. The project might be
+specifically under the angular-cli. However, there is no reason as to why this
+should be limited to one framework in particular. I highly reccomend using it
+for other frameworks as well.

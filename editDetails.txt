@@ -85,6 +85,7 @@ Chapter by chapter notes rundown:
 [*] Double negative opinion that contradicts with previous chapters removed. Too much thinking required to try and understand what you're trying to convey.
 
 17. Schematics Deep Dive
+[ ] started off better but then got confusing when trying to explain json.
 
 18. px schematics
 

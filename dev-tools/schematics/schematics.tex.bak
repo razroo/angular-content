@@ -58,8 +58,9 @@ To refactor can be a manual process and can take more than necessary to solve ma
 \end{lstlisting}
 
 \section{ Understanding Rules and Trees }
-A Tree is a data structure that contains a base -  a set of files that already exists -
-and a staging area  \footnote{A list of changes to be applied to the base}.
+A Tree is a data structure that contains a base and a staging area.
+
+A base are a set of files that already exists and a staging area is a list of changes to be applied to the base. 
 
 A Rule is a function that takes a Tree and returns another Tree. A RuleFactory
 are functions that create a Rule.
@@ -82,10 +83,7 @@ The blank RuleFactory that we have so far:
 \end{lstlisting}
 
 \mybox{
-The options argument is an object that can be seen as the input of the factory.
-From the CLI, it is the command line arguments the user passed. From another
-schematic, it’s the options that were passed in by that schematic.
-}
+The options argument is an object that can be seen as the input of the factory. From the CLI, it is the command line arguments the user passed. From another schematic, it’s the options that were passed in by that schematic.}
 
 \subsection{ Tree Deepdive}
 There are four methods that directly create a change in a Tree:
@@ -96,15 +94,9 @@ There are four methods that directly create a change in a Tree:
   \item overwrite
 \end{enumerate}
 
-Similar to how we used create as an example above, to create a file, we also
-have the option to use the schematic to delete, rename, or overwrite a file.
+Similar to how we used create as an example above, to create a file, we also have the option to use the schematic to delete, rename, or overwrite a file.
 
 \subsection{ Generating a Folder using Schematics }
-We are able to create a series of folders using schematics. However, it is
-important to keep in mind two things. In any git setting a folder is only
-committed if it contains a file. In addition, within the Angular schematics
-it follows the same general guideline. Wherein, by choosing a file to be in a
-particular file path. If no folder currently exists that is name as such, it
-will be created nonetheless. I really think the value of schematics cannot be
-overrated. Simply for it's ability to cause everyone on the team to conform out
-of mere simplicity. Let's deep dive in another chapter.
+We are able to create a series of folders using schematics. However, it is important to keep in mind two things. In any git setting a folder is only committed if it contains a file. In addition, within the Angular schematics it follows the same general guideline. By choosing a file to be in a particular file path. If no folder currently exists with the name, it will be created. 
+
+Schematics can ensure that teams conform to a particular style to create a simplified code workflow. 
