@@ -1,16 +1,10 @@
 \chapter{ Interfaces and Partials }
 
-As we discussed in the previous chapter, interfaces are a large part of
-data-access architecture. They are the glue that makes sure that all parts of
-data-access are using the same data schema. However, within the interface, we
-have the option to use either an optional, real value. The question is, do we
-want to turn the interface into a real representation of the data in the real
-world, or do we want to turn all parts of the data as neccesary? The value in
-having all parts of the interface as neccesary, is that it will force the mock
-to include all values. However, on the flip side, if we test all services within
-out graphql application, it will complain the fragments do not match. However,
-having the interfaces directly complain as a result of the data of the mock
-not matching is ideal.
+Interfaces are a large part of data-access architecture. They are the glue that makes sure that all parts of data-access are using the same data schema. 
+
+Within the interface we have the option to use an optional or real value. The question is, do we want to turn the interface into a real representation of the data or do we want to leave it loose and set values as required?
+
+When you have your entire interface as a compulsory object, it forces the mock to conform to this shape. This is useful for, for example, when you want to test all services within a graphQL application, it will complain that fragments do not match, your mock data tests will have already caught it. 
 
 \section{Solution to the Above Dillema}
 In Typescript there is the option to use:
@@ -29,16 +23,7 @@ So that being said, within our data-access architecture we have:
   \item State
 \end{enumerate}
 
-Our actual services, facades, and state can take full interface without an
-issue. They are retrieving data from the back end. In addition, in our mocks.ts
-file, we want to include the interface fully, to make sure that all potential
-data is included in mock. The mock for the most part is going to be used across
-the spec for services and effects.
+Our actual services, facades, and state can take full interface without an issue. They are retrieving data from the back end. In addition, in our mocks.ts file, we want to include the interface fully, to make sure that all potential data is included in mock. The mock for the most part is going to be used across the spec for services and effects.
 
 \section{Word to the Wise}
-Ideally interfaces should be a direct one to one correlation between GraphQL
-queries within app. If any of these items are used, it should be updated, and
-appropriately updated in the interface. It makes considerable sense to create a
-tool around this.
-
-TODO asses situations in which a partial would need to be created, if ever.
+Ideally interfaces should be a direct one to one correlation between GraphQL queries within app. If any of these items are used, it should be updated, and appropriately updated in the interface. It makes considerable sense to create a tool around this.
