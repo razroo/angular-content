@@ -91,12 +91,15 @@ Chapter by chapter notes rundown:
 [ ] reworded some paragraphs and got rid of filler words
 
 19. Nrwl Schematics
+[ ] confusing chapter. Are you creating nrwl schematics or angular schematics or nrwl angular custom schematics?
 
 20. Storybook
-
-***
+[ ] chapter is incomplete. Cannot proceed properly.
 
 21. Data Access interface
+[ ] intro doesn't work. I'm sure you haven't introduced data access folder. 
+[ ] interface context not established or linked to a specific chapter.
+
 
 22. Data Models
 
@@ -105,6 +108,9 @@ Chapter by chapter notes rundown:
 24. Tsconfig
 
 25. Component Inheritance
+
+
+
 
 26. Barrel File
 
@@ -116,6 +122,9 @@ Chapter by chapter notes rundown:
 
 30. Custom Declaration Files
 
+
+
+
 31.Design Language System
 
 32. Material Design
@@ -125,6 +134,9 @@ Chapter by chapter notes rundown:
 34. Angular Material Typography
 
 35. UI Skeleton
+
+
+
 
 36. Icons
 
