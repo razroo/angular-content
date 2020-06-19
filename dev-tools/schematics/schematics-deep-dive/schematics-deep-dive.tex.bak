@@ -65,23 +65,17 @@ cd libs/px-schematics/src/px-schematics; touch schema.json;
   }
 \end{lstlisting}
 
-If we look at our schema.json file, we will notice, that it contains a couple of important points. 
+If we look at our schema.json file, it gives us a decent amount of information for us to look at. 
 
-The first being One is that a type field, string in our instance. Second, that it has the familiar description key/value. In addition, we have created
-name as a default. Therefore if we were to pass our schema an option, without
-giving it a flag \footnote{For instance: \mybox{px angularPixelillustrator}}
-then it will execute it by default.
+For example, there is a string type within our settings and that this is a default for creating folder names. 
 
 \section{ Change Folder Architecture }
-We are going to want to brace for future collections. So let's create a
-collections folder to put our schematics into.
+We are going to want to brace for future collections. So let's create a collections folder to put our schematics into.
 \begin{verbatim}
 mdkir collections; mv px-schematics collections
 \end{verbatim}
 
-We are also going to modify our collections.json config to let schematics know
-that we have our own schematics file. Our collections.json for px-schematics
-should look like the following:
+We are also going to modify our collections.json config to let schematics know that we have our own schematics file. Our collections.json for px-schematics should look like the following:
 
 \begin{lstlisting}
 {

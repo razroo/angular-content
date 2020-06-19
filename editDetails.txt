@@ -88,6 +88,7 @@ Chapter by chapter notes rundown:
 [ ] started off better but then got confusing when trying to explain json.
 
 18. px schematics
+[ ] reworded some paragraphs and got rid of filler words
 
 19. Nrwl Schematics
 
