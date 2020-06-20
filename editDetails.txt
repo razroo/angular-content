@@ -168,8 +168,9 @@ Chapter by chapter notes rundown:
 44. Transformation
 [ ] formatting cleaned up with minor content edits
 
+***
+
 45. Utility
-[ ] doesn't really explain what untility is
 
 46. Multicasting
 
