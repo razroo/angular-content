@@ -1,19 +1,14 @@
 \chapter{ UI Skeleton }
 
+Real data, very rarely, will be immediately available. 
 
-Data, very rarely will be immediately available. Even if your app has a very
-quick backend service, bandwidth due to other web applications the user might
-be using, can affect the time it takes to load. It can be a very uncomfortable
-experience for the user if they are unaware of what is happening. I know
-personally, that I've thought of leaving Spotify, due to their web application
-having no indicator of when something is loading. Let's do everyone a favor
-and not do what Spotify does.
+Even if your app has a very quick backend service, due to other web applications the user might be using,  bandwidth can affect the time it takes to load. 
 
-Within a design language system, a UI Skeleton, or Ghost Elements, as it should
-probably be called, is a good idea. Most commonly, it is gray box depiction of
-a UI component awaiting action, that will be available in the future. It is a
-very simple way of easing anxiety of the user, and allowing them to be aware of
-all times, that something is loading.
+It can be a very uncomfortable experience for the user if they are unaware of what is happening. That's why loaders are important.
+
+Within a design language system, a UI Skeleton, or Ghost Elements, as it should probably be called, is a good idea. 
+
+It often comes in the form of gray boxes marking out the UI components awaiting action. It gives the user a rough indication that something is coming soon. It is a very simple way of easing anxiety of the user, and allowing them to be aware of all times, that something is loading.
 
 \section{ One True Way of Implementing Ghost Views }
 There are three options of implementing Ghost Elements.
@@ -24,21 +19,13 @@ There are three options of implementing Ghost Elements.
 \end{enumerate}
 
 \section{Why not to use an Overlay Ghost Element}
-I would personally not recommend using an Overlay Ghost Element. It requires
-that developers determine when Ghost it removed. In addition, it requires for
-layouts to match the ``Real'' DOM layouts. However, DOM layouts are changing
-all the time, and this solution is not a good long term solution. Most
-definitely not an enterprise solution.
+I would personally not recommend using an Overlay Ghost Element. It requires that developers determine when Ghost it removed. In addition, it requires for layouts to match the ``Real'' DOM layouts. However, DOM layouts are changing all the time, and this solution is not a good long term solution. Most definitely not an enterprise solution.
 
 \section{ Why not to use an Inline Ghost Element }
-There is an option to have a css only option. That is, that the css class
-changes based on whether, or not the data is available. The only real issue
-with this solution, is that it will be more of an off/on switch with regards
-to transitioning between a ghost element and an inline element.
+There is an option to have a css only option. That is, that the css class changes based on whether, or not the data is available. The only real issue with this solution, is that it will be more of an off/on switch with regards to transitioning between a ghost element and an inline element.
 
 \section{ Why use Inline Ghosts with Async Loads}
-This is a very sophisticated solution, which I first saw from a one Thomas
-Burleson. The idea, is that we create a queryState function:
+This is a very sophisticated solution, which I first saw from a one Thomas Burleson. The idea, is that we create a queryState function:
 \begin{lstlisting}
 /**
  * Wrapper function to easily determine async state
@@ -52,8 +39,7 @@ export function queryState<T>(item:AsyncItem<T>) {
 }
 \end{lstlisting}
 
-Then, inside of our component, we can go ahead and call the queryState within
-out component.
+Then, inside of our component, we can go ahead and call the queryState within our component.
 
 \begin{lstlisting}
 export class UserListComponent {
@@ -62,8 +48,7 @@ export class UserListComponent {
 }
 \end{lstlisting}
 
-Here, we can create numerous states including polling. This is a more robust
-solution than using plain css.
+Here, we can create numerous states including polling. This is a more robust solution than using plain css.
 
 \section{ Ghost Elements Always? }
 There are scenarios wherein a ghost element might not be the ideal scenario.

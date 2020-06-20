@@ -144,6 +144,7 @@ Chapter by chapter notes rundown:
 [ ] random side stepping removed. Too jumpy and makes the reader stutter.
 
 36. Icons
+[ ] a list is not a dicussion. It's just a list of features.
 
 37. Sass Error Reporting
 
