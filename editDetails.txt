@@ -166,6 +166,7 @@ Chapter by chapter notes rundown:
 [ ] formatting cleaned up
 
 44. Transformation
+[ ] formatting cleaned up with minor content edits
 
 ***
 
