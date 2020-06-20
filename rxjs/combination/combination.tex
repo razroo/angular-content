@@ -1,10 +1,7 @@
 \chapter{Combination}
 
 \section{combineLatest}
-Combine latest allows us to combine multiple observables into one, and have 
-the subscribe emit when either of them are called. A common enterprise 
-example, is let's say that we have a form. The form gives us a search bar,
-but we would like to have our search bar, search against a drop down as well. 
+Combine latest allows us to combine multiple observables into one, and have the subscribe emit when either of them are called. A common enterprise example, is let's say, that we have a form. The form gives us a search bar, but we would like to have our search bar, search against a drop down as well. 
 
 \begin{lstlisting}[caption=search-form.component.ts]
 export class AppComponent implements OnInit, OnDestroy {
@@ -55,9 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
 \end{lstlisting}
 
 \section{concat}
-One very useful use of concat within an enterprise setting, is that if you 
-have all of the data you need available. However, you would like to make 
-sure that they emit in proper order of each other. Using the following: 
+One very useful use of concat within an enterprise setting, is that if you have all of the data you need available. However, you would like to make sure that they emit in proper order of each other. Using the following: 
 \begin{lstlisting}[caption=concat-example.ts]
 import { concat } from 'rxjs/operators';
 
@@ -86,9 +81,7 @@ export class AppComponent {
 \end{lstlisting}
 
 \section{merge}
-Merge allows us to "merge" multiple observables into one singular observable. A
-great re-occuring real world example, is to group multiple events into single 
-observable. For instance, if we are trying to create a music player:
+Merge allows us to "merge" multiple observables into one singular observable. A great re-occuring real world example, is to group multiple events into single observable. For instance, if we are trying to create a music player:
 \begin{lstlisting}[caption=player-buttons.component.ts]
 const start$ = fromEvent(this.startButton.nativeElement, 'click').pipe(mapTo(true));
 const pause$ = fromEvent(this.pauseButton.nativeElement, 'click').pipe(mapTo(false));
@@ -103,12 +96,10 @@ this.playerButtons$ = merge(start$, pause$, reset$, stateChange$).pipe(
 );
 \end{lstlisting}
 
-Here, by merging all of our events within a single observable, it tidies up our
-code base, and allows us to deal with all of our events in a singular fashion.
+By merging all of our events within a single observable, it tidies up our code base, and allows us to deal with all of our events in a singular fashion.
 
 \section{startWith}
-There is a really old tweet by Andre Saltz, that is no longer available for some 
-reason. Regardless, the tweet goes something along these lines: 
+There is a really old tweet by Andre Saltz, that is no longer available for some reason. Regardless, the tweet goes something along these lines: 
 \begin{quote}
 \say{You rarely want \lstinline{combineLatest()}, unless mixed with \lstinline{startWith()}}
 \end{quote}
@@ -126,16 +117,9 @@ that \lstinline{behaviorSubject} get's used more. \footnote{To see why not to
 use startWith and go with behaviorSubject, check the addendum}
 
 \section{withLatestFrom}
-\lstinline{withLatestFrom} will combine two observables with each other. However,
-only when the value changes for the primary observable, will the subscribe be 
-triggered. If the secondary observable value changes, the subscribe will not be 
-triggered. 
+\lstinline{withLatestFrom} will combine two observables with each other. However, only when the value changes for the primary observable, will the subscribe be triggered. If the secondary observable value changes, the subscribe will not be triggered. 
 
-Let's use a common example that will occur within the enterprise architecture 
-set up by Razroo. Let's say that you are using \lstinline{ngrx/store}, and
-that you would like to determine whether, or not a blog post exists already
-within our store. If the blog post already exists within our store, then do
-make another HTTP request, as we have the data we need already. 
+Let's use a common example that will occur within the enterprise architecture set up by Razroo. Let's say that you are using \lstinline{ngrx/store}, and that you would like to determine whether, or not a blog post exists already within our store. If the blog post already exists within our store, then do make another HTTP request, as we have the data we need already. 
 
 \begin{lstlisting}[caption=data-access-post.ts]
 pipe(
@@ -148,9 +132,7 @@ pipe(
 )
 \end{lstlisting}
 
-In the, we are looking to see if current post already exists within our blog 
-store. If it does, then we do not make the request. If it does not, then 
-we go ahead and make the request once again. 
+We are looking to see if current post already exists within our blog store. If it does, then we do not make the request. If it does not, then we go ahead and make the request once again. 
 
 \section{zip}
 
@@ -167,12 +149,7 @@ combo.subscribe( arr => console.log(arr));
 \end{lstlisting}
 
 \section{Expontential Backoff}
-\lstinline{zip} can be particularly useful using something called exponential 
-backoff. Exponential backoff is a technique wherein you retry an API after 
-failure. However, instead of retrying let's say every 5 seconds, instead 
-we increase the values exponentially after each consecutive failure, with a 
-maximum amount of retries. This can potentially be really complex, but zip 
-makes something like this alot easier:
+\lstinline{zip} can be particularly useful using something called exponential backoff. Exponential backoff is a technique wherein you retry an API after failure. However, instead of retrying let's say every 5 seconds, instead we increase the values exponentially after each consecutive failure, with a maximum amount of retries. This can potentially be really complex, but zip makes something like this alot easier:
 
 \begin{lstlisting}
 import { pipe, range, timer, zip } from 'rxjs';
@@ -199,8 +176,7 @@ function handleData(data) {
 }
 \end{lstlisting}
 
-In my opinion, the above code, is a bit like ninja code, so let's go ahead and
-unpack everything that is being done here. 
+The above code is a bit like ninja code, so let's go ahead and unpack everything that is being done here. 
 \begin{enumerate}
   \item First we pass maximum amount of tires, and multiplier to increase 
   exponentially.

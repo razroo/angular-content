@@ -157,8 +157,10 @@ Chapter by chapter notes rundown:
 
 41. RxJS Common Creation Operators
 [ ] introduction doesn't make sense
+[ ] switching personalities between Charlie Greenman and Razroo. 
 
 42. Combination
+[ ] filler words removed and reformatted 
 
 43. Filtering
 
