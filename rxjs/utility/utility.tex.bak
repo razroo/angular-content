@@ -1,0 +1,17 @@
+\chapter{Utility}
+Utility functions in RxJS as are utility methods in programming, are often re-used operators, which are helpful for accomplishing routine RxJS tasks. However, the only common used utility on a day to day is \lstinline{tap}.
+
+\section{tap}
+\lstinline{tap} can be used to perform an action, or a side effect. A great example, and one used in an enterprise setting, is to navigate user to a particular place based on particular action such as the user logging out. 
+
+\begin{lstlisting}[caption=login.effects.ts]
+@Effect({ dispatch: false })
+logOut = this.actions.pipe(
+  ofType(LoginTypes.LogOut),
+  tap([payload, username] => {
+    this.router.navigate(['/']);
+  })
+)  
+\end{lstlisting}
+
+In the above, we are tapping into the action that specifies user has logged out. In addition to our reducer logic wiping clean all the data that was in the user's store, we are also navigating the user to the default route. This a perfect scenario for using \lstinline{tap}, as we want to create a side effect of navigating to a route. However, we do want to return an observable/action (i.e. do not want to use \lstinline{map}).  

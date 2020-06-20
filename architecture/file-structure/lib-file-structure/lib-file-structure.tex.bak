@@ -1,7 +1,7 @@
 
 \chapter{ Lib File Structure }
 
-When working in a monospace repo, file archticture is very important. It allows for different parts of an application tend to be abstracted. First let's outline the different potential parts of an Angular application.
+When working in a monospace repo, file archticture is very important, as different parts of an application tend to be abstracted. First let's outline the different potential parts of an Angular application.
 
 \begin{forest}
   [libs
@@ -50,7 +50,7 @@ This is where interfaces used across the app are used. This will simply type ann
 All data mocks that are common, can go here as well. Data tends to be re-used many different times within different parts of apps. So ideally, all mocks should go here.
 
 \subsection{ UI }
-All presentation based components go here. Some examples of might go into an example app is a header, footer, loading spinner, or charts.
+All presententational components go here. Some examples of might go into an example app is a header, footer, loading spinner, or charts.
 
 \subsection{ Utils }
 Shared services used across different apps. For instance, dates.

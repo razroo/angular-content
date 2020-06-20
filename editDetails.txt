@@ -168,28 +168,38 @@ Chapter by chapter notes rundown:
 44. Transformation
 [ ] formatting cleaned up with minor content edits
 
-***
-
 45. Utility
+[ ] doesn't really explain what untility is
 
 46. Multicasting
+[ ] more like a comment than actual section on what multicasting is. Still doesn't answer the question: what is multicasting?
 
 47.RxJS Pitfalls
+[ ] minor edit but overall excellent chapter that clearly explains RxJS
 
 48. RxJS and Facades
+[ ] the first paragraph is a bit confusing. Attempted to edit for increased clarity.
 
 49. Creating a Config
-******
+[ ] formatting edit. Better content but lacks context.
 
 50. Creating Feature Flags
+[ ] formatting edit. Footnote turned into actual content.
 
 51. Environment
+[ ] slight condescending tone removed
+[ ] format edited
 
 52. Environment Architecture - Deep Dive
+[ ] format edited
 
 53. Lib File Structure
+[ ] minor content edit in the introduction for increased clairty
+[ ] format edited
 
 54. Setting Up Lib Folder Structure
+[ ] missing content. Cannot edit.
+******
 
 55. Data Access
 
