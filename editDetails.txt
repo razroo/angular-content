@@ -150,18 +150,17 @@ Chapter by chapter notes rundown:
 [ ] removed some word padding and reformatted to corect LaTex formatting
 
 39. Debugging Rxjs
+[ ] formatting fixed
 
 40. Cold vs Hot Observales
 
-
+*****
 
 41. RxJS Common Creation Operators
 
 42. Combination
 
 43. Filtering
-
-
 
 44. Transformation
 

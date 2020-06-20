@@ -1,5 +1,5 @@
 \chapter{ Debugging Rxjs }
-One of the more difficult things to master when learning RxJS, is learning how to debug a stream. Within regular Javascript/Typescript, debugging is relatively easy. I find myself going to two different methods when following this approach: 
+One of the more difficult things to master when learning RxJS, is learning how to debug a stream. Within regular Javascript/Typescript, debugging is relatively easy. I find myself going to two differet methods when following this approach: 
 \begin{enumerate}
   \item console.log
   \item source when dev tool
