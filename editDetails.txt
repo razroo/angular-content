@@ -219,16 +219,24 @@ Chapter by chapter notes rundown:
 
 60. Transloco
 [ ] missing content. Cannot edit.
-******
 
 61. Lazy Loading Images
+[ ] removed condescending content
+[ ] format edited
 
 62. Network Aware Predictive Pre-Loading
+[ ] slight condescending tone removed
+[ ] format edited
+[ ] filler words removed
 
 63. Shared Modules
+[ ] format edited
+[ ] filler words removed
+[ ] spelling fixed
 
 64. Form Validation
-
+[ ] edited the detected inverse sentences
+[ ] removed confusing half sentences that cannot be decrypted
 ******
 65. Angular Elements - Introduction
 
