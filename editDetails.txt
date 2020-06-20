@@ -147,7 +147,7 @@ Chapter by chapter notes rundown:
 [ ] a list is not a dicussion. It's just a list of features.
 
 37. Sass Error Reporting
-
+[ ] removed inconsistencies and word/page padding.
 
 
 38. Introduction to RxJS - The RxJS Airplane

@@ -1,15 +1,11 @@
 
 \chapter{ Sass Error Reporting }
-
-I have decided to include the chapter on Sass Error Reporting in the chapter
-for Design Language System. The main reason for this, is that any core style is
-going to be considered as part of the core Design Language System. However, it
-can be very difficult to maintain a core design, without some safe guards in
-place, to make sure it is consistent across the app.
+It can be very difficult to maintain a core design without some safe guards in
+place to make sure it is consistent across the app. This is where Sass error reporting comes in handy.
 
 \section{ When to use Sass Error Reporting }
-One should use Sass Error reporting if it is a core style. It is a core style if
-it is used in more than one page, as a foundational piece of styling, non
+You should use Sass Error reporting if it is a core style. It is a core style if
+it is used in more than one page, as a foundation piece of styling, non
 unique to specific component.
 
 \section{ What We Are Looking For With Using Sass Functions }
@@ -74,7 +70,4 @@ instance, we technically could create a function for breakpoints:
 }
 \end{lstlisting}
 
-However, we reccomend the use of flex-layout. Flex layout currently does not
-have the ability to use this pattern. Nonetheless, for padding, and spacing
-alone, this singular piece of sass functionality will probably be used on a
-daily basis, and is very much so worth it. 
+Flex layout is recommend. However, flex layout currently does not have the ability to use this pattern. Nonetheless, for padding, and spacing alone, this singular piece of sass functionality will probably be used on a daily basis, and is very much so worth it. 
