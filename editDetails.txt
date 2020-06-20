@@ -112,20 +112,21 @@ Chapter by chapter notes rundown:
 25. Component Inheritance
 [ ] minor edits made for grammar and clarity
 
-
-
 26. Barrel File
+[ ] minor edits made for grammar and clarity
 
 27. Typescript - Getting and Setting
+[ ] some edits for clarity
 
 28. Typescript - Immutability
+[ ] doesn't explain what immutability is. Will be very confusing for a person who doesn't know what it is. You need to answer these question: what is immutability? Why is it important? how does it fit into the context of Pixel Illustrator?
 
 29. Declaration Files
+[*] edit for increase clarity. Has more information but not really centralized around a clear idea. 
 
 30. Custom Declaration Files
-
-
-
+[*] edited for increased clarity. Removed and edited personal opinion to make it more accessible to readers
+[ ] incomplete chapter content
 
 31.Design Language System
 
@@ -137,20 +138,17 @@ Chapter by chapter notes rundown:
 
 35. UI Skeleton
 
-
-
-
 36. Icons
 
 37. Sass Error Reporting
+
+
 
 38. Introduction to RxJS - The RxJS Airplane
 
 39. Debugging Rxjs
 
 40. Cold vs Hot Observales
-
-***
 
 41. RxJS Common Creation Operators
 
@@ -160,8 +158,9 @@ Chapter by chapter notes rundown:
 
 44. Transofrmation
 
-45. Utility
 ***
+
+45. Utility
 
 46. Multicasting
 

@@ -64,8 +64,8 @@ shorten the lib path. Here's how you do it.
 \end{lstlisting}
 
 Now when we'd like to import a module/component from the lib folder
-from within our app, all we have to do is the following\marginpar{We are using
-a barrel file, will get to that in a bit}:
+from within our app, all we have to do is the following:
+
 \begin{lstlisting}
 import {module} from '@ill/color-picker';
 \end{lstlisting}
