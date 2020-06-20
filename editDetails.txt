@@ -163,6 +163,7 @@ Chapter by chapter notes rundown:
 [ ] filler words removed and reformatted 
 
 43. Filtering
+[ ] formatting cleaned up
 
 44. Transformation
 
