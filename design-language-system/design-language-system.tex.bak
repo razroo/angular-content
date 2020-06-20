@@ -27,7 +27,7 @@ The following are the 10 points that are a part of a design language system:
 When you want to overide material design, this is where architecture kicks in. 
 
 \subsection{ Colors }
-Material design has the ability to be 'turned off' through overriding the sass file. You can override material theme by using Sass Variables. So it would look something like this:
+Material design has the ability to be 'turned off' through overriding the sass file. You can override material theme boverriden in a sass file. It is important to note, that the material theme allows for overrides using Sass Variables. So, one would do something like this:
 \begin{lstlisting}
 @import 'src/styles/themes/blue-orange';
 @import 'src/styles/material-overrides/material-overrides';

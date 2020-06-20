@@ -128,7 +128,7 @@ Chapter by chapter notes rundown:
 [*] edited for increased clarity. Removed and edited personal opinion to make it more accessible to readers
 [ ] incomplete chapter content
 
-31.Design Language System
+31. Design Language System
 
 32. Material Design
 
