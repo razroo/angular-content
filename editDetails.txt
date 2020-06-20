@@ -129,14 +129,19 @@ Chapter by chapter notes rundown:
 [ ] incomplete chapter content
 
 31. Design Language System
+[ ] Needs to stop arguing without presenting the actual argument. 'arguably' is more a filler word at this point based on structure and style. 
 
 32. Material Design
+[ ] incomplete chapter. Feels very surface level.
 
 33. Customize Angular Material Design
+[ ] removed misinformation from the final paragraph. Angular Material runs off material design principles, which is a set of UX principles released by Google. Angular Material is a UI component library that is open sourced and while it's run by the core angular team, there are others contributing to it as well.
 
 34. Angular Material Typography
+[ ] tone feels like there's a personality switch. Are you Razroo or are you Charlie Greenman?
 
 35. UI Skeleton
+[ ] random side stepping removed. Too jumpy and makes the reader stutter.
 
 36. Icons
 
