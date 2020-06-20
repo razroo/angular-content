@@ -199,19 +199,26 @@ Chapter by chapter notes rundown:
 
 54. Setting Up Lib Folder Structure
 [ ] missing content. Cannot edit.
-******
 
 55. Data Access
+[ ] removal of passive voice
+[ ] content reformatted
 
 56. Nx Lib Conventions
+[ ] incomplete chapter. Cannot edit other than format.
 
 57. Data Services - Directory Structure
+[ ] format edited, generally solid for its scope
 
 58. Dialogs
+[ ] incomplete chapter. Cannot edit other than format.
 
 59. Lazy Loading Modules
+[ ] format edited. Wording for clarity edited.
+[ ] patronizing tone removed
 
 60. Transloco
+[ ] missing content. Cannot edit.
 ******
 
 61. Lazy Loading Images
