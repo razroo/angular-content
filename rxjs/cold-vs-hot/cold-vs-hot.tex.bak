@@ -41,7 +41,9 @@ randomVals$.subscribe(x => console.log(x));
 As we can see in the comments above, each subscribe will give us a new value.
 
 \subsection{Maintaining Same Value for Both Subscribers - Venture into the Land of Hot}
-However, let's say that we wanted to maintain the same random value for both subscribers. What we would do, is create a constant outside of the subject logic, so that it remains the same value for both. 
+However, let's say that we wanted to maintain the same random value for 
+both subscribers. What we would do, is create a constant outside of the 
+subject logic, so that it remains the same value for both. 
 
 \begin{lstlisting}[caption=Turning Cold into Hot]
 import { Subject } from 'rxjs';
@@ -96,7 +98,7 @@ export declare class Actions<V = Action> extends Observable<V> {
 }  
 \end{lstlisting}
 
-The actions are extending the Observable type annotation. This is immediately apparent if using the ngrx/effects 's createEffect method. However, on principal, the Angular: The Full Gamut series uses enterprise examples, even when trying to explain core concepts
+As, we can see, the actions, are extending the Observable type annotation. (This is immediately apparent if using the ngrx/effects 's createEffect method. However, on principal, the Angular: The Full Gamut series uses enterprise examples, even when trying to explain core concepts
 
 We are accepting data from an action, turn all actions within our app as an observable, thereby making the data produced outside of our effects. This is a classic scenario that happens time and time again, that is in truth a hot observable. Knowing this truth is very valuable, especially when it comes to unit testing your code.
 

@@ -1,8 +1,4 @@
 \chapter{RxJS Common Creation Operators}
-Just to re-iterate, one of the more novel parts of this book, is that when we 
-introduce a new concept we tie that into the actual enterprise scenario, 
-wherein this is repeated. Allowing for one to use code directly in one'e 
-application, without having to think about it too much how it is used. 
 
 The common RXJS creation operators are: 
 \begin{enumerate}
@@ -12,20 +8,14 @@ The common RXJS creation operators are:
 \end{enumerate}
 
 \section{from}
-A common scenario when using from, is that you would like to return an http 
-request, and turn that into an observable. Razroo has a very opinionated 
-architecture, and we follow through with that architecture throughout the 
-book. We realize that every scenario may not be able to follow the ideal
-architecture. However, let's assume that you are using three very integral
-libraries: 
+A common scenario when using from, is that you would like to return an http request, and turn that into an observable. Razroo has a very opinionated architecture, and we follow through with that architecture throughout the book. We realize that every scenario may not be able to follow the ideal architecture. However, let's assume that you are using three very integral libraries: 
 \begin{enumerate}
   \item GraphQL 
   \item Apollo Client
   \item ngrx/store
 \end{enumerate}
 
-\lstinline{from} will be used in a scenario wherein you are trying to convert 
-an apollo query into an observable, 
+\lstinline{from} will be used in a scenario wherein you are trying to convert an apollo query into an observable, 
 
 \begin{lstlisting}[caption=posts.service.ts]
 getPosts(): Observable<Post[]> {
@@ -55,10 +45,7 @@ so that it can be passed into your ngrx/store:
 \end{lstlisting}
 
 \section{fromEvent}
-Whole \lstinline{fromEvent} is a common operator in RxJS, I would argue that within 
-an Angular setting, it is not a common operator. There is truly no scenario within 
-Angular wherein \lstinline{fromEvent} makes sense. Instead use the core Angular 
-even handlers within your template: 
+Whole \lstinline{fromEvent} is a common operator in RxJS, I would argue that within an Angular setting, it is not a common operator. There is truly no scenario within Angular wherein\lstinline{fromEvent} makes sense. Instead use the core Angular even handlers within your template: 
 
 \begin{lstlisting}[caption=user-form.input.ts]
 <button (click)="submitForm()">
@@ -94,9 +81,7 @@ tapping into the array, doing something like this:
 console.log(data[0]);
 \end{verbatim}
 
-From my personal experience, \lstinline{of} becomes invaluable when it comes 
-to mocking data within your unit tests. For instance, doing something such as
-the following: 
+From my personal experience, \lstinline{of} becomes invaluable when it comes to mocking data within your unit tests. For instance, doing something such as the following: 
 \begin{lstlisting}
 const postMock = {
   id: '123',
@@ -108,6 +93,4 @@ const postMock = {
 const postMock$ = of(postMock);
 \end{lstlisting}
 
-This is the most efficient solution is this scenario for mocking data, and 
-comes up quite frequently within your app, and something to be aware of. 
-
+This is the most efficient solution is this scenario for mocking data, and comes up quite frequently within your app, and something to be aware of. 

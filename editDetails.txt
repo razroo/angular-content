@@ -153,10 +153,10 @@ Chapter by chapter notes rundown:
 [ ] formatting fixed
 
 40. Cold vs Hot Observales
-
-*****
+[ ] minor formatting issues and spelling
 
 41. RxJS Common Creation Operators
+[ ] introduction doesn't make sense
 
 42. Combination
 
