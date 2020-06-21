@@ -15,9 +15,9 @@ Suggestions:
 - add an overview of what the Pixel Illustrator will look like.
 - add a learning outcomes outline to help set up expectations and track progress.
 
-Overused word list:
+Overused word list/unecessary padding:
 
-wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards"
+wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition"
 
 Common repeated issues:
 
@@ -273,14 +273,25 @@ Chapter by chapter notes rundown:
 [ ] formatting fixed
 
 72. Http Interceptors
+[ ] removed passive condescending recommendation tone
+[ ] removed assumptions and patronizing sentences
 
 73. Angular Router Gouards
+[ ] formatting edited. Word padding removed.
+[ ] content incomplete. Cannot proceed with proper edit.
 
 74. Pre-loading with Route Guards
+[ ] formatting fixed
+[ ] padding content removed
+[ ] confusing sentences restructured
 
 75. Containers, Routing + ngrx/router
+[ ] footnote moved into main content. 
+[ ] edited out padding content
+[ ] formatting fixed
 
 76. Output
+[ ] incomplete content. Cannot edit.
 
 77. Life Cycle Hooks
 
