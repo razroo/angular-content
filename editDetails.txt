@@ -17,7 +17,7 @@ Suggestions:
 
 Overused word list/unecessary padding:
 
-wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition"
+wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition", "If not familiar with already", "I just want to re-iterate", "with regards", "First and foremost", singular (often followed by another suggestion, making it not singular)
 
 Common repeated issues:
 
@@ -309,16 +309,17 @@ Chapter by chapter notes rundown:
 80. @Output
 [ ] formatting edited
 [ ] future promises of content removed
-******
 
 81. Internationalization and localization
+[ ] a solid chapter in comparison. Shows knowledge domain and authority.
+[ ] formatting and grammar edit
 
 82. Content projection
 
 83. Displaying data
 
 84. Template syntax
-******
+
 85. Modules
 
 86. Services
@@ -328,7 +329,6 @@ Chapter by chapter notes rundown:
 88. Forms
 
 89. Reactive Forms
-******
 
 90. Attribute Directives
 
@@ -337,11 +337,12 @@ Chapter by chapter notes rundown:
 92. Observables
 
 93. Angular Observables
-******
 
 94. Animations
 
 95. Transitions and Triggers
+
+*
 
 96. Track By
 
@@ -353,6 +354,7 @@ Chapter by chapter notes rundown:
 
 100. Ahead of time compilation
 
+
 101. The Angular Service Worker - Implementing in App
 
 102. Understanding rendering
@@ -362,7 +364,9 @@ Chapter by chapter notes rundown:
 104. Angular Elements Load Time
 
 105. Change Detection
-******
+
+*
+
 106. Integrating ngrx/store with Appollo Client
 
 107. Sockets
@@ -370,7 +374,6 @@ Chapter by chapter notes rundown:
 108. Apollo Caching with Sockets
 
 109. Responsive Design
-******
 
 110. PWA Toolset - Physical devices
 
@@ -394,6 +397,8 @@ Chapter by chapter notes rundown:
 
 120. Introduction to @ngrx/store
 
+******
+
 121. ngrx CLI
 
 122. State management - @ngrx/store
@@ -403,7 +408,6 @@ Chapter by chapter notes rundown:
 124. store selectors
 
 125. Aggregation pattern
-******
 
 126. er-using reducer logic
 
@@ -412,7 +416,6 @@ Chapter by chapter notes rundown:
 128. the case for using ngrx/entity by default
 
 129. ngrx entity
-******
 
 130. state management - properly ubsubscribing
 
@@ -444,7 +447,6 @@ Chapter by chapter notes rundown:
 143. understanding different types of unit tests
 
 144. Jest
-******
 
 145. Visual unit tests with Cypress
 
@@ -467,7 +469,6 @@ Chapter by chapter notes rundown:
 154. Unit testing the DOM
 
 155. Unit Testing - mocking providers
-******
 
 156. unit testing moduels
 
@@ -476,16 +477,16 @@ Chapter by chapter notes rundown:
 158. unit testing subscriptions
 
 159. unit testing TDD - first principles Discovery
-******
 
 160. E2E Testing in a TDD/BDD setting
+
+******
 
 161. Automation Engineering
 
 162. Writing E2E Tests
 
 163. Angular CLI
-******
 
 164. Unit testing component using Apollo
 
@@ -494,7 +495,6 @@ Chapter by chapter notes rundown:
 166. interfaces and unions
 
 167. Data GraphQL
-******
 
 168. Versioning
 

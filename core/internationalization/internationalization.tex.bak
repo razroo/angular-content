@@ -435,7 +435,7 @@ For prod, we specify a separate \lstinline{production-fr} build configuration in
 \subsection{Merge Files with JIT Compiler}
 JIT is an entirely different beast than working with AOT. 
 
-\mybox{In truth, I prefer AOT because it is much more straightforward. I was debating in this chapter at all to mention configurations for JIT. However, as I have been in a similar scenario, there will be an app that will be built out with JIT, and moving over to AOT, immediately is something which will be very difficult, and might prevent the app from being able to move forward. For that reason, I am jotting down configurations for JIT as well. However, Razroo recommended architecture is that your app uses \lstinline{AOT} exclusively from the beginning.}
+\mybox{In truth, I prefer AOT because it is much more straightforward. I was debating in this chapter at all to mention configurations for JIT. However, as I have been in a similar scenario, there will be an app that will be built out with JIT, and moving over to AOT, immediately is something which will be very difficult, and might prevent the app from being able to move forward. For that reason, I am jotting down configurations for JIT as well. However, Razroo recommended architecture, is that your app uses \lstinline{AOT} exclusively from the beginning.}
 
 \subsubsection{ Knowledge of Three Things }
 The JIT compiler requires the knowledge of three things to support translation: 
