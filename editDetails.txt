@@ -237,8 +237,9 @@ Chapter by chapter notes rundown:
 64. Form Validation
 [ ] edited the detected inverse sentences
 [ ] removed confusing half sentences that cannot be decrypted
-******
+
 65. Angular Elements - Introduction
+[ ] minor edits
 
 66. Using React with Angular
 

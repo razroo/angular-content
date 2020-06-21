@@ -1,16 +1,16 @@
 \chapter{ Angular Elements - Introduction }
 
-Angular elements is a feature that's not talked about enough and have been around since version 6. It's been more than a year since the original release and works perfectly as a method to modularize your application or add independent components to a different app without the need to compile an Angular application.
+Angular elements is a feature that's been around since version 6. It's been more than a year since the original release and works as a method to modularize your application or add independent components to a different app without the need to compile an Angular application.
 
 In a way, Angular Elements is an ode to the portability factor that harks back to the original days of Angular.js. What elements essentially lets you do is build stand-alone components and allow you to export it into a single JavaScript file. 
 
-It's a fantastic feature - especially for micro-frontends and transitional applications that are working with multiple and possibly legacy technologies. 
+It's a fantastic feature -  especially for micro-frontends and transitional applications that are working with multiple and possibly legacy technologies. 
 
 \section{So how does it work?}
 
 Angular Elements is an Angular feature that lets you create new DOM elements. As we all know, JavaScript hooks onto the DOM to make visual changes and instigate change based on our configurations and settings. Angular is a framework that lets us do this quickly and easily.
 
-However, there are a finite number of preconfigured DOM elements available, with the extension of custom elements coming in with HTML5. This means that your tags aren't limited to the h1 and p tags we're all used to seeing. 
+However, there are a finite number of pre-configured DOM elements available, with the extension of custom elements coming in with HTML5. This means that your tags aren't limited to the h1 and p tags we're all used to seeing. 
 Custom elements allow you to create your own HTML tags, based on your application's needs. 
 
 Angular leverages this feature through Elements by allowing us to create our own custom elements and hook into it via our compiled Angular script. 
@@ -123,7 +123,7 @@ Or if you just want to deactivate it for a particular component only, you can do
 Now that you have zones turned off, you will need to manually tell Angular when to render data. Import \lstinline{ChangeDetectorRef} from \lstinline{@angular/core} and be sure to declare it inside your constructor. Now all you have to do is call the \lstinline{detectChanges()} method in order to tell your application that a change has occurred.
 
 \section{Parting words}
-Angular Elements is one of those things that aren't talked about enough - but should be. It's a tool that increases Angular's ability to adapt to different environments in a succinctly effective manner. 
+Angular Elements is one of those things that needs more emphasis within the Angular community. It's a tool that increases Angular's ability to adapt to different environments in a succinctly effective manner. 
 
 Elements also allow for a lightweight way to use Angular code without the need to export an entire application, making effective micro-front ends and transitional applications possible, especially in a space where there is talk about Angular being too bloated to work with. 
 
