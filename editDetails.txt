@@ -15,6 +15,15 @@ Suggestions:
 - add an overview of what the Pixel Illustrator will look like.
 - add a learning outcomes outline to help set up expectations and track progress.
 
+Overused word list:
+
+wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards"
+
+Common repeated issues:
+
+incorrect usage of commas
+incorrect usage of footnotes
+
 Chapter by chapter notes rundown:
 
 2. Dependency Graph
@@ -251,12 +260,17 @@ Chapter by chapter notes rundown:
 [ ] hard to follow because the content feels like you're in a private conversation with yourself and the reader doesn't have a clue what you're trying to get at. Edited as much as I could without having to research and rewrite (out of scope)
 
 68. Micro Frontends
+[ ] minor edits for spelling and grammar
 
 69. Static Site Generation
+[ ] no content. Cannot edit.
 
 70. Smart vs. dumb components
+[ ] too much instruction on what the reader should and shouldn't do. Fake nice condescending tone. Also adds to a feeling that you're trying to pad out the page.
 
 71. Error Handling
+[ ] padding content removed
+[ ] formatting fixed
 
 72. Http Interceptors
 
