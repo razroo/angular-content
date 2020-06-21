@@ -12,10 +12,10 @@ If we wanted to create a component that allows us to use content projection, it 
 <reusable-component> <p>Content goes here</p> </reusable-component>
 \end{lstlisting}
 
-Using our <reusable-component> we have the ability to put it wherever we want and change the content based on the parent component consuming it. What if we have two separate places withing our component that we would like to inject content. For instance, let's say we havea card component, and we want there to be different content inside of the headerand main body of the component?
+Using our <reusable-component> we have the ability to put it wherever we want and change the content based on the parent component consuming it. What if we have two separate places withing our component that we would like to inject content? What if we have a card component, and we want there to be different content inside of the header and main body of the component?
 
 \section{ Multiple Slot Projection }
-This is my preferred method of mutliple content projection, by creating bindingcontent projection to class. In particular, because I feel it's a great ofmaking sure content projection is transparent across the entire lifecycle. Wecan now do the following:
+This is my preferred method of multiple content projection, by creating binding content projection to class. I feel it's a great of making sure content projection is transparent across the entire lifecycle. We can now do the following:
 
 \begin{lstlisting}
 <div class="header">
@@ -38,8 +38,8 @@ Just like that, we can have our content project in multiple places, into the
 re-usable component.
 
 \section{Styling Projected Content}
-One of the scenarios that comes up alot with regards to projected content, isattempting to style it. For instance, you might want the content in onecomponent to have a top border, and in others for the text color to be of adifferent style. So how would we do this, being that we are projecting thecontent into a separate component?
-\mybox{It should be mentioned that styling in this matter isn't the rightapproach. However, because there are times wherein styling in this fashion isneccesary for the particular use case, this is most definitely usefulmentioning.}
+One of the scenarios that comes up a lot with regards to projected content is attempting to style it. You might want the content in one component to have a top border and in others for the text color to be of a different style. So how would we do this, being that we are projecting the content into a separate component?
+\mybox{It should be mentioned that styling in this matter isn't the right approach. However, because there are times wherein styling in this fashion is necessary for the particular use case.
 \begin{verbatim}
 :host ::ng-deep .header {
   color: blue;
@@ -53,7 +53,7 @@ One of the scenarios that comes up alot with regards to projected content, isatt
 Just like that, we are able to style the content within our project.
 
 \section{ Interacting with Projected Content }
-One more scenario to take into consideration whenworking with projected contentis to interact with it. For instance, let's say that we want to project aninput field into our projected content. In addition, we would like to determinewhen that input field has been clicked on? The following is the best stategy.We will create a directive, that focuses on event handling.
+One more scenario to take into consideration when working with projected content is to interact with it. Let's say that we want to project an input field into our projected content. In addition, we would like to determine when that input field has been clicked on? The following is the best strategy.We will create a directive, that focuses on event handling.
 \footnote{Refer back to the chapter on directives. Generally speaking directiveshelp solve two things:
 \begin{enumerate}
   \item Event handling
@@ -62,7 +62,7 @@ One more scenario to take into consideration whenworking with projected contenti
 These two tend to work in tandem with each other. Similarly here, we will beusing directives to pass in a value, and have it work in tandem with eventhandling.}
 
 \subsection{ An Example }
-This is a simple directive, that targets the focus and blur of host elementusing the @HostListener element.
+This is a simple directive, that targets the focus and blur of host element using the @HostListener element.
 
 \begin{lstlisting}
 @Directive({
@@ -91,7 +91,7 @@ Not we can pass this inputRef directive onto our projected content:
 </fa-input>
 \end{lstlisting}
 
-Now within our re-usable component, we can use the \lstinline{@ContentChild}decorator to inject the \lstinline{inputRefDirective} within our component. Then,we can use the \lstinline{@HostBinding} decorator to change the class on ourre-usable component, based on the status of the input ref.
+Now within our re-usable component, we can use the \lstinline{@ContentChild}decorator to inject the \lstinline{inputRefDirective} within our component. Then,we can use the \lstinline{@HostBinding} decorator to change the class on our re-usable component, based on the status of the input ref.
 \begin{lstlisting}
 @Component({
   selector: 'fa-input',
@@ -124,4 +124,4 @@ export class FaInputComponent {
 \end{lstlisting}
 
 \section{ Wrapping Up }
-As we have seen, content projection is a very powerful way of re-using contentwithin our component. We have also covered the two stereo-typical uses cases,which we will have to solve in an enterprise app from time to time. I.e. eventhandling for our project content, as well as controlling the styling for ourprojected content.
+As we have seen, content projection is a very powerful way of re-using content within our component. We have also covered the two stereo-typical uses cases,which we will have to solve in an enterprise app from time to time. I.e. eventhandling for our project content, as well as controlling the styling for our projected content.
