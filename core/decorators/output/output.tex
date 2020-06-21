@@ -1,25 +1,20 @@
 
 \chapter{ @Output }
 
-Output is another decorator native to Angular. On it's own it doesn't do
-anything. However, it does allow for the three following things to happen:
+Output is another decorator native to Angular. 
+
+On it's own it doesn't do anything. However, it does allow for the three following things to happen:
 \begin{enumerate}
   \item Marks a class field as an output property.
-  \item Supplies configuration Metadata (we will get around to what that means
-  soon)
-  \item DOM property bound to the output property is automatically updated
-  during change detection.
+  \item Supplies configuration Metadata 
+  \item DOM property bound to the output property is automatically updated during change detection.
 \end{enumerate}
 
-The Output decorator is always used in tandem with an event listener. What this
-means, is that we can have a re-usable component, with a button for instance.
-By using Output, we can have a function within the dumb component, that whenever
-it get's called, it triggers the parent function.
+The Output decorator is always used in tandem with an event listener. What this means, is that we can have a re-usable component, with a button for instance. By using Output, we can have a function within the dumb component, that whenever it get's called, it triggers the parent function.
 
 \section{ Example of @Output }
 
-Here is a great example of what an Output is, and what it accomplishes. In
-our scenario, we want to build a re-usable pxl-color-changer component:
+Here is a great example of what an Output is, and what it accomplishes. In our scenario, we want to build a re-usable pxl-color-changer component:
 \begin{lstlisting}
 // pxl-code-changer.component.html
 
@@ -57,9 +52,7 @@ and in the parent component consuming our component:
 \end{lstlisting}
 
 \section{ bindPropertyName }
-Similar to Input, Output allows for binding an optional property name. This
-would mean that the re-usable component would internally refer to the Input
-value as one way, and the consuming component would refer to it, in another.
+Similar to Input, Output allows for binding an optional property name. This would mean that the re-usable component would internally refer to the Input value as one way, and the consuming component would refer to it, in another.
 
 \begin{lstlisting}
 // pxl-code-changer.component.html

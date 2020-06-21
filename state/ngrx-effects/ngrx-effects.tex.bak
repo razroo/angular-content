@@ -1,0 +1,77 @@
+
+\chapter{ Ngrx Effects }
+
+\section{Ngrx Effects - A Primer}
+Ngrx effects can be one of the more ambigious parts of the ngrx stack. They are
+by definitition something that is supposed to happen when something else has
+happened. It will listen for a particular action, and true to Ngrx, return an
+observable. In this observable one will have the option to do whatever they want
+as well as publish(return) to the action stream.
+
+The line, however, can be blurred, however, as to what the difference is between
+an ngrx/effect and a ngrx/store. It is therefore important to distinguish for
+architectural reasons. In addition, it can be difficult to determine the
+different use cases wherein someone would use an effect. It can indeed be a
+slippery slope wherein when to use an effect.
+
+\subsection{ Code Example }
+\begin{lstlisting}
+@Effect({ dispatch: false })
+ userDeleted$ = this.dataPersistence.fetch(
+   UserActivitiesTypes.UserDeleted,
+   {
+     run: (action: UserDeleted, state: UserStateModelState) => {
+       this.snackBar.open('User Deleted', 'Ok', {
+         duration: 2000,
+         verticalPosition: 'top',
+       });
+
+       return null;
+     },
+
+     onError: (action: ActivityDeleted, error) => {
+       console.error('Error', error);
+     },
+   }
+ );
+\end{lstlisting}
+
+This code example, is a great example as to when someone might use an effect.
+As we can see here, we have an action that is being triggered for when a user is
+deleted. We then have an effect who's sole purpose to have a snack bar open
+when action is called.
+
+\subsection{ The Three Pillars of an Effect }
+As we discussed earlier, knowing when to use an effect can be a tricky thing to
+decipher. Think of it as having the ability to do the following:
+\begin{enumerate}
+  \item Hook into State.
+  \item Ability to do whatever when action is called.
+  \item Publish an action back into the state management cycle.
+\end{enumerate}
+
+In our scenario, for deleting a user we had two effects:
+
+We called a GraphQL service to delete a user. We then retrieve the result
+returned by the GraphQL service, and trigger another effect, which is our
+snackbar effect. Yes, this logic can potentially be handled by our view layer
+within our component. In addition, we can use the service directly. However,
+having all of this logic encapsulated in our effect makes everything very
+clean.
+
+\subsection{ Further Reading }
+While this is out of the scope for this book, I would like to suggest further
+reading. Naturally, they would be articles that I would discuss on:
+\begin{itemize}
+  \item Use cases for using Effects.
+  \item Use cases for NOT using Effects.
+\end{itemize}
+
+The article for use cases with regards to using effects is \href{"Understanding NgRx
+Effects and the Action Stream"}{https://medium.com/@tanya/understanding-ngrx-effects-and-the-action-stream-1a74996a0c1c}.
+The article with regards to use cases in which NOT to use effects is
+\href{Stop using ngrx/effects for that}{https://medium.com/@m3po22/stop-using-ngrx-effects-for-that-a6ccfe186399}
+These two articles along with the information from this chapter. You should be
+well along your way for architecting solid ngrx/effects. I personally do not
+have patience for the article on, "Stop Using Ngrx effects for That". However,
+it is nonetheless the best article on the topic, if you can swallow it.

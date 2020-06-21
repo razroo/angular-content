@@ -17,7 +17,7 @@ Suggestions:
 
 Overused word list/unecessary padding:
 
-wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition"
+wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition"
 
 Common repeated issues:
 
@@ -294,12 +294,21 @@ Chapter by chapter notes rundown:
 [ ] incomplete content. Cannot edit.
 
 77. Life Cycle Hooks
+[ ] incomplete content. Edited as much as I could.
+[ ] formatting fixed.
+[ ] reworded parts of the introduction to be less passive
 
 78. Dependency Injection
+[ ] formatting edited
+[ ] removed padding phrases and rewording made
 
 79. Input
+[ ] formatting edited
+[ ] minor content edits
 
 80. @Output
+[ ] formatting edited
+[ ] future promises of content removed
 ******
 
 81. Internationalization and localization

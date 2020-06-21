@@ -25,16 +25,11 @@ Now that we have redirected the default homepage to re-direct to the choose-size
 
 \section{ ngrx/router-store }
 
-Before we move any further with regards to angular routes, let's discuss ngrx/router. In short, ngrx/router exists so that the route can be in the store as well. By default ngrx/router will dispatch a ROUTER\_NAVIGATION action when a navigation route get's called. This will enable time traveling with regards to routes.
+ngrx/router exists so that the route can be in the store as well. By default ngrx/router will dispatch a ROUTER\_NAVIGATION action when a navigation route get's called. This will enable time traveling with regards to routes.
 
 \section{ Why use ngrx/router-store }
 
-Ngrx/router-store can be advantageous in two regards. One, it adheres to the
-principle of there being a single state of truth \footnote{https://redux.js.org/docs/introduction/ThreePrinciples.html\#single-source-of-truth}.
-Two, it helps applications with regards to breadcrumbs, and adding filters to the
-url. If one wanted to follow an architecture, where the route contains the current
-state of the application(filters, inputs etc.) router-store definitely make's it
-very easy to do so.
+Ngrx/router-store can be advantageous in two regards. One, it adheres to the principle of there being a single state of truth \footnote{https://redux.js.org/docs/introduction/ThreePrinciples.html\#single-source-of-truth}. Two, it helps applications with regards to breadcrumbs, and adding filters to the url. If one wanted to follow an architecture, where the route contains the current state of the application(filters, inputs etc.) router-store definitely make's it very easy to do so.
 
 \section{ Adding ngrx/router-store to our app }
 
@@ -43,11 +38,12 @@ In order to add ngrx/router-store to our app, run:
   npm install @ngrx/router-store --save
 \end{verbatim}
 
-In addition, we will be adding the route to our store for the first time, so we
-will be needing ngrx/store. Please run \footnote{This will also install ngrx/store-devtools + ngrx/effects}:
+We will be adding the route to our store for the first time, so we will be needing ngrx/store. Please run the following:
 \begin{verbatim}
   npm install @ngrx/store --save
 \end{verbatim}
+
+This will also install ngrx/store-devtools + ngrx/effects
 
 In our app.module.ts we will be adding the following:
 \begin{lstlisting}[caption=My Javascript Example]
@@ -68,14 +64,6 @@ In our app.module.ts we will be adding the following:
 
 \subsection{ Side note when using devtools with ngrx/router-store }
 
-One final note when using ngrx/store router-store with devtools. The
-RouteStateSnapshot is a very large object, containing large amounts of data. I've
-run across performance issues, it is therefore reccomend setting up a
-custom router \href{https://github.com/ngrx/platform/blob/master/docs/router-store/api.md\#custom-router-state-serializer}{state serializer}.
-The idea is that the user provides the specific items one wants from the route.
-This allows for maybe 3 key/values to appear, instead of a 1000+. For the sake of
-brevity, we will not include the technical steps here. However, the code for doing
-so can be found in the github branch equivalent.
+One final note when using ngrx/store router-store with devtools. The RouteStateSnapshot is a very large object, containing large amounts of data. I've run across performance issues, it is therefore reccomend setting up a custom router \href{https://github.com/ngrx/platform/blob/master/docs/router-store/api.md\#custom-router-state-serializer}{state serializer}. The idea is that the user provides the specific items one wants from the route. This allows for maybe 3 key/values to appear, instead of a 1000+.
 
-Now that we have our first route set up, as well as ngrx/router-store, let's proceed
-to building a component.
+Now that we have our first route set up, as well as ngrx/router-store, let's proceed to building a component.
