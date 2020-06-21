@@ -242,8 +242,13 @@ Chapter by chapter notes rundown:
 [ ] minor edits
 
 66. Using React with Angular
+[ ] note: react is a library and not a framework. There are also different versions of 'React' and extends beyond webbased applications. You need to make the distinction clear or else you'll loose credibility
+[ ] there is a lot of initial knowledge required by the developer on both Angular and React or deduce what you're trying to achieve. I think the content needs to be simplified a bit more, or introduce a chapter that quickly goes over how React works. You're assuming too much prior knowledge from the reader. Ideas, libraries etc are introduced without actually going into what they are.
 
 67. Custom Web Components
+[ ] reader may still be unclear on exactly what nrwl and nx does.
+[ ] removed name dropping. out of context and condescending.
+[ ] hard to follow because the content feels like you're in a private conversation with yourself and the reader doesn't have a clue what you're trying to get at. Edited as much as I could without having to research and rewrite (out of scope)
 
 68. Micro Frontends
 
