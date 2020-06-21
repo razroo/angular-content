@@ -13,7 +13,7 @@ This will create a service that by default includes
 \lstinline{ providedIn: 'root',} It is important to keep in mind, that Angular provides for services only the  ability to add to the constructor something called \lstinline{ providedIn: 'root',}. It allows for the service to injected without the need to include it in the respective module. It has some performance boosts, besides level of convenience. We will get more into that in later chapters. 
 
 \section{ What Generally Goes in a Service }
-A service generally deals with data. This means making data requests, and passing that data into our component. It's best to use Apollo Client instead of Angular's internal http client as it has better  GraphQL support for our application. This is what a typical service would look like: 
+A service generally deals with data. This means making data requests, and passing that data into our component. Razroo reccomends using Apollo Client instead of Angular's internal http client, due to the fact that we strongly suggest using GraphQL for our application. This is what a typical service would look like: 
 \begin{lstlisting}
 import { Injectable } from '@angular/core';
 
@@ -57,7 +57,7 @@ export class HeroListComponent {
 }
 \end{lstlisting}
 
-You will notice in the above we included something called the UserFacade. We will get to this in later chapters. Per our architecture, services should always be fed through the facade file. Regardless, for now, what should be kept in mind, is that including service in the constructor, is all that is needed to consume the service. 
+You will notice in the above we included something called the UserFacade. We will get to this in later chapters. Per our architecture, services should always be fed through the facade file. Regardless, for now, what should be kept in mind, is that including service in the contructor, is all that is needed to consume the service. 
 
 \section{Ending Off}
 I would just like to end off saying that actually creating a service is actually quite simple. It's a piece of architecture, so arguably from an architectural perspective, it is one of the more complex pieces of Angular. However, to create and start using, is a relatively seamless process.

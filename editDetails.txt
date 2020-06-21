@@ -332,6 +332,8 @@ Chapter by chapter notes rundown:
 [ ] format and grammar edited
 
 86. Services
+[ ] removed content padding
+[ ] format and grammar edited
 
 87. Routing
 
