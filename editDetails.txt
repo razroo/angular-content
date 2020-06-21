@@ -17,7 +17,7 @@ Suggestions:
 
 Overused word list/unecessary padding:
 
-wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition", "If not familiar with already", "I just want to re-iterate", "with regards", "First and foremost", singular (often followed by another suggestion, making it not singular), granted, "I think it goes without saying'
+wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition", "If not familiar with already", "I just want to re-iterate", "with regards", "First and foremost", singular (often followed by another suggestion, making it not singular), granted, "I think it goes without saying", "nitty gritty"
 
 Common repeated issues:
 
@@ -336,16 +336,27 @@ Chapter by chapter notes rundown:
 [ ] format and grammar edited
 
 87. Routing
+[ ] removed content padding and minor passive voice
+[ ] format and grammar edited
 
 88. Forms
+[ ] format and grammar edited
+[ ] removed self-contradicting opinion that conflicts with previously mentioned things in the book
+[ ] removed padding words
 
 89. Reactive Forms
+[ ] format and grammar edited
+[ ] removed padding words
+[ ] removed an instance of condescending tone
 
 90. Attribute Directives
-
-*
+[ ] format and grammar edited
+[ ] removed padding words
 
 91. Pipes
+[ ] removed patronizing tone
+[ ] removed padding words
+[ ] format and grammar edited
 
 92. Observables
 
@@ -364,7 +375,7 @@ Chapter by chapter notes rundown:
 99. Modern Script Loading
 
 100. Ahead of time compilation
-*
+*****
 
 101. The Angular Service Worker - Implementing in App
 
@@ -385,6 +396,7 @@ Chapter by chapter notes rundown:
 109. Responsive Design
 
 110. PWA Toolset - Physical devices
+*
 
 111. PWA Toolset - Sauce Labs
 
@@ -427,6 +439,7 @@ Chapter by chapter notes rundown:
 129. ngrx entity
 
 130. state management - properly ubsubscribing
+*
 
 131. re-usable state - an anti-pattern
 
@@ -468,6 +481,7 @@ Chapter by chapter notes rundown:
 149. Interfaces and unit testing
 
 150. mocking data
+*
 
 151. spies
 
@@ -510,6 +524,7 @@ Chapter by chapter notes rundown:
 169. ng container hack for structural directives
 
 170. npm vs yarn
+*
 
 171. Weekly Meetings
 

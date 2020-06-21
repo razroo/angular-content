@@ -1,0 +1,31 @@
+\chapter{ Pipes }
+
+Angular offers the ability to use Pipes out of the box. The idea behind a pipe is to get data, transform it, and show new transformed data to users. 
+
+Just as a primer, using the native angular date pipe, a pipe would do something such as the following:
+\begin{lstlisting}
+The chained hero's birthday is
+{{ birthday | date | uppercase}}
+\end{lstlisting}
+
+This would display
+\begin{verbatim}
+FRIDAY, APRIL 15, 1988
+\end{verbatim}
+
+The pipe here is taking in the timestamp of
+\begin{verbatim}
+  577065600
+\end{verbatim}
+and converting it to the proper date. Having such dates in one's applicationobviously makes it very easy to go ahead and transform data throughout one'sapp. Here we are also chaining pipes, so that the transformed data that comesback in addition to being transformed, is also capitalized.
+
+\section{ Performance Considerations }
+It is important off the cuff to be aware of some performance concerns when itcomes to pipes.
+
+\subsection{ Understanding Angulars Change Detection }
+This is a good time to interject and get into the nitty gritty of angular'schange detection. As we discussed in the earlier chapter on change-detection,change detection in Angular works from the top down. That is, if a specific setof data changes within a component, then the entire component will update as aresult of new data. Angular pipes, however, change how that it is done, bychanging content directly on the object, and only updating that one specificpart. By using pipes, it allows one's component to be more performant.
+
+\section{ When to Use Pipes }
+Pipes cover alot of ground. Within our architecture, one of the pipes that will be used more so that others in the async pipe. However, now is not the placeto put that here. What is important, is that pipes can be used transform data.Should they always be used whenever one is transforming data?Personally,I like to think of pipes as unique to html. They have a way of dealing ofperformance when working with html templates. However, within a componentitself it is questionable. To be honest this can go either way. However, from amaintainability perspective, whenever data is being transformed, it should beturned into a pipe, instead of a service. That would be the simple rule.
+
+In addition, there are impure pipes that one can potentially do, which ususallyhas little to do with transforming data. Once again the async pipe is somethingthat would register along these lines. However, I have not seen the need tocreate an impure pipe with the architecture given. 
