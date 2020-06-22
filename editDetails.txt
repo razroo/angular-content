@@ -376,14 +376,27 @@ Chapter by chapter notes rundown:
 [ ] removed padding words
 
 96. Track By
+[ ] format and grammar edited
+[ ] removed padding words
+[ ] unbacked grand claims removed
+[ ] private train of thought removed
 
 97. Bundle size
+[ ] format and grammar edited
+[ ] removed padding words
+[ ] unbacked grand claims removed
 
 98. Image performance in Angular
+[ ] format and grammar edited
+[ ] removed padding words
+[ ] unbacked grand claims removed
 
 99. Modern Script Loading
+[ ] chapter is incomplete. Cannot proceed.
 
 100. Ahead of time compilation
+[ ] format and grammar edited
+[ ] removed padding words and sentences
 *****
 
 101. The Angular Service Worker - Implementing in App
