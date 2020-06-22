@@ -17,7 +17,7 @@ Suggestions:
 
 Overused word list/unecessary padding:
 
-wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition", "If not familiar with already", "I just want to re-iterate", "with regards", "First and foremost", singular (often followed by another suggestion, making it not singular), granted, "I think it goes without saying", "nitty gritty"
+wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition", "If not familiar with already", "I just want to re-iterate", "with regards", "First and foremost", singular (often followed by another suggestion, making it not singular), granted, "I think it goes without saying", "nitty gritty", "extremely powerful", "it is important to point out", "which we will discuss more"
 
 Common repeated issues:
 
@@ -359,12 +359,21 @@ Chapter by chapter notes rundown:
 [ ] format and grammar edited
 
 92. Observables
+[ ] reworded certain claims so it's not too blatently incorrect
+[ ] unbacked grand claims removed
+[ ] format and grammar edited
 
 93. Angular Observables
+[ ] removed snippets of condescending tone
+[ ] format and grammar edited
 
 94. Animations
+[ ] unbacked grand claims removed
+[ ] format and grammar edited
 
 95. Transitions and Triggers
+[ ] format and grammar edited
+[ ] removed padding words
 
 96. Track By
 
