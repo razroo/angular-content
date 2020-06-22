@@ -17,7 +17,7 @@ Suggestions:
 
 Overused word list/unecessary padding:
 
-wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition", "If not familiar with already", "I just want to re-iterate", "with regards", "First and foremost", singular (often followed by another suggestion, making it not singular), granted, "I think it goes without saying", "nitty gritty", "extremely powerful", "it is important to point out", "which we will discuss more"
+wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition", "If not familiar with already", "I just want to re-iterate", "with regards", "First and foremost", singular (often followed by another suggestion, making it not singular), granted, "I think it goes without saying", "nitty gritty", "extremely powerful", "it is important to point out", "which we will discuss more", "For those of you unaware"
 
 Common repeated issues:
 
@@ -397,38 +397,75 @@ Chapter by chapter notes rundown:
 100. Ahead of time compilation
 [ ] format and grammar edited
 [ ] removed padding words and sentences
-*****
 
 101. The Angular Service Worker - Implementing in App
+[ ] format and grammar edited
+[ ] removed padding words and sentences
+[ ] removed passive agressive patronizing voice
 
 102. Understanding rendering
+[ ] format and grammar edited
+[ ] removed padding words and sentences
+[ ] removed unbacked promises and phrases from the chapter
 
 103. Angular Universal
+[ ] minor spelling edit
+[ ] removed digression as it detracts from the reading flow
 
 104. Angular Elements Load Time
+[ ] incomplete chapter. Can only make minor spelling edits. No content to edit.
 
 105. Change Detection
+[ ] format, grammar and spelling edits
+[ ] removed an instance of condescension 
 
 106. Integrating ngrx/store with Appollo Client
+[ ] removed unbacked recommendations
+[ ] removed padding words
+[ ] format, grammar and spelling edits
 
 107. Sockets
+[ ] removed padding words
+[ ] format, grammar and spelling edits
+[ ] removed an instance of condescension 
 
 108. Apollo Caching with Sockets
+[ ] confusing chapter, feels incomplete. Doesn't really tell you what it is or how it works
+[ ] format, grammar and spelling edits
+[ ] removed condescending voice
 
 109. Responsive Design
+[ ] format, grammar and spelling edits
+[ ] removed unbacked grandoise claims 
 
 110. PWA Toolset - Physical devices
-*
+[ ] removed condescending voice
+[ ] format, grammar and spelling edits
+[ ] suggestion: would be nice if you included the actual px measurements
 
 111. PWA Toolset - Sauce Labs
+[ ] removed condescending voice
+[ ] format, grammar and spelling edits
 
 112. Mobile First - Building a Progressive Web App
+[ ] feels incomplete. Also contradicts with some claims you made earlier about only building for desktop.
+[ ] removed insider jokes
+[ ] format, grammar and spelling edits
 
 113. Flex layout
+[ ] feels incomplete.
+[ ] format, grammar and spelling edits
 
 114. Styling a Component
+[ ] format, grammar and spelling edits
+[ ] removed grandoise claims
+[ ] repositioned footnotes into main content for flow
+[ ] reworded definitions for clarity
 
 115. Scully: Static Site Generation for Angular
+[ ] I wrote this for you a while back. Just a note that it's already been published on Razroo's Medium.
+
+*
 
 116. When to use @ngrx/store
 
