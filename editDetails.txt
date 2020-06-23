@@ -513,15 +513,25 @@ Chapter by chapter notes rundown:
 [ ] format, grammar and spelling edits
 [ ] removed unecessary waffle
 
-126. er-using reducer logic
+126. Re-using reducer logic
+[ ] format, grammar and spelling edits
+[ ] removed unecessary padding words and phrases
 
 127. ngrx effects
+[ ] removed creeping condescending voice
+[ ] format, grammar and spelling edits
 
 128. the case for using ngrx/entity by default
+[ ] format, grammar and spelling edits
+[ ] removed unecessary padding words and phrases
 
 129. ngrx entity
+[ ] format, grammar and spelling edits
+[ ] removed unecessary padding words and phrases
 
 130. state management - properly ubsubscribing
+
+********
 
 131. re-usable state - an anti-pattern
 
@@ -585,6 +595,9 @@ Chapter by chapter notes rundown:
 
 160. E2E Testing in a TDD/BDD setting
 
+
+******
+
 161. Automation Engineering
 
 162. Writing E2E Tests
@@ -594,8 +607,6 @@ Chapter by chapter notes rundown:
 164. Unit testing component using Apollo
 
 165. Apollo client middleware
-
-******
 
 166. interfaces and unions
 
@@ -607,6 +618,9 @@ Chapter by chapter notes rundown:
 
 170. npm vs yarn
 
+
+******
+
 171. Weekly Meetings
 
 172. Creating a component
@@ -617,8 +631,6 @@ Chapter by chapter notes rundown:
 
 175. Technical design notes
 
-******
-
 176. Acceptance criteria
 
 177. Ticket creation - component design
@@ -628,6 +640,8 @@ Chapter by chapter notes rundown:
 179. Pixel Grid Container
 
 180. Pixel Grid container Layout
+
+******
 
 181. Color Picker
 
