@@ -465,29 +465,53 @@ Chapter by chapter notes rundown:
 115. Scully: Static Site Generation for Angular
 [ ] I wrote this for you a while back. Just a note that it's already been published on Razroo's Medium.
 
-*
-
 116. When to use @ngrx/store
+[ ] I understand where you're trying to go with this section. However, the your argument over the repetition effect is flawed. People are attached to what is familiar. Repetition increases familarity. It also increases our ability to recognize patterns in future encounters. That's why all pop music sounds the same to people over a certain age - it's because they've become accustomed to patterns, while the younger generation may argue that they are different. Just a thought.
+[ ] format, grammar and spelling edits
+[ ] removed grandoise claims
 
 117. Primer - Actions
+[ ] footnote removed. Incorrect information. React is a library.
+[ ] format, grammar and spelling edits
+[ ] removed condescending voice
 
 118. Primer - Reducers
+[ ] feels very sparse but good summary
+[ ] format edits
+[ ] padding content removed
 
 119. History of State Management
+[ ] confusing statements removed. jQuery is JavaScript
+[ ] format, grammar and spelling edits
+[ ] removed condescending tone
 
 120. Introduction to @ngrx/store
-
-******
+[ ] empty footnote removed
+[ ] definition footnote content moved into main content flow
+[ ] format, grammar and spelling edits
 
 121. ngrx CLI
+[ ] footnotes moved into main content
+[ ] removed creeping condescending voice
+[ ] format, grammar and spelling edits
+[ ] removed side notes as it did not add value to the text
 
 122. State management - @ngrx/store
+[ ] relavant footnotes moved into main content
+[ ] removed creeping condescending voice
+[ ] format, grammar and spelling edits
 
 123. ngrx/router-store
+[ ] format, grammar and spelling edits
 
 124. store selectors
+[ ] format, grammar and spelling edits
+[ ] removed creeping condescending voice
 
 125. Aggregation pattern
+[ ] is this chapter incomplete? feels like it needs a conclusion
+[ ] format, grammar and spelling edits
+[ ] removed unecessary waffle
 
 126. er-using reducer logic
 
@@ -498,7 +522,6 @@ Chapter by chapter notes rundown:
 129. ngrx entity
 
 130. state management - properly ubsubscribing
-*
 
 131. re-usable state - an anti-pattern
 
@@ -540,7 +563,7 @@ Chapter by chapter notes rundown:
 149. Interfaces and unit testing
 
 150. mocking data
-*
+*******
 
 151. spies
 
@@ -562,8 +585,6 @@ Chapter by chapter notes rundown:
 
 160. E2E Testing in a TDD/BDD setting
 
-******
-
 161. Automation Engineering
 
 162. Writing E2E Tests
@@ -574,6 +595,8 @@ Chapter by chapter notes rundown:
 
 165. Apollo client middleware
 
+******
+
 166. interfaces and unions
 
 167. Data GraphQL
@@ -583,7 +606,6 @@ Chapter by chapter notes rundown:
 169. ng container hack for structural directives
 
 170. npm vs yarn
-*
 
 171. Weekly Meetings
 
@@ -595,6 +617,8 @@ Chapter by chapter notes rundown:
 
 175. Technical design notes
 
+******
+
 176. Acceptance criteria
 
 177. Ticket creation - component design
@@ -604,7 +628,6 @@ Chapter by chapter notes rundown:
 179. Pixel Grid Container
 
 180. Pixel Grid container Layout
-******
 
 181. Color Picker
 
