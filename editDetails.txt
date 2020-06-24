@@ -17,7 +17,7 @@ Suggestions:
 
 Overused word list/unecessary padding:
 
-wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition", "If not familiar with already", "I just want to re-iterate", "with regards", "First and foremost", singular (often followed by another suggestion, making it not singular), granted, "I think it goes without saying", "nitty gritty", "extremely powerful", "it is important to point out", "which we will discuss more", "For those of you unaware"
+wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition", "If not familiar with already", "I just want to re-iterate", "with regards", "First and foremost", singular (often followed by another suggestion, making it not singular), granted, "I think it goes without saying", "nitty gritty", "extremely powerful", "it is important to point out", "which we will discuss more", "For those of you unaware", "time and time again", really
 
 Common repeated issues:
 
@@ -530,29 +530,44 @@ Chapter by chapter notes rundown:
 [ ] removed unecessary padding words and phrases
 
 130. state management - properly ubsubscribing
-
-********
+[ ] format, grammar and spelling edits
 
 131. re-usable state - an anti-pattern
+[ ] format, grammar and spelling edits
+[ ] removed circular reasoning
 
 132. facade pattern
+[ ] need clarification on what GoF book is. Too much assumption that everyone knows that it stands for.
+[ ] format, grammar and spelling edits
+[ ] removed passive voice
 
 133. state directory structure
+[ ] format, grammar and spelling edits
+[ ] removed passive voice 
 
 134. correlation ID service
+[ ] format, grammar and spelling edits
 
 135. Integrating a component with @ngrx/store
+[ ] format, grammar and spelling edits
 
 136. charts
+[ ] incomplete chapter
+[ ] format, grammar and spelling edits
 
 137. benefits of unit testing, TDD, and BDD
+[ ] format, grammar and spelling edits
 
 138. unit testing performance
+[ ] format, grammar and spelling edits
 
 139. fixture vs debug
+[ ] format, grammar and spelling edits
+[ ] this chapter feels incomplete and cannot proceed further
 
 140. sass unit testing
-******
+[ ] format, grammar and spelling edits
+[ ] removed creeping passive voice 
 
 141. spectator for unit testing
 
