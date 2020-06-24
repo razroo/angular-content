@@ -570,35 +570,57 @@ Chapter by chapter notes rundown:
 [ ] removed creeping passive voice 
 
 141. spectator for unit testing
+[ ] format, grammar and spelling edits
+[ ] removed circular parts of a sentence
 
 142. unit testing
+[ ] format, grammar and spelling edits
+[ ] removed an instance of creeping passive voice and potentially codescending tone
 
 143. understanding different types of unit tests
+[ ] no content. Cannot edit further. 
 
 144. Jest
+[ ] format, grammar and spelling edits
 
 145. Visual unit tests with Cypress
+[ ] format, grammar and spelling edits
 
 146. Testing Cypress Locally with Authentication
+[ ] format, grammar and spelling edits
 
 147. Unit testing state
+[ ] format, grammar and spelling edits
+[ ] sidebox removed. Does not add value to overall content.
 
 148. unit testing architecture
+[ ] format, grammar and spelling edits
+[ ] feels incomplete?
 
 149. Interfaces and unit testing
+[ ] format, grammar and spelling edits
+[ ] removed creeping passive voice
 
 150. mocking data
-*******
+[ ] format, grammar and spelling edits
 
 151. spies
+[ ] format, grammar and spelling edits
 
 152. Debugging
+[ ] format, grammar and spelling edits
 
 153. Coverage reporting
+[ ] format, grammar and spelling edits
 
 154. Unit testing the DOM
+[ ] format, grammar and spelling edits
+[ ] removed circular section that could not be decrypted
 
 155. Unit Testing - mocking providers
+[ ] format, grammar and spelling edits
+
+*****
 
 156. unit testing moduels
 
@@ -610,9 +632,6 @@ Chapter by chapter notes rundown:
 
 160. E2E Testing in a TDD/BDD setting
 
-
-******
-
 161. Automation Engineering
 
 162. Writing E2E Tests
@@ -623,6 +642,8 @@ Chapter by chapter notes rundown:
 
 165. Apollo client middleware
 
+******
+
 166. interfaces and unions
 
 167. Data GraphQL
@@ -632,9 +653,6 @@ Chapter by chapter notes rundown:
 169. ng container hack for structural directives
 
 170. npm vs yarn
-
-
-******
 
 171. Weekly Meetings
 

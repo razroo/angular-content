@@ -1,17 +1,12 @@
-
 \chapter{ Mocking Data }
-An interesting phenomenon that happens within many enterprises, is with regards
-to unit tests and maintanability. Many times the data mocks are repititions of
-themselves. In addition, utilities with regards to mocking data. I've done this
-myself, maybe you have as well. This chapter is simply there to put this in as
-convention, to go ahead and edit moving forward.
+Many times the data mocks are repetitions of themselves. I've done this myself, maybe you have as well. This chapter is simply there to put this in as convention, to go ahead and edit moving forward.
 
 \section{ Function Composition }
-With regards to creating re-usable data, there are two options. One can use a
-function to generate a mock. Alternatively, one can use a spread operator. For
-the most part, I prefer a function to generate a mock. It gives the option to
-specify parameters to be passed through. In addition, it enforces immutability.
-However, I have worked on teams, where functions seam out of place.
+When it comes to creating re-usable data, there are two options:
+
+One can use a function to generate a mock. 
+
+Alternatively, one can use a spread operator. For the most part, I prefer a function to generate a mock. It gives the option to specify parameters to be passed through. In addition, it enforces immutability. However, I have worked on teams where functions appear to be out of place.
 
 \begin{lstlisting}
 // this interface is in our users.interface.ts file
@@ -38,13 +33,10 @@ let generateMockUsersData: Users = (data: Dictionary<User>) -> {
 }
 \end{lstlisting}
 
-By using the simple above function, and proper type annotation we have the
-option to generate mocked data that is unique to our interface. In addition, we
-have the ability to pass in data as it is unique to our specific use case.
+By using the simple above function and the proper type annotation we have the option to generate mocked data that is unique to our interface. We also have the ability to pass in data as it is unique to our specific use case.
 
 \section{ Core Constants }
-In addition to having function composition tied to our interfaces, odds are that
-the data being passed in might have the same signature time and time again.
+In addition to having function composition tied to our interfaces, odds are that the data being passed in might have the same signature time and time again.
 
 Enter the three constant rule:
 
@@ -80,5 +72,4 @@ const genericMockUser: User = {
 }
 \end{lstlisting}
 
-Moving forward, if any of this data has a unique signature, then you can use
-the above functions to make sure you have the correct data.
+Moving forward, if any of this data has a unique signature, then you can use the above functions to make sure you have the correct data.
