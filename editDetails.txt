@@ -620,31 +620,45 @@ Chapter by chapter notes rundown:
 155. Unit Testing - mocking providers
 [ ] format, grammar and spelling edits
 
-*****
-
-156. unit testing moduels
+156. unit testing modules
+[ ] format, grammar and spelling edits
 
 157. Marble unit testing
+[ ] format, grammar and spelling edits
+[ ] feels incomplete, cannot proceed further
 
 158. unit testing subscriptions
+[ ] format, grammar and spelling edits
 
 159. unit testing TDD - first principles Discovery
+[ ] format, grammar and spelling edits
+[ ] removed content padding
 
 160. E2E Testing in a TDD/BDD setting
+[ ] format, grammar and spelling edits
+[ ] is there supposed to be more to this? Feels incomplete. Cannot proceed further. Text unusually upbeat chatty.
 
 161. Automation Engineering
+[ ] format, grammar and spelling edits
 
 162. Writing E2E Tests
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
 
 163. Angular CLI
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
 
 164. Unit testing component using Apollo
+[ ] format, grammar and spelling edits
+[ ] removed passive tone
 
 165. Apollo client middleware
-
-******
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
 
 166. interfaces and unions
+[ ] format, grammar and spelling edits
 
 167. Data GraphQL
 
