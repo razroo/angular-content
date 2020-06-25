@@ -661,48 +661,71 @@ Chapter by chapter notes rundown:
 [ ] format, grammar and spelling edits
 
 167. Data GraphQL
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
 
 168. Versioning
+[ ] format, grammar and spelling edits
 
 169. ng container hack for structural directives
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
 
 170. npm vs yarn
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
 
 171. Weekly Meetings
+[ ] feels incomplete. Cannot edit further.
 
 172. Creating a component
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
 
 173. Creating a second component
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
 
 174. Ceating a dumb component
+[ ] feels incomplete. Cannot edit further.
 
 175. Technical design notes
+[ ] format, grammar and spelling edits
 
 176. Acceptance criteria
+[ ] format, grammar and spelling edits
 
 177. Ticket creation - component design
+[ ] format, grammar and spelling edits
 
 178. Code reviews
+[ ] format, grammar and spelling edits
+[ ] introduction made no sense and felt like you needed internal information to understand it. Removed to prevent potential reader alienation
 
 179. Pixel Grid Container
+[ ] format edited
+[ ] feels imcomplete
 
 180. Pixel Grid container Layout
-
-******
+[ ] format edited
+[ ] feels imcomplete
 
 181. Color Picker
+[ ] format edited
+[ ] feels incomplete
+[ ] removed content padding repetition
 
 182. Constants
+[ ] format edited
+[ ] feels incomplete
 
 183. Enums as Constants
+[ ] format edited
 
 184. Authorization
+[ ] format edited
+[ ] chapter is incomplete. Cannot edit further.
 
 185. Building our application
-
-
-
-
-
-
-\lstinline{}
+[ ] format edited
+[ ] chapter is incomplete. Cannot edit further.
