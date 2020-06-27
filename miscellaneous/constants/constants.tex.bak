@@ -44,8 +44,7 @@ export class DeleteValue implements Action {
 \end{lstlisting}
 
 \subsection { Communicate to Maintainers }
-If using a constant value, it signifies to future maintainers of your code, that this is a value which is immutable. Further distinguishing intent of application/snippet of code.
+If using a constant value, it signifies to future maintainers of your code that this is a value which is immutable. Further distinguishing intent of application/snippet of code.
 
 \subsection { Helps Secure Values }
-When typing in a string for a particular constant value, particular diligence must be applied in order to make sure it is type appropriately. Typing in the one place, allows the developer to type in one place, and simply copy and paste
-value, from a singular expected location(the const file) to 5 different places.
+When typing in a string for a particular constant value, particular diligence must be applied in order to make sure it is type appropriately. Typing in the one place, allows the developer to type in one place, and simply copy and paste value, from a singular expected location(the const file) to 5 different places.
