@@ -1,6 +1,6 @@
 \chapter{ Versioning }
 
-\textit{A thank you, to a one Chris Bautista and Bobbie Barker for helping me formulate this strategy.}
+\textit{A thank you, to a one Chris Bautista and Bobbie Barker for helping me formulate this strategy. In addition, thank you to a highly respected colleague Allan Goncalves. May you all be in good health.}
 \section { Git }
 It goes without saying that you should be using Git for version control. Just to re-iterate the benefits of \href{https://git-scm.com/}{Git}, are as follows: 
 \begin{enumerate} 
@@ -88,6 +88,10 @@ git pull upstream dev
 \end{enumerate}
 
 \section{Trunk Based Development}
+\textit{There are many version control strategies within Git. For this one, I've actually spoken in person to a number of highly respected software enginers. Trunk based development is what we all agreed on, is the ideal approach, granted you have an automated QA environment.}
+
+\subsection{What is Trunk Based Development?}
+Trunk based development is that as opposed to the alternative of multiple branches for a repository, everyone commits to a core master branch. 
 
 \section { Squash and Merge }
 Github, is our preferred client. However, git itself, as well as all other major 3rd party vendors, give the option to squash all other commits before merged. Some will offer the option to re-base as well. (If you are in a very Fortune 50 setting, and are working within a company wide Mono Repo, most likely you will want to re-base.) However, our reccomended aproach is to squash and merge, so you can maintain the integrity of the commits that happened along the way. 
