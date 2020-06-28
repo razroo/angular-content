@@ -95,10 +95,13 @@ export class GridFormComponent {
 Within our template, we attach the\lstinline{formGroup} directive supplied bythe \lstinline{ReactiveFormsModule}, to our component's \lstinline{new FormGroup}.
 
 \section{Saving Form Data}
-The formGroup directive internally has an \lstinline{(ngSubmit)} method, that can be used to call whenever you are ready to save data for the entire form, and pass it along to the backend. \begin{lstlisting}[caption=code-form.component.html]<form [formGroup]="gridForm" (ngSubmit)="onSubmit()">
+The formGroup directive internally has an \lstinline{(ngSubmit)} method, that can be used to call whenever you are ready to save data for the entire form, and pass it along to the backend.
+\begin{lstlisting}[caption=code-form.component.html]
+  <form [formGroup]="gridForm" (ngSubmit)="onSubmit()">
 \end{lstlisting}
 
-\begin{lstlisting}[caption=grid-form.component.ts]onSubmit() {
+\begin{lstlisting}[caption=grid-form.component.ts]
+onSubmit() {
   // this is where data for gridForm is exposed
   console.log(this.gridForm.Value);
 }
