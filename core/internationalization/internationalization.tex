@@ -307,9 +307,7 @@ The Angular extraction tool, will break the above into two separate parts:
 </trans-unit>
 \end{lstlisting}
 
-The first \lstinline{<trans-unit>} will contain the text outside of 
-\ \lstinline{select}. The second \lstinline{<trans-unit>} will contain the text
-\inside of the \lstinline{select} message. The reason that the extraction tool will separate it into two separate sections, is because each expression unit is separate. (For our \lstinline{plural} expression it was all on it's own. If it had text outside of the \lstinline{plural} expression, it would indeed be separated into two parts)
+The first \lstinline{<trans-unit>} will contain the text outside of \lstinline{select}. The second \lstinline{<trans-unit>} will contain the text inside of the \lstinline{select} message. The reason that the extraction tool will separate it into two separate sections, is because each expression unit is separate. (For our \lstinline{plural} expression it was all on it's own. If it had text outside of the \lstinline{plural} expression, it would indeed be separated into two parts)
 
 \subsection{Translating a Nested Expression}
 So let's say that we have mixed and matched plural and select as follows: 
