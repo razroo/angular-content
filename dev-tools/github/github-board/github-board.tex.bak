@@ -1,0 +1,11 @@
+
+\chapter{ Github Board }
+
+GitHub has a work board functionality. This can be found on their website and can be used to task manage your team's features and ticket items. 
+
+It can be used to track app considerations - something which cannot be effectively tracked through enterprize software managements tools such as Jira.
+
+For example, if you want to migrate your app to the latest version of Angular, you could create a board called "Tech Concerns" and then add a widget for "Upgrade Angular". Everyone on the team would know that you certain things you'd like to do but not necessary part of the main feature release flow.
+
+This can be used for other items such as changes in directory structures, or integration E2E testing within the app. 
+

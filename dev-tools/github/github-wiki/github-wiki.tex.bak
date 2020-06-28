@@ -1,0 +1,11 @@
+
+\chapter{ Github Wiki }
+
+Using GitHub as your wiki keeps your documentation and application notes/instructions in a centralized space. As your application grows, keeping documentation for developers seems logical when it's near the code. 
+
+
+\section{ Using GitHub Wiki for endpoints }
+If you are using GraphQL, you will still have to setup data per each endpoint. GraphQL client works by setting up data within the url, giving the option to share a url. Once a developer will click on that link, they will be able to
+test with the data for that GraphQL query without having to try it for themselves.
+
+Creating a wiki for GitHub endpoints is similar. You will create a master page that will specify this is where wiki pages go. You will then have child pages per each endpoint that you can use for putting down links per each GraphQL query, or mutation. These queries and mutations will include the full data possible for these queries. This will help greatly alleviate overhead of team.

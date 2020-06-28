@@ -1,0 +1,731 @@
+/************************************************************************
+C O N T E N T  T R A C K I N G / N O T E S 
+************************************************************************/
+
+Thoughts and suggestions:
+
+The current structure jumps around quite a bit. As a fellow Angular developer, I understand where you're going with the content but from a beginner/advancing intermediate dev new to Angular, this may be a little too jagged and confusing.
+
+There is also a lot of future - we will do this later, we'll talk about this later - that pads out a lot of the content. This is removed to create focus. 
+
+Sidebars are rebranded to sidesteps because it can confuse people reading it as creating an actual side bar in the app. 
+
+Suggestions:
+
+- add an overview of what the Pixel Illustrator will look like.
+- add a learning outcomes outline to help set up expectations and track progress.
+
+Overused word list/unecessary padding:
+
+wherein, really, "We will discuss this in detail in another chapter.", "if you are not already familiar", "cookie cutter code", "This chapter is a bit different", "for instance", fantastic, "in regards", "the most single", "if not already aware", "Without going into detail", "For clarity sake", "to begin", "We'll discuss this a bit more", "For the sake of brevity", "lets discuss" (followed by no discussion), "In addition", actually, "I would like to explain" (sometimes not followed by an actual explanation), " as we discussed above", "in addition", "If not familiar with already", "I just want to re-iterate", "with regards", "First and foremost", singular (often followed by another suggestion, making it not singular), granted, "I think it goes without saying", "nitty gritty", "extremely powerful", "it is important to point out", "which we will discuss more", "For those of you unaware", "time and time again", really
+
+Common repeated issues:
+
+incorrect usage of commas
+incorrect usage of footnotes
+
+Chapter by chapter notes rundown:
+
+2. Dependency Graph
+[ ] dependency graph screenshot 
+[ ] using dependency graph content
+
+3. Angular CLI
+[*] Tone edited
+[*] Angular CLI commands added to list as reference for devs
+[ ] Needs note on why service worker is important / what it does 
+
+4. Introducing Nrwl Nx ***
+[*] Tone edited
+[*] Too much expected knowledge required. Attempted to quickly encapsulate state for the reader. 
+[*] Revised links and short summary of linked articles
+[*] Article links moved to footnotes for further referencing
+[*] command line error fixed. 
+[*] Added more details on how to create a workspace. Assumes too much prior knowledge from reader. 
+[*] managed to get nrwl nx running, but the instructions currently in the book is still too sketchy to be error free. Chapter technical notes need to be reviewed. 
+
+5. Compodoc
+[*] Addition information added with rewrites on paragraphs to unify overall tone and constant switching.
+[ ] compodoc is still quite vague. Needs a little more detailing and how it relates to the overall pixel illustrator project.
+[*] Final thoughts section removed. Too much insider knowledge and not enough details to explain why. 
+
+6. Using Angular CLI in an Nx Workspace
+[ ] author is assuming that reader knows what encapsulation means
+[*] removed footnotes. Too distracting with eyes having to jump around
+[*] --export flag edited. --exports doesn't exist
+
+7. Creating Code Owners
+[*] repeated content removed. 
+
+8. Github Wiki
+[ ] very vague section. Not sure how it all fits it. Feels more like a side thought section.
+
+9. Github Board
+[ ] can technically be combined with the github wiki section and just have it as one side stepping section on github workflows?
+
+10. Format all the things
+[*] removed condescending tone in relation to IDE types
+
+11. Lint all the things
+[ ] Too much looking into the future. General trend of the book, which can be frustrating to read because you have to remember all these things that is going to be coming soon. Get's repetitive and confusing.
+
+12. Linting HTML
+[ ] html is part of the markup family and is different from xml in its special way. 
+[*] changed tone to be less waffle/condescending and more objective strength
+ 
+13. Linting Sass
+[*] changed tone to appear more confident
+[*] less random yelling
+[ ] repetition is ok, but not in the same sentence. Then it just looks like you're trying to pad out the paragraph.
+
+14. Accessibility with Codelyzer
+[*] content runs off into a tangent train of thought style that was confusing to follow. Re-edited to make it easier and clearer to read. Not sure if I recaptured all your thoughts correctly.
+[*] removed condescending tone
+
+15. Lighthouse
+[ ] It took a while to figure out what your issue with lighthouse was...edited the paragraph to be clearer. It went off on a tangent and not enough information to substantiate it. 
+[ ] you keep saying things are useful but don't really explain what the usefulness of those things are
+[ ] feels incomplete. 
+
+16. Setting up Schematics using Angular CLI
+[*] Double negative opinion that contradicts with previous chapters removed. Too much thinking required to try and understand what you're trying to convey.
+
+17. Schematics Deep Dive
+[ ] started off better but then got confusing when trying to explain json.
+
+18. px schematics
+[ ] reworded some paragraphs and got rid of filler words
+
+19. Nrwl Schematics
+[ ] confusing chapter. Are you creating nrwl schematics or angular schematics or nrwl angular custom schematics?
+
+20. Storybook
+[ ] chapter is incomplete. Cannot proceed properly.
+
+21. Data Access interface
+[ ] intro doesn't work. I'm sure you haven't introduced data access folder. 
+[ ] interface context not established or linked to a specific chapter.
+
+22. Data Models
+[ ] no focus or flow. Attempted to edit as much as I could. 
+
+23. Interfaces and Partials
+[ ] this is an incomplete section
+
+24. Tsconfig
+[ ] run on sentences edited
+
+25. Component Inheritance
+[ ] minor edits made for grammar and clarity
+
+26. Barrel File
+[ ] minor edits made for grammar and clarity
+
+27. Typescript - Getting and Setting
+[ ] some edits for clarity
+
+28. Typescript - Immutability
+[ ] doesn't explain what immutability is. Will be very confusing for a person who doesn't know what it is. You need to answer these question: what is immutability? Why is it important? how does it fit into the context of Pixel Illustrator?
+
+29. Declaration Files
+[*] edit for increase clarity. Has more information but not really centralized around a clear idea. 
+
+30. Custom Declaration Files
+[*] edited for increased clarity. Removed and edited personal opinion to make it more accessible to readers
+[ ] incomplete chapter content
+
+31. Design Language System
+[ ] Needs to stop arguing without presenting the actual argument. 'arguably' is more a filler word at this point based on structure and style. 
+
+32. Material Design
+[ ] incomplete chapter. Feels very surface level.
+
+33. Customize Angular Material Design
+[ ] removed misinformation from the final paragraph. Angular Material runs off material design principles, which is a set of UX principles released by Google. Angular Material is a UI component library that is open sourced and while it's run by the core angular team, there are others contributing to it as well.
+
+34. Angular Material Typography
+[ ] tone feels like there's a personality switch. Are you Razroo or are you Charlie Greenman?
+
+35. UI Skeleton
+[ ] random side stepping removed. Too jumpy and makes the reader stutter.
+
+36. Icons
+[ ] a list is not a dicussion. It's just a list of features.
+
+37. Sass Error Reporting
+[ ] removed inconsistencies and word/page padding.
+
+38. Introduction to RxJS - The RxJS Airplane
+[ ] removed some word padding and reformatted to corect LaTex formatting
+
+39. Debugging Rxjs
+[ ] formatting fixed
+
+40. Cold vs Hot Observales
+[ ] minor formatting issues and spelling
+
+41. RxJS Common Creation Operators
+[ ] introduction doesn't make sense
+[ ] switching personalities between Charlie Greenman and Razroo. 
+
+42. Combination
+[ ] filler words removed and reformatted 
+
+43. Filtering
+[ ] formatting cleaned up
+
+44. Transformation
+[ ] formatting cleaned up with minor content edits
+
+45. Utility
+[ ] doesn't really explain what untility is
+
+46. Multicasting
+[ ] more like a comment than actual section on what multicasting is. Still doesn't answer the question: what is multicasting?
+
+47.RxJS Pitfalls
+[ ] minor edit but overall excellent chapter that clearly explains RxJS
+
+48. RxJS and Facades
+[ ] the first paragraph is a bit confusing. Attempted to edit for increased clarity.
+
+49. Creating a Config
+[ ] formatting edit. Better content but lacks context.
+
+50. Creating Feature Flags
+[ ] formatting edit. Footnote turned into actual content.
+
+51. Environment
+[ ] slight condescending tone removed
+[ ] format edited
+
+52. Environment Architecture - Deep Dive
+[ ] format edited
+
+53. Lib File Structure
+[ ] minor content edit in the introduction for increased clairty
+[ ] format edited
+
+54. Setting Up Lib Folder Structure
+[ ] missing content. Cannot edit.
+
+55. Data Access
+[ ] removal of passive voice
+[ ] content reformatted
+
+56. Nx Lib Conventions
+[ ] incomplete chapter. Cannot edit other than format.
+
+57. Data Services - Directory Structure
+[ ] format edited, generally solid for its scope
+
+58. Dialogs
+[ ] incomplete chapter. Cannot edit other than format.
+
+59. Lazy Loading Modules
+[ ] format edited. Wording for clarity edited.
+[ ] patronizing tone removed
+
+60. Transloco
+[ ] missing content. Cannot edit.
+
+61. Lazy Loading Images
+[ ] removed condescending content
+[ ] format edited
+
+62. Network Aware Predictive Pre-Loading
+[ ] slight condescending tone removed
+[ ] format edited
+[ ] filler words removed
+
+63. Shared Modules
+[ ] format edited
+[ ] filler words removed
+[ ] spelling fixed
+
+64. Form Validation
+[ ] edited the detected inverse sentences
+[ ] removed confusing half sentences that cannot be decrypted
+
+65. Angular Elements - Introduction
+[ ] minor edits
+
+66. Using React with Angular
+[ ] note: react is a library and not a framework. There are also different versions of 'React' and extends beyond webbased applications. You need to make the distinction clear or else you'll loose credibility
+[ ] there is a lot of initial knowledge required by the developer on both Angular and React or deduce what you're trying to achieve. I think the content needs to be simplified a bit more, or introduce a chapter that quickly goes over how React works. You're assuming too much prior knowledge from the reader. Ideas, libraries etc are introduced without actually going into what they are.
+
+67. Custom Web Components
+[ ] reader may still be unclear on exactly what nrwl and nx does.
+[ ] removed name dropping. out of context and condescending.
+[ ] hard to follow because the content feels like you're in a private conversation with yourself and the reader doesn't have a clue what you're trying to get at. Edited as much as I could without having to research and rewrite (out of scope)
+
+68. Micro Frontends
+[ ] minor edits for spelling and grammar
+
+69. Static Site Generation
+[ ] no content. Cannot edit.
+
+70. Smart vs. dumb components
+[ ] too much instruction on what the reader should and shouldn't do. Fake nice condescending tone. Also adds to a feeling that you're trying to pad out the page.
+
+71. Error Handling
+[ ] padding content removed
+[ ] formatting fixed
+
+72. Http Interceptors
+[ ] removed passive condescending recommendation tone
+[ ] removed assumptions and patronizing sentences
+
+73. Angular Router Gouards
+[ ] formatting edited. Word padding removed.
+[ ] content incomplete. Cannot proceed with proper edit.
+
+74. Pre-loading with Route Guards
+[ ] formatting fixed
+[ ] padding content removed
+[ ] confusing sentences restructured
+
+75. Containers, Routing + ngrx/router
+[ ] footnote moved into main content. 
+[ ] edited out padding content
+[ ] formatting fixed
+
+76. Output
+[ ] incomplete content. Cannot edit.
+
+77. Life Cycle Hooks
+[ ] incomplete content. Edited as much as I could.
+[ ] formatting fixed.
+[ ] reworded parts of the introduction to be less passive
+
+78. Dependency Injection
+[ ] formatting edited
+[ ] removed padding phrases and rewording made
+
+79. Input
+[ ] formatting edited
+[ ] minor content edits
+
+80. @Output
+[ ] formatting edited
+[ ] future promises of content removed
+
+81. Internationalization and localization
+[ ] a solid chapter in comparison. Shows knowledge domain and authority.
+[ ] formatting and grammar edit
+
+82. Content projection
+[ ] formatting and grammar edited
+[ ] there were a few confusing sentences I worked to clarify up for the reader
+
+83. Displaying data
+[ ] removed patronizing voice
+[ ] solid chapter. Good knowledge domain and general authority.
+[ ] formatting and grammar edited
+
+84. Template syntax
+[ ] removed weak voice. This chapter is written in a passive voice
+[ ] format and garmmar edited
+
+85. Modules
+[ ] removed content padding
+[ ] format and grammar edited
+
+86. Services
+[ ] removed content padding
+[ ] format and grammar edited
+
+87. Routing
+[ ] removed content padding and minor passive voice
+[ ] format and grammar edited
+
+88. Forms
+[ ] format and grammar edited
+[ ] removed self-contradicting opinion that conflicts with previously mentioned things in the book
+[ ] removed padding words
+
+89. Reactive Forms
+[ ] format and grammar edited
+[ ] removed padding words
+[ ] removed an instance of condescending tone
+
+90. Attribute Directives
+[ ] format and grammar edited
+[ ] removed padding words
+
+91. Pipes
+[ ] removed patronizing tone
+[ ] removed padding words
+[ ] format and grammar edited
+
+92. Observables
+[ ] reworded certain claims so it's not too blatently incorrect
+[ ] unbacked grand claims removed
+[ ] format and grammar edited
+
+93. Angular Observables
+[ ] removed snippets of condescending tone
+[ ] format and grammar edited
+
+94. Animations
+[ ] unbacked grand claims removed
+[ ] format and grammar edited
+
+95. Transitions and Triggers
+[ ] format and grammar edited
+[ ] removed padding words
+
+96. Track By
+[ ] format and grammar edited
+[ ] removed padding words
+[ ] unbacked grand claims removed
+[ ] private train of thought removed
+
+97. Bundle size
+[ ] format and grammar edited
+[ ] removed padding words
+[ ] unbacked grand claims removed
+
+98. Image performance in Angular
+[ ] format and grammar edited
+[ ] removed padding words
+[ ] unbacked grand claims removed
+
+99. Modern Script Loading
+[ ] chapter is incomplete. Cannot proceed.
+
+100. Ahead of time compilation
+[ ] format and grammar edited
+[ ] removed padding words and sentences
+
+101. The Angular Service Worker - Implementing in App
+[ ] format and grammar edited
+[ ] removed padding words and sentences
+[ ] removed passive agressive patronizing voice
+
+102. Understanding rendering
+[ ] format and grammar edited
+[ ] removed padding words and sentences
+[ ] removed unbacked promises and phrases from the chapter
+
+103. Angular Universal
+[ ] minor spelling edit
+[ ] removed digression as it detracts from the reading flow
+
+104. Angular Elements Load Time
+[ ] incomplete chapter. Can only make minor spelling edits. No content to edit.
+
+105. Change Detection
+[ ] format, grammar and spelling edits
+[ ] removed an instance of condescension 
+
+106. Integrating ngrx/store with Appollo Client
+[ ] removed unbacked recommendations
+[ ] removed padding words
+[ ] format, grammar and spelling edits
+
+107. Sockets
+[ ] removed padding words
+[ ] format, grammar and spelling edits
+[ ] removed an instance of condescension 
+
+108. Apollo Caching with Sockets
+[ ] confusing chapter, feels incomplete. Doesn't really tell you what it is or how it works
+[ ] format, grammar and spelling edits
+[ ] removed condescending voice
+
+109. Responsive Design
+[ ] format, grammar and spelling edits
+[ ] removed unbacked grandoise claims 
+
+110. PWA Toolset - Physical devices
+[ ] removed condescending voice
+[ ] format, grammar and spelling edits
+[ ] suggestion: would be nice if you included the actual px measurements
+
+111. PWA Toolset - Sauce Labs
+[ ] removed condescending voice
+[ ] format, grammar and spelling edits
+
+112. Mobile First - Building a Progressive Web App
+[ ] feels incomplete. Also contradicts with some claims you made earlier about only building for desktop.
+[ ] removed insider jokes
+[ ] format, grammar and spelling edits
+
+113. Flex layout
+[ ] feels incomplete.
+[ ] format, grammar and spelling edits
+
+114. Styling a Component
+[ ] format, grammar and spelling edits
+[ ] removed grandoise claims
+[ ] repositioned footnotes into main content for flow
+[ ] reworded definitions for clarity
+
+115. Scully: Static Site Generation for Angular
+[ ] I wrote this for you a while back. Just a note that it's already been published on Razroo's Medium.
+
+116. When to use @ngrx/store
+[ ] I understand where you're trying to go with this section. However, the your argument over the repetition effect is flawed. People are attached to what is familiar. Repetition increases familarity. It also increases our ability to recognize patterns in future encounters. That's why all pop music sounds the same to people over a certain age - it's because they've become accustomed to patterns, while the younger generation may argue that they are different. Just a thought.
+[ ] format, grammar and spelling edits
+[ ] removed grandoise claims
+
+117. Primer - Actions
+[ ] footnote removed. Incorrect information. React is a library.
+[ ] format, grammar and spelling edits
+[ ] removed condescending voice
+
+118. Primer - Reducers
+[ ] feels very sparse but good summary
+[ ] format edits
+[ ] padding content removed
+
+119. History of State Management
+[ ] confusing statements removed. jQuery is JavaScript
+[ ] format, grammar and spelling edits
+[ ] removed condescending tone
+
+120. Introduction to @ngrx/store
+[ ] empty footnote removed
+[ ] definition footnote content moved into main content flow
+[ ] format, grammar and spelling edits
+
+121. ngrx CLI
+[ ] footnotes moved into main content
+[ ] removed creeping condescending voice
+[ ] format, grammar and spelling edits
+[ ] removed side notes as it did not add value to the text
+
+122. State management - @ngrx/store
+[ ] relavant footnotes moved into main content
+[ ] removed creeping condescending voice
+[ ] format, grammar and spelling edits
+
+123. ngrx/router-store
+[ ] format, grammar and spelling edits
+
+124. store selectors
+[ ] format, grammar and spelling edits
+[ ] removed creeping condescending voice
+
+125. Aggregation pattern
+[ ] is this chapter incomplete? feels like it needs a conclusion
+[ ] format, grammar and spelling edits
+[ ] removed unecessary waffle
+
+126. Re-using reducer logic
+[ ] format, grammar and spelling edits
+[ ] removed unecessary padding words and phrases
+
+127. ngrx effects
+[ ] removed creeping condescending voice
+[ ] format, grammar and spelling edits
+
+128. the case for using ngrx/entity by default
+[ ] format, grammar and spelling edits
+[ ] removed unecessary padding words and phrases
+
+129. ngrx entity
+[ ] format, grammar and spelling edits
+[ ] removed unecessary padding words and phrases
+
+130. state management - properly ubsubscribing
+[ ] format, grammar and spelling edits
+
+131. re-usable state - an anti-pattern
+[ ] format, grammar and spelling edits
+[ ] removed circular reasoning
+
+132. facade pattern
+[ ] need clarification on what GoF book is. Too much assumption that everyone knows that it stands for.
+[ ] format, grammar and spelling edits
+[ ] removed passive voice
+
+133. state directory structure
+[ ] format, grammar and spelling edits
+[ ] removed passive voice 
+
+134. correlation ID service
+[ ] format, grammar and spelling edits
+
+135. Integrating a component with @ngrx/store
+[ ] format, grammar and spelling edits
+
+136. charts
+[ ] incomplete chapter
+[ ] format, grammar and spelling edits
+
+137. benefits of unit testing, TDD, and BDD
+[ ] format, grammar and spelling edits
+
+138. unit testing performance
+[ ] format, grammar and spelling edits
+
+139. fixture vs debug
+[ ] format, grammar and spelling edits
+[ ] this chapter feels incomplete and cannot proceed further
+
+140. sass unit testing
+[ ] format, grammar and spelling edits
+[ ] removed creeping passive voice 
+
+141. spectator for unit testing
+[ ] format, grammar and spelling edits
+[ ] removed circular parts of a sentence
+
+142. unit testing
+[ ] format, grammar and spelling edits
+[ ] removed an instance of creeping passive voice and potentially codescending tone
+
+143. understanding different types of unit tests
+[ ] no content. Cannot edit further. 
+
+144. Jest
+[ ] format, grammar and spelling edits
+
+145. Visual unit tests with Cypress
+[ ] format, grammar and spelling edits
+
+146. Testing Cypress Locally with Authentication
+[ ] format, grammar and spelling edits
+
+147. Unit testing state
+[ ] format, grammar and spelling edits
+[ ] sidebox removed. Does not add value to overall content.
+
+148. unit testing architecture
+[ ] format, grammar and spelling edits
+[ ] feels incomplete?
+
+149. Interfaces and unit testing
+[ ] format, grammar and spelling edits
+[ ] removed creeping passive voice
+
+150. mocking data
+[ ] format, grammar and spelling edits
+
+151. spies
+[ ] format, grammar and spelling edits
+
+152. Debugging
+[ ] format, grammar and spelling edits
+
+153. Coverage reporting
+[ ] format, grammar and spelling edits
+
+154. Unit testing the DOM
+[ ] format, grammar and spelling edits
+[ ] removed circular section that could not be decrypted
+
+155. Unit Testing - mocking providers
+[ ] format, grammar and spelling edits
+
+156. unit testing modules
+[ ] format, grammar and spelling edits
+
+157. Marble unit testing
+[ ] format, grammar and spelling edits
+[ ] feels incomplete, cannot proceed further
+
+158. unit testing subscriptions
+[ ] format, grammar and spelling edits
+
+159. unit testing TDD - first principles Discovery
+[ ] format, grammar and spelling edits
+[ ] removed content padding
+
+160. E2E Testing in a TDD/BDD setting
+[ ] format, grammar and spelling edits
+[ ] is there supposed to be more to this? Feels incomplete. Cannot proceed further. Text unusually upbeat chatty.
+
+161. Automation Engineering
+[ ] format, grammar and spelling edits
+
+162. Writing E2E Tests
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
+
+163. Angular CLI
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
+
+164. Unit testing component using Apollo
+[ ] format, grammar and spelling edits
+[ ] removed passive tone
+
+165. Apollo client middleware
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
+
+166. interfaces and unions
+[ ] format, grammar and spelling edits
+
+167. Data GraphQL
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
+
+168. Versioning
+[ ] format, grammar and spelling edits
+
+169. ng container hack for structural directives
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
+
+170. npm vs yarn
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
+
+171. Weekly Meetings
+[ ] feels incomplete. Cannot edit further.
+
+172. Creating a component
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
+
+173. Creating a second component
+[ ] format, grammar and spelling edits
+[ ] feels incomplete. Cannot edit further.
+
+174. Ceating a dumb component
+[ ] feels incomplete. Cannot edit further.
+
+175. Technical design notes
+[ ] format, grammar and spelling edits
+
+176. Acceptance criteria
+[ ] format, grammar and spelling edits
+
+177. Ticket creation - component design
+[ ] format, grammar and spelling edits
+
+178. Code reviews
+[ ] format, grammar and spelling edits
+[ ] introduction made no sense and felt like you needed internal information to understand it. Removed to prevent potential reader alienation
+
+179. Pixel Grid Container
+[ ] format edited
+[ ] feels imcomplete
+
+180. Pixel Grid container Layout
+[ ] format edited
+[ ] feels imcomplete
+
+181. Color Picker
+[ ] format edited
+[ ] feels incomplete
+[ ] removed content padding repetition
+
+182. Constants
+[ ] format edited
+[ ] feels incomplete
+
+183. Enums as Constants
+[ ] format edited
+
+184. Authorization
+[ ] format edited
+[ ] chapter is incomplete. Cannot edit further.
+
+185. Building our application
+[ ] format edited
+[ ] chapter is incomplete. Cannot edit further.

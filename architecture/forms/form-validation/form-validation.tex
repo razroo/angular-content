@@ -1,10 +1,9 @@
 \chapter{ Form Validation }
 
 One of main reasons why one would choose to use the internal Angular Form 
-Group architecture, is the way it eases validation. Angular has a series 
-of built in validators, that can be used for the fields in your form. For 
-the sake of clarity, and brevity, I would like to jot down the name of current 
-Angular Validators here, without going into detail: 
+Group architecture is the way it eases validation. Angular has a series 
+of built in validators that can be used for the fields in your form. Here are some current Angular validators available:
+
 \begin{enumerate}
   \item min
   \item max
@@ -19,20 +18,12 @@ Angular Validators here, without going into detail:
   \item composeAsync
 \end{enumerate}
 
-I think for the most part, the above validators speak for themselves as to 
-what they do, with the exception of \lstinline{compose}. \lstinline{compose}
-will allow you to combine multiple validators, and return an error map for 
-them. As you can see, the more popular errors, such as min, and max(for use
-with passwords/usernames) and emails, and patterns are what Angular's internal 
-validators are there for. There is the ability to make custom validators, and 
-most likely any app you work on, us going to need it's own custom validators,
-but before we go ahead and do that, let's see how we can integrate this with
-out application. 
+The validators are self-explanatory, with the exception of \lstinline{compose}. \lstinline{compose} will allow you to combine multiple validators and return an error map for them. 
+
+There is the ability to make custom validators, and most likely any app you work on, us going to need it's own custom validators, but before we go ahead and do that, let's see how we can integrate this with out application. 
 
 \section{Integrating Form Validators within Component}
-Let's imagine that we have a newsletter component within our application. We 
-want to ensure the user uses an email pattern, and it is also required. We write 
-the following: 
+Let's imagine that we have a newsletter component within our application. We want to ensure the user uses an email pattern, and it is also required. We write the following: 
 \begin{lstlisting}
 ngOnInit() {
   this.newsletterForm = this.fb.group({
@@ -46,11 +37,9 @@ ngOnInit() {
 }
 \end{lstlisting}
 
-As we can see using the above we have added two native angular validators to
-our formControl field email. This is the process wherein we would add Angular 
-form validators to our application. It should be noted that in Angular, when 
-we want to use multiple validators, we place them in a sub-array, within the 
-array for the \lstinline{fb.group}.
+Using the above we have added two native angular validators to our formControl field email. 
+
+This is the process where we would add Angular form validators to our application. It should be noted that in Angular, when we want to use multiple validators, we place them in a sub-array, within the array for the \lstinline{fb.group}.
 
 \section{Integrating Form Validators within HTML Template}
 If we would like to integrate our form validators within our app, so that when 
@@ -63,22 +52,13 @@ we click on the button, they get triggered, we would do the following:
 </ng-container>
 \end{lstlisting}
 
-In the above, we are creating a way of displaying the error if it appears. It 
-should only appear if a user has actually touched the email field. 
+In the above, we are creating a way of displaying the error if it appears. It should only appear if a user has actually touched the email field. 
 
 \section{Custom Validators}
-As mentioned before, odds are your application, will also need it's own set of
-custom validators. Custom validators require their own function that returns 
-true, based on value pass through. That function is then be hooked into 
-the validators array. However, Razroo believes it is more scalable if we create
-a directive that can be used to automatically create validation for our form. 
-In addition, if we create a separate function for the directive, it allows us to
-re-use the functionality for the directive without directly using the directive.
+As mentioned before, odds are your application, will also need it's own set of custom validators. Custom validators require their own function that returns true, based on value pass through. That function is then be hooked into the validators array. However, Razroo believes it is more scalable if we create a directive that can be used to automatically create validation for our form. In addition, if we create a separate function for the directive, it allows us to re-use the functionality for the directive without directly using the directive.
 
 \subsection{Creating Custom Directive Validator}
-Let's create a custom directive validator for numbers. We are using the NX 
-workspace. In addition, we are using the Razroo reccommended folder structure. 
-A custom directive validator, will go in the common folder for directives. 
+Let's create a custom directive validator for numbers. We are using the NX workspace. In addition, we are using the Razroo reccommended folder structure. A custom directive validator, will go in the common folder for directives. 
 
 \subsubsection{Generate The Directive}
 \begin{verbatim}
@@ -97,8 +77,7 @@ So now let's navigate to our number folder:
 cd number;  
 \end{verbatim}  
 
-and run the appropriate Angular CLI command for generating a directive, 
-and exporting it within our \lstinline{CommonDirectivesModule}
+and run the appropriate Angular CLI command for generating a directive, and exporting it within our \lstinline{CommonDirectivesModule}
 
 \begin{verbatim}
 ng g directive number --export  
@@ -161,8 +140,7 @@ export class NumberDirective implements Validator {
 }  
 \end{lstlisting}
 
-We now have the ability to use this as a directive within our application. It 
-should be noted that we are doing two unique things within our directive. 
+We now have the ability to use this as a directive within our application. It should be noted that we are doing two unique things within our directive. 
 \begin{enumerate}
   \item \lstinline{Validator} -  Our class is implementing \lstinline{Validator}
   which is the same internal function used for validating a formControl. 
@@ -192,8 +170,9 @@ component.
 As you can see, all we had to add to our input is the directive for 
 \lstinline{razrooNumber}. We can then the appropriate \lstinline{mat-error}
 within our application in order to hook into the respective error created for number.
-The reason it is number, is that within our number validator, we are returning a 
-boolean for number. 
+
+The reason is that within our number validator we are returning a 
+boolean. 
 
 \subsection{A Word on This Approach}
 If you were to take a look at the documentation, it offers two approaches.
@@ -202,59 +181,31 @@ If you were to take a look at the documentation, it offers two approaches.
   \item Reactive Custom Validators 
 \end{enumerate}
 
-Razroo reccommends this approach for using directives, which is a bit contrary to our 
-general suggestion of using Reactive Forms. It is our understanding, that reactive 
-forms are extremely valuable, because they group the form as one. Making it 
-easily accessible from the Typescript side of things. However, in this
-particular aspect, of re-using custom validators, re-using functions as a utility 
-function, we feel makes the app more brittle than directives. Primarily, because 
-directives are more explicit. 
+This is my recommended approach for using directives, which is a bit contrary to our general suggestion of using Reactive Forms. Reactive forms are extremely valuable because they group the form as one. This makes it easily accessible from the Typescript side of things. 
 
-That being said, with our approach, we are separating the logic of validation from 
-the actual directive. Moving forward if your team, or other teams within your 
-organization would like to use different approaches, they do have the 
-flexibility to do so. 
+Re-using custom validators, re-using functions as a utility function can make the app more brittle than directives. This is because directives are more explicit. 
+
+By doing this, we are separating the logic of validation from the actual directive. Moving forward if your team, or other teams within your organization would like to use different approaches, they do have the flexibility to do so. 
 
 \section{Cross Field Validation}
-When I first came across the term "cross field validation", I was a bit 
-confused. I thought of it as a way for different field's validation to 
-be dependent on each other. After reading more, I found that "cross 
-field" validation is exactly that. We are validating our field based on 
-two field's correlation to each other. 
+When I first came across the term "cross field validation", I was a bit confused. I thought of it as a way for different field's validation to be dependent on each other. After reading more, I found that "cross field" validation is exactly that. We are validating our field based on two field's correlation to each other. 
 
-For instance, let's say we are working on a finance application. We only want
-the "Business Loan Amount" input field to show, if yearly gross income minus expenses, 
-exceeds \$100,000. We would be able to set up the internal Angular form validators,
-so that the loan-amount is invalid, if this cross field reference(grosss) is not valid. 
+For example, let's say we are working on a finance application. We only want the "Business Loan Amount" input field to show, if yearly gross income minus expenses, exceeds \$100,000. We would be able to set up the internal Angular form validators, so that the loan-amount is invalid, if this cross field reference(grosss) is not valid. 
 
-THe one point to keep in mind, is that cross field validation is distinct 
-from single form validation in two regards: 
+The one point to keep in mind, is that cross field validation is distinct from single form validation in two regards: 
 \begin{enumerate}
   \item The validator will be used on two, or more form validators. This 
   means, that we need access to the parent level formControl.
-  \item The validator will need to be aware of the specific field that it is
-  operating on. Therefore usability will be limited to the app, and most likely
-  will not make sense to be re-usable. 
+  \item The validator will need to be aware of the specific field that it is operating on. Therefore usability will be limited to the app, and most likely will not make sense to be re-usable. 
 \end{enumerate}
 
 \mybox{It should be noted, that based on the above, being that cross field 
-validation tends to be component specific, contrary to our reccomendation above
-of using a directive for a single field validation, we would reccomend using a 
-function. However, as teams are wont to do, they are going to want to have 
-the flexibility to choose how they want to integrate with their app. So we still
-will be following the separate directive and validate function approach.}
+validation tends to be component specific, contrary to our reccomendation above of using a directive for a single field validation, we would recommend using a function. However, as teams are wont to do, they are going to want to have the flexibility to choose how they want to integrate with their app. So we still will be following the separate directive and validate function approach.}
 
 \subsection{Sample Validator Logic}
-For the sake of brevity, we will not go through the steps we did earlier, re: 
-proper folder structure, directive generation, and respective function. Just one 
-note that I would like to make. We mentioned earlier, that due to cross field 
-validators usually being unique to specific business logic, we prefer the use 
-reactive form validator functions. Therefore, as opposed to prior single field 
-validators going in the \lstinline{common/directives} folder, multiple form 
-validators will go in the app specific folder (e.g. \lstinline{razroo/common/directives}).
+For the sake of brevity, we will not go through the steps we did earlier, re: proper folder structure, directive generation, and respective function. Just one note that I would like to make. We mentioned earlier, that due to cross field validators usually being unique to specific business logic, we prefer the use reactive form validator functions. Therefore, as opposed to prior single field validators going in the \lstinline{common/directives} folder, multiple form validators will go in the app specific folder (e.g. \lstinline{razroo/common/directives}).
 
-However, we will go into the validator logic required for multiple \lstinline{formControl} 
-values. 
+However, we will go into the validator logic required for multiple \lstinline{formControl} values. 
 
 \subsubsection{Creating the Service}
 
@@ -278,15 +229,13 @@ export class LoanAmountValidatorService {
 }  
 \end{lstlisting}
 
-As we can see in the above code, our logic is now tapping into the entire 
-\lstinline{formGroup} control. We are: 
+As we can see in the above code, our logic is now tapping into the entire \lstinline{formGroup} control. We are: 
 \begin{enumerate}
   \item Targeting every field that we need.
   \item Creating logic, based on those two fields.    
 \end{enumerate}
 
-Cross form validation logic integration with our directive, is straightforward and very similar 
-to how single form validation works: 
+Cross form validation logic integration with our directive, is straightforward and very similar to how single form validation works: 
 
 \begin{lstlisting}[caption=loan-amount.directive.ts]
 import { Directive } from '@angular/core';
@@ -309,9 +258,7 @@ export class LoanAmountDirective implements Validator {
 
 \subsubsection{Creating the Directive}
 
-Here we are just pulling in the service, and tucking it into our validate function. So, 
-now using our prefferred approach of reactive form validators, for cross field validation, 
-integrating it, would be as simple as this:
+Here we are just pulling in the service, and tucking it into our validate function. So, now using our prefferred approach of reactive form validators, for cross field validation, integrating it, would be as simple as this:
 
 \begin{lstlisting}[caption=finance-calculator.component.ts]
 constructor(private fb: FormBuilder,
@@ -326,8 +273,7 @@ ngOnInit() {
 
 \subsubsection{Creating the error}
 
-Integrating the error within our app, is exactly as we would have done for a
-singular field.
+Integrating the error within our app, is exactly as we would have done for a singular field.
 
 \begin{lstlisting}[caption=finance-calculator.component.html]
 <ng-container *ngIf="finance.invalid && (finance.dirty || finance.touched)">
@@ -336,31 +282,15 @@ singular field.
 \end{lstlisting}
 
 \section{Async Validation}
-An async validator, is a validator which returns an observable(promises work too, but 
-we do not reccomend using a promise within an Angular setting). One other important 
-note, is that the Observable must be finite i.e. end. So adding something like 
-\lstinline{first} to the async directive more than works. 
+An async validator, is a validator which returns an observable(promises work too, but we do not reccomend using a promise within an Angular setting). One other important note, is that the Observable must be finite i.e. end. So adding something like \lstinline{first} to the async directive more than works. 
 
-A classic example with async validation is to see if a username is taken already. 
-In order to give the user instant feedback, we can make an http request everytime
-the user types in the input. A validator is a one to one relationship, and is not 
-meant to have a lifecycle beyond that of the initial validation. Using state for 
-something like this would be overkill. However, we do use GraphQL within our 
-application. So, we are going to return an observable, and call first on it. 
+A classic example with async validation is to see if a username is taken already. In order to give the user instant feedback, we can make an http request every time the user types in the input. A validator is a one to one relationship, and is not meant to have a lifecycle beyond that of the initial validation. Using state for something like this would be overkill. However, we do use GraphQL within our application. So, we are going to return an observable, and call first on it. 
 
 \subsection{Integrating Service with Component for Async Validation}
 The nature of async validators is they need to use the backend to operate. 
-Therefore using a directive is out of the question. It would be too brittle,
-and a hack to make work. I am not going to discuss the code behind service
-actually making request. Reason is, that use cases wherein we would use 
-asynchronous validation, is usually in an enterprise setting, and it's one
-team building it for the entire organization. I feel like the use case for 
-something like this so rare, albeit useful when the time arises. I want to 
-discuss it more conceptually, so you know when to use something like this.
+Therefore using a directive is out of the question. It would be too brittle, and a hack to make work. I am not going to discuss the code behind service actually making request. Reason is, that use cases wherein we would use asynchronous validation, is usually in an enterprise setting, and it's one team building it for the entire organization. I feel like the use case for something like this so rare, albeit useful when the time arises. I want to discuss it more conceptually, so you know when to use something like this.
 
-So that being said, let's assume that we have a service that returns a
-finite observable. It makes a request and determines whether, or not the user
-email is already taken.
+So that being said, let's assume that we have a service that returns a finite observable. It makes a request and determines whether, or not the user email is already taken.
 \begin{lstlisting}[caption=user-signup.component.ts]
 ngOnInit() {
   this.myForm = this.fb.group({
@@ -389,15 +319,7 @@ Within our template, we would do the following:
 \end{lstlisting}
 
 \section{ Performance Concerns }
-All validators are run after every form value change. As in, when an input 
-value is changed, the validator will be run after every letter/number is added. 
-Sychronous validators, which are not dependent on the backend, generally do 
-not suffer from performance issues in this regard. However, when doing 
-something like making an http request after every time a letter is clicked, it 
-can be expensive. There is a general reccomended approach of making validators 
-run on \lstinline{blur}, or \lstinline{submit} instead. So, let's say in our 
-app, we want the http request to only be made if the user clicks off of the 
-input, we would do something like the following:
+All validators are run after every form value change. As in, when an input value is changed, the validator will be run after every letter/number is added. Sychronous validators, which are not dependent on the backend, generally do not suffer from performance issues in this regard. However, when doing something like making an http request after every time a letter is clicked, it can be expensive. There is a general reccomended approach of making validators run on \lstinline{blur}, or \lstinline{submit} instead. So, let's say in our app, we want the http request to only be made if the user clicks off of the input, we would do something like the following:
 
 \begin{lstlisting}[caption=Updated user-signup.component.ts]
 ngOnInit() {
@@ -414,10 +336,4 @@ ngOnInit() {
 \end{lstlisting}
 
 \section{A Final Note on Form Validators}
-Form validation is an integral part of any application. The wonderful way 
-about how Angular does things really shine with the way they approach form 
-validation. Form validation is particularly difficult, because due to it's 
-repetitive nature, and existing outside of component logic. By following 
-the \lstinline{common/directive} architecture for single field validation, and
-the \lstinline{<app>/common/service/validators} architecture for cross field 
-validation, your organization and app, will be in a very good place to scale.
+Form validation is an integral part of any application. The wonderful way about how Angular does things really shine with the way they approach form validation. Form validation is particularly difficult, because due to it's repetitive nature, and existing outside of component logic. By following the \lstinline{common/directive} architecture for single field validation, and the \lstinline{<app>/common/service/validators} architecture for cross field validation, your organization and app, will be in a very good place to scale.
