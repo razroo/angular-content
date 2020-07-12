@@ -4,7 +4,7 @@
  What is a Constant? 
 --------------------
 
-In Javascript the idea of having a constant would be assigning a
+In JavaScript the idea of having a constant would be assigning a
 variable, to a particular value. Whenever we would like that value,
 instead of typing out the value, we would use the variable. At first,
 however, it might seem counter-intuitive. Why use the constant value, if
@@ -57,7 +57,7 @@ export class DeleteValue implements Action {
 ###  Communicate to Maintainers 
 
 If using a constant value, it signifies to future maintainers of your
-code, that this is a value which is immutable. Further distinguishing
+code that this is a value which is immutable. Further distinguishing
 intent of application/snippet of code.
 
 ###  Helps Secure Values 

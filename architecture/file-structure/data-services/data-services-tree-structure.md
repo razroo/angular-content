@@ -1,17 +1,6 @@
-libs
-├── px-illustrator/
-│   ├── data-services/
-│   │   ├── src/
-│   │   │   ├── lib/
-│   │   │   │   ├── services/
-│   │   │   │   │   ├── user/
-│   │   │   │   │   │   ├── user.service.ts
-│   │   │   │   │   │   └── user.service.spec.ts
-│   │   ├── index.ts
-│   │   └── test.ts
-│   ├── karma.conf,file
-│   ├── README.md,file
-│   ├── tsconfig.lib,file
-│   ├── tsconfig.lib.json,file
-│   ├── tsconfig.spec.json,file]
-│   └── tslint.json,file
+\[libs \[px-illustrator \[data-services \[src \[lib \[services \[user
+\[\_user.service.ts,file\] \[\_user.service.spec.ts,file\] \] \] \]
+\[\_index.ts,file\] \[\_test.ts,file\] \] \[\_karma.conf,file\]
+\[\_README.md,file\] \[\_tsconfig.lib,file\]
+\[\_tsconfig.lib.json,file\] \[\_tsconfig.spec.json,file\]
+\[\_tslint.json,file\] \] \] \]

@@ -1,0 +1,60 @@
+ Data Services - Directory Structure 
+====================================
+
+In an \@ngrx/store setting, a very large part of an app's services will
+be directed towards handling data directly. For instance, let's say you
+have a GraphQL user query that get's a current user's data. The service
+would look something like this:
+
+    import { Injectable } from '@angular/core'
+    import { Observable, from } from 'rxjs';
+    import { pluck } from 'rxjs/operators';
+    import { Apollo } from 'apollo-angular';
+
+    @Injectable({ providedIn: 'root' })
+    export class UserService {
+      getUser(): Observable<User> {
+        const user$ = this.apollo.query({ query: GetCurrentUser });
+
+        return from(user$).pipe(pluck('data', 'getCurrentUser'));
+      }
+      constructor(private apollo: Apollo) {}
+    }
+
+It's a rough guess, but odds are that 80% of services within any Angular
+app, will be built to directly work with data. These services will be
+used by a number of effects. In addition, they will contain their own
+respective unit tests.
+
+ Setting the Landscape 
+----------------------
+
+As of Angular 6, Angular offers a metadata option called providedIn. In
+short, if providedIn is set to 'root', it allows us to bypass the need
+of using a module, and creates a tree-shakable version [^1].
+
+Therefore, the bundler will be able to tell if this service is being
+used in a particular module. If it is not, service will not be bundled
+with particular module. This allows us to be very liberal with our
+services and put them in a central location. (Of course we would be able
+to do this with a module, but it make's it more architecturally
+appealing without the need of using a module)
+
+ Data Services Folder/File Structure 
+------------------------------------
+
+\[libs \[px-illustrator \[data-services \[src \[lib \[services \[user
+\[\_user.service.ts,file\] \[\_user.service.spec.ts,file\] \] \] \]
+\[\_index.ts,file\] \[\_test.ts,file\] \] \[\_karma.conf,file\]
+\[\_README.md,file\] \[\_tsconfig.lib,file\]
+\[\_tsconfig.lib.json,file\] \[\_tsconfig.spec.json,file\]
+\[\_tslint.json,file\] \] \] \]
+
+Just as simple as that. We have a central location called data-services
+where we put bulk of services that deal with retrieving data, and
+returning it as an observable. If you want to be really technical about
+it, you can create every data-service as it's own lib. However, I think
+this is a bit much, as services tend to not touch the DOM and run really
+fast as unit tests.
+
+[^1]: https://angular.io/guide/dependency-injection-providers\#creating-tree-shakable-providers

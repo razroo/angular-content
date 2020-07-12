@@ -1,18 +1,6 @@
-libs
-├── px-illustrator/
-│   ├── data-graphql/
-│   │   ├── src/
-│   │   │   ├── lib/
-│   │   │   │   ├── user/
-│   │   │   │   │   ├── user.fragments.ts
-│   │   │   │   │   ├── user.mutations.ts
-│   │   │   │   │   ├── user.queries.ts
-│   │   │   │   │   └── user.subscriptions.ts
-│   │   ├── index.ts
-│   │   └── test.ts
-│   ├── karma.conf,file
-│   ├── README.md,file
-│   ├── tsconfig.lib,file
-│   ├── tsconfig.lib.json,file
-│   ├── tsconfig.spec.json,file]
-│   └── tslint.json,file
+\[libs \[px-illustrator \[data-models \[src \[lib \[user
+\[\_user.fragments.ts,file\] \[\_user.mutations.ts,file\]
+\[\_user.queries.ts,file\] \[\_user.subscriptions.ts,file\] \] \]
+\[\_index.ts,file\] \[\_test.ts,file\] \] \[\_README.md,file\]
+\[\_tsconfig.lib,file\] \[\_tsconfig.lib.json,file\]
+\[\_tsconfig.spec.json,file\] \[\_tslint.json,file\] \] \] \]

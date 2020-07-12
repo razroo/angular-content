@@ -1,28 +1,13 @@
-libs
-├── px-illustrator/
-│   ├── data-access/
-│   │   ├── code-box/
-│   │   │   ├── src/
-│   │   │   │   ├── lib/
-│   │   │   │   ├── +state
-│   │   │   │   ├── code-box.actions.ts,file]
-│   │   │   │   ├── code-box.adapter.ts,file]
-│   │   │   │   ├── code-box.effects.spec.ts,file]
-│   │   │   │   ├── code-box.effects.ts,file]
-│   │   │   │   ├── code-box.facade.mock.ts,file]
-│   │   │   │   ├── code-box.facade.spec.ts,file]
-│   │   │   │   ├── code-box.facade.ts,file]
-│   │   │   │   ├── code-box.reducer.spec.ts,file]
-│   │   │   │   ├── code-box.reducer.ts,file]
-│   │   │   │   └── code-box.selectors.ts,file]
-│   │   │   ├── px-illustrator-data-access-code-box.module.ts,file]
-│   │   │   ├── px-illustrator-data-access-code-box.module.spec.ts,file]
-│   │   │   └── px-illustrator-data-access-code-box-testing.module.spec.ts,file]
-│   │   ├── index.ts
-│   │   └── test.ts
-│   ├── karma.conf,file
-│   ├── README.md,file
-│   ├── tsconfig.lib,file
-│   ├── tsconfig.lib.json,file
-│   ├── tsconfig.spec.json,file]
-│   └── tslint.json,file
+\[libs \[px-illustrator \[data-access \[code-box \[src \[lib \[\_+state
+\[\_code-box.actions.ts,file\] \[\_code-box.adapter.ts,file\]
+\[\_code-box.effects.spec.ts,file\] \[\_code-box.effects.ts,file\]
+\[\_code-box.facade.mock.ts,file\] \[\_code-box.facade.spec.ts,file\]
+\[\_code-box.facade.ts,file\] \[\_code-box.reducer.spec.ts,file\]
+\[\_code-box.reducer.ts,file\] \[\_code-box.selectors.ts,file\] \]
+\[\_px-illustrator-data-access-code-box.module.ts,file\]
+\[\_px-illustrator-data-access-code-box.module.spec.ts,file\]
+\[\_px-illustrator-data-access-code-box-testing.module.spec.ts,file\] \]
+\[\_index.ts,file\] \[\_test.ts,file\] \] \[\_karma.conf,file\]
+\[\_README.md,file\] \[\_tsconfig.lib,file\]
+\[\_tsconfig.lib.json,file\] \[\_tsconfig.spec.json,file\]
+\[\_tslint.json,file\] \] \] \] \]
