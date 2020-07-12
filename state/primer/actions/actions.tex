@@ -25,9 +25,10 @@ export class CodeBoxLoaded extends Action {
 This is an example representation of your classic action. It contains the type of action. So that in you reducer, or effect, we can trigger reduce(combine) data passed in, with data already present.
 
 \mybox{In an Angular/Typescript setting, you will commonly find a general export type, for the entire app:
-  export type Actions = LoadCodeBox | CodeBoxLoaded;
 
-This is usually used within the reducer, and is called a union interface type. It allows us to combine the type for numerous actions within a single type. We can then pass this as a type to a reducer, and make sure that we do not introduce any action beyond that for the particular feature state. It's a great way to make the develop think twice, if they introduce an action outside of the feature state into the app.
+\lstinline{export type Actions = LoadCodeBox | CodeBoxLoaded;}
+
+This is usually used within the reducer, and is called a union interface type. It allows us to combine the type for numerous actions within a single type. We can then pass this as a type to a reducer, and make sure that we do not introduce any action beyond that for the particular feature state. It's a great way to make the develop think twice, if they introduce an action outside of the feature state into the app.}
 
 \section{An example of using an Action in an Angular setting}
 Generally, an action will only be used in a variety of situations such as an effect, facade, or guard. As a simple example, let's use it in a facade.
