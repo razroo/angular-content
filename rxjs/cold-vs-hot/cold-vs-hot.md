@@ -14,7 +14,7 @@ To re-iterate, an observable is called \"cold\", when the data is
 produced inside of the observable. An observable is only instantiated,
 once the subscribe is called. So, we can have something like this:
 
-``` {caption="observable without subscribe"}
+```ts {caption="observable without subscribe"}
 import { Subject } from 'rxjs';
 
 const randomVal$ = new Subject().next(Math.random());}
@@ -23,7 +23,7 @@ const randomVal$ = new Subject().next(Math.random());}
 That will actually create an observable, but it will not be called until
 we add a `subscribe` to the code.
 
-``` {caption="observable with subscribe"}
+```ts {caption="observable with subscribe"}
 import { Subject } from 'rxjs';
 
 const randomVals$ = new Subject().next(Math.random());
