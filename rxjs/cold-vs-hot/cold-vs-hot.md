@@ -37,7 +37,7 @@ singular observable, yet get different results each time. If in the
 above code, we created two subscribes, so that our code now looks like
 this:
 
-``` {caption="observable with two subscribes"}
+```ts
 import { Subject } from 'rxjs';
 
 const randomVals$ = new Subject().next(Math.random());
@@ -58,7 +58,7 @@ However, let's say that we wanted to maintain the same random value for
 both subscribers. What we would do, is create a constant outside of the
 subject logic, so that it remains the same value for both.
 
-``` {caption="Turning Cold into Hot"}
+```ts
 import { Subject } from 'rxjs';
 
 const random = Math.random();
@@ -87,7 +87,7 @@ observable is, we have not produced an enterprise example, that really
 drives it home. The truth is, that actually `@ngrx/store` is based on
 hot observables. In particular when using `@ngrx/effects`.
 
-``` {caption="posts.effects.ts"}
+```ts
 @Effect() loadPosts$ = this.dataPersistence.fetch(
   PostsActionTypes.LoadPosts,
   {
@@ -109,7 +109,7 @@ we are using nrwl's utility function `dataPersistence` to make sure our
 data persists. If we dig deep, we will see that it extends this core
 functionality of `ngrx/effects`:
 
-``` {caption="data-persistence.d.ts file from nrwl library"}
+```ts
 /**
 * @whatItDoes Provides convenience methods for implementing common operations of persisting data.
 */
@@ -119,7 +119,7 @@ export declare class DataPersistence<T> {
   constructor(store: Store<T>, actions: Actions);  
 ```
 
-``` {caption="actions.d.ts file from ngrx/effects library"}
+```ts
 export declare class Actions<V = Action> extends Observable<V> {
   constructor(source?: Observable<V>);
   lift<R>(operator: Operator<V, R>): Observable<R>;
