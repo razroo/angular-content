@@ -1,5 +1,4 @@
-Introduction
-============
+# Introduction
 
 The current landscape of UI development is in an interesting place. The
 capacity of web based technologies performing tasks that were previously
@@ -126,8 +125,8 @@ The structure of this book will work in concise outlines, easily
 accessible through numerical listing. I find it much easier to think in
 outlines than having to traverse through long paragraphs.
 
-Enterprise examples in Core
----------------------------
+## Enterprise examples in Core
+
 
 A lot of technical books just either give you giant paragraphs or
 chapters. Either that or they give you examples that aren't easily
@@ -139,8 +138,7 @@ that you may be able to apply right away to your current projects.
 Even if you haven't finished the book from cover to cover, you'll still
 have something workable right away.
 
- We Have Best Practices 
------------------------
+## We Have Best Practices 
 
 This book is developed around best practices for how to develop
 enterprise level UI applications with Angular. It's also good to note
