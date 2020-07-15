@@ -1,4 +1,4 @@
-@import "./introduction/introduction.md.md";
+@import "./introduction/introduction.md";
 @import "./dev-tools/dependency-graph/dependency-graph.md";
 @import "./dev-tools/angular-cli/angular-cli.md";
 @import "./dev-tools/nrwl/nrwl.md";
