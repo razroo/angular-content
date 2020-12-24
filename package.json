@@ -10,6 +10,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-pdf": "wr -h"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build",
+      "pre-push": "npm run build"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CharlieGreenman/latex-documentation.git"
@@ -23,6 +29,12 @@
     "url": "https://github.com/CharlieGreenman/latex-documentation/issues"
   },
   "homepage": "https://github.com/CharlieGreenman/latex-documentation#readme",
+  "dependencies": {
+    "@razroo/razroo-markdown-engine": "^1.1.0",
+    "glob": "^7.1.6",
+    "husky": "^4.3.0",
+    "mkdirp": "^1.0.4"
+  },
   "devDependencies": {
     "chokidar": "^2.1.6",
     "glob": "^7.1.4",

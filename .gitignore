@@ -49,3 +49,5 @@ Backup[ ]of[ ]*.numbers/
 .idea/
 
 node_modules
+.env
+.vscode
