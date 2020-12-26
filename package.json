@@ -4,6 +4,7 @@
   "description": "A latex skeleton and build, for seamlessly building out documentation time and time again. ",
   "main": "index.js",
   "scripts": {
+    "build": "node build.js",
     "initial": "pdflatex main.tex",
     "start": "node watcher.js & open -a Skim main.pdf",
     "start-linux": "node watcher.js & evince main.pdf",
