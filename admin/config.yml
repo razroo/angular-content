@@ -1,0 +1,48 @@
+backend:
+  repo: razroo/angular-the-full-gamut-markdown-test
+  name: github
+  branch: main # Branch to update (optional; defaults to master)
+publish_mode: editorial_workflow
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+collections:
+  - name: "ngrx-router-store" # Used in routes, e.g., /admin/collections/blog
+    label: "ngrx-router-store" # Used in the UI
+    folder: "state/ngrx-router-store" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "ngrx-entity" # Used in routes, e.g., /admin/collections/blog
+    label: "ngrx-entity" # Used in the UI
+    folder: "state/ngrx-entity" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "heavily-use" # Used in routes, e.g., /admin/collections/blog
+    label: "heavily-use" # Used in the UI
+    folder: "state/ngrx-entity/heavily-use" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "ngrx-effects" # Used in routes, e.g., /admin/collections/blog
+    label: "ngrx-effects" # Used in the UI
+    folder: "state/ngrx-effects" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "using-effects-for-async" # Used in routes, e.g., /admin/collections/blog
+    label: "using-effects-for-async" # Used in the UI
+    folder: "state/ngrx-effects/using-effects-for-async" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
