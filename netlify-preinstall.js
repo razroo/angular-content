@@ -11,7 +11,7 @@ if (process.env.NETLIFY === 'true') { // this is a default Netlify environment v
 	// Check if .npmrc already exists, if it does then do nothing (otherwise we create an infinite yarn loop)
 	if (!fs.existsSync('.npmrc')) {
 		// Create .npmrc
-		fs.writeFileSync('.npmrc', `//npm.pkg.github.com/:_authToken=${process.env.GITHUB_TOKEN}\n@oliverit:registry=https://npm.pkg.github.com/\n`)
+		fs.writeFileSync('.npmrc', `//npm.pkg.github.com/:_authToken=${process.env.NPM_TOKEN}\n`)
 		fs.chmodSync('.npmrc', 0o600)
 		// Run yarn again, because the yarn process which is executing
 		// this script won't pick up the .npmrc file we just created.
