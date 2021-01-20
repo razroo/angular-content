@@ -9,7 +9,9 @@
     "start": "node watcher.js & open -a Skim main.pdf",
     "start-linux": "node watcher.js & evince main.pdf",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-pdf": "wr -h"
+    "watch-pdf": "wr -h",
+    "preinstall": "node ./netlify-preinstall.js"
+
   },
   "husky": {
     "hooks": {
