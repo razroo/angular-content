@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/CharlieGreenman/latex-documentation#readme",
   "dependencies": {
-    "@razroo/razroo-markdown-engine": "1.1.0",
+    "@razroo/razroo-markdown-engine": "1.2.2",
     "glob": "^7.1.6",
     "husky": "^4.3.0",
     "mkdirp": "^1.0.4"
