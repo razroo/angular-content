@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node build.js",
     "initial": "pdflatex main.tex",
-    "start": "node watcher.js & open -a Skim main.pdf",
+    "start": "node build.js",
     "start-linux": "node watcher.js & evince main.pdf",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-pdf": "wr -h"
