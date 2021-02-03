@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
-  repo: razroo/angular-the-full-gamut-cms
-  branch: main
+  repo: razroo/angular-the-full-gamut-markdown
+  branch: laurell-RD-1
   base_url: "https://angular-the-full-gamut-cms.netlify.app"
 
 publish_mode: editorial_workflow
