@@ -4,7 +4,7 @@
   "description": "A latex skeleton and build, for seamlessly building out documentation time and time again. ",
   "main": "index.js",
   "scripts": {
-    "build": "cd admin && react-scripts build",
+    "build": "cd admin && build index.html",
     "initial": "pdflatex main.tex",
     "start": "node build.js",
     "start-linux": "node watcher.js & evince main.pdf",
