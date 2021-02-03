@@ -1,0 +1,1465 @@
+backend:
+  name: git-gateway
+  repo: razroo/angular-the-full-gamut-cms
+  branch: main
+  base_url: "https://angular-the-full-gamut-cms.netlify.app"
+
+publish_mode: editorial_workflow
+
+media_folder: "content/static/public/images"
+public_folder: "/content/images/uploads"
+
+collections:
+- label: "Architecture" # Used in the UI
+  name: "architecture" # Used in routes, e.g., /admin/collections/blog
+  # folder: "/content/architecture" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  files:
+  - label: "Angular Elements"
+    name: "angular-elements"
+    file: "/content/architecture/angular-elements/angular-elements.md"
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Static Site Generation"
+  #   name: "static-site-generation"
+  #   file: "/architecture/angular-elements/static-site-generation/static-site-generation.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Angular React"
+  #   name: "angular-react"
+  #   file: "/architecture/angular-react/angular-react.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Creating a Config"
+  #   name: "creating-a-config"
+  #   file: "/architecture/configs/creating-a-config/creating-a-config.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Feature Flags"
+  #   name: "feature-flags"
+  #   file: "/architecture/configs/feature-flags/feature-flags.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Custom Web Components"
+  #   name: "custom-web-components"
+  #   file: "/architecture/custom-web-components/custom-web-components.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Dialogs"
+  #   name: "dialogs"
+  #   file: "/architecture/dialogs/dialogs.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Environment"
+  #   name: "environment"
+  #   file: "/architecture/environment/environment.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Error Handling"
+  #   name: "error-handling"
+  #   file: "/architecture/error-handling/error-handling.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "App File Structure"
+  #   name: "app-file-structure"
+  #   file: "/architecture/file-structure/app-file-structure/app-file-structure.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Data Access"
+  #   name: "data-access"
+  #   file: "/architecture/file-structure/data-access/data-access.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Data Services"
+  #   name: "data-services"
+  #   file: "/architecture/file-structure/data-services/data-services.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Lib File Structure"
+  #   name: "lib-file-structure"
+  #   file: "/architecture/file-structure/lib-file-structure/lib-file-structure.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "NX Lib Conventions"
+  #   name: "nx-lib-conventions"
+  #   file: "/architecture/file-structure/nx-lib-conventions/nx-lib-conventions.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Setting up Lib Folder Structure"
+  #   name: "setting-up-lib-folder-structure"
+  #   file: "/architecture/file-structure/setting-up-lib-folder-structure/setting-up-lib-folder-structure.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Forms Validation"
+  #   name: "form-validation"
+  #   file: "/architecture/forms/form-validation/form-validation.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Interceptors"
+  #   name: "interceptors"
+  #   file: "/architecture/interceptors/interceptors.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Lazy Loading"
+  #   name: "lazy-loading"
+  #   file: "/architecture/lazy-loading/lazy-loading.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Lazy Loading Images"
+  #   name: "lazy-loading-images"
+  #   file: "/architecture/lazy-loading/lazy-loading-images/lazy-loading-images.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Network Aware Preloading"
+  #   name: "network-aware-preloading"
+  #   file: "/architecture/lazy-loading/network-aware-preloading/network-aware-preloading.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Micro Frontends"
+  #   name: "micro-frontends"
+  #   file: "/architecture/micro-frontends/micro-frontends.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Micro Architecture"
+  #   name: "micro-architecture"
+  #   file: "/architecture/micro-frontends/micro-architecture/micro-architecture.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Modules"
+  #   name: "modules"
+  #   file: "/architecture/modules/shared-modules/shared-modules.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Containers and Routing"
+  #   name: "containers-and-routing"
+  #   file: "/architecture/routing/containers-and-routing/containers-and-routing.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Guards"
+  #   name: "guards"
+  #   file: "/architecture/routing/guards/guards.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Route Guard Preloading"
+  #   name: "route-guard-pre-loading"
+  #   file: "/architecture/routing/route-guard-pre-loading/route-guard-pre-loading.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Smart VS Dumb Components"
+  #   name: "smart-vs-dumb-components"
+  #   file: "/architecture/smart-vs-dumb-components/smart-vs-dumb-components.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Transloco"
+  #   name: "transloco"
+  #   file: "/architecture/transloco/transloco.md"
+  #   fields:
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "State" # Used in the UI
+#   name: "state" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Aggregation Pattern"
+#     name: "aggregation-pattern"
+#     file: "/state/aggregation-pattern/aggregation-pattern.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+        
+#   - label: "Correlation ID Service"
+#     name: "correlation-id-service"
+#     file: "/state/correlation-id-service/correlation-id-service.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+              
+#   - label: "Data Access"
+#     name: "data-access"
+#     file: "/state/data-access/data-access.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                          
+#   - label: "Facade Pattern"
+#     name: "facade-pattern"
+#     file: "/state/facade-pattern/facade-pattern.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                                
+#   - label: "History of State Management"
+#     name: "history-of-state-management"
+#     file: "/state/history-of-state-management/history-of-state-management.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                                      
+#   - label: "Integrating Component with NgRx Store"
+#     name: "integrating-component-with-ngrx-store"
+#     file: "/state/integrating-component-with-ngrx-store/integrating-component-with-ngrx-store.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Introduction to NgRx Store"
+#     name: "introduction-to-ngrx-store"
+#     file: "/state/introduction-to-ngrx-store/introduction-to-ngrx-store.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "NgRx CLI"
+#     name: "ngrx-cli"
+#     file: "/state/ngrx-cli/ngrx-cli.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "NgRx Effects"
+#     name: "ngrx-effects"
+#     file: "/state/ngrx-effects/ngrx-effects.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Using Effects for Async"
+#     name: "using-effects-for-async"
+#     file: "/state/ngrx-effects/using-effects-for-async/using-effects-for-async.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "NgRx Entity"
+#     name: "ngrx-entity"
+#     file: "/state/ngrx-entity/ngrx-entity.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Heavily Use"
+#     name: "heavily-use"
+#     file: "/state/ngrx-entity/heavily-use/heavily-use.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "NgRx Properly Unsubscribing"
+#     name: "ngrx-properly-unsubscribing"
+#     file: "/state/ngrx-properly-unsubscribing/ngrx-properly-unsubscribing.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "NgRx Router Store"
+#     name: "ngrx-router-store"
+#     file: "/state/ngrx-router-store/ngrx-router-store.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "NgRx Store"
+#     name: "ngrx-store"
+#     file: "/state/ngrx-store/ngrx-store.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Primer Actions"
+#     name: "primer-actions"
+#     file: "/state/primer/actions/actions.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Primer Reducers"
+#     name: "primer-reducers"
+#     file: "/state/primer/reducers/reducers.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Reusable State Anit-Pattern"
+#     name: "re-usable-state-anti-pattern"
+#     file: "/state/re-usable-state-anti-pattern/re-usable-state-anti-pattern.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Reusing Reducer Logic"
+#     name: "re-using-reducer-logic"
+#     file: "/state/re-using-reducer-logic/re-using-reducer-logic.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Store Selectors"
+#     name: "store-selectors"
+#     file: "/state/store-selectors/store-selectors.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "When to Use NgRx"
+#     name: "when-to-use-ngrx"
+#     file: "/state/when-to-use-ngrx/when-to-use-ngrx.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "Building Our Application" # Used in the UI
+#   name: "building-our-application" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Building Our Application"
+#     name: "building-our-application"
+#     file: "/code-examples/building-our-application/building-our-application.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+        
+# - label: "Core" # Used in the UI
+#   name: "core" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Animations"
+#     name: "animations"
+#     file: "/core/animations/animations.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Transitions and Triggers"
+#     name: "transitions-and-triggers"
+#     file: "/core/animations/transitions-and-triggers/transitions-and-triggers.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+      
+#   - label: "Content Projection"
+#     name: "content-projection"
+#     file: "/core/content-projection/content-projection.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+            
+#   - label: "Decorators Input"
+#     name: "input"
+#     file: "/core/decorators/input/input.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                  
+#   - label: "Decorators Output"
+#     name: "output"
+#     file: "/core/decorators/output/output.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                        
+#   - label: "Dependency Injection"
+#     name: "dependency-injection"
+#     file: "/core/dependency-injection/dependency-injection.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                              
+#   - label: "Directives"
+#     name: "directives"
+#     file: "/core/directives/directives.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                                    
+#   - label: "Forms"
+#     name: "forms"
+#     file: "/core/forms/forms.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                                          
+#   - label: "Reactive Forms"
+#     name: "reactive-forms"
+#     file: "/core/forms/reactive-forms/reactive-forms.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Internationalization"
+#     name: "internationalization"
+#     file: "/core/internationalization/internationalization.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Life Cycle"
+#     name: "life-cycle"
+#     file: "/core/life-cycle/life-cycle.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Modules"
+#     name: "modules"
+#     file: "/core/modules/modules.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Observables"
+#     name: "observables"
+#     file: "/core/observables/observables.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+      
+#   - label: "Angular Observables"
+#     name: "angular-observables"
+#     file: "/core/observables/angular-observables/angular-observables.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+      
+#   - label: "Pipes"
+#     name: "pipes"
+#     file: "/core/pipes/pipes.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+            
+#   - label: "Routing"
+#     name: "routing"
+#     file: "/core/routing/routing.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                  
+#   - label: "Services"
+#     name: "services"
+#     file: "/core/services/services.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                        
+#   - label: "Displaying Data"
+#     name: "displaying-data"
+#     file: "/core/templates/displaying-data/displaying-data.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                              
+#   - label: "Template Syntax"
+#     name: "template-syntax"
+#     file: "/core/templates/template-syntax/template-syntax.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+                                    
+#   - label: "Terms"
+#     name: "terms"
+#     file: "/core/terms/terms.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "Design Language System" # Used in the UI
+#   name: "design-language-system" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Design Language System"
+#     name: "design-language-system"
+#     file: "/design-language-system/design-language-system.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Font Awesome"
+#     name: "font-awesome"
+#     file: "/design-language-system/font-awesome/font-awesome.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Material Design"
+#     name: "material-design"
+#     file: "/design-language-system/material-design/material-design.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Material Overrides"
+#     name: "material-overrides"
+#     file: "/design-language-system/material-overrides/material-overrides.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Sass Error Reporting"
+#     name: "sass-error-reporting"
+#     file: "/design-language-system/sass-error-reporting/sass-error-reporting.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Typography"
+#     name: "typography"
+#     file: "/design-language-system/typography/typography.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "UI Skeleton"
+#     name: "ui-skeleton"
+#     file: "/design-language-system/ui-skeleton/ui-skeleton.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "Dev Tools" # Used in the UI
+#   name: "dev-tools" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Angular CLI"
+#     name: "angular-cli"
+#     file: "/dev-tools/angular-cli/angular-cli.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Angular CLI Post Nx"
+#     name: "angular-cli-post-nx"
+#     file: "/dev-tools/angular-cli-post-nx/angular-cli-post-nx.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Compodoc"
+#     name: "compodoc"
+#     file: "/dev-tools/compodoc/compodoc.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Dependency Graph"
+#     name: "dependency-graph"
+#     file: "/dev-tools/dependency-graph/dependency-graph.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "GitHub Code Owners"
+#     name: "code-owners"
+#     file: "/dev-tools/github/code-owners/code-owners.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "GitHub Board"
+#     name: "github-board"
+#     file: "/dev-tools/github/github-board/github-board.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "GitHub Wiki"
+#     name: "github-wiki"
+#     file: "/dev-tools/github/github-wiki/github-wiki.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Lighthouse"
+#     name: "lighthouse"
+#     file: "/dev-tools/lighthouse/lighthouse.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Linting Accessibility"
+#     name: "accessibility"
+#     file: "/dev-tools/linting/accessibility/accessibility.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Linting Formatting"
+#     name: "format-all-the-things"
+#     file: "/dev-tools/linting/format-all-the-things/format-all-the-things.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Linting HTML Hint"
+#     name: "html-hint"
+#     file: "/dev-tools/linting/html-hint/html-hint.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Linting Everything"
+#     name: "lint-all-the-things"
+#     file: "/dev-tools/linting/lint-all-the-things/lint-all-the-things.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Linting HTML"
+#     name: "linting-html"
+#     file: "/dev-tools/linting/linting-html/linting-html.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Linting Sass"
+#     name: "linting-sass"
+#     file: "/dev-tools/linting/linting-sass/linting-sass.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Nrwl"
+#     name: "nrwl"
+#     file: "/dev-tools/nrwl/nrwl.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Schematics"
+#     name: "schematics"
+#     file: "/dev-tools/schematics/schematics.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Nrwl Schematics"
+#     name: "nrwl-schematics"
+#     file: "/dev-tools/schematics/nrwl-schematics/nrwl-schematics.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Px Schematics"
+#     name: "px-schematics"
+#     file: "/dev-tools/schematics/px-schematics/px-schematics.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Schematics Deep Dive"
+#     name: "schematics-deep-dive"
+#     file: "/dev-tools/schematics/schematics-deep-dive/schematics-deep-dive.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Storybook"
+#     name: "storybook"
+#     file: "/dev-tools/storybook/storybook.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "Graphics" # Used in the UI
+#   name: "graphics" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Charts"
+#     name: "charts"
+#     file: "/graphics/charts/charts.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "Introduction" # Used in the UI
+#   name: "introduction" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Introduction"
+#     name: "introduction"
+#     file: "/introduction/introduction.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "Libs" # Used in the UI
+#   name: "libs" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Code Styling"
+#     name: "code-styling"
+#     file: "/libs/code-styling.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Forest Styling"
+#     name: "forest-styling"
+#     file: "/libs/forest-styling.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Variables"
+#     name: "variables"
+#     file: "/libs/variables.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "Miscellaneous" # Used in the UI
+#   name: "miscellaneous" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Adding a Route to Our Container"
+#     name: "adding-a-route-to-our-container"
+#     file: "/miscellaneous/adding-a-route-to-our-container/adding-a-route-to-our-container.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Administrative"
+#     name: "administrative"
+#     file: "/miscellaneous/administrative/weekly-dev-meeting/weekly-dev-meeting.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Authorization"
+#     name: "authorization"
+#     file: "/miscellaneous/authorization/authorization.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Code Reviews"
+#     name: "code-reviews"
+#     file: "/miscellaneous/code-administration/code-reviews/code-reviews.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Color Picker"
+#     name: "color-picker"
+#     file: "/miscellaneous/color-picker/color-picker.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Constants"
+#     name: "constants"
+#     file: "/miscellaneous/constants/constants.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Enums as Constants"
+#     name: "enums-as-constants"
+#     file: "/miscellaneous/constants/enums-as-constants.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Creating a Component"
+#     name: "creating-a-component"
+#     file: "/miscellaneous/creating-a-component/creating-a-component.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Creating a Dumb Component"
+#     name: "creating-a-dumb-component"
+#     file: "/miscellaneous/creating-a-component/creating-a-dumb-component.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Creating a Second Component"
+#     name: "creating-second-component"
+#     file: "/miscellaneous/creating-second-component/creating-second-component.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Ng Container Hack"
+#     name: "ng-container-hack"
+#     file: "/miscellaneous/ng-container-hack/ng-container-hack.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "NPM vs Yarn"
+#     name: "npm-vs-yarn"
+#     file: "/miscellaneous/npm/npm-vs-yarn/npm-vs-yarn.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Pixel Grid Container"
+#     name: "pixel-grid-container"
+#     file: "/miscellaneous/pixel-grid/pixel-grid-container/pixel-grid-container.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Pixel Grid Container Layout"
+#     name: "pixel-grid-container-layout"
+#     file: "/miscellaneous/pixel-grid/pixel-grid-container-layout/pixel-grid-container-layout.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Ticket Acceptance Criteria"
+#     name: "acceptance-criteria"
+#     file: "/miscellaneous/ticket-creation/acceptance-criteria.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Ticket Component Design"
+#     name: "component-design"
+#     file: "/miscellaneous/ticket-creation/component-design.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Ticket Technical Design"
+#     name: "technical-design"
+#     file: "/miscellaneous/ticket-creation/technical-design.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Versioning"
+#     name: "versioning"
+#     file: "/miscellaneous/versioning/versioning.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "Performance" # Used in the UI
+#   name: "performance" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Ahead of Time"
+#     name: "ahead-of-time"
+#     file: "/performance/ahead-of-time/ahead-of-time.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Angular Elements"
+#     name: "angular-elements"
+#     file: "/performance/angular-elements/angular-elements.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Angular Universal"
+#     name: "angular-universal"
+#     file: "/performance/angular-universal/angular-universal.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Bundle Size"
+#     name: "bundle-size"
+#     file: "/performance/bundle-size/bundle-size.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Apollo Cacheing with Sockets"
+#     name: "apollo-cacheing-with-socket"
+#     file: "/performance/cacheing/apollo-cacheing-with-sockets/apollo-cacheing-with-sockets.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Sockets"
+#     name: "sockets"
+#     file: "/performance/cacheing/sockets/sockets.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Using Apollo with NgRx"
+#     name: "using-apollo-with-ngrx"
+#     file: "/performance/cacheing/using-apollo-with-ngrx/using-apollo-with-ngrx.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Change Detection"
+#     name: "change-detection"
+#     file: "/performance/change-detection/change-detection.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Images"
+#     name: "images"
+#     file: "/performance/images/images.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Implementing Service Worker"
+#     name: "implementing-service-worker"
+#     file: "/performance/implementing-service-worker/implementing-service-worker.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Modern Script Loading"
+#     name: "modern-script-loading"
+#     file: "/performance/modern-script-loading/modern-script-loading.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Track By"
+#     name: "track-by"
+#     file: "/performance/track-by/track-by.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Understanding Rendering"
+#     name: "understanding-rendering"
+#     file: "/performance/understanding-rendering/understanding-rendering.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "PWA" # Used in the UI
+#   name: "pwa" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Mobile First"
+#     name: "mobile-first"
+#     file: "/pwa/mobile-first/mobile-first.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "PWA Toolset Physical Devices"
+#     name: "pwa-toolset-physical-devices"
+#     file: "/pwa/pwa-toolset-physical-devices/pwa-toolset-physical-devices.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "PWA Toolset Sauces Labs"
+#     name: "pwa-toolset-sauces-labs"
+#     file: "/pwa/pwa-toolset-sauces-labs/pwa-toolset-sauces-labs.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Responsive"
+#     name: "responsive"
+#     file: "/pwa/responsive/responsive.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Flex Layout"
+#     name: "flex-layout"
+#     file: "/pwa/responsive/flex-layout/flex-layout.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Scully"
+#     name: "scully"
+#     file: "/pwa/scully/scully.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Styling a Component"
+#     name: "styling-a-component"
+#     file: "/pwa/styling-a-component/styling-a-component.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "RxJS" # Used in the UI
+#   name: "rxjs" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Cold vs Hot"
+#     name: "cold-vs-hot"
+#     file: "/rxjs/cold-vs-hot/cold-vs-hot.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Combination"
+#     name: "combination"
+#     file: "/rxjs/combination/combination.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Creation"
+#     name: "creation"
+#     file: "/rxjs/creation/creation.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Debugging RxJS"
+#     name: "debugging-rxjs"
+#     file: "/rxjs/debugging-rxjs/debugging-rxjs.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Filtering"
+#     name: "filtering"
+#     file: "/rxjs/filtering/filtering.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Introduction"
+#     name: "introduction"
+#     file: "/rxjs/introduction/introduction.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Multicasting"
+#     name: "multicasting"
+#     file: "/rxjs/multicasting/multicasting.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "RxJS and Facades"
+#     name: "rxjs-and-facades"
+#     file: "/rxjs/rxjs-and-facades/rxjs-and-facades.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "RxJS Pitfalls"
+#     name: "rxjs-pitfalls"
+#     file: "/rxjs/rxjs-pitfalls/rxjs-pitfalls.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Transformation"
+#     name: "transformation"
+#     file: "/rxjs/transformation/transformation.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Utility"
+#     name: "utility"
+#     file: "/rxjs/utility/utility.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "TypeScript" # Used in the UI
+#   name: "typescript" # Used in routes, e.g., /admin/collections/blog
+#   # folder: "/architecture" # The path to the folder where the documents are stored
+#   create: true # Allow users to create new documents in this collection
+#   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+#   files:
+
+#   - label: "Barrel File"
+#     name: "barrel-file"
+#     file: "/typescript/barrel-file/barrel-file.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Component Inheritance"
+#     name: "component-inheritance"
+#     file: "/typescript/component-inheritance/component-inheritance.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Data Access Interface"
+#     name: "data-access-interface"
+#     file: "/typescript/data-access-interface/data-access-interface.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Data Models"
+#     name: "data-models"
+#     file: "/typescript/data-models/data-models.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Declaration Files"
+#     name: "declaration-files"
+#     file: "/typescript/declaration-files/declaration-files.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Custom Declaration Files"
+#     name: "custom-declaration-files"
+#     file: "/typescript/custom-declaration-files/custom-declaration-files.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Getting and Setting"
+#     name: "getting-and-setting"
+#     file: "/typescript/getting-and-setting/getting-and-setting.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Immutable"
+#     name: "immutable"
+#     file: "/typescript/immutable/immutable.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "Interfaces and Partials"
+#     name: "interfaces-and-partials"
+#     file: "/typescript/interfaces-and-partials/interfaces-and-partials.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+#   - label: "tsconfig"
+#     name: "tsconfig"
+#     file: "/typescript/tsconfig/tsconfig.md"
+#     fields: # The fields for each document, usually in front matter
+#       - {label: "Title", name: "title", widget: "string"}
+#       - {label: "Body", name: "body", widget: "markdown"}
+
+# - label: "Unit Testing" # Used in the UI
+  # name: "unit testing" # Used in routes, e.g., /admin/collections/blog
+  # # folder: "/architecture" # The path to the folder where the documents are stored
+  # create: true # Allow users to create new documents in this collection
+  # slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  # files:
+
+  # - label: "Unit Testing"
+  #   name: "unit-testing"
+  #   file: "/unit-testing/unit-testing.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Apollo Client Middleware"
+  #   name: "apollo-client-middleware"
+  #   file: "/unit-testing/apollo/apollo-client-middleware/apollo-client-middleware.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Apollo Data GraphQL"
+  #   name: "data-graphql"
+  #   file: "/unit-testing/apollo/data-graphql/data-graphql.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Apollo Fragment Queries and Mutuations"
+  #   name: "fragments-queries-and-mutations"
+  #   file: "/unit-testing/apollo/fragments-queries-and-mutations/fragments-queries-and-mutations.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Apollo Interfaces and Unions"
+  #   name: "interfaces-and-unions"
+  #   file: "/unit-testing/apollo/interfaces-and-unions/interfaces-and-unions.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Apollo Unit Testing"
+  #   name: "unit-testing-apollo"
+  #   file: "/unit-testing/apollo/unit-testing-apollo/unit-testing-apollo.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Automation Engineering"
+  #   name: "automation-engineering"
+  #   file: "/unit-testing/automation-engineering/automation-engineering.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Benefits of Jest over Karma"
+  #   name: "benefits-of-jest-over-karma"
+  #   file: "/unit-testing/benefits-of-jest-over-karma/benefits-of-jest-over-karma.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Benefits of Unit Testing"
+  #   name: "benefits-of-unit-testing"
+  #   file: "/unit-testing/benefits-of-unit-testing/benefits-of-unit-testing.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Coverage Reporting"
+  #   name: "coverage-reporting"
+  #   file: "/unit-testing/coverage-reporting/coverage-reporting.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Cypress"
+  #   name: "cypress"
+  #   file: "/unit-testing/cypress/cypress.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Cypress Local"
+  #   name: "cypress-local"
+  #   file: "/unit-testing/cypress-local/cypress-local.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Debugging"
+  #   name: "debugging"
+  #   file: "/unit-testing/debugging/debugging.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "E2E Tests in TDD Setting"
+  #   name: "e2e-tests-in-tdd-setting"
+  #   file: "/unit-testing/e2e-tests-in-tdd-setting/e2e-tests-in-tdd-setting.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "First Principles Thinking"
+  #   name: "first-principles-thinking"
+  #   file: "/unit-testing/first-principles-thinking/first-principles-thinking.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Fixture vs Debug"
+  #   name: "fixture-vs-debug"
+  #   file: "/unit-testing/fixture-vs-debug/fixture-vs-debug.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Interfaces and Unit Testing"
+  #   name: "interfaces-and-unit-testing"
+  #   file: "/unit-testing/interfaces-and-unit-testing/interfaces-and-unit-testing.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Jest"
+  #   name: "jest"
+  #   file: "/unit-testing/jest/jest.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Marble Unit Testing"
+  #   name: "marble-unit-testing"
+  #   file: "/unit-testing/marble-unit-testing/marble-unit-testing.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Mocking Data"
+  #   name: "mocking-data"
+  #   file: "/unit-testing/mocking-data/mocking-data.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Mocking Providers"
+  #   name: "mocking-providers"
+  #   file: "/unit-testing/mocking-providers/mocking-providers.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Sass Unit Testing"
+  #   name: "sass-unit-testing"
+  #   file: "/unit-testing/sass-unit-testing/sass-unit-testing.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Spectator"
+  #   name: "spectator"
+  #   file: "/unit-testing/spectator/spectator.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Spies"
+  #   name: "spies"
+  #   file: "/unit-testing/spies/spies.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "State"
+  #   name: "state"
+  #   file: "/unit-testing/state/state.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Understanding Different Types of Unit Tests"
+  #   name: "understanding-different-types-of-unit-tests"
+  #   file: "/unit-testing/understanding-different-types-of-unit-tests/understanding-different-types-of-unit-tests.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Unit Testing Architecture"
+  #   name: "unit-testing-architecture"
+  #   file: "/unit-testing/unit-testing-architecture/unit-testing-architecture.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Unit Testing DOM"
+  #   name: "unit-testing-dom"
+  #   file: "/unit-testing/unit-testing-dom/unit-testing-dom.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Unit Testing Modules"
+  #   name: "unit-testing-modules"
+  #   file: "/unit-testing/unit-testing-modules/unit-testing-modules.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Unit Testing Performance"
+  #   name: "unit-testing-performance"
+  #   file: "/unit-testing/unit-testing-performance/unit-testing-performance.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Unit Testing Subscriptions"
+  #   name: "unit-testing-subscriptions"
+  #   file: "/unit-testing/unit-testing-subscriptions/unit-testing-subscriptions.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+
+  # - label: "Writing E2E Tests"
+  #   name: "writing-e2e-tests"
+  #   file: "/unit-testing/writing-e2e-tests/writing-e2e-tests.md"
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
