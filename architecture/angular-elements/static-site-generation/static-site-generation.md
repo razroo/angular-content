@@ -1,2 +1,6 @@
-Static Site Generation
-======================
+---
+title: edit
+---
+# Static Site Generation
+
+test
