@@ -12,6 +12,7 @@ public_folder: "/content/images/uploads"
 collections:
 - label: "Architecture" # Used in the UI
   name: "architecture" # Used in routes, e.g., /admin/collections/blog
+  label_singular: "Architecture"
   folder: "/content/architecture" # The path to the folder where the documents are stored
   create: true # Allow users to create new documents in this collection
   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -19,6 +20,7 @@ collections:
     depth: 100
   fields:
       - {label: "Body", name: "body", widget: "markdown"}
+  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
 
   # - label: "Static Site Generation"
   #   name: "static-site-generation"
