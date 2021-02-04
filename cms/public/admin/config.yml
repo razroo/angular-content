@@ -15,6 +15,54 @@ collections:
   folder: "architecture" # The path to the folder where the documents are stored
   create: true # Allow users to create new documents in this collection
   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  identifier_field: "{{slug}}"
+  nested:
+    depth: 100
+  fields:
+      - {label: "Body", name: "body", widget: "markdown"}
+  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
+
+- label: "Code Examples" # Used in the UI
+  name: "code-examples" # Used in routes, e.g., /admin/collections/blog
+  folder: "code-examples" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  identifier_field: name
+  nested:
+    depth: 100
+  fields:
+      - {label: "Body", name: "body", widget: "markdown"}
+  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
+
+- label: "Core" # Used in the UI
+  name: "core" # Used in routes, e.g., /admin/collections/blog
+  folder: "core" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  identifier_field: name
+  nested:
+    depth: 100
+  fields:
+      - {label: "Body", name: "body", widget: "markdown"}
+  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
+
+- label: "Design Language System" # Used in the UI
+  name: "design-language-system" # Used in routes, e.g., /admin/collections/blog
+  folder: "design-language-system" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  identifier_field: name
+  nested:
+    depth: 100
+  fields:
+      - {label: "Body", name: "body", widget: "markdown"}
+  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
+
+- label: "Dev Tools" # Used in the UI
+  name: "dev-tools" # Used in routes, e.g., /admin/collections/blog
+  folder: "dev-tools" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
   identifier_field: name
   nested:
     depth: 100
