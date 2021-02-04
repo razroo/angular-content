@@ -15,11 +15,11 @@ collections:
   folder: "architecture" # The path to the folder where the documents are stored
   create: true # Allow users to create new documents in this collection
   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-  identifier_field: "{{slug}}"
+  identifier_field: "name"
   nested:
     depth: 100
+    summary: "{{slug}}"
   fields:
-      - {label: "Name", name: "{{slug}}", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
   meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
 
@@ -62,6 +62,66 @@ collections:
 - label: "Dev Tools" # Used in the UI
   name: "dev-tools" # Used in routes, e.g., /admin/collections/blog
   folder: "dev-tools" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  identifier_field: name
+  nested:
+    depth: 100
+  fields:
+      - {label: "Body", name: "body", widget: "markdown"}
+  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
+
+- label: "Graphics" # Used in the UI
+  name: "graphics" # Used in routes, e.g., /admin/collections/blog
+  folder: "graphics" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  identifier_field: name
+  nested:
+    depth: 100
+  fields:
+      - {label: "Body", name: "body", widget: "markdown"}
+  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
+
+- label: "Introduction" # Used in the UI
+  name: "introduction" # Used in routes, e.g., /admin/collections/blog
+  folder: "introduction" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  identifier_field: name
+  nested:
+    depth: 100
+  fields:
+      - {label: "Body", name: "body", widget: "markdown"}
+  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
+
+- label: "Libs" # Used in the UI
+  name: "libs" # Used in routes, e.g., /admin/collections/blog
+  folder: "libs" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  identifier_field: name
+  nested:
+    depth: 100
+  fields:
+      - {label: "Body", name: "body", widget: "markdown"}
+  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
+
+- label: "Miscellaneous" # Used in the UI
+  name: "miscellaneous" # Used in routes, e.g., /admin/collections/blog
+  folder: "miscellaneous" # The path to the folder where the documents are stored
+  create: true # Allow users to create new documents in this collection
+  slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  identifier_field: name
+  nested:
+    depth: 100
+  fields:
+      - {label: "Body", name: "body", widget: "markdown"}
+  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
+
+- label: "Miscellaneous" # Used in the UI
+  name: "miscellaneous" # Used in routes, e.g., /admin/collections/blog
+  folder: "miscellaneous" # The path to the folder where the documents are stored
   create: true # Allow users to create new documents in this collection
   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
   identifier_field: name
