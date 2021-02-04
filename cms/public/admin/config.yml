@@ -14,13 +14,14 @@ collections:
   name: "architecture" # Used in routes, e.g., /admin/collections/blog
   folder: "architecture" # The path to the folder where the documents are stored
   create: true # Allow users to create new documents in this collection
-  slug: "{{title}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  # slug: "{{title}}" # Filename template, e.g., YYYY-MM-DD-title.md
   nested:
     depth: 100
+    summary: "{{title}}"
   fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
-  meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
+  meta: { path: { widget: string, label: 'Path', index_file: "{{title}}" } }
 
 - label: "Code Examples" # Used in the UI
   name: "code-examples" # Used in routes, e.g., /admin/collections/blog
