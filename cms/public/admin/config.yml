@@ -6,8 +6,8 @@ backend:
 
 publish_mode: editorial_workflow
 
-media_folder: "content/static/public/images"
-public_folder: "/content/images/uploads"
+media_folder: "static/public/images"
+public_folder: "/images/uploads"
 
 collections:
 - label: "Architecture" # Used in the UI
@@ -18,7 +18,6 @@ collections:
   identifier_field: "name"
   nested:
     depth: 100
-    summary: "{{meta.path}}"
   fields:
       - {label: "Body", name: "body", widget: "markdown"}
   meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
