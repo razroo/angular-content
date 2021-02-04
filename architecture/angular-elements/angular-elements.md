@@ -1,5 +1,5 @@
 ---
-title: "# Angular Elements - Introduction"
+title: Angular Elements - Introduction
 ---
  Angular Elements - Introduction 
 ================================
