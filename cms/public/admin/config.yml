@@ -18,9 +18,8 @@ collections:
   identifier_field: "name"
   nested:
     depth: 100
-    summary: "{{title}}"
+    summary: "{{meta.path}}"
   fields:
-      - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
   meta: { path: { widget: string, label: 'Path', index_file: "{{slug}}" } }
 
