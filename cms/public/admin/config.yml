@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   repo: razroo/angular-the-full-gamut-markdown
   branch: laurell-RD-1
-  base_url: "https://angular-the-full-gamut-cms.netlify.app"
+  base_url: "https://angular-the-full-gamut-markdown.netlify.app"
 
 publish_mode: editorial_workflow
 
@@ -15,6 +15,7 @@ collections:
   folder: "/content/architecture" # The path to the folder where the documents are stored
   create: true # Allow users to create new documents in this collection
   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  identifier_field: name
   nested:
     depth: 100
   fields:
