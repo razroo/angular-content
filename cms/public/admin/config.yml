@@ -21,7 +21,7 @@ collections:
   fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
-  meta: { path: { widget: string, label: 'Path', index_file: "{{title}}" } }
+  meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "Code Examples" # Used in the UI
   name: "code-examples" # Used in routes, e.g., /admin/collections/blog
