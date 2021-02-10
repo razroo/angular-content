@@ -1,6 +1,6 @@
- Custom Web Components 
-======================
-
+---
+title: Custom Web Components
+---
 What makes a framework is it's ability to tie together the different
 parts of the application into something larger. This includes services
 for data requests, files for interfaces/type checking, state management,
@@ -13,8 +13,7 @@ application. This allows for your dumb components to be independent of
 framework, and to be re-used wherever. All dumb component should be
 created as a custom web component, so any team can modify it.
 
-Before We Get To Nx
--------------------
+## Before We Get To Nx
 
 Before we get to Nx, we need to bring into focus that Nx controls too
 much of the code. If the team at Nrwl decides to take the direction of
@@ -36,27 +35,31 @@ own as well, for this one.
 Within Nrwl Nx there is the ability to create a none framework library,
 which will include all of our framework agnostic code.
 
-    ng g lib ui --framework=none  
+```
+ng g lib ui --framework=none  
+```
 
 This will generate a `ui` directory structure, that will something like
 the folliwing, within your application:
 
-\[libs \[ui \[src \[lib\] \[index.ts,file\] \] \[jest.conf.js, file\]
-\[tsconfig.lib.json, file\] \[tsconfig.json, file\]
-\[tsconfig.spec.json, file\] \[tslint.json, file\] \] \[index.ts,file\]
-\[test.ts,file\] \]
+\[libs [ui [src [lib] \[index.ts,file] ] \[jest.conf.js, file]
+\[tsconfig.lib.json, file] \[tsconfig.json, file]
+\[tsconfig.spec.json, file] \[tslint.json, file] ] \[index.ts,file]
+\[test.ts,file] ]
 
 ### Create An elements.ts File and Export
 
 Inside of your lib folder, let's create a data-table component.
 
-    cd libs/ui/src/lib;
-    mkdir data-table;
+```
+cd libs/ui/src/lib;
+mkdir data-table;
+```
 
 Inside of that data table, let's go ahead and create a custom web
 component.
 
-``` {caption="custom web component"}
+```{caption="custom
 export class GreetingElement extends HTMLElement {
   public static observedAttributes = ['title'];
 
@@ -74,8 +77,7 @@ You will want to go ahead and re-export it in your web-element
 component. This will simplify that way things work, and allow you to
 re-use within your app.
 
-General Architecture of Inserting Web Element
----------------------------------------------
+## General Architecture of Inserting Web Element
 
 ### Changing Target
 
@@ -91,7 +93,7 @@ Your app will require importing the library into your web application.
 Every framework will have a specific schema towards it's web
 application. Custom Web Elements are outside of the regular schema of
 every framework. So you will have to use the framework's prefered method
-of \"taking a chill pill\". I.e. saying the schema for custom web
+of "taking a chill pill". I.e. saying the schema for custom web
 elements is cool, and should not be errored out.
 
 ### Actually Using Element
@@ -100,8 +102,7 @@ Actually going ahead and using element similar to how you would use a
 component in any regular application. Now that we have specified these
 four steps, let's actually bring them to our application.
 
-Inserting component in Angular App
-----------------------------------
+## Inserting component in Angular App
 
 ### Change Target
 
@@ -121,8 +122,7 @@ app.
 Inserting a web component within an Angular app, is done in exactly the
 same fashion that a regular Angular component would be inserted.
 
-Inserting component in React App
---------------------------------
+## Inserting component in React App
 
 ### Update Target
 
