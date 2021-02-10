@@ -1,48 +1,47 @@
- Environment 
-============
-
+---
+title: Environment
+---
 When getting ready for production, it is important that you have
-different environment files for dev and prod. The CLI will offer two
+different environment files for dev and prod. 
+
+The CLI will offer two
 different environment files out the box. It should be immediately
 inherit to any developer experienced, or otherwise, something that
 should be explored into. However, the full scope (gamut if you will)
 might not be immediately inherit, wherein certain elements migth not be
 looked into appropriately.
 
- Environment Architecture - Deep Dive
-====================================
+# Environment Architecture - Deep Dive
 
-API URL's
----------
+## API URL's
 
 The most popular use of a environment file is to set up a url for prod
 and qa. QA will most likely be used by dev as well. Therefore, you will
 have something like the following in your UI:
 
-    export const environment = {
-      production: false,
-      envName: 'qa'
-    };
+```
+export const environment = {
+  production: false,
+  envName: 'qa'
+};
+```
 
 Doing something as simple as the above, will tag on 'qa' to your url.
 Being that in the reccomended architecture we are using GraphQL, we will
 have just one place where we have to specify the url we are using.
 
-Cookie Names
-------------
+## Cookie Names
 
 Something I've seen in some projects as well, is wherein the cookie name
 will be different on dev than it will be on prod. This is a use for the
 environment file as well.
 
- Miscellaneous 
---------------
+## Miscellaneous
 
 There might also be some other smidgens of use cases here and there,
 that one might want to use environment variables for.
 
- Unit Testing 
--------------
+## Unit Testing
 
 The real reason I am writing this chapter is for unit testing. I've seen
 a lot of unit testing, where the environment variables get thrown in,
