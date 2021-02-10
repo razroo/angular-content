@@ -1,6 +1,6 @@
-Error Handling
-==============
-
+---
+title: Error Handling Architecture
+---
 Having knowledge about a particular framework or library and how they
 work puts you up a level over your peers who don't. If you were to know
 ngrx/store, ngrx/entities, apollo/graphql, that is more than enough to
@@ -10,8 +10,7 @@ architecture.
 However, one thing that I've noticed by working in many different apps
 that tends to fly under the radar is error handling.
 
- No Error Handling is Not Disatrious 
-------------------------------------
+## No Error Handling is Not Disatrious
 
 Angular is a very robust ecosystem. By that, I mean that many of the
 proper technologies to use within one's app already have error handling
@@ -19,23 +18,19 @@ baked into it. So, if one does not use error handling, then it is not
 completely disastrous. Many of the technologies that you are using will
 have error handling.
 
- The Benefits of Error Handling 
--------------------------------
+## The Benefits of Error Handling
 
-1.  Send User Errors to Server
+1. Send User Errors to Server
+2. Allow Errors to be more specific
 
-2.  Allow Errors to be more specific
-
- Server Specific Angular Errors 
--------------------------------
+## Server Specific Angular Errors
 
 In any Angular app that is data-centric, a large part of your errors are
 due to server side errors. Many times the server will return the proper
 error. However, the argument can be made for server side error reporting
 to be more explicit.
 
- Client Side Error Reporting 
-----------------------------
+## Client Side Error Reporting
 
 Go into depth as to how we can potentially do error reporting client
 side.
