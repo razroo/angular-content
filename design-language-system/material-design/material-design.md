@@ -1,7 +1,6 @@
- ---
- title: Material Design
- ---
- 
+---
+title: Material Design
+---
 I was debating writing this chapter. The reason primarily being, that
 depending on the size of your company, you might up end writing your own
 design system. I completely understand that, and it makes sense if you
@@ -29,8 +28,7 @@ resources not having to design and implement their own components. It is
 out of the vast amount of use cases that I see Material Design being
 valuable, that I have decided to go ahead and write about it.
 
- Material Design - Talking to UX/UI 
------------------------------------
+## Material Design - Talking to UX/UI
 
 This chapter right here, is perhaps why I like Material Design the most.
 Material Design has documentation for how the UX[^2] should work. It
@@ -47,22 +45,17 @@ a different library. From professional experience, I have found the
 following to be the cornerstone of what your team can expect to
 customize:
 
-1.  Colors
-
-2.  Font
-
-3.  Spacing(Margin + Padding)
-
-4.  Icons(not that this is anything particular)
-
-5.  Buttons
+1. Colors
+2. Font
+3. Spacing(Margin + Padding)
+4. Icons(not that this is anything particular)
+5. Buttons
 
 The above would be it for starters. As your designs go on, you will have
 components that you will end up overriding. These will go in a partial
 sass file, something that we will go into more detail as time goes on.
 
- Material Design - Create your own Confluence Doc 
--------------------------------------------------
+## Material Design - Create your own Confluence Doc
 
 It is important when working with UX/UI to document discrepencies. For
 inspiraiton look at the [material design
@@ -82,8 +75,7 @@ However, an Invision doc, seems to be more efficient. Design should look
 to create an Invision doc, that spans maybe 5 - 15 pages, on the DLS
 deviations they have from actual Material Design.
 
- Material Design - Use Invision 
--------------------------------
+## Material Design - Use Invision
 
 It's interesting, because someone might not think of tooling as
 something which is a part of engineering architecture. However, with
@@ -91,8 +83,7 @@ regards to finding discrepencies in DLS(Design Language System),
 Invision is integral. It will make creating comments on particular
 components as something which will be fluid.
 
- Material Design - Push Back 
-----------------------------
+## Material Design - Push Back
 
 The following will be worth alot of time for many different people
 within your organization. Make sure that your component does not deviate
@@ -103,8 +94,7 @@ will all be happy when you go with the default components when possible.
 When building a product, unless it is beyond the MVP go with what is
 available for you by default.
 
- Material Design - Architecture Corner 
---------------------------------------
+## Material Design - Architecture Corner
 
 In a Material Design setting, there will be discrepencies in the design,
 which we have mentioned above, two ways in order to address, and make
@@ -114,10 +104,9 @@ However, how does Engineering make sure, that all engineers are adhering
 to the principles layed out in the DLS. There are two methods which will
 help to a great extent:
 
-1.  Sass functions, with error reporting.
-
-2.  Automating UI layer. I.e. overrides for material components across
-    the app.
+1. Sass functions, with error reporting.
+2. Automating UI layer. I.e. overrides for material components across
+   the app.
 
 [^1]: Business to Consumer
 
