@@ -6,6 +6,7 @@
   "scripts": {
     "build": "cd admin && index.html",
     "initial": "pdflatex main.tex",
+    "run:razroo-markdown-engine": "node build.js",
     "start": "node build.js",
     "start-linux": "node watcher.js & evince main.pdf",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,8 +14,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build",
-      "pre-push": "npm run build"
+      "pre-commit": "npm run run:razroo-markdown-engine",
+      "pre-push": "npm run run:razroo-markdown-engine"
     }
   },
   "repository": {

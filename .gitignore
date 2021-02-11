@@ -51,3 +51,6 @@ Backup[ ]of[ ]*.numbers/
 node_modules
 .env
 .vscode
+
+# Razroo Markdown Engine
+build
