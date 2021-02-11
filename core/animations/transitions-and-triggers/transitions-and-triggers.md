@@ -1,5 +1,6 @@
- Transitions and Triggers 
-=========================
+---
+title: Transitions and Triggers
+---
 
 There are a number of transition states.
 

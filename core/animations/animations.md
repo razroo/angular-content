@@ -1,5 +1,6 @@
- Animations 
-===========
+---
+title: Animations
+---
 
 Animations have come a long way. Angular has made it, so that animations
 can be baked into the framework. Here's how to implement a simple
