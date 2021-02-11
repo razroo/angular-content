@@ -1,5 +1,6 @@
- Dependency Injection 
-=====================
+---
+title: Dependency Injection
+--- 
 
 Dependency Injection from an Angular perspective pragmatically only
 solves one real issue. That issue is Unit Testing. In an

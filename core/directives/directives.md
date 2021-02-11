@@ -1,5 +1,6 @@
- Attribute Directives 
-=====================
+---
+title: Attribute Directives
+---
 
 An attribute directive changes the appearance, or behavior of a DOM
 Element. It is tagged on of an html element to change the way it works.

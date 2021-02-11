@@ -1,5 +1,6 @@
- Angular Observables 
-====================
+---
+title: Angular Observables
+---
 
 There are observables that are unique to Angular.
 

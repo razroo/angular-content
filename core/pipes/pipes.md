@@ -1,5 +1,6 @@
- Pipes 
-======
+---
+title: Pipes
+---
 
 Angular offers the ability to use Pipes out of the box. The idea behind
 a pipe is to get data, transform it, and show new transformed data to

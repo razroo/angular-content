@@ -1,5 +1,6 @@
- Forms 
-======
+---
+title: Forms
+---
 
 I think forms is still one of the most complicated pieces of UI you will
 ever come across. Each input in a form has a unique piece of

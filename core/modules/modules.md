@@ -1,5 +1,7 @@
- Modules 
-========
+---
+title: Modules
+---
+
 
 Modules are an integral part of Angular. It's interesting, because in
 some other languages, modules are a part of the language(OCaml comes to

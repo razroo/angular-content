@@ -1,5 +1,6 @@
- Internationalization and Localization
-=====================================
+---
+title: Internationalization and Localization
+---
 
 Internationalization is the process of making sure your app can be used
 by a worldwide audience. Localization is the process of changing app's

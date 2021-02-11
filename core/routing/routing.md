@@ -1,5 +1,6 @@
- Routing 
-========
+---
+title: Routing
+---
 
 Routing is an integral part of any single page application:
 

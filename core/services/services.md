@@ -1,5 +1,6 @@
- Services 
-=========
+---
+title: Services
+---
 
 What is a service in Angular? In Angular, a service is a way to define
 business logic in a separate file and choose it in our appropriate

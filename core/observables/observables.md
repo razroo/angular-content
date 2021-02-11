@@ -1,5 +1,6 @@
- Observables 
-============
+---
+title: Observables
+---
 
 Observables are an integral part of any Angular application. There is no
 way around not using observables there is some form of state management

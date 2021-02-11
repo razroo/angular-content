@@ -1,5 +1,6 @@
- \@Output 
-=========
+---
+title: Output
+--- 
 
 Output is another decorator native to Angular.
 
@@ -19,7 +20,7 @@ button for instance. By using Output, we can have a function within the
 dumb component, that whenever it get's called, it triggers the parent
 function.
 
- Example of \@Output 
+ Example of Output 
 --------------------
 
 Here is a great example of what an Output is, and what it accomplishes.

@@ -1,5 +1,6 @@
- Life Cycle Hooks 
-=================
+---
+title: Life Cycle Hooks
+---
 
 Many modern frameworks and librarys involves a lifecyle - which means
 there's going to be hooks. The lifecycle itself is similar in ideology -

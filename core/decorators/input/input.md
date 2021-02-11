@@ -1,5 +1,6 @@
- Input 
-======
+ ---
+ title: Input
+ --- 
 
 The Input decorator is one of two integral Angular Decorators,
 instrumental for passing into a component, and out of a component into a
