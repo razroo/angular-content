@@ -31,8 +31,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "Core" # Used in the UI
@@ -44,8 +44,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "Design Language System" # Used in the UI
@@ -57,8 +57,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "Dev Tools" # Used in the UI
@@ -70,8 +70,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "Graphics" # Used in the UI
@@ -83,8 +83,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "Introduction" # Used in the UI
@@ -96,8 +96,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "Libs" # Used in the UI
@@ -109,8 +109,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "Miscellaneous" # Used in the UI
@@ -122,8 +122,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "Performance" # Used in the UI
@@ -135,8 +135,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "PWA" # Used in the UI
@@ -148,8 +148,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "RxJS" # Used in the UI
@@ -161,8 +161,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "State" # Used in the UI
@@ -174,8 +174,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 
@@ -188,8 +188,8 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
 - label: "Unit Testing" # Used in the UI
@@ -201,6 +201,6 @@ collections:
     depth: 100
     summary: "{{title}}" 
   fields:
-    - { label: "Title", name: "title", widget: "string" }
-    - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
