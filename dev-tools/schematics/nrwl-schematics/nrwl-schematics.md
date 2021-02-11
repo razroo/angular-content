@@ -1,6 +1,6 @@
- Nrwl Schematics 
-================
-
+---
+title: Nrwl Schematics
+---
 Our Pixel Illustrator is set up with Nrwl, which means we'll need to
 work with Nrwl schematics.
 
@@ -15,43 +15,46 @@ In the previous chapters we created a schematic called the
 px-schematics. All it did was generate files. For this task, we can
 create our own custom angular schematics with nrwl.
 
- Workspace Specific Schematics 
-------------------------------
+## Workspace Specific Schematics
 
 ### Generate a workspace specific schematic
 
-    ng g workspace-schematic data-access
+```
+ng g workspace-schematic data-access
+```
 
 Go to /tools/schematics/data-access/index.ts, where we will add in our
 custom code.
 
-###  Adding in External Schematics
+### Adding in External Schematics
 
-    externalSchematic('@nrwl/schematics', 'lib', {
-      name: name,
-      directory: schema.directory,
-      tags: schema.directory ? `state, ${schema.directory}` : 'state, aero',
-    }),
-    externalSchematic('@nrwl/schematics', 'ngrx', {
-      name: name,
-      module,
-      directory: '+state',
-      facade: true,
-    }),
-    externalSchematic('@schematics/angular', 'service', {
-      name: name,
-      path: 'data-access',
-      sourceDir: normalize(sourceDir),
-      directory: schema.directory,
-      app: schema.name,
-    }),
-    externalSchematic('@schematics/angular', 'interface', {
-      name: name,
-      path: 'data-access',
-      sourceDir: normalize(sourceDir),
-      directory: schema.directory,
-      app: schema.name,
-    }),
+```
+externalSchematic('@nrwl/schematics', 'lib', {
+  name: name,
+  directory: schema.directory,
+  tags: schema.directory ? `state, ${schema.directory}` : 'state, aero',
+}),
+externalSchematic('@nrwl/schematics', 'ngrx', {
+  name: name,
+  module,
+  directory: '+state',
+  facade: true,
+}),
+externalSchematic('@schematics/angular', 'service', {
+  name: name,
+  path: 'data-access',
+  sourceDir: normalize(sourceDir),
+  directory: schema.directory,
+  app: schema.name,
+}),
+externalSchematic('@schematics/angular', 'interface', {
+  name: name,
+  path: 'data-access',
+  sourceDir: normalize(sourceDir),
+  directory: schema.directory,
+  app: schema.name,
+}),
+```
 
 First we include lib, so that we can choose which directory our
 schematics should go in.
@@ -64,7 +67,7 @@ GraphQL requests and our actual app.
 In addition, we will be creating an interface file that will be used
 across all parts of our Pixel Illustrator app.
 
-###  Adding GraphQL Files 
+### Adding GraphQL Files
 
 One of the wonderful things about the Angular ecosystem is that there is
 a lot of cookie cutter code that allows you to plug and play. But the
