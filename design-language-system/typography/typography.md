@@ -1,5 +1,6 @@
- Angular Material Typography 
-============================
+---
+title: Angular Material Typography
+---
 
 Typography at a design level, is a way of presenting text in an
 attractive fashion. In particular, this is in three areas:

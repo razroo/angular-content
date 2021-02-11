@@ -1,5 +1,6 @@
- Sass Error Reporting 
-=====================
+---
+title: Sass Error Reporting
+---
 
 It can be very difficult to maintain a core design without some safe
 guards in place to make sure it is consistent across the app. This is

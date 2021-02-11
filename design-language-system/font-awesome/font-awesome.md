@@ -1,5 +1,6 @@
- Icons 
-======
+---
+title: Icons
+---
 
 I would like to dedicate a quick chapter to icons. I've never come
 across a modern application that doesn't use some form of iconography in

@@ -1,5 +1,6 @@
- Customize Angular Material Design 
-==================================
+---
+title: Customize Angular Material Design
+---
 
 Razroo best practices, is that the easiest way to get your app up and
 running, is to use Material Design within your Angular application.

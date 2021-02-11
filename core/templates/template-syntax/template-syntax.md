@@ -1,5 +1,6 @@
- Template Syntax 
-================
+---
+title: Template Syntax
+---
 
  Difference between Property and Attribute in HTML 
 --------------------------------------------------

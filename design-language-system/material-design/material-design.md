@@ -1,6 +1,7 @@
- Material Design 
-================
-
+ ---
+ title: Material Design
+ ---
+ 
 I was debating writing this chapter. The reason primarily being, that
 depending on the size of your company, you might up end writing your own
 design system. I completely understand that, and it makes sense if you

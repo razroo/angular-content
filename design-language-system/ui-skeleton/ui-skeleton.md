@@ -1,5 +1,8 @@
- UI Skeleton 
+  
 ============
+---
+title: UI Skeleton
+---
 
 Real data, very rarely, will be immediately available.
 

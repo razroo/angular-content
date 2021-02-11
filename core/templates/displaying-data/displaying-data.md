@@ -1,5 +1,6 @@
- Displaying Data 
-================
+ ---
+ title: Displaying Data  
+ ---
 
 One of the nicer things about the migration from AngularJS to Angular
 was that many html bindings felt at home. If you are someone who had the
