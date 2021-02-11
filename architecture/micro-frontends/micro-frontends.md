@@ -1,9 +1,9 @@
- Micro Frontends 
-================
+---
+title: Micro Frontends
+---
+Micro frontends is definitely a "buzzword".
 
-Micro frontends is definitely a \"buzzword\".
-
-I consider it most synonymous with the buzzword \"the cloud\". To put it
+I consider it most synonymous with the buzzword "the cloud". To put it
 simply, a micro-frontend is when you break the application into smaller
 more manageable parts. So, you might be asking yourself, what makes this
 different than simply architecturing an application well? The answer to
@@ -13,14 +13,11 @@ allowing for flexible bundling and deployment within app.
 
 This accomplishes three things:
 
-1.  Increases testability
+1. Increases testability
+2. Increases re-usability
+3. Ability to select multiple frameworks
 
-2.  Increases re-usability
-
-3.  Ability to select multiple frameworks
-
-Micro Frontends are actually already in the wild!
--------------------------------------------------
+## Micro Frontends are actually already in the wild!
 
 The truth is that micro-frontends have been around for a really long
 time. Doing something like this is possible in vanilla JavaScript is
@@ -33,15 +30,14 @@ time, and therefore made sure prior js version would be removed. It was
 a relatively painless way for the JS team to create micro front ends.
 
 However, I'm not sure if anyone on the team has ever coined this as
-\"micro frontends\". In addition, doing something like this was a real
+"micro frontends". In addition, doing something like this was a real
 pain, and the flexibility was really only there on a single route.
 
 So, why is there is now a push for micro frontends architecture, and why
 is it now coming into the forefront? For this, we have to understand a
 bit more of the history of web applications.
 
-History of Web Applications
----------------------------
+## History of Web Applications
 
 Let's dive into that really quickly.
 
@@ -93,8 +89,7 @@ another. In particular, because state management, should ideally be
 global. Doing this across multiple frameworks, is very difficult at this
 point in time.
 
-Illustration in Code
---------------------
+## Illustration in Code
 
 A simple way of illustrating how we can create micoservices within
 Angular, would be as follows. Let's say that we have an application. One
@@ -104,8 +99,10 @@ independent of each other.
 
 ### Adding The Tools We Need
 
-    ng add @angular/elements
-    ng add ngx-build-plus
+```
+ng add @angular/elements
+ng add ngx-build-plus
+```
 
 This adds Angular Elements to our app. In addition, we are going to be
 adding a tool called `ngx-build-plus` which allows us to extend the
@@ -123,8 +120,7 @@ our application. Ideally using the Angular router. Particularly, because
 we want it to be robust enough, so that we can go ahead and create
 router-outlets.
 
-Difference Of Approach Using Custom Web Components
---------------------------------------------------
+## Difference Of Approach Using Custom Web Components
 
 The difference between the approach we are using here, and how we
 approached using custom web components is as follows. When creating
@@ -132,21 +128,17 @@ micro-frontends, we don't just need access to our custom web components,
 however, we actually want to build them separately. Once again we do
 this so that:
 
-1.  Increase testability
+1. Increase testability
+2. Increase re-usability
+3. Ability to select multiple frameworks for these specific apps
 
-2.  Increase re-usability
-
-3.  Ability to select multiple frameworks for these specific apps
-
-Router Dillema
---------------
+## Router Dillema
 
 The main dillema within our Angular applications, is the fact that
 angular routers consist of two parts:
 
-1.  forRoot
-
-2.  forChild
+1. forRoot
+2. forChild
 
 Within our web components, or our Angular Elements rather, our forRoot
 will be reserved for our root component specifically. If we want to use
