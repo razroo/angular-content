@@ -1,2 +1,4 @@
-Static Site Generation
-======================
+---
+title: Static Site Generation
+---
+Coming soon...
