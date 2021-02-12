@@ -1,16 +1,16 @@
- NG Container Hack for Structural Directives 
-============================================
-
+---
+title: NG Container Hack for Structural Directives
+---
 In Angular there are two quirks when it comes to structural directives:
 
-``` {caption="Quirk \#1 - Requiring Extra Element to Implement Structural Directive"}
+```{caption="Quirk
 <div *ngIf="someVariable">
   <p>This is text.</p>
   <p>This is more text.</p>
 </div>
 ```
 
-``` {caption="Quirk \#2 - Inability to apply more than two structural directives on the same element"}
+```{caption="Quirk
 <ul>
   <li *ngFor="let box of boxes" *ngIf="box.item === 'food'">{{ box.name }}</li>
 </ul>
@@ -21,8 +21,7 @@ weren't meant to be used within a template. So if we think about it that
 way, where we can use some sort of Angular functionality to bring it out
 of the DOM it brings us to ng-container.
 
-Understanding ng-container
---------------------------
+## Understanding ng-container
 
 In the [Angular
 documentation](https://angular.io/guide/structural-directives#group-sibling-elements-with-ng-container),
@@ -35,7 +34,7 @@ inside of a `select` element. `ng-container` will allow for to side step
 those issues, by not introducing a new element to the actual DOM. We can
 use the `ng-container` to solve the quirks we mentioned earlier:
 
-``` {caption="Solution to Quirk \#1 - Requiring Extra Element 
+```{caption="Solution
   to Implement Structural Directive"}
 <ng-container *ngIf="someVariable">
   <p>The show goes on.</p>
@@ -48,7 +47,7 @@ new div, if we want the content to show conditionally. Likewise, to
 solve the issue we had before of being able to use two structural
 directives, we can do the following:
 
-``` {caption="Solution to Quirk \#2 - Inability to apply more than two structural directives on the same element"}
+```{caption="Solution
 <ul>
   <ng-container *ngFor="let box of boxes">
     <ng-container *ngIf="box.item === 'food'">
