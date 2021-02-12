@@ -1,6 +1,6 @@
- Npm Vs. Yarn 
-=============
-
+---
+title: Npm Vs. Yarn
+---
 One of the inevitable conversations that comes into play when starting
 to use an app for the first time is to use yarn.
 
@@ -11,17 +11,13 @@ progressed, NPM received its own lock file. Performance time between the
 two became negligible. In addition, yarn always came with its own set of
 problems.
 
- Reasons to stick with NPM 
---------------------------
+## Reasons to stick with NPM
 
-1.  There are no noticeable differences between Yarn and NPM
-
-2.  NPM has been borrowing features from Yarn.
-
-3.  NPM has it's own package lock.
-
-4.  NPM Ci, will tell differences between package.json and
-    package.json.lock.
+1. There are no noticeable differences between Yarn and NPM
+2. NPM has been borrowing features from Yarn.
+3. NPM has it's own package lock.
+4. NPM Ci, will tell differences between package.json and
+   package.json.lock.
 
 That's really all the argument there is need to be had. At this point in
 time Yarn really does not offer anything valuable in ways of NPM.
