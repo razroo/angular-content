@@ -1,5 +1,6 @@
-# Introduction
-
+---
+title: Introduction
+---
 The current landscape of UI development is in an interesting place. The
 capacity of web based technologies performing tasks that were previously
 unavailable is growing by the year.
@@ -8,7 +9,8 @@ In addition to this, frameworks and libraries are popping up to enable
 further scalability, DRY development, and structural consistency. In
 your average web application, these features include the ability to type
 check, unit test, integration test, manage states, observables, effects
-- among many more things.
+
+* among many more things.
 
 These things may seem like they've been around forever, but it's only
 been approximately 3 years. As more features from other programming
@@ -72,11 +74,9 @@ re-factoring.
 
 When it comes to learning, there are three parts within the cycle:
 
-1.  Discovery
-
-2.  Maintaining
-
-3.  Learning
+1. Discovery
+2. Maintaining
+3. Learning
 
 The aim of this book is to allow you to hit on all these three areas.
 Repetition with slight adaptation is key to turning short term knowledge
@@ -114,19 +114,16 @@ Between the nuances discovered through RxJS, Angular's quirks and
 
 This book is written with three different perspectives:
 
-1.  The expert looking to organize thoughts on architecture, and learn
-    prior unknowns.
-
-2.  The developer who needs to refresh due to time elapsed.
-
-3.  The first time learner.
+1. The expert looking to organize thoughts on architecture, and learn
+   prior unknowns.
+2. The developer who needs to refresh due to time elapsed.
+3. The first time learner.
 
 The structure of this book will work in concise outlines, easily
 accessible through numerical listing. I find it much easier to think in
 outlines than having to traverse through long paragraphs.
 
 ## Enterprise examples in Core
-
 
 A lot of technical books just either give you giant paragraphs or
 chapters. Either that or they give you examples that aren't easily
@@ -138,7 +135,7 @@ that you may be able to apply right away to your current projects.
 Even if you haven't finished the book from cover to cover, you'll still
 have something workable right away.
 
-## We Have Best Practices 
+## We Have Best Practices
 
 This book is developed around best practices for how to develop
 enterprise level UI applications with Angular. It's also good to note
