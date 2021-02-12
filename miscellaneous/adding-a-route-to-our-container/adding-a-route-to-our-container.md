@@ -1,13 +1,13 @@
- Adding a Route to Our Container 
-================================
-
+---
+title: Adding a Route to Our Container
+---
 At this point, being that we did not initialize our app with routing
 [^1], we will need to add a routing file to our app. In our app root, we
 will be adding an app.routing.module.ts file.
 
 It will look something like the following:
 
-``` {caption="app.routing.module.ts file"}
+```{caption="app.routing.module.ts
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -37,7 +37,7 @@ When the url switches over to choose-size path, it will load the
 choose-size component. We are also obviously going to import the
 AppRoutingModule in our app.module.ts file:
 
-``` {caption="app.module.ts file"}
+```{caption="app.module.ts
 import { AppRoutingModule } from './app.routing.module';
 @NgModule({
   imports: [
@@ -48,7 +48,7 @@ import { AppRoutingModule } from './app.routing.module';
 
 We are also going to delete the competing:
 
-``` {caption="app.module.ts file"}
+```{caption="app.module.ts
     RouterModule.forRoot(
       [
         {
