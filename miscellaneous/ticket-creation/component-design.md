@@ -1,6 +1,6 @@
- Ticket Creation - Component Design 
-===================================
-
+---
+title: Ticket Creation - Component Design
+---
 We have discussed the two initial steps with regards to creating a
 ticket - technical design notes and acceptance criteria. The third and
 final step to a good ticket is design. The chapter regarding talking to
@@ -10,12 +10,10 @@ system.
 Within a JIRA setting, two things should happen so you have a clear idea
 of how a component should be designed within a PWA setting:
 
-1.  Description
+1. Description
+2. Invision Link within JIRA
 
-2.  Invision Link within JIRA
-
- Component Design Quirk 
------------------------
+## Component Design Quirk
 
 When creating a ticket in a PWA environment, there is a need to create a
 specify the specific functionality around mobile, and desktop. Many
