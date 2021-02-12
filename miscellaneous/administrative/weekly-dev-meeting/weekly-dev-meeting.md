@@ -1,6 +1,6 @@
- Weekly Meetings 
-================
-
+---
+title: Weekly Meetings
+---
 Weekly Dev Meetings is something that can be extremely beneficial to the
 team at large. A large app that is managed without a planned, methodical
 method of approaching the code base, might end up getting tangled in
