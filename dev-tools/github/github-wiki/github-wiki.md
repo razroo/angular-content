@@ -1,4 +1,4 @@
 ---
-title: Github Wziki
+title: Github Wiki
 ---
 Todo
