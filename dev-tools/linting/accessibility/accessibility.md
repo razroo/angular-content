@@ -1,18 +1,15 @@
- Accessibility with Codelyzer
-============================
-
+---
+title: Accessibility with Codelyzer
+---
 Codelyzer is a static code analyzer built on top of Tslint. It's a layer
 over Tslint with pre-made rules. It includes:
 
-1.  Component selectors are kebab-case
+1. Component selectors are kebab-case
+2. Directive selectors are camelCased
+3. no-host-metadata-property - Disallows use of `host` within
+   components
 
-2.  Directive selectors are camelCased
-
-3.  no-host-metadata-property - Disallows use of `host` within
-    components
-
-Why Codelyzer is Amazing
-------------------------
+## Why Codelyzer is Amazing
 
 Codelyzer is amazing.
 
@@ -27,8 +24,7 @@ make all the difference in your application.
 
 So you do you implement Codelyzer?
 
-Angular CLI and Codelyzer
--------------------------
+## Angular CLI and Codelyzer
 
 The Angular CLI includes Codelyzer out of the box. However, Codelyzer
 does not include linting `a11y` rules by default. This is because it's
@@ -46,37 +42,40 @@ Angular CLI and NX installs Codelyzer by default.
 
 If you're unsure or don't have it installed, here's how to install it.
 
-    npm i codelyzer --save-dev;
+```
+npm i codelyzer --save-dev;
+```
 
 ### Add rules to tslint.json
 
 The following are the rules that suggested by the Codelyzer team to add
 accessibility to your application:
 
-    {
-      "rulesDirectory": [
-        "codelyzer"
-      ],
-      "rules": {
-        ...,
-        "template-accessibility-alt-text": true,
-        "template-accessibility-elements-content": true,
-        "template-accessibility-label-for": true,
-        "template-accessibility-tabindex-no-positive": true,
-        "template-accessibility-table-scope": true,
-        "template-accessibility-valid-aria": true,
-        "template-click-events-have-key-events": true,
-        "template-mouse-events-have-key-events": true,
-        "template-no-autofocus": true,
-        "template-no-distracting-elements": true
-      }
-    }  
+```
+{
+  "rulesDirectory": [
+    "codelyzer"
+  ],
+  "rules": {
+    ...,
+    "template-accessibility-alt-text": true,
+    "template-accessibility-elements-content": true,
+    "template-accessibility-label-for": true,
+    "template-accessibility-tabindex-no-positive": true,
+    "template-accessibility-table-scope": true,
+    "template-accessibility-valid-aria": true,
+    "template-click-events-have-key-events": true,
+    "template-mouse-events-have-key-events": true,
+    "template-no-autofocus": true,
+    "template-no-distracting-elements": true
+  }
+}  
+```
 
 When you have tslint enabled within your code editor, there are two
 scenarios that you can take advantage of these rules.
 
-1.  From within your Typescript files.
-
-2.  Whenever you run `ng lint` over entire project. You can tie ng lint
-    into your CI/CD process, of course, to make sure project is thrown
-    back if these ng lint rules do not pass.
+1. From within your Typescript files.
+2. Whenever you run `ng lint` over entire project. You can tie ng lint
+   into your CI/CD process, of course, to make sure project is thrown
+   back if these ng lint rules do not pass.
