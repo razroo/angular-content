@@ -1,58 +1,62 @@
- Linting Sass 
-=============
-
+---
+title: Linting Sass
+---
 Linting is important. When it comes to SASS, Angular's CLI and Nrwl NX
 CLI will offer SASS linting out of the box.
 
 sass-lint is a popular package that you can use. Here's how to install
 it.
 
-Installing Sass Lint
---------------------
+## Installing Sass Lint
 
-      npm install sass-lint --save-dev
+```
+  npm install sass-lint --save-dev
+```
 
-Adding a Lint Config File
--------------------------
+## Adding a Lint Config File
 
 For sass-lint, it will hook into by default a file that is in the root
 of folder called .sass-lint.yml. It's quite long, and you can see the
 rest of the file in the actual github repo. However, you will still need
 to create a sass-lint.yml file.
 
-      touch sass-lint.yml
+```
+  touch sass-lint.yml
+```
 
 Inside of the sass-lint.yml file, it will look something like this:
 
-    options:
-      formatter: stylish
-    files:
-      include:
-        - '{apps,libs}/**/*.scss'
-      ignore:
-        - 'libs/font-awesome/**/*.scss'
-    rules:
-      # Extends
-      extends-before-mixins: 1
-      extends-before-declarations: 1
-      placeholder-in-extend: 1
+```
+options:
+  formatter: stylish
+files:
+  include:
+    - '{apps,libs}/**/*.scss'
+  ignore:
+    - 'libs/font-awesome/**/*.scss'
+rules:
+  # Extends
+  extends-before-mixins: 1
+  extends-before-declarations: 1
+  placeholder-in-extend: 1
 
-      # Mixins
-      mixins-before-declarations: 1
+  # Mixins
+  mixins-before-declarations: 1
 
-      # Line Spacing
-      one-declaration-per-line: 1
-      empty-line-between-blocks: 1
-      single-line-per-selector: 1
+  # Line Spacing
+  one-declaration-per-line: 1
+  empty-line-between-blocks: 1
+  single-line-per-selector: 1
 
-      # Disallows
-      no-attribute-selectors: 0
-      no-color-hex: 0
-      no-color-keywords: 1
-      no-color-literals: 1
-      no-combinators: 0
-      no-css-comments: 1
-      no-debug: 1
+  # Disallows
+  no-attribute-selectors: 0
+  no-color-hex: 0
+  no-color-keywords: 1
+  no-color-literals: 1
+  no-combinators: 0
+  no-css-comments: 1
+  no-debug: 1
+```
 
 The list of lint rules is long but useful for every potential aspect of
 your project, helping you prevent potential future conflicts.
@@ -64,13 +68,13 @@ much easier because it is visually appealing and lighter to read.
 When it comes to managing architecture, styling is a self managed
 process and linting takes away the manual parts of it.
 
-Adding an NPM Script in your package.json
------------------------------------------
+## Adding an NPM Script in your package.json
 
-      "lint-scss": "sass-lint -v -q",
+```
+  "lint-scss": "sass-lint -v -q",
+```
 
-The Final Touch
----------------
+## The Final Touch
 
 Adding the sass-lint npm script will tie up any loose ends before your
 pull request. This sits neatly on the CI/CD architecture, meaning that
