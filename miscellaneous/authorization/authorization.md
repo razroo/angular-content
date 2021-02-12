@@ -1,6 +1,6 @@
- Authorization 
-==============
-
+---
+title: Authorization
+---
 Authorization is a corner stone of any project. Many greenfield projects
 will not have the ability to implement authorization right away as
 backend will not have the capacity to do so.
@@ -9,13 +9,12 @@ However, one of the cool things about authorization is that one has the
 ability to set it up ahead of time. When data from the backend comes in,
 the authorization service and directives will be ready to do.
 
-Creating directives for our service
------------------------------------
+## Creating directives for our service
 
 As an example, let's say that we have html that we want to disable, or
 hide. We can do the following:
 
-``` {.django html template}
+```{.django
 <div [myHideIfUnauthorized]="updatePermission"> <!-- a property set or passed into the component –>
 <div [myDisableIfUnauthorized]="updatePermission">
 ```
@@ -23,7 +22,7 @@ hide. We can do the following:
 One is then going to want to create two different directives. One for
 disabling if unauthorized:
 
-``` {.typescript}
+```{.typescript}
 import { Directive, ElementRef, OnInit, Input } from '@angular/core';
 import { AuthorizationService } from '../../services/authorization.service';
 import { AuthGroup } from '../models/authorization.types';
@@ -44,7 +43,7 @@ export class MyDisableIfUnauthorizedDirective implements OnInit {
 
 and another for hiding if unauthorized:
 
-``` {.typescript}
+```{.typescript}
 import { Directive, ElementRef, OnInit , Input } from '@angular/core';
 import { AuthorizationService } from '../../services/authorization.service';
 import { AuthGroup } from '../models/authorization.types';
@@ -63,8 +62,7 @@ export class MyHideIfUnauthorizedDirective implements OnInit {
 }
 ```
 
-Creating a Guard for unauthorized
----------------------------------
+## Creating a Guard for unauthorized
 
 As the last piece of our unauthorized trifecta, we will be wanting to
 create a guard. For reference on guards, please refer to the chapter on
@@ -72,7 +70,7 @@ guards.
 
 TODO - Go more into depth on what this guard is doing.
 
-``` {.typescript}
+```{.typescript}
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { AuthorizationService } from './authorization.service';
@@ -113,13 +111,12 @@ export class AuthGuardService implements CanActivate {
 }
 ```
 
-Service Can Be Called Anywhere
-------------------------------
+## Service Can Be Called Anywhere
 
 We have the option to call the auth service anywhere in the app that we
 want to, in addition to using directives and the guard. For instance:
 
-``` {.typescript}
+```{.typescript}
 private showMenuItem(authGroup: AuthGroup) {
    return this.authorizationService.hasPermission(authGroup);
 }
