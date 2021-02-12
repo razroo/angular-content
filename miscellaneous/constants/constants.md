@@ -1,8 +1,7 @@
- Constants 
-==========
-
- What is a Constant? 
---------------------
+---
+title: Constants
+---
+## What is a Constant?
 
 In JavaScript the idea of having a constant would be assigning a
 variable, to a particular value. Whenever we would like that value,
@@ -10,22 +9,21 @@ instead of typing out the value, we would use the variable. At first,
 however, it might seem counter-intuitive. Why use the constant value, if
 it is literally named the same thing as the actual value?
 
-``` {caption="Example of a Constant"}
+```{caption="Example
 // Update last updated value to have latest payload data
 const LAST_UPDATED = "LAST_UPDATED";
 new updateValue(payload, LAST_UPDATED);
 ```
 
- Benefits of a Constant 
------------------------
+## Benefits of a Constant
 
-###  Creates a Table of Contents 
+### Creates a Table of Contents
 
 When one creates a series of constants in particular file for a certain
 component, one can peruse through the constant file, being able to see
 all actionable items in one. For instance, the following:
 
-``` {caption="Example of a Constant"}
+```{caption="Example
 // imagine these constants, are in a folder called ValueActionTypes
 const UPDATE_VALUE = "UPDATE_VALUE";
 const ADD_VALUE = "ADD_VALUE";
@@ -54,13 +52,13 @@ export class DeleteValue implements Action {
 }
 ```
 
-###  Communicate to Maintainers 
+### Communicate to Maintainers
 
 If using a constant value, it signifies to future maintainers of your
 code that this is a value which is immutable. Further distinguishing
 intent of application/snippet of code.
 
-###  Helps Secure Values 
+### Helps Secure Values
 
 When typing in a string for a particular constant value, particular
 diligence must be applied in order to make sure it is type
