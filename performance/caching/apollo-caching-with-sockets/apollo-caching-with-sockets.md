@@ -1,5 +1,6 @@
- Apollo Caching with Sockets 
-============================
+---
+title: Apollo Caching with Sockets
+---
 
 The value of being aware of architecture is twofold. One is that one has
 the option of preventing future catastrophes.

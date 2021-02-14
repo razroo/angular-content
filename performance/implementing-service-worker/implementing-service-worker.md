@@ -1,5 +1,6 @@
- The Angular Service Worker - Implementing in App 
-=================================================
+---
+title: The Angular Service Worker - Implementing in App
+---
 
 A service worker is a a script that runs in the web browser that manages
 caching for an application. Let's say you are offline and making a query

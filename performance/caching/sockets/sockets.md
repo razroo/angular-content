@@ -1,5 +1,6 @@
- Sockets 
-========
+---
+title: Sockets
+---
 
 When using caching withing an angular application, the only dilemma that
 will come to play is how update that cache. For most

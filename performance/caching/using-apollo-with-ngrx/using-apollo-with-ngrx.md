@@ -1,5 +1,6 @@
- Integrating ngrx/store with Apollo Client 
-==========================================
+---
+title: Integrating ngrx/store with Apollo Client
+---
 
 In many architectures, it is most likely going to make sense that it is
 microservice based. That is, your data will be served over a slew of

@@ -1,5 +1,6 @@
- Change Detection 
-=================
+---
+title: Change Detection
+---
 
 Change detection is one of the foundation principles behind Angular. It
 is a large part of what makes the framework what it is. Understanding

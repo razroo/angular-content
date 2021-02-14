@@ -1,5 +1,6 @@
-Bundle Size
-===========
+---
+title: Bundle Size
+---
 
 Bundle sizes can make such a large difference to a user, using the app
 for the first time, while simultaneously being one of the easier things

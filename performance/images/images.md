@@ -1,5 +1,6 @@
- Image Performance in Angular 
-=============================
+---
+title: Image Performance in Angular
+---
 
 Image optimization is unique in an Angular setting. This is because of
 Angular's usage of routing for lazy loading, file bundling, and modules.

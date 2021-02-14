@@ -1,5 +1,6 @@
-Understanding Rendering
-=======================
+---
+title: Understanding Rendering
+---
 
 Rendering is an integral part of Angular's structure. Because of its
 nature as a framework, the default way of doing things can be a bit

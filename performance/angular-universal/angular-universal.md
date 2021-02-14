@@ -1,5 +1,6 @@
- Angular Universal 
-==================
+---
+title: Angular Universal
+---
 
 What is Server Side Rendering?
 ------------------------------
