@@ -1,5 +1,6 @@
- PWA Toolset - Physical Devices 
-===============================
+---
+title: PWA Toolset - Physical Devices
+---
 
 Here is a list of devices sizes you should support at minimum:
 

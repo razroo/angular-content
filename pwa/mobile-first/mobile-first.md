@@ -1,5 +1,6 @@
- Mobile First - Building a Progressive Web App 
-==============================================
+---
+title: Mobile First - Building a Progressive Web App
+---
 
  Why Build a Progressive Web App? 
 ---------------------------------

@@ -1,7 +1,8 @@
- Responsive Design 
-==================
+---
+title: Responsive Design
+---
 
- Choosing a Framwork 
+Choosing a Framework 
 --------------------
 
 When it comes to responsive design, there are a number of frameworks
