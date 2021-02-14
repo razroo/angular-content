@@ -1,5 +1,6 @@
- Scully: Static Site Generation for Angular 
-===========================================
+---
+title: Scully - Static Site Generation for Angular
+---
 
 Traditionally, static sites are just that - static. They didn't change
 and what you coded is essentially what you'd get. However, with the

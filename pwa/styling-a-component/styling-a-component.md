@@ -1,5 +1,6 @@
- Styling a Component 
-====================
+---
+title: Styling a Component
+---
 
 Styling a component can be a complex topic. With styling, as an
 architect in an Angular setting, there are 4 things that you will have
