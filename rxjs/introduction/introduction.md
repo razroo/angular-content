@@ -1,5 +1,6 @@
- Introduction to RxJS - The RxJS Airplane
-========================================
+---
+title: Introduction to RxJS - The RxJS Airplane
+---
 
  What is Reactive Programming?
 -----------------------------

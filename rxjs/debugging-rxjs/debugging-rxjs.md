@@ -1,5 +1,6 @@
- Debugging Rxjs 
-===============
+---
+title: Debugging Rxjs
+---
 
 One of the more difficult things to master when learning RxJS, is
 learning how to debug a stream. Within regular Javascript/Typescript,

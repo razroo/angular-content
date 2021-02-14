@@ -1,5 +1,7 @@
-Multicasting
-============
+---
+title: Multicasting
+---
+
 
 I've seen Netanel Basel mention this, and he is most definitely right.
 Of the entire RxJS bunch, multicase operators are the most complicated

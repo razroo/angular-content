@@ -1,5 +1,6 @@
-Cold v Hot Observables
-======================
+---
+title: Cold v Hot Observables
+---
 
 One of the foundational concepts of RxJS is understanding what the
 difference between cold and hot observables is. At its core this

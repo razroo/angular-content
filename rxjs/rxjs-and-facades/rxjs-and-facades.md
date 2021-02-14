@@ -1,5 +1,6 @@
- RxJS and Facades 
-=================
+---
+title: RxJS and Facades
+---
 
 The point of this Chapter
 -------------------------
