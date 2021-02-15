@@ -1,5 +1,6 @@
- State Directory Structure 
-==========================
+---
+title: State Directory Structure
+---
 
 When you start an Angular project for the first time, it can be
 increasingly difficult to manage ngrx/store.

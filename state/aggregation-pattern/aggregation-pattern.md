@@ -1,5 +1,6 @@
- Aggregation Pattern 
-====================
+---
+title: Aggregation Pattern
+---
 
 Many times within any web setting, numerous apis will be feeding into a
 single request. An example would be in an e-commerce setting wherein
