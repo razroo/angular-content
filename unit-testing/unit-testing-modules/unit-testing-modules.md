@@ -1,5 +1,6 @@
- Unit Testing Modules 
-=====================
+---
+title: Unit Testing Modules
+---
 
 Unit testing modules are a good little piece of architecture in Angular.
 It allows you to put a number of providers into the module for unit

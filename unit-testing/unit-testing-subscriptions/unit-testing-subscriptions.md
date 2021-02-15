@@ -1,5 +1,6 @@
- Unit Testing Subscriptions 
-===========================
+---
+title: Unit Testing Subscriptions
+---
 
 One of the more complicated things within an Angular architecture is
 unit testing subscriptions. There are many scenarios within a UI

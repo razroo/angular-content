@@ -1,5 +1,6 @@
- Writing E2E Tests 
-==================
+---
+title: Writing E2E Tests
+---
 
 In addition to our Unit Testing, another very important element of our
 app is End to End Testing. We have discussed in the previous chapter how

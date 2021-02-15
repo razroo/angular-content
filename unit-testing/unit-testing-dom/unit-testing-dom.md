@@ -1,5 +1,6 @@
- Unit Testing the DOM 
-=====================
+---
+title: Unit Testing the DOM
+---
 
 The DOM is the a variable within front end development that complicates
 the unit testing process. While it is in the process of becoming more

@@ -1,5 +1,6 @@
- Spies 
-======
+---
+title: Spies
+---
 
 Spy's are an integral part of any unit testing suite. Spies help
 simplify the unit test suite to such a great extent, that not discussing

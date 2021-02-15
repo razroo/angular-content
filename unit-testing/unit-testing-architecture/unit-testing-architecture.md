@@ -1,5 +1,6 @@
- Unit Testing Architecture 
-==========================
+---
+title: Unit Testing Architecture
+---
 
 In any given UI application, the following should be considered as
 appropriate architecture.
