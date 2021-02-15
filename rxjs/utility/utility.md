@@ -1,5 +1,6 @@
-Utility
-=======
+---
+title: Utility
+---
 
 Utility functions in RxJS as are utility methods in programming, are
 often re-used operators, which are helpful for accomplushing routine

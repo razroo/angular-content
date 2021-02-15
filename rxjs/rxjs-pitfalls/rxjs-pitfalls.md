@@ -1,5 +1,6 @@
-RxJS Pitfalls
-=============
+---
+title: RxJS Pitfalls
+---
 
 RxJS is a powerful library to use. With that power, however, comes a lot
 of complexity. With that complexity comes a lot of ways to get into
