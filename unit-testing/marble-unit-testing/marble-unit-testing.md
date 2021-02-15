@@ -1,5 +1,6 @@
- Marble Unit Testing 
-====================
+---
+title: Marble Unit Testing
+---
 
 Unit testing observables, in fact, with observables is never really
 easy. It's not the logic you would come across in other parts of your

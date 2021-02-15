@@ -1,5 +1,6 @@
- Visual Unit Tests with Cypress 
-===============================
+---
+title: Visual Unit Tests with Cypress
+---
 
 Unit testing is great until something changes. The current issue with
 writing traditional unit tests is you miss out on the point of front end

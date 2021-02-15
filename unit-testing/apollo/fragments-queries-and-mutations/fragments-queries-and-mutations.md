@@ -1,5 +1,6 @@
- Fragments Queries and Mutations 
-================================
+---
+title: Fragments Queries and Mutations
+---
 
 An important part of architecture with regards to using GraphQL, is
 splitting up data requests into fragments + queries/mutations. It

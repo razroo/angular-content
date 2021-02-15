@@ -1,5 +1,6 @@
- Fixture Vs. Debug 
-==================
+---
+title: Fixture Vs. Debug
+---
 
 There are use cases where accessing the DOM as we've mentioned makes
 sense from a unit testing perspective.

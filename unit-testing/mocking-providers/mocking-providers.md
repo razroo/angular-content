@@ -1,5 +1,6 @@
- Unit Testing - Mocking Providers 
-=================================
+---
+title: Unit Testing - Mocking Providers
+---
 
 Another important part of Angular Architecture is that one has an option
 to import a service as is, or to mock it out. This will apply to facades

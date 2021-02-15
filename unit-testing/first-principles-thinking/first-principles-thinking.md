@@ -1,5 +1,6 @@
- Unit Testing TDD - First Principles Discovery 
-==============================================
+---
+title: Unit Testing TDD - First Principles Discovery
+---
 
 Unit testing as a discipline is something that can be difficult to
 write. Writing a good unit test is almost the same as writing good

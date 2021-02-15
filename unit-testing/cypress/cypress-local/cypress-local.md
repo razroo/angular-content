@@ -1,5 +1,6 @@
- Testing Cypress Locally With Authentication 
-============================================
+---
+title: Testing Cypress Locally With Authentication
+---
 
 There is going to be the need to add authentication to your application.
 This translates to a log in process to verify your identity.

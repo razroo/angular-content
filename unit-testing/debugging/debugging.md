@@ -1,5 +1,6 @@
- Debugging 
-==========
+---
+title: Debugging
+---
 
 Debugging in any development environment is a necessity. When it comes
 to unit testing, sometimes a unit test will not pass and will be a bit

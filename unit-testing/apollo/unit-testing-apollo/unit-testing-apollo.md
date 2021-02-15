@@ -1,5 +1,6 @@
- Unit Testing Component using Apollo 
-====================================
+---
+title: Unit Testing Component using Apollo
+---
 
 Unit testing an app which has a DOM is always a difficult process. You
 can be familiar with how a certain technology should be stubbed but to

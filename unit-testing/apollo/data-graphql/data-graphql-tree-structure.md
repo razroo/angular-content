@@ -1,6 +1,0 @@
-\[libs \[px-illustrator \[data-models \[src \[lib \[user
-\[\_user.fragments.ts,file\] \[\_user.mutations.ts,file\]
-\[\_user.queries.ts,file\] \[\_user.subscriptions.ts,file\] \] \]
-\[\_index.ts,file\] \[\_test.ts,file\] \] \[\_README.md,file\]
-\[\_tsconfig.lib,file\] \[\_tsconfig.lib.json,file\]
-\[\_tsconfig.spec.json,file\] \[\_tslint.json,file\] \] \] \]

@@ -1,5 +1,6 @@
- E2E Testing in a TDD/BDD Setting 
-=================================
+---
+title: E2E Testing in a TDD/BDD Setting
+---
 
 One of the tricky things with regards to E2E tests is how it fits into a
 TDD/BDD environment. Writing unit tests before we can see anything in

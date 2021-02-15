@@ -1,5 +1,6 @@
- Coverage Reporting 
-===================
+---
+title: Coverage Reporting
+---
 
 Coverage reporting for an Angular application using the Angular CLI is
 easy to implement. Albeit easy to generate coverage reporting, it's

@@ -1,5 +1,6 @@
- Data GraphQL 
-=============
+---
+title: Data GraphQL
+---
 
 Assuming your app is using /hrefhttps://graphql.org/GraphQL, you will
 have to choose a client to use with GraphQL. We will be using Apollo

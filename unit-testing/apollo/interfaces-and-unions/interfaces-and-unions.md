@@ -1,5 +1,6 @@
- Interfaces and Unions 
-======================
+---
+title: Interfaces and Unions
+---
 
 In GraphQL, and more in particular because we are working on things from
 the UI side of things, a Union type gives us the ability for one field

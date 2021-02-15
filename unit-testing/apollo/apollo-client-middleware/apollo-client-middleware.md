@@ -1,5 +1,6 @@
- Apollo Client Middleware 
-=========================
+---
+title: Apollo Client Middleware
+---
 
 Middleware is a service layer one can put on top of application in
 question. In particular, for an Apollo application, it will allow us to

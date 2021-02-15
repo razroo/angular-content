@@ -1,5 +1,6 @@
- Mocking Data 
-=============
+---
+title: Mocking Data
+---
 
 Many times the data mocks are repetitions of themselves. I've done this
 myself, maybe you have as well. This chapter is simply there to put this
