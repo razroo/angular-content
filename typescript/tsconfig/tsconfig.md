@@ -1,5 +1,6 @@
- Tsconfig 
-=========
+---
+title: Tsconfig
+---
 
  What is the Tsconfig? 
 ----------------------

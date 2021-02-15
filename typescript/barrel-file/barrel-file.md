@@ -1,5 +1,6 @@
- Barrel File 
-============
+---
+title: Barrel File
+---
 
  What is a Barrel File? 
 -----------------------

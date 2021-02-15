@@ -1,5 +1,6 @@
- Data Access Interface 
-======================
+---
+title: Data Access Interface
+---
 
 A benefit of having a data access folder to manage parts of our data is
 in the architecture. It lets us see in a single interface all our

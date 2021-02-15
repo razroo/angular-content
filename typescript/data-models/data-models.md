@@ -1,5 +1,6 @@
- Data Models 
-============
+---
+title: Data Models
+---
 
 A data model is an abstract model that organizes different sorts of data
 and how they relate to each other. An interface in Typescript is

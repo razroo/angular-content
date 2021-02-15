@@ -1,5 +1,6 @@
- Typescript - Immutability 
-==========================
+---
+title: Typescript - Immutability
+---
 
 Immutability is one of the core concepts when it comes to data. I first
 learned about it when I was introduced to Redux. However, as time

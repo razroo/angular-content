@@ -1,6 +1,0 @@
-\[libs \[px-illustrator \[data-models \[src \[lib \[user
-\[\_user.interface.ts,file\] \[\_user.mock.ts,file\] \] \]
-\[\_index.ts,file\] \[\_test.ts,file\] \] \[\_karma.conf,file\]
-\[\_README.md,file\] \[\_tsconfig.lib,file\]
-\[\_tsconfig.lib.json,file\] \[\_tsconfig.spec.json,file\]
-\[\_tslint.json,file\] \] \] \]

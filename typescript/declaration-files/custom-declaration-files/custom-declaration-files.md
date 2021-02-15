@@ -1,5 +1,6 @@
- Custom Declaration Files 
-=========================
+---
+title: Custom Declaration Files
+---
 
 Earlier we through all the steps necessary to fully understand what a
 declaration file is. We brought up an example of the `moment.js`

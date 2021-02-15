@@ -1,5 +1,6 @@
- Interfaces and Partials 
-========================
+---
+title: Typescript Interfaces and Partials
+---
 
 Interfaces are a large part of data-access architecture. They are the
 glue that makes sure that all parts of data-access are using the same

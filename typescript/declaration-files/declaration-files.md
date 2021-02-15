@@ -1,5 +1,6 @@
-Declaration Files
-=================
+---
+title: Declaration Files
+---
 
 Declaration files have an integral part of the Angular/Typescript
 ecosystem. However, if you haven't worked with declaration files, it's

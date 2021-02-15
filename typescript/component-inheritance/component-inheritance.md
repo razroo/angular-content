@@ -1,5 +1,6 @@
- Component Inheritance 
-======================
+---
+title: Component Inheritance
+---
 
 JavaScript is built on the idea of prototypes. In short, a prototype is
 an object that can be inherited by other prototypes. This allows you to

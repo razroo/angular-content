@@ -1,5 +1,6 @@
- Typescript - Getting and Setting 
-=================================
+---
+title: Typescript - Getting and Setting
+---
 
 Creating a getter and setter is a common pattern in an OOP paradigm.
 When using a class, Typescript offers an internal getter and setter. It
