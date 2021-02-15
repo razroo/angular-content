@@ -1,5 +1,6 @@
- Re-using Reducer Logic 
-=======================
+---
+title: Re-using Reducer Logic
+---
 
 In any state management setting, we often encounter business logic that
 is repeated throughout a feature state.

@@ -1,5 +1,6 @@
- Using Effects for Async 
-========================
+---
+title: Using Effects for Async
+---
 
 Effects in an ngrx setting are a secret weapon when is comes to creating
 async events. For instance, let's imagine that after a piece of data is

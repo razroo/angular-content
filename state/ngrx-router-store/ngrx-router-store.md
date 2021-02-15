@@ -1,5 +1,6 @@
- ngrx/router-store 
-==================
+---
+title: @ngrx/router-store
+---
 
 Ngrx/store is an Angular flavored Redux styled state management library
 that leverages Rxjs.

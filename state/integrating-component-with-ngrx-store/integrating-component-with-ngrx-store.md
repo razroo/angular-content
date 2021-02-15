@@ -1,5 +1,6 @@
- Integrating a Component with \@ngrx/store 
-==========================================
+---
+title: Integrating a Component with @ngrx/store
+---
 
 Another chapter has been dedicated solely to integrating a component
 with \@ngrx/store. This is because it is a standardized process.

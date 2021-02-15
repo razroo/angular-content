@@ -1,5 +1,6 @@
- Re-Usable State - An Anti-Pattern 
-==================================
+---
+title: Re-Usable State - An Anti-Pattern
+---
 
 Creating re-usable state in an Angular application might be one of the
 most important architectural decisions you might also make. It will also

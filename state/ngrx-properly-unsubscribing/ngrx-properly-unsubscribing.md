@@ -1,5 +1,6 @@
- State Management - Properly Unsubscribing 
-==========================================
+---
+title: State Management - Properly Unsubscribing
+---
 
 In Angular, when using ngrx when trying to pull in data, using the async
 pipe is the preferred approach. It will handle both the subscribe and

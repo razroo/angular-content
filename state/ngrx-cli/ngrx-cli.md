@@ -1,5 +1,6 @@
- Ngrx CLI 
-=========
+---
+title: Ngrx CLI
+---
 
 Nrwl Nx cli is one of the best things you can do for your Angular
 workflow. If you are using Nrwl Nx already and have a mono repo setup

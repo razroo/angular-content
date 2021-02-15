@@ -1,5 +1,6 @@
- Primer - Actions 
-=================
+---
+title: Primer - Actions
+---
 
 An action is a function which contains two very important pieces of
 information:

@@ -1,5 +1,6 @@
- The Case for Using Ngrx/Entity by Default
-=========================================
+---
+title: The Case for Using Ngrx/Entity by Default
+---
 
  A Synopsis of Normalization
 ---------------------------

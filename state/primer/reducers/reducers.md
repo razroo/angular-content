@@ -1,5 +1,6 @@
- Primer - Reducers 
-==================
+---
+title: Primer - Reducers
+---
 
 Reducers are pure functions that take in data and return a new data
 object. Immutability is ideal when using reducers, so that data is not

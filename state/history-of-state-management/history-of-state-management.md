@@ -1,5 +1,6 @@
- History of State Management 
-============================
+---
+title: History of State Management
+---
 
 Having a history of state management puts into perspective why we need
 state management. It also puts into perspective how much so things

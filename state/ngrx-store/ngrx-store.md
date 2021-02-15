@@ -1,5 +1,6 @@
- State Management - \@ngrx/store 
-================================
+---
+title: State Management - @ngrx/store
+---
 
 Ngrx/store is a layer on top of Redux.
 

@@ -1,5 +1,6 @@
- Introduction to \@ngrx/store 
-=============================
+---
+title: Introduction to @ngrx/store
+---
 
 There has been quite a series of progression with regards to state
 management. Redux is the mature concept of state management including

@@ -1,5 +1,6 @@
- Ngrx Entity 
-============
+---
+title: Ngrx Entity
+---
 
 The Ngrx repo, until recently, is similar to your regular redux app. It
 included actions, reducers, selectors. There has been efforts to go

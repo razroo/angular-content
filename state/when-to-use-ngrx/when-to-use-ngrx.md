@@ -1,5 +1,6 @@
-When to Use \@ngrx/store
-========================
+---
+title: When to Use @ngrx/store
+---
 
 When to use \@ngrx/store is an opinionated topic.
 

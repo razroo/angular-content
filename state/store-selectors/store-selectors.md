@@ -1,5 +1,6 @@
- Store Selectors 
-================
+---
+title: Store Selectors
+---
 
 Selectors are pure functions. Pure functions are functions which always
 return the same result, given a certain parameter that take slices of

@@ -1,5 +1,6 @@
- Ngrx Effects 
-=============
+---
+title: Ngrx Effects
+---
 
 Ngrx Effects - A Primer
 -----------------------

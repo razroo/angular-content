@@ -1,5 +1,6 @@
- Facade Pattern 
-===============
+---
+title: Facade Pattern
+---
 
  What is the Facade Pattern? 
 ----------------------------
