@@ -5,6 +5,8 @@ The current landscape of UI development is in an interesting place. The
 capacity of web based technologies performing tasks that were previously
 unavailable is growing by the year.
 
+![](https://github.com/razroo/razroo-fully-architected-dashboard/blob/master/libs/data-access/src/lib/%2Bstate/employees.effects.ts#L8-L14)
+
 In addition to this, frameworks and libraries are popping up to enable
 further scalability, DRY development, and structural consistency. In
 your average web application, these features include the ability to type
