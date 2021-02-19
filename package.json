@@ -7,7 +7,7 @@
     "build": "cd admin && index.html",
     "initial": "pdflatex main.tex",
     "run:razroo-markdown-engine": "node build.js",
-    "build:book": "npm run markdown-include markdown.json",
+    "build:book": "node node_modules/markdown-include/bin/cli.js markdown.json; node build.js",
     "start": "node build.js",
     "start-linux": "node watcher.js & evince main.pdf",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/CharlieGreenman/latex-documentation#readme",
   "dependencies": {
-    "@razroo/razroo-markdown-engine": "1.2.6",
+    "@razroo/razroo-markdown-engine": "1.2.7",
     "glob": "^7.1.6",
     "husky": "^4.3.0",
     "mkdirp": "^1.0.4"
