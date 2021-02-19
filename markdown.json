@@ -1,0 +1,7 @@
+{
+  "build" : "main-book.md",
+  "files" : ["./book.md"],
+  "tableOfContents": {
+    "heading": "# Table of Contents"
+  }
+}

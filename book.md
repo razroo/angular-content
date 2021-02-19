@@ -268,7 +268,7 @@
 <!-- /code_chunk_output -->
 
 
-@import "./introduction/introduction.md";
+@include **/introduction.md
 @import "./dev-tools/dependency-graph/dependency-graph.md";
 @import "./dev-tools/angular-cli/angular-cli.md";
 @import "./dev-tools/nrwl/nrwl.md";
