@@ -13,12 +13,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-pdf": "wr -h"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run run:razroo-markdown-engine",
-      "pre-push": "npm run run:razroo-markdown-engine"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CharlieGreenman/latex-documentation.git"
