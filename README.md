@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://cdn-images-1.medium.com/max/706/1*aLhaswytPZlnugBsDTQUfQ@2x.png" width="200" />
   </a>
