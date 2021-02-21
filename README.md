@@ -11,7 +11,7 @@ e.g. “in this `{{section}}` “ will be “in this article” when building to
 https://github.com/razroo/razroo-fully-architected-dashboard/blob/master/libs/data-graphql/src/lib/data-graphql.module.ts#L1-L7
 
 will compiled to: 
-
+```
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class DataGraphqlModule {}
+```
 
 3. Converts Markdown to HTML.
 
