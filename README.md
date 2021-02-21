@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://www.gatsbyjs.org">
+    <img alt="Gatsby" src="https://cdn-images-1.medium.com/max/706/1*aLhaswytPZlnugBsDTQUfQ@2x.png" width="200" />
+  </a>
+</p>
+
 # Background: Razroo Markdown Engine
 
 The Razroo Markdown Engine is a Razroo engineered markdown engine, layered on top of Remark. For the most part, it uses libraries already available, with the exception of the embed code functionality. The Razroo Markdown engine does the following: 
