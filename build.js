@@ -4,7 +4,7 @@ var glob = require("glob")
 
 let files = glob.sync("**/*.md", { ignore: ["**/node_modules/**", "./node_modules/**", "./cms/**"] })
 for (x in files){
-    let builtFilePath = `./build/book/${files[x]}`
+    let builtFilePath = `./build/${files[x]}`
     mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
     razrooMarkdownEngine(files[x], builtFilePath).then((output)=>{
         console.log(output)

@@ -2,7 +2,8 @@ const razrooMarkdownEngine = require('@razroo/razroo-markdown-engine').resolveMa
 const mkdirp = require('mkdirp')
 
 let bookFile = 'main-book.md';
-let builtFilePath = `./build/book/${bookFile}`
+let builtBookFile = 'main-book.html';
+let builtFilePath = `./build/book/${builtBookFile}`
 mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
 razrooMarkdownEngine(bookFile, builtFilePath).then((output)=>{
     console.log(output)
