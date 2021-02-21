@@ -1,6 +1,8 @@
- ---
- title: Content Projection
- --- 
+---
+title: Content Projection
+---
+ Content Projection 
+===================
 
 Any component can technically be re-usable. What makes content
 projection so great is that it allows the content inside of a component
