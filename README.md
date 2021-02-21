@@ -39,7 +39,7 @@ The reason for creating the Razroo Markdown engine is twofold: 1. Have a pseudo-
 
 ## Netlify / Technical Writers 
 
-Using the Netlify CMS, for a particular category, e.g. Angular, Technical writers update content.
+Using the [Netlify CMS](https://angular-the-full-gamut-markdown.netlify.app/admin), for a particular category, e.g. Angular, Technical writers update content.
 
 Technical writers use variables, and GitHub links to produce content. 
 
