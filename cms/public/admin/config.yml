@@ -143,12 +143,11 @@ collections:
   name: "pwa" # Used in routes, e.g., /admin/collections/blog
   folder: "pwa" # The path to the folder where the documents are stored
   create: true # Allow users to create new documents in this collection
-  identifier_field: name
+  identifier_field: path
   nested:
     depth: 100
     summary: "{{title}}" 
   fields:
-      - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
