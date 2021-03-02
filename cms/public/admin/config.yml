@@ -39,10 +39,10 @@ collections:
   name: "core" # Used in routes, e.g., /admin/collections/blog
   folder: "core" # The path to the folder where the documents are stored
   create: true # Allow users to create new documents in this collection
-  identifier_field: name
+  identifier_field: path
   nested:
     depth: 100
-    summary: "{{pathName}}"
+    summary: "{{path}}"
   fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
