@@ -1,5 +1,5 @@
 backend:
-  repo: razroo/angular-the-full-gamut-markdown
+  repo: razroo/angular-content
   name: github
   branch: laurell-RD-1 # Branch to update (optional; defaults to master)
 publish_mode: editorial_workflow
