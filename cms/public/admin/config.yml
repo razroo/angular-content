@@ -42,7 +42,7 @@ collections:
   identifier_field: name
   nested:
     depth: 100
-    summary: "{{title}}" 
+    summary: "{{pathName}}"
   fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
