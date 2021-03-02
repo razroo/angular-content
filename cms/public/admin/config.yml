@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   repo: razroo/angular-content
   branch: master
-  base_url: "https://angular-content.netlify.app"
+  base_url: "https://angular-the-full-gamut-markdown.netlify.app/"
 
 publish_mode: editorial_workflow
 
