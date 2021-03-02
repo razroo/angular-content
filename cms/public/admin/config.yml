@@ -14,9 +14,10 @@ collections:
   name: "architecture" # Used in routes, e.g., /admin/collections/blog
   folder: "architecture" # The path to the folder where the documents are stored
   create: true # Allow users to create new documents in this collection
+  identifier_field: path
   nested:
     depth: 100
-    summary: "{{title}}"
+    summary: "{{path}}"
   fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
