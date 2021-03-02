@@ -19,7 +19,6 @@ collections:
     depth: 100
     summary: "{{path}}"
   fields:
-      - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
   meta: { path: { widget: string, label: 'Path', index_file: "title" } }
 
