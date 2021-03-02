@@ -8,6 +8,7 @@
     "initial": "pdflatex main.tex",
     "run:razroo-markdown-engine": "node build.js",
     "build:book": "node node_modules/markdown-include/bin/cli.js markdown.json; node build-book.js",
+    "build:articles": "node build-articles.js",
     "start": "node build.js",
     "start-linux": "node watcher.js & evince main.pdf",
     "test": "echo \"Error: no test specified\" && exit 1",
