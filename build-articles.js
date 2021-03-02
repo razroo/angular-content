@@ -4,7 +4,7 @@ const articlesJson = require('./articles.json');
 
 let files = articlesJson.files;
 for (x in files){
-    let builtFilePath = `./build/articles/${files[x]}`
+    let builtFilePath = `./build/articles/${files[x].split("/").pop()}`
     mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
     razrooMarkdownEngine(files[x], builtFilePath).then((output)=>{
         console.log(output)
