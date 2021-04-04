@@ -9,6 +9,8 @@ different usages. Two of the currently most profitable front end
 available in Angular can be cumbersome. Being able to break into the
 React ecosystem, for instance, can be extremely valuable.
 
+Mock Edit
+
 Microsoft came across the use case of needing to have React within their
 Angular applications. They created the open source library called
 [angular-react](github.com/microsoft/angular-react). It allows for the
