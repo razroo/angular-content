@@ -15,7 +15,7 @@ for (x in files){
 
     mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
     razrooMarkdownEngine(files[x].path, builtFilePath).then((output)=>{
-      console.log(output)
+      console.log(output);
     })
 }
 
@@ -30,9 +30,6 @@ function addUidIfNonePreset(files) {
        fileObject["UID"] = uuidv4();
      }
    }
-
-   console.log('articlesJson');
-   console.log(articlesJson);
    fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
       if (err) return console.log(err);
       console.log(JSON.stringify(articlesJson));
