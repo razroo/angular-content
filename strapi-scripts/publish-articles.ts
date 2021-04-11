@@ -44,7 +44,15 @@ const operation = {
   query,
 }
 
-execute(link, operation).subscribe(data => {
-  console.log('data');
-  console.log(data);
-});
+function addUidIfNeed() {
+
+}
+
+export function createStrapiArticle(articleData) {
+  execute(link, operation).subscribe(data => {
+    console.log('data');
+    console.log(data);
+  });
+}
+
+
