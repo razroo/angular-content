@@ -2,7 +2,7 @@
   "category": "angular",
   "author": "Razroo Angular",
   "files": [
-    "unit-testing/unit-testing.md",
-    "architecture/forms/form-validation/form-validation.md"
+    {"path": "unit-testing/unit-testing.md"},
+    {"path": "architecture/forms/form-validation/form-validation.md"}
   ]
 }
