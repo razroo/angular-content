@@ -9,7 +9,10 @@ import gql from 'graphql-tag';
 import fetch from 'node-fetch';
 
 const uri = 'http://localhost:1337/graphql';
-const link = createHttpLink({ uri, fetch });
+const headers = {
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE4MTM3MjI1LCJleHAiOjE2MjA3MjkyMjV9.yX3a1W9dP2QRNd0VJptIcjpnVKPrPBeK-UXmAdN2voY"
+}
+const link = createHttpLink({ uri, fetch, headers});
 
 const query = gql`
   mutation CreateAngularArticle {
@@ -17,7 +20,7 @@ const query = gql`
           Title: "test",
           Description: "test description",
           author: 1,
-          UID: "d520ea41-57b2-4375-b167-0ecfa225013d",
+          UID: "d520ea41-57b2-4375-b167-0ecf1225013d",
           Content: "test 123",
           published_at: "2019-12-03T10:15:30Z",
           created_by: 1,
