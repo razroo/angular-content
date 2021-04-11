@@ -7,6 +7,8 @@ included actions, reducers, selectors. There has been efforts to go
 ahead and create libraries for aspects of ngrx that can perhaps be
 re-usable.
 
+![](https://github.com/razroo/employee-dashboard-angular/blob/master/libs/data-graphql/src/lib/data-graphql.module.ts#L1-L5)
+
 One of these is \@ngrx/entity.
 
  Ngrx Entity at a High Level 
