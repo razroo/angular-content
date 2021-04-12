@@ -29,7 +29,7 @@ function readArticlesJson() {
 
 function readHtmlArticleFiles(filePath) {
   console.log('filePath');
-  console.log(filePath);
+  console.log(fs.readFileSync(filePath, "utf8"));
 }
 
 readArticlesJson();
