@@ -41,7 +41,7 @@ readArticlesJson();
 export function createStrapiArticle(UID: string, articleTitle: string) {
 
   const query = gql`
-    mutation CreateAngularArticle($input: $CreateAngularInput) {
+    mutation CreateAngularArticle($input: CreateAngularInput) {
       createAngularArticle(input: $input) {
         angularArticle {
           id
@@ -81,6 +81,4 @@ export function createStrapiArticle(UID: string, articleTitle: string) {
     console.log(data);
   });
 }
-
-createStrapiArticle();
 
