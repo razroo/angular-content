@@ -24,55 +24,63 @@ function readArticlesJson() {
   for(let file in files) {
     filePath = `./build/articles/${files[file].path.split("/").pop()}`;
     filePath = filePath.replace("md", "html");
-    readHtmlArticleFiles(filePath);
+    const UID = files[file].UID;
+    const articleTitle = getHtmlArticleFileTitle(filePath);
+    createStrapiArticle(UID, articleTitle);
   }
 }
 
-function readHtmlArticleFiles(filePath) {
+function getHtmlArticleFileTitle(filePath) {
   const htmlFileString = fs.readFileSync(filePath, "utf8");
   const root = parse(htmlFileString);
-
-  console.log('filePath');
-  console.log(root.querySelector('h1').text.toString());
+  return root.querySelector('h1').text.toString();
 }
 
 readArticlesJson();
 
-const query = gql`
-  mutation CreateAngularArticle {
-      createAngularArticle(input: {data: {
-          Title: "test",
-          Description: "test description",
-          author: 1,
-          UID: "d520ea41-57b2-4375-b167-0ecf1225013d",
-          Content: "test 123",
-          published_at: "2019-12-03T10:15:30Z",
-          created_by: 1,
-          updated_by: 1,
-      }
-      }) {
-          angularArticle {
-              id
-              Title
-              author {
-                  firstName
-                  lastName
-              }
-              UID
+export function createStrapiArticle(UID: string, articleTitle: string) {
+
+  const query = gql`
+    mutation CreateAngularArticle($input: $CreateAngularInput) {
+      createAngularArticle(input: $input) {
+        angularArticle {
+          id
+          Title
+          author {
+            firstName
+            lastName
           }
+          UID
+        }
+     }
+   }
+  `
+
+  const variables = {
+    input: {
+      data: {
+        Title: articleTitle,
+        Description: "test description",
+        author: 1,
+        UID: UID,
+        Content: "test 123",
+        published_at: "2019-12-03T10:15:30Z",
+        created_by: 1,
+        updated_by: 1,
       }
+    }
   }
-`
 
-const operation = {
-  query,
-}
+  const operation = {
+    query,
+    variables
+  }
 
-export function createStrapiArticle(articleData) {
   execute(link, operation).subscribe(data => {
     console.log('data');
     console.log(data);
   });
 }
 
+createStrapiArticle();
 
