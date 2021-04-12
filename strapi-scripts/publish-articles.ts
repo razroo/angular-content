@@ -33,7 +33,7 @@ function readHtmlArticleFiles(filePath) {
   const root = parse(htmlFileString);
 
   console.log('filePath');
-  console.log(root.querySelector('h1').toString());
+  console.log(root.querySelector('h1').text.toString());
 }
 
 readArticlesJson();
