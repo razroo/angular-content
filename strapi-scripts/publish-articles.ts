@@ -10,6 +10,7 @@ import { execute, makePromise } from 'apollo-link';
 import { createHttpLink } from 'apollo-link-http';
 import gql from 'graphql-tag';
 import fetch from 'node-fetch';
+import { parse } from 'node-html-parser';
 
 const uri = 'http://localhost:1337/graphql';
 const headers = {
@@ -28,8 +29,11 @@ function readArticlesJson() {
 }
 
 function readHtmlArticleFiles(filePath) {
+  const htmlFileString = fs.readFileSync(filePath, "utf8");
+  const root = parse(htmlFileString);
+
   console.log('filePath');
-  console.log(fs.readFileSync(filePath, "utf8"));
+  console.log(root.querySelector('h1').toString());
 }
 
 readArticlesJson();
