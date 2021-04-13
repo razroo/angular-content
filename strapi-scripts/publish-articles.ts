@@ -44,6 +44,7 @@ function getHtmlArticleFileTitle(filePath) {
 function getHtmlArticleFileContent(filePath) {
   const htmlFileString = fs.readFileSync(filePath, "utf8");
   const root = parse(htmlFileString);
+  root.querySelector('h1').remove();
   return root.toString();
 }
 
