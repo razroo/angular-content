@@ -72,7 +72,6 @@ export function createStrapiArticle(UID: string, articleTitle: string, articleCo
         author: 1,
         UID: UID,
         Content: articleContent,
-        published_at: "2019-12-03T10:15:30Z",
         created_by: 1,
         updated_by: 1,
      }
