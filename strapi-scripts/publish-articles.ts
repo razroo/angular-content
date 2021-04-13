@@ -14,7 +14,7 @@ import { parse } from 'node-html-parser';
 
 const uri = 'http://localhost:1337/graphql';
 const headers = {
-    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE4MTM3MjI1LCJleHAiOjE2MjA3MjkyMjV9.yX3a1W9dP2QRNd0VJptIcjpnVKPrPBeK-UXmAdN2voY"
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE4MzA4MTA0LCJleHAiOjE2MjA5MDAxMDR9.N8GrCYV_S0kzAgwMgh4jqB5dtY3F765heyvOe7HUuEo"
 }
 const link = createHttpLink({ uri, fetch, headers});
 
@@ -41,7 +41,7 @@ readArticlesJson();
 export function createStrapiArticle(UID: string, articleTitle: string) {
 
   const query = gql`
-    mutation CreateAngularArticle($input: CreateAngularInput) {
+    mutation CreateAngularArticle($input: createAngularArticleInput) {
       createAngularArticle(input: $input) {
         angularArticle {
           id
@@ -67,18 +67,23 @@ export function createStrapiArticle(UID: string, articleTitle: string) {
         published_at: "2019-12-03T10:15:30Z",
         created_by: 1,
         updated_by: 1,
-      }
-    }
-  }
+     }
+   }
+ }
 
   const operation = {
     query,
     variables
   }
 
-  execute(link, operation).subscribe(data => {
-    console.log('data');
-    console.log(data);
-  });
+  const handlers = {
+    next: (data) => {
+      console.log(`received data: ${Date.now()}, ${JSON.stringify(data, null, 2)}`);
+    },
+    error: error => console.log(`received error ${error}`),
+    complete: () => console.log('complete'),
+  };
+
+  execute(link, operation).subscribe(handlers);
 }
 
