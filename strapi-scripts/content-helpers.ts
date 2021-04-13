@@ -33,20 +33,17 @@ export function addUidIfNonePreset(files, articlesJson, articlesJsonName) {
   });
 }
 
-export function addIdToArticlesJson(files, articlesJson, articlesJsonName, id) {
-  console.log('id');
-  console.log(id);
-
-  for(let file in files){
-    let fileObject = files[file];
-
-    if(fileObject.Id) {
-      return;
+export function addIdToArticlesJson(files, articlesJson, articlesJsonName, angularArticle) {
+  const filesUpdatedWithId = files.map(file => {
+    if(file.UID === angularArticle.UID) {
+      file.id = angularArticle.id
     }
-    else {
-      fileObject["Id"] = id;
-    }
-  }
+    return file;
+  });
+
+  console.log('filesUpdatedWithId');
+  console.log(filesUpdatedWithId);
+
   fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
     if (err) return console.log(err);
     console.log(JSON.stringify(articlesJson));

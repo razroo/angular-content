@@ -14,7 +14,7 @@ import fetch from 'node-fetch';
 
 const uri = 'http://localhost:1337/graphql';
 const headers = {
-    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE4MzA4MTA0LCJleHAiOjE2MjA5MDAxMDR9.N8GrCYV_S0kzAgwMgh4jqB5dtY3F765heyvOe7HUuEo"
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE4MzQyMzg4LCJleHAiOjE2MjA5MzQzODh9.slz2UZMGOWZAaKPrHce9KnpjwZPFXKG0ghOB3HMVll4"
 }
 const link = createHttpLink({ uri, fetch, headers});
 
@@ -73,8 +73,8 @@ export function createStrapiArticle(UID: string, articleTitle: string, articleCo
 
   const handlers = {
     next: (data) => {
-      let id = data.data.createAngularArticle.angularArticle.id;
-      addIdToArticlesJson(files, articlesJson, articlesJsonName, id);
+      let angularArticle = data.data.createAngularArticle.angularArticle;
+      addIdToArticlesJson(files, articlesJson, articlesJsonName, angularArticle);
       console.log(`received data: ${Date.now()}, ${JSON.stringify(data, null, 2)}`);
     },
     error: error => console.log(`received error ${error}`),
