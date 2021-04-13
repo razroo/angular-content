@@ -1,6 +1,7 @@
 import {parse} from "node-html-parser";
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
+const path = require('path');
 
 export function getHtmlArticleFileTitle(filePath) {
   const htmlFileString = fs.readFileSync(filePath, "utf8");
@@ -28,27 +29,26 @@ export function addUidIfNonePreset(files, articlesJson, articlesJsonName) {
   }
   fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
     if (err) return console.log(err);
-    console.log(JSON.stringify(articlesJson));
-    console.log('writing to ' + articlesJsonName);
   });
 }
 
 export function addIdToArticlesJson(files, articlesJson, articlesJsonName, angularArticle) {
-  console.log('articlesJson before')
-  console.log(JSON.stringify(articlesJson, null, 2));
-
-  articlesJson.files = files.map(file => {
+  articlesJson.files = articlesJson.files.map(file => {
     if(file.UID === angularArticle.UID) {
       file.id = angularArticle.id
     }
     return file;
   });
 
-  console.log('articlesJson after')
-  console.log(JSON.stringify(articlesJson, null, 2));
-
-  fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
-    if (err) return console.log(err);
-    console.log('writing to ' + articlesJsonName);
+  fs.exists(articlesJsonName, function (exists) {
+    if(exists) {
+      fs.writeFile(path.join(__dirname, articlesJsonName), JSON.stringify(articlesJson, null, 2), (err) => {
+        if (err) return console.log(err);
+      });
+    }
+    else {
+      console.log('file does not exist');
+    }
   });
+
 }

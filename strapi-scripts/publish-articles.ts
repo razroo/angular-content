@@ -71,15 +71,17 @@ export function createStrapiArticle(UID: string, articleTitle: string, articleCo
     variables
   }
 
-  const handlers = {
-    next: (data) => {
-      let angularArticle = data.data.createAngularArticle.angularArticle;
-      addIdToArticlesJson(files, articlesJson, articlesJsonName, angularArticle);
-    },
-    error: error => console.log(`received error ${error}`),
-    complete: () => console.log('complete'),
-  };
+  // const handlers = {
+  //   next: (data) => {
+  //
+  //   },
+  //   error: error => console.log(`received error ${error}`),
+  //   complete: () => console.log('complete'),
+  // };
 
-  execute(link, operation).subscribe(handlers);
+  execute(link, operation).subscribe(data => {
+    let angularArticle = data.data.createAngularArticle.angularArticle;
+    addIdToArticlesJson(files, articlesJson, articlesJsonName, angularArticle);
+  });
 }
 
