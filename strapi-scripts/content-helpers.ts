@@ -34,19 +34,21 @@ export function addUidIfNonePreset(files, articlesJson, articlesJsonName) {
 }
 
 export function addIdToArticlesJson(files, articlesJson, articlesJsonName, angularArticle) {
-  const filesUpdatedWithId = files.map(file => {
+  console.log('articlesJson before')
+  console.log(JSON.stringify(articlesJson, null, 2));
+
+  articlesJson.files = files.map(file => {
     if(file.UID === angularArticle.UID) {
       file.id = angularArticle.id
     }
     return file;
   });
 
-  console.log('filesUpdatedWithId');
-  console.log(filesUpdatedWithId);
+  console.log('articlesJson after')
+  console.log(JSON.stringify(articlesJson, null, 2));
 
   fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
     if (err) return console.log(err);
-    console.log(JSON.stringify(articlesJson));
     console.log('writing to ' + articlesJsonName);
   });
 }

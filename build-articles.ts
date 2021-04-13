@@ -2,7 +2,7 @@ import {addUidIfNonePreset} from "./strapi-scripts/content-helpers";
 
 const razrooMarkdownEngine = require('@razroo/razroo-markdown-engine').resolveMarkdownFile;
 const mkdirp = require('mkdirp')
-const articlesJsonName = './articles.json'
+const articlesJsonName = './articles.json';
 const articlesJson = require(articlesJsonName);
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');

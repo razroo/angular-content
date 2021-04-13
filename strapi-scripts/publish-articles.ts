@@ -75,7 +75,6 @@ export function createStrapiArticle(UID: string, articleTitle: string, articleCo
     next: (data) => {
       let angularArticle = data.data.createAngularArticle.angularArticle;
       addIdToArticlesJson(files, articlesJson, articlesJsonName, angularArticle);
-      console.log(`received data: ${Date.now()}, ${JSON.stringify(data, null, 2)}`);
     },
     error: error => console.log(`received error ${error}`),
     complete: () => console.log('complete'),
