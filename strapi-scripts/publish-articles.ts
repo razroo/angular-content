@@ -26,6 +26,11 @@ function readArticlesJson() {
     filePath = filePath.replace("md", "html");
     const UID = files[file].UID;
     const articleTitle = getHtmlArticleFileTitle(filePath);
+    const articleContent = getHtmlArticleFileContent(filePath)
+
+    console.log("articleContent");
+    console.log(articleContent);
+
     createStrapiArticle(UID, articleTitle);
   }
 }
@@ -36,9 +41,16 @@ function getHtmlArticleFileTitle(filePath) {
   return root.querySelector('h1').text.toString();
 }
 
+function getHtmlArticleFileContent(filePath) {
+  const htmlFileString = fs.readFileSync(filePath, "utf8");
+  const root = parse(htmlFileString);
+  return root.toString();
+}
+
 readArticlesJson();
 
 export function createStrapiArticle(UID: string, articleTitle: string) {
+  return;
 
   const query = gql`
     mutation CreateAngularArticle($input: createAngularArticleInput) {
@@ -60,7 +72,7 @@ export function createStrapiArticle(UID: string, articleTitle: string) {
     input: {
       data: {
         Title: articleTitle,
-        Description: "test description",
+        Description: "Angular: The Full Gamut Edition",
         author: 1,
         UID: UID,
         Content: "test 123",
