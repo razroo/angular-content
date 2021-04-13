@@ -28,10 +28,7 @@ function readArticlesJson() {
     const articleTitle = getHtmlArticleFileTitle(filePath);
     const articleContent = getHtmlArticleFileContent(filePath)
 
-    console.log("articleContent");
-    console.log(articleContent);
-
-    createStrapiArticle(UID, articleTitle);
+    createStrapiArticle(UID, articleTitle, articleContent);
   }
 }
 
@@ -50,9 +47,7 @@ function getHtmlArticleFileContent(filePath) {
 
 readArticlesJson();
 
-export function createStrapiArticle(UID: string, articleTitle: string) {
-  return;
-
+export function createStrapiArticle(UID: string, articleTitle: string, articleContent: string) {
   const query = gql`
     mutation CreateAngularArticle($input: createAngularArticleInput) {
       createAngularArticle(input: $input) {
@@ -76,7 +71,7 @@ export function createStrapiArticle(UID: string, articleTitle: string) {
         Description: "Angular: The Full Gamut Edition",
         author: 1,
         UID: UID,
-        Content: "test 123",
+        Content: articleContent,
         published_at: "2019-12-03T10:15:30Z",
         created_by: 1,
         updated_by: 1,
