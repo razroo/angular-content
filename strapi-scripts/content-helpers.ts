@@ -32,3 +32,24 @@ export function addUidIfNonePreset(files, articlesJson, articlesJsonName) {
     console.log('writing to ' + articlesJsonName);
   });
 }
+
+export function addIdToArticlesJson(files, articlesJson, articlesJsonName, id) {
+  console.log('id');
+  console.log(id);
+
+  for(let file in files){
+    let fileObject = files[file];
+
+    if(fileObject.Id) {
+      return;
+    }
+    else {
+      fileObject["Id"] = id;
+    }
+  }
+  fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
+    if (err) return console.log(err);
+    console.log(JSON.stringify(articlesJson));
+    console.log('writing to ' + articlesJsonName);
+  });
+}

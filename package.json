@@ -9,6 +9,7 @@
     "run:razroo-markdown-engine": "node build.js",
     "build:book": "node node_modules/markdown-include/bin/cli.js markdown.json; node build-book.js",
     "build:articles": "ts-node build-articles.ts",
+    "publish:articles": "ts-node strapi-scripts/publish-articles.ts",
     "start": "node build.js",
     "start-linux": "node watcher.js & evince main.pdf",
     "test": "echo \"Error: no test specified\" && exit 1",
