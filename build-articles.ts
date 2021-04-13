@@ -1,3 +1,5 @@
+import {addUidIfNonePreset} from "./strapi-scripts/content-helpers";
+
 const razrooMarkdownEngine = require('@razroo/razroo-markdown-engine').resolveMarkdownFile;
 const mkdirp = require('mkdirp')
 const articlesJsonName = './articles.json'
@@ -7,9 +9,9 @@ const fs = require('fs');
 
 let files = articlesJson.files;
 
-addUidIfNonePreset(files);
+addUidIfNonePreset(files, articlesJson, articlesJsonName);
 
-for (x in files){
+for (let x in files){
     let builtFilePath = `./build/articles/${files[x].path.split("/").pop()}`;
     builtFilePath = builtFilePath.replace("md", "html");
 
@@ -17,22 +19,4 @@ for (x in files){
     razrooMarkdownEngine(files[x].path, builtFilePath).then((output)=>{
       console.log(output);
     })
-}
-
-function addUidIfNonePreset(files) {
-   for(let file in files){
-     let fileObject = files[file];
-
-     if(fileObject.UID) {
-       return;
-     }
-     else {
-       fileObject["UID"] = uuidv4();
-     }
-   }
-   fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
-      if (err) return console.log(err);
-      console.log(JSON.stringify(articlesJson));
-      console.log('writing to ' + articlesJsonName);
-   });
 }
