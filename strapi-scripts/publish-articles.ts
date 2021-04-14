@@ -11,6 +11,7 @@ import { execute, makePromise } from 'apollo-link';
 import { createHttpLink } from 'apollo-link-http';
 import gql from 'graphql-tag';
 import fetch from 'node-fetch';
+import {updateStrapiArticle} from "./update-article";
 
 const uri = 'http://localhost:1337/graphql';
 const headers = {
@@ -24,11 +25,20 @@ function readArticlesJson() {
   for(let file in files) {
     filePath = `./build/articles/${files[file].path.split("/").pop()}`;
     filePath = filePath.replace("md", "html");
+    const id = files[file].id
     const UID = files[file].UID;
     const articleTitle = getHtmlArticleFileTitle(filePath);
     const articleContent = getHtmlArticleFileContent(filePath)
+    // if id present, it means file has already been created
+    if(id) {
+      updateStrapiArticle(UID, articleTitle, articleContent, files, id, link);
+    }
+    else {
+      createStrapiArticle(UID, articleTitle, articleContent, files);
+    }
 
-    createStrapiArticle(UID, articleTitle, articleContent, files);
+
+
   }
 }
 
