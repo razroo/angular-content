@@ -1,7 +1,6 @@
 ---
 title: Unit Testing
 ---
-
 Unit testing has always been a hot topic. Why? Because it's an
 opinionated space among many software engineers. Many managers who look
 as unit testing as icing on the cake.
@@ -31,24 +30,25 @@ At this point in our application, the only thing that we have created
 that deserves to be unit tested are the reducers. Let's go ahead and
 unit test those:
 
-    describe('Functionality for the ChooseSizeUpdated reducer', () => {
-      const chooseSizeData = {
-        columns: 20,
-        rows: 20,
-        pixelSize: 20
-      }
-      it('should update the chooseSize store as is approprate', () => {
-        const action: ChooseSizeUpdated = new ChooseSizeUpdated(chooseSizeData);
-        const actual = chooseSizeReducer(initialState, action);
-        expect(actual).toEqual(chooseSizeData);
-      });
-    });
+```typescript
+describe('Functionality for the ChooseSizeUpdated reducer', () => {
+  const chooseSizeData = {
+    columns: 20,
+    rows: 20,
+    pixelSize: 20
+  }
+  it('should update the chooseSize store as is approprate', () => {
+    const action: ChooseSizeUpdated = new ChooseSizeUpdated(chooseSizeData);
+    const actual = chooseSizeReducer(initialState, action);
+    expect(actual).toEqual(chooseSizeData);
+  });
+});
+```
 
 The above is an example of what a sample unit test for a reducer would
 look like in the chooseSizeUpdated reducer.
 
- Unit Testing as a Discipline 
------------------------------
+## Unit Testing as a Discipline
 
 Unit testing is difficult, because it is a different discipline. In
 particular, the above unit testing that we made, is a great example of
@@ -57,20 +57,16 @@ properly made their way over.
 
 However, there are a number of considerations to keep in mind:
 
-1.  What happens if we insert a string, instead of a number?
+1. What happens if we insert a string, instead of a number?
+2. Is there any limit on the number of rows, or columns?
+3. Should there be a limit on pixel size?
+4. Should there be a 1:1 ratio between rows and columns, or vice versa?
 
-2.  Is there any limit on the number of rows, or columns?
-
-3.  Should there be a limit on pixel size?
-
-4.  Should there be a 1:1 ratio between rows and columns, or vice versa?
-
- The Irony of a Product Engineer 
---------------------------------
+## The Irony of a Product Engineer
 
 You might think that the above requirements are pro-offered by the
 Product and to be tested by QA. However, at the end of the day, if these
 issues exist it will mean that the software you created will be
 lackluster. \[This indeed extends to other parts of the app, however, we
-are currently focusing on unit testing\]. Therefore, try to take
+are currently focusing on unit testing]. Therefore, try to take
 ownership as an engineer.
