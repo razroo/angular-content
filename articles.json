@@ -56,6 +56,11 @@
       "path": "miscellaneous/constants/enums-as-constants.md",
       "UID": "0ea8417c",
       "id": "11"
+    },
+    {
+      "path": "architecture/lazy-loading/lazy-loading-images/lazy-loading-images.md",
+      "UID": "0ddf7d0e",
+      "id": "12"
     }
   ]
 }
