@@ -36,6 +36,21 @@
       "path": "dev-tools/linting/accessibility/accessibility.md",
       "UID": "9fdf12ab",
       "id": "7"
+    },
+    {
+      "path": "typescript/declaration-files/declaration-files.md",
+      "UID": "70d66575",
+      "id": "8"
+    },
+    {
+      "path": "architecture/lazy-loading/network-aware-preloading/network-aware-preloading.md",
+      "UID": "bac655ee",
+      "id": "9"
+    },
+    {
+      "path": "design-language-system/material-overrides/material-overrides.md",
+      "UID": "348f2cc1",
+      "id": "10"
     }
   ]
 }
