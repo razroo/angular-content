@@ -24,7 +24,7 @@ export function addUidIfNonePreset(files, articlesJson, articlesJsonName) {
       return;
     }
     else {
-      fileObject["UID"] = uuidv4();
+      fileObject["UID"] = uuidv4().replace("-","").substring(0,8);
     }
   }
   fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
