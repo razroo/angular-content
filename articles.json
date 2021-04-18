@@ -76,6 +76,11 @@
       "path": "architecture/angular-elements/angular-elements.md",
       "UID": "51b14641",
       "id": "15"
+    },
+    {
+      "path": "dev-tools/compodoc/compodoc.md",
+      "UID": "45edc128",
+      "id": "16"
     }
   ]
 }
