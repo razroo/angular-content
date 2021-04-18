@@ -20,10 +20,7 @@ export function addUidIfNonePreset(files, articlesJson, articlesJsonName) {
   for(let file in files){
     let fileObject = files[file];
 
-    if(fileObject.UID) {
-      return;
-    }
-    else {
+    if(!fileObject.UID) {
       fileObject["UID"] = uuidv4().replace("-","").substring(0,8);
     }
   }
