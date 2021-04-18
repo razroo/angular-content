@@ -101,6 +101,16 @@
       "path": "rxjs/introduction/introduction.md",
       "UID": "4a848598",
       "id": "20"
+    },
+    {
+      "path": "core/routing/routing.md",
+      "UID": "dae13cfd",
+      "id": "21"
+    },
+    {
+      "path": "design-language-system/typography/typography.md",
+      "UID": "fb19f04f",
+      "id": "22"
     }
   ]
 }
