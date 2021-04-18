@@ -166,6 +166,11 @@
       "path": "design-language-system/sass-error-reporting/sass-error-reporting.md",
       "UID": "7e94e77c",
       "id": "33"
+    },
+    {
+      "path": "architecture/lazy-loading/lazy-loading.md",
+      "UID": "ebbe2366",
+      "id": "34"
     }
   ]
 }
