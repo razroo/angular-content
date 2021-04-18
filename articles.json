@@ -71,6 +71,11 @@
       "path": "state/ngrx-router-store/ngrx-router-store.md",
       "UID": "9febbb54",
       "id": "14"
+    },
+    {
+      "path": "architecture/angular-elements/angular-elements.md",
+      "UID": "51b14641",
+      "id": "15"
     }
   ]
 }
