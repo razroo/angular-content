@@ -116,6 +116,11 @@
       "path": "core/dependency-injection/dependency-injection.md",
       "UID": "9f4d082f",
       "id": "23"
+    },
+    {
+      "path": "core/internationalization/internationalization.md",
+      "UID": "cc934f6d",
+      "id": "24"
     }
   ]
 }
