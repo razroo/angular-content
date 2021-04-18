@@ -1,5 +1,6 @@
- Pre-loading with Route Guards 
-==============================
+---
+title: Pre-loading with Route Guards
+---
 
 In Angular, a RouteGuard is an interface that can be implemented to
 determine if a given route request should be fulfilled or not. The core

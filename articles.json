@@ -121,6 +121,11 @@
       "path": "core/internationalization/internationalization.md",
       "UID": "cc934f6d",
       "id": "24"
+    },
+    {
+      "path": "architecture/routing/route-guard-pre-loading/route-guard-pre-loading.md",
+      "UID": "1ff1e5a6",
+      "id": "25"
     }
   ]
 }
