@@ -21,6 +21,21 @@
       "path": "rxjs/rxjs-and-facades/rxjs-and-facades.md",
       "UID": "63f68674",
       "id": "4"
+    },
+    {
+      "path": "pwa/scully/scully.md",
+      "UID": "3400df36",
+      "id": "5"
+    },
+    {
+      "path": "rxjs/debugging-rxjs/debugging-rxjs.md",
+      "UID": "c4200398",
+      "id": "6"
+    },
+    {
+      "path": "dev-tools/linting/accessibility/accessibility.md",
+      "UID": "9fdf12ab",
+      "id": "7"
     }
   ]
 }
