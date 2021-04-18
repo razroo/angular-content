@@ -14,7 +14,13 @@
     },
     {
       "path": "miscellaneous/versioning/versioning.md",
-      "UID": "944c5bd0"
+      "UID": "944c5bd0",
+      "id": "3"
+    },
+    {
+      "path": "rxjs/rxjs-and-facades/rxjs-and-facades.md",
+      "UID": "63f68674",
+      "id": "4"
     }
   ]
 }
