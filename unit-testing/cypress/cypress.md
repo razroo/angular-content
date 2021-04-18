@@ -18,7 +18,7 @@ developer level makes coding driven by design rather than an additional
 checkpoint at the end.
 
 Performance wise, it is easy to implement and has the potential to run
-tests in parallel -  that multiple scenarios and outcomes can be tested
+tests in parallel, meaning that multiple scenarios and outcomes can be tested
 simultaneously with auto reloading and snapshots for developers to debug
 if such an event should arise.
 
@@ -46,7 +46,7 @@ it.
 Nx sits on top of the CLI and works to give your application access to
 features and functionality currently not available in the CLI. It has
 the ability to create work spaces, along with applications and
-libraries- thus expanding the CLI's capabilities.
+libraries, thus expanding the CLI's capabilities.
 
 So how do we use Nx with Cypress? and why should we?
 
@@ -161,7 +161,7 @@ and math e2e with unit tests.
 
 The coverage therefore gets thinned over time and may leave pockets
 untested as a result. Certain pipelines may only pass a project to the
-next stage if it passes a percentage of tests - tests that may may not
+next stage if it passes a percentage of test. Tests, that may not
 account for e2e results or are exclusively e2e.
 
 Another potential issue is that test hooks have the potential to muddy
