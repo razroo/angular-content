@@ -86,6 +86,16 @@
       "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
       "UID": "3c395c67",
       "id": "17"
+    },
+    {
+      "path": "miscellaneous/ng-container-hack/ng-container-hack.md",
+      "UID": "8967d2d2",
+      "id": "18"
+    },
+    {
+      "path": "rxjs/transformation/transformation.md",
+      "UID": "c4b865c6",
+      "id": "19"
     }
   ]
 }
