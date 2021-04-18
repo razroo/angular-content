@@ -26,7 +26,7 @@ something you have to worry about.
 
 Routes in Angular, are singleton instance.
 
-``` {caption="app.module.ts file"}
+```ts
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';

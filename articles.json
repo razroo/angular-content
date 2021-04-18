@@ -111,6 +111,11 @@
       "path": "design-language-system/typography/typography.md",
       "UID": "fb19f04f",
       "id": "22"
+    },
+    {
+      "path": "core/dependency-injection/dependency-injection.md",
+      "UID": "9f4d082f",
+      "id": "23"
     }
   ]
 }
