@@ -51,6 +51,11 @@
       "path": "design-language-system/material-overrides/material-overrides.md",
       "UID": "348f2cc1",
       "id": "10"
+    },
+    {
+      "path": "miscellaneous/constants/enums-as-constants.md",
+      "UID": "0ea8417c",
+      "id": "11"
     }
   ]
 }
