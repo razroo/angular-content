@@ -146,6 +146,11 @@
       "path": "state/ngrx-entity/heavily-use/heavily-use.md",
       "UID": "beb8b92e",
       "id": "29"
+    },
+    {
+      "path": "state/re-usable-state-anti-pattern/re-usable-state-anti-pattern.md",
+      "UID": "3fda0947",
+      "id": "30"
     }
   ]
 }
