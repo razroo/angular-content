@@ -81,6 +81,11 @@
       "path": "dev-tools/compodoc/compodoc.md",
       "UID": "45edc128",
       "id": "16"
+    },
+    {
+      "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
+      "UID": "3c395c67",
+      "id": "17"
     }
   ]
 }
