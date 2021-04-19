@@ -51,6 +51,41 @@
       "path": "architecture/lazy-loading/lazy-loading-images/lazy-loading-images.md",
       "UID": "0ddf7d0e",
       "id": "17"
+    },
+    {
+      "path": "unit-testing/cypress/cypress.md",
+      "UID": "e7cd54f9",
+      "id": "21"
+    },
+    {
+      "path": "state/ngrx-router-store/ngrx-router-store.md",
+      "UID": "9febbb54",
+      "id": "22"
+    },
+    {
+      "path": "architecture/angular-elements/angular-elements.md",
+      "UID": "51b14641",
+      "id": "23"
+    },
+    {
+      "path": "dev-tools/compodoc/compodoc.md",
+      "UID": "45edc128",
+      "id": "27"
+    },
+    {
+      "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
+      "UID": "3c395c67",
+      "id": "29"
+    },
+    {
+      "path": "miscellaneous/ng-container-hack/ng-container-hack.md",
+      "UID": "8967d2d2",
+      "id": "30"
+    },
+    {
+      "path": "rxjs/transformation/transformation.md",
+      "UID": "c4b865c6",
+      "id": "31"
     }
   ]
 }
