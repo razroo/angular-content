@@ -3,9 +3,9 @@ import {execute} from "apollo-link";
 
 export function updateStrapiArticle(UID: string, articleTitle: string, articleContent: string, files, id, link) {
     const query = gql`
-        mutation UpdateAngularArticle($input: updateAngularArticleInput) {
-            updateAngularArticle(input: $input) {
-                angularArticle {
+        mutation UpdateArticle($input: updateArticleInput) {
+            updateArticle(input: $input) {
+                article {
                     id
                     Title
                     author {
@@ -31,6 +31,7 @@ export function updateStrapiArticle(UID: string, articleTitle: string, articleCo
         Content: articleContent,
         created_by: 1,
         updated_by: 1,
+        category: 2
       }
     }
   }

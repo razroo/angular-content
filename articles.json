@@ -3,189 +3,44 @@
   "author": "Razroo Angular",
   "files": [
     {
-      "path": "unit-testing/unit-testing.md",
-      "id": "1",
-      "UID": "e9354db8"
-    },
-    {
-      "path": "architecture/forms/form-validation/form-validation.md",
-      "id": "2",
-      "UID": "5f22c2d3"
-    },
-    {
       "path": "miscellaneous/versioning/versioning.md",
       "UID": "944c5bd0",
-      "id": "3"
+      "id": "2"
     },
     {
       "path": "rxjs/rxjs-and-facades/rxjs-and-facades.md",
       "UID": "63f68674",
-      "id": "4"
+      "id": "3"
     },
     {
       "path": "pwa/scully/scully.md",
       "UID": "3400df36",
-      "id": "5"
+      "id": "11"
     },
     {
       "path": "rxjs/debugging-rxjs/debugging-rxjs.md",
       "UID": "c4200398",
-      "id": "6"
+      "id": "5"
     },
     {
       "path": "dev-tools/linting/accessibility/accessibility.md",
       "UID": "9fdf12ab",
-      "id": "7"
+      "id": "6"
     },
     {
       "path": "typescript/declaration-files/declaration-files.md",
       "UID": "70d66575",
-      "id": "8"
+      "id": "12"
     },
     {
       "path": "architecture/lazy-loading/network-aware-preloading/network-aware-preloading.md",
       "UID": "bac655ee",
-      "id": "9"
+      "id": "13"
     },
     {
       "path": "design-language-system/material-overrides/material-overrides.md",
       "UID": "348f2cc1",
-      "id": "10"
-    },
-    {
-      "path": "miscellaneous/constants/enums-as-constants.md",
-      "UID": "0ea8417c",
-      "id": "11"
-    },
-    {
-      "path": "architecture/lazy-loading/lazy-loading-images/lazy-loading-images.md",
-      "UID": "0ddf7d0e",
-      "id": "12"
-    },
-    {
-      "path": "unit-testing/cypress/cypress.md",
-      "UID": "e7cd54f9",
-      "id": "13"
-    },
-    {
-      "path": "state/ngrx-router-store/ngrx-router-store.md",
-      "UID": "9febbb54",
-      "id": "14"
-    },
-    {
-      "path": "architecture/angular-elements/angular-elements.md",
-      "UID": "51b14641",
       "id": "15"
-    },
-    {
-      "path": "dev-tools/compodoc/compodoc.md",
-      "UID": "45edc128",
-      "id": "16"
-    },
-    {
-      "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
-      "UID": "3c395c67",
-      "id": "17"
-    },
-    {
-      "path": "miscellaneous/ng-container-hack/ng-container-hack.md",
-      "UID": "8967d2d2",
-      "id": "18"
-    },
-    {
-      "path": "rxjs/transformation/transformation.md",
-      "UID": "c4b865c6",
-      "id": "19"
-    },
-    {
-      "path": "rxjs/introduction/introduction.md",
-      "UID": "4a848598",
-      "id": "20"
-    },
-    {
-      "path": "core/routing/routing.md",
-      "UID": "dae13cfd",
-      "id": "21"
-    },
-    {
-      "path": "design-language-system/typography/typography.md",
-      "UID": "fb19f04f",
-      "id": "22"
-    },
-    {
-      "path": "core/dependency-injection/dependency-injection.md",
-      "UID": "9f4d082f",
-      "id": "23"
-    },
-    {
-      "path": "core/internationalization/internationalization.md",
-      "UID": "cc934f6d",
-      "id": "24"
-    },
-    {
-      "path": "architecture/routing/route-guard-pre-loading/route-guard-pre-loading.md",
-      "UID": "1ff1e5a6",
-      "id": "25"
-    },
-    {
-      "path": "unit-testing/mocking-data/mocking-data.md",
-      "UID": "a9b9d3b3",
-      "id": "26"
-    },
-    {
-      "path": "unit-testing/benefits-of-unit-testing/benefits-of-unit-testing.md",
-      "UID": "032f42ad",
-      "id": "27"
-    },
-    {
-      "path": "unit-testing/coverage-reporting/coverage-reporting.md",
-      "UID": "59b17744",
-      "id": "28"
-    },
-    {
-      "path": "state/ngrx-entity/heavily-use/heavily-use.md",
-      "UID": "beb8b92e",
-      "id": "29"
-    },
-    {
-      "path": "state/re-usable-state-anti-pattern/re-usable-state-anti-pattern.md",
-      "UID": "3fda0947",
-      "id": "30"
-    },
-    {
-      "path": "architecture/file-structure/data-access/data-access.md",
-      "UID": "875d28f1",
-      "id": "31"
-    },
-    {
-      "path": "miscellaneous/constants/constants.md",
-      "UID": "1fb5d6eb",
-      "id": "32"
-    },
-    {
-      "path": "design-language-system/sass-error-reporting/sass-error-reporting.md",
-      "UID": "7e94e77c",
-      "id": "33"
-    },
-    {
-      "path": "architecture/lazy-loading/lazy-loading.md",
-      "UID": "ebbe2366",
-      "id": "34"
-    },
-    {
-      "path": "unit-testing/apollo/interfaces-and-unions/interfaces-and-unions.md",
-      "UID": "e1a9a1fc",
-      "id": "35"
-    },
-    {
-      "path": "miscellaneous/rxjs/property-sources-are-incompatible.md",
-      "UID": "2d5daf55",
-      "id": "36"
-    },
-    {
-      "path": "unit-testing/interfaces-and-unit-testing/interfaces-and-unit-testing.md",
-      "UID": "00e5b08f",
-      "id": "37"
     }
   ]
 }

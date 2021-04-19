@@ -47,9 +47,9 @@ readArticlesJson();
 // due to addition of UID, build will fail if UID is aleady present
 export function createStrapiArticle(UID: string, articleTitle: string, articleContent: string, files) {
   const query = gql`
-    mutation CreateAngularArticle($input: createAngularArticleInput) {
-      createAngularArticle(input: $input) {
-        angularArticle {
+    mutation CreateArticle($input: createArticleInput) {
+      createArticle(input: $input) {
+        article {
           id
           Title
           author {
@@ -72,6 +72,7 @@ export function createStrapiArticle(UID: string, articleTitle: string, articleCo
         Content: articleContent,
         created_by: 1,
         updated_by: 1,
+        category: 2
      }
    }
  }
@@ -90,7 +91,7 @@ export function createStrapiArticle(UID: string, articleTitle: string, articleCo
   // };
 
   execute(link, operation).subscribe(data => {
-    let angularArticle = data.data.createAngularArticle.angularArticle;
+    let angularArticle = data.data.createArticle.article;
     addIdToArticlesJson(files, articlesJson, articlesJsonName, angularArticle);
   });
 }
