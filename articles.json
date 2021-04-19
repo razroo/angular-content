@@ -41,6 +41,16 @@
       "path": "design-language-system/material-overrides/material-overrides.md",
       "UID": "348f2cc1",
       "id": "15"
+    },
+    {
+      "path": "miscellaneous/constants/enums-vs-constants.md",
+      "UID": "0ea8417c",
+      "id": "16"
+    },
+    {
+      "path": "architecture/lazy-loading/lazy-loading-images/lazy-loading-images.md",
+      "UID": "0ddf7d0e",
+      "id": "17"
     }
   ]
 }

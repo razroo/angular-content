@@ -1,5 +1,5 @@
 ---
-title: Enums as Constants
+title: Enums vs Constants
 ---
 When working with Typescript, which if you are using Angular, then you
 most definitely are using Typescript. Care must be taken to look into

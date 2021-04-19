@@ -1,5 +1,5 @@
 ---
-title: Versioning
+title: Git Versioning
 ---
 *A thank you, to a one Chris Bautista and Bobbie Barker for helping me
 formulate this strategy.*
