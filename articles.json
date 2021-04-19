@@ -136,6 +136,46 @@
       "path": "unit-testing/coverage-reporting/coverage-reporting.md",
       "UID": "59b17744",
       "id": "44"
+    },
+    {
+      "path": "state/ngrx-entity/heavily-use/heavily-use.md",
+      "UID": "beb8b92e",
+      "id": "45"
+    },
+    {
+      "path": "state/re-usable-state-anti-pattern/re-usable-state-anti-pattern.md",
+      "UID": "3fda0947",
+      "id": "47"
+    },
+    {
+      "path": "miscellaneous/constants/constants.md",
+      "UID": "1fb5d6eb",
+      "id": "57"
+    },
+    {
+      "path": "design-language-system/sass-error-reporting/sass-error-reporting.md",
+      "UID": "7e94e77c",
+      "id": "58"
+    },
+    {
+      "path": "architecture/lazy-loading/lazy-loading.md",
+      "UID": "ebbe2366",
+      "id": "59"
+    },
+    {
+      "path": "unit-testing/apollo/interfaces-and-unions/interfaces-and-unions.md",
+      "UID": "e1a9a1fc",
+      "id": "60"
+    },
+    {
+      "path": "miscellaneous/rxjs/property-sources-are-incompatible.md",
+      "UID": "2d5daf55",
+      "id": "67"
+    },
+    {
+      "path": "unit-testing/interfaces-and-unit-testing/interfaces-and-unit-testing.md",
+      "UID": "00e5b08f",
+      "id": "72"
     }
   ]
 }
