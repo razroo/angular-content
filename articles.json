@@ -181,6 +181,16 @@
       "path": "state/ngrx-properly-unsubscribing/ngrx-properly-unsubscribing.md",
       "UID": "3a2a2496",
       "id": "94"
+    },
+    {
+      "path": "state/facade-pattern/facade-pattern.md",
+      "UID": "9e2a6b77",
+      "id": "95"
+    },
+    {
+      "path": "state/integrating-component-with-ngrx-store/integrating-component-with-ngrx-store.md",
+      "UID": "193a1737",
+      "id": "96"
     }
   ]
 }

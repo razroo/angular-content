@@ -3,7 +3,7 @@ title: Integrating a Component with @ngrx/store
 ---
 
 Another chapter has been dedicated solely to integrating a component
-with \@ngrx/store. This is because it is a standardized process.
+with `@ngrx/store`. This is because it is a standardized process.
 Observables are notoriously known for abstracting events, and therefore
 allow the same code to be repeated. The following is what can be
 expected to be repeated in your application, after initially generating
@@ -70,9 +70,9 @@ anything fancy, and if it does, then you are not doing it right.
 -------------
 
 In any given component, we must setup a select for our store, in order
-to tell \@ngrx/store, how we plan on interacting with it. The following
+to tell `@ngrx/store`, how we plan on interacting with it. The following
 is standard code, like the rest of this chapter, that will be repeated
-throughout any \@ngrx/store process.
+throughout any `@ngrx/store` process.
 
     this.chooseSize = store.select('chooseSize');
 
@@ -81,9 +81,9 @@ throughout any \@ngrx/store process.
 
 What is a subject? It is both an observable and an observer?
 
-1.  Observer --- It has the next, error, and complete methods.
+1.  Observer - t has the next, error, and complete methods.
 
-2.  Observable --- It has all the Observable operators, and you can
+2.  Observable - It has all the Observable operators, and you can
     subscribe to him.
 
 Therefore, in an Angular setting, using \@ngrx/store, subjects are our
