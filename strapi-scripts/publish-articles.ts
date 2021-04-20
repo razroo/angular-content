@@ -12,6 +12,7 @@ import { createHttpLink } from 'apollo-link-http';
 import gql from 'graphql-tag';
 import fetch from 'node-fetch';
 import {updateStrapiArticle} from "./update-article";
+import slugify from "slugify";
 
 const uri = 'http://localhost:1337/graphql';
 const headers = {
@@ -68,7 +69,7 @@ export function createStrapiArticle(UID: string, articleTitle: string, articleCo
         Title: articleTitle,
         Description: "Angular: The Full Gamut Edition",
         author: 1,
-        UID: UID,
+        UID: `${slugify(articleTitle.toLowerCase())}-${UID}`,
         Content: articleContent,
         created_by: 1,
         updated_by: 1,

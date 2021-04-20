@@ -27,7 +27,6 @@ export function updateStrapiArticle(UID: string, articleTitle: string, articleCo
         Title: articleTitle,
         Description: "Angular: The Full Gamut Edition",
         author: 1,
-        UID: UID,
         Content: articleContent,
         created_by: 1,
         updated_by: 1,

@@ -196,6 +196,11 @@
       "path": "state/correlation-id-service/correlation-id-service.md",
       "UID": "8d2df84c",
       "id": "97"
+    },
+    {
+      "path": "core/animations/transitions-and-triggers/transitions-and-triggers.md",
+      "UID": "af863166",
+      "id": "98"
     }
   ]
 }
