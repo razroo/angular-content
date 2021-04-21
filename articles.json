@@ -201,6 +201,11 @@
       "path": "core/animations/transitions-and-triggers/transitions-and-triggers.md",
       "UID": "af863166",
       "id": "98"
+    },
+    {
+      "path": "core/directives/directives.md",
+      "UID": "b324f8fc",
+      "id": "100"
     }
   ]
 }
