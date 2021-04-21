@@ -206,6 +206,16 @@
       "path": "core/directives/directives.md",
       "UID": "b324f8fc",
       "id": "100"
+    },
+    {
+      "path": "core/decorators/input/input.md",
+      "UID": "75aa5420",
+      "id": "101"
+    },
+    {
+      "path": "core/decorators/output/output.md",
+      "UID": "6688f48e",
+      "id": "102"
     }
   ]
 }

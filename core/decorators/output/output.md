@@ -1,7 +1,6 @@
 ---
 title: Output
---- 
-
+---
 Output is another decorator native to Angular.
 
 On it's own it doesn't do anything. However, it does allow for the three
