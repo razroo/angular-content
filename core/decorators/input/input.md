@@ -22,7 +22,7 @@ decorator. Ok, so let's get down to how to use it.
 Here is a great example.
 
 Let's say we have a bank account component, that we would like to
-create. This bank account component will be used on multiple pages for
+create. The bank account component will be used on multiple pages for
 our web application. It will be displayed in multiple places. Sometimes
 in the header, sometimes in a modal, or to display the bank used by
 someone else, within your network.
@@ -61,11 +61,11 @@ another component:
 <bank-account bankName="RBC" id="4747"></bank-account>
 ```
 
-This would be @Input() in a nutshell.
+This would be `@Input()` in a nutshell.
 
 ## bindPropertyName
 
-Input() does allow for an optional bindingPropertyName. This would mean
+`Input()` does allow for an optional bindingPropertyName. This would mean
 that the re-usable component would internally refer to the Input value
 as one way, and the consuming component would refer to it, in another.
 

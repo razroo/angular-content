@@ -27,35 +27,41 @@ Here is a great example of what an Output is, and what it accomplishes.
 In our scenario, we want to build a re-usable pxl-color-changer
 component:
 
-    // pxl-code-changer.component.html
+```ts
+// pxl-code-changer.component.html
 
-    import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-    @Component({
-      selector: 'pxl-color-changer',
-      template: './pxl-code-changer.component.html',
-      styleUrls: ['./pxl-code-changer.component.scss'],
-    })
-    export class PxlCodeChanger implements OnInit {
-      @Output() colorChanged = new EventEmitter<any>();
-      constructor() {}
+@Component({
+  selector: 'pxl-color-changer',
+  template: './pxl-code-changer.component.html',
+  styleUrls: ['./pxl-code-changer.component.scss'],
+})
+export class PxlCodeChanger implements OnInit {
+  @Output() colorChanged = new EventEmitter<any>();
+  constructor() {}
 
-      changeColor(data: string) {
-        this.colorChanged.emit(data);
-      }
-    }
+  changeColor(data: string) {
+    this.colorChanged.emit(data);
+  }
+}
+```
 
-    <div>
-    <form>
-    <-- Update code when we get it -->
-    </form>
-    </div>
+```html
+<div>
+<form>
+<-- Update code when we get it -->
+</form>
+</div>
+```
 
 and in the parent component consuming our component:
-
-    <div>
+```html
+<div>
     <pxl-color-changer></pxl-color-changer>
-    </div>
+</div>
+```
+    
 
  bindPropertyName 
 -----------------
@@ -65,20 +71,21 @@ This would mean that the re-usable component would internally refer to
 the Input value as one way, and the consuming component would refer to
 it, in another.
 
-    // pxl-code-changer.component.html
+```ts
+// pxl-code-changer.component.html
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-    import { Component, EventEmitter, Input, Output } from '@angular/core';
+@Component({
+  selector: 'pxl-color-changer',
+  template: './pxl-code-changer.component.html',
+  styleUrls: ['./pxl-code-changer.component.scss'],
+})
+export class PxlCodeChanger implements OnInit {
+  @Output('changeColor') colorChanged = new EventEmitter<any>();
+  constructor() {}
 
-    @Component({
-      selector: 'pxl-color-changer',
-      template: './pxl-code-changer.component.html',
-      styleUrls: ['./pxl-code-changer.component.scss'],
-    })
-    export class PxlCodeChanger implements OnInit {
-      @Output('changeColor') colorChanged = new EventEmitter<any>();
-      constructor() {}
-
-      changeColor(data: string) {
-        this.colorChanged.emit(data);
-      }
-    }
+  changeColor(data: string) {
+    this.colorChanged.emit(data);
+  }
+}
+```
