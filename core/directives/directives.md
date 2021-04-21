@@ -7,7 +7,8 @@ Element. It is tagged on of an html element to change the way it works.
 While it is probably better to use CSS in this situation, let's create a
 really low level directive to introduce how it works:
 
-    import { Directive, ElementRef } from '@angular/core';
+```ts
+import { Directive, ElementRef } from '@angular/core';
 
     @Directive({
       selector: '[appHighlight]'
@@ -17,11 +18,15 @@ really low level directive to introduce how it works:
         el.nativeElement.style.backgroundColor = 'yellow';
       }
     }
+    // ...
+```
 
 Now we have the ability to apply this directive to out html element:
 
-    <p appHighlight>Highlight me!</p>
-
+```html
+<p appHighlight>Highlight me!</p>
+```
+    
 As a result of the directive we have applied on this p element, the
 background for this p element will now yellow.
 
@@ -44,7 +49,8 @@ A directive has the ability to pass a value in. For instance, going back
 to our highlight example, let's create an \@Input() (Angulars way of
 passing in values)for our highlight directive.
 
-    import { Directive, ElementRef } from '@angular/core';
+```ts
+import { Directive, ElementRef } from '@angular/core';
 
     @Directive({
       selector: '[appHighlight]'
@@ -56,11 +62,15 @@ passing in values)for our highlight directive.
         el.nativeElement.style.backgroundColor = this.highlightColor';
       }
     }
+```
+    
 
 Now if we were to go back to our template, we have the option to insert
 the color we want within the template:
 
-    <p appHighlight='orange'>Highlight me!</p>
+```html
+<p appHighlight='orange'>Highlight me!</p>
+```
 
 The background of this component is going to be orange!
 
@@ -69,7 +79,8 @@ The background of this component is going to be orange!
 Passing in multiple values is as simple as adding a second \@Input value
 to our Angular Directive:
 
-    import { Directive, ElementRef } from '@angular/core';
+```ts
+import { Directive, ElementRef } from '@angular/core';
 
     @Directive({
       selector: '[appHighlight]'
@@ -82,11 +93,15 @@ to our Angular Directive:
         el.nativeElement.style.backgroundColor = this.highlightColor';
       }
     }
+```
+    
 
 Just like that we can now pass multiple values to our html element:
 
-    <p appHighlight="orange" defaultColor="blue" >Highlight me!</p>
-
+```html
+<p appHighlight="orange" defaultColor="blue" >Highlight me!</p>
+```
+    
 Angular knows once the appHighlight directive has been exposed, that it
 has the input of defaultColor, or any other Input you might add for that
 matter.
@@ -97,7 +112,8 @@ matter.
 Directives also give the option to modify based on an event. For
 instance, we could add logic based on mouseenter.
 
-    import { Directive, ElementRef } from '@angular/core';
+```ts
+import { Directive, ElementRef } from '@angular/core';
 
     @Directive({
       selector: '[appHighlight]'
@@ -121,10 +137,13 @@ instance, we could add logic based on mouseenter.
         this.el.nativeElement.style.backgroundColor = color;
       }
     }
+```
 
 Now let's say we add this directive to our \<p\> tag.
 
-    <p appHighlight highlightColor="yellow">This will be Highlighted in Yellow on mouseenter. Good times!</p>
+```html
+<p appHighlight highlightColor="yellow">This will be Highlighted in Yellow on mouseenter. Good times!</p>
+```
 
  Examples of Directives 
 -----------------------
