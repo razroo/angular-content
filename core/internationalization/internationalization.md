@@ -409,10 +409,10 @@ Translation Source File that includes plural and select expressions
 
 To translate a `plural` we only translate the text related values.
 
-``` {caption="src/locale/messages.fr.xlf"}
+````ts
 <trans-unit id="5a134dee893586d02bffc9611056b9cadf9abfad" datatype="html">
   <source>{VAR_PLURAL, plural, =0 {just now} =1 {one minute ago} other {<x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes ago} }</source>
-  <target>{VAR_PLURAL, plural, =0 {à l'instant} =1 {il y a une minute} other {il y a <x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes} }</target>
+  <target>{VAR_PLURAL, plural, =0 {a l'instant} =1 {il y a une minute} other {il y a <x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes} }</target>
 </trans-unit>  
 ```
 
@@ -460,11 +460,11 @@ separate this into two different parts:
 ``` {caption="src/locale/messages.fr.xlf"}
 <trans-unit id="972cb0cf3e442f7b1c00d7dab168ac08d6bdf20c" datatype="html">
   <source>Updated: <x id="ICU" equiv-text="{minutes, plural, =0 {...} =1 {...} other {...}}"/></source>
-  <target>Mis à jour: <x id="ICU" equiv-text="{minutes, plural, =0 {...} =1 {...} other {...}}"/></target>
+  <target>Mis a jour: <x id="ICU" equiv-text="{minutes, plural, =0 {...} =1 {...} other {...}}"/></target>
 </trans-unit>
 <trans-unit id="7151c2e67748b726f0864fc443861d45df21d706" datatype="html">
   <source>{VAR_PLURAL, plural, =0 {just now} =1 {one minute ago} other {<x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes ago by {VAR_SELECT, select, male {male} female {female} other {other} }} }</source>
-  <target>{VAR_PLURAL, plural, =0 {à l'instant} =1 {il y a une minute} other {il y a <x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes par {VAR_SELECT, select, male {un homme} female {une femme} other {autre} }} }</target>
+  <target>{VAR_PLURAL, plural, =0 {a l'instant} =1 {il y a une minute} other {il y a <x id="INTERPOLATION" equiv-text="{{minutes}}"/> minutes par {VAR_SELECT, select, male {un homme} female {une femme} other {autre} }} }</target>
 </trans-unit>  
 ```
 
