@@ -13,44 +13,52 @@ very complicated. Reactive forms are no exception to that rule.
 Importing a reactive module, is no different than your regular module,
 however,this is the module to use to when importing reactive forms.
 
-    import { ReactiveFormsModule } from '@angular/forms';
 
-    @NgModule({
-      imports: [
-        // other imports ...
-        ReactiveFormsModule
-      ],
-    })
-    export class AppModule { }
+```ts
+import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [
+    // other imports ...
+    ReactiveFormsModule
+  ],
+})
+export class AppModule { }
+```
 
 Generating a component, and adding FormControl
 ----------------------------------------------
 
 No different than any other scenario:
-
-    ng generate component grid-form 
+```ts
+ng generate component grid-form
+```
 
 In your component simply add a new `FormControl`:
 
-    import { Component } from '@angular/core';
-    import { FormControl } from '@angular/forms';
+```ts
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
-    @Component({
-      selector: 'px-grid-form',
-      templateUrl: './grid-form.component.html',
-      styleUrls: ['./grid-form.component.css']
-    })
-    export class NameEditorComponent {
-      size = new FormControl('');
-    }
-
+@Component({
+  selector: 'px-grid-form',
+  templateUrl: './grid-form.component.html',
+  styleUrls: ['./grid-form.component.css']
+})
+export class NameEditorComponent {
+  size = new FormControl('');
+}
+```
+    
 Registering Control in Template
 -------------------------------
-
-    <label>
-      Name:
-      <input type="text" [formControl]="name">
-    </label>
+```html
+<label>
+  Name:
+  <input type="text" [formControl]="name">
+</label>
+```
+    
 
 As mentioned in the previous chapter, FormControl, will allow you to
 access value of form within component, and view. Most importantly,
@@ -61,7 +69,7 @@ update in view or component, and have it affect the other.
 
 We can now include the component in any other component. E.g.
 
-``` {caption="app.component.html"}
+```html
 <px-grid-form></px-grid-form>  
 ```
 
@@ -74,35 +82,39 @@ incomplete without a `formGroup`. A `formGroup`, will give us access to
 all of the formControl values, so we can use them all, when submitting a
 form.
 
-    import { Component } from '@angular/core';
-    import { FormGroup, FormControl } from '@angular/forms';
-     
-    @Component({
-      selector: 'px-grid-form',
-      templateUrl: './grid-form.component.html',
-      styleUrls: ['./grid-form.component.css']
-    })
-    export class GridFormComponent {
-      gridForm = new FormGroup({
-        row: new FormControl(''),
-        column: new FormControl(''),
-      });
-    }
+```ts
+import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+ 
+@Component({
+  selector: 'px-grid-form',
+  templateUrl: './grid-form.component.html',
+  styleUrls: ['./grid-form.component.css']
+})
+export class GridFormComponent {
+  gridForm = new FormGroup({
+    row: new FormControl(''),
+    column: new FormControl(''),
+  });
+}
+```
 
  Connecting FromGroup model and view 
 ------------------------------------
 
-    <form [formGroup]="gridForm">
-      <label>
-        First Name:
-        <input type="text" formControlName="row">
-      </label>
+```html
+<form [formGroup]="gridForm">
+  <label>
+    First Name:
+    <input type="text" formControlName="row">
+  </label>
 
-      <label>
-        Last Name:
-        <input type="text" formControlName="column">
-      </label>
-    </form>
+  <label>
+    Last Name:
+    <input type="text" formControlName="column">
+  </label>
+</form>
+```
 
 Within our template, we attach the`formGroup` directive supplied bythe
 `ReactiveFormsModule`, to our component's `new FormGroup`.
@@ -114,11 +126,11 @@ The formGroup directive internally has an `(ngSubmit)` method, that can
 be used to call whenever you are ready to save data for the entire form,
 and pass it along to the backend.
 
-``` {caption="code-form.component.html"}
+```html
   <form [formGroup]="gridForm" (ngSubmit)="onSubmit()">
 ```
 
-``` {caption="grid-form.component.ts"}
+```ts
 onSubmit() {
   // this is where data for gridForm is exposed
   console.log(this.gridForm.Value);
@@ -130,7 +142,7 @@ onSubmit() {
 
 In Angular, there is the ability to create nested form groups:
 
-``` {caption="px-code-form.component.ts"}
+```ts
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -164,29 +176,31 @@ Now that we have created a nested FormGroup property within a class,
 lets' goahead and show how we would access these values within our
 template.
 
-    <div formGroupName="address">
-      <h3>Address</h3>
+```html
+<div formGroupName="address">
+  <h3>Address</h3>
 
-      <label>
-        Street:
-        <input type="text" formControlName="street">
-      </label>
+  <label>
+    Street:
+    <input type="text" formControlName="street">
+  </label>
 
-      <label>
-        City:
-        <input type="text" formControlName="city">
-      </label>
-      
-      <label>
-        State:
-        <input type="text" formControlName="state">
-      </label>
+  <label>
+    City:
+    <input type="text" formControlName="city">
+  </label>
+  
+  <label>
+    State:
+    <input type="text" formControlName="state">
+  </label>
 
-      <label>
-        Zip Code:
-        <input type="text" formControlName="zip">
-      </label>
-    </div>
+  <label>
+    Zip Code:
+    <input type="text" formControlName="zip">
+  </label>
+</div>
+```
 
 We are using the `formGroupName`directive. The `formGroupName`
 directive, will sync a `formGroup` to a template. That allows us to
@@ -203,14 +217,16 @@ at the same time within a `formGroup()` Angular provides the method
 called `patchValue()`. So for instance, let's say we wantedto update the
 `firstName`, and street address:
 
-    updateProfile() {
-      this.profileForm.patchValue({
-        firstName: 'Nancy',
-        address: {
-          street: '123 Drew Street'
-        }
-      });
+```ts
+updateProfile() {
+  this.profileForm.patchValue({
+    firstName: 'Nancy',
+    address: {
+      street: '123 Drew Street'
     }
+  });
+}
+```
 
  Generating form controls with FormBuilder 
 ------------------------------------------
@@ -219,28 +235,30 @@ The Angular team realized how excessive it is to constantly include
 `FormControl`'sand `FormGroup`'s everytime one wants to build out a
 form. Insteadthey created something called the `FormBuilder`.
 
-      import { Component } from '@angular/core';
-      import { FormBuilder } from '@angular/forms';
-      
-      @Component({
-        selector: 'app-profile-editor',
-        templateUrl: './profile-editor.component.html',
-        styleUrls: ['./profile-editor.component.css']
-      })
-      export class ProfileEditorComponent {
-        profileForm = this.fb.group({
-          firstName: [''],
-          lastName: [''],
-          address: this.fb.group({
-            street: [''],
-            city: [''],
-            state: [''],
-            zip: ['']
-          }),
-        });
-      
-        constructor(private fb: FormBuilder) { }
-      }  
+```ts
+import { Component } from '@angular/core';
+  import { FormBuilder } from '@angular/forms';
+  
+  @Component({
+    selector: 'app-profile-editor',
+    templateUrl: './profile-editor.component.html',
+    styleUrls: ['./profile-editor.component.css']
+  })
+  export class ProfileEditorComponent {
+    profileForm = this.fb.group({
+      firstName: [''],
+      lastName: [''],
+      address: this.fb.group({
+        street: [''],
+        city: [''],
+        state: [''],
+        zip: ['']
+      }),
+    });
+  
+    constructor(private fb: FormBuilder) { }
+  }
+```  
 
 As we can see in the above, instead of having to attach `FormGroup` to
 theparents, and attaching `FormControl` to every child, we can just use
