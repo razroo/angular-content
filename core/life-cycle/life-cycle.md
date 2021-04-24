@@ -20,16 +20,18 @@ to Angular development.
 Before we get into what the entire lifecycle is, it might be helpful to
 visualize a lifecycle hook:
 
-    export class PeekABoo implements OnInit {
-      constructor(private logger: LoggerService) { }
+```ts
+export class PeekABoo implements OnInit {
+  constructor(private logger: LoggerService) { }
 
-      // implement OnInit's `ngOnInit` method
-      ngOnInit() { this.logIt(`OnInit`); }
+  // implement OnInit's `ngOnInit` method
+  ngOnInit() { this.logIt(`OnInit`); }
 
-      logIt(msg: string) {
-        this.logger.log(`#${nextId++} ${msg}`);
-      }
-    }
+  logIt(msg: string) {
+    this.logger.log(`#${nextId++} ${msg}`);
+  }
+}
+```
 
 The above code is hooking into the onInit lifecycle hook. (Hook is
 exactly what it sounds like. Angular will hook into that particular part

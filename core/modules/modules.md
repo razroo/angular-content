@@ -2,7 +2,6 @@
 title: Modules
 ---
 
-
 Modules are an integral part of Angular. It's interesting, because in
 some other languages, modules are a part of the language(OCaml comes to
 mind). A module in a language like OCaml, is any code contained within a
@@ -17,16 +16,19 @@ The Module Four, and the Fifth Wheel
 
 Angular provides five key/values to be used with a module:
 
-    import { NgModule }      from '@angular/core';
-    import { BrowserModule } from '@angular/platform-browser';
-    @NgModule({
-      imports:      [ BrowserModule ],
-      providers:    [ Logger ],
-      declarations: [ AppComponent ],
-      exports:      [ AppComponent ],
-      bootstrap:    [ AppComponent ]
-    })
-    export class AppModule { }
+```ts
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+@NgModule({
+  imports:      [ BrowserModule ],
+  providers:    [ Logger ],
+  declarations: [ AppComponent ],
+  exports:      [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+```
 
 1.  imports - This takes in other modules, whose exported classes, are
     needed by this component. This can include, providers, declarations,
