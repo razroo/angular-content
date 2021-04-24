@@ -1,4 +1,5 @@
 import {parse} from "node-html-parser";
+import slugify from "slugify";
 const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
@@ -29,10 +30,13 @@ export function addUidIfNonePreset(files, articlesJson, articlesJsonName) {
   });
 }
 
-export function addIdToArticlesJson(files, articlesJson, articlesJsonName, angularArticle) {
+export function addIdToArticlesJson(files, articlesJson, articlesJsonName, article) {
+  const UIDArr =  article.UID.split('-');
+  const UID = UIDArr[UIDArr.length - 1];
+
   articlesJson.files = articlesJson.files.map(file => {
-    if(file.UID === angularArticle.UID) {
-      file.id = angularArticle.id
+    if(UID === article.UID) {
+      file.id = article.id
     }
     return file;
   });
