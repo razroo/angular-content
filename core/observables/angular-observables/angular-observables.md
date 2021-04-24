@@ -7,46 +7,52 @@ There are observables that are unique to Angular.
  Event Emitter 
 --------------
 
-    <zippy (open)="onOpen($event)" (close)="onClose($event)"></zippy>
+```html
+<zippy (open)="onOpen($event)" (close)="onClose($event)"></zippy>
+```
+    
+```ts
+@Component({
+  selector: 'zippy',
+  template: `
+  <div class="zippy">
+    <div (click)="toggle()">Toggle</div>
+    <div [hidden]="!visible">
+      <ng-content></ng-content>
+    </div>
+  </div>`})
 
-    @Component({
-      selector: 'zippy',
-      template: `
-      <div class="zippy">
-        <div (click)="toggle()">Toggle</div>
-        <div [hidden]="!visible">
-          <ng-content></ng-content>
-        </div>
-      </div>`})
+export class ZippyComponent {
+  visible = true;
+  @Output() open = new EventEmitter<any>();
+  @Output() close = new EventEmitter<any>();
 
-    export class ZippyComponent {
-      visible = true;
-      @Output() open = new EventEmitter<any>();
-      @Output() close = new EventEmitter<any>();
-
-      toggle() {
-        this.visible = !this.visible;
-        if (this.visible) {
-          this.open.emit(null);
-        } else {
-          this.close.emit(null);
-        }
-      }
+  toggle() {
+    this.visible = !this.visible;
+    if (this.visible) {
+      this.open.emit(null);
+    } else {
+      this.close.emit(null);
     }
+  }
+}
+```
 
  Async Pipe 
 -----------
 
-    @Component({
-      selector: 'async-observable-pipe',
-      template: `<div><code>observable|async</code>:
-           Time: {{ time | async }}</div>`
-    })
-    export class AsyncObservablePipeComponent {
-      time = new Observable(observer =>
-        setInterval(() => observer.next(new Date().toString()), 1000)
-      );
-    }
+```ts
+@Component({
+  selector: 'async-observable-pipe',
+  template: `<div><code>observable|async</code>:
+       Time: {{ time | async }}</div>`
+})
+export class AsyncObservablePipeComponent {
+  time = new Observable(observer =>
+    setInterval(() => observer.next(new Date().toString()), 1000)
+  );
+}
+```
 
 The async pipe will subscribe to an observable or promise and returns
 the latest value it has emitted. When new value has been emitted, the
@@ -61,29 +67,32 @@ Router events are supplied as an observable. So lets say we want to
 listen in into when a router event has reached a certain point we would
 be able to do that.
 
-    import { Router, NavigationStart } from '@angular/router';
-    import { filter } from 'rxjs/operators';
+```ts
+import { Router, NavigationStart } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
-    @Component({
-      selector: 'app-routable',
-      templateUrl: './routable.component.html',
-      styleUrls: ['./routable.component.css']
-    })
-    export class Routable1Component implements OnInit {
+@Component({
+  selector: 'app-routable',
+  templateUrl: './routable.component.html',
+  styleUrls: ['./routable.component.css']
+})
+export class Routable1Component implements OnInit {
 
-      navStart: Observable<NavigationStart>;
+  navStart: Observable<NavigationStart>;
 
-      constructor(private router: Router) {
-        // Create a new Observable that publishes only the NavigationStart event
-        this.navStart = router.events.pipe(
-          filter(evt => evt instanceof NavigationStart)
-        ) as Observable<NavigationStart>;
-      }
+  constructor(private router: Router) {
+    // Create a new Observable that publishes only the NavigationStart event
+    this.navStart = router.events.pipe(
+      filter(evt => evt instanceof NavigationStart)
+    ) as Observable<NavigationStart>;
+  }
 
-      ngOnInit() {
-        this.navStart.subscribe(evt => console.log('Navigation Started!'));
-      }
-    }
+  ngOnInit() {
+    this.navStart.subscribe(evt => console.log('Navigation Started!'));
+  }
+}
+```
+
 
 ###  ActivatedRoute 
 
@@ -92,21 +101,23 @@ with a component loaded in an outlet.\" Specifically, one of the pieces
 of information that the `ActivatedRoute` injected router service
 provides is `ActivatedRoute.url` which is provided as an observable.
 
-    import { ActivatedRoute } from '@angular/router';
+```ts
+import { ActivatedRoute } from '@angular/router';
 
-    @Component({
-      selector: 'app-routable',
-      templateUrl: './routable.component.html',
-      styleUrls: ['./routable.component.css']
-    })
-    export class Routable2Component implements OnInit {
-      constructor(private activatedRoute: ActivatedRoute) {}
+@Component({
+  selector: 'app-routable',
+  templateUrl: './routable.component.html',
+  styleUrls: ['./routable.component.css']
+})
+export class Routable2Component implements OnInit {
+  constructor(private activatedRoute: ActivatedRoute) {}
 
-      ngOnInit() {
-        this.activatedRoute.url
-          .subscribe(url => console.log('The URL changed to: ' + url));
-      }
-    }
+  ngOnInit() {
+    this.activatedRoute.url
+      .subscribe(url => console.log('The URL changed to: ' + url));
+  }
+}
+```
 
 Using the above observable, we are able to determine what the url is at
 any given time.
@@ -118,26 +129,28 @@ Reactive forms is another core Angular library that makes use of
 Observables. In particular, the `FormControl` `valueChanges` property
 contains an observable that determines whenever an event occurred.
 
-    import { FormGroup } from '@angular/forms';
+```ts
+import { FormGroup } from '@angular/forms';
 
-    @Component({
-      selector: 'my-component',
-      template: 'MyComponent Template'
-    })
-    export class MyComponent implements OnInit {
-      pxForm: FormGroup;
+@Component({
+  selector: 'my-component',
+  template: 'MyComponent Template'
+})
+export class MyComponent implements OnInit {
+  pxForm: FormGroup;
 
-      ngOnInit() {
-        this.logNameChange();
-      }
-      logNameChange() {
-        const rowControl = this.pxForm.get('name');
-        rowControl.valueChanges.subscribe(data => {
-          console.log('data');
-          console.log(data);
-        });
-      }
-    }  
+  ngOnInit() {
+    this.logNameChange();
+  }
+  logNameChange() {
+    const rowControl = this.pxForm.get('name');
+    rowControl.valueChanges.subscribe(data => {
+      console.log('data');
+      console.log(data);
+    });
+  }
+}
+```  
 
 Using valueChanges in the context of formControl can be incredibly
 useful. There might be special effects, or some sort of hurdle you need

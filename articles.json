@@ -239,7 +239,13 @@
     },
     {
       "path": "core/modules/modules.md",
-      "UID": "3c7d6fd0"
+      "UID": "3c7d6fd0",
+      "id": "113"
+    },
+    {
+      "path": "core/observables/angular-observables/angular-observables.md",
+      "UID": "ca057aa0",
+      "id": "114"
     }
   ]
 }
