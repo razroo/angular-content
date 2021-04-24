@@ -26,7 +26,7 @@ rapid prototyping. Here are some benefits of using Font Awesome:
 
 3.  Ability to play with Size on Web.
 
-4.  Accesibility Minded
+4.  Accessibility Minded
 
 5.  Desktop Friendly.
 

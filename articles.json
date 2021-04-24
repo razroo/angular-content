@@ -261,6 +261,19 @@
       "path": "core/services/services.md",
       "UID": "8fee868b",
       "id": "117"
+    },
+    {
+      "path": "core/templates/displaying-data/displaying-data.md",
+      "UID": "92477e60",
+      "id": "118"
+    },
+    {
+      "path": "core/templates/template-syntax/template-syntax.md",
+      "UID": "506ec656",
+      "id": "119"
+    },
+    {
+      "path": "design-language-system/font-awesome/font-awesome.md"
     }
   ]
 }

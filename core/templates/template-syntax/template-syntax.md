@@ -19,7 +19,9 @@ property of a property, describing what the parent property is doing.
 In HTML the above definitions are a bit obscured. Lets say that we are
 defining the type of input field as well as it's value.
 
-    <input type="text" value="Name:">  
+```html
+<input type="text" value="Name:">
+```
 
 The `type` and `value` are attributes, as they are explaining what the
 `input` property is doing (aka metadata). However, once the browser
@@ -35,7 +37,9 @@ In Angular, property binding is a way to set properties of a particular
 element. In addition, it is a way to set `@Input()` decorators set on
 the actual directive.
 
-    <img [src]="itemImageUrl">
+```html
+<img [src]="itemImageUrl">
+```
 
 You might be wondering why this is called property binding instead of
 attribute binding. `src` is actually an attribute. The reason behind
@@ -45,7 +49,9 @@ compile the component as an object and therefore internally is setting
 objects, i.e. properties. Another great proof of this, is that if we
 were to modify the column span for a table by 2 it would be:
 
-    <tr><td [colSpan]="2">Span 2 columns</td></tr>
+```html
+<tr><td [colSpan]="2">Span 2 columns</td></tr>
+```
 
 You will notice that the above syntax for `colSpan` is camel cased, in
 contrast to the lowercase `colspan`. This is because we are using
@@ -73,8 +79,10 @@ many JavaScript properties that simply aren't available as properties. A
 great example of this is SVG's and ARIA labels. In a scenario like this,
 we can bind to an attribute by doing something like the following:
 
-    <!-- create and set an aria attribute for assistive technology -->
-    <button [attr.aria-label]="actionName">{{actionName}} with Aria</button>  
+```html
+<!-- create and set an aria attribute for assistive technology -->
+<button [attr.aria-label]="actionName">{{actionName}} with Aria</button>
+```  
 
 So we can bind to attributes similarly to how we bind to properties.
 Depending on the nature of your application, it may not, or not happen
@@ -88,13 +96,15 @@ Whenever something such a keyboard button pressed(keystrokes), mouse
 moves, clicks etc. it will be able to trigger the appropriate function
 at that time. The syntax for doing something like this is as follows:
 
-    <button (click)="onSave($event)">Save</button> 
+```html
+<button (click)="onSave($event)">Save</button>
+```
 
 In the above code, we are telling Angular, when a user clicks on the
 button emit the method contained within our respective component called
 `onSave`.
 
-\$event
+event
 -------
 
 In addition, we are supplying it with `$event` which is Angular's way of
@@ -112,9 +122,11 @@ NgClass
 same time. More importantly, it gives you the ability to add a class
 conditionally based on whether, or not a value is true.
 
-    <!-- toggle the "special" class on/off with a property -->
-    <button (click)="!isOpen">Toggle</button>
-    <div [ngClass]="isOpen ? 'open' : ''">This div is special</div>
+```html
+<!-- toggle the "special" class on/off with a property -->
+<button (click)="!isOpen">Toggle</button>
+<div [ngClass]="isOpen ? 'open' : ''">This div is special</div>
+```
 
 In the above code, we are toggling the class active based on the status
 of the toggle. So when the toggle button is clicked on, `isOpen` will
@@ -156,13 +168,15 @@ useful. `NgSwitch` consists of three directives:
 
 <!-- -->
 
-    <div [ngSwitch]="code.type">
-      <px-css-item    *ngSwitchCase="'css'"    [item]="currentItem"></px-stout-item>
-      <px-scss-item   *ngSwitchCase="'scss'"     [item]="currentItem"></px-device-item>
-      <px-javascript-item     *ngSwitchCase="'javascript'"  [item]="currentItem"></px-javascript-item>
-      <!-- . . . -->
-      <px-unknown-item  *ngSwitchDefault           [item]="currentItem"></px-unknown-item>
-    </div>
+```html
+<div [ngSwitch]="code.type">
+  <px-css-item    *ngSwitchCase="'css'"    [item]="currentItem"></px-stout-item>
+  <px-scss-item   *ngSwitchCase="'scss'"     [item]="currentItem"></px-device-item>
+  <px-javascript-item     *ngSwitchCase="'javascript'"  [item]="currentItem"></px-javascript-item>
+  <!-- . . . -->
+  <px-unknown-item  *ngSwitchDefault           [item]="currentItem"></px-unknown-item>
+</div>
+```
 
  Template Reference Variables 
 -----------------------------
@@ -182,9 +196,11 @@ is that it is referencing the:
 In order to reference a partcular template, use the hash symbol, and a
 name of your choosing.
 
-    <input #row placeholder="code" />  
+```html
+<input #row placeholder="code" />  
 
-    <button (click)="initiateGrid(row.value)">Initiate Grid</button>
+<button (click)="initiateGrid(row.value)">Initiate Grid</button>
+```
 
 In the above, using our `ref` value, we are able to retrieve the text
 entered into our input DOM element(i.e. row.value). Based on the
@@ -196,7 +212,9 @@ scenario, ref values have their use cases.
 Many times when retrieving data, it might come back as null, or
 undefined. In scenario like this, doing the following:
 
-    <p>Hello {{user.name}}! How can we help you today?</p>  
+```html
+<p>Hello {{user.name}}! How can we help you today?</p>
+```
 
 In the above, if user returns as null, or undefined, the browser will
 return an error:
@@ -205,14 +223,18 @@ return an error:
 
 However, if we use the safe navigation operator:
 
-      <p>Hello {{user?.name}}! How can we help you today?</p>  
+```html
+<p>Hello {{user?.name}}! How can we help you today?</p>
+```
 
 Angular will stop evaluating as soon as it hits the first `null` value.
 It will therefore render without any errors.
 
 This also works with longer property paths. For example:
 
-    <p>Hello {{user?.admin?.name}}! How can we help you today?</p>    
+```html
+<p>Hello {{user?.admin?.name}}! How can we help you today?</p>
+```
 
 In any data heavy enterprise app, you can expect to use the safe
 navigation operator quite often. If you want, you can call it the elvis

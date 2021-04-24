@@ -71,7 +71,7 @@ return an array of objects - also known as a collection - to be consumed
 by the app. Many times there will be a need to iterate over the array
 with the html, so that the data objects can be accessed.
 
-```{caption="px-code-box.component.ts"}
+```ts
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -87,7 +87,7 @@ export class CodeBoxComponent implements OnInit {
 } 
 ```
 
-```{caption="px-code-box.component.html"}
+```html
 <div *ngFor="let css of cssCode">
 {{css}}
 </div>   
@@ -103,7 +103,7 @@ need to access data within the object. Doing so, is exactly the same way
 as you would expect within regular Javascript. Let's update our code-box
 component code.
 
-```{caption="px-code-box.component.ts"}
+```ts
 import { Component, OnInit } from '@angular/core';
 import { CssCode } from 'css-code.interface.ts';
 
@@ -120,7 +120,7 @@ export class CodeBoxComponent implements OnInit {
 } 
 ```
 
-```{caption="px-code-box.component.html"}
+```html
 <div *ngFor="let css of cssCode">
 {{css.file}}
 </div>   
@@ -135,7 +135,7 @@ Within Angular there is the ability to conditionally display html.
 Similar to an `if` statement within Javascript, the html will only be
 displayed, if it matches the expected statement.
 
-```
+```html
 <div *ngFor="let css of cssCode">
 <div *ngIf="css.file as file" class="name">
 {{file}}
