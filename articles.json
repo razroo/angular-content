@@ -246,6 +246,21 @@
       "path": "core/observables/angular-observables/angular-observables.md",
       "UID": "ca057aa0",
       "id": "114"
+    },
+    {
+      "path": "core/observables/observables.md",
+      "UID": "5dd9883a",
+      "id": "115"
+    },
+    {
+      "path": "core/pipes/pipes.md",
+      "UID": "60c4c5a1",
+      "id": "116"
+    },
+    {
+      "path": "core/services/services.md",
+      "UID": "8fee868b",
+      "id": "117"
     }
   ]
 }

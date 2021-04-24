@@ -17,7 +17,10 @@ Angular, and it is important to be aware of couple things.
 In order to create a service, navigate to the folder you would like to
 create your service and run:
 
-    ng g service code-box  
+```bash
+ng g service code-box
+```
+      
 
 This will create a service that by default includes
 ` providedIn: 'root',` It is important to keep in mind, that Angular
@@ -36,21 +39,22 @@ instead of Angular's internal http client as it has better GraphQL
 support for our application. This is what a typical service would look
 like:
 
-    import { Injectable } from '@angular/core';
+```ts
+import { Injectable } from '@angular/core';
+import { Observable, from } from 'rxjs';
+import { pluck } from 'rxjs/operators';
+import { Apollo } from 'apollo-angular';
 
-    import { Observable, from } from 'rxjs';
-    import { pluck } from 'rxjs/operators';
-    import { Apollo } from 'apollo-angular';
+@Injectable({ providedIn: 'root' })
+export class UserService {
+  getUser(): Observable<User> {
+    const user$ = this.apollo.query({ query: GetCurrentUser });
 
-    @Injectable({ providedIn: 'root' })
-    export class UserService {
-      getUser(): Observable<User> {
-        const user$ = this.apollo.query({ query: GetCurrentUser });
-
-        return from(user$).pipe(pluck('data', 'getCurrentUser'));
-      }
-      constructor(private apollo: Apollo) {}
-    }
+    return from(user$).pipe(pluck('data', 'getCurrentUser'));
+  }
+  constructor(private apollo: Apollo) {}
+}
+```
 
 In the above code, you will notice that we have created a `getUser()`
 method for our `UserService`. By doing this, we have separated logic
@@ -64,23 +68,25 @@ Including Service In Our Component
 If we would like to use this service in our component, we can simply
 inject the appropriate service in our constructor.
 
-    // code-box.component.ts
-    import { Component }   from '@angular/core';
-    import { User }        from './code-box.interfaces';
-    import { UserFacade } from './user.facade';
+```ts
+// code-box.component.ts
+import { Component }   from '@angular/core';
+import { User }        from './code-box.interfaces';
+import { UserFacade } from './user.facade';
 
-    @Component({
-      selector: 'px-code-box',
-      template: './code-box.component.html',
-      styles: ['./code-box.component.scss'],
-    })
-    export class HeroListComponent {
-      user: User;
+@Component({
+  selector: 'px-code-box',
+  template: './code-box.component.html',
+  styles: ['./code-box.component.scss'],
+})
+export class HeroListComponent {
+  user: User;
 
-      constructor(userFacade: UserFacade) {
-        this.user = userFacade.getUser();
-      }
-    }
+  constructor(userFacade: UserFacade) {
+    this.user = userFacade.getUser();
+  }
+}
+```
 
 You will notice in the above we included something called the
 UserFacade. We will get to this in later chapters. Per our architecture,

@@ -9,8 +9,11 @@ users.
 Just as a primer, using the native angular date pipe, a pipe would do
 something such as the following:
 
-    The chained hero's birthday is
-    {{ birthday | date | uppercase}}
+```
+<!-- The chained hero's birthday is -->
+{{ birthday | date | uppercase}}
+```
+    
 
 This would display
 
@@ -59,6 +62,6 @@ transformed, it should be turned into a pipe, instead of a service. That
 would be the simple rule.
 
 In addition, there are impure pipes that one can potentially do, which
-ususally has little to do with transforming data. Once again the async
+usually has little to do with transforming data. Once again the async
 pipe is something that would register along these lines. However, I have
 not seen the need to create an impure pipe with the architecture given.

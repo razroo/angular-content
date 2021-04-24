@@ -56,7 +56,7 @@ less:
 
 3.  ngDoCheck() - This is called after an ngOnChanges, or ngOnInit. This
     was created, so that Angular can check on updates it won't check on
-    it's own. [^1]
+    it's own.
 
 4.  ngAfterContentInit() - Triggered after html is populated. It is
     called once after the first ngDoCheck().
@@ -107,5 +107,3 @@ However, I strongly believe that a fundamental perspective, by reading
 this you know everything. This book will discuss important points of
 Angular architecture regarding these hooks, and they can be see here: //
 Places to put data for hooks can be seen here.
-
-[^1]: Example of what that would look like should go here.
