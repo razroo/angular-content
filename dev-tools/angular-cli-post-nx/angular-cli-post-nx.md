@@ -6,8 +6,8 @@ finally get creating our app.
 
 Run the following inside the root of your workspace folder.
 
-```
-  ng g app angularPixelIllustrator --routing
+```bash
+ng g app angularPixelIllustrator --routing
 ```
 
 This will create an app called angular-pixel-illustrator. The angular
@@ -16,16 +16,13 @@ cli will automatically convert any camel casing to dash case. The
 
 Now you can run your app using serve.
 
-```
-  ng serve
+```bash
+ng serve
 ```
 
 Using ng serve will open up angularPixelIllustrator app by default. As
 we add more apps into the workspace, you'll need to flag which app you
 want to open.
-
-![image](dev-tools/angular-cli-post-nx/angular_nx_initial_screen){width="12.5cm"
-height="9cm"}
 
 The app will open up at localhost:8080 or localhost:4200. If you're
 unsure, check your CLI console. It will tell you which localhost server
@@ -67,8 +64,8 @@ will be encapsulated into that component folder.
 
 To create our module, run the following command:
 
-```
-  ng g module choose-size
+```bash
+ng g module choose-size
 ```
 
 Sidenote: remember, if you have more than one Angular app in your
@@ -77,15 +74,15 @@ generate the module.
 
 To create your component:
 
-```
-  ng g component choose-size --export
+```bash
+ng g component choose-size --export
 ```
 
 The --export flag allows us to use the choose-size component without
 having to manually export. The above command should have created the
 following file files:
 
-```{breaklines=""}
+```bash
 new file:   apps/angular-pixel-illustrator/src/app/choose-size/choose-size.component.css
 new file:   apps/angular-pixel-illustrator/src/app/choose-size/choose-size.component.html
 new file:   apps/angular-pixel-illustrator/src/app/choose-size/choose-size.component.spec.ts

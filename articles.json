@@ -286,6 +286,11 @@
       "path": "dev-tools/angular-cli/angular-cli.md",
       "UID": "928033a9",
       "id": "122"
+    },
+    {
+      "path": "dev-tools/angular-cli-post-nx/angular-cli-post-nx.md",
+      "UID": "59970efa",
+      "id": "123"
     }
   ]
 }
