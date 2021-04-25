@@ -291,6 +291,11 @@
       "path": "dev-tools/angular-cli-post-nx/angular-cli-post-nx.md",
       "UID": "59970efa",
       "id": "123"
+    },
+    {
+      "path": "dev-tools/dependency-graph/dependency-graph.md",
+      "UID": "92102c73",
+      "id": "124"
     }
   ]
 }

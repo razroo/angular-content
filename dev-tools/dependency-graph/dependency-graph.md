@@ -25,13 +25,21 @@ dependency graph using `compodoc`, but this is usually regulated to demo
 mode. When in development, if you're using `nx`, `nrwl` comes packaged
 with a dependency graph.
 
-```
+```bash
   npm run affected:dep-graph;
   npm run dep-graph;
 ```
 
 This will show you something like:
 
+TODO
+```
 \*\*\*(Image of dependency graph goes here)\*\*\*
+```
+
 
 ## Using Dependency Graph
+
+```
+// TODO will get around to soon enough !
+```
