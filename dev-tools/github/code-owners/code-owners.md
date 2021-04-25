@@ -29,8 +29,8 @@ to create webhooks if required.
 
 Do create a file, use the following command:
 
-```
-  mkdir .github; cd .github; touch \codeowners{}
+```bash
+mkdir .github; cd .github; touch \codeowners{}
 ```
 
 When you make a pull request within your GitHub app, GitHub will
@@ -40,7 +40,7 @@ automatically pick up on this file.
 
 Here's what your file can potentially look like:
 
-```
+```bash
 # Lines starting with '#' are comments.
 # Each line is a file pattern followed by one or more owners.
 
@@ -50,7 +50,7 @@ Here's what your file can potentially look like:
 
 ## Creating Based on File Type
 
-```
+```bash
 .js @CharlieGreenman
 ```
 
