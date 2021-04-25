@@ -47,7 +47,7 @@ inline element.
 This is a very sophisticated solution, which I first saw from a one
 Thomas Burleson. The idea, is that we create a queryState function:
 
-```
+```ts
 /**
  * Wrapper function to easily determine async state
  */
@@ -63,7 +63,7 @@ export function queryState<T>(item:AsyncItem<T>) {
 Then, inside of our component, we can go ahead and call the queryState
 within our component.
 
-```
+```ts
 export class UserListComponent {
   state = queryState;
   user$ = this.facade.users$;
