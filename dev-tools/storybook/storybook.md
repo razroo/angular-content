@@ -22,11 +22,11 @@ It does this by creating an interactive showcase for each component.
 Nrwl Nx offers Storybook out of the box, making integration an easy
 process.
 
-### Generatng configuration for Nrwl/nx
+### Generating configuration for Nrwl/nx
 
-This an be done by running the following command:
+This can be done by running the following command:
 
-```
+```bash
 nx g @nrwl/angular:storybook-configuration project-name
 ```
 
@@ -35,11 +35,10 @@ This will also generate a project specific folder for your application.
 
 ### Serve storybook using Nrwl Nx
 
-```
+```bash
 nx run project-name:storybook  
 ```
 
-### Cool Features Offered Out of the Box
-
-Some cool features that are offered out of the box for Nrwl/Nx include
-the following:
+```
+// TODO more images coming soon!!!
+```
