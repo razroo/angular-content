@@ -47,13 +47,13 @@ Instead of a deep copy, you can check for a single unique property.
  Track By in Practice 
 ---------------------
 
-``` {caption="data-table.component.html"}
-  <mat-table
-  [trackBy]="trackByBuyerId">
-  <mat-table/>
+```html
+<mat-table
+[trackBy]="trackByBuyerId">
+<mat-table/>
 ```
 
-``` {caption="data-table.component.ts"}
+```ts
 //.. this code is inside of our component class  
 trackByBuyerId(index, item) {    
   return item.id; // unique id corresponding to the item

@@ -34,7 +34,7 @@ user experience.
 
 To support the above design goals, Angular loads a manifest file. The
 manifest describes the resources to cache and includes hashes of every
-file's contents[^1].
+file's contents.
 
  Using Angular CLI to Enable Service Workers 
 --------------------------------------------
@@ -61,7 +61,7 @@ For academic purposes, here is what the service worker flag does:
  Simulating a Network Issue 
 ---------------------------
 
-1.  Go to Chrome dev tools [^2]
+1.  Go to Chrome dev tools
 
 2.  Go to the Network tab
 
@@ -78,27 +78,26 @@ Service Workers, on the
  Some other architectural decisions 
 -----------------------------------
 
- Available and Activated Updates 
---------------------------------
+### Available and Activated Updates ### 
+
 
 There is an SwUpdate service available within app, after importing the
 ServiceWorkerModule. It can be used to notify users, for instance, to
 update their page(s), when the code they are running is out of date:
 
-``` {caption="app.routing.module.ts file"}
+```ts
     updates.activated.subscribe(event => {
       console.log('old version was', event.previous);
       console.log('new version is', event.current);
     });
 ```
 
- Checking for Updates 
----------------------
+### Checking for Updates ###
 
 Within the same SwUpdate service, we can also check for updates, and set
 up a subscriber of sorts, for instance:
 
-``` {caption="app.routing.module.ts file"}
+```ts
   import { interval } from 'rxjs/observable/interval';
 
   @Injectable()
@@ -109,7 +108,3 @@ up a subscriber of sorts, for instance:
     }
   }
 ```
-
-[^1]: source: https://angular.io/guide/service-worker-intro
-
-[^2]: write something here if person does not know how to do so

@@ -53,7 +53,7 @@ include:
 
 4.  Optional integration with [Intersection
     Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
-    [^1]
+    
 
 5.  Supports [plugins](https://github.com/aFarkas/lazysizes#plugins),
     which include those such as the object-fit extension, effect plugin,
@@ -64,5 +64,4 @@ Angular Directive with Lazysizes
 
 ### Adding Lazysizes
 
-[^1]: It's a relatively modern api that provides a way to asynchronously
-    observe changes in the intersection of a target element.
+TODO

@@ -14,13 +14,6 @@ Angular.
 Terminology
 -----------
 
-@ l \*4c @ Rendering and Performance Terminology\
-Rendering & Performance\
-SSR & TTFB\
-CSR & FP\
-Rehydration & FCP\
-Prerendering & TTI\
-
 ### Rendering
 
 1.  SSR: Server-Side Rendering - Rendering a client-side, or universal

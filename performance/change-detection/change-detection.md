@@ -16,19 +16,24 @@ using JavaScript. For instance, let's say we have a promise which
 returns data, with that new data, we would do something like the
 following:
 
-    yellowBoxText = newData;
+```ts
+yellowBoxText = newData;
+```
 
 In a framework, doing something like this isn't necessary and one has
 the option to go lean into the framework to this for you. Here is a
 quick primer:
 
-    <!-- In our html file -->
-    {{ newData.name}}
-    // In our Typescript file
-    this.facade.user$.subscribe((userData) => {
-        this.newData = userData;
-      });
-    });
+
+```ts
+<!-- In our html file -->
+{{ newData.name}}
+// In our Typescript file
+this.facade.user$.subscribe((userData) => {
+    this.newData = userData;
+  });
+});
+```
 
 Very simply, using the above, any time that our newData changes, all of
 the relevant data inside of out html file will be updated.
