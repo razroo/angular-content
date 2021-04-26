@@ -92,7 +92,7 @@ overhead to do this on the client side.)
 Within your `server.ts` file, you will write something similar to the
 following:
 
-``` {caption="server.ts"}
+```ts
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
   providers: [

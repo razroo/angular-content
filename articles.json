@@ -336,6 +336,10 @@
       "path": "performance/ahead-of-time/ahead-of-time.md",
       "UID": "dce2100c",
       "id": "132"
+    },
+    {
+      "path": "performance/angular-universal/angular-universal.md",
+      "UID": "3556c372"
     }
   ]
 }
