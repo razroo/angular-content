@@ -15,8 +15,8 @@ of how a component should be designed within a PWA setting:
 
 ## Component Design Quirk
 
-When creating a ticket in a PWA environment, there is a need to create a
-specify the specific functionality around mobile, and desktop. Many
+When creating a ticket in a PWA environment, there is a need to
+specify the functionality around mobile, and desktop. Many
 times, the functionality is not the same. In addition, while we develop
 from a mobile first perspective, it is not the case for business and
 product. For engineers, there is an understanding that whatever is not

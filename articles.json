@@ -326,6 +326,16 @@
       "path": "miscellaneous/ticket-creation/acceptance-criteria.md",
       "UID": "505087d1",
       "id": "130"
+    },
+    {
+      "path": "miscellaneous/ticket-creation/technical-design-notes.md",
+      "UID": "fa1e3891",
+      "id": "131"
+    },
+    {
+      "path": "performance/ahead-of-time/ahead-of-time.md",
+      "UID": "dce2100c",
+      "id": "132"
     }
   ]
 }

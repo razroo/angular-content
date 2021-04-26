@@ -16,14 +16,14 @@ should be asking ourselves is when does this happen?
 
 Without using the ahead-of-time compilation flag `--aot` i.e.
 
-```
+```bash
 ng serve
 ```
 
 Angular will convert the code from Angular code to browser readable code
 at run time. By using the `--aot` compiler i.e.
 
-```
+```bash
 ng serve --aot
 ```
 
@@ -61,7 +61,7 @@ the form of it not appearing on the site. The easiest way to be aware
 ofthe limitations is to change the config in your
 `angularCompilerOptions`.
 
-```
+```ts
 "angularCompilerOptions": {
   ...
   "strictMetadataEmit" : true
