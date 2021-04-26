@@ -91,17 +91,18 @@ In Angular 7, and later, angular adds a config in your
 `angular.json`file. It has a property called \"budgets\", and it looks
 like this:
 
-    "budgets": [
+```ts
+"budgets": [
       {
         "type": "initial",
         "maximumWarning": "2mb",
         "maximumError": "5mb"
       }
-    ]   
+    ]
+```
+       
 
 This will throw an error if bundle size exceeds 2mb, and throw an error
 if bundle size exceeds 5mb. It is very much so possible to use this
 feature inyour CI/CD pipeline. Feel free to go over to your devops
 person, and ask them to integrate it.
-
-[^1]: Insert photo here on snapshot.

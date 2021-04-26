@@ -339,7 +339,13 @@
     },
     {
       "path": "performance/angular-universal/angular-universal.md",
-      "UID": "3556c372"
+      "UID": "3556c372",
+      "id": "133"
+    },
+    {
+      "path": "performance/bundle-size/bundle-size.md",
+      "UID": "cd78061d",
+      "id": "134"
     }
   ]
 }
