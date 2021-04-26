@@ -346,6 +346,36 @@
       "path": "performance/bundle-size/bundle-size.md",
       "UID": "cd78061d",
       "id": "134"
+    },
+    {
+      "path": "performance/caching/apollo-caching-with-sockets/apollo-caching-with-sockets.md",
+      "UID": "e7aabf81",
+      "id": "135"
+    },
+    {
+      "path": "performance/change-detection/change-detection.md",
+      "UID": "fd4915af",
+      "id": "136"
+    },
+    {
+      "path": "performance/images/images.md",
+      "UID": "ef11cac4",
+      "id": "137"
+    },
+    {
+      "path": "performance/implementing-service-worker/implementing-service-worker.md",
+      "UID": "9c6e4f5d",
+      "id": "138"
+    },
+    {
+      "path": "performance/track-by/track-by.md",
+      "UID": "62a6ca01",
+      "id": "139"
+    },
+    {
+      "path": "performance/understanding-rendering/understanding-rendering.md",
+      "UID": "b1c82b40",
+      "id": "140"
     }
   ]
 }
