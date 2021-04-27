@@ -396,6 +396,11 @@
       "path": "rxjs/filtering/filtering.md",
       "UID": "c13d067d",
       "id": "145"
+    },
+    {
+      "path": "rxjs/rxjs-pitfalls/rxjs-pitfalls.md",
+      "UID": "69abcb69",
+      "id": "146"
     }
   ]
 }

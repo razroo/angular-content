@@ -156,19 +156,21 @@ Forgetting to Unsubscribe
 
 Have you ever seen code like this?
 
-    @Component({...})
-    export class MyComponent implements OnInit {
-      constructor(
-        private route: ActivatedRoute,
-        private itemService: ItemService
-      ) {}
+```ts
+@Component({...})
+export class MyComponent implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+    private itemService: ItemService
+  ) {}
 
-      ngOnInit() {
-        this.route.params.subscribe(params => {
-          this.itemService.loadItemDetails(params['itemId']);
-        });
-      }
-    }  
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.itemService.loadItemDetails(params['itemId']);
+    });
+  }
+}
+``` 
 
 At first glance, this looks innocent enough, but there's a problem:
 within `ngOnInit()` we subscribe to route params, but we never
@@ -185,69 +187,73 @@ you manually subscribe to. A good rule of thumb is: subscribe within
 
 Here's how we could change the above code in order to handle this:
 
-    @Component({...})
-    export class MyComponent implements OnInit, OnDestroy {
-      private routeSubscription: Subscription;
+```ts
+@Component({...})
+export class MyComponent implements OnInit, OnDestroy {
+  private routeSubscription: Subscription;
 
-      constructor(
-        private route: ActivatedRoute,
-        private itemService: ItemService
-      ) {}
+  constructor(
+    private route: ActivatedRoute,
+    private itemService: ItemService
+  ) {}
 
-      ngOnInit() {
-        this.routeSubscription = this.route.params.subscribe(params => {
-          this.itemService.loadItemDetails(params['itemId']);
-        });
-      }
+  ngOnInit() {
+    this.routeSubscription = this.route.params.subscribe(params => {
+      this.itemService.loadItemDetails(params['itemId']);
+    });
+  }
 
-      ngOnDestroy() {
-        this.routeSubscription.unsubscribe();
-      }
-    }  
+  ngOnDestroy() {
+    this.routeSubscription.unsubscribe();
+  }
+}
+```  
 
 We can also write a unit test to verify that all subscriptions are
 cleaned up.
 
-    describe('MyComponent', () => {
-      let fixture: ComponentFixture<MyComponent>;
-      let itemServiceSpy: jasmine.SpyObj<ItemService>;
-      let mockActivatedRoute: MockActivatedRoute;
+```ts
+describe('MyComponent', () => {
+  let fixture: ComponentFixture<MyComponent>;
+  let itemServiceSpy: jasmine.SpyObj<ItemService>;
+  let mockActivatedRoute: MockActivatedRoute;
 
-      beforeEach(() => {
-        TestBed.configureTestingModule({
-          declarations: [MyComponent],
-          providers: [
-            {provide: ActivatedRoute, useClass: MockActivatedRoute},
-            {provide: ItemService, useValue: jasmine.createSpyObj('itemService', ['loadItemDetails'])}
-          ]
-        });
-
-        itemServiceSpy = TestBed.get(ItemService);
-        mockActivatedRoute = TestBed.get(ActivatedRoute);
-        fixture = TestBed.createComponent(MyComponent);
-        fixture.detectChanges();
-      });
-
-      // Verify the core behavior works
-      it('calls loadItemDetails on param change', () => {
-        mockActivatedRoute.paramsSubject$.next({itemId: 'itemIdParam'});
-        expect(itemServiceSpy.loadItemDetails).toHaveBeenCalledWith('itemIdParam');
-      });
-
-      // Verify unsubscribe
-      it('stops listening to param changes when destroyed', () => {
-        fixture.destroy();
-        mockActivatedRoute.paramsSubject$.next({itemId: 'itemIdParam'});
-        expect(itemServiceSpy.loadItemDetails).not.toHaveBeenCalled();
-      });
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [MyComponent],
+      providers: [
+        {provide: ActivatedRoute, useClass: MockActivatedRoute},
+        {provide: ItemService, useValue: jasmine.createSpyObj('itemService', ['loadItemDetails'])}
+      ]
     });
 
-    class MockActivatedRoute {
-      /** Used within the test code to trigger a new param change */
-      readonly paramsSubject$ = new Subject<Params>();
-      /** Used by the component to subscribe to params */
-      readonly params = this.paramsSubject$.asObservable();
-    }  
+    itemServiceSpy = TestBed.get(ItemService);
+    mockActivatedRoute = TestBed.get(ActivatedRoute);
+    fixture = TestBed.createComponent(MyComponent);
+    fixture.detectChanges();
+  });
+
+  // Verify the core behavior works
+  it('calls loadItemDetails on param change', () => {
+    mockActivatedRoute.paramsSubject$.next({itemId: 'itemIdParam'});
+    expect(itemServiceSpy.loadItemDetails).toHaveBeenCalledWith('itemIdParam');
+  });
+
+  // Verify unsubscribe
+  it('stops listening to param changes when destroyed', () => {
+    fixture.destroy();
+    mockActivatedRoute.paramsSubject$.next({itemId: 'itemIdParam'});
+    expect(itemServiceSpy.loadItemDetails).not.toHaveBeenCalled();
+  });
+});
+
+class MockActivatedRoute {
+  /** Used within the test code to trigger a new param change */
+  readonly paramsSubject$ = new Subject<Params>();
+  /** Used by the component to subscribe to params */
+  readonly params = this.paramsSubject$.asObservable();
+}
+```  
 
 While the above practice works for a single subscription, this will
 become unwieldy for multiple subscriptions. A clever solution to this is
@@ -255,28 +261,30 @@ to use a single parent subscription to manage all child subscriptions,
 and then only call `unsubscribe()` on the parent subscriptions. Here's
 how we could modify the above code to accomplish it:
 
-    @Component({...})
-    export class MyComponent implements OnInit, OnDestroy {
-      private subscriptions: Subscription;
+```ts
+@Component({...})
+export class MyComponent implements OnInit, OnDestroy {
+  private subscriptions: Subscription;
 
-      constructor(
-        private route: ActivatedRoute,
-        private itemService: ItemService
-      ) {}
+  constructor(
+    private route: ActivatedRoute,
+    private itemService: ItemService
+  ) {}
 
-      ngOnInit() {
-        this.subscriptions.add(
-          this.route.params.subscribe(params => {
-            this.itemService.loadItemDetails(params['itemId']);
-          })
-        );
-        // Any other subscriptions could be added this way as well.
-      }
+  ngOnInit() {
+    this.subscriptions.add(
+      this.route.params.subscribe(params => {
+        this.itemService.loadItemDetails(params['itemId']);
+      })
+    );
+    // Any other subscriptions could be added this way as well.
+  }
 
-      ngOnDestroy() {
-        this.subscriptions.unsubscribe();
-      }
-    }  
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
+  }
+}
+```  
 
 Note that the unit tests will remain the same.
 
@@ -286,28 +294,30 @@ If you don't like the idea of putting subscriptions with `.add()`
 blocks, you could also use `takeUntil()` in combination with a destroy
 subject to handle this.
 
-    @Component({...})
-    export class MyComponent implements OnInit, OnDestroy {
-      private destroy$ = new Subject<void>();
+```ts
+@Component({...})
+export class MyComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
 
-      constructor(
-        private route: ActivatedRoute,
-        private itemService: ItemService
-      ) {}
+  constructor(
+    private route: ActivatedRoute,
+    private itemService: ItemService
+  ) {}
 
-      ngOnInit() {
-        this.route.params.pipe(
-          takeUntil(this.destroy$),
-        ).subscribe(params => {
-          this.itemService.loadItemDetails(params['itemId']);
-        })
-      }
+  ngOnInit() {
+    this.route.params.pipe(
+      takeUntil(this.destroy$),
+    ).subscribe(params => {
+      this.itemService.loadItemDetails(params['itemId']);
+    })
+  }
 
-      ngOnDestroy() {
-        this.destroy$.next();
-        this.destroy$.complete();
-      }
-    }  
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+}
+```  
 
 In most cases, you should try to use the `aync\$` pipe when possible.
 
@@ -380,65 +390,69 @@ to expose a readonly version of that subject for use by clients. Let's
 take another look at that UserService we used to talk about mishandling
 subscriptions:
 
-    @Injectable()
-    export class LoginService {
-      private currentUserSubject$ = new ReplaySubject<string>(1);
-      readonly currentUser$ = this.currentUserSubject$.asObservable();
+```ts
+@Injectable()
+export class LoginService {
+  private currentUserSubject$ = new ReplaySubject<string>(1);
+  readonly currentUser$ = this.currentUserSubject$.asObservable();
 
-      private authTokenSubject$ = new ReplaySubject<string>(1);
-      readonly authToken$ = this.authTokenSubject$.asObservable();
+  private authTokenSubject$ = new ReplaySubject<string>(1);
+  readonly authToken$ = this.authTokenSubject$.asObservable();
 
-      private authErrorSubject$ = new ReplaySubject<any>(1);
-      readonly authError$ = this.authErrorSubject$.asObservable();
+  private authErrorSubject$ = new ReplaySubject<any>(1);
+  readonly authError$ = this.authErrorSubject$.asObservable();
 
-      constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-      login(username: string, password: string) {
-        this.http
-          .put('http://localhost:8000/login', {username, password})
-          .subscribe({
-            next(data) {
-              this.currentUserSubject$.next(username);
-              this.authTokenSubject$.next(data['authToken']);
-            },
-            error(err) {
-              this.authError$.next(err);
-            }
-          });
-      }
-    }  
+  login(username: string, password: string) {
+    this.http
+      .put('http://localhost:8000/login', {username, password})
+      .subscribe({
+        next(data) {
+          this.currentUserSubject$.next(username);
+          this.authTokenSubject$.next(data['authToken']);
+        },
+        error(err) {
+          this.authError$.next(err);
+        }
+      });
+  }
+}
+```  
 
 Notice that for all of the subjects we used, we exposed them using
 `asObservable()`. Within our `login()` method, users simply call that
 method and the observables update themselves:
 
-    @Component({
-      selector: 'app-login-example',
-      template: `
-        <ng-container *ngIf="loginService.currentUser$ | async as user; else loginForm">
-          <h1>Welcome, {{user}}!</h1>
-        </ng-container>
-        <ng-template #loginForm>
-          <form [formGroup]="form">
-            <label>Username: <input formControlName="username" type="text" /></label>
-            <label>Password: <input formControlName="password" type="password" /></label>
-            <button (click)="loginService.login(form.get('username').value, form.get('password').value)" 
-                    [disabled]="form.invalid">
-              Log In
-            </button>
-          </form>
-        </ng-template>
-      `
-    })
-    export class LoginExampleComponent {
-      readonly form = this.fb.group({
-        username: this.fb.control('', Validators.required),
-        password: this.fb.control('', Validators.required),
-      });
+```ts
+@Component({
+  selector: 'app-login-example',
+  template: `
+    <ng-container *ngIf="loginService.currentUser$ | async as user; else loginForm">
+      <h1>Welcome, {{user}}!</h1>
+    </ng-container>
+    <ng-template #loginForm>
+      <form [formGroup]="form">
+        <label>Username: <input formControlName="username" type="text" /></label>
+        <label>Password: <input formControlName="password" type="password" /></label>
+        <button (click)="loginService.login(form.get('username').value, form.get('password').value)" 
+                [disabled]="form.invalid">
+          Log In
+        </button>
+      </form>
+    </ng-template>
+  `
+})
+export class LoginExampleComponent {
+  readonly form = this.fb.group({
+    username: this.fb.control('', Validators.required),
+    password: this.fb.control('', Validators.required),
+  });
 
-      constructor(readonly loginService: LoginService,
-                  private fb: FormBuilder) {}
-    }  
+  constructor(readonly loginService: LoginService,
+              private fb: FormBuilder) {}
+}
+```  
 
 Notice how the observable attributes can only be read from, never
 written to. This prevents clients from being able to modify the internal
@@ -471,28 +485,30 @@ them to be asynchronous so that you can begin to progressively render
 parts of the page based on the config. Using nested subscribes, that
 code might look like this:
 
-    @Component({
-      selector: 'app-dashboard-page',
-      ...
-    })
-    export class DashboardPageComponent implements OnInit {
-      config: Config = null;
-      data: Data = null;
+```ts
+@Component({
+  selector: 'app-dashboard-page',
+  ...
+})
+export class DashboardPageComponent implements OnInit {
+  config: Config = null;
+  data: Data = null;
 
-      constructor(
-        private configService: ConfigService, 
-        private dataService: DataService) {}
+  constructor(
+    private configService: ConfigService, 
+    private dataService: DataService) {}
 
-      ngOnInit() {
-        this.configService.getUserConfig().subscribe(config => {
-          this.config = config;
-          this.dataService.loadData(config).subscribe(data => {
-            this.data = data;
-            // ...
-          });
-        });
-      }
-    }  
+  ngOnInit() {
+    this.configService.getUserConfig().subscribe(config => {
+      this.config = config;
+      this.dataService.loadData(config).subscribe(data => {
+        this.data = data;
+        // ...
+      });
+    });
+  }
+}
+```  
 
 Notice how, even with two levels of nesting, we are slipping into
 pyramid of doom territory. What's worse, we can't take advantage of our
@@ -503,30 +519,32 @@ Instead, you can use higher-order mapping functions in order to flatten
 nested Observables into a single Observable. For example, the previous
 code could be written as:
 
-    @Component({
-      selector: 'app-dashboard-page',
-      ...
-    })
-    export class DashboardPageComponent implements OnInit {
-      config: Config = null;
-      data: Data = null;
+```ts
+@Component({
+  selector: 'app-dashboard-page',
+  ...
+})
+export class DashboardPageComponent implements OnInit {
+  config: Config = null;
+  data: Data = null;
 
-      constructor(
-        private configService: ConfigService, 
-        private dataService: DataService) {}
+  constructor(
+    private configService: ConfigService, 
+    private dataService: DataService) {}
 
-      ngOnInit() {
-        this.configService.getUserConfig().pipe(
-          tap(config => {
-            this.config = config;
-          }),
-          mergeMap(config => this.dataService.loadData(config))
-        }).subscribe(data => {
-          this.data = data;
-          // ...
-        });
-      }
-    }  
+  ngOnInit() {
+    this.configService.getUserConfig().pipe(
+      tap(config => {
+        this.config = config;
+      }),
+      mergeMap(config => this.dataService.loadData(config))
+    }).subscribe(data => {
+      this.data = data;
+      // ...
+    });
+  }
+}
+```  
 
 Here, we use the mergeMap operator to take the data returned from the
 config service, and use it to produce a new observable using the data
@@ -540,23 +558,25 @@ the mergeMap call.
 A better strategy here is to not subscribe at all, and instead store
 config and data as Observables.
 
-    @Component({
-      selector: 'app-dashboard-page',
-      ...
-    })
-    export class DashboardPageComponent {
-      config$ = this.configService.getUserConfig().pipe(
-        shareReplay(1)
-      );
-      data$ = config$.pipe(
-        mergeMap(config => this.dataService.loadData(config)),
-        shareReplay(1)
-      );
+```ts
+@Component({
+  selector: 'app-dashboard-page',
+  ...
+})
+export class DashboardPageComponent {
+  config$ = this.configService.getUserConfig().pipe(
+    shareReplay(1)
+  );
+  data$ = config$.pipe(
+    mergeMap(config => this.dataService.loadData(config)),
+    shareReplay(1)
+  );
 
-      constructor(
-        private configService: ConfigService, 
-        private dataService: DataService) {}
-    }  
+  constructor(
+    private configService: ConfigService, 
+    private dataService: DataService) {}
+}
+```  
 
 Note that we use shareReplay(1) above to safe-guard against multiple
 subscriptions firing multiple HTTP requests. Let's look at what we've
