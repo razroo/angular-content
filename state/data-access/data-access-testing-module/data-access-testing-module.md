@@ -15,7 +15,7 @@ means that for all of our state, we only need to create a single file.
 
 ### A Quick Example of our Facade File
 Let's say we had a really simple facade file:
-```
+```ts
 // code-box.facade.mock.ts
 
 import { getCodeBox } from 'code-box.selectors';
@@ -44,7 +44,7 @@ this in numerous scenarios. It would be easy if we could solve two issues:
 2. Create a testing module that we can simply include for our unit tests
 
 ## What our Facade Mock File Looks Like
-```
+```ts
 // code-box.facade.mock.ts
 
 export class MockCodeBoxFacade {
@@ -62,7 +62,7 @@ for our facade file.
 Now that we have our facade mock file, let's include it into a module, so that
 we can re-use it across our angular application.
 
-```
+```ts
 import { NgModule } from '@angular/core';
 import { CodeBoxFacade } from './+state/code-box.facade';
 import { MockCodeBoxFacade } from './+state/code-box.facade.mock';
@@ -88,7 +88,7 @@ is once again showing off how simple our architecture is.
 
 ## Using our Testing Module in a Component Spec
 
-```
+```ts
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Observable, of } from 'rxjs';
 import {

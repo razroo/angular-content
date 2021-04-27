@@ -55,7 +55,7 @@ object(feature), to the root state. This will only have to be done once.
 
 In order to create a root reducer:
 
-``` {language="Bash"}
+```bash
   ng generate ngrx app --module=apps/<app-name>/src/app/app.module.ts --onlyEmptyRoot
 ```
 
@@ -82,3 +82,4 @@ Creating Feature State
 
 There is also the option to add a facade, which is highly recommended.
 In addition, creating a separate selector file is extremely valuable.
+The latest Nrwl Nx CLI currently adds/prompts both.

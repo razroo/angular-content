@@ -15,7 +15,7 @@ example, and one used in an enterprise setting, is to navigate user to a
 particular place based on particular action. For instance, let's say the
 user log's out.
 
-``` {caption="login.effects.ts"}
+```ts
 @Effect({ dispatch: false })
 logOut = this.actions.pipe(
   ofType(LoginTypes.LogOut),
