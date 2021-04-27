@@ -12,7 +12,7 @@ can also be used it regular event handlers, to prevent from clicking a
 submit button multiple times.(However, Angular's internal event handler
 is usually pretty good at this.)
 
-``` {caption="blog.effects.ts"}
+```ts
 @Effect() searchImage$ = this.actions$.pipe(
   ofType(fromBlog.SEARCH_BLOGS),
   map((action: fromBlogActions.SearchBlog) => action.query),
@@ -32,7 +32,7 @@ that an observable is not changed if current value emitted, is the same
 as the prior value. A great use case for this, is within the effect we
 already used within our app.
 
-``` {caption="blog.effects.ts"}
+```ts
   @Effect() searchImage$ = this.actions$.pipe(
     ofType(fromBlog.SEARCH_BLOGS),
     map((action: fromBlogActions.SearchBlog) => action.query),
@@ -58,7 +58,7 @@ filter
 return those values which pass the condition. We can re-visit our code
 snippet from the `withLatestFrom` example.
 
-``` {caption="data-access-post.ts"}
+```ts
 pipe(
   ofType(LoadPost),
   withLatestFrom(
@@ -80,19 +80,20 @@ take
 example within an enterprise setting, is to use `take(1)` to unsubscribe
 from an observable.
 
-    // RxJS v6+
-    import { fromEvent } from 'rxjs';
-    import { take, tap } from 'rxjs/operators';
+```ts
+// RxJS v6+
+import { fromEvent } from 'rxjs';
+import { take, tap } from 'rxjs/operators';
 
-    const oneClickEvent = fromEvent(document, 'click').pipe(
-      take(1),
-      tap(v => `'${v.screenX}:${v.screenY}`')
-    );
+const oneClickEvent = fromEvent(document, 'click').pipe(
+  take(1),
+  tap(v => `'${v.screenX}:${v.screenY}`')
+);
 
-    const subscribe = oneClickEvent.subscribe(clickLocation => {
-      this.analyticsFacade.locationAnalytics(clickLocation);
-    });
-      
+const subscribe = oneClickEvent.subscribe(clickLocation => {
+  this.analyticsFacade.locationAnalytics(clickLocation);
+});
+```      
 
 In the above code, we have a specific internal analytics service set up.
 We want to see the first location that the user clicks on. After that
@@ -107,7 +108,7 @@ takeUntil
 satisfied a certain condition. `takeUntil` is the cleanest way of
 unsubscribing from an observable.
 
-``` {caption="blog.component.ts"}
+```ts
 private unsubscribe$ = new Subject();
 
 this.postFacade.blogPosts$.pipe(

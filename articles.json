@@ -391,6 +391,11 @@
       "path": "rxjs/creation/creation.md",
       "UID": "c1a915f7",
       "id": "144"
+    },
+    {
+      "path": "rxjs/filtering/filtering.md",
+      "UID": "c13d067d",
+      "id": "145"
     }
   ]
 }
