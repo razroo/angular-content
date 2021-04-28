@@ -22,7 +22,9 @@ Solution to the Above Dillema
 
 In Typescript there is the option to use:
 
-    <Partial>
+```ts
+<Partial>
+```
 
 Partial will treat an interface that will require every data type, as if
 all values are optional.

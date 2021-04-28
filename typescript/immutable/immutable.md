@@ -4,7 +4,7 @@ title: Typescript - Immutability
 
 Immutability is one of the core concepts when it comes to data. I first
 learned about it when I was introduced to Redux. However, as time
-progressed it was something that I learn to integreate with all of my
+progressed it was something that I learn to integrate with all of my
 projects. In regard to Typescript, it allows type annotations in the way
 of Immutability:
 

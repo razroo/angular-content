@@ -443,7 +443,32 @@
       "id": "154"
     },
     {
-      "path": "typescript/component-inheritance/component-inheritance.md"
+      "path": "typescript/component-inheritance/component-inheritance.md",
+      "UID": "f2e74fea",
+      "id": "155"
+    },
+    {
+      "path": "typescript/data-access-interface/data-access-interface.md",
+      "UID": "3bde522a",
+      "id": "156"
+    },
+    {
+      "path": "typescript/data-models/data-models.md",
+      "UID": "d94c1f7a",
+      "id": "157"
+    },
+    {
+      "path": "typescript/getting-and-setting/getting-and-setting.md",
+      "UID": "ec840470",
+      "id": "158"
+    },
+    {
+      "path": "typescript/interfaces-and-partials/interfaces-and-partials.md",
+      "UID": "1b19fcc4",
+      "id": "159"
+    },
+    {
+      "path": "unit-testing/benefits-of-jest-over-karma/benefits-of-jest-over-karma.md"
     }
   ]
 }
