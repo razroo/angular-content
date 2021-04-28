@@ -22,24 +22,26 @@ would use an effect, turning into a slippery slope.
 
 ###  Code Example 
 
-    @Effect({ dispatch: false })
-     userDeleted$ = this.dataPersistence.fetch(
-       UserActivitiesTypes.UserDeleted,
-       {
-         run: (action: UserDeleted, state: UserStateModelState) => {
-           this.snackBar.open('User Deleted', 'Ok', {
-             duration: 2000,
-             verticalPosition: 'top',
-           });
+```ts
+@Effect({ dispatch: false })
+ userDeleted$ = this.dataPersistence.fetch(
+   UserActivitiesTypes.UserDeleted,
+   {
+     run: (action: UserDeleted, state: UserStateModelState) => {
+       this.snackBar.open('User Deleted', 'Ok', {
+         duration: 2000,
+         verticalPosition: 'top',
+       });
 
-           return null;
-         },
+       return null;
+     },
 
-         onError: (action: ActivityDeleted, error) => {
-           console.error('Error', error);
-         },
-       }
-     );
+     onError: (action: ActivityDeleted, error) => {
+       console.error('Error', error);
+     },
+   }
+ );
+```
 
 This code example, is a great example as to when someone might use an
 effect. As we can see here, we have an action that is being triggered

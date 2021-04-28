@@ -418,7 +418,14 @@
       "id": "149"
     },
     {
-      "path": "state/ngrx-cli/ngrx-cli.md"
+      "path": "state/ngrx-cli/ngrx-cli.md",
+      "UID": "60b45db5",
+      "id": "150"
+    },
+    {
+      "path": "state/ngrx-effects/ngrx-effects.md",
+      "UID": "69a5fee7",
+      "id": "151"
     }
   ]
 }
