@@ -46,7 +46,9 @@ described is a perfect CRUD app.
  Installing ngrx/enity 
 ----------------------
 
-      npm install @ngrx/entity --save
+```bash
+npm install @ngrx/entity --save
+```
 
  ngrx/entity - A Step Back 
 --------------------------
@@ -60,25 +62,27 @@ Let's brush up on entity, list, and dictionary:
 That being said, a sample ngrx/entity data structure will look like
 this:
 
-      ids: [
-        '3QOZBAAAQBAJ',
-        'y4nmOe0-WD0C',
-        'lS5SAQAAIAAJ',
-      ],
-      entitites: {
-        '3QOZBAAAQBAJ': {
-          name: 'Lebron',
-          id: '3QOZBAAAQBAJ'
-        },
-        'y4nmOe0-WD0C': {
-          name: 'Kyle',
-          id: 'y4nmOe0-WD0C'
-        },
-        'lS5SAQAAIAAJ': {
-          name: 'Sarah',
-          id: 'lS5SAQAAIAAJ'
-        }
-      }
+```ts
+  ids: [
+    '3QOZBAAAQBAJ',
+    'y4nmOe0-WD0C',
+    'lS5SAQAAIAAJ',
+  ],
+  entitites: {
+    '3QOZBAAAQBAJ': {
+      name: 'Lebron',
+      id: '3QOZBAAAQBAJ'
+    },
+    'y4nmOe0-WD0C': {
+      name: 'Kyle',
+      id: 'y4nmOe0-WD0C'
+    },
+    'lS5SAQAAIAAJ': {
+      name: 'Sarah',
+      id: 'lS5SAQAAIAAJ'
+    }
+  }
+```
 
  Adapter Pattern - A Primer 
 ---------------------------
@@ -152,13 +156,15 @@ methods are very similar.
 
 Let's focus on a specific reducer chapter within our app.
 
-      case gridTypes.added {
-        return {
-          adapter.addOne(action.payload, state)
-        }
-      }
+```ts
+case gridTypes.added {
+    return {
+      adapter.addOne(action.payload, state)
+    }
+  }
+```
 
-That would really be it .̂ It will insert a unique id for that specific
+That would really be it. It will insert a unique id for that specific
 pixel. In addition, it will go ahead and new entity within the entities
 object.
 
@@ -171,20 +177,22 @@ list. However, what if we wanted to retrieved all of our ids, or all of
 our entities? It can be a bit cumbersome. So thankfully enough, you saw
 it coming, ngrx/entity offers entity selectors out of the box.
 
-    // get the selectors
-    const { selectIds, selectEntities, selectAll, selectTotal } = adapter.getSelectors();
+```ts
+// get the selectors
+const { selectIds, selectEntities, selectAll, selectTotal } = adapter.getSelectors();
 
-    // select the array of user ids
-    export const selectUserIds = selectIds;
+// select the array of user ids
+export const selectUserIds = selectIds;
 
-    // select the dictionary of user entities
-    export const selectUserEntities = selectEntities;
+// select the dictionary of user entities
+export const selectUserEntities = selectEntities;
 
-    // select the array of users
-    export const selectAllUsers = selectAll;
+// select the array of users
+export const selectAllUsers = selectAll;
 
-    // select the total user count
-    export const selectUserTotal = selectTotal;
+// select the total user count
+export const selectUserTotal = selectTotal;
+```
 
 It is important to recognize that these selectors will not actually
 produce state on their own. What they do is return a function when used
@@ -197,11 +205,13 @@ appropriate entity.
 These selectors are then meant to be used with the createSelector
 function. The following is an example:
 
-    export const selectUserIds = createSelector(
-      selectUserState,
-      fromUser.selectUserIds
-    );
-
+```ts
+export const selectUserIds = createSelector(
+  selectUserState,
+  fromUser.selectUserIds
+);``
+```
+    
 Now one will have a state that specifically returns ids for a specific
 list.
 
@@ -213,11 +223,13 @@ wanted to update a specific field. For instance, in our app it is going
 to be the color for a specific pixel.\] All you would need to do is the
 following:
 
-      case gridTypes.updated {
-        return {
-          adapter.updateOne(action.payload.id, state)
-        }
-      }
+```ts
+case gridTypes.updated {
+  return {
+    adapter.updateOne(action.payload.id, state)
+  }
+}
+```
 
 The only difference between the signature for addOne and updateOne, is
 that with updateOne, you are just supplying the id to be updated.
