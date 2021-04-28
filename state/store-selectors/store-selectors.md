@@ -10,59 +10,67 @@ components.
 Object That We Will be Working With
 -----------------------------------
 
-    {
-      settings: {
-        column: '20',
-        row: '20',
-        pixel: '20',
-        draw: true,
-        false: false,
-      },
-      colorPicker: {
-        backgroundHex: '#191919',
-        backgroundRed: '25',
-        backgroundGreen: '25',
-        backgroundBlue: '25',
-        pixelHex: '#000000',
-        red: '25',
-        green: '25',
-        blue: '25'
-      },
-      codeBox: {
-        css: [
-        {'123': {color: blue, x: 20, y: 17}},
-        {'246': {color: orange, x: 20, y: 18}},
-        {'246': {color: orange, x: 20, y: 19}},
-        ],
-        sass: false,
-        less: false,
-        js: false
-      }
-    }
+```ts
+{
+  settings: {
+    column: '20',
+    row: '20',
+    pixel: '20',
+    draw: true,
+    false: false,
+  },
+  colorPicker: {
+    backgroundHex: '#191919',
+    backgroundRed: '25',
+    backgroundGreen: '25',
+    backgroundBlue: '25',
+    pixelHex: '#000000',
+    red: '25',
+    green: '25',
+    blue: '25'
+  },
+  codeBox: {
+    css: [
+    {'123': {color: blue, x: 20, y: 17}},
+    {'246': {color: orange, x: 20, y: 18}},
+    {'246': {color: orange, x: 20, y: 19}},
+    ],
+    sass: false,
+    less: false,
+    js: false
+  }
+}
+```
 
 Basics of Select using ngrx/store
 ---------------------------------
 
 The simplest method is to grab state by the using store select method:
 
-    export const settings$ = this.store.select('settings');
+```ts
+export const settings$ = this.store.select('settings');
+```
 
 This will grab the store data for settings and return an observable. So
 for instance, let's say inside of our component, doing:
 
-      this.gridFacade.settings$.subscribe((data) => {
-       console.log(data)
-      });
+```ts
+this.gridFacade.settings$.subscribe((data) => {
+  console.log(data)
+});
+```    
 
 will produce JSON for:
 
-      {
-        column: '20',
-        row: '20',
-        pixel: '20',
-        draw: true,
-        false: false,
-      }
+```ts
+{
+  column: '20',
+  row: '20',
+  pixel: '20',
+  draw: true,
+  false: false
+}
+```
 
  Feature State in NGRX 
 ----------------------
@@ -102,31 +110,35 @@ of ways:
 
 In order to streamline this process, we would do the following:
 
-    const { selectAll, selectEntities, selectIds } = codeBoxAdapter.getSelectors();
-    const getCodeBoxState = createFeatureSelector<CodeBoxState>(
-      'codeBoxStateModel'
-    );
 
-    const getCodeBoxEntities = createSelector(
-      getCodeBoxState,
-      selectEntities
-    );
+```ts
+const { selectAll, selectEntities, selectIds } = codeBoxAdapter.getSelectors();
 
-    const getCodeBoxIds = createSelector(
-      getCodeBoxState,
-      selectIds
-    );
+const getCodeBoxState = createFeatureSelector<CodeBoxState>(
+  'codeBoxStateModel'
+);
 
-    const selectedBuyerId = createSelector(
-      getCodeBoxState,
-      state => state.selectedBuyerId
-    );
+const getCodeBoxEntities = createSelector(
+  getCodeBoxState,
+  selectEntities
+);
 
-    const getSelectCodeboxId = createSelector(
-      getCodeBoxEntities,
-      selectedBuyerId,
-      (codeBoxEntities, id) => codeBoxEntities[selectedBuyerId]
-    );
+const getCodeBoxIds = createSelector(
+  getCodeBoxState,
+  selectIds
+);
+
+const selectedBuyerId = createSelector(
+  getCodeBoxState,
+  state => state.selectedBuyerId
+);
+
+const getSelectCodeboxId = createSelector(
+  getCodeBoxEntities,
+  selectedBuyerId,
+  (codeBoxEntities, id) => codeBoxEntities[selectedBuyerId]
+);
+```
 
 Introducing createSelector
 --------------------------

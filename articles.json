@@ -431,6 +431,11 @@
       "path": "state/ngrx-entity/ngrx-entity.md",
       "UID": "8ce95840",
       "id": "152"
+    },
+    {
+      "path": "state/store-selectors/store-selectors.md",
+      "UID": "6d085173",
+      "id": "153"
     }
   ]
 }
