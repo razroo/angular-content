@@ -59,12 +59,30 @@ It is important to note that not all interfaces will go into this
 folder. Rather interfaces related to data being pulled in from backend,
 as well as interfaces created as a result of interacting with data.
 
-\[libs \[px-illustrator \[data-models \[src \[lib \[user
-\[\_user.interface.ts,file\] \[\_user.mock.ts,file\] \] \]
-\[\_index.ts,file\] \[\_test.ts,file\] \] \[\_karma.conf,file\]
-\[\_README.md,file\] \[\_tsconfig.lib,file\]
-\[\_tsconfig.lib.json,file\] \[\_tsconfig.spec.json,file\]
-\[\_tslint.json,file\] \] \] \]
+```
+[libs
+    [px-illustrator
+      [data-models
+        [src
+          [lib
+            [user
+              [user.interface.ts,file]
+              [user.mock.ts,file]
+            ]
+          ]
+          [index.ts,file]
+          [test.ts,file]
+        ]
+        [karma.conf,file]
+        [README.md,file]
+        [tsconfig.lib,file]
+        [tsconfig.lib.json,file]
+        [tsconfig.spec.json,file]
+        [tslint.json,file]
+      ]
+    ]
+  ]
+```
 
 Data Mocks
 ----------

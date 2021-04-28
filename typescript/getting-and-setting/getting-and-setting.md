@@ -47,18 +47,22 @@ Angular or accessed through your \@ngrx/store.Having a getter and setter
 within a component that contains deeply nested data would be very
 useful. For example:
 
-    get numberOfDocuments(): number {
-      try {
-        return this.userLog.user.documents.length;
-      } catch (e) {
-        return 0;
-      }
-    }
+```ts
+get numberOfDocuments(): number {
+  try {
+    return this.userLog.user.documents.length;
+  } catch (e) {
+    return 0;
+  }
+}
+```
 
 Now we have a getter with logic, that says that if it doesn't exist,
 then it will return something 0. We can then do something like the
 following:
 
-    <span> Number of Documents: {{ numberOfDocuments }} </span>
+```html
+<span> Number of Documents: {{ numberOfDocuments }} </span>
+```
 
 [^1]: typescriptlang.orgdocshandbookclassesḣtml

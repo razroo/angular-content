@@ -22,69 +22,71 @@ functionality to be in sync with our specs.
 
 For example, let's run through a singleton interface.
 
-    export interface User {
-      id: string;
-      name: string;
-      location: string;
-    }
+```ts
+export interface User {
+  id: string;
+  name: string;
+  location: string;
+}
 
-    //user.service.ts file
-    getAllUsers(sort: object): Observable<AllBuyers> {
-        const query = AllUsersQuery;
-        const variables = {
-          projectId: this.projectFacade.projectId,
-          sort,
-        };
+//user.service.ts file
+getAllUsers(sort: object): Observable<AllBuyers> {
+    const query = AllUsersQuery;
+    const variables = {
+      projectId: this.projectFacade.projectId,
+      sort,
+    };
 
-        const allUserss$ = this.apollo
-          .query<any>({ query, variables })
-          .pipe(pluck('data'), pluck('allBuyers'));
+    const allUserss$ = this.apollo
+      .query<any>({ query, variables })
+      .pipe(pluck('data'), pluck('allBuyers'));
 
-        return combineLatest(allBuyers$, (allUsers: User[]) => allUsers);
-      }
+    return combineLatest(allBuyers$, (allUsers: User[]) => allUsers);
+  }
 
-    //user.reducer.ts
-      case UserTypes.UserLoaded: {
-          const user = <User>action.payload;
+//user.reducer.ts
+  case UserTypes.UserLoaded: {
+      const user = <User>action.payload;
 
-          return {
-            ...state,
-            user,
-          };
-        }
-
-    // user.effect.ts
-    @Effect()
-    loadUser$ = this.dataPersistence.fetch(UserTypes.LoadUser, {
-      run: (action: LoadUser, state: UserStateModelState) => {
-        const userId: string = action.payload;
-        return this.service
-          .getAllUsers(userId)
-          .pipe(map((users: User[]) => new UserLoaded(user)));
-      },
-
-      onError: (action: LoadUser, error) => {
-        console.error('Error', error);
-      },
-    });
-
-    // user-page.component.ts
-    loadUser() {
-      this.userSevice.allUsers();
-    }
-
-    // user-page.component.spec.ts
-    generateMockUsers(data): User[] {
       return {
-        ...data
-      }
+        ...state,
+        user,
+      };
     }
 
-    mockUserService() {
-      allUsers() {
-        return users;
-      }
-    }
+// user.effect.ts
+@Effect()
+loadUser$ = this.dataPersistence.fetch(UserTypes.LoadUser, {
+  run: (action: LoadUser, state: UserStateModelState) => {
+    const userId: string = action.payload;
+    return this.service
+      .getAllUsers(userId)
+      .pipe(map((users: User[]) => new UserLoaded(user)));
+  },
+
+  onError: (action: LoadUser, error) => {
+    console.error('Error', error);
+  },
+});
+
+// user-page.component.ts
+loadUser() {
+  this.userSevice.allUsers();
+}
+
+// user-page.component.spec.ts
+generateMockUsers(data): User[] {
+  return {
+    ...data
+  }
+}
+
+mockUserService() {
+  allUsers() {
+    return users;
+  }
+}
+```
 
 This lets us go through all the files which will touch data with type
 annotations in the data access folder.
