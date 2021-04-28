@@ -436,6 +436,14 @@
       "path": "state/store-selectors/store-selectors.md",
       "UID": "6d085173",
       "id": "153"
+    },
+    {
+      "path": "typescript/barrel-file/barrel-file.md",
+      "UID": "81218acf",
+      "id": "154"
+    },
+    {
+      "path": "typescript/component-inheritance/component-inheritance.md"
     }
   ]
 }

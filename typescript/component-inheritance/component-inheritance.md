@@ -21,7 +21,7 @@ In Typescript land, we have the ability to use a class to extend a
 parent class. A classic example of this is let's say we have the
 following parent component:
 
-``` {.typescript}
+```ts
 @Component({
     template: ''
 })
@@ -39,7 +39,7 @@ export class BaseComponent {
 
 If we were to try and inherit it, using the following child component:
 
-``` {.typescript}
+```ts
 @Component({ . . . })
 
     export class ChildComponent extends BaseComponent {
@@ -66,7 +66,7 @@ component to extend it.
 What we can do, is create a class to store our store injector. For
 instance:
 
-``` {.typescript}
+```ts
 import { Injector } from '@angular/core';
 
 export class AppInjector {
@@ -84,7 +84,7 @@ export class AppInjector {
 
 We are then able to inject this into the AppInjector:
 
-``` {.typescript}
+```ts
 platformBrowserDynamic().bootstrapModule(AppModule).then((moduleRef) => {
    AppInjector.setInjector(moduleRef.injector);
 });
@@ -96,7 +96,7 @@ platformBrowserDynamic().bootstrapModule(AppModule).then((moduleRef) => {
 Our base component now uses the injector service in order to retrieve
 all dependencies.
 
-``` {.typescript}
+```ts
 @Component({
   template: ''
 })
@@ -113,15 +113,15 @@ constructor() {
         this.logNavigation();
     }
 
-    protected logError(errorMessage: string) { . . . }    
-    private logNavigation() { . . . }
+    protected logError(errorMessage: string) {///}    
+    private logNavigation() {///}
 }
 ```
 
 Now in our child component, we can simply do the following:
 
-``` {.typescript}
-@Component({ . . . })
+```ts
+@Component({ })
 export class ChildComponent extends BaseComponent {
   constructor(private childDataService: ChildDataService) {
      super();
