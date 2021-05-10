@@ -20,7 +20,7 @@ legacy technologies.
 ## So how does it work?
 
 Angular Elements is an Angular feature that lets you create new DOM
-elements. As we all know, JavaScript hooks onto the DOM to make visual
+elements. Cool! As we all know, JavaScript hooks onto the DOM to make visual
 changes and instigate change based on our configurations and settings.
 Angular is a framework that lets us do this quickly and easily.
 
