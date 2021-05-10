@@ -1,5 +1,5 @@
 ---
-title: Angular Elements - An Introduction
+title: "123"
 ---
 Angular elements is a feature that's been around since version 6. It's
 been more than a year since the original release and works as a method
@@ -13,14 +13,14 @@ into a single JavaScript file.
 
 Test text goes here. 
 
-It's a fantastic feature, especially for micro-frontends and
+It's a fantastic feature -  especially for micro-frontends and
 transitional applications that are working with multiple and possibly
 legacy technologies.
 
 ## So how does it work?
 
 Angular Elements is an Angular feature that lets you create new DOM
-elements. As we all know, JavaScript hooks onto the DOM to make visual
+elements. Cool! As we all know, JavaScript hooks onto the DOM to make visual
 changes and instigate change based on our configurations and settings.
 Angular is a framework that lets us do this quickly and easily.
 
@@ -143,7 +143,7 @@ This creates a level of independence in your application building
 process and modularizes your team's workflow.
 
 Angular elements are also particularly suitable for delivering dynamic
-applications that are made up of many complex components, such as a
+applications that are made up of many complex components - such as a
 dashboard that may require independent deployments for each part. When
 you architecture your shell page and fill it with custom Angular
 elements, it gives you the ability to create deployments that are
