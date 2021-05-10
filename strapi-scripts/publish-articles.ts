@@ -92,8 +92,9 @@ export function createStrapiArticle(UID: string, articleTitle: string, articleCo
   // };
 
   execute(link, operation).subscribe(data => {
-    let angularArticle = data.data.createArticle.article;
-    addIdToArticlesJson(files, articlesJson, articlesJsonName, angularArticle);
+    let article = data.data.createArticle.article;
+
+    addIdToArticlesJson(files, articlesJson, articlesJsonName, article);
   });
 }
 
