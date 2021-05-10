@@ -35,7 +35,7 @@ export function addIdToArticlesJson(files, articlesJson, articlesJsonName, artic
   const UID = UIDArr[UIDArr.length - 1];
 
   articlesJson.files = articlesJson.files.map(file => {
-    if(UID === article.UID) {
+    if(file.UID === UID) {
       file.id = article.id
     }
     return file;
