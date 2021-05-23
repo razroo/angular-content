@@ -34,7 +34,9 @@ import { CommonModule } from '@angular/common';
 export class DataGraphqlModule {}
 ```
 
-3. Converts Markdown to HTML.
+3. Converts Netlify flavored markdown, to non-netlify flavored markdown.
+
+4. Converts Markdown to HTML.
 
 ## Reason for Razroo Markdown Engine
 
