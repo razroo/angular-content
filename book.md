@@ -183,6 +183,6 @@
 #include "./miscellaneous/adding-a-route-to-our-container/adding-a-route-to-our-container.md";
 #include "./miscellaneous/color-picker/color-picker.md";
 #include "./miscellaneous/constants/constants.md";
-#include "./miscellaneous/constants/enums-as-constants.md";
+#include "./miscellaneous/constants/enums-vs-constants.md";
 #include "./miscellaneous/authorization/authorization.md";
 #include "./code-examples/building-our-application/building-our-application.md";
