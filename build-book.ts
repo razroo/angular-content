@@ -10,7 +10,7 @@ const fs = require('fs');
 let files = bookJson.files;
 
 addBookIdIfNoneExists(bookJson, bookJsonName);
-addChapterTitleIfNonePresent(files, bookJson, bookJsonName);
+// addChapterTitleIfNonePresent(files, bookJson, bookJsonName);
 
 for (let x in files){
     let builtFilePath = `./build/book/${files[x].path.split("/").pop()}`;
