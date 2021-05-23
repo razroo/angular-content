@@ -71,11 +71,24 @@ Let’s say the technical writer is trying to write an article and it the respec
 
 ### Building Book
 
-We use a library called markdown-include. Using this library, we create a singular main.md file, which contains an include and file path. e.g. 
+Articles are built using the `book.json`. To build book: 
 
-#include ./introduction/introduction.md
+```
+npm run build:book
+```
 
-This allows us to set the order of chapters in a more structured manner. This singular file, is then built using the razroo markdown engine, and transferred to the build folder. Final HTML file can be seen here: `build/book/main-book.html`.
+The JSON file contains three parts: 
+
+1. `category:` - Category of content. Used for search/content filtering.
+2. `author:` - Name of author to be displayed in blog. 
+3. ```files: [{}]``` - Array of files to be built as articles.
+    1. `path:` - Path of file to be built.
+
+Moving forward, potentially, the files array might have objects inside of objects that will signal a chapter inside of a chapter.
+
+### Publishing Book 
+
+TODO, we are still working on this one.
 
 ### TODO Markdown Include --> JSON Schema
 We plan on, moving forward, to transfer the repo from `markdown-include` over to json, similar to how we build for articles. This will allow us to re-use the same schema for the build process, and how we serve the files over the backend. 
