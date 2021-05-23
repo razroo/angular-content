@@ -63,7 +63,7 @@ That’s all for the pseudo-autonomous workflow for content.
 
 ## If Code Is Not Available
 
-Let’s say the technical writer is trying to write an article and it the respective code is not available. The technical writer creates a ticket, with a “High” urgency and passes that over to the tech lead. This ticket includes a file path/url, as well as a <code goes here>. The technical writer continues to write as if code exists. The developer will go in later on and submit the code in the appropriate place. 
+Let’s say the technical writer is trying to write an article and it the respective code is not available. The technical writer creates a ticket, with a “High” urgency and passes that over to the tech lead. This ticket includes a file path/url, as well as a `<code goes here>`. The technical writer continues to write as if code exists. The developer will go in later on and submit the code in the appropriate place. 
 
 # Build Process
 
@@ -73,7 +73,10 @@ We use a library called markdown-include. Using this library, we create a singul
 
 #include ./introduction/introduction.md
 
-This allows us to set the order of chapters in a more structured manner. This singular file, is then built using the razroo markdown engine, and transferred to the build folder by the name main-book.md. 
+This allows us to set the order of chapters in a more structured manner. This singular file, is then built using the razroo markdown engine, and transferred to the build folder. Final HTML file can be seen here: `build/book/main-book.html`.
+
+### TODO Markdown Include --> JSON Schema
+We plan on, moving forward, to transfer the repo from `markdown-include` over to json, similar to how we build for articles. This will allow us to re-use the same schema for the build process, and how we serve the files over the backend. 
 
 ### Building to API
 
