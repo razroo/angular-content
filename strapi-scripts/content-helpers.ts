@@ -49,6 +49,16 @@ export function addChapterTitleIfNonePresent(files, articlesJson, articlesJsonNa
   });
 }
 
+export function addBookIdIfNoneExists(articlesJson, articlesJsonName) {
+  if(!articlesJson.id) {
+    articlesJson["id"] = uuidv4().replace("-","").substring(0,8);
+
+    fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
+      if (err) return console.log(err);
+    });
+  }
+}
+
 export function addIdToArticlesJson(files, articlesJson, articlesJsonName, article) {
   const UIDArr =  article.UID.split('-');
   const UID = UIDArr[UIDArr.length - 1];
