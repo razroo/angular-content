@@ -82,7 +82,7 @@ The JSON file contains five parts:
 1. `author:` - Name of author to be displayed in blog. 
 2. `category:` - Category of content. Used for search/content filtering.
 3. `bookTitle:` - Title of book.
-4. `id:` - TODO (still thinking on this one, and how it will be generated)
+4. `id:` - Id of book.
 5. ```files: [{}]``` - Array of files to be built as articles.
     1. `path:` - Path of file to be built.
     2. `title:` - Title of the file to be built.
