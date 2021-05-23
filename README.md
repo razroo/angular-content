@@ -67,7 +67,9 @@ Let’s say the technical writer is trying to write an article and it the respec
 
 # Build Process
 
-## Building to a book
+## Book 
+
+### Building Book
 
 We use a library called markdown-include. Using this library, we create a singular main.md file, which contains an include and file path. e.g. 
 
