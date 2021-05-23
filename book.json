@@ -1,6 +1,7 @@
 {
   "category": "angular",
   "author": "Razroo Angular",
+  "bookTitle": "Angular: The Full Gamut",
   "files": [
     {
       "path": "introduction/introduction.md",
