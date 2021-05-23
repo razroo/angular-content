@@ -110,3 +110,8 @@ This will both update existing articles, and create new articles. The `npm run p
 The order in which articles uploaded does not matter. More so the created at, and updated at is more important. Razroo Blog, using Netlify to Strapi crossover. Strapi API will then have complete control over all of the blog content. We are currently working to move over to nextJS. 
 
 Technical Articles will not be able to be created from the actual Strapi blog. Only non-technical content. However, we are going to apply the same Razroo Markdown Engine logic to non-technical content as well. 
+
+## Newsletter
+
+### Building Newsletter
+The ["Razroo Angular Weekly"](https://github.com/razroo/angular-newsletter) newsletter pulls data directly from articles data. I.e. `https://razroo-content-api.razroo.com/articles`. For now, the newsletter will pull in the latest-updated Angular articles. As time goes on, and the list of articles is more dynamic, we will start to introduce more articles based on category. In addition, introduce minimal amounts of web crawling into the weekly newsletter.
