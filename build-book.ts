@@ -1,4 +1,4 @@
-import {addChapterTitleIfNonePresent} from "./strapi-scripts/content-helpers";
+import {addBookIdIfNoneExists, addChapterTitleIfNonePresent} from "./strapi-scripts/content-helpers";
 
 const razrooMarkdownEngine = require('@razroo/razroo-markdown-engine').resolveMarkdownFile;
 const mkdirp = require('mkdirp')
@@ -9,6 +9,7 @@ const fs = require('fs');
 
 let files = bookJson.files;
 
+addBookIdIfNoneExists(bookJson, bookJsonName);
 addChapterTitleIfNonePresent(files, bookJson, bookJsonName);
 
 for (let x in files){
