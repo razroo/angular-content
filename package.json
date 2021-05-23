@@ -37,6 +37,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/node": "^15.6.0",
     "apollo-link": "^1.2.14",
     "apollo-link-http": "^1.5.17",
     "chokidar": "^2.1.6",
