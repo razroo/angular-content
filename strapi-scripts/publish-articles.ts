@@ -16,7 +16,7 @@ import slugify from "slugify";
 
 const uri = 'http://localhost:1337/graphql';
 const headers = {
-    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjE4MzQyMzg4LCJleHAiOjE2MjA5MzQzODh9.slz2UZMGOWZAaKPrHce9KnpjwZPFXKG0ghOB3HMVll4"
+    Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIwNjc1ODM5LCJleHAiOjE2MjMyNjc4Mzl9.TpPkw7GX0-R9RaHj5TyPJzYBqT5QhhOZkWRu3o5x1O8"
 }
 const link = createHttpLink({ uri, fetch, headers});
 
