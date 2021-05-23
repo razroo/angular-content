@@ -77,7 +77,7 @@ Articles are built using the `book.json`. To build book:
 npm run build:book
 ```
 
-The JSON file contains three parts: 
+The JSON file contains five parts: 
 
 1. `author:` - Name of author to be displayed in blog. 
 2. `category:` - Category of content. Used for search/content filtering.
