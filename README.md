@@ -78,10 +78,6 @@ This allows us to set the order of chapters in a more structured manner. This si
 ### TODO Markdown Include --> JSON Schema
 We plan on, moving forward, to transfer the repo from `markdown-include` over to json, similar to how we build for articles. This will allow us to re-use the same schema for the build process, and how we serve the files over the backend. 
 
-### Building to API
-
-Using h1 tags, chapters are built out from single ./build/main-book.md file, and sent over to the API with unique identifiers (still need to work this one out). 
-
 ## Building to Articles 
 
 Articles are built using a JSON file. The JSON file contains two parts: 
@@ -89,7 +85,7 @@ Articles are built using a JSON file. The JSON file contains two parts:
 1. category
 2. The array of files to be uploaded to Razroo Blog
 
-## Articles 
+### Articles 
 
 The order in which articles uploaded does not matter. More so the created at, and updated at is more important. Razroo Blog, using Netlify to Strapi crossover. Strapi API will then have complete control over all of the blog content. We are currently working to move over to nextJS. 
 
