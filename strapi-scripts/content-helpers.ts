@@ -35,7 +35,7 @@ export function addChapterTitleIfNonePresent(files, articlesJson, articlesJsonNa
 
   for(let file in files){
     let fileObject = files[file];
-    filePath = `./build/articles/${files[file].path.split("/").pop()}`;
+    filePath = `./build/book/${files[file].path.split("/").pop()}`;
     filePath = filePath.replace("md", "html");
 
     const articleTitle = getHtmlArticleFileTitle(filePath);
