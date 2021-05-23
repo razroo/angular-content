@@ -30,6 +30,25 @@ export function addUidIfNonePreset(files, articlesJson, articlesJsonName) {
   });
 }
 
+export function addChapterTitleIfNonePresent(files, articlesJson, articlesJsonName) {
+  let filePath;
+
+  for(let file in files){
+    let fileObject = files[file];
+    filePath = `./build/articles/${files[file].path.split("/").pop()}`;
+    filePath = filePath.replace("md", "html");
+
+    const articleTitle = getHtmlArticleFileTitle(filePath);
+
+    if(!fileObject.title) {
+      fileObject["title"] = articleTitle;
+    }
+  }
+  fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
+    if (err) return console.log(err);
+  });
+}
+
 export function addIdToArticlesJson(files, articlesJson, articlesJsonName, article) {
   const UIDArr =  article.UID.split('-');
   const UID = UIDArr[UIDArr.length - 1];
