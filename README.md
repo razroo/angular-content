@@ -8,7 +8,12 @@
 
 # Background: Razroo Markdown Engine
 
-The Razroo Markdown Engine is a Razroo engineered markdown engine, layered on top of Remark. For the most part, it uses libraries already available, with the exception of the embed code functionality. The Razroo Markdown engine does the following: 
+The Razroo Markdown Engine is a Razroo engineered markdown engine, layered on top of Remark. For the most part, it uses libraries already available, with the exception of
+
+1. [Embed code functionality](https://github.com/razroo/razroo-remark-embed-code)
+2. [Netlify to HTML](https://github.com/razroo/razroo-remark-netlify)
+
+The Razroo Markdown engine does the following: 
 
 1. Allows use of variables in markdown. E.g. 
 
