@@ -549,129 +549,124 @@
       "title": "Charts"
     },
     {
-      "title": "Unit Testing",
-      "chapters": [
-        {
-          "path": "unit-testing/benefits-of-unit-testing/benefits-of-unit-testing.md",
-          "title": "Benefits of Unit Testing, TDD, and BDD"
-        },
-        {
-          "path": "unit-testing/unit-testing-performance/unit-testing-performance.md",
-          "title": "Unit Testing Performance"
-        },
-        {
-          "path": "unit-testing/fixture-vs-debug/fixture-vs-debug.md",
-          "title": "Fixture Vs. Debug"
-        },
-        {
-          "path": "unit-testing/sass-unit-testing/sass-unit-testing.md",
-          "title": "Sass Unit Testing"
-        },
-        {
-          "path": "unit-testing/spectator/spectator.md",
-          "title": "Spectator for Unit Testing"
-        },
-        {
-          "path": "unit-testing/unit-testing.md",
-          "title": "Unit Testing"
-        },
-        {
-          "path": "unit-testing/understanding-different-types-of-unit-tests/understanding-different-types-of-unit-tests.md",
-          "title": "Unit Testing State"
-        },
-        {
-          "path": "unit-testing/jest/jest.md",
-          "title": "Jest"
-        },
-        {
-          "path": "unit-testing/cypress/cypress.md",
-          "title": "Visual Unit Tests with Cypress"
-        },
-        {
-          "path": "unit-testing/cypress/cypress-local/cypress-local.md",
-          "title": "Testing Cypress Locally With Authentication"
-        },
-        {
-          "path": "unit-testing/state/state.md",
-          "title": "Unit Testing State"
-        },
-        {
-          "path": "unit-testing/unit-testing-architecture/unit-testing-architecture.md",
-          "title": "Unit Testing Architecture"
-        },
-        {
-          "path": "unit-testing/interfaces-and-unit-testing/interfaces-and-unit-testing.md",
-          "title": "Interfaces and Unit Testing"
-        },
-        {
-          "path": "unit-testing/mocking-data/mocking-data.md",
-          "title": "Mocking Data"
-        },
-        {
-          "path": "unit-testing/spies/spies.md",
-          "title": "Spies"
-        },
-        {
-          "path": "unit-testing/debugging/debugging.md",
-          "title": "Debugging"
-        },
-        {
-          "path": "unit-testing/coverage-reporting/coverage-reporting.md",
-          "title": "Coverage Reporting"
-        },
-        {
-          "path": "unit-testing/unit-testing-dom/unit-testing-dom.md",
-          "title": "Unit Testing the DOM"
-        },
-        {
-          "path": "unit-testing/mocking-providers/mocking-providers.md",
-          "title": "Unit Testing - Mocking Providers"
-        },
-        {
-          "path": "unit-testing/unit-testing-modules/unit-testing-modules.md",
-          "title": "Unit Testing Modules"
-        },
-        {
-          "path": "unit-testing/marble-unit-testing/marble-unit-testing.md",
-          "title": "Marble Unit Testing"
-        },
-        {
-          "path": "unit-testing/unit-testing-subscriptions/unit-testing-subscriptions.md",
-          "title": "Unit Testing Subscriptions"
-        },
-        {
-          "path": "unit-testing/first-principles-thinking/first-principles-thinking.md",
-          "title": "Unit Testing TDD - First Principles Discovery"
-        },
-        {
-          "path": "unit-testing/e2e-tests-in-tdd-setting/e2e-tests-in-tdd-setting.md",
-          "title": "E2E Testing in a TDD/BDD Setting"
-        },
-        {
-          "path": "unit-testing/automation-engineering/automation-engineering.md",
-          "title": "Automation Engineering"
-        },
-        {
-          "path": "unit-testing/writing-e2e-tests/writing-e2e-tests.md",
-          "title": "Writing E2E Tests"
-        },
-        {
-          "path": "unit-testing/apollo/unit-testing-apollo/unit-testing-apollo.md",
-          "title": "Unit Testing Component using Apollo"
-        },
-        {
-          "path": "unit-testing/apollo/apollo-client-middleware/apollo-client-middleware.md",
-          "title": "Apollo Client Middleware"
-        },
-        {
-          "path": "unit-testing/apollo/interfaces-and-unions/interfaces-and-unions.md",
-          "title": "Interfaces and Unions"
-        },
-        {
-          "path": "unit-testing/apollo/data-graphql/data-graphql.md",
-          "title": "Data GraphQL"
-        }
-      ]
+      "path": "unit-testing/benefits-of-unit-testing/benefits-of-unit-testing.md",
+      "title": "Benefits of Unit Testing, TDD, and BDD"
+    },
+    {
+      "path": "unit-testing/unit-testing-performance/unit-testing-performance.md",
+      "title": "Unit Testing Performance"
+    },
+    {
+      "path": "unit-testing/fixture-vs-debug/fixture-vs-debug.md",
+      "title": "Fixture Vs. Debug"
+    },
+    {
+      "path": "unit-testing/sass-unit-testing/sass-unit-testing.md",
+      "title": "Sass Unit Testing"
+    },
+    {
+      "path": "unit-testing/spectator/spectator.md",
+      "title": "Spectator for Unit Testing"
+    },
+    {
+      "path": "unit-testing/unit-testing.md",
+      "title": "Unit Testing"
+    },
+    {
+      "path": "unit-testing/understanding-different-types-of-unit-tests/understanding-different-types-of-unit-tests.md",
+      "title": "Unit Testing State"
+    },
+    {
+      "path": "unit-testing/jest/jest.md",
+      "title": "Jest"
+    },
+    {
+      "path": "unit-testing/cypress/cypress.md",
+      "title": "Visual Unit Tests with Cypress"
+    },
+    {
+      "path": "unit-testing/cypress/cypress-local/cypress-local.md",
+      "title": "Testing Cypress Locally With Authentication"
+    },
+    {
+      "path": "unit-testing/state/state.md",
+      "title": "Unit Testing State"
+    },
+    {
+      "path": "unit-testing/unit-testing-architecture/unit-testing-architecture.md",
+      "title": "Unit Testing Architecture"
+    },
+    {
+      "path": "unit-testing/interfaces-and-unit-testing/interfaces-and-unit-testing.md",
+      "title": "Interfaces and Unit Testing"
+    },
+    {
+      "path": "unit-testing/mocking-data/mocking-data.md",
+      "title": "Mocking Data"
+    },
+    {
+      "path": "unit-testing/spies/spies.md",
+      "title": "Spies"
+    },
+    {
+      "path": "unit-testing/debugging/debugging.md",
+      "title": "Debugging"
+    },
+    {
+      "path": "unit-testing/coverage-reporting/coverage-reporting.md",
+      "title": "Coverage Reporting"
+    },
+    {
+      "path": "unit-testing/unit-testing-dom/unit-testing-dom.md",
+      "title": "Unit Testing the DOM"
+    },
+    {
+      "path": "unit-testing/mocking-providers/mocking-providers.md",
+      "title": "Unit Testing - Mocking Providers"
+    },
+    {
+      "path": "unit-testing/unit-testing-modules/unit-testing-modules.md",
+      "title": "Unit Testing Modules"
+    },
+    {
+      "path": "unit-testing/marble-unit-testing/marble-unit-testing.md",
+      "title": "Marble Unit Testing"
+    },
+    {
+      "path": "unit-testing/unit-testing-subscriptions/unit-testing-subscriptions.md",
+      "title": "Unit Testing Subscriptions"
+    },
+    {
+      "path": "unit-testing/first-principles-thinking/first-principles-thinking.md",
+      "title": "Unit Testing TDD - First Principles Discovery"
+    },
+    {
+      "path": "unit-testing/e2e-tests-in-tdd-setting/e2e-tests-in-tdd-setting.md",
+      "title": "E2E Testing in a TDD/BDD Setting"
+    },
+    {
+      "path": "unit-testing/automation-engineering/automation-engineering.md",
+      "title": "Automation Engineering"
+    },
+    {
+      "path": "unit-testing/writing-e2e-tests/writing-e2e-tests.md",
+      "title": "Writing E2E Tests"
+    },
+    {
+      "path": "unit-testing/apollo/unit-testing-apollo/unit-testing-apollo.md",
+      "title": "Unit Testing Component using Apollo"
+    },
+    {
+      "path": "unit-testing/apollo/apollo-client-middleware/apollo-client-middleware.md",
+      "title": "Apollo Client Middleware"
+    },
+    {
+      "path": "unit-testing/apollo/interfaces-and-unions/interfaces-and-unions.md",
+      "title": "Interfaces and Unions"
+    },
+    {
+      "path": "unit-testing/apollo/data-graphql/data-graphql.md",
+      "title": "Data GraphQL"
     },
     {
       "path": "miscellaneous/versioning/versioning.md",
