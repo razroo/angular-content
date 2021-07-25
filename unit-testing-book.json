@@ -88,6 +88,10 @@
         "title": "Marble Unit Testing"
         },
         {
+        "path": "unit-testing/marble-unit-testing/unit-testing-throw-error.md",
+        "title": "How to Unit Test throwError"
+        },
+        {
         "path": "unit-testing/unit-testing-subscriptions/unit-testing-subscriptions.md",
         "title": "Unit Testing Subscriptions"
         },
