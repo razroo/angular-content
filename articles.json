@@ -471,6 +471,11 @@
       "path": "unit-testing/benefits-of-jest-over-karma/benefits-of-jest-over-karma.md",
       "UID": "4dd9706b",
       "id": "160"
+    },
+    {
+      "path": "unit-testing/unit-testing-dom/unit-testing-dom.md",
+      "UID": "c75936b7",
+      "id": "175"
     }
   ]
 }
