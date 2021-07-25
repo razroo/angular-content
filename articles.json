@@ -476,6 +476,11 @@
       "path": "unit-testing/unit-testing-dom/unit-testing-dom.md",
       "UID": "c75936b7",
       "id": "175"
+    },
+    {
+      "path": "unit-testing/unit-testing-performance/unit-testing-performance.md",
+      "UID": "d76e5b2c",
+      "id": "176"
     }
   ]
 }
