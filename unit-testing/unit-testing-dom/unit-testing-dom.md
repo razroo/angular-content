@@ -2,7 +2,7 @@
 title: Unit Testing the DOM
 ---
 
-The DOM is the a variable within front end development that complicates
+The DOM is the variable within front end development that complicates
 the unit testing process. While it is in the process of becoming more
 stable, it can be difficult to unit test and can make TDD more
 difficult.
