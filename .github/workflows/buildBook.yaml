@@ -1,0 +1,47 @@
+name: Build book and Copy to S3
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: |
+          sudo apt install -y jq
+          echo "@razroo:registry=https://npm.pkg.github.com" > ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GitHubToken }}" >> ~/.npmrc
+          npm install
+      - name: Build Book
+        run: |
+          mkdir -p build/book
+          npm run build:book
+      - name: Copy to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
+        run: |
+          BRANCH=`echo ${GITHUB_REF/refs\/heads\//}`
+          echo "GITHUB_ACTION: ${GITHUB_ACTION}"
+          echo "GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
+          echo "GITHUB_REF: ${GITHUB_REF}"
+          echo "BRANCH: ${BRANCH}"
+
+          BOOK_ID=$(cat book.json | jq -r '.id')
+
+          # Copying to both -dev and -prod buckets as we only have one branch in this repo
+
+          echo "Copying content to razroo-data-dev bucket"
+          aws s3 sync build/book s3://razroo-data-dev/books/$BOOK_ID/content --delete
+          aws s3 cp book.json s3://razroo-data-dev/books/$BOOK_ID/
+          
+          echo "Copying content to razroo-data-prod bucket"
+          aws s3 sync build/book s3://razroo-data-prod/books/$BOOK_ID/content --delete
+          aws s3 cp book.json s3://razroo-data-prod/books/$BOOK_ID/
