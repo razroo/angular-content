@@ -43,15 +43,17 @@ we would like to make sure a particular function is called.
 In each scenario, we would like to make sure that once a filter is
 clicked on, the appropriate filtering function is called.
 
-    it('should call the appopriate function when filterToggle element' +
-    `is clicked on', () => {
-      spyOn(component, 'filterUsers')
-      const filterToggle = fixture.nativeElement.querySelector(
-        '.filter-toggle'
-      );
-      filterToggle.click();
-      expect(component.filterUsers).toHaveBeenCalledWith(component.id);
-    });
+```typescript
+it('should call the appopriate function when filterToggle element' +
+'is clicked on', () => {
+  spyOn(component, 'filterUsers')
+  const filterToggle = fixture.nativeElement.querySelector(
+    '.filter-toggle'
+  );
+  filterToggle.click();
+  expect(component.filterUsers).toHaveBeenCalledWith(component.id);
+});
+```
 
 First, we are spying on the filterUsers method for our component. Next
 we are using the querySelector to target the .filter-toggle html class
@@ -68,11 +70,13 @@ With regards to text, let's say that we want to test the entire
 component at a specific time period, and want to make sure it contains
 three different words:
 
-    it('should show buyer company names', () => {
-      expect(fixture.nativeElement.innerText).toContain('Apple');
-      expect(fixture.nativeElement.innerText).toContain('Microsoft');
-      expect(fixture.nativeElement.innerText).toContain('Google');
-    });
+```typescript
+it('should show buyer company names', () => {
+  expect(fixture.nativeElement.innerText).toContain('Apple');
+  expect(fixture.nativeElement.innerText).toContain('Microsoft');
+  expect(fixture.nativeElement.innerText).toContain('Google');
+});
+```
 
 Text might seem intuitive. However, there is the option to target text
 at different areas of time, and to make sure what one is looking is the
