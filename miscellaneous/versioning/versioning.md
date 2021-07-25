@@ -128,17 +128,27 @@ With Github, setting up a Fork and Pull workflow is as simple as:
 
 ## Trunk Based Development
 
+## Minimal Approval of 1 And CODEOWNERS
+
+1. Minimal Approval of 1 
+2. Any CODEOWNERS within repo qualify for approval. 
+
+We set the minimal approval for a pull request via Github to be at 1. As soon as 1 other team 
+member within CODEOWNERS file approves, pull request can be merged.
+
 ## Squash and Merge
 
 Github is our preferred versioning client. However, git itself, as well
 as all other major 3rd party vendors, give the option to squash all
-other commits before merged. Some will offer the option to re-base as
+other commits before merging. Some will offer the option to re-base as
 well. However, our recommended approach is to squash and merge, so you
 can maintain the integrity of the commits that happened along the way.
+
+### The One Who Begins, Ends
+The one who opens the pull request is the one to merge it. That way, if the pull request
+causes a build error, the one who merges it can be present to fix.
 
 ## Ending Off
 
 So there you go, the next time your team is wondering about what
-standards they should follow for Git, show them this. In the next
-chapter, we are going to discuss, a proper Git workflow - that is,
-master, dev, and test.
+standards they should follow for Git, show them this.

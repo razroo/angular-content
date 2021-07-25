@@ -18,7 +18,9 @@ debug unit tests with ease. One of them is to create smaller modules
 whenever possible. This will allow you to unit test specific modules
 using:
 
-      ng test --project user --watch
+```bash
+ng test --project user --watch
+```
 
 Now you will have a window that is open with the ability to debug that
 only runs unit tests for the specific module.
@@ -44,7 +46,9 @@ Karma, and unit tests, the special reason as to why something might not
 work, might be obfuscated by zone. To alleviate this we have the ability
 to turn source map off.
 
-    ng test --project=px-illustrator --source-map=false
+```
+ng test --project=px-illustrator --source-map=false
+```
 
 Source map might seem like a bad idea, but by keeping if off in general
 while developing would allow us to make sure we see all the errors that

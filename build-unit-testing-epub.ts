@@ -1,14 +1,12 @@
 const Epub = require("epub-gen");
 const fs = require('fs');
-const bookJsonName = './book.json';
+const bookJsonName = './unit-testing-book.json';
 const bookJson = require(bookJsonName);
 import {parse} from "node-html-parser";
 const files = bookJson.files;
 
 let content = [];
-let unitTestingArr = files.filter(file => file.title !== "Unit Testing");
-
-for (let x in  unitTestingArr) {
+for (let x in  files) {
   let builtFilePath = `./build/book/${files[x].path.split("/").pop()}`;
   builtFilePath = builtFilePath.replace("md", "html");
   let htmlFileString = fs.readFileSync(builtFilePath, "utf-8");
@@ -28,7 +26,7 @@ const options = {
     publisher: "Razroo", // optional
     cover: "assets/angular-the-full-gamut-unit-testing-cover.jpg", // Url or File path, both ok.
     content: content,
-    output: './build/epub/angular-unit-testingtitvl.epub'
+    output: './build/epub/angular-unit-testing.epub'
 };
 
 new Epub(options).promise.then(
