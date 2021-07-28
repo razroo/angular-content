@@ -14,25 +14,23 @@ benefits of unit testing would be. From a developer perspective:
 From a management perspective, to help introduce unit testing, for those
 that might be less inclined towards unit testing.
 
-What is Unit Testing?
----------------------
+## What is Unit Testing? ##
 
 A unit in a best case scenario, is a function that always gives you the
 same result for a given input(pure function) Testing that unit, is to
 make sure that the expected result happens when running that function.
 
-Benefits of Unit Testing
-------------------------
+## Benefits of Unit Testing ##
 
 1.  Refactoring. Change code once, and see everything else is working.
 
-2.  Focus(See TDD item \#2)
+2.  Focus(See TDD item #2)
 
-3.  Helps understand design of code working with(See TDD item \#3)
+3.  Helps understand design of code working with(See TDD item #3)
 
 4.  Instant visual feedback that code works as expected.
 
-5.  Documentation (See TDD \#4)
+5.  Documentation (See TDD #4)
 
 6.  Helps with code-reuse. Ability to re-use code and tests. Tweak tests
     accordingly.
@@ -45,8 +43,7 @@ Benefits of Unit Testing
 
     3.  Readable
 
-What is TDD (Test Driven Development)
--------------------------------------
+## What is TDD (Test Driven Development) ##
 
 1.  Start by writing a test.
 
@@ -62,8 +59,7 @@ What is TDD (Test Driven Development)
 
 6.  Repeat from 1.
 
- What is BDD? 
--------------
+## What is BDD? ##
 
 Typcially when unit testing, a particular function at a later date can
 change its implementation. For instance, if we have a counter function,
@@ -73,8 +69,7 @@ expect statement of 1.
 In BDD we focus on the intended behavior, instead of the expected
 result. The following is a great explanation:
 
- The Benefits of TDD 
---------------------
+## The Benefits of TDD ##
 
 1.  Higher Test Coverage
 
@@ -89,40 +84,39 @@ result. The following is a great explanation:
     (implementation, behavior) instead of top down (behavior,
     implementation).
 
-What is BDD - Code Example
---------------------------
+## What is BDD - Code Example ##
 
-    // Non BDD
-    describe('Counter', () => {
-      it('should increase count to 1', () => {
-        const counter = new Counter();
+```typescript
+// Non BDD
+describe('Counter', () => {
+  it('should increase count to 1', () => {
+    const counter = new Counter();
 
-        counter.tick();
+    counter.tick();
 
-        expect(counter.count).toEqual(1);
-      });
-    })
+    expect(counter.count).toEqual(1);
+  });
+})
 
-    // BDD
-    describe('Counter', () => {
-      it('should increase count by 1 after calling tick', () => {
-        const counter = new Counter();
-        const expectedCount = counter.count + 1;
+// BDD
+describe('Counter', () => {
+  it('should increase count by 1 after calling tick', () => {
+    const counter = new Counter();
+    const expectedCount = counter.count + 1;
 
-        counter.tick();
+    counter.tick();
 
-        expect(counter.count).toEqual(expectedCount);
-      });
-    })
+    expect(counter.count).toEqual(expectedCount);
+  });
+})
+```
 
- The Benefits of BDD? 
----------------------
+## The Benefits of BDD? ##
 
 If at a later time the counter(as seen above) has to change based on
 requirements(starting at 5, instead of 1), it will not affect the unit
 test.
 
-What, When, and How
--------------------
+### What, When, and How ##
 
 Unit testing is the what, TDD is the when, and BDD is the how.
