@@ -109,8 +109,7 @@ why those working on Angular, have decided not to comment. However,
 Ng-bullet is a possibility to be used for those that seriously need the
 performance boost in their Angular App.
 
- Style Cleanup 
---------------
+## Style Cleanup ##
 
 The biggest improvement with regards to performance boosts comes with
 improving memory leaks. The largest memory leak is caused by CSS. If you
@@ -122,9 +121,7 @@ can be alleviated by adding an afterAll to your unit tests:
 ```typescript
 export function cleanStylesFromDOM(): void {
   const head: HTMLHeadElement = document.getElementByTagName('head')[0];
-  const styles: HTMLCollectionOf<HTMLStyleElement>
-  | [] = head.getElementsByTageName('style');
-
+  const styles: HTMLCollectionOf<HTMLStyleElement> | [] = head.getElementsByTageName('style');
   for (let i: number = 0; i < styles.length; i++) {
     head.removeChild(styles[i]);
   }
