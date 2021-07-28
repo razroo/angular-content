@@ -2,14 +2,12 @@
 title: Jest
 ---
 
- A Primer. 
-----------
+## A Primer ##
 
-Jest is a test runner created by Facebook to allow for the \"Delightful
-JavaScript Testing\".
+Jest is a test runner created by Facebook to allow for the "Delightful
+JavaScript Testing".
 
- The Benefits of Jest Vs. Karma 
--------------------------------
+## The Benefits of Jest Vs. Karma ##
 
 1.  Fast and sandboxed
 
@@ -36,57 +34,54 @@ browser, does not require a browser to be built into the CI/CD. In
 addition, a large part of performance issues with regards to unit tests,
 is having to start the browser every time.
 
- Using Jest within an Nx Setting 
---------------------------------
+## Using Jest within an Nx Setting ##
 
-      ng generate jest
-
-      ng generate jest
+```bash
+ng generate jest
+```
 
 After running the above generator, one can now run jest within your app.
 When generating a lib, one can now do:
 
-      ng generate lib libname --unit-test-runner jest
+```bash
+ng generate lib libname --unit-test-runner jest
+```
 
-[^1]
-
- Primer on Jest Syntax 
-----------------------
+## Primer on Jest Syntax ##
 
 Real quick, I would like to go through a couple of things that Jest
 offers over Karma.
 
-Switching over from Karma to Jest
----------------------------------
+## Switching over from Karma to Jest ##
 
 At this point this is the main selling point of why Netanel Basel's
 Spectator is so valuable is that it allows for tests to be converted
 over to Jest automatically by simply switching the imports. Let us
 pretend that we are unit testing a service:
 
-    import { createService } from '@netbasal/spectator';
-    import { AuthService } from './auth.service';
-    import { DateService } from './date.service';
+```typescript
+import { createService } from '@netbasal/spectator';
+import { AuthService } from './auth.service';
+import { DateService } from './date.service';
 
-    const spectator = createService({
-      service: AuthService,
-      mocks: [DateService]
-    });
+const spectator = createService({
+  service: AuthService,
+  mocks: [DateService]
+});
 
-    it('should be logged in', () => {
-      const dateService = spectator.get<DateService>(DateService);
-      dateService.isExpired.mockReturnValue(false);
-      expect(spectator.service.isLoggedIn()).toBeTruthy();
-    });
+it('should be logged in', () => {
+  const dateService = spectator.get<DateService>(DateService);
+  dateService.isExpired.mockReturnValue(false);
+  expect(spectator.service.isLoggedIn()).toBeTruthy();
+});
+```
 
 The above test is currently using karma. However, if we wanted to switch
 it over to use Jest, all we would need to do is change the import path:
 
-    - import { createService } from '@netbasal/spectator';
-    + import { createService } from '@netbasal/spectator/jest';
+```typescript
+- import { createService } from '@netbasal/spectator';
++ import { createService } from '@netbasal/spectator/jest';
+```
 
 Just like that magic, we can have our entire app using Jest.
-
-[^1]: If you are coming from an existing nrwl workspace, please use the
-    following blog post to find out how to upgrade to Jest
-    https://blog.nrwl.io/nrwl-nx-6-3-faster-testing-with-jest-20a8ddb5064
