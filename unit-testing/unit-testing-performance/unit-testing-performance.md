@@ -26,27 +26,29 @@ task one can do within a unit test.
 Avoiding creating a component unless needed is the ideal. The ideal
 scenario when creating a component looks something like this:
 
-    describe('BannerComponent', () => {
-      let component: BannerComponent;
-      let fixture: ComponentFixture<BannerComponent>;
+```typescript
+describe('BannerComponent', () => {
+  let component: BannerComponent;
+  let fixture: ComponentFixture<BannerComponent>;
 
-      beforeEach(async(() => {
-        TestBed.configureTestingModule({
-          declarations: [ BannerComponent ]
-        })
-        .compileComponents();
-      }));
-
-      beforeEach(() => {
-        fixture = TestBed.createComponent(BannerComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-      });
-
-      it('should create', () => {
-        expect(component).toBeDefined();
-      });
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ BannerComponent ]
     })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(BannerComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeDefined();
+  });
+})
+```
 
 Here we are setting a TestBed, configuring the test module, and then
 compiling the component. While in practice there is nothing wrong with
@@ -62,8 +64,7 @@ suggest Jest which is a faster way of running unit tests. For current
 karma/jasmine unit tests to be mindful of how you are writing unit
 tests.
 
- Component Testing 
-------------------
+## Component Testing ##
 
 There are three different ways of unit testing a component:
 
@@ -83,22 +84,19 @@ In most scenarios, there will be a requirement of running the TestBed
 which can cause performance issues when running a large amount of tests
 and can be dealt with.
 
- Running tests in Parallel 
---------------------------
+## Running tests in Parallel ##
 
 The next item in the checklist is to separate your tests into separate
 modules so that they can be run separately. You will then be able to run
 the tests in parallel. This will allow for the tests to run quicker.
 
- Karma Parallel 
----------------
+## Karma Parallel ##
 
 Karma Parallel is an npm package that be used to run unit tests in
 parallel. It would require for the karma config to be updated
 accordingly. The one downfall of the karma config.
 
- Ng-Bullet 
-----------
+## Ng-Bullet ##
 
 There is a fantastic library that has been written to accommodate for
 some performance boosts with regards to Angular Unit Tests.
@@ -121,18 +119,20 @@ consistently append hundreds if not thousands of \<style\> tages to your
 body. This will incredibly slow down how fast your unit tests run. This
 can be alleviated by adding an afterAll to your unit tests:
 
-    export function cleanStylesFromDOM(): void {
-      const head: HTMLHeadElement = document.getElementByTagName('head')[0];
-      const styles: HTMLCollectionOf<HTMLStyleElement>
-      | [] = head.getElementsByTageName('style');
+```typescript
+export function cleanStylesFromDOM(): void {
+  const head: HTMLHeadElement = document.getElementByTagName('head')[0];
+  const styles: HTMLCollectionOf<HTMLStyleElement>
+  | [] = head.getElementsByTageName('style');
 
-      for (let i: number = 0; i < styles.length; i++) {
-        head.removeChild(styles[i]);
-      }
-    }
-    afterAll(() => {
-      clearStylesFromDOM();
-    });
+  for (let i: number = 0; i < styles.length; i++) {
+    head.removeChild(styles[i]);
+  }
+}
+afterAll(() => {
+  clearStylesFromDOM();
+});
+```
 
 The above functionality will improve performance of unit tests by five
 fold.
