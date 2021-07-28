@@ -108,11 +108,13 @@ Now that we have our folder/file structure in place, we can prove how
 having a singular interface can be used to make sure all of our files
 are in sync.
 
-    export interface GridForm {
-      column: string;
-      row: string;
-      pixelSize: string;
-    }
+```typescript
+export interface GridForm {
+  column: string;
+  row: string;
+  pixelSize: string;
+}
+```
 
  Example of How Data Mock Will Look Like 
 ----------------------------------------
@@ -122,38 +124,44 @@ in a number of different instances. It makes sense to have data in a
 mock.ts file so that it can be re-used throughout app, without having to
 re-create.
 
-    cost GridForm = {
-      column: '20';
-      row: '20';
-      pixelSize: '20';
-    }
+```typescript
+cost GridForm = {
+  column: '20';
+  row: '20';
+  pixelSize: '20';
+}
+```
 
 ###  Service for Pulling in Pre-Populated Grid Form 
 
 In our service, we will use the interface to determine what sort of data
 we expect to be pulled in.
 
-    getGridForm(projectId: string): Observable<GridForm> {
-      const query = GridFormQuery;
-      const variables = {
-        projectId
-      };
+```typescript
+getGridForm(projectId: string): Observable<GridForm> {
+  const query = GridFormQuery;
+  const variables = {
+    projectId
+  };
 
-      const form$ = this.apollo.query<GridForm>({ query, variables });
+  const form$ = this.apollo.query<GridForm>({ query, variables });
 
-      return from(buyers$).pipe(pluck('data'));
-    }
+  return from(buyers$).pipe(pluck('data'));
+}
+```
 
 ###  Service Spec for Pulling in Pre-Populated Grid Form 
 
 In the spec for our service, we will have one consistent piece of data
 that will be used throughout the service spec:
 
-    const gridForm: GridForm = {
-      column: "20";
-      row: "20";
-      pixelSize: "20";
-    };
+```typescript
+const gridForm: GridForm = {
+  column: "20";
+  row: "20";
+  pixelSize: "20";
+};
+```
 
 Here we are using the interface to make sure that the mocked data used
 with the service stays true to the data that is expected to be returned.
@@ -165,18 +173,20 @@ make sure our specs data mocks are up to data as well.
 For simplicity sake within our app, we are going to take the data as is,
 and pass it directly into our store to be used within app:
 
-    export function gridFormReducer(
-      state: GridForm,
-      action: BuyerAction
-    ): GridForm {
-      switch (action.type) {
-        case BuyerTypes.FormLoaded: {
-          return {
-            ...state
-          };
-        }
-      }
+```typescript
+export function gridFormReducer(
+  state: GridForm,
+  action: BuyerAction
+): GridForm {
+  switch (action.type) {
+    case BuyerTypes.FormLoaded: {
+      return {
+        ...state
+      };
     }
+  }
+}
+```
 
 Here we have the interface telling our app that all data within our
 reducer must consist of the three items we have specified in our
@@ -184,14 +194,16 @@ GridForm interface.
 
 ###  Reducer Spec for populating state with appropriate Grid 
 
-      describe('gridFormLoaded action', () => {
-        it('should populate the buyer entities and ids', () => {
-          const action = new FormLoaded(gridForm);
-          const state = gridFormReducer(initialState, action);
+```typescript
+describe('gridFormLoaded action', () => {
+  it('should populate the buyer entities and ids', () => {
+    const action = new FormLoaded(gridForm);
+    const state = gridFormReducer(initialState, action);
 
-          expect(state).toEqual(gridForm);
-        });
-      });
+    expect(state).toEqual(gridForm);
+  });
+});
+```
 
 Here we have a very simply unit test that once again has the same data
 that is used across the app. By having an interface and using it for the
@@ -200,20 +212,22 @@ spec is up to date with actual app.
 
 ###  Effect for populating state with appropriate Grid 
 
-    @Effect()
-    loadGridForm$ = this.dataPersistence.fetch(BuyerTypes.LoadGridForm, {
-      run: (action: LoadGridForm, state: GridForm) => {
-        const projectId = this.projectFacade.getProjectIdFromState(state);
+```typescript
+@Effect()
+loadGridForm$ = this.dataPersistence.fetch(BuyerTypes.LoadGridForm, {
+  run: (action: LoadGridForm, state: GridForm) => {
+    const projectId = this.projectFacade.getProjectIdFromState(state);
 
-        return this.service
-          .getGridForm(action.payload, projectId)
-          .pipe(map((gridForm: GridForm) => new GridFormLoaded(gridForm)));
-      },
+    return this.service
+      .getGridForm(action.payload, projectId)
+      .pipe(map((gridForm: GridForm) => new GridFormLoaded(gridForm)));
+  },
 
-      onError: (action: LoadGridForm, error) => {
-        console.error('Error', error);
-      },
-    });
+  onError: (action: LoadGridForm, error) => {
+    console.error('Error', error);
+  },
+});
+```
 
 In our effect, using the facade pattern. It is calling the effect,
 pulling in data, and then having the appropriate action fired off, for
@@ -222,24 +236,26 @@ of our effect, we are once again using the same interface.
 
 ###  Effect Spec for populating state with appropriate Grid 
 
-    const projectId = '123';
+```typescript
+const projectId = '123';
 
-    describe('loadBuyers$', () => {
-      beforeEach(() => {
-        spyOn(service, 'getGridForm').and.returnValue(of(gridForm));
-      });
+describe('loadBuyers$', () => {
+  beforeEach(() => {
+    spyOn(service, 'getGridForm').and.returnValue(of(gridForm));
+  });
 
-      it('should work', () => {};
-        const action = new LoadBuyers();
-        const completion = new BuyersLoaded(gridForm);
+  it('should work', () => {};
+    const action = new LoadBuyers();
+    const completion = new BuyersLoaded(gridForm);
 
-        actions$ = hot('-a', { a: action });
-        const expected$ = cold('-c', { c: completion });
+    actions$ = hot('-a', { a: action });
+    const expected$ = cold('-c', { c: completion });
 
-        expect(effects.loadGridForm$).toBeObservable(expected$);
-        expect(service.getGridForm).toHaveBeenCalledWith(projectId);
-      });
-    });
+    expect(effects.loadGridForm$).toBeObservable(expected$);
+    expect(service.getGridForm).toHaveBeenCalledWith(projectId);
+  });
+});
+```
 
 Here we are once again attaching an interface for gridForm, our data, so
 that it is consistent across our application.
