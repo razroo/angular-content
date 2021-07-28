@@ -16,20 +16,22 @@ components, the injected store never even makes it's way through,
 because it is mocked out. Therefore it never becomes more complicated
 than this.
 
-    describe('UserFacade', () => {
-      let facade: UserFacade;
-      let store: Store<any>;
+```typescript
+describe('UserFacade', () => {
+  let facade: UserFacade;
+  let store: Store<any>;
 
-      beforeEach(() => {
-        TestBed.configureTestingModule({
-          imports: [StoreModule.forRoot({})],
-          providers: [
-            UserFacade,
-          ],
-        });
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [StoreModule.forRoot({})],
+      providers: [
+        UserFacade,
+      ],
+    });
 
-        facade = TestBed.get(UserFacade);
+    facade = TestBed.get(UserFacade);
 
-        store = TestBed.get(Store);
-        spyOn(store, 'dispatch');
-      });
+    store = TestBed.get(Store);
+    spyOn(store, 'dispatch');
+  });
+```
