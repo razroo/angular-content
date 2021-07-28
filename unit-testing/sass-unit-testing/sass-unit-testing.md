@@ -2,8 +2,7 @@
 title: Sass Unit Testing
 ---
 
- When Does Sass Unit Testing Make Sense? 
-----------------------------------------
+## When Does Sass Unit Testing Make Sense? ##
 
 One of the concerns with any architecture is the act of
 over-engineering. This leads to the question - when it comes to unit
@@ -19,8 +18,7 @@ The ideal approach would be to unit test functional scss that is used as
 a core style. The convention should be that when using a core style,
 such as padding, or a breakpoint.
 
- The Benefits of using Functional Sass as a Convention 
-------------------------------------------------------
+## The Benefits of using Functional Sass as a Convention ##
 
 What would be the benefit of using Functional Sass as a convention?
 Within an app, when skimming through css it can all looks the same. Even
@@ -39,8 +37,7 @@ error reporting. If a pull request goes out, and it is not function used
 for styling, then comment is made that, \"Per convention, this is a core
 style, and should be using the appropriate function\".
 
- Within a Design Language System, Choosing Core Functions 
----------------------------------------------------------
+## Within a Design Language System, Choosing Core Functions ##
 
 With a core framework, specifically built on top of a design language
 system, the following is what a functional DLS core framework would look
@@ -68,8 +65,7 @@ like:
 
 11. Toolbar
 
- Unit Testing Within Our Specific App 
--------------------------------------
+## Unit Testing Within Our Specific App ##
 
 Being that we are going to be creating sass functions for our core
 themeing, it would make sense to unit test them as well. If they are
@@ -77,8 +73,7 @@ going to be use in 10 or more places per each app then we would like to
 make sure that they are indeed working in the fashion that they should
 be.
 
- Using Sass True 
-----------------
+## Using Sass True ##
 
 Sass True is a set of Sass unit tests written in Sass so that they can
 mimic the usual describe, it, assert, and expects, you can expect from a
@@ -87,59 +82,59 @@ usual unit test.
 The following is an example of a unit test one might make for a typical
 mixin.
 
-    // Test CSS output from mixins
-    @include it('Outputs a font size and line height based on keyword') {
-      @include assert {
-        @include output {
-          @include font-size('large');
-        }
-
-        @include expect {
-          font-size: 2rem;
-          line-height: 3rem;
-        }
-      }
+```scss
+// Test CSS output from mixins
+@include it('Outputs a font size and line height based on keyword') {
+  @include assert {
+    @include output {
+      @include font-size('large');
     }
+
+    @include expect {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
+  }
+}
+```
 
 It should all be very familiar with your classic Mocha test.
 
- Installing Sass True 
----------------------
+## Installing Sass True ##
 
-    npm install sass-true --save-dev
+```bash
+npm install sass-true --save-dev
+```
 
- Setting up a scss.spec.ts 
---------------------------
+## Setting up a scss.spec.ts ##
 
 We are going to set up our own jasmine sass-test runner, that will pick
 up on all sass unit tests within directory. It will look like the
 following:
 
-    const path = require('path')
-    const sassTrue = require('sass-true')
-    const glob = require('glob')
+```typescript
+const path = require('path')
+const sassTrue = require('sass-true')
+const glob = require('glob')
 
-    describe('Sass', () => {
-      // Find all of the Sass files that end in `*.spec.scss` in any directory in this project.
-      // I use path.resolve because True requires absolute paths to compile test files.
-      const sassTestFiles = glob.sync(path.resolve(__dirname, '**/*.spec.scss'))
+describe('Sass', () => {
+  // Find all of the Sass files that end in `*.spec.scss` in any directory in this project.
+  // I use path.resolve because True requires absolute paths to compile test files.
+  const sassTestFiles = glob.sync(path.resolve(__dirname, '**/*.spec.scss'))
 
-      // Run True on every file found with the describe and it methods provided
-      sassTestFiles.forEach(file =>
-        sassTrue.runSass({ file }, describe, it)
-      )
-    })
+  // Run True on every file found with the describe and it methods provided
+  sassTestFiles.forEach(file =>
+    sassTrue.runSass({ file }, describe, it)
+  )
+})
+```
 
- Run Sass True Directly, without using CLI 
-------------------------------------------
+## Run Sass True Directly, without using CLI ##
 
 As of this time Sass True uses node-sass, which does not play well with
 the CLI. We will need to run the sass spec runner directly. As a result,
 let's set up a specific npm script for running sass-true.
 
+```json
     "sass-test": "jasmine libs/scss.spec.ts",
-
- Wrapping it up - Reccomended Folder Structure 
-----------------------------------------------
-
-\] \] \] \[scss.spec.ts,file\] \]
+```
