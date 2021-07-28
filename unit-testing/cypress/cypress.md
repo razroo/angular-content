@@ -35,8 +35,7 @@ entry significantly for developers wanting to drive their development
 efforts with tests, catching bugs before they morph into something too
 big.
 
-How to use Cypress with Nx
---------------------------
+## How to use Cypress with Nx ##
 
 Before we proceed, Nx stands for Nrwl Extensions for Angular and is
 built by a team of ex-Google employees who were also part of the Angular
@@ -57,12 +56,16 @@ experience that pre-configures all you need for Cypress to work.
 To use Nrwl Nx, you'll need to install it using the following command in
 your console:
 
-    npm install -g @nrwl/schematics @angular/cli
+```bash
+npm install -g @nrwl/schematics @angular/cli
+``` 
 
 After this has installed, you'll need to create a workspace using
 create-nx-workspace command:
 
-    create-nx-workspace example-app --e2e-test-runner=cypress
+```bash
+create-nx-workspace example-app --e2e-test-runner=cypress
+```
 
 This will give you a series of questions before creating your workspace.
 If you select Angular in the question that asks 'what to create in the
@@ -80,14 +83,15 @@ out of the box set up.
 For Angular, to run the testing suit, be sure to navigate into the
 workspace folder and use the command below:
 
-    ng e2e --watch
+```bash
+ng e2e --watch
+```
 
 The --watch flag lets you write you tests in the background and Cypress
 automatically detects any changes in the test or application code and
 runs itself against the changes.
 
- Example usage and cases 
-------------------------
+## Example usage and cases ##
 
 ###  Accessing store 
 
@@ -99,18 +103,20 @@ Now inside your test file, you can test the store's state through
 cy.window(). Here's an example of accessing a list store and testing if
 it has a specific item.
 
-    it('has expected state on load', () => {
-       cy.visit('/')
-       cy.window()
-         .its('store')
-         .invoke('getState')
-         .should(
-           'deep.equal',
-           { list: [ { text: 'by apples', } ] }
-          )
-    })
+```typescript
+it('has expected state on load', () => {
+    cy.visit('/')
+    cy.window()
+        .its('store')
+        .invoke('getState')
+        .should(
+        'deep.equal',
+        { list: [ { text: 'by apples', } ] }
+        )
+})
+```
 
-###  Button Clicked 
+###  Button Clicked ###
 
 Attaching a data-cy attribute to a button exposes the item for testing
 by Cypress. While this is not necessary as it can be accessed through
@@ -120,18 +126,22 @@ testing the right thing.
 
 For example, your HTML button code may look something like this:
 
-    <button id="main" class="btn" data-cy="submit">
-        Submit Me!
-    </button>
+```html
+<button id="main" class="btn" data-cy="submit">
+    Submit Me!
+</button>
+```
 
 To create a test to check if the button is clicked, your Cypress test
 code may look something like this:
 
-    cy.get('[data-cy=submit]').click()
-    // OR
-    cy.contains('Submit Me!').click()
+```typescript
+cy.get('[data-cy=submit]').click()
+// OR
+cy.contains('Submit Me!').click()
+```
 
-###  modal should appear when button is clicked 
+###  modal should appear when button is clicked ###
 
 We all get given business and design rules to help us build our
 applications. It may read something like this: Modal should appear when
@@ -141,18 +151,19 @@ field available, if x data is not available.
 To translate this into a Cypress test unit, your code may look something
 like this:
 
-    cy.get('[data-cy=submit]').click()
-      cy.window()
-        .its('store')
-        .invoke('getState')
-        .should(
-          'deep.equal',
-          { list: [ { text: 'by apples', } ] }
-        )
-    cy.get('[data-cy=user-modal-dropdown]').click().contain([{text: 'by apples']);
+```typescript
+cy.get('[data-cy=submit]').click()
+    cy.window()
+    .its('store')
+    .invoke('getState')
+    .should(
+        'deep.equal',
+        { list: [ { text: 'by apples', } ] }
+    )
+cy.get('[data-cy=user-modal-dropdown]').click().contain([{text: 'by apples']);
+```
 
- Potential issues when using Cypress 
-------------------------------------
+## Potential issues when using Cypress ##
 
 The concept of code coverage refers to the percentage of code that is
 covered by my automated tests. Purity of test types may get muddied and
@@ -169,8 +180,7 @@ up the final production code. The idea of hooks is to keep the main code
 state untouched and independent from actions that are trying to observe
 events, inputs, outputs and outcomes.
 
- Extended Features 
-------------------
+## Extended Features ##
 
 Cypress' test runner is MIT open sourced and free. However, it does have
 a commercial side to it and offers a Dashboard service allows you to
@@ -181,8 +191,7 @@ There is a free Seed tier that currently allows for up to 3 users and
 500 test recordings. As you move up through the plans, the level of
 support, users and number of test recordings increases.
 
- Final words 
-------------
+## Final words ##
 
 Cypress as a testing tool differs from all other testing tools,
 frameworks and assertion libraries because it offers front end
