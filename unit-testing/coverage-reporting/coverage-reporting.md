@@ -10,8 +10,7 @@ myself spontaneously checking up on coverage reporting from time to time
 (usually every week), to make sure the team is hitting the numbers we
 want.
 
-Testivus On Test Coverage
--------------------------
+## Testivus On Test Coverage ##
 
 There is a funny, yet honestly, largely impacting founding post by
 [Alberto Savioa](artima.com/weblogs/viewpost.jsp?thread=204677). It is
@@ -19,8 +18,7 @@ entitled, \"Testivus On Test Coverage\".
 
 Here is a copy of it here for your enjoyment.
 
-The Impact of Testivus
-----------------------
+## The Impact of Testivus ##
 
 Testivus's impact on unit testing cannot be overrated.
 
@@ -44,8 +42,7 @@ engineer to be aware of potential bugs before they happen, is once
 again, impossible. Instead what we should do is focus on 80%. This means
 that we have a 4/5 chance of catching a 20% bug.
 
-The phenomenon of the Pareto Rule
----------------------------------
+## The phenomenon of the Pareto Rule ##
 
 It is also important to realize that within the Pareto rule there is a
 20% within the 80%. That is the difficulty of completing a meaningful
@@ -59,8 +56,10 @@ So arguably those tend to overlooked. However, similar to what Testivus
 said, if we want a blanket rule, let's apply the Pareto Priority
 Index(PPI): [^1]
 
+```bash
 $$PPI = \frac{\text{savings} \times \text{probability of success}}
            {\text{cost} \times \text{time of completion}}$$
+```
 
 The Pareto Priority Index, is really just fancy way of saying if you
 find this unit test is taking you too long, and it's not worth it,
@@ -70,8 +69,7 @@ respectable amount. I personally keep it at 80, and even the Angular
 docs recommend
 [80](https://github.com/angular/angular-cli/wiki/stories-code-coverage).
 
- Different Types of Coverage Reporting 
---------------------------------------
+## Different Types of Coverage Reporting ##
 
 The following are the four different types of coverage reporting:
 
@@ -92,14 +90,16 @@ I generally find it difficult to distinguish between a statement, and a
 branch. The following is a great example. Let's say we have the
 following scenario:
 
-    determineStatement(a: any, b: any): boolean {
-      if(a){
-         if(b){
-           statement2 = true;
-         }
-         statement1 = true
+```typescript
+determineStatement(a: any, b: any): boolean {
+  if(a){
+      if(b){
+        statement2 = true;
       }
-    }
+      statement1 = true
+  }
+}
+```
 
 If we test a = true, and that b = true, that will give us 100% statement
 coverage, as we have tested all statements. However, we have not tested
@@ -126,55 +126,57 @@ within our function is 100%, the branch coverage is only at 50%.
 
 4.  Yellow: Branches not covered.
 
- Code Coverage Enforcement 
---------------------------
+## Code Coverage Enforcement ##
 
 In line with our decided 80% coverage, we can go into our karma.conf.js
 file and add the following in the coverageIstanbulReport: key.
 
-    coverageIstanbulReporter: {
-      reports: [ 'html', 'lcovonly' ],
-      fixWebpackSourcePaths: true,
-      thresholds: {
-        statements: 80,
-        lines: 80,
-        branches: 80,
-        functions: 80
-      }
-    }
+```typescript
+coverageIstanbulReporter: {
+  reports: [ 'html', 'lcovonly' ],
+  fixWebpackSourcePaths: true,
+  thresholds: {
+    statements: 80,
+    lines: 80,
+    branches: 80,
+    functions: 80
+  }
+}
+```
 
 Now we have made it that our unit testing will fail whenever we reach a
 threshold below 80%. This is useful for development, and useful for
 devOps, as we can keep a consistent way of keeping our unit tests at a
 certain level.
 
- Running a Coverage Report in Angular 
--------------------------------------
+## Running a Coverage Report in Angular ##
 
 My preferred method, is to add a package.json script for running a
 --code-coverage report. It would look something like the following:
 
-      {
-        ...,
-        test-coverage: ng test --code-coverage
-      }
+```typescript
+{
+  ...,
+  test-coverage: ng test --code-coverage
+}
+```
 
 and then in your terminal run:
 
-    npm run test test-coverage
+```bash
+npm run test test-coverage
+```
 
 Viola! Just like that, the CLI will take care of emitting code-coverage
 for you.
 
- Opening up Coverage Reporting 
-------------------------------
+## Opening up Coverage Reporting ##
 
 In order to open up a coverage report, after a coverage report has been
 generated, simply navigate to your coverage/src folder, and click on the
 index.html file.
 
- Trap of Coverage Reporting 
----------------------------
+## Trap of Coverage Reporting ##
 
 In a perfect world, all functions would be pure and they would solve one
 use case. However, that is frequently not the case. In addition, even if
