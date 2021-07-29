@@ -7,19 +7,21 @@ the UI side of things, a Union type gives us the ability for one field
 to contain more than one field. The best way to really think of it is in
 terms of Typescript. A union type would be:
 
-      type Book {
-        title: String
-      }
+```typecsript
+type Book {
+  title: String
+}
 
-      type Author {
-        name: String
-      }
+type Author {
+  name: String
+}
 
-      type Result = Book | Author;
+type Result = Book | Author;
 
-      type Query {
-        search: [Result]
-      }
+type Query {
+  search: [Result]
+}
+```
 
 As we can see, it is telling us that it can be one of the other with
 regards to data type. So instead of returning irrelevant data, we only
@@ -30,8 +32,7 @@ return the data we need. This is beneficial for a number of reasons.
 2.  Allows for succint sorting, on front end. I.e. do not have to sort
     from the backend.
 
- Using Unions with Apollo Client 
---------------------------------
+## Using Unions with Apollo Client ##
 
 This is where at this time things start to get really interesting. Using
 Apollo with unions/interfaces starts to become tricky. In particular,
@@ -43,24 +44,26 @@ is a certain type if it returns all data for a specific type.
 Apollo made the decision to use something called the
 IntrospectionFragmentMatcher. It will look something like this:
 
-    const fragmentMatcher = new IntrospectionFragmentMatcher({
-      introspectionQueryResultData: {
-        __schema: {
-          types: [
-            {
-              kind: 'INTERFACE',
-              name: 'User',
-              possibleTypes: [
-                { name: 'User' },
-                { name: 'UserWithReason' },
-                { name: 'UserWithRound' },
-                { name: 'UserWithBid' },
-              ],
-            },
+```typescript
+const fragmentMatcher = new IntrospectionFragmentMatcher({
+  introspectionQueryResultData: {
+    __schema: {
+      types: [
+        {
+          kind: 'INTERFACE',
+          name: 'User',
+          possibleTypes: [
+            { name: 'User' },
+            { name: 'UserWithReason' },
+            { name: 'UserWithRound' },
+            { name: 'UserWithBid' },
           ],
         },
-      },
-    });
+      ],
+    },
+  },
+});
+```
 
 It tells Apollo Client for Angular that it expects the above types in
 the interface for User. Where it starts to get really interesting is
@@ -75,8 +78,7 @@ If you do not have an IntrospectionFragmentMatcher set up in your app,
 and backend adds union, or interface types, it will cause that data to
 break, and it will return an empty object.
 
- What to Know Ahead of Time 
----------------------------
+## What to Know Ahead of Time ##
 
 What would be really helpful to know ahead of time is that this is an
 issue that can only be solved by DevOps. It requires that back end and
