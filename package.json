@@ -8,6 +8,7 @@
     "run:razroo-markdown-engine": "ts-node build-book.ts; ts-node build-articles.ts;",
     "build:book": "ts-node build-book.ts",
     "build:epub:unittesting": "ts-node build-unit-testing-epub.ts",
+    "build:pdf:unittesting": "ts-node build-unit-testing-pdf.ts",
     "build:articles": "ts-node build-articles.ts",
     "publish:articles": "ts-node strapi-scripts/publish-articles.ts",
     "start": "node build.js",

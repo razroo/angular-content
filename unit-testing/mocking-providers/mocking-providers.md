@@ -12,8 +12,7 @@ In addition, and perhaps, more dangerous that if you are not careful you
 might end having your data being retrieved from the back end while you
 are unit testing.
 
- Re-iterating Previous Point 
-----------------------------
+## Re-iterating Previous Point ##
 
 We have already discussed a previous point with regards to unit testing
 and interfaces. The point is that we can use a single data mock to keep
@@ -21,8 +20,7 @@ all of unit tests in sync. This is indeed a very important point that
 works in tandem with mocking providers, and we will touch on this in
 this chapter.
 
- When to Mock Providers within App 
-----------------------------------
+## When to Mock Providers within App ##
 
 The point of mocking service dependencies is in order to test the
 component in an isolated environment. This should includes pipes,
@@ -30,8 +28,7 @@ services, and in our architecture especially facades. If it is a module
 that completely focuses UI, then there is no need to worry about an
 isolated environment because there is no logic to affect the component.
 
- Mocking Providers - Setting the Landscape 
-------------------------------------------
+## Mocking Providers - Setting the Landscape ##
 
 Just setting the landscape for what an example situation might be like
 with regards to mocking providers.
@@ -41,7 +38,9 @@ always going to be responsible for bridging the data retrieved by our
 service, with our component. It is going to be service that will
 ultimately be used in our component to retrieve data.
 
-    gridForm$: Observable<GridForm[]> = this.store.pipe(select(getGridForm));
+```typescript
+gridForm$: Observable<GridForm[]> = this.store.pipe(select(getGridForm));
+```
 
 The above is an example snippet of our getGridForm.facade.ts file, that
 will be responsible for pulling data from our store, using the
@@ -49,27 +48,30 @@ getGridForm selector already specified else where. If we were to pull in
 this facade as is, it would end up actually pulling data from the server
 while doing unit tests! That would be a cardinal sin.
 
-    <form>
-    <div>{{ (gridForm | async).row }}</div>
-    <div>{{ (gridForm | async).column }}</div>
-    <div>{{ (gridForm | async).size }}</div>
-    </form
+```html
+<form>
+  <div>{{ (gridForm | async).row }}</div>
+  <div>{{ (gridForm | async).column }}</div>
+  <div>{{ (gridForm | async).size }}</div>
+</form
+```
 
- Mocking Providers Within Unit Test - A Primer 
-----------------------------------------------
+## Mocking Providers Within Unit Test - A Primer ##
 
 In our unit test in order to mock the above Observable gridForm\$
 stream, we can very simply use the data mock we have specified in our
 mocks.ts file.
 
-    providers: [
-      {
-        provide: GridFormFacade,
-        useValue: {
-          gridForm$: of(generateMockGridForm()),
-        },
-      },
-    ],
+```typescript
+providers: [
+  {
+    provide: GridFormFacade,
+    useValue: {
+      gridForm$: of(generateMockGridForm()),
+    },
+  },
+],
+```
 
 In this very simple scenario, we have just made it so that the data
 returned within our component for our unit test, is using the central
