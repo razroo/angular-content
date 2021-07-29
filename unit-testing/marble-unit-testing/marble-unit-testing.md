@@ -12,8 +12,7 @@ Observables are a stream. It is an object with a series of functions. An
 Observable as a stream contains more than one snippet of data in it's
 entire lifecycle.
 
- Marble Unit Testing - A Primer 
--------------------------------
+## Marble Unit Testing - A Primer ##
 
 Marble unit testing is a very efficient way of unit testing observables.
 It keeps in mind the following:
@@ -26,22 +25,23 @@ It keeps in mind the following:
 3.  It can emit a number of different things at the same time, or at
     completely different times.
 
- Great Example 
---------------
+## Great Example ##
 
 Let's imagine that we get back a specific set of data as an observable.
 However, within that set of data, we only want ids. Backend is tied and
 they do not have the capacity to give us a pre-populated set of data for
 id. Our code will look something like this:
 
-    userIds$: Observable<string[]> = this.users$.pipe(
-      map(users => {
-        return users
-          .map(user => {
-            return user.id;
-          })
+```typescript
+userIds$: Observable<string[]> = this.users$.pipe(
+  map(users => {
+    return users
+      .map(user => {
+        return user.id;
       })
-    );
+  })
+);
+```
 
 ### Creating a unit test
 
@@ -49,30 +49,34 @@ In our unit test, we would like to make sure that when we pass a set of
 data, id's are indeed being extracted and returning a new array. We can
 do something as follows using marble tests:
 
-    const usersMock: User[] = [
-      {
-        id: '123',
-        name: 'Charlie',
-      },
-      {
-        id: '246',
-        name: 'Lisa',
-      },
-      {
-        id: '369',
-        name: 'Harley',
-      },
-    ];
+```typescript
+const usersMock: User[] = [
+  {
+    id: '123',
+    name: 'Charlie',
+  },
+  {
+    id: '246',
+    name: 'Lisa',
+  },
+  {
+    id: '369',
+    name: 'Harley',
+  },
+];
 
-    it('should return buyer data for tier', () => {
-      const expected$ = hot('(c|)', { c: ['123', '246', '369'] });
+it('should return buyer data for tier', () => {
+  const expected$ = hot('(c|)', { c: ['123', '246', '369'] });
 
-      expect(component.buyerTiers$).toBeObservable(expected$);
-    });
+  expect(component.buyerTiers$).toBeObservable(expected$);
+});
+```
 
 In this unit test, we expect our function to return.
 
-      ['123', '246', '369']
+```
+['123', '246', '369']
+```
 
 As we are unit testing against an observable, we can potentially use
 subscribe, to emit the value of the component function we are testing.

@@ -10,8 +10,7 @@ for use with the async pipe.
 The intent here, is to discuss how to unit test scenarios where
 functionality is happening within subscribe block.
 
-Scenarios
----------
+## Scenarios ##
 
 I would like to bring up some scenarios where unit testing is important
 within an Angular setting.
@@ -32,8 +31,7 @@ within an Angular setting.
     a different project id. As a result, we will need to wrap data
     within the projectId we are using.
 
- Mocking a Facade 
------------------
+## Mocking a Facade ##
 
 Within our facade architecture, we will be injecting the facade into our
 Angular component/class. This allows us to mock the facade within our
@@ -44,17 +42,19 @@ it becomes an observable.
 
 Let's imagine that within our component we have a facade for the user.
 
-    constructor(private userFacade: UserFacade) {}
+```typescript
+constructor(private userFacade: UserFacade) {}
 
-    ngOnInit() {
-      this.userFacade.user$.pipe(
-        takeUntil(this.destroyed$);
-      )
-      .subscribe(user => {
-        this.user = user;
-        this.form.reset(user);
-      });
-    }
+ngOnInit() {
+  this.userFacade.user$.pipe(
+    takeUntil(this.destroyed$);
+  )
+  .subscribe(user => {
+    this.user = user;
+    this.form.reset(user);
+  });
+}
+```
 
 Here, we are mimicking the first scenario where we need the data for the
 form reset we are using within the app. Let's say that we want to test,
@@ -62,62 +62,66 @@ that the data is indeed being passed over the user, and form reset. In
 addition, want to set a safe guard, so that if a developer in the future
 accidentally delete any of the lines of code:
 
-    this.user = user;
-    this.form.reset(user);
+```typescript
+this.user = user;
+this.form.reset(user);
+```    
 
 The unit tests will complain. So let's move over to the unit test.
 
- Unit Test 
-----------
+## Unit Test ##
 
-    @Injectable()
-    class UserFacadeMock {
-      userSubject$ = new BehaviorSubject({...userMock});
-      user$ = userSubject$.asObservable();
-    }
+```typescript
+@Injectable()
+class UserFacadeMock {
+  userSubject$ = new BehaviorSubject({...userMock});
+  user$ = userSubject$.asObservable();
+}
 
-    describe('ComponentClass', () => {
-      let component: ComponentClass;
-      let fixture: ComponentFixture<ComponentClass>;
-      let userFacade: UserFacadeMock;
+describe('ComponentClass', () => {
+  let component: ComponentClass;
+  let fixture: ComponentFixture<ComponentClass>;
+  let userFacade: UserFacadeMock;
 
-      beforeEach(async(() => {
-        Testbed.configureTestingModule({
-          declaration: [ComponentClass],
-          provides: [
-           {
-             provide: UserFacade,
-             userClass: UserFacadeMock,
-           }
-          ]
-        }).compileComponents();
-      }));
+  beforeEach(async(() => {
+    Testbed.configureTestingModule({
+      declaration: [ComponentClass],
+      provides: [
+        {
+          provide: UserFacade,
+          userClass: UserFacadeMock,
+        }
+      ]
+    }).compileComponents();
+  }));
 
-      beforeEach( async( () => {
-        fixture = TestBed.createComponent(ComponentClass);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
+  beforeEach( async( () => {
+    fixture = TestBed.createComponent(ComponentClass);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
 
-        userFacade = TestBed.get(UserFacade);
-      });
-    });
+    userFacade = TestBed.get(UserFacade);
+  });
+});
+```
 
 We have laid out the structure for our unit tests so that we can now
 control the value of user by triggering the subject.
 
 Let's write that unit test we meant to get around to:
 
-    it('should properly pass in values from the subscribe block, to the' +
-    'component.user and component.form.reset', () => {
-      const mockUserData: User = {...userMock};
-      spyOn(component.form, `reset');
-      userFacade.userSubject$.next({...mockUserData});
-      expect(component.user).toEqual({...mockUserData});
-      expect(component.form.reset).toHaveBeenCalledWith({...mockUserData});
-    });
+```typescript
+it('should properly pass in values from the subscribe block, to the' +
+'component.user and component.form.reset', () => {
+  const mockUserData: User = {...userMock};
+  spyOn(component.form, `reset');
+  userFacade.userSubject$.next({...mockUserData});
+  expect(component.user).toEqual({...mockUserData});
+  expect(component.form.reset).toHaveBeenCalledWith({...mockUserData});
+});
+```
 
-Dis-secting What We've Done
----------------------------
+## Dis-secting What We've Done ##
 
 Looking back at what we've done, by hijacking the UserFacade injected
 into our component and supplying it with a subject, we have given our
