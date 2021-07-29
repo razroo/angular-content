@@ -6,8 +6,7 @@ Spy's are an integral part of any unit testing suite. Spies help
 simplify the unit test suite to such a great extent, that not discussing
 the finer details of how it should work, almost seems like a crime.
 
- A Primer 
----------
+ ## A Primer ##
 
 First and foremost, spies are actually one of the finer points of unit
 testing.
@@ -21,24 +20,25 @@ called with? Also, it gives me the ability to hijack it with a different
 function, or call through as is? Wow, I can't think of any name to call
 that? Ok, now I understand why it was called a spy.
 
-###  Spy User Example 
+###  Spy User Example ###
 
-    describe('', () => {
-      const userId = '123';
-      it('should call the userFacade.getUsers function, when getusers' +
-      'is called', () => {
-        spyOn(userFacade, 'getUsers');
-        component.getUsers(userId);
-        expect(userFacade.getUsers).toHaveBeenCalledWith(userId);
-      });
-    });
+```typescript
+describe('', () => {
+  const userId = '123';
+  it('should call the userFacade.getUsers function, when getusers' +
+  'is called', () => {
+    spyOn(userFacade, 'getUsers');
+    component.getUsers(userId);
+    expect(userFacade.getUsers).toHaveBeenCalledWith(userId);
+  });
+});
+```
 
 The above is a classic example of what a real world spy would do. Here,
 we just want to just make sure that the facade is indeed being called
 when the appropriate component function is run.
 
- Two Methods of Declaring Spies 
--------------------------------
+## Two Methods of Declaring Spies ##
 
 It would seem that there are two schools of thought when it comes to how
 one should place the spy. Some place the spy within the actual
@@ -64,8 +64,7 @@ So adopting a always put a spy in a beforeEach, can be:
 It would make sense that putting spies in individual it blocks will make
 the most sense.
 
- Strategy for Using Spies 
--------------------------
+## Strategy for Using Spies ##
 
 Spies work particularly well with function composition. The attempt of
 this book is not to overlap with common unit testing principles, such as
@@ -77,69 +76,72 @@ alphabetical order, converts the text to camel case, and then converts
 it into a dictionary. From an abstract level we can apply each of these
 into their own function.
 
-    alphabetize(users: users[]) {
-      return sort(users);
-    }
+```typescript
+alphabetize(users: users[]) {
+  return sort(users);
+}
 
-    camelCase(userName: string) {
-      return camelCase(userName);
-    }
+camelCase(userName: string) {
+  return camelCase(userName);
+}
 
-    convertToDictionary(userId, user) {
-      return {
-        [userId]: user
-      }
-    }
+convertToDictionary(userId, user) {
+  return {
+    [userId]: user
+  }
+}
 
-    convertUser(users: users[]) {
-      const users = this.alphabetize(users);
-      users.map((user: user[]) => {
-        convertToDictionary(camelCase(user));
-      })
-    }
+convertUser(users: users[]) {
+  const users = this.alphabetize(users);
+  users.map((user: user[]) => {
+    convertToDictionary(camelCase(user));
+  })
+}
+```
 
 We can then run a unit test for each of the above functions, and then
 run a spy on them, for our global function. It would look something like
 the following:
 
-    describe('alphabetize', () => {
-      it('should alphabetize users', () => {
-        // appropriate unit test goes here
-      });
-    });
+```typescript
+describe('alphabetize', () => {
+  it('should alphabetize users', () => {
+    // appropriate unit test goes here
+  });
+});
 
-    describe('camelCase', () => {
-      it('should convert userNames to camelCase', () => {
-        // appropriate unit test goes here
-      });
-    });
+describe('camelCase', () => {
+  it('should convert userNames to camelCase', () => {
+    // appropriate unit test goes here
+  });
+});
 
-    describe('convertToDictionary', () => {
-      it('should convert users to dictionary', () => {
-       // appropriate unit test goes here
-      });
-    });
+describe('convertToDictionary', () => {
+  it('should convert users to dictionary', () => {
+    // appropriate unit test goes here
+  });
+});
 
-    describe('convertUser', () => {
-      const users = [...usersMock];
-      it('should convertUser to appropriate name', () => {
-        spyOn(component, 'alphabetize');
-        spyOn(component, 'camelCase');
-        spyOn(component, 'convertToDictionary');
-        component.converUsers(users);
-        expect(component.alphabetize).toHaveBeenCalledWith(users);
-        expect(component.camelCase).toHaveBeenCalled();
-        expect(component.convertToDictionary).toHaveBeenCalled();
-      });
-    });
+describe('convertUser', () => {
+  const users = [...usersMock];
+  it('should convertUser to appropriate name', () => {
+    spyOn(component, 'alphabetize');
+    spyOn(component, 'camelCase');
+    spyOn(component, 'convertToDictionary');
+    component.converUsers(users);
+    expect(component.alphabetize).toHaveBeenCalledWith(users);
+    expect(component.camelCase).toHaveBeenCalled();
+    expect(component.convertToDictionary).toHaveBeenCalled();
+  });
+});
+```
 
 Here we can see that all of our unit tests are tested individually. When
 it comes to composing them all into a giant function, from a unit
 testing perspective, all we need to do is make sure that they were
 indeed called with the correct parameters.
 
- A Final Note 
--------------
+## A Final Note ##
 
 Spies are a relatively simple concept. However, there are finer points
 that make spies a little bit of a confusing topic to understand. This
