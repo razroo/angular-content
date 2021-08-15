@@ -6,6 +6,7 @@ const bookJsonName = './book.json';
 const bookJson = require(bookJsonName);
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
+const axios = require('axios');
 
 let files = bookJson.files;
 
@@ -18,3 +19,13 @@ for (let x in files){
       console.log(output);
     })
 }
+
+
+axios({
+  method: 'post',
+  url: 'api-free.deepl.com/v2/translate'
+}).then(response => {
+    console.log('response');
+    console.log(response);
+  });
+  
