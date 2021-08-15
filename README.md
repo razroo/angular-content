@@ -137,3 +137,6 @@ Technical Articles will not be able to be created from the actual Strapi blog. O
 
 ### Building Newsletter
 The ["Razroo Angular Weekly"](https://github.com/razroo/angular-newsletter) newsletter pulls data directly from articles data. I.e. `https://razroo-content-api.razroo.com/articles`. For now, the newsletter will pull in the latest-updated Angular articles. As time goes on, and the list of articles is more dynamic, we will start to introduce more articles based on category. In addition, introduce minimal amounts of web crawling into the weekly newsletter.
+
+### Translating docs 
+For translating we use what we consider the best vendor on the market i.e. [DeepL](https://www.deepl.com/translator). The DeepL API can be seen here: https://www.deepl.com/docs-api/translating-text/request/. Reach out to charlie@razroo.com for the api key if need be for DeepL APIS
