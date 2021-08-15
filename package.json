@@ -10,6 +10,7 @@
     "build:epub:unittesting": "ts-node build-unit-testing-epub.ts",
     "build:pdf:unittesting": "ts-node build-unit-testing-pdf.ts",
     "build:articles": "ts-node build-articles.ts",
+    "translate:articles": "ts-node translate-articles.ts",
     "publish:articles": "ts-node strapi-scripts/publish-articles.ts",
     "start": "node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
