@@ -92,9 +92,10 @@ the tests in parallel. This will allow for the tests to run quicker.
 
 ## Karma Parallel ##
 
-Karma Parallel is an npm package that be used to run unit tests in
-parallel. It would require for the karma config to be updated
-accordingly. The one downfall of the karma config.
+Karma Parallel is an npm package that can be used to run unit tests in parallel.
+Karma Parallel requires the karma config to be updated accordingly. 
+This is one downfall of the karma config that anytime a new package is added, 
+it has to be updated accordingly.
 
 ## Ng-Bullet ##
 
