@@ -24,7 +24,7 @@ const options = {
     title: "Angular: The Full Gamut - ngrx/store", // *Required, title of the book.
     author: "Charlie Greenman", // *Required, name of the author.
     publisher: "Razroo", // optional
-    cover: "assets/angular-the-full-gamut-unit-testing-cover.jpg", // Url or File path, both ok.
+    cover: "assets/angular-the-full-gamut-state-management-cover.jpg", // Url or File path, both ok.
     content: content,
     output: './build/epub/angular-state-management.epub'
 };
