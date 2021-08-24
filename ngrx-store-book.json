@@ -1,0 +1,91 @@
+{
+    "category": "angular",
+    "author": "Razroo Angular",
+    "bookTitle": "Angular: The Full Gamut - ngrx/store",
+    "files": [
+    {
+        "path": "state/when-to-use-ngrx/when-to-use-ngrx.md",
+        "title": "When to Use @ngrx/store"
+    },
+    {
+        "path": "state/primer/actions/actions.md",
+        "title": "Primer - Actions"
+    },
+    {
+        "path": "state/primer/reducers/reducers.md",
+        "title": "Primer - Reducers"
+    },
+    {
+        "path": "state/history-of-state-management/history-of-state-management.md",
+        "title": "History of State Management"
+    },
+    {
+        "path": "state/introduction-to-ngrx-store/introduction-to-ngrx-store.md",
+        "title": "Introduction to @ngrx/store"
+    },
+    {
+        "path": "state/ngrx-cli/ngrx-cli.md",
+        "title": "Ngrx CLI"
+    },
+    {
+        "path": "state/ngrx-store/ngrx-store.md",
+        "title": "State Management - @ngrx/store"
+    },
+    {
+        "path": "state/ngrx-router-store/ngrx-router-store.md",
+        "title": "@ngrx/router-store"
+    },
+    {
+        "path": "state/store-selectors/store-selectors.md",
+        "title": "Store Selectors"
+    },
+    {
+        "path": "state/aggregation-pattern/aggregation-pattern.md",
+        "title": "Aggregation Pattern"
+    },
+    {
+        "path": "state/re-using-reducer-logic/re-using-reducer-logic.md",
+        "title": "Re-using Reducer Logic"
+    },
+    {
+        "path": "state/ngrx-effects/ngrx-effects.md",
+        "title": "Ngrx Effects"
+    },
+    {
+        "path": "state/ngrx-entity/heavily-use/heavily-use.md",
+        "title": "The Case for Using Ngrx/Entity by Default"
+    },
+    {
+        "path": "state/ngrx-entity/ngrx-entity.md",
+        "title": "Ngrx Entity"
+    },
+    {
+        "path": "state/ngrx-properly-unsubscribing/ngrx-properly-unsubscribing.md",
+        "title": "State Management - Properly Unsubscribing"
+    },
+    {
+        "path": "state/re-usable-state-anti-pattern/re-usable-state-anti-pattern.md",
+        "title": "Re-Usable State - An Anti-Pattern"
+    },
+    {
+        "path": "state/facade-pattern/facade-pattern.md",
+        "title": "Facade Pattern"
+    },
+    {
+        "path": "state/data-access/data-access.md",
+        "title": "State Directory Structure"
+    },
+    {
+        "path": "state/data-access/data-access-testing-module/data-access-testing-module.md",
+        "title": "Data Access Testing Module"
+    },
+    {
+        "path": "state/correlation-id-service/correlation-id-service.md",
+        "title": "Correlation ID Service"
+    },
+    {
+        "path": "state/integrating-component-with-ngrx-store/integrating-component-with-ngrx-store.md",
+        "title": "Integrating a Component with @ngrx/store"
+    }
+  ]
+}
