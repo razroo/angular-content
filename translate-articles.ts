@@ -9,7 +9,7 @@ import { readFileSync, writeFileSync } from 'fs';
 let files = articlesJson.files;
 
 // for (let x in files) {
-    let stagingPath = `./build/articles/es/${files[0].path.split("/").pop()}`;
+    let stagingPath = `./staging/articles/es/${files[0].path.split("/").pop()}`;
     let fileString = readFileSync(files[0].path).toString();
 
     axios({
