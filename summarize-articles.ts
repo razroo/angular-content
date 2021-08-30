@@ -8,18 +8,20 @@ const SummarizerManager = require("node-summarizer").SummarizerManager;
 import { readFileSync, writeFileSync } from 'fs';
 
 let files = articlesJson.files;
+let path = "unit-testing/marble-unit-testing/marble-unit-testing.md"
 
 // for (let x in files) {
-    let builtFilePath = `./build/articles/summary/${files[0].path.split("/").pop()}`;
-    let fileString = readFileSync(files[0].path).toString();
+    let builtFilePath = `./build/articles/summary/${path.split("/").pop()}`;
+    let fileString = readFileSync(path).toString();
 
-    const Summarizer = new SummarizerManager(fileString,3);
+    const Summarizer = new SummarizerManager(fileString,5);
+    let summary = Summarizer.getSummaryByFrequency().summary;
     Summarizer.getSummaryByRank().then((summary_object)=>{
         console.log('summary');
         console.log(summary_object.summary);
 
         mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
-        writeFileSync(builtFilePath, summary_object.summary);
+        writeFileSync(builtFilePath, summary);
     })
 
     
