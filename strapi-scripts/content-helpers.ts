@@ -17,17 +17,32 @@ export function getHtmlArticleFileContent(filePath) {
   return root.toString();
 }
 
-export function addUidIfNonePreset(files, articlesJson, articlesJsonName) {
-  for(let file in files){
-    let fileObject = files[file];
-
-    if(!fileObject.UID) {
-      fileObject["UID"] = uuidv4().replace("-","").substring(0,8);
+export function addUidIfNonePreset(files: any, articlesJson, articlesJsonName) {
+  try {
+    for(const [index, file] of Object.entries(files) as any){
+      if(file.subject) {
+        for(const [subIndex, subChapter] of Object.entries(file.chapters) as any){
+          if(!subChapter.UID) {
+            files[index]["chapters"][subIndex]["UID"] = uuidv4().replace("-","").substring(0,8);
+            console.log('files[index]["chapters"]');
+            console.log(files[index]["chapters"]);
+            
+          }
+        }
+      }
+      else {
+        if(!file.UID) {
+          files[index]["UID"] = uuidv4().replace("-","").substring(0,8);
+        }
+      }
+      
     }
   }
-  fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
-    if (err) return console.log(err);
-  });
+  finally {
+    fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
+      if (err) return console.log(err);
+    });
+  }
 }
 
 export function addChapterTitleIfNonePresent(files, articlesJson, articlesJsonName) {
