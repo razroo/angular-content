@@ -15,12 +15,28 @@ addBookIdIfNoneExists(contentJson, contentJsonName);
 addUidIfNonePreset(files, contentJson, contentJsonName);
 // addChapterTitleIfNonePresent(files, bookJson, bookJsonName);
 
-for (let x in files){
-    let builtFilePath = `./build/book/${files[x].path.split("/").pop()}`;
-    builtFilePath = builtFilePath.replace("md", "html");
+for (const [x, file] of Object.entries(files) as any){
+    let builtFilePath;
+    if(files[x].subject) {
+      console.log('file contains subject')
+      for(const [index, subChapter] of Object.entries(files[x].chapters) as any){
+        builtFilePath = `./build/book/${subChapter.path.split("/").pop()}`;
+        builtFilePath = builtFilePath.replace("md", "html");
 
-    mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
-    razrooMarkdownEngine(files[x].path, builtFilePath).then((output)=>{
-      console.log(output);
-    })
+        mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
+        razrooMarkdownEngine(subChapter.path, builtFilePath).then((output)=>{
+          console.log(output);
+        })
+      }
+    }
+    else {
+      builtFilePath = `./build/book/${file.path.split("/").pop()}`;
+      builtFilePath = builtFilePath.replace("md", "html");
+  
+      mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
+      razrooMarkdownEngine(file.path, builtFilePath).then((output)=>{
+        console.log(output);
+      })
+    }
+    
 }
