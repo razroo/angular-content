@@ -1,757 +1,883 @@
 {
-    "category": "angular",
-    "author": "Razroo Angular",
-    "bookTitle": "Angular: The Full Gamut",
-    "id": "abbf7dba",
-    "files": [
-      {
-        "path": "introduction/introduction.md",
-        "title": "Introduction"
-      },
-      {
-        "path": "dev-tools/dependency-graph/dependency-graph.md",
-        "title": "Dependency Graph"
-      },
-      {
-        "path": "dev-tools/angular-cli/angular-cli.md",
-        "title": "Angular CLI"
-      },
-      {
-        "path": "dev-tools/nrwl/nrwl.md",
-        "title": "Nrwl"
-      },
-      {
-        "path": "dev-tools/compodoc/compodoc.md",
-        "title": "Compodoc"
-      },
-      {
-        "path": "dev-tools/angular-cli-post-nx/angular-cli-post-nx.md",
-        "title": "Angular CLI Post NX"
-      },
-      {
-        "path": "dev-tools/github/code-owners/code-owners.md",
-        "title": "Code Owners"
-      },
-      {
-        "path": "dev-tools/github/github-wiki/github-wiki.md",
-        "title": "Github Wiki"
-      },
-      {
-        "path": "dev-tools/github/github-board/github-board.md",
-        "title": "Github Board"
-      },
-      {
-        "path": "dev-tools/linting/lint-all-the-things/lint-all-the-things.md",
-        "title": "Lint All The Things"
-      },
-      {
-        "path": "dev-tools/linting/linting-html/linting-html.md",
-        "title": "Linting HTML"
-      },
-      {
-        "path": "dev-tools/linting/linting-sass/linting-sass.md",
-        "title": "Linting Sass"
-      },
-      {
-        "path": "dev-tools/linting/accessibility/accessibility.md",
-        "title": "Accessibility"
-      },
-      {
-        "path": "dev-tools/lighthouse/lighthouse.md",
-        "title": "Lighthouse"
-      },
-      {
-        "path": "dev-tools/schematics/schematics.md",
-        "title": "Schematics"
-      },
-      {
-        "path": "dev-tools/schematics/schematics-deep-dive/schematics-deep-dive.md",
-        "title": "Schematics Deep Dive"
-      },
-      {
-        "path": "dev-tools/schematics/px-schematics/px-schematics.md",
-        "title": "PX Schematics"
-      },
-      {
-        "path": "dev-tools/schematics/nrwl-schematics/nrwl-schematics.md",
-        "title": "Nrwl Schematics"
-      },
-      {
-        "path": "dev-tools/storybook/storybook.md",
-        "title": "Storybook"
-      },
-      {
-        "path": "typescript/data-access-interface/data-access-interface.md",
-        "title": "Data Access Interface"
-      },
-      {
-        "path": "typescript/data-models/data-models.md",
-        "title": "Data Models"
-      },
-      {
-        "path": "typescript/interfaces-and-partials/interfaces-and-partials.md",
-        "title": "Interfaces and Partials"
-      },
-      {
-        "path": "typescript/tsconfig/tsconfig.md",
-        "title": "Tsconfig"
-      },
-      {
-        "path": "typescript/component-inheritance/component-inheritance.md",
-        "title": "Component Inheritance"
-      },
-      {
-        "path": "typescript/barrel-file/barrel-file.md",
-        "title": "Barrel File"
-      },
-      {
-        "path": "typescript/getting-and-setting/getting-and-setting.md",
-        "title": "Getting and Setting"
-      },
-      {
-        "path": "typescript/immutable/immutable.md",
-        "title": "Immutable"
-      },
-      {
-        "path": "typescript/declaration-files/declaration-files.md",
-        "title": "Declaration Files"
-      },
-      {
-        "path": "typescript/declaration-files/custom-declaration-files/custom-declaration-files.md",
-        "title": "Custom Declaration Files"
-      },
-      {
-        "path": "design-language-system/design-language-system.md",
-        "title": "Design Language System"
-      },
-      {
-        "path": "design-language-system/material-design/material-design.md",
-        "title": "Material Design"
-      },
-      {
-        "path": "design-language-system/material-overrides/material-overrides.md",
-        "title": "Material Overrides"
-      },
-      {
-        "path": "design-language-system/typography/typography.md",
-        "title": "Typography"
-      },
-      {
-        "path": "design-language-system/ui-skeleton/ui-skeleton.md",
-        "title": "UI Skeleton"
-      },
-      {
-        "path": "design-language-system/font-awesome/font-awesome.md",
-        "title": "Font Awesome"
-      },
-      {
-        "path": "design-language-system/sass-error-reporting/sass-error-reporting.md",
-        "title": "Sass Error Reporting"
-      },
-      {
-        "subject": "rxjs", 
-        "chapters": [
-            {
-              "path": "rxjs/introduction/introduction.md",
-              "title": "Rxjs Introduction"
-            },
-            {
-              "path": "rxjs/debugging-rxjs/debugging-rxjs.md",
-              "title": "Debugging Rxjs"
-            },
-            {
-              "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
-              "title": "Cold Vs. Hot"
-            },
-            {
-              "path": "rxjs/creation/creation.md",
-              "title": "Rxjs Creation"
-            },
-            {
-            "path": "rxjs/combination/combination.md",
-            "title": "Combination"
-            },
-            {
-            "path": "rxjs/filtering/filtering.md",
-            "title": "Filtering"
-            },
-            {
-            "path": "rxjs/transformation/transformation.md",
-            "title": "Transformation"
-            },
-            {
-            "path": "rxjs/utility/utility.md",
-            "title": "Utility"
-            },
-            {
-            "path": "rxjs/multicasting/multicasting.md",
-            "title": "Multicasting"
-            },
-            {
-            "path": "rxjs/rxjs-pitfalls/rxjs-pitfalls.md",
-            "title": "Rxjs Pitfalls"
-            },
-            {
-            "path": "rxjs/rxjs-and-facades/rxjs-and-facades.md",
-            "title": "Rxjs and Facades"
-            }
-        ]
-      },
-      {
-        "path": "architecture/configs/creating-a-config/creating-a-config.md",
-        "title": "Creating a Config"
-      },
-      {
-        "path": "architecture/configs/feature-flags/feature-flags.md",
-        "title": "Feature Flags"
-      },
-      {
-        "path": "architecture/environment/environment.md",
-        "title": "Environments"
-      },
-      {
-        "path": "architecture/file-structure/lib-file-structure/lib-file-structure.md",
-        "title": "Lib File Structure"
-      },
-      {
-        "path": "architecture/file-structure/setting-up-lib-folder-structure/setting-up-lib-folder-structure.md",
-        "title": "Setting Up Lib Folder Structure"
-      },
-      {
-        "path": "architecture/file-structure/data-access/data-access.md",
-        "title": "State Directory Structure"
-      },
-      {
-        "path": "architecture/file-structure/nx-lib-conventions/nx-lib-conventions.md",
-        "title": "Nx Lib Conventions"
-      },
-      {
-        "path": "architecture/file-structure/data-services/data-services.md",
-        "title": "Data Services - Directory Structure"
-      },
-      {
-        "path": "architecture/dialogs/dialogs.md",
-        "title": "Dialog Architecture"
-      },
-      {
-        "path": "architecture/lazy-loading/lazy-loading.md",
-        "title": "Lazy Loading Modules"
-      },
-      {
-        "path": "architecture/transloco/transloco.md",
-        "title": "Transloco"
-      },
-      {
-        "path": "architecture/lazy-loading/lazy-loading-images/lazy-loading-images.md",
-        "title": "Lazy Loading Images"
-      },
-      {
-        "path": "architecture/lazy-loading/network-aware-preloading/network-aware-preloading.md",
-        "title": "Network Aware Predictive Pre-Loading"
-      },
-      {
-        "path": "architecture/modules/shared-modules/shared-modules.md",
-        "title": "Shared Modules"
-      },
-      {
-        "path": "architecture/forms/form-validation/form-validation.md",
-        "title": "Form Validation Architecture"
-      },
-      {
-        "path": "architecture/angular-elements/angular-elements.md",
-        "title": "Angular Elements Load Time"
-      },
-      {
-        "path": "architecture/angular-react/angular-react.md",
-        "title": "Using React with Angular"
-      },
-      {
-        "path": "architecture/custom-web-components/custom-web-components.md",
-        "title": "Custom Web Components"
-      },
-      {
-        "path": "architecture/micro-frontends/micro-frontends.md",
-        "title": "Micro Frontends"
-      },
-      {
-        "path": "architecture/micro-frontends/micro-architecture/micro-architecture.md",
-        "title": "Micro Architecture - Key Design Principles"
-      },
-      {
-        "path": "architecture/angular-elements/static-site-generation/static-site-generation.md",
-        "title": "Static Site Generation"
-      },
-      {
-        "path": "architecture/smart-vs-dumb-components/smart-vs-dumb-components.md",
-        "title": "Smart Vs Dumb Components"
-      },
-      {
-        "path": "architecture/error-handling/error-handling.md",
-        "title": "Error Handling Architecture"
-      },
-      {
-        "path": "architecture/interceptors/interceptors.md",
-        "title": "Http Interceptors"
-      },
-      {
-        "path": "architecture/routing/guards/guards.md",
-        "title": "Angular Router Guards"
-      },
-      {
-        "path": "architecture/routing/route-guard-pre-loading/route-guard-pre-loading.md",
-        "title": "Pre-loading with Route Guards"
-      },
-      {
-        "path": "architecture/routing/containers-and-routing/containers-and-routing.md",
-        "title": "Containers, Routing + Ngrx/router"
-      },
-      {
-        "path": "core/terms/terms.md",
-        "title": "Output"
-      },
-      {
-        "path": "core/life-cycle/life-cycle.md",
-        "title": "Life Cycle Hooks"
-      },
-      {
-        "path": "core/dependency-injection/dependency-injection.md",
-        "title": "Dependency Injection"
-      },
-      {
-        "path": "core/decorators/input/input.md",
-        "title": "Input"
-      },
-      {
-        "path": "core/decorators/output/output.md",
-        "title": "Output"
-      },
-      {
-        "path": "core/internationalization/internationalization.md",
-        "title": "Internationalization and Localization"
-      },
-      {
-        "path": "core/content-projection/content-projection.md",
-        "title": "Content Projection"
-      },
-      {
-        "path": "core/templates/displaying-data/displaying-data.md",
-        "title": "Displaying Data"
-      },
-      {
-        "path": "core/templates/template-syntax/template-syntax.md",
-        "title": "Template Syntax"
-      },
-      {
-        "path": "core/modules/modules.md",
-        "title": "Modules"
-      },
-      {
-        "path": "core/services/services.md",
-        "title": "Services"
-      },
-      {
-        "path": "core/routing/routing.md",
-        "title": "Routing"
-      },
-      {
-        "path": "core/forms/forms.md",
-        "title": "Forms"
-      },
-      {
-        "path": "core/forms/reactive-forms/reactive-forms.md",
-        "title": "Reactive Forms"
-      },
-      {
-        "path": "core/directives/directives.md",
-        "title": "Attribute Directives"
-      },
-      {
-        "path": "core/pipes/pipes.md",
-        "title": "Pipes"
-      },
-      {
-        "path": "core/observables/observables.md",
-        "title": "Observables"
-      },
-      {
-        "path": "core/observables/angular-observables/angular-observables.md",
-        "title": "Angular Observables"
-      },
-      {
-        "path": "core/animations/animations.md",
-        "title": "Animations"
-      },
-      {
-        "path": "core/animations/transitions-and-triggers/transitions-and-triggers.md",
-        "title": "Transitions and Triggers"
-      },
-      {
-        "path": "performance/track-by/track-by.md",
-        "title": "Track By"
-      },
-      {
-        "path": "performance/bundle-size/bundle-size.md",
-        "title": "Bundle Size"
-      },
-      {
-        "path": "performance/images/images.md",
-        "title": "Image Performance in Angular"
-      },
-      {
-        "path": "performance/modern-script-loading/modern-script-loading.md",
-        "title": "Modern Script Loading"
-      },
-      {
-        "path": "performance/ahead-of-time/ahead-of-time.md",
-        "title": "Ahead of Time Compilation"
-      },
-      {
-        "path": "performance/implementing-service-worker/implementing-service-worker.md",
-        "title": "The Angular Service Worker - Implementing in App"
-      },
-      {
-        "path": "performance/understanding-rendering/understanding-rendering.md",
-        "title": "Understanding Rendering"
-      },
-      {
-        "path": "performance/angular-universal/angular-universal.md",
-        "title": "Angular Universal"
-      },
-      {
-        "path": "performance/angular-elements/angular-elements.md",
-        "title": "Angular Elements Load Time"
-      },
-      {
-        "path": "performance/change-detection/change-detection.md",
-        "title": "Change Detection"
-      },
-      {
-        "path": "performance/caching/using-apollo-with-ngrx/using-apollo-with-ngrx.md",
-        "title": "Integrating ngrx/store with Apollo Client"
-      },
-      {
-        "path": "performance/caching/sockets/sockets.md",
-        "title": "Sockets"
-      },
-      {
-        "path": "performance/caching/apollo-caching-with-sockets/apollo-caching-with-sockets.md",
-        "title": "Apollo Caching with Sockets"
-      },
-      {
-        "path": "pwa/responsive/responsive.md",
-        "title": "Responsive Design"
-      },
-      {
-        "path": "pwa/pwa-toolset-physical-devices/pwa-toolset-physical-devices.md",
-        "title": "PWA Toolset - Physical Devices"
-      },
-      {
-        "path": "pwa/pwa-toolset-sauce-labs/pwa-toolset-sauce-labs.md",
-        "title": "PWA Toolset - Sauce Labs"
-      },
-      {
-        "path": "pwa/mobile-first/mobile-first.md",
-        "title": "Mobile First - Building a Progressive Web App"
-      },
-      {
-        "path": "pwa/responsive/flex-layout/flex-layout.md",
-        "title": "Flex Layout"
-      },
-      {
-        "path": "pwa/styling-a-component/styling-a-component.md",
-        "title": "Styling a Component"
-      },
-      {
-        "path": "pwa/scully/scully.md",
-        "title": "Scully - Static Site Generation for Angular"
-      },
-      {
-        "path": "state/when-to-use-ngrx/when-to-use-ngrx.md",
-        "title": "When to Use @ngrx/store"
-      },
-      {
-        "path": "state/primer/actions/actions.md",
-        "title": "Primer - Actions"
-      },
-      {
-        "path": "state/primer/reducers/reducers.md",
-        "title": "Primer - Reducers"
-      },
-      {
-        "path": "state/history-of-state-management/history-of-state-management.md",
-        "title": "History of State Management"
-      },
-      {
-        "path": "state/introduction-to-ngrx-store/introduction-to-ngrx-store.md",
-        "title": "Introduction to @ngrx/store"
-      },
-      {
-        "path": "state/ngrx-cli/ngrx-cli.md",
-        "title": "Ngrx CLI"
-      },
-      {
-        "path": "state/ngrx-store/ngrx-store.md",
-        "title": "State Management - @ngrx/store"
-      },
-      {
-        "path": "state/ngrx-router-store/ngrx-router-store.md",
-        "title": "@ngrx/router-store"
-      },
-      {
-        "path": "state/store-selectors/store-selectors.md",
-        "title": "Store Selectors"
-      },
-      {
-        "path": "state/aggregation-pattern/aggregation-pattern.md",
-        "title": "Aggregation Pattern"
-      },
-      {
-        "path": "state/re-using-reducer-logic/re-using-reducer-logic.md",
-        "title": "Re-using Reducer Logic"
-      },
-      {
-        "path": "state/ngrx-effects/ngrx-effects.md",
-        "title": "Ngrx Effects"
-      },
-      {
-        "path": "state/ngrx-entity/heavily-use/heavily-use.md",
-        "title": "The Case for Using Ngrx/Entity by Default"
-      },
-      {
-        "path": "state/ngrx-entity/ngrx-entity.md",
-        "title": "Ngrx Entity"
-      },
-      {
-        "path": "state/ngrx-properly-unsubscribing/ngrx-properly-unsubscribing.md",
-        "title": "State Management - Properly Unsubscribing"
-      },
-      {
-        "path": "state/re-usable-state-anti-pattern/re-usable-state-anti-pattern.md",
-        "title": "Re-Usable State - An Anti-Pattern"
-      },
-      {
-        "path": "state/facade-pattern/facade-pattern.md",
-        "title": "Facade Pattern"
-      },
-      {
-        "path": "state/data-access/data-access.md",
-        "title": "State Directory Structure"
-      },
-      {
-        "path": "state/data-access/data-access-testing-module/data-access-testing-module.md",
-        "title": "Data Access Testing Module"
-      },
-      {
-        "path": "state/correlation-id-service/correlation-id-service.md",
-        "title": "Correlation ID Service"
-      },
-      {
-        "path": "state/integrating-component-with-ngrx-store/integrating-component-with-ngrx-store.md",
-        "title": "Integrating a Component with @ngrx/store"
-      },
-      {
-        "path": "graphics/charts/charts.md",
-        "title": "Charts"
-      },
-      {
-        "path": "unit-testing/benefits-of-unit-testing/benefits-of-unit-testing.md",
-        "title": "Benefits of Unit Testing, TDD, and BDD"
-      },
-      {
-        "path": "unit-testing/unit-testing-performance/unit-testing-performance.md",
-        "title": "Unit Testing Performance"
-      },
-      {
-        "path": "unit-testing/fixture-vs-debug/fixture-vs-debug.md",
-        "title": "Fixture Vs. Debug"
-      },
-      {
-        "path": "unit-testing/sass-unit-testing/sass-unit-testing.md",
-        "title": "Sass Unit Testing"
-      },
-      {
-        "path": "unit-testing/spectator/spectator.md",
-        "title": "Spectator for Unit Testing"
-      },
-      {
-        "path": "unit-testing/unit-testing.md",
-        "title": "Unit Testing"
-      },
-      {
-        "path": "unit-testing/understanding-different-types-of-unit-tests/understanding-different-types-of-unit-tests.md",
-        "title": "Unit Testing State"
-      },
-      {
-        "path": "unit-testing/jest/jest.md",
-        "title": "Jest"
-      },
-      {
-        "path": "unit-testing/cypress/cypress.md",
-        "title": "Visual Unit Tests with Cypress"
-      },
-      {
-        "path": "unit-testing/cypress/cypress-local/cypress-local.md",
-        "title": "Testing Cypress Locally With Authentication"
-      },
-      {
-        "path": "unit-testing/state/state.md",
-        "title": "Unit Testing State"
-      },
-      {
-        "path": "unit-testing/unit-testing-architecture/unit-testing-architecture.md",
-        "title": "Unit Testing Architecture"
-      },
-      {
-        "path": "unit-testing/interfaces-and-unit-testing/interfaces-and-unit-testing.md",
-        "title": "Interfaces and Unit Testing"
-      },
-      {
-        "path": "unit-testing/mocking-data/mocking-data.md",
-        "title": "Mocking Data"
-      },
-      {
-        "path": "unit-testing/spies/spies.md",
-        "title": "Spies"
-      },
-      {
-        "path": "unit-testing/debugging/debugging.md",
-        "title": "Debugging"
-      },
-      {
-        "path": "unit-testing/coverage-reporting/coverage-reporting.md",
-        "title": "Coverage Reporting"
-      },
-      {
-        "path": "unit-testing/unit-testing-dom/unit-testing-dom.md",
-        "title": "Unit Testing the DOM"
-      },
-      {
-        "path": "unit-testing/mocking-providers/mocking-providers.md",
-        "title": "Unit Testing - Mocking Providers"
-      },
-      {
-        "path": "unit-testing/unit-testing-modules/unit-testing-modules.md",
-        "title": "Unit Testing Modules"
-      },
-      {
-        "path": "unit-testing/marble-unit-testing/marble-unit-testing.md",
-        "title": "Marble Unit Testing"
-      },
-      {
-        "path": "unit-testing/marble-unit-testing/unit-testing-throw-error.md",
-        "title": "How to Unit Test throwError"
-      },
-      {
-        "path": "unit-testing/unit-testing-subscriptions/unit-testing-subscriptions.md",
-        "title": "Unit Testing Subscriptions"
-      },
-      {
-        "path": "unit-testing/first-principles-thinking/first-principles-thinking.md",
-        "title": "Unit Testing TDD - First Principles Discovery"
-      },
-      {
-        "path": "unit-testing/e2e-tests-in-tdd-setting/e2e-tests-in-tdd-setting.md",
-        "title": "E2E Testing in a TDD/BDD Setting"
-      },
-      {
-        "path": "unit-testing/automation-engineering/automation-engineering.md",
-        "title": "Automation Engineering"
-      },
-      {
-        "path": "unit-testing/writing-e2e-tests/writing-e2e-tests.md",
-        "title": "Writing E2E Tests"
-      },
-      {
-        "path": "unit-testing/apollo/unit-testing-apollo/unit-testing-apollo.md",
-        "title": "Unit Testing Component using Apollo"
-      },
-      {
-        "path": "unit-testing/apollo/apollo-client-middleware/apollo-client-middleware.md",
-        "title": "Apollo Client Middleware"
-      },
-      {
-        "path": "unit-testing/apollo/interfaces-and-unions/interfaces-and-unions.md",
-        "title": "Interfaces and Unions"
-      },
-      {
-        "path": "unit-testing/apollo/data-graphql/data-graphql.md",
-        "title": "Data GraphQL"
-      },
-      {
-        "path": "miscellaneous/versioning/versioning.md",
-        "title": "Git Versioning"
-      },
-      {
-        "path": "miscellaneous/ng-container-hack/ng-container-hack.md",
-        "title": "NG Container Hack for Structural Directives"
-      },
-      {
-        "path": "miscellaneous/npm/npm-vs-yarn/npm-vs-yarn.md",
-        "title": "Npm Vs. Yarn"
-      },
-      {
-        "path": "miscellaneous/administrative/weekly-dev-meeting/weekly-dev-meeting.md",
-        "title": "Weekly Meetings"
-      },
-      {
-        "path": "miscellaneous/creating-a-component/creating-a-component.md",
-        "title": "Creating a component"
-      },
-      {
-        "path": "miscellaneous/creating-second-component/creating-second-component.md",
-        "title": "Creating a Second Component"
-      },
-      {
-        "path": "miscellaneous/creating-a-component/creating-a-dumb-component.md",
-        "title": "Creating a Dumb Component"
-      },
-      {
-        "path": "miscellaneous/ticket-creation/technical-design-notes.md",
-        "title": "Technical Design Notes"
-      },
-      {
-        "path": "miscellaneous/ticket-creation/acceptance-criteria.md",
-        "title": "Acceptance Criteria"
-      },
-      {
-        "path": "miscellaneous/ticket-creation/component-design.md",
-        "title": "Ticket Creation - Component Design"
-      },
-      {
-        "path": "miscellaneous/code-administration/code-reviews/code-reviews.md",
-        "title": "Code Reviews"
-      },
-      {
-        "path": "miscellaneous/pixel-grid/pixel-grid-container/pixel-grid-container.md",
-        "title": "Pixel Grid Container"
-      },
-      {
-        "path": "miscellaneous/pixel-grid/pixel-grid-container-layout/pixel-grid-container-layout.md",
-        "title": "Pixel Grid Container Layout"
-      },
-      {
-        "path": "miscellaneous/adding-a-route-to-our-container/adding-a-route-to-our-container.md",
-        "title": "Adding a Route to Our Container"
-      },
-      {
-        "path": "miscellaneous/color-picker/color-picker.md",
-        "title": "Color Picker"
-      },
-      {
-        "path": "miscellaneous/constants/constants.md",
-        "title": "Constants"
-      },
-      {
-        "path": "miscellaneous/constants/enums-vs-constants.md",
-        "title": "Enums vs Constants"
-      },
-      {
-        "path": "miscellaneous/authorization/authorization.md",
-        "title": "Authorization"
-      },
-      {
-        "path": "code-examples/building-our-application/building-our-application.md",
-        "title": "Building our Application"
-      }
-    ]
-  }
+  "category": "angular",
+  "author": "Razroo Angular",
+  "bookTitle": "Angular: The Full Gamut",
+  "id": "abbf7dba",
+  "files": [
+    {
+      "path": "introduction/introduction.md",
+      "title": "Introduction",
+      "UID": "4af23f8f"
+    },
+    {
+      "path": "dev-tools/dependency-graph/dependency-graph.md",
+      "title": "Dependency Graph",
+      "UID": "b9887a2c"
+    },
+    {
+      "path": "dev-tools/angular-cli/angular-cli.md",
+      "title": "Angular CLI",
+      "UID": "41382e2e"
+    },
+    {
+      "path": "dev-tools/nrwl/nrwl.md",
+      "title": "Nrwl",
+      "UID": "e8a02061"
+    },
+    {
+      "path": "dev-tools/compodoc/compodoc.md",
+      "title": "Compodoc",
+      "UID": "43edd1fc"
+    },
+    {
+      "path": "dev-tools/angular-cli-post-nx/angular-cli-post-nx.md",
+      "title": "Angular CLI Post NX",
+      "UID": "a2c97e88"
+    },
+    {
+      "path": "dev-tools/github/code-owners/code-owners.md",
+      "title": "Code Owners",
+      "UID": "027d83ca"
+    },
+    {
+      "path": "dev-tools/github/github-wiki/github-wiki.md",
+      "title": "Github Wiki",
+      "UID": "5f6b47aa"
+    },
+    {
+      "path": "dev-tools/github/github-board/github-board.md",
+      "title": "Github Board",
+      "UID": "f6afdf7f"
+    },
+    {
+      "path": "dev-tools/linting/lint-all-the-things/lint-all-the-things.md",
+      "title": "Lint All The Things",
+      "UID": "d6056e91"
+    },
+    {
+      "path": "dev-tools/linting/linting-html/linting-html.md",
+      "title": "Linting HTML",
+      "UID": "b5d3db6e"
+    },
+    {
+      "path": "dev-tools/linting/linting-sass/linting-sass.md",
+      "title": "Linting Sass",
+      "UID": "764352aa"
+    },
+    {
+      "path": "dev-tools/linting/accessibility/accessibility.md",
+      "title": "Accessibility",
+      "UID": "49864392"
+    },
+    {
+      "path": "dev-tools/lighthouse/lighthouse.md",
+      "title": "Lighthouse",
+      "UID": "9a2a2f73"
+    },
+    {
+      "path": "dev-tools/schematics/schematics.md",
+      "title": "Schematics",
+      "UID": "e6fabe8a"
+    },
+    {
+      "path": "dev-tools/schematics/schematics-deep-dive/schematics-deep-dive.md",
+      "title": "Schematics Deep Dive",
+      "UID": "02bd3f5c"
+    },
+    {
+      "path": "dev-tools/schematics/px-schematics/px-schematics.md",
+      "title": "PX Schematics",
+      "UID": "d0ccce3f"
+    },
+    {
+      "path": "dev-tools/schematics/nrwl-schematics/nrwl-schematics.md",
+      "title": "Nrwl Schematics",
+      "UID": "91c9842f"
+    },
+    {
+      "path": "dev-tools/storybook/storybook.md",
+      "title": "Storybook",
+      "UID": "6192e5d3"
+    },
+    {
+      "path": "typescript/data-access-interface/data-access-interface.md",
+      "title": "Data Access Interface",
+      "UID": "39a4c07c"
+    },
+    {
+      "path": "typescript/data-models/data-models.md",
+      "title": "Data Models",
+      "UID": "e420da52"
+    },
+    {
+      "path": "typescript/interfaces-and-partials/interfaces-and-partials.md",
+      "title": "Interfaces and Partials",
+      "UID": "32f07bcf"
+    },
+    {
+      "path": "typescript/tsconfig/tsconfig.md",
+      "title": "Tsconfig",
+      "UID": "b00c1ecf"
+    },
+    {
+      "path": "typescript/component-inheritance/component-inheritance.md",
+      "title": "Component Inheritance",
+      "UID": "8f781075"
+    },
+    {
+      "path": "typescript/barrel-file/barrel-file.md",
+      "title": "Barrel File",
+      "UID": "444daa5d"
+    },
+    {
+      "path": "typescript/getting-and-setting/getting-and-setting.md",
+      "title": "Getting and Setting",
+      "UID": "1ae720b0"
+    },
+    {
+      "path": "typescript/immutable/immutable.md",
+      "title": "Immutable",
+      "UID": "2df67fc5"
+    },
+    {
+      "path": "typescript/declaration-files/declaration-files.md",
+      "title": "Declaration Files",
+      "UID": "d648be62"
+    },
+    {
+      "path": "typescript/declaration-files/custom-declaration-files/custom-declaration-files.md",
+      "title": "Custom Declaration Files",
+      "UID": "fb4a6805"
+    },
+    {
+      "path": "design-language-system/design-language-system.md",
+      "title": "Design Language System",
+      "UID": "0f7b5846"
+    },
+    {
+      "path": "design-language-system/material-design/material-design.md",
+      "title": "Material Design",
+      "UID": "f6ade693"
+    },
+    {
+      "path": "design-language-system/material-overrides/material-overrides.md",
+      "title": "Material Overrides",
+      "UID": "6530a58f"
+    },
+    {
+      "path": "design-language-system/typography/typography.md",
+      "title": "Typography",
+      "UID": "bc5a6110"
+    },
+    {
+      "path": "design-language-system/ui-skeleton/ui-skeleton.md",
+      "title": "UI Skeleton",
+      "UID": "65388ff2"
+    },
+    {
+      "path": "design-language-system/font-awesome/font-awesome.md",
+      "title": "Font Awesome",
+      "UID": "54da83d7"
+    },
+    {
+      "path": "design-language-system/sass-error-reporting/sass-error-reporting.md",
+      "title": "Sass Error Reporting",
+      "UID": "8e9a7c31"
+    },
+    {
+      "path": "architecture/configs/creating-a-config/creating-a-config.md",
+      "title": "Creating a Config",
+      "UID": "bae9a3cd"
+    },
+    {
+      "path": "architecture/configs/feature-flags/feature-flags.md",
+      "title": "Feature Flags",
+      "UID": "0d08a9e9"
+    },
+    {
+      "path": "architecture/environment/environment.md",
+      "title": "Environments",
+      "UID": "5ce16e3d"
+    },
+    {
+      "path": "architecture/file-structure/lib-file-structure/lib-file-structure.md",
+      "title": "Lib File Structure",
+      "UID": "20de6cf3"
+    },
+    {
+      "path": "architecture/file-structure/setting-up-lib-folder-structure/setting-up-lib-folder-structure.md",
+      "title": "Setting Up Lib Folder Structure",
+      "UID": "31d1b64f"
+    },
+    {
+      "path": "architecture/file-structure/data-access/data-access.md",
+      "title": "State Directory Structure",
+      "UID": "53f09f0d"
+    },
+    {
+      "path": "architecture/file-structure/nx-lib-conventions/nx-lib-conventions.md",
+      "title": "Nx Lib Conventions",
+      "UID": "626dc56c"
+    },
+    {
+      "path": "architecture/file-structure/data-services/data-services.md",
+      "title": "Data Services - Directory Structure",
+      "UID": "52ed29a6"
+    },
+    {
+      "path": "architecture/dialogs/dialogs.md",
+      "title": "Dialog Architecture",
+      "UID": "6b037102"
+    },
+    {
+      "path": "architecture/lazy-loading/lazy-loading.md",
+      "title": "Lazy Loading Modules",
+      "UID": "ed087883"
+    },
+    {
+      "path": "architecture/transloco/transloco.md",
+      "title": "Transloco",
+      "UID": "48186b42"
+    },
+    {
+      "path": "architecture/lazy-loading/lazy-loading-images/lazy-loading-images.md",
+      "title": "Lazy Loading Images",
+      "UID": "3cc3ec1d"
+    },
+    {
+      "path": "architecture/lazy-loading/network-aware-preloading/network-aware-preloading.md",
+      "title": "Network Aware Predictive Pre-Loading",
+      "UID": "ad108b80"
+    },
+    {
+      "path": "architecture/modules/shared-modules/shared-modules.md",
+      "title": "Shared Modules",
+      "UID": "697218c1"
+    },
+    {
+      "path": "architecture/forms/form-validation/form-validation.md",
+      "title": "Form Validation Architecture",
+      "UID": "ab215bc4"
+    },
+    {
+      "path": "architecture/angular-elements/angular-elements.md",
+      "title": "Angular Elements Load Time",
+      "UID": "3e0e14c2"
+    },
+    {
+      "path": "architecture/angular-react/angular-react.md",
+      "title": "Using React with Angular",
+      "UID": "b8f82615"
+    },
+    {
+      "path": "architecture/custom-web-components/custom-web-components.md",
+      "title": "Custom Web Components",
+      "UID": "dd09e731"
+    },
+    {
+      "path": "architecture/micro-frontends/micro-frontends.md",
+      "title": "Micro Frontends",
+      "UID": "460c854e"
+    },
+    {
+      "path": "architecture/micro-frontends/micro-architecture/micro-architecture.md",
+      "title": "Micro Architecture - Key Design Principles",
+      "UID": "ddfa10bd"
+    },
+    {
+      "path": "architecture/angular-elements/static-site-generation/static-site-generation.md",
+      "title": "Static Site Generation",
+      "UID": "4f2084c6"
+    },
+    {
+      "path": "architecture/smart-vs-dumb-components/smart-vs-dumb-components.md",
+      "title": "Smart Vs Dumb Components",
+      "UID": "71cd461b"
+    },
+    {
+      "path": "architecture/error-handling/error-handling.md",
+      "title": "Error Handling Architecture",
+      "UID": "094734a2"
+    },
+    {
+      "path": "architecture/interceptors/interceptors.md",
+      "title": "Http Interceptors",
+      "UID": "7dba0f86"
+    },
+    {
+      "path": "architecture/routing/guards/guards.md",
+      "title": "Angular Router Guards",
+      "UID": "82ec2dde"
+    },
+    {
+      "path": "architecture/routing/route-guard-pre-loading/route-guard-pre-loading.md",
+      "title": "Pre-loading with Route Guards",
+      "UID": "7c108c19"
+    },
+    {
+      "path": "architecture/routing/containers-and-routing/containers-and-routing.md",
+      "title": "Containers, Routing + Ngrx/router",
+      "UID": "af4e721d"
+    },
+    {
+      "path": "core/terms/terms.md",
+      "title": "Output",
+      "UID": "ba0595a5"
+    },
+    {
+      "path": "core/life-cycle/life-cycle.md",
+      "title": "Life Cycle Hooks",
+      "UID": "a0de0622"
+    },
+    {
+      "path": "core/dependency-injection/dependency-injection.md",
+      "title": "Dependency Injection",
+      "UID": "1cbf90b5"
+    },
+    {
+      "path": "core/decorators/input/input.md",
+      "title": "Input",
+      "UID": "59f59a53"
+    },
+    {
+      "path": "core/decorators/output/output.md",
+      "title": "Output",
+      "UID": "744affb9"
+    },
+    {
+      "path": "core/internationalization/internationalization.md",
+      "title": "Internationalization and Localization",
+      "UID": "569d17f9"
+    },
+    {
+      "path": "core/content-projection/content-projection.md",
+      "title": "Content Projection",
+      "UID": "41b8ae89"
+    },
+    {
+      "path": "core/templates/displaying-data/displaying-data.md",
+      "title": "Displaying Data",
+      "UID": "0bfc654e"
+    },
+    {
+      "path": "core/templates/template-syntax/template-syntax.md",
+      "title": "Template Syntax",
+      "UID": "0c135576"
+    },
+    {
+      "path": "core/modules/modules.md",
+      "title": "Modules",
+      "UID": "19332901"
+    },
+    {
+      "path": "core/services/services.md",
+      "title": "Services",
+      "UID": "1a78f0eb"
+    },
+    {
+      "path": "core/routing/routing.md",
+      "title": "Routing",
+      "UID": "df2b844b"
+    },
+    {
+      "path": "core/forms/forms.md",
+      "title": "Forms",
+      "UID": "f811f974"
+    },
+    {
+      "path": "core/forms/reactive-forms/reactive-forms.md",
+      "title": "Reactive Forms",
+      "UID": "6c39554f"
+    },
+    {
+      "path": "core/directives/directives.md",
+      "title": "Attribute Directives",
+      "UID": "0bca6349"
+    },
+    {
+      "path": "core/pipes/pipes.md",
+      "title": "Pipes",
+      "UID": "82a3eee3"
+    },
+    {
+      "path": "core/observables/observables.md",
+      "title": "Observables",
+      "UID": "bda0b6da"
+    },
+    {
+      "path": "core/observables/angular-observables/angular-observables.md",
+      "title": "Angular Observables",
+      "UID": "d546864f"
+    },
+    {
+      "path": "core/animations/animations.md",
+      "title": "Animations",
+      "UID": "8f3ed32f"
+    },
+    {
+      "path": "core/animations/transitions-and-triggers/transitions-and-triggers.md",
+      "title": "Transitions and Triggers",
+      "UID": "fb3bc263"
+    },
+    {
+      "path": "performance/track-by/track-by.md",
+      "title": "Track By",
+      "UID": "7aea90d7"
+    },
+    {
+      "path": "performance/bundle-size/bundle-size.md",
+      "title": "Bundle Size",
+      "UID": "526dfcd4"
+    },
+    {
+      "path": "performance/images/images.md",
+      "title": "Image Performance in Angular",
+      "UID": "4fe998af"
+    },
+    {
+      "path": "performance/modern-script-loading/modern-script-loading.md",
+      "title": "Modern Script Loading",
+      "UID": "eddac127"
+    },
+    {
+      "path": "performance/ahead-of-time/ahead-of-time.md",
+      "title": "Ahead of Time Compilation",
+      "UID": "7dd3ecb9"
+    },
+    {
+      "path": "performance/implementing-service-worker/implementing-service-worker.md",
+      "title": "The Angular Service Worker - Implementing in App",
+      "UID": "e39600cf"
+    },
+    {
+      "path": "performance/understanding-rendering/understanding-rendering.md",
+      "title": "Understanding Rendering",
+      "UID": "71e2af25"
+    },
+    {
+      "path": "performance/angular-universal/angular-universal.md",
+      "title": "Angular Universal",
+      "UID": "186a4603"
+    },
+    {
+      "path": "performance/angular-elements/angular-elements.md",
+      "title": "Angular Elements Load Time",
+      "UID": "95d0a33e"
+    },
+    {
+      "path": "performance/change-detection/change-detection.md",
+      "title": "Change Detection",
+      "UID": "1dc6997e"
+    },
+    {
+      "path": "performance/caching/using-apollo-with-ngrx/using-apollo-with-ngrx.md",
+      "title": "Integrating ngrx/store with Apollo Client",
+      "UID": "1c5ce1e2"
+    },
+    {
+      "path": "performance/caching/sockets/sockets.md",
+      "title": "Sockets",
+      "UID": "a87ddc54"
+    },
+    {
+      "path": "performance/caching/apollo-caching-with-sockets/apollo-caching-with-sockets.md",
+      "title": "Apollo Caching with Sockets",
+      "UID": "614ae948"
+    },
+    {
+      "path": "pwa/responsive/responsive.md",
+      "title": "Responsive Design",
+      "UID": "15870744"
+    },
+    {
+      "path": "pwa/pwa-toolset-physical-devices/pwa-toolset-physical-devices.md",
+      "title": "PWA Toolset - Physical Devices",
+      "UID": "f4ffd0fe"
+    },
+    {
+      "path": "pwa/pwa-toolset-sauce-labs/pwa-toolset-sauce-labs.md",
+      "title": "PWA Toolset - Sauce Labs",
+      "UID": "ba960dfe"
+    },
+    {
+      "path": "pwa/mobile-first/mobile-first.md",
+      "title": "Mobile First - Building a Progressive Web App",
+      "UID": "ffe0d1f4"
+    },
+    {
+      "path": "pwa/responsive/flex-layout/flex-layout.md",
+      "title": "Flex Layout",
+      "UID": "73657fc9"
+    },
+    {
+      "path": "pwa/styling-a-component/styling-a-component.md",
+      "title": "Styling a Component",
+      "UID": "13581bb2"
+    },
+    {
+      "path": "pwa/scully/scully.md",
+      "title": "Scully - Static Site Generation for Angular",
+      "UID": "fbb2d55f"
+    },
+    {
+      "path": "state/when-to-use-ngrx/when-to-use-ngrx.md",
+      "title": "When to Use @ngrx/store",
+      "UID": "4dbb1b49"
+    },
+    {
+      "path": "state/primer/actions/actions.md",
+      "title": "Primer - Actions",
+      "UID": "857f1cfb"
+    },
+    {
+      "path": "state/primer/reducers/reducers.md",
+      "title": "Primer - Reducers",
+      "UID": "e0e984fe"
+    },
+    {
+      "path": "state/history-of-state-management/history-of-state-management.md",
+      "title": "History of State Management",
+      "UID": "673ea4e4"
+    },
+    {
+      "path": "state/introduction-to-ngrx-store/introduction-to-ngrx-store.md",
+      "title": "Introduction to @ngrx/store",
+      "UID": "2c6b8253"
+    },
+    {
+      "path": "state/ngrx-cli/ngrx-cli.md",
+      "title": "Ngrx CLI",
+      "UID": "54367929"
+    },
+    {
+      "path": "state/ngrx-store/ngrx-store.md",
+      "title": "State Management - @ngrx/store",
+      "UID": "a1fc5cec"
+    },
+    {
+      "path": "state/ngrx-router-store/ngrx-router-store.md",
+      "title": "@ngrx/router-store",
+      "UID": "c8f7539e"
+    },
+    {
+      "path": "state/store-selectors/store-selectors.md",
+      "title": "Store Selectors",
+      "UID": "771a3026"
+    },
+    {
+      "path": "state/aggregation-pattern/aggregation-pattern.md",
+      "title": "Aggregation Pattern",
+      "UID": "ec2e9dd3"
+    },
+    {
+      "path": "state/re-using-reducer-logic/re-using-reducer-logic.md",
+      "title": "Re-using Reducer Logic",
+      "UID": "1a76c082"
+    },
+    {
+      "path": "state/ngrx-effects/ngrx-effects.md",
+      "title": "Ngrx Effects",
+      "UID": "b02d3168"
+    },
+    {
+      "path": "state/ngrx-entity/heavily-use/heavily-use.md",
+      "title": "The Case for Using Ngrx/Entity by Default",
+      "UID": "1d938d25"
+    },
+    {
+      "path": "state/ngrx-entity/ngrx-entity.md",
+      "title": "Ngrx Entity",
+      "UID": "567b40da"
+    },
+    {
+      "path": "state/ngrx-properly-unsubscribing/ngrx-properly-unsubscribing.md",
+      "title": "State Management - Properly Unsubscribing",
+      "UID": "17ea02eb"
+    },
+    {
+      "path": "state/re-usable-state-anti-pattern/re-usable-state-anti-pattern.md",
+      "title": "Re-Usable State - An Anti-Pattern",
+      "UID": "37dd4e7d"
+    },
+    {
+      "path": "state/facade-pattern/facade-pattern.md",
+      "title": "Facade Pattern",
+      "UID": "9a8b7377"
+    },
+    {
+      "path": "state/data-access/data-access.md",
+      "title": "State Directory Structure",
+      "UID": "1e620634"
+    },
+    {
+      "path": "state/data-access/data-access-testing-module/data-access-testing-module.md",
+      "title": "Data Access Testing Module",
+      "UID": "4ef5497e"
+    },
+    {
+      "path": "state/correlation-id-service/correlation-id-service.md",
+      "title": "Correlation ID Service",
+      "UID": "7fd76ed2"
+    },
+    {
+      "path": "state/integrating-component-with-ngrx-store/integrating-component-with-ngrx-store.md",
+      "title": "Integrating a Component with @ngrx/store",
+      "UID": "2f73633c"
+    },
+    {
+      "path": "graphics/charts/charts.md",
+      "title": "Charts",
+      "UID": "210286c1"
+    },
+    {
+      "path": "unit-testing/benefits-of-unit-testing/benefits-of-unit-testing.md",
+      "title": "Benefits of Unit Testing, TDD, and BDD",
+      "UID": "e4f7d8de"
+    },
+    {
+      "path": "unit-testing/unit-testing-performance/unit-testing-performance.md",
+      "title": "Unit Testing Performance",
+      "UID": "84b99483"
+    },
+    {
+      "path": "unit-testing/fixture-vs-debug/fixture-vs-debug.md",
+      "title": "Fixture Vs. Debug",
+      "UID": "042bf0a6"
+    },
+    {
+      "path": "unit-testing/sass-unit-testing/sass-unit-testing.md",
+      "title": "Sass Unit Testing",
+      "UID": "d2cdbd52"
+    },
+    {
+      "path": "unit-testing/spectator/spectator.md",
+      "title": "Spectator for Unit Testing",
+      "UID": "17ea0123"
+    },
+    {
+      "path": "unit-testing/unit-testing.md",
+      "title": "Unit Testing",
+      "UID": "55f6acf7"
+    },
+    {
+      "path": "unit-testing/understanding-different-types-of-unit-tests/understanding-different-types-of-unit-tests.md",
+      "title": "Unit Testing State",
+      "UID": "059d8276"
+    },
+    {
+      "path": "unit-testing/jest/jest.md",
+      "title": "Jest",
+      "UID": "c90aa00b"
+    },
+    {
+      "path": "unit-testing/cypress/cypress.md",
+      "title": "Visual Unit Tests with Cypress",
+      "UID": "66d5ec70"
+    },
+    {
+      "path": "unit-testing/cypress/cypress-local/cypress-local.md",
+      "title": "Testing Cypress Locally With Authentication",
+      "UID": "667f415d"
+    },
+    {
+      "path": "unit-testing/state/state.md",
+      "title": "Unit Testing State",
+      "UID": "31db324a"
+    },
+    {
+      "path": "unit-testing/unit-testing-architecture/unit-testing-architecture.md",
+      "title": "Unit Testing Architecture",
+      "UID": "c119dbab"
+    },
+    {
+      "path": "unit-testing/interfaces-and-unit-testing/interfaces-and-unit-testing.md",
+      "title": "Interfaces and Unit Testing",
+      "UID": "a48809d2"
+    },
+    {
+      "path": "unit-testing/mocking-data/mocking-data.md",
+      "title": "Mocking Data",
+      "UID": "16dfa38a"
+    },
+    {
+      "path": "unit-testing/spies/spies.md",
+      "title": "Spies",
+      "UID": "3982ed1f"
+    },
+    {
+      "path": "unit-testing/debugging/debugging.md",
+      "title": "Debugging",
+      "UID": "b3b2b066"
+    },
+    {
+      "path": "unit-testing/coverage-reporting/coverage-reporting.md",
+      "title": "Coverage Reporting",
+      "UID": "6c79fd5e"
+    },
+    {
+      "path": "unit-testing/unit-testing-dom/unit-testing-dom.md",
+      "title": "Unit Testing the DOM",
+      "UID": "4c6c11ea"
+    },
+    {
+      "path": "unit-testing/mocking-providers/mocking-providers.md",
+      "title": "Unit Testing - Mocking Providers",
+      "UID": "30f1ba53"
+    },
+    {
+      "path": "unit-testing/unit-testing-modules/unit-testing-modules.md",
+      "title": "Unit Testing Modules",
+      "UID": "3c097977"
+    },
+    {
+      "path": "unit-testing/marble-unit-testing/marble-unit-testing.md",
+      "title": "Marble Unit Testing",
+      "UID": "c11f8f12"
+    },
+    {
+      "path": "unit-testing/marble-unit-testing/unit-testing-throw-error.md",
+      "title": "How to Unit Test throwError",
+      "UID": "95c259cc"
+    },
+    {
+      "path": "unit-testing/unit-testing-subscriptions/unit-testing-subscriptions.md",
+      "title": "Unit Testing Subscriptions",
+      "UID": "111aa462"
+    },
+    {
+      "path": "unit-testing/first-principles-thinking/first-principles-thinking.md",
+      "title": "Unit Testing TDD - First Principles Discovery",
+      "UID": "ad3df288"
+    },
+    {
+      "path": "unit-testing/e2e-tests-in-tdd-setting/e2e-tests-in-tdd-setting.md",
+      "title": "E2E Testing in a TDD/BDD Setting",
+      "UID": "302cc072"
+    },
+    {
+      "path": "unit-testing/automation-engineering/automation-engineering.md",
+      "title": "Automation Engineering",
+      "UID": "9089a63a"
+    },
+    {
+      "path": "unit-testing/writing-e2e-tests/writing-e2e-tests.md",
+      "title": "Writing E2E Tests",
+      "UID": "7e8c42cb"
+    },
+    {
+      "path": "unit-testing/apollo/unit-testing-apollo/unit-testing-apollo.md",
+      "title": "Unit Testing Component using Apollo",
+      "UID": "b0063786"
+    },
+    {
+      "path": "unit-testing/apollo/apollo-client-middleware/apollo-client-middleware.md",
+      "title": "Apollo Client Middleware",
+      "UID": "a739ef91"
+    },
+    {
+      "path": "unit-testing/apollo/interfaces-and-unions/interfaces-and-unions.md",
+      "title": "Interfaces and Unions",
+      "UID": "0eafd5fe"
+    },
+    {
+      "path": "unit-testing/apollo/data-graphql/data-graphql.md",
+      "title": "Data GraphQL",
+      "UID": "812a06ef"
+    },
+    {
+      "path": "miscellaneous/versioning/versioning.md",
+      "title": "Git Versioning",
+      "UID": "bedf1006"
+    },
+    {
+      "path": "miscellaneous/ng-container-hack/ng-container-hack.md",
+      "title": "NG Container Hack for Structural Directives",
+      "UID": "3034e554"
+    },
+    {
+      "path": "miscellaneous/npm/npm-vs-yarn/npm-vs-yarn.md",
+      "title": "Npm Vs. Yarn",
+      "UID": "54cbb1ca"
+    },
+    {
+      "path": "miscellaneous/administrative/weekly-dev-meeting/weekly-dev-meeting.md",
+      "title": "Weekly Meetings",
+      "UID": "177b6dab"
+    },
+    {
+      "path": "miscellaneous/creating-a-component/creating-a-component.md",
+      "title": "Creating a component",
+      "UID": "b854f759"
+    },
+    {
+      "path": "miscellaneous/creating-second-component/creating-second-component.md",
+      "title": "Creating a Second Component",
+      "UID": "4b44dbe7"
+    },
+    {
+      "path": "miscellaneous/creating-a-component/creating-a-dumb-component.md",
+      "title": "Creating a Dumb Component",
+      "UID": "535a786b"
+    },
+    {
+      "path": "miscellaneous/ticket-creation/technical-design-notes.md",
+      "title": "Technical Design Notes",
+      "UID": "7cb4a80a"
+    },
+    {
+      "path": "miscellaneous/ticket-creation/acceptance-criteria.md",
+      "title": "Acceptance Criteria",
+      "UID": "4e016ff2"
+    },
+    {
+      "path": "miscellaneous/ticket-creation/component-design.md",
+      "title": "Ticket Creation - Component Design",
+      "UID": "493adddb"
+    },
+    {
+      "path": "miscellaneous/code-administration/code-reviews/code-reviews.md",
+      "title": "Code Reviews",
+      "UID": "c96a68d7"
+    },
+    {
+      "path": "miscellaneous/pixel-grid/pixel-grid-container/pixel-grid-container.md",
+      "title": "Pixel Grid Container",
+      "UID": "905df733"
+    },
+    {
+      "path": "miscellaneous/pixel-grid/pixel-grid-container-layout/pixel-grid-container-layout.md",
+      "title": "Pixel Grid Container Layout",
+      "UID": "1694b0ed"
+    },
+    {
+      "path": "miscellaneous/adding-a-route-to-our-container/adding-a-route-to-our-container.md",
+      "title": "Adding a Route to Our Container",
+      "UID": "6212d5f3"
+    },
+    {
+      "path": "miscellaneous/color-picker/color-picker.md",
+      "title": "Color Picker",
+      "UID": "2693ef9a"
+    },
+    {
+      "path": "miscellaneous/constants/constants.md",
+      "title": "Constants",
+      "UID": "31bb2a77"
+    },
+    {
+      "path": "miscellaneous/constants/enums-vs-constants.md",
+      "title": "Enums vs Constants",
+      "UID": "358a1dba"
+    },
+    {
+      "path": "miscellaneous/authorization/authorization.md",
+      "title": "Authorization",
+      "UID": "f7114b31"
+    },
+    {
+      "path": "code-examples/building-our-application/building-our-application.md",
+      "title": "Building our Application",
+      "UID": "9c110796"
+    }
+  ]
+}
