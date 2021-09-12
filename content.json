@@ -185,54 +185,65 @@
       "UID": "8e9a7c31"
     },
     {
-        "subject": "rxjs", 
-        "chapters": [
-            {
-              "path": "rxjs/introduction/introduction.md",
-              "title": "Rxjs Introduction"
-            },
-            {
-              "path": "rxjs/debugging-rxjs/debugging-rxjs.md",
-              "title": "Debugging Rxjs"
-            },
-            {
-              "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
-              "title": "Cold Vs. Hot"
-            },
-            {
-              "path": "rxjs/creation/creation.md",
-              "title": "Rxjs Creation"
-            },
-            {
-            "path": "rxjs/combination/combination.md",
-            "title": "Combination"
-            },
-            {
-            "path": "rxjs/filtering/filtering.md",
-            "title": "Filtering"
-            },
-            {
-            "path": "rxjs/transformation/transformation.md",
-            "title": "Transformation"
-            },
-            {
-            "path": "rxjs/utility/utility.md",
-            "title": "Utility"
-            },
-            {
-            "path": "rxjs/multicasting/multicasting.md",
-            "title": "Multicasting"
-            },
-            {
-            "path": "rxjs/rxjs-pitfalls/rxjs-pitfalls.md",
-            "title": "Rxjs Pitfalls"
-            },
-            {
-            "path": "rxjs/rxjs-and-facades/rxjs-and-facades.md",
-            "title": "Rxjs and Facades"
-            }
-        ]
-      },
+      "subject": "rxjs",
+      "chapters": [
+        {
+          "path": "rxjs/introduction/introduction.md",
+          "title": "Rxjs Introduction",
+          "UID": "87e4cd06"
+        },
+        {
+          "path": "rxjs/debugging-rxjs/debugging-rxjs.md",
+          "title": "Debugging Rxjs",
+          "UID": "9bcbe4cb"
+        },
+        {
+          "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
+          "title": "Cold Vs. Hot",
+          "UID": "4b460bf2"
+        },
+        {
+          "path": "rxjs/creation/creation.md",
+          "title": "Rxjs Creation",
+          "UID": "7755609f"
+        },
+        {
+          "path": "rxjs/combination/combination.md",
+          "title": "Combination",
+          "UID": "584a75ec"
+        },
+        {
+          "path": "rxjs/filtering/filtering.md",
+          "title": "Filtering",
+          "UID": "74296def"
+        },
+        {
+          "path": "rxjs/transformation/transformation.md",
+          "title": "Transformation",
+          "UID": "2fc3aeb5"
+        },
+        {
+          "path": "rxjs/utility/utility.md",
+          "title": "Utility",
+          "UID": "29d3a7b2"
+        },
+        {
+          "path": "rxjs/multicasting/multicasting.md",
+          "title": "Multicasting",
+          "UID": "a9da0f46"
+        },
+        {
+          "path": "rxjs/rxjs-pitfalls/rxjs-pitfalls.md",
+          "title": "Rxjs Pitfalls",
+          "UID": "0865b015"
+        },
+        {
+          "path": "rxjs/rxjs-and-facades/rxjs-and-facades.md",
+          "title": "Rxjs and Facades",
+          "UID": "fae52a60"
+        }
+      ]
+    },
     {
       "path": "architecture/configs/creating-a-config/creating-a-config.md",
       "title": "Creating a Config",
