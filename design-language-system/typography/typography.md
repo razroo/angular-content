@@ -38,7 +38,7 @@ sass function for the Angular Material typography config. Razroo has
 also added comments, to make it appropriate for the context of this
 book.
 
-``` {caption="@angular/material/\_theming.scss"}
+```scss
 // Represents a collection of typography levels.
 // Defaults come from https://material.io/guidelines/style/typography.html
 // Note: The spec doesn't mention letter spacing. The values here come from
@@ -88,7 +88,7 @@ typography based on Angular Material Design.
 Let's dissect the typography Sass mixin the Angular team uses for the
 material card component.
 
-``` {caption="@angular/material/\_theming.scss"}
+```scss
 @mixin mat-card-typography($config) {
   .mat-card {
     font-family: mat-font-family($config);
@@ -135,7 +135,7 @@ headers (`<h1>, <h2>, <h3>`), list items(`<li>`), and `<p>` tags will
 not be styled by default. However, Angular Material Design design does
 have it's own internal typography system, that can be seen here:
 
-``` {caption="@angular/material/\_theming.scss"}
+```scss
 @mixin mat-base-typography($config, $selector: '.mat-typography') {
   .mat-h1, .mat-headline, #{$selector} h1 {
     @include mat-typography-level-to-styles($config, headline);
@@ -179,7 +179,7 @@ There is a class that one can use called `.mat-typography` that the
 Angular Material library provides. To apply it globally, you can apply
 it on the div wrapper for your content:
 
-``` {caption="app.component.html"}
+```html
 <div class="page-wrap">
   <razroo-header></razroo-header>
   <div class="content mat-typography">
@@ -196,32 +196,34 @@ It is important to realize, that the Material specs will not cover every
 use case. In particular, this is exemplified by code inside of the
 `\_theming.scss` file.
 
-    // Note: the spec doesn't have anything that would correspond to h5 and h6, but we add these for
-    // consistency. The font sizes come from the Chrome user agent styles which have h5 at 0.83em
-    // and h6 at 0.67em.
-    .mat-h5, #{$selector} h5 {
-      @include mat-typography-font-shorthand(
-          // calc is used here to support css variables
-        calc(#{mat-font-size($config, body-1)} * 0.83),
-        mat-font-weight($config, body-1),
-        mat-line-height($config, body-1),
-        mat-font-family($config, body-1)
-      );
+```scss
+  // Note: the spec doesn't have anything that would correspond to h5 and h6, but we add these for
+  // consistency. The font sizes come from the Chrome user agent styles which have h5 at 0.83em
+  // and h6 at 0.67em.
+  .mat-h5, #{$selector} h5 {
+    @include mat-typography-font-shorthand(
+        // calc is used here to support css variables
+      calc(#{mat-font-size($config, body-1)} * 0.83),
+      mat-font-weight($config, body-1),
+      mat-line-height($config, body-1),
+      mat-font-family($config, body-1)
+    );
 
-      margin: 0 0 12px;
-    }
+    margin: 0 0 12px;
+  }
 
-    .mat-h6, #{$selector} h6 {
-      @include mat-typography-font-shorthand(
-          // calc is used here to support css variables
-        calc(#{mat-font-size($config, body-1)} * 0.67),
-        mat-font-weight($config, body-1),
-        mat-line-height($config, body-1),
-        mat-font-family($config, body-1)
-      );
+  .mat-h6, #{$selector} h6 {
+    @include mat-typography-font-shorthand(
+        // calc is used here to support css variables
+      calc(#{mat-font-size($config, body-1)} * 0.67),
+      mat-font-weight($config, body-1),
+      mat-line-height($config, body-1),
+      mat-font-family($config, body-1)
+    );
 
-      margin: 0 0 12px;
-    }
+    margin: 0 0 12px;
+  }
+```
 
 As you can see in the above example, core Angular Engineers have had to
 comment inside of their core code base, that the spec doesn't have
@@ -237,33 +239,39 @@ Mat Typography Customization
 Within Angular Material we have the ability to customize internally the
 material typography config:
 
-    @import '~@angular/material/theming';
+```scss
+@import '~@angular/material/theming';
 
-    // Define a custom typography config that overrides the font-family as well as the
-    // `headlines` and `body-1` levels.
-    $custom-typography: mat-typography-config(
-      $font-family: 'Roboto, monospace',
-      $headline: mat-typography-level(32px, 48px, 700),
-      $body-1: mat-typography-level(16px, 24px, 500)
-    );
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+```
 
 Once we have created our config we can use it in one of four ways:
 
 1.  Override Typography CSS classes(e.g. `mat-h1, mat-display-1, etc.`)
-
-        @include mat-base-typography($custom-typography);
+```scss
+@include mat-base-typography($custom-typography);
+```
 
 2.  Override typography for a specific Angular Material component.
-
-        @include mat-checkbox-typography($custom-typography);
+```scss
+@include mat-checkbox-typography($custom-typography);
+```
 
 3.  Override typography for all Angular Material
-
-        @include angular-material-typography($custom-typography);
+```scss
+@include angular-material-typography($custom-typography);
+```
 
 4.  Override typography in the core CSS
-
-        @include mat-core($custom-typography);
+```scss
+@include mat-core($custom-typography);
+```
 
 My personal favorite is to use `mat-core`, just because it anyways has
 to be included atleast once per project.
