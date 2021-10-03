@@ -78,7 +78,7 @@ Let’s say the technical writer is trying to write an article and it the respec
 
 ### Building Book
 
-Articles are built using the `book.json`. To build book: 
+Articles are built using the `content.json`. To build book: 
 
 ```
 npm run build:book
@@ -90,11 +90,15 @@ The JSON file contains five parts:
 2. `category:` - Category of content. Used for search/content filtering.
 3. `bookTitle:` - Title of book.
 4. `id:` - Id of book.
-5. ```files: [{}]``` - Array of files to be built as articles.
+5. ```files: [{}]``` - Array of files/chapters to be built as articles.
     1. `path:` - Path of file to be built.
-    2. `title:` - Title of the file to be built.
+    1. `title:` - Title of the file to be built.
+    1. `UID:` - Chapter unique id of chapter to be built.
+    
+    OR
+    1. `subject:` - Subject of chapters in chapters array.
+    1. `chapters: [{}]` - Array of chapters following above pattern with `path`, `title`, and `UID`
 
-Moving forward, potentially, the files array might have objects inside of objects that will signal a chapter inside of a chapter.
 
 *** Note: Title will be automatically added to book chapter on build process, if no `title:` is present ***
 

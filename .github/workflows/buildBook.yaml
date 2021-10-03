@@ -34,14 +34,14 @@ jobs:
           echo "GITHUB_REF: ${GITHUB_REF}"
           echo "BRANCH: ${BRANCH}"
 
-          BOOK_ID=$(cat book.json | jq -r '.id')
+          BOOK_ID=$(cat content.json | jq -r '.id')
 
           # Copying to both -dev and -prod buckets as we only have one branch in this repo
 
           echo "Copying content to razroo-data-dev bucket"
           aws s3 sync build/book s3://razroo-data-dev/books/$BOOK_ID/content --delete
-          aws s3 cp book.json s3://razroo-data-dev/books/$BOOK_ID/
+          aws s3 cp content.json s3://razroo-data-dev/books/$BOOK_ID/
           
           echo "Copying content to razroo-data-prod bucket"
           aws s3 sync build/book s3://razroo-data-prod/books/$BOOK_ID/content --delete
-          aws s3 cp book.json s3://razroo-data-prod/books/$BOOK_ID/
+          aws s3 cp content.json s3://razroo-data-prod/books/$BOOK_ID/
