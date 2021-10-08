@@ -238,7 +238,9 @@
         {
           "path": "rxjs/transformation/transformation.md",
           "title": "Transformation",
-          "UID": "2fc3aeb5"
+          "UID": "c4b865c6",
+          "articleId": "31",
+          "article": true
         },
         {
           "path": "rxjs/utility/utility.md",
