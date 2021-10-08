@@ -13,6 +13,7 @@
     "build:articles": "ts-node build-articles.ts",
     "summarize:articles": "ts-node summarize-articles.ts",
     "translate:articles": "ts-node translate-articles.ts",
+    "modify:contentJSON": "ts-node modify-content-json.ts",
     "build:translated:articles": "ts-node build-translated-articles.ts",
     "publish:articles": "ts-node strapi-scripts/publish-articles.ts",
     "start": "node build.js",
