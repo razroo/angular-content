@@ -7,17 +7,20 @@
     {
       "path": "introduction/introduction.md",
       "title": "Introduction",
-      "UID": "4af23f8f"
+      "UID": "4a848598",
+      "article": true
     },
     {
       "path": "dev-tools/dependency-graph/dependency-graph.md",
       "title": "Dependency Graph",
-      "UID": "b9887a2c"
+      "UID": "92102c73",
+      "article": true
     },
     {
       "path": "dev-tools/angular-cli/angular-cli.md",
       "title": "Angular CLI",
-      "UID": "41382e2e"
+      "UID": "928033a9",
+      "article": true
     },
     {
       "path": "dev-tools/nrwl/nrwl.md",
