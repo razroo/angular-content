@@ -8,19 +8,22 @@
       "path": "introduction/introduction.md",
       "title": "Introduction",
       "UID": "4a848598",
-      "article": true
+      "article": true,
+      "articleId": "33"
     },
     {
       "path": "dev-tools/dependency-graph/dependency-graph.md",
       "title": "Dependency Graph",
       "UID": "92102c73",
-      "article": true
+      "article": true,
+      "articleId": "124"
     },
     {
       "path": "dev-tools/angular-cli/angular-cli.md",
       "title": "Angular CLI",
       "UID": "928033a9",
-      "article": true
+      "article": true,
+      "articleId": "122"
     },
     {
       "path": "dev-tools/nrwl/nrwl.md",
@@ -243,7 +246,9 @@
         {
           "path": "rxjs/rxjs-and-facades/rxjs-and-facades.md",
           "title": "Rxjs and Facades",
-          "UID": "fae52a60"
+          "UID": "63f68674",
+          "articleId": "3",
+          "article": true
         }
       ]
     },
@@ -580,7 +585,9 @@
     {
       "path": "pwa/scully/scully.md",
       "title": "Scully - Static Site Generation for Angular",
-      "UID": "fbb2d55f"
+      "UID": "3400df36",
+      "articleId": "11",
+      "article": true
     },
     {
       "path": "state/when-to-use-ngrx/when-to-use-ngrx.md",
@@ -850,7 +857,9 @@
     {
       "path": "miscellaneous/versioning/versioning.md",
       "title": "Git Versioning",
-      "UID": "bedf1006"
+      "UID": "944c5bd0",
+      "articleId": "2",
+      "article": true
     },
     {
       "path": "miscellaneous/ng-container-hack/ng-container-hack.md",
