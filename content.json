@@ -33,7 +33,9 @@
     {
       "path": "dev-tools/compodoc/compodoc.md",
       "title": "Compodoc",
-      "UID": "43edd1fc"
+      "UID": "45edc128",
+      "articleId": "27",
+      "article": true
     },
     {
       "path": "dev-tools/angular-cli-post-nx/angular-cli-post-nx.md",
@@ -172,7 +174,9 @@
     {
       "path": "design-language-system/material-overrides/material-overrides.md",
       "title": "Material Overrides",
-      "UID": "6530a58f"
+      "UID": "348f2cc1",
+      "article": true,
+      "articleId": "15"
     },
     {
       "path": "design-language-system/typography/typography.md",
@@ -212,7 +216,9 @@
         {
           "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
           "title": "Cold Vs. Hot",
-          "UID": "4b460bf2"
+          "UID": "3c395c67",
+          "articleId": "29",
+          "article": true
         },
         {
           "path": "rxjs/creation/creation.md",
@@ -316,12 +322,16 @@
     {
       "path": "architecture/lazy-loading/lazy-loading-images/lazy-loading-images.md",
       "title": "Lazy Loading Images",
-      "UID": "3cc3ec1d"
+      "UID": "0ddf7d0e",
+      "articleId": "17",
+      "article": true
     },
     {
       "path": "architecture/lazy-loading/network-aware-preloading/network-aware-preloading.md",
       "title": "Network Aware Predictive Pre-Loading",
-      "UID": "ad108b80"
+      "UID": "bac655ee",
+      "article": true,
+      "articleId": "13"
     },
     {
       "path": "architecture/modules/shared-modules/shared-modules.md",
@@ -336,7 +346,9 @@
     {
       "path": "architecture/angular-elements/angular-elements.md",
       "title": "Angular Elements Load Time",
-      "UID": "3e0e14c2"
+      "UID": "51b14641",
+      "articleId": "23",
+      "article": true
     },
     {
       "path": "architecture/angular-react/angular-react.md",
@@ -633,7 +645,9 @@
     {
       "path": "state/ngrx-router-store/ngrx-router-store.md",
       "title": "@ngrx/router-store",
-      "UID": "c8f7539e"
+      "UID": "9febbb54",
+      "articleId": "22",
+      "article": true
     },
     {
       "path": "state/store-selectors/store-selectors.md",
@@ -748,7 +762,9 @@
     {
       "path": "unit-testing/cypress/cypress.md",
       "title": "Visual Unit Tests with Cypress",
-      "UID": "66d5ec70"
+      "UID": "e7cd54f9",
+      "articleId": "21",
+      "article": true
     },
     {
       "path": "unit-testing/cypress/cypress-local/cypress-local.md",
@@ -870,7 +886,9 @@
     {
       "path": "miscellaneous/ng-container-hack/ng-container-hack.md",
       "title": "NG Container Hack for Structural Directives",
-      "UID": "3034e554"
+      "UID": "8967d2d2",
+      "articleId": "30",
+      "article": true
     },
     {
       "path": "miscellaneous/npm/npm-vs-yarn/npm-vs-yarn.md",
@@ -945,7 +963,9 @@
     {
       "path": "miscellaneous/constants/enums-vs-constants.md",
       "title": "Enums vs Constants",
-      "UID": "358a1dba"
+      "UID": "0ea8417c",
+      "articleId": "16",
+      "article": true
     },
     {
       "path": "miscellaneous/authorization/authorization.md",
