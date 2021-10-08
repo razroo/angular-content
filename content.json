@@ -73,7 +73,9 @@
     {
       "path": "dev-tools/linting/accessibility/accessibility.md",
       "title": "Accessibility",
-      "UID": "49864392"
+      "UID": "9fdf12ab",
+      "article": true,
+      "articleId": "6"
     },
     {
       "path": "dev-tools/lighthouse/lighthouse.md",
@@ -148,7 +150,9 @@
     {
       "path": "typescript/declaration-files/declaration-files.md",
       "title": "Declaration Files",
-      "UID": "d648be62"
+      "UID": "70d66575",
+      "article": true,
+      "articleId": "12"
     },
     {
       "path": "typescript/declaration-files/custom-declaration-files/custom-declaration-files.md",
@@ -201,7 +205,9 @@
         {
           "path": "rxjs/debugging-rxjs/debugging-rxjs.md",
           "title": "Debugging Rxjs",
-          "UID": "9bcbe4cb"
+          "UID": "c4200398",
+          "article": true,
+          "articleId": "5"
         },
         {
           "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
