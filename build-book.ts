@@ -1,3 +1,4 @@
+import { buildArticles } from "./strapi-scripts/build-articles";
 import {addBookIdIfNoneExists, addChapterTitleIfNonePresent} from "./strapi-scripts/content-helpers";
 // TOOD modify folder name from strapi-scripts to content-scripts
 import {addUidIfNonePreset} from "./strapi-scripts/content-helpers";
@@ -27,6 +28,8 @@ for (const [x, file] of Object.entries(files) as any){
         razrooMarkdownEngine(subChapter.path, builtFilePath).then((output)=>{
           console.log(output);
         })
+        
+        buildArticles(subChapter)
       }
     }
     else {
@@ -37,6 +40,7 @@ for (const [x, file] of Object.entries(files) as any){
       razrooMarkdownEngine(file.path, builtFilePath).then((output)=>{
         console.log(output);
       })
+      buildArticles(file)
     }
     
 }
