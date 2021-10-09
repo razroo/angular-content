@@ -1,3 +1,4 @@
+import slugify from 'slugify';
 const Epub = require("epub-gen");
 const fs = require('fs');
 import {parse} from "node-html-parser";
@@ -33,7 +34,7 @@ export function createOptions(contentJson, files) {
     publisher: contentJson.publisher, // optional
     cover: "assets/angular-the-full-gamut-state-management-cover.jpg", // Url or File path, both ok.
     content: content,
-    output: `./build/epub/${contentJson.subject}.epub`
+    output: `./build/epub/${slugify(contentJson.subject)}.epub`
   };
 
   return options;
