@@ -86,5 +86,3 @@ Google, \"redux Devtools\" It is offered by remotedev.io.
 
 With the chooseSize ngrx nx command, we just made, you should see
 something like this:
-
-![image](state/ngrx-store/redux-store){width="13cm" height="9cm"}

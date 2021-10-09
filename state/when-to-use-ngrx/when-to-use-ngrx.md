@@ -17,9 +17,6 @@ Redux solved the same problem Flux did.
 
 However it simplified the process.
 
-![image](./state/when-to-use-ngrx/flux_v_redux){width="9.1cm"
-height="6cm"}
-
 It also more importantly standardized the Flux architecture as a
 library.
 
