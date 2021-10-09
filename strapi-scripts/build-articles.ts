@@ -1,7 +1,7 @@
 const razrooMarkdownEngine = require('@razroo/razroo-markdown-engine').resolveMarkdownFile;
 const mkdirp = require('mkdirp')
 
-export function buildArticles(chapter): void {
+export function buildArticlesHTML(chapter): void {
     if(chapter.article) {
         let builtFilePath = `./build/articles/${chapter.path.split("/").pop()}`;
         builtFilePath = builtFilePath.replace("md", "html");
