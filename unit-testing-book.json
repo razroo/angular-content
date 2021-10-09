@@ -1,7 +1,9 @@
 {
     "category": "angular",
-    "author": "Charlie Greenman",
-    "bookTitle": "Angular: The Full Gamut - Unit Testing",
+    "author": "Razroo Angular Content Team",
+    "publisher": "Razroo",
+    "subject": "Unit Testing",
+    "bookTitle": "Angular: The Full Gamut",
     "files": [
         {
         "path": "unit-testing/benefits-of-unit-testing/benefits-of-unit-testing.md",

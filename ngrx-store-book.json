@@ -1,9 +1,10 @@
 {
     "category": "angular",
-    "author": "Razroo Angular",
+    "author": "Razroo Angular Content Team",
     "publisher": "Razroo",
     "subject": "State Management",
-    "bookTitle": "Angular: The Full Gamut - ngrx/store",
+    "bookTitle": "Angular: The Full Gamut - ngrx/store",    
+    "coverImage": "assets/angular-the-full-gamut-state-management-cover.jpg",
     "files": [
     {
         "path": "state/when-to-use-ngrx/when-to-use-ngrx.md",

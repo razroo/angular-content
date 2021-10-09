@@ -32,7 +32,7 @@ export function createOptions(contentJson, files) {
     title: `Angular: The Full Gamut - ${contentJson.subject}`, // *Required, title of the book.
     author: contentJson.author, // *Required, name of the author.
     publisher: contentJson.publisher, // optional
-    cover: "assets/angular-the-full-gamut-state-management-cover.jpg", // Url or File path, both ok.
+    cover: contentJson.coverImage, // Url or File path, both ok.
     content: content,
     output: `./build/epub/${slugify(contentJson.subject)}.epub`
   };
@@ -46,8 +46,6 @@ export function buildEpubBook(contentJson, files) {
     options = createOptions(contentJson, files);
   }
   finally {
-    console.log('options');
-    console.log(options);
     new Epub(options).promise.then(
 
       () => console.log(`${options.title} Ebook Generated Successfully!`),
