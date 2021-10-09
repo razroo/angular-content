@@ -228,82 +228,98 @@
       "articleId": "58"
     },
     {
-      "subject": "rxjs",
-      "chapters": [
-        {
-          "path": "rxjs/introduction/introduction.md",
-          "title": "Rxjs Introduction",
-          "UID": "87e4cd06"
-        },
-        {
-          "path": "rxjs/debugging-rxjs/debugging-rxjs.md",
-          "title": "Debugging Rxjs",
-          "UID": "c4200398",
-          "article": true,
-          "articleId": "5"
-        },
-        {
-          "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
-          "title": "Cold Vs. Hot",
-          "UID": "3c395c67",
-          "articleId": "29",
-          "article": true
-        },
-        {
-          "path": "rxjs/creation/creation.md",
-          "title": "Rxjs Creation",
-          "UID": "c1a915f7",
-          "article": true,
-          "articleId": "144"
-        },
-        {
-          "path": "rxjs/combination/combination.md",
-          "title": "Combination",
-          "UID": "75855058",
-          "article": true,
-          "articleId": "143"
-        },
-        {
-          "path": "rxjs/filtering/filtering.md",
-          "title": "Filtering",
-          "UID": "c13d067d",
-          "article": true,
-          "articleId": "145"
-        },
-        {
-          "path": "rxjs/transformation/transformation.md",
-          "title": "Transformation",
-          "UID": "c4b865c6",
-          "articleId": "31",
-          "article": true
-        },
-        {
-          "path": "rxjs/utility/utility.md",
-          "title": "Utility",
-          "UID": "fd646039",
-          "article": true,
-          "articleId": "147"
-        },
-        {
-          "path": "rxjs/multicasting/multicasting.md",
-          "title": "Multicasting",
-          "UID": "a9da0f46"
-        },
-        {
-          "path": "rxjs/rxjs-pitfalls/rxjs-pitfalls.md",
-          "title": "Rxjs Pitfalls",
-          "UID": "69abcb69",
-          "article": true,
-          "articleId": "146"
-        },
-        {
-          "path": "rxjs/rxjs-and-facades/rxjs-and-facades.md",
-          "title": "Rxjs and Facades",
-          "UID": "63f68674",
-          "articleId": "3",
-          "article": true
-        }
-      ]
+      "path": "rxjs/introduction/introduction.md",
+      "title": "Rxjs Introduction",
+      "UID": "87e4cd06",
+      "subjects": ["rxjs"]
+    },
+    {
+      "path": "rxjs/debugging-rxjs/debugging-rxjs.md",
+      "title": "Debugging Rxjs",
+      "UID": "c4200398",
+      "parent": "87e4cd06",
+      "subjects": ["rxjs"],
+      "article": true,
+      "articleId": "5"
+    },
+    {
+      "path": "rxjs/cold-vs-hot/cold-vs-hot.md",
+      "title": "Cold Vs. Hot",
+      "UID": "3c395c67",
+      "parent": "87e4cd06",
+      "subjects": ["rxjs"],
+      "articleId": "29",
+      "article": true
+    },
+    {
+      "path": "rxjs/creation/creation.md",
+      "title": "Rxjs Creation",
+      "UID": "c1a915f7",
+      "parent": "87e4cd06",
+      "subjects": ["rxjs"],
+      "article": true,
+      "articleId": "144"
+    },
+    {
+      "path": "rxjs/combination/combination.md",
+      "title": "Combination",
+      "UID": "75855058",
+      "parent": "87e4cd06",
+      "subjects": ["rxjs"],
+      "article": true,
+      "articleId": "143"
+    },
+    {
+      "path": "rxjs/filtering/filtering.md",
+      "title": "Filtering",
+      "UID": "c13d067d",
+      "parent": "87e4cd06",
+      "subjects": ["rxjs"],
+      "article": true,
+      "articleId": "145"
+    },
+    {
+      "path": "rxjs/transformation/transformation.md",
+      "title": "Transformation",
+      "UID": "c4b865c6",
+      "parent": "87e4cd06",
+      "subjects": ["rxjs"],
+      "articleId": "31",
+      "article": true
+    },
+    {
+      "path": "rxjs/utility/utility.md",
+      "title": "Utility",
+      "UID": "fd646039",
+      "parent": "87e4cd06",
+      "subjects": ["rxjs"],
+      "article": true,
+      "articleId": "147"
+    },
+    {
+      "path": "rxjs/multicasting/multicasting.md",
+      "title": "Multicasting",
+      "UID": "a9da0f46",
+      "parent": "87e4cd06",
+      "subjects": ["rxjs"]
+    },
+    {
+      "path": "rxjs/rxjs-pitfalls/rxjs-pitfalls.md",
+      "title": "Rxjs Pitfalls",
+      "UID": "69abcb69",
+      "parent": "87e4cd06",
+      "subjects": ["rxjs"],
+      "article": true,
+      "articleId": "146"
+    },
+    {
+      "path": "rxjs/rxjs-and-facades/rxjs-and-facades.md",
+      "title": "Rxjs and Facades",
+      "UID": "63f68674",
+      "articleId": "3",
+      "parent": "87e4cd06",
+      "subjects": ["rxjs"],
+      "article": true
     },
     {
       "path": "architecture/configs/creating-a-config/creating-a-config.md",
