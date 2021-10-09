@@ -1,6 +1,8 @@
 {
     "category": "angular",
     "author": "Razroo Angular",
+    "publisher": "Razroo",
+    "subject": "ngrx/store",
     "bookTitle": "Angular: The Full Gamut - ngrx/store",
     "files": [
     {
