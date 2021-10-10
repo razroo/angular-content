@@ -10,14 +10,16 @@
       "title": "Introduction",
       "UID": "4a848598",
       "article": true,
-      "articleId": "33"
+      "articleId": "33",
+      "tags": ["easy"]
     },
     {
       "path": "dev-tools/dependency-graph/dependency-graph.md",
       "title": "Dependency Graph",
       "UID": "92102c73",
       "article": true,
-      "articleId": "124"
+      "articleId": "124",
+      "tags": ["difficult", "angular"]
     },
     {
       "path": "dev-tools/angular-cli/angular-cli.md",
