@@ -12,4 +12,13 @@ Angular Material offers out of the box the `mat-table` component. The `mat-table
 
 A link to these features will be supplied at the end of the chapter.
 
-## 
+## Three core elements 
+There are three core elements to the `mat-table`; 
+
+### dataSource
+The dataSource in it's simplest form, is an array of data that you will 
+pass to the `mat-table`. The `mat-table` will treat that data like a 
+for loop, and render a row for each object in the array. 
+
+![](https://github.com/razroo/employee-dashboard-angular/blob/main/libs/ui/common/src/lib/data-table/data-table.component.html#L12-#L17)
+

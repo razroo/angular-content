@@ -4,7 +4,7 @@
   "description": "Single Source of Truth for all Razroo Angular Content",
   "main": "index.js",
   "scripts": {
-    "build": "cd admin && index.html",
+    "build": "ts-node build-content.ts",
     "run:razroo-markdown-engine": "ts-node build-book.ts; ts-node build-articles.ts;",
     "build:book": "ts-node build-book.ts",
     "build:epub:unittesting": "ts-node build-unit-testing-epub.ts",
