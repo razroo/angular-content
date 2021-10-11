@@ -20,5 +20,5 @@ The dataSource in it's simplest form, is an array of data that you will
 pass to the `mat-table`. The `mat-table` will treat that data like a 
 for loop, and render a row for each object in the array. 
 
-![](https://github.com/razroo/employee-dashboard-angular/blob/main/libs/ui/common/src/lib/data-table/data-table.component.html#L12-#L17)
+![](https://github.com/razroo/employee-dashboard-angular/blob/main/libs/ui/common/src/lib/data-table/data-table.component.html#L12-L17)
 
