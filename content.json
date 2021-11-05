@@ -348,7 +348,16 @@
       "title": "Angular Material Data Table",
       "UID": "bdf45c48",
       "article": true,
-      "tags": ["angular-material", "data-table"]
+      "tags": [
+        "angular-material",
+        "data-table"
+      ]
+    },
+    {
+      "path": "miscellaneous/rxjs/property-sources-are-incompatible.md",
+      "UID": "2d5daf55",
+      "id": "67",
+      "article": true
     },
     {
       "path": "architecture/configs/creating-a-config/creating-a-config.md",
