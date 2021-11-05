@@ -346,7 +346,9 @@
     {
       "path": "angular-material/data-table/data-table.md",
       "title": "Angular Material Data Table",
-      "UID": "bdf45c48"
+      "UID": "bdf45c48",
+      "article": true,
+      "tags": ["angular-material", "data-table"]
     },
     {
       "path": "architecture/configs/creating-a-config/creating-a-config.md",

@@ -24,4 +24,29 @@ for loop, and render a row for each object in the array.
 ![](https://github.com/razroo/employee-dashboard-angular/blob/main/libs/ui/common/src/lib/data-table/data-table.component.html#L12-L17)
 
 ### Column Templates
+Each column consists of three parts: 
 
+1. Unique name 
+2. Content for header cell
+3. Content for row cell
+
+```html
+<ng-container matColumnDef="ticket">
+  <th mat-header-cell *matHeaderCellDef> Name </th>
+  <td mat-cell *matCellDef="let ticket"> {{ticket.employeeName}} </td>
+</ng-container>
+```
+
+### Row Templates
+Add the following html inside of your `mat-table` div. Where place inside of `mat-table` div is not important. 
+
+```html
+<tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+<tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+```
+
+```ts
+columnsToDisplay = ['employeeName', 'projectName', 'shortDescription'];
+```
+
+If a column is specified inside of the html, but not passed along to the `columnsToDisplay` array then it will fail. 
