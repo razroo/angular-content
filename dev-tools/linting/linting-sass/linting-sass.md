@@ -20,13 +20,13 @@ of folder called .sass-lint.yml. It's quite long, and you can see the
 rest of the file in the actual github repo. However, you will still need
 to create a sass-lint.yml file.
 
-```
+```bash
   touch sass-lint.yml
 ```
 
 Inside of the sass-lint.yml file, it will look something like this:
 
-```
+```yml
 options:
   formatter: stylish
 files:
@@ -70,7 +70,7 @@ process and linting takes away the manual parts of it.
 
 ## Adding an NPM Script in your package.json
 
-```
+```yml
   "lint-scss": "sass-lint -v -q",
 ```
 

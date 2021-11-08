@@ -481,6 +481,11 @@
       "path": "unit-testing/unit-testing-performance/unit-testing-performance.md",
       "UID": "d76e5b2c",
       "id": "176"
+    },
+    {
+      "path": "angular-material/data-table/data-table.md",
+      "UID": "bdf45c48",
+      "id": "180"
     }
   ]
 }

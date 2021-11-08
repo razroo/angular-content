@@ -356,7 +356,13 @@
     {
       "path": "miscellaneous/rxjs/property-sources-are-incompatible.md",
       "UID": "2d5daf55",
-      "id": "67",
+      "articleId": "67",
+      "article": true
+    },
+    {
+      "path": "unit-testing/benefits-of-jest-over-karma/benefits-of-jest-over-karma.md",
+      "UID": "4dd9706b",
+      "articleId": "160",
       "article": true
     },
     {
