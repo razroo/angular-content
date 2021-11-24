@@ -1,6 +1,6 @@
 import {addBookIdIfNoneExists, addChapterTitleIfNonePresent} from "./strapi-scripts/content-helpers";
 // TOOD modify folder name from strapi-scripts to content-scripts
-import {addUidIfNonePreset} from "./strapi-scripts/content-helpers";
+import {addUidAndBookIdIfNonePreset} from "./strapi-scripts/content-helpers";
 
 const razrooMarkdownEngine = require('@razroo/razroo-markdown-engine').resolveMarkdownFile;
 const mkdirp = require('mkdirp')
@@ -14,7 +14,7 @@ let chapters = contentJson.chapters;
 let articleFiles = articlesJson 
 
 // addBookIdIfNoneExists(contentJson, contentJsonName);
-addUidIfNonePreset(chapters, contentJson, contentJsonName);
+addUidAndBookIdIfNonePreset(chapters, contentJson, contentJsonName);
 // addChapterTitleIfNonePresent(chapters, bookJson, bookJsonName);
 
 try {
