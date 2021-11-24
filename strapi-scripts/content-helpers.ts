@@ -17,7 +17,7 @@ export function getHtmlArticleFileContent(filePath) {
   return root.toString();
 }
 
-export function addUidIfNonePreset(chapters: any, articlesJson, articlesJsonName) {
+export function addUidAndBookIdIfNonePreset(chapters: any, articlesJson, articlesJsonName) {
   try {
     for(const [index, file] of Object.entries(chapters) as any){
       if(file.subject) {
@@ -26,13 +26,18 @@ export function addUidIfNonePreset(chapters: any, articlesJson, articlesJsonName
             chapters[index]["chapters"][subIndex]["id"] = uuidv4().replace("-","").substring(0,8);
             console.log('files[index]["chapters"]');
             console.log(chapters[index]["chapters"]);
-            
+          }
+          if(!subChapter.bookId) {
+            chapters[index]["chapters"][subIndex]["bookId"] = articlesJson.id;
           }
         }
       }
       else {
         if(!file.id) {
           chapters[index]["id"] = uuidv4().replace("-","").substring(0,8);
+        }
+        if(!file.bookId) {
+          chapters[index]["bookId"] = articlesJson.id;
         }
       }
       

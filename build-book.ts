@@ -2,7 +2,7 @@ import { buildArticlesHTML } from "./strapi-scripts/build-articles";
 import { buildBookHTML } from "./strapi-scripts/build-book";
 import {addBookIdIfNoneExists, addChapterTitleIfNonePresent} from "./strapi-scripts/content-helpers";
 // TOOD modify folder name from strapi-scripts to content-scripts
-import {addUidIfNonePreset} from "./strapi-scripts/content-helpers";
+import {addUidAndBookIdIfNonePreset} from "./strapi-scripts/content-helpers";
 
 const contentJsonName = './content.json';
 const contentJson = require(contentJsonName);
@@ -10,7 +10,7 @@ const contentJson = require(contentJsonName);
 let chapters = contentJson.chapters;
 
 addBookIdIfNoneExists(contentJson, contentJsonName);
-addUidIfNonePreset(chapters, contentJson, contentJsonName);
+addUidAndBookIdIfNonePreset(chapters, contentJson, contentJsonName);
 // addChapterTitleIfNonePresent(chapters, bookJson, bookJsonName);
 
 for (const [x, file] of Object.entries(chapters) as any){
