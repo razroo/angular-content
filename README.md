@@ -93,11 +93,11 @@ The JSON file contains five parts:
 5. ```chapters: [{}]``` - Array of chapters to be built as articles.
     1. `path:` - Path of file to be built.
     1. `title:` - Title of the file to be built.
-    1. `UID:` - Chapter unique id of chapter to be built.
+    1. `id:` - Chapter unique id of chapter to be built.
     
     OR
     1. `subject:` - Subject of chapters in chapters array.
-    1. `chapters: [{}]` - Array of chapters following above pattern with `path`, `title`, and `UID`
+    1. `chapters: [{}]` - Array of chapters following above pattern with `path`, `title`, and `id`
 
 
 *** Note: Title will be automatically added to book chapter on build process, if no `title:` is present ***
@@ -121,7 +121,7 @@ The JSON file contains three parts:
 2. `author:` - Name of author to be displayed in blog. 
 3. ```files: [{}]``` - Array of files to be built as articles.
     1. `path:` - Path of file to be built.
-    2. `UID:` - Unique identifier and consists of 8 charachters. Created when article is built. Used to make sure that if another article, or route path, is created with the same name is an alternate category, it does not cause build errors. UID is only passed to api on creation. It is passed through on update of article. This UID could technically be built into api on backend side of things. 
+    2. `id:` - Unique identifier and consists of 8 charachters. Created when article is built. Used to make sure that if another article, or route path, is created with the same name is an alternate category, it does not cause build errors. id is only passed to api on creation. It is passed through on update of article. This id could technically be built into api on backend side of things. 
     3. `id:` - Id created via the backend. When using the `npm run publish:articles` api.
 
 ### Publish Articles 
