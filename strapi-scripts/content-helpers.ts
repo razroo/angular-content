@@ -17,22 +17,22 @@ export function getHtmlArticleFileContent(filePath) {
   return root.toString();
 }
 
-export function addUidIfNonePreset(files: any, articlesJson, articlesJsonName) {
+export function addUidIfNonePreset(chapters: any, articlesJson, articlesJsonName) {
   try {
-    for(const [index, file] of Object.entries(files) as any){
+    for(const [index, file] of Object.entries(chapters) as any){
       if(file.subject) {
         for(const [subIndex, subChapter] of Object.entries(file.chapters) as any){
-          if(!subChapter.UID) {
-            files[index]["chapters"][subIndex]["UID"] = uuidv4().replace("-","").substring(0,8);
+          if(!subChapter.id) {
+            chapters[index]["chapters"][subIndex]["id"] = uuidv4().replace("-","").substring(0,8);
             console.log('files[index]["chapters"]');
-            console.log(files[index]["chapters"]);
+            console.log(chapters[index]["chapters"]);
             
           }
         }
       }
       else {
-        if(!file.UID) {
-          files[index]["UID"] = uuidv4().replace("-","").substring(0,8);
+        if(!file.id) {
+          chapters[index]["id"] = uuidv4().replace("-","").substring(0,8);
         }
       }
       
@@ -75,11 +75,11 @@ export function addBookIdIfNoneExists(articlesJson, articlesJsonName) {
 }
 
 export function addIdToArticlesJson(files, articlesJson, articlesJsonName, article) {
-  const UIDArr =  article.UID.split('-');
-  const UID = UIDArr[UIDArr.length - 1];
+  const idArr =  article.id.split('-');
+  const id = idArr[idArr.length - 1];
 
   articlesJson.files = articlesJson.files.map(file => {
-    if(file.UID === UID) {
+    if(file.id === id) {
       file.id = article.id
     }
     return file;
