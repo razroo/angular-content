@@ -10,19 +10,19 @@ const articlesJsonName = './articles.json';
 const articlesJson = require(articlesJsonName);
 const fs = require('fs');
 
-let files = contentJson.files;
+let chapters = contentJson.chapters;
 let articleFiles = articlesJson 
 
 // addBookIdIfNoneExists(contentJson, contentJsonName);
-addUidIfNonePreset(files, contentJson, contentJsonName);
-// addChapterTitleIfNonePresent(files, bookJson, bookJsonName);
+addUidIfNonePreset(chapters, contentJson, contentJsonName);
+// addChapterTitleIfNonePresent(chapters, bookJson, bookJsonName);
 
 try {
-    for (const articleFile of articleFiles.files as any){
-        for (const [x, file] of Object.entries(files) as any){
+    for (const articleFile of articleFiles.chapters as any){
+        for (const [x, file] of Object.entries(chapters) as any){
             let builtFilePath;
-            if(files[x].subject) {
-              for(const [index, subChapter] of Object.entries(files[x].chapters) as any){
+            if(chapters[x].subject) {
+              for(const [index, subChapter] of Object.entries(chapters[x].chapters) as any){
                 if(articleFile.path === subChapter.path)  {
                     subChapter.UID = articleFile.UID;
                     subChapter.article = true;
@@ -32,10 +32,10 @@ try {
               }
             }
             else {
-                if(articleFile.path === files[x].path)  {
-                    files[x].UID = articleFile.UID;
-                    files[x].article = true;
-                    files[x].articleId = articleFile.id;
+                if(articleFile.path === chapters[x].path)  {
+                    chapters[x].UID = articleFile.UID;
+                    chapters[x].article = true;
+                    chapters[x].articleId = articleFile.id;
                     console.log(articleFile.path)
                 }
             }

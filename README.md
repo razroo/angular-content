@@ -90,7 +90,7 @@ The JSON file contains five parts:
 2. `category:` - Category of content. Used for search/content filtering.
 3. `bookTitle:` - Title of book.
 4. `id:` - Id of book.
-5. ```files: [{}]``` - Array of files/chapters to be built as articles.
+5. ```chapters: [{}]``` - Array of chapters to be built as articles.
     1. `path:` - Path of file to be built.
     1. `title:` - Title of the file to be built.
     1. `UID:` - Chapter unique id of chapter to be built.
