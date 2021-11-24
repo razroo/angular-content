@@ -7,16 +7,16 @@ import {addUidIfNonePreset} from "./strapi-scripts/content-helpers";
 const contentJsonName = './content.json';
 const contentJson = require(contentJsonName);
 
-let files = contentJson.files;
+let chapters = contentJson.chapters;
 
 addBookIdIfNoneExists(contentJson, contentJsonName);
-addUidIfNonePreset(files, contentJson, contentJsonName);
-// addChapterTitleIfNonePresent(files, bookJson, bookJsonName);
+addUidIfNonePreset(chapters, contentJson, contentJsonName);
+// addChapterTitleIfNonePresent(chapters, bookJson, bookJsonName);
 
-for (const [x, file] of Object.entries(files) as any){
-    if(files[x].subject) {
+for (const [x, file] of Object.entries(chapters) as any){
+    if(chapters[x].subject) {
       console.log('file contains subject')
-      for(const [index, subChapter] of Object.entries(files[x].chapters) as any){
+      for(const [index, subChapter] of Object.entries(chapters[x].chapters) as any){
         buildBookHTML(subChapter);
         buildArticlesHTML(subChapter);
       }
