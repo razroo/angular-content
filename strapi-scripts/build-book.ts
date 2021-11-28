@@ -2,7 +2,7 @@ const razrooMarkdownEngine = require('@razroo/razroo-markdown-engine').resolveMa
 const mkdirp = require('mkdirp')
 
 export function buildBookHTML(chapter) {
-  let builtFilePath = `./build/book/${chapter.id}_${chapter.path.split("/").pop()}`;
+  let builtFilePath = `./build/book/${chapter.id}-${chapter.path.split("/").pop()}`;
   builtFilePath = builtFilePath.replace("md", "html");
 
   mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))

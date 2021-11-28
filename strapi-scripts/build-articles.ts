@@ -3,7 +3,7 @@ const mkdirp = require('mkdirp')
 
 export function buildArticlesHTML(chapter): void {
     if(chapter.article) {
-        let builtFilePath = `./build/articles/${chapter.id}_${chapter.path.split("/").pop()}`;
+        let builtFilePath = `./build/articles/${chapter.id}-${chapter.path.split("/").pop()}`;
         builtFilePath = builtFilePath.replace("md", "html");
 
         mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
