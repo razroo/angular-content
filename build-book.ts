@@ -13,7 +13,7 @@ addBookIdIfNoneExists(contentJson, contentJsonName);
 addUidAndBookIdIfNonePreset(chapters, contentJson, contentJsonName);
 // addChapterTitleIfNonePresent(chapters, bookJson, bookJsonName);
 
-for (const [x, file] of Object.entries(chapters) as any) {
-  buildBookHTML(file);
-  buildArticlesHTML(file)
+for (const chapter of Object.entries(chapters) as any) {
+  buildBookHTML(chapter);
+  buildArticlesHTML(chapter)
 }
