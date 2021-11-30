@@ -19,28 +19,18 @@ export function getHtmlArticleFileContent(filePath) {
 
 export function addUidAndBookIdIfNonePreset(chapters: any, articlesJson, articlesJsonName) {
   try {
-    for(const [index, file] of Object.entries(chapters) as any){
-      if(file.subject) {
-        for(const [subIndex, subChapter] of Object.entries(file.chapters) as any){
-          if(!subChapter.id) {
-            chapters[index]["chapters"][subIndex]["id"] = uuidv4().replace("-","").substring(0,8);
-            console.log('files[index]["chapters"]');
-            console.log(chapters[index]["chapters"]);
-          }
-          if(!subChapter.bookId) {
-            chapters[index]["chapters"][subIndex]["bookId"] = articlesJson.id;
-          }
-        }
+    for(const [index, chapter] of Object.entries(chapters) as any){
+      if(!chapter.id) {
+        chapters[index]["id"] = uuidv4().replace("-","").substring(0,8);
       }
-      else {
-        if(!file.id) {
-          chapters[index]["id"] = uuidv4().replace("-","").substring(0,8);
-        }
-        if(!file.bookId) {
-          chapters[index]["bookId"] = articlesJson.id;
-        }
+      if(!chapter.bookId) {
+        chapters[index]["bookId"] = articlesJson.id;
       }
-      
+      let filePathArray = chapter.path.split('/');
+      let fileName = filePathArray[filePathArray.length - 1];
+      if (fileName.substring(0,8) !== chapter.id) {
+        chapters[index]["path"] = `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${chapter.id}-${fileName}`
+      }
     }
   }
   finally {
