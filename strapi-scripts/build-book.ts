@@ -6,7 +6,7 @@ export function buildBookHTML(chapter) {
   console.log('chapter %j', chapter)
   console.log('chapter.path %j', chapter.path);
   console.log('filePathArray %j', filePathArray);
-  let builtFilePath = `./build/book/${filePathArray.pop()}`;
+  let builtFilePath = `./build/book/${chapter.path}`;
   builtFilePath = builtFilePath.replace("md", "html");
 
   mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
