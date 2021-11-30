@@ -33,6 +33,10 @@ export function addUidAndBookIdIfNonePreset(chapters: any, articlesJson, article
           chapter.path = `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${chapter.id}-${fileName}`
         }
       }
+      else {
+        chapter.path = 'test/test.tt';
+        console.log('chapter %j', chapter);
+      }
     }
   }
   finally {
