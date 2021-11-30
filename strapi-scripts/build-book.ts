@@ -8,7 +8,9 @@ export function buildBookHTML(chapter) {
 
   mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
   let filePathWithoutChapterIdInName = 
-    `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${filePathArray[filePathArray.length - 1].substring(9)}`
+    `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${filePathArray[filePathArray.length - 1].substring(9)}`;
+  console.log('filePathWithoutChapterIDInName %j', filePathWithoutChapterIdInName);
+  console.log('builtFilePath %j', builtFilePath);
   razrooMarkdownEngine(`${filePathWithoutChapterIdInName}`, builtFilePath).then((output)=>{
     console.log(output);
   })

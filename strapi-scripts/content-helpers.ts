@@ -31,7 +31,6 @@ export function addUidAndBookIdIfNonePreset(chapters: any, articlesJson, article
       if (fileName.substring(0,8) != chapter.id) {
         chapter.path = `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${chapter.id}-${fileName}`
       }
-      console.log('updated chapter %j', chapter);
     }
   }
   finally {
