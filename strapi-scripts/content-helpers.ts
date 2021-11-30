@@ -19,34 +19,17 @@ export function getHtmlArticleFileContent(filePath) {
 
 export function addUidAndBookIdIfNonePreset(chapters: any, articlesJson, articlesJsonName) {
   try {
-    for(const [index, chapter] of Object.entries(chapters) as any){
+    for(const chapter of Object.entries(chapters) as any){
       if(!chapter.id) {
-        chapters[index]["id"] = uuidv4().replace("-","").substring(0,8);
+        chapter.id = uuidv4().replace("-","").substring(0,8);
       }
       if(!chapter.bookId) {
-        chapters[index]["bookId"] = articlesJson.id;
+        chapter.bookId = articlesJson.id;
       }
       let filePathArray = chapter.path.split('/');
       let fileName = filePathArray[filePathArray.length - 1];
       if (fileName.substring(0,8) !== chapter.id) {
-        chapters[index]["path"] = `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${chapter.id}-${fileName}`
-      }
-    }
-  }
-  finally {
-    fs.writeFile(articlesJsonName, JSON.stringify(articlesJson, null, 2), function writeJSON(err) {
-      if (err) return console.log(err);
-    });
-  }
-}
-
-export function updateChapterPathToHaveChapterId(chapters: any, articlesJson, articlesJsonName) {
-  try {
-    for(const [index, chapter] of Object.entries(chapters) as any){
-      let filePathArray = chapter.path.split('/');
-      let fileName = filePathArray[filePathArray.length - 1];
-      if (fileName.substring(0,8) !== chapter.id) {
-        chapters[index]["path"] = `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${chapter.id}-${fileName}`
+        chapter.path = `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${chapter.id}-${fileName}`
       }
     }
   }
