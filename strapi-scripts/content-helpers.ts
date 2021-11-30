@@ -19,7 +19,7 @@ export function getHtmlArticleFileContent(filePath) {
 
 export function addUidAndBookIdIfNonePreset(chapters: any, articlesJson, articlesJsonName) {
   try {
-    for(const chapter of Object.entries(chapters) as any){
+    for(const chapter of chapters){
       if(!chapter.id) {
         chapter.id = uuidv4().replace("-","").substring(0,8);
       }
@@ -32,6 +32,7 @@ export function addUidAndBookIdIfNonePreset(chapters: any, articlesJson, article
         if (fileName.substring(0,8) != chapter.id) {
           chapter.path = `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${chapter.id}-${fileName}`
         }
+        console.log('updated chapter %j', chapter);
       }
       else {
         chapter.path = 'test/test.tt';
