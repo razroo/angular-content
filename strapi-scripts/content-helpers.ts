@@ -26,18 +26,12 @@ export function addUidAndBookIdIfNonePreset(chapters: any, articlesJson, article
       if(!chapter.bookId) {
         chapter.bookId = articlesJson.id;
       }
-      if(chapter.path){
-        let filePathArray = chapter.path.split('/');
-        let fileName = filePathArray[filePathArray.length - 1];
-        if (fileName.substring(0,8) != chapter.id) {
-          chapter.path = `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${chapter.id}-${fileName}`
-        }
-        console.log('updated chapter %j', chapter);
+      let filePathArray = chapter.path.split('/');
+      let fileName = filePathArray[filePathArray.length - 1];
+      if (fileName.substring(0,8) != chapter.id) {
+        chapter.path = `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${chapter.id}-${fileName}`
       }
-      else {
-        chapter.path = 'test/test.tt';
-        console.log('chapter %j', chapter);
-      }
+      console.log('updated chapter %j', chapter);
     }
   }
   finally {

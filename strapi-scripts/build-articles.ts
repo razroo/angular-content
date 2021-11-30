@@ -3,11 +3,14 @@ const mkdirp = require('mkdirp')
 
 export function buildArticlesHTML(chapter): void {
     if(chapter.article) {
-        let builtFilePath = `./build/articles/${chapter.path.split("/").pop()}`;
+        let filePathArray = chapter.path.split("/");
+        let builtFilePath = `./build/articles/${filePathArray.pop()}`;
         builtFilePath = builtFilePath.replace("md", "html");
 
         mkdirp.sync(builtFilePath.substring(0, builtFilePath.lastIndexOf("/")))
-        razrooMarkdownEngine(chapter.path, builtFilePath).then((output)=>{
+        let filePathWithoutChapterIdInName = 
+          `${filePathArray.slice(0, filePathArray.length - 1).join('/')}/${filePathArray[filePathArray.length - 1].substring(9)}`
+        razrooMarkdownEngine(filePathWithoutChapterIdInName, builtFilePath).then((output)=>{
             console.log(output);
         })
     }
