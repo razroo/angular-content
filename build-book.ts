@@ -1,6 +1,6 @@
 import { buildArticlesHTML } from "./strapi-scripts/build-articles";
 import { buildBookHTML } from "./strapi-scripts/build-book";
-import {addBookIdIfNoneExists, addChapterTitleIfNonePresent} from "./strapi-scripts/content-helpers";
+import {addBookIdIfNoneExists, updateChapterPathToHaveChapterId} from "./strapi-scripts/content-helpers";
 // TOOD modify folder name from strapi-scripts to content-scripts
 import {addUidAndBookIdIfNonePreset} from "./strapi-scripts/content-helpers";
 
@@ -13,17 +13,9 @@ addBookIdIfNoneExists(contentJson, contentJsonName);
 addUidAndBookIdIfNonePreset(chapters, contentJson, contentJsonName);
 // addChapterTitleIfNonePresent(chapters, bookJson, bookJsonName);
 
-for (const [x, file] of Object.entries(chapters) as any){
-    if(chapters[x].subject) {
-      console.log('file contains subject')
-      for(const [index, subChapter] of Object.entries(chapters[x].chapters) as any){
-        buildBookHTML(subChapter);
-        buildArticlesHTML(subChapter);
-      }
-    }
-    else {
-      buildBookHTML(file);
-      buildArticlesHTML(file)
-    }
-    
+for (const file of Object.entries(chapters) as any){
+  buildBookHTML(file);
+  buildArticlesHTML(file)
 }
+
+updateChapterPathToHaveChapterId(chapters, contentJson, contentJsonName);
