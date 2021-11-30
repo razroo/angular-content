@@ -15,7 +15,6 @@ addUidAndBookIdIfNonePreset(chapters, contentJson, contentJsonName);
 
 for (const [x, file] of Object.entries(chapters) as any){
     if(chapters[x].subject) {
-      console.log('file contains subject')
       for(const [index, subChapter] of Object.entries(chapters[x].chapters) as any){
         buildBookHTML(subChapter);
         buildArticlesHTML(subChapter);
