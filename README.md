@@ -44,6 +44,8 @@ The reason for creating the Razroo Markdown engine is twofold: 1. Have a pseudo-
 
 2. Allow for a single source of content, to be built out to multiple platforms.
 
+## [Accessing Razroo's Private NPM Repos](https://razroo.atlassian.net/wiki/spaces/EN/pages/2129592321/Logging+Into+Accessing+Razroo+s+Private+NPM+Repos)
+
 # Workflow
 
 ## Netlify / Technical Writers 
@@ -94,10 +96,6 @@ The JSON file contains five parts:
     1. `path:` - Path of file to be built.
     1. `title:` - Title of the file to be built.
     1. `id:` - Chapter unique id of chapter to be built.
-    
-    OR
-    1. `subject:` - Subject of chapters in chapters array.
-    1. `chapters: [{}]` - Array of chapters following above pattern with `path`, `title`, and `id`
 
 
 *** Note: Title will be automatically added to book chapter on build process, if no `title:` is present ***
