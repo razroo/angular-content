@@ -33,7 +33,7 @@ collections. In particular:
 This architecture works well when creating data as a single source of
 truth. Let's say in your application, you have a data table on every
 page that pulls in data. Throughout every page, you have a way of
-manipulating this data. Using ngrx/entity will allow for this
+manipulating this data. Ngrx/entity will allow for this
 architecture to be fluid, and have all manipulation of data be within a
 singular area.
 
