@@ -21,7 +21,7 @@ jobs:
       - name: Build Book
         run: |
           mkdir -p build/book
-          npm run build:book
+          npm run build:content
       - name: Copy to S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
